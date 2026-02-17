@@ -1,702 +1,959 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="scroll-smooth dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Herramientas BIM | Calculadora de Perfiles</title>
-    <meta name="description" content="Herramientas de productividad para proyectistas estructurales. Calculadora de peso y área de perfiles de acero.">
-    <link rel="icon" href="../assets/favicon.ico" sizes="any">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Herramientas de productividad para proyectistas estructurales. Calculadora de peso y área de perfiles de acero."
+    />
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'bim-blue': '#3b82f6',
-                        'bim-dark': '#0b1220',
-                        'bim-card': '#111827',
-                        'bim-border': '#1f2937',
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
     </script>
     <style>
-        .glass-card {
-            background: rgba(17, 24, 39, 0.7);
-            border: 1px solid rgba(55, 65, 81, 0.5);
-            backdrop-filter: blur(12px);
+      .glass-card {
+        background: rgba(17, 24, 39, 0.7);
+        border: 1px solid rgba(55, 65, 81, 0.5);
+        backdrop-filter: blur(12px);
+      }
+      .glass-nav {
+        background: rgba(11, 18, 32, 0.85);
+        backdrop-filter: blur(16px);
+      }
+      .profile-btn {
+        transition: all 0.3s ease;
+      }
+      .profile-btn:hover,
+      .profile-btn.active {
+        border-color: #3b82f6;
+        background: rgba(59, 130, 246, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+      }
+      .profile-btn.active {
+        background: rgba(59, 130, 246, 0.15);
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      }
+      .profile-btn.active .profile-icon {
+        color: #3b82f6;
+      }
+      .result-value {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1),
+          rgba(59, 130, 246, 0.05)
+        );
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+      }
+      .result-value:hover {
+        border-color: #3b82f6;
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+      }
+      .input-field {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(55, 65, 81, 0.6);
+        transition: all 0.2s ease;
+      }
+      .input-field:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        outline: none;
+      }
+      .svg-diagram {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
+      }
+      .fade-in {
+        animation: fadeIn 0.4s ease-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        .glass-nav {
-            background: rgba(11, 18, 32, 0.85);
-            backdrop-filter: blur(16px);
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .profile-btn {
-            transition: all 0.3s ease;
-        }
-        .profile-btn:hover, .profile-btn.active {
-            border-color: #3b82f6;
-            background: rgba(59, 130, 246, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
-        }
-        .profile-btn.active {
-            background: rgba(59, 130, 246, 0.15);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-        .profile-btn.active .profile-icon {
-            color: #3b82f6;
-        }
-        .result-value {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-        }
-        .result-value:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
-        }
-        .input-field {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid rgba(55, 65, 81, 0.6);
-            transition: all 0.2s ease;
-        }
-        .input-field:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-            outline: none;
-        }
-        .svg-diagram {
-            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
-        }
-        .fade-in { animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .tool-card {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .tool-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .tool-card:hover::before, .tool-card.active::before { opacity: 1; }
-        .tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+      }
+      .tool-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .tool-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .tool-card:hover::before,
+      .tool-card.active::before {
+        opacity: 1;
+      }
+      .tool-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
     </style>
-</head>
-<body class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
-
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white"
+  >
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="../index.html" class="flex-shrink-0 flex items-center group">
-                    <i class="fa-solid fa-arrow-left text-gray-400 group-hover:text-bim-blue mr-3 transition-colors"></i>
-                    <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-                    <span class="font-bold text-xl text-gray-900 dark:text-white">Andrés Gallo P<span class="text-bim-blue">.BIM</span></span>
-                </a>
-                <div class="hidden md:flex items-center space-x-2">
-                    <span class="text-gray-500 text-sm"><i class="fa-solid fa-toolbox mr-1"></i> HERRAMIENTAS</span>
-                    <span class="text-gray-600">›</span>
-                    <span class="text-bim-blue text-sm font-semibold">Calculadora de Perfiles</span>
-                </div>
-            </div>
+    <nav
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="../index.html" class="flex-shrink-0 flex items-center group">
+            <i
+              class="fa-solid fa-arrow-left text-gray-400 group-hover:text-bim-blue mr-3 transition-colors"
+            ></i>
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </a>
+          <div class="hidden md:flex items-center space-x-2">
+            <span class="text-gray-500 text-sm"
+              ><i class="fa-solid fa-toolbox mr-1"></i> Tools</span
+            >
+            <span class="text-gray-600">›</span>
+            <span class="text-bim-blue text-sm font-semibold"
+              >Calculadora de Perfiles</span
+            >
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="pt-24 pb-8 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-10">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="0.5" />
-                </pattern></defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
+      <div
+        class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-10"
+      >
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="#3b82f6"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <div
+            class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-sm font-semibold tracking-wide"
+          >
+            <i class="fa-solid fa-toolbox mr-1"></i> HERRAMIENTAS PARA
+            PROYECTISTAS ESTRUCTURALES
+          </div>
+          <h1
+            class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
+          >
+            Calcular el peso <span class="text-bim-blue">(kg/m)</span> de los
+            <span class="text-bim-blue">Perfiles de Acero</span>
+          </h1>
+          <p class="max-w-2xl mx-auto text-gray-400 text-lg">
+            Como proyectistas, a veces necesitamos verificar datos rápidos sin
+            abrir el software pesado. Calcula peso, área y superficie en tiempo
+            real de 12 tipos de perfiles estructurales en tiempo real.
+          </p>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8">
-                <div class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-sm font-semibold tracking-wide">
-                    <i class="fa-solid fa-toolbox mr-1"></i> HERRAMIENTAS PARA PROYECTISTAS
-                </div>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-                    Calculadora de <span class="text-bim-blue">Perfiles de Acero</span>
-                </h1>
-                <p class="max-w-2xl mx-auto text-gray-400 text-lg">
-                    Calcula peso, área de sección y superficie de cubrimiento para 12 tipos de perfiles estructurales en tiempo real.
-                </p>
-            </div>
-        </div>
+      </div>
     </section>
 
     <!-- Profile Type Selector -->
     <section class="pb-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"><i class="fa-solid fa-shapes mr-2"></i>Selecciona el tipo de perfil</h2>
-            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2" id="profile-selector">
-                <!-- Populated by JS -->
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
+        >
+          <i class="fa-solid fa-shapes mr-2"></i>Selecciona el tipo de perfil
+        </h2>
+        <div
+          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2"
+          id="profile-selector"
+        >
+          <!-- Populated by JS -->
         </div>
+      </div>
     </section>
 
     <!-- Calculator Section -->
     <section class="py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-                <!-- Left: SVG Diagram -->
-                <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center min-h-[350px]" id="diagram-panel">
-                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"><i class="fa-solid fa-vector-square mr-2"></i>Sección Transversal</h3>
-                    <div id="svg-container" class="flex-1 flex items-center justify-center w-full svg-diagram">
-                        <!-- SVG injected by JS -->
-                    </div>
-                    <div id="profile-designation" class="mt-4 text-center">
-                        <span class="text-2xl font-extrabold text-white" id="designation-text">—</span>
-                    </div>
-                </div>
-
-                <!-- Center: Input Form -->
-                <div class="glass-card rounded-xl p-6" id="input-panel">
-                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"><i class="fa-solid fa-sliders mr-2"></i>Dimensiones</h3>
-                    <div id="inputs-container" class="space-y-3 fade-in">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-
-                <!-- Right: Results -->
-                <div class="glass-card rounded-xl p-6" id="results-panel">
-                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"><i class="fa-solid fa-calculator mr-2"></i>Resultados</h3>
-                    <div class="space-y-4">
-                        <div class="result-value rounded-xl p-5">
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-gray-400 text-sm font-medium">Área de Sección</span>
-                                <span class="text-xs text-gray-500">cm²</span>
-                            </div>
-                            <span class="text-3xl font-extrabold text-white" id="result-area">0.00</span>
-                        </div>
-                        <div class="result-value rounded-xl p-5">
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-gray-400 text-sm font-medium">Peso Lineal</span>
-                                <span class="text-xs text-gray-500">kg/m</span>
-                            </div>
-                            <span class="text-3xl font-extrabold text-bim-blue" id="result-weight">0.00</span>
-                        </div>
-                        <div class="result-value rounded-xl p-5">
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-gray-400 text-sm font-medium">Área de Cubrimiento</span>
-                                <span class="text-xs text-gray-500">m²/m</span>
-                            </div>
-                            <span class="text-3xl font-extrabold text-white" id="result-cover">0.000</span>
-                        </div>
-                    </div>
-                    <!-- Quick reference -->
-                    <div class="mt-6 p-4 rounded-lg bg-gray-800/50 border border-gray-700">
-                        <p class="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wider">Referencia</p>
-                        <p class="text-xs text-gray-400">Densidad del acero: <span class="text-white font-bold">7,850 kg/m³</span></p>
-                        <p class="text-xs text-gray-400 mt-1">Peso = Área × 0.00785 × 100</p>
-                    </div>
-                </div>
-
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left: SVG Diagram -->
+          <div
+            class="glass-card rounded-xl p-6 flex flex-col items-center justify-center min-h-[350px]"
+            id="diagram-panel"
+          >
+            <h3
+              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"
+            >
+              <i class="fa-solid fa-vector-square mr-2"></i>Sección Transversal
+            </h3>
+            <div
+              id="svg-container"
+              class="flex-1 flex items-center justify-center w-full svg-diagram"
+            >
+              <!-- SVG injected by JS -->
             </div>
+            <div id="profile-designation" class="mt-4 text-center">
+              <span
+                class="text-2xl font-extrabold text-white"
+                id="designation-text"
+                >—</span
+              >
+            </div>
+          </div>
+
+          <!-- Center: Input Form -->
+          <div class="glass-card rounded-xl p-6" id="input-panel">
+            <h3
+              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
+            >
+              <i class="fa-solid fa-sliders mr-2"></i>Dimensiones
+            </h3>
+            <div id="inputs-container" class="space-y-3 fade-in">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Right: Results -->
+          <div class="glass-card rounded-xl p-6" id="results-panel">
+            <h3
+              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
+            >
+              <i class="fa-solid fa-calculator mr-2"></i>Resultados
+            </h3>
+            <div class="space-y-4">
+              <div class="result-value rounded-xl p-5">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-sm font-medium"
+                    >Área de Sección</span
+                  >
+                  <span class="text-xs text-gray-500">cm²</span>
+                </div>
+                <span
+                  class="text-3xl font-extrabold text-white"
+                  id="result-area"
+                  >0.00</span
+                >
+              </div>
+              <div class="result-value rounded-xl p-5">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-sm font-medium"
+                    >Peso Lineal</span
+                  >
+                  <span class="text-xs text-gray-500">kg/m</span>
+                </div>
+                <span
+                  class="text-3xl font-extrabold text-bim-blue"
+                  id="result-weight"
+                  >0.00</span
+                >
+              </div>
+              <div class="result-value rounded-xl p-5">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-sm font-medium"
+                    >Área de Cubrimiento</span
+                  >
+                  <span class="text-xs text-gray-500">m²/m</span>
+                </div>
+                <span
+                  class="text-3xl font-extrabold text-white"
+                  id="result-cover"
+                  >0.000</span
+                >
+              </div>
+            </div>
+            <!-- Quick reference -->
+            <div
+              class="mt-6 p-4 rounded-lg bg-gray-800/50 border border-gray-700"
+            >
+              <p
+                class="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wider"
+              >
+                Referencia
+              </p>
+              <p class="text-xs text-gray-400">
+                Densidad del acero:
+                <span class="text-white font-bold">7,850 kg/m³</span>
+              </p>
+              <p class="text-xs text-gray-400 mt-1">
+                Peso = Área × 0.00785 × 100
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-8 border-t border-gray-800 mt-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500 text-sm">&copy; 2025 Andrés Gallo P. — Herramientas para Proyectistas Estructurales</p>
-        </div>
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">
+          &copy; 2025 Andrés Gallo P. — Herramientas para Proyectistas
+          Estructurales
+        </p>
+      </div>
     </footer>
 
     <script id="profile-calculator-script">
-    // ==================== PROFILE DEFINITIONS ====================
-    const PROFILES = {
+      // ==================== PROFILE DEFINITIONS ====================
+      const PROFILES = {
         H: {
-            name: 'H Profile', label: 'H', icon: 'fa-solid fa-h',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 200 },
-                { id: 'b', label: 'b (ancho)', unit: 'mm', default: 100 },
-                { id: 's', label: 's (alma)', unit: 'mm', default: 6 },
-                { id: 't', label: 't (ala)', unit: 'mm', default: 12 }
-            ],
-            calc(v) {
-                const area = ((v.b * v.t) + (v.b * v.t) + ((v.h - v.t - v.t) * v.s)) / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = ((2 * v.b - v.s) + (2 * v.b - v.s) + 2 * v.h) / 1000;
-                const desig = `H ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) {
-                return buildHSvg(v.h, v.b, v.s, v.t, v.t, false);
-            }
+          name: "H Profile",
+          label: "H",
+          icon: "fa-solid fa-h",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 200 },
+            { id: "b", label: "b (ancho)", unit: "mm", default: 100 },
+            { id: "s", label: "s (alma)", unit: "mm", default: 6 },
+            { id: "t", label: "t (ala)", unit: "mm", default: 12 },
+          ],
+          calc(v) {
+            const area =
+              (v.b * v.t + v.b * v.t + (v.h - v.t - v.t) * v.s) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.b - v.s + (2 * v.b - v.s) + 2 * v.h) / 1000;
+            const desig = `H ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildHSvg(v.h, v.b, v.s, v.t, v.t, false);
+          },
         },
         HE: {
-            name: 'HE Profile', label: 'HE', icon: 'fa-solid fa-h',
-            subtitle: 'Alas Desiguales',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 250 },
-                { id: 'b1', label: 'b1 (ala sup.)', unit: 'mm', default: 200 },
-                { id: 'b2', label: 'b2 (ala inf.)', unit: 'mm', default: 200 },
-                { id: 't1', label: 't1 (ala sup.)', unit: 'mm', default: 14 },
-                { id: 't2', label: 't2 (ala inf.)', unit: 'mm', default: 14 },
-                { id: 's', label: 's (alma)', unit: 'mm', default: 6 }
-            ],
-            calc(v) {
-                const area = ((v.b1 * v.t1) + (v.b2 * v.t2) + ((v.h - v.t1 - v.t2) * v.s)) / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = ((2 * v.b1 - v.s) + (2 * v.b2 - v.s) + 2 * v.h) / 1000;
-                const desig = `HE ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) {
-                return buildHSvg(v.h, Math.max(v.b1, v.b2), v.s, v.t1, v.t2, true, v.b1, v.b2);
-            }
+          name: "HE Profile",
+          label: "HE",
+          icon: "fa-solid fa-h",
+          subtitle: "Alas Desiguales",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 250 },
+            { id: "b1", label: "b1 (ala sup.)", unit: "mm", default: 200 },
+            { id: "b2", label: "b2 (ala inf.)", unit: "mm", default: 200 },
+            { id: "t1", label: "t1 (ala sup.)", unit: "mm", default: 14 },
+            { id: "t2", label: "t2 (ala inf.)", unit: "mm", default: 14 },
+            { id: "s", label: "s (alma)", unit: "mm", default: 6 },
+          ],
+          calc(v) {
+            const area =
+              (v.b1 * v.t1 + v.b2 * v.t2 + (v.h - v.t1 - v.t2) * v.s) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.b1 - v.s + (2 * v.b2 - v.s) + 2 * v.h) / 1000;
+            const desig = `HE ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildHSvg(
+              v.h,
+              Math.max(v.b1, v.b2),
+              v.s,
+              v.t1,
+              v.t2,
+              true,
+              v.b1,
+              v.b2,
+            );
+          },
         },
         T: {
-            name: 'T Profile', label: 'T', icon: 'fa-solid fa-t',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 175 },
-                { id: 'b', label: 'b (ancho ala)', unit: 'mm', default: 250 },
-                { id: 't', label: 't (ala)', unit: 'mm', default: 18 },
-                { id: 's', label: 's (alma)', unit: 'mm', default: 12 }
-            ],
-            calc(v) {
-                const area = (v.b * v.t + (v.h - v.t) * v.s) / 100;
-                const weight = area * 0.00785 * 100;
-                const cover = (2 * v.h + 2 * v.b) / 1000;
-                const desig = `T ${(v.h * 0.1).toFixed(1)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildTSvg(v); }
+          name: "T Profile",
+          label: "T",
+          icon: "fa-solid fa-t",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 175 },
+            { id: "b", label: "b (ancho ala)", unit: "mm", default: 250 },
+            { id: "t", label: "t (ala)", unit: "mm", default: 18 },
+            { id: "s", label: "s (alma)", unit: "mm", default: 12 },
+          ],
+          calc(v) {
+            const area = (v.b * v.t + (v.h - v.t) * v.s) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.h + 2 * v.b) / 1000;
+            const desig = `T ${(v.h * 0.1).toFixed(1)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildTSvg(v);
+          },
         },
         CA: {
-            name: 'CA Profile', label: 'CA', icon: 'fa-solid fa-c',
-            subtitle: 'Canal Atiesado',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 280 },
-                { id: 'b', label: 'b (ancho ala)', unit: 'mm', default: 100 },
-                { id: 'c', label: 'c (labio)', unit: 'mm', default: 35 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 5 }
-            ],
-            calc(v) {
-                const area = (((v.h + 2 * v.b + 2 * v.c) - 6.5752 * v.t) * v.t) / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = ((2 * v.h + 4 * v.b + 4 * v.c) - 4 * v.t) / 1000;
-                const desig = `CA ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildCASvg(v); }
+          name: "CA Profile",
+          label: "CA",
+          icon: "fa-solid fa-c",
+          subtitle: "Canal Atiesado",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 280 },
+            { id: "b", label: "b (ancho ala)", unit: "mm", default: 100 },
+            { id: "c", label: "c (labio)", unit: "mm", default: 35 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 5 },
+          ],
+          calc(v) {
+            const area = ((v.h + 2 * v.b + 2 * v.c - 6.5752 * v.t) * v.t) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.h + 4 * v.b + 4 * v.c - 4 * v.t) / 1000;
+            const desig = `CA ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildCASvg(v);
+          },
         },
         C: {
-            name: 'C Profile', label: 'C', icon: 'fa-solid fa-c',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 250 },
-                { id: 'b', label: 'b (ancho ala)', unit: 'mm', default: 50 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 6 }
-            ],
-            calc(v) {
-                const area = (((v.h + 2 * v.b) - 3.2876 * v.t) * v.t) / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = ((2 * v.h + 4 * v.b) - 2 * v.t) / 1000;
-                const desig = `C ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildCSvg(v); }
+          name: "C Profile",
+          label: "C",
+          icon: "fa-solid fa-c",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 250 },
+            { id: "b", label: "b (ancho ala)", unit: "mm", default: 50 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 6 },
+          ],
+          calc(v) {
+            const area = ((v.h + 2 * v.b - 3.2876 * v.t) * v.t) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.h + 4 * v.b - 2 * v.t) / 1000;
+            const desig = `C ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildCSvg(v);
+          },
         },
         CE: {
-            name: 'CE Profile', label: 'CE', icon: 'fa-solid fa-c',
-            subtitle: 'Alas Desiguales',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 200 },
-                { id: 'b1', label: 'b1 (ala sup.)', unit: 'mm', default: 75 },
-                { id: 'b2', label: 'b2 (ala inf.)', unit: 'mm', default: 75 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 6 }
-            ],
-            calc(v) {
-                const area = (((v.b1 + v.b2 + v.h) - 3.2876 * v.t) * v.t) / 100;
-                const weight = area * 0.00785 * 100;
-                const cover = ((2 * v.h + 2 * v.b1 + 2 * v.b2) - 2 * v.t) / 1000;
-                const desig = `CE ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildCSvg(v, true); }
+          name: "CE Profile",
+          label: "CE",
+          icon: "fa-solid fa-c",
+          subtitle: "Alas Desiguales",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 200 },
+            { id: "b1", label: "b1 (ala sup.)", unit: "mm", default: 75 },
+            { id: "b2", label: "b2 (ala inf.)", unit: "mm", default: 75 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 6 },
+          ],
+          calc(v) {
+            const area = ((v.b1 + v.b2 + v.h - 3.2876 * v.t) * v.t) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.h + 2 * v.b1 + 2 * v.b2 - 2 * v.t) / 1000;
+            const desig = `CE ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildCSvg(v, true);
+          },
         },
         XL: {
-            name: 'XL Profile', label: 'XL', icon: 'fa-solid fa-xmark',
-            subtitle: 'Doble Ángulo',
-            inputs: [
-                { id: 'h', label: 'h (ala mayor)', unit: 'mm', default: 200 },
-                { id: 'b', label: 'b (ala menor)', unit: 'mm', default: 150 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 4 }
-            ],
-            calc(v) {
-                const area = (((v.h + v.b - 1.6438 * v.t) * v.t)) * 2 / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = (((2 * v.h) + (2 * v.b) - v.t)) * 2 / 1000;
-                const desig = `XL ${((v.h + v.b) * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildXLSvg(v); }
+          name: "XL Profile",
+          label: "XL",
+          icon: "fa-solid fa-xmark",
+          subtitle: "Doble Ángulo",
+          inputs: [
+            { id: "h", label: "h (ala mayor)", unit: "mm", default: 200 },
+            { id: "b", label: "b (ala menor)", unit: "mm", default: 150 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 4 },
+          ],
+          calc(v) {
+            const area = ((v.h + v.b - 1.6438 * v.t) * v.t * 2) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = ((2 * v.h + 2 * v.b - v.t) * 2) / 1000;
+            const desig = `XL ${((v.h + v.b) * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildXLSvg(v);
+          },
         },
         L: {
-            name: 'L Profile', label: 'L', icon: 'fa-solid fa-l',
-            inputs: [
-                { id: 'h', label: 'h (ala mayor)', unit: 'mm', default: 80 },
-                { id: 'b', label: 'b (ala menor)', unit: 'mm', default: 80 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 6 }
-            ],
-            calc(v) {
-                const area = ((v.h + v.b - 1.6438 * v.t) * v.t) / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = ((2 * v.h) + (2 * v.b) - v.t) / 1000;
-                const desig = `L ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildLSvg(v); }
+          name: "L Profile",
+          label: "L",
+          icon: "fa-solid fa-l",
+          inputs: [
+            { id: "h", label: "h (ala mayor)", unit: "mm", default: 80 },
+            { id: "b", label: "b (ala menor)", unit: "mm", default: 80 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 6 },
+          ],
+          calc(v) {
+            const area = ((v.h + v.b - 1.6438 * v.t) * v.t) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = (2 * v.h + 2 * v.b - v.t) / 1000;
+            const desig = `L ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildLSvg(v);
+          },
         },
         PL: {
-            name: 'Plate', label: 'PL', icon: 'fa-solid fa-square',
-            inputs: [
-                { id: 'h', label: 'h (alto)', unit: 'mm', default: 100 },
-                { id: 'b', label: 'b (ancho)', unit: 'mm', default: 100 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 10 }
-            ],
-            calc(v) {
-                const area = (v.h * v.b * v.t) / 1000;
-                const weight = (v.h * v.b * v.t) * 0.000785 / 100;
-                const cover = (2 * v.b + 2 * v.t) / 1000;
-                const desig = `PL ${v.h}×${v.b}×${v.t}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildPlateSvg(v); }
+          name: "Plate",
+          label: "PL",
+          icon: "fa-solid fa-square",
+          inputs: [
+            { id: "h", label: "h (alto)", unit: "mm", default: 100 },
+            { id: "b", label: "b (ancho)", unit: "mm", default: 100 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 10 },
+          ],
+          calc(v) {
+            const area = (v.h * v.b * v.t) / 1000;
+            const weight = (v.h * v.b * v.t * 0.000785) / 100;
+            const cover = (2 * v.b + 2 * v.t) / 1000;
+            const desig = `PL ${v.h}×${v.b}×${v.t}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildPlateSvg(v);
+          },
         },
         PIPE: {
-            name: 'Piping', label: 'PIPE', icon: 'fa-solid fa-circle-notch',
-            inputs: [
-                { id: 'dia', label: 'Diámetro Ext.', unit: 'mm', default: 152.4 },
-                { id: 'thick', label: 'Espesor', unit: 'mm', default: 7.11 }
-            ],
-            calc(v) {
-                const ro = v.dia / 2;
-                const ri = (v.dia - 2 * v.thick) / 2;
-                const area = 3.14 * (ro * ro - ri * ri) / 100;
-                const weight = area * 1000 * 0.00786 / 10;
-                const cover = 3.14 * v.dia / 1000;
-                const desig = `PIPE Ø${v.dia} × ${v.thick}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildPipeSvg(v); }
+          name: "Piping",
+          label: "PIPE",
+          icon: "fa-solid fa-circle-notch",
+          inputs: [
+            { id: "dia", label: "Diámetro Ext.", unit: "mm", default: 152.4 },
+            { id: "thick", label: "Espesor", unit: "mm", default: 7.11 },
+          ],
+          calc(v) {
+            const ro = v.dia / 2;
+            const ri = (v.dia - 2 * v.thick) / 2;
+            const area = (3.14 * (ro * ro - ri * ri)) / 100;
+            const weight = (area * 1000 * 0.00786) / 10;
+            const cover = (3.14 * v.dia) / 1000;
+            const desig = `PIPE Ø${v.dia} × ${v.thick}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildPipeSvg(v);
+          },
         },
         PROF: {
-            name: 'Tubo Rectangular', label: 'TUBULAR', icon: 'fa-regular fa-square',
-            subtitle: 'Tubular',
-            inputs: [
-                { id: 'h', label: 'h (altura)', unit: 'mm', default: 100 },
-                { id: 'b', label: 'b (ancho)', unit: 'mm', default: 100 },
-                { id: 't', label: 't (espesor)', unit: 'mm', default: 5 }
-            ],
-            calc(v) {
-                const area = (((v.h * 2 + 2 * v.b) - 6.5752 * v.t) * v.t) / 100;
-                const weight = (area * 0.00785) * 100;
-                const cover = (((2 * v.h + 4 * v.b) - 2 * v.t)) * 2 / 1000;
-                const desig = `CJ ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildTubeSvg(v); }
+          name: "Tubo Rectangular",
+          label: "TUBULAR",
+          icon: "fa-regular fa-square",
+          subtitle: "Tubular",
+          inputs: [
+            { id: "h", label: "h (altura)", unit: "mm", default: 100 },
+            { id: "b", label: "b (ancho)", unit: "mm", default: 100 },
+            { id: "t", label: "t (espesor)", unit: "mm", default: 5 },
+          ],
+          calc(v) {
+            const area = ((v.h * 2 + 2 * v.b - 6.5752 * v.t) * v.t) / 100;
+            const weight = area * 0.00785 * 100;
+            const cover = ((2 * v.h + 4 * v.b - 2 * v.t) * 2) / 1000;
+            const desig = `CJ ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildTubeSvg(v);
+          },
         },
-        RB: {   
-            name: 'Round Bar', label: 'RB', icon: 'fa-solid fa-circle',
-            inputs: [
-                { id: 'dia', label: 'Diámetro', unit: 'mm', default: 40 }
-            ],
-            calc(v) {
-                const area = (v.dia * v.dia) * 0.00785;
-                const weight = (v.dia * v.dia * 1000) * 0.000616 / 100;
-                const cover = (2 * 3.14) * (v.dia / 2) / 1000;
-                const desig = `ARMADURA Ø${v.dia}`;
-                return { area, weight, cover, desig };
-            },
-            svg(v) { return buildRBSvg(v); }
-        }
-    };
+        RB: {
+          name: "Round Bar",
+          label: "RB",
+          icon: "fa-solid fa-circle",
+          inputs: [{ id: "dia", label: "Diámetro", unit: "mm", default: 40 }],
+          calc(v) {
+            const area = v.dia * v.dia * 0.00785;
+            const weight = (v.dia * v.dia * 1000 * 0.000616) / 100;
+            const cover = (2 * 3.14 * (v.dia / 2)) / 1000;
+            const desig = `ARMADURA Ø${v.dia}`;
+            return { area, weight, cover, desig };
+          },
+          svg(v) {
+            return buildRBSvg(v);
+          },
+        },
+      };
 
-    // ==================== SVG BUILDERS ====================
-    const SZ = 240, CX = SZ/2, CY = SZ/2, PAD = 45;
+      // ==================== SVG BUILDERS ====================
+      const SZ = 240,
+        CX = SZ / 2,
+        CY = SZ / 2,
+        PAD = 45;
 
-    function dimLine(x1,y1,x2,y2,label,offset=0,color='#60a5fa') {
-        const isV = Math.abs(x1-x2) < 2;
-        const ox = isV ? offset : 0, oy = isV ? 0 : offset;
-        const mx = (x1+x2)/2+ox, my = (y1+y2)/2+oy;
+      function dimLine(x1, y1, x2, y2, label, offset = 0, color = "#60a5fa") {
+        const isV = Math.abs(x1 - x2) < 2;
+        const ox = isV ? offset : 0,
+          oy = isV ? 0 : offset;
+        const mx = (x1 + x2) / 2 + ox,
+          my = (y1 + y2) / 2 + oy;
         const tox = isV ? (offset > 0 ? 8 : -8) : 0;
-        const toy = isV ? 0 : (offset > 0 ? 12 : -6);
-        const tx = Math.max(24, Math.min(SZ-24, mx+tox));
-        const ty = Math.max(10, Math.min(SZ-4, my+toy));
-        return `<line x1="${x1+ox}" y1="${y1+oy}" x2="${x2+ox}" y2="${y2+oy}" stroke="${color}" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.7"/>
+        const toy = isV ? 0 : offset > 0 ? 12 : -6;
+        const tx = Math.max(24, Math.min(SZ - 24, mx + tox));
+        const ty = Math.max(10, Math.min(SZ - 4, my + toy));
+        return `<line x1="${x1 + ox}" y1="${y1 + oy}" x2="${x2 + ox}" y2="${y2 + oy}" stroke="${color}" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.7"/>
                 <text x="${tx}" y="${ty}" fill="${color}" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">${label}</text>`;
-    }
+      }
 
-    function buildHSvg(h,b,s,t1,t2,unequal=false,b1,b2) {
-        const bTop = unequal ? b1 : b, bBot = unequal ? b2 : b;
+      function buildHSvg(h, b, s, t1, t2, unequal = false, b1, b2) {
+        const bTop = unequal ? b1 : b,
+          bBot = unequal ? b2 : b;
         const maxB = Math.max(bTop, bBot);
-        const sc = Math.min((SZ-2*PAD)/h, (SZ-2*PAD)/maxB);
-        const H=h*sc, B1=bTop*sc, B2=bBot*sc, S=Math.max(s*sc,4), T1=Math.max(t1*sc,4), T2=Math.max(t2*sc,4);
-        const x=CX, y=CY;
-        const shape = `<polygon points="${x-B1/2},${y-H/2} ${x+B1/2},${y-H/2} ${x+B1/2},${y-H/2+T1} ${x+S/2},${y-H/2+T1} ${x+S/2},${y+H/2-T2} ${x+B2/2},${y+H/2-T2} ${x+B2/2},${y+H/2} ${x-B2/2},${y+H/2} ${x-B2/2},${y+H/2-T2} ${x-S/2},${y+H/2-T2} ${x-S/2},${y-H/2+T1} ${x-B1/2},${y-H/2+T1}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-        let dims = dimLine(x-B1/2, y-H/2, x-B1/2, y+H/2, `h=${h}`, -22);
-        dims += dimLine(x-B1/2, y+H/2, x+B2/2, y+H/2, unequal?`b₂=${b2}`:`b=${b}`, 18);
+        const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / maxB);
+        const H = h * sc,
+          B1 = bTop * sc,
+          B2 = bBot * sc,
+          S = Math.max(s * sc, 4),
+          T1 = Math.max(t1 * sc, 4),
+          T2 = Math.max(t2 * sc, 4);
+        const x = CX,
+          y = CY;
+        const shape = `<polygon points="${x - B1 / 2},${y - H / 2} ${x + B1 / 2},${y - H / 2} ${x + B1 / 2},${y - H / 2 + T1} ${x + S / 2},${y - H / 2 + T1} ${x + S / 2},${y + H / 2 - T2} ${x + B2 / 2},${y + H / 2 - T2} ${x + B2 / 2},${y + H / 2} ${x - B2 / 2},${y + H / 2} ${x - B2 / 2},${y + H / 2 - T2} ${x - S / 2},${y + H / 2 - T2} ${x - S / 2},${y - H / 2 + T1} ${x - B1 / 2},${y - H / 2 + T1}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(
+          x - B1 / 2,
+          y - H / 2,
+          x - B1 / 2,
+          y + H / 2,
+          `h=${h}`,
+          -22,
+        );
+        dims += dimLine(
+          x - B1 / 2,
+          y + H / 2,
+          x + B2 / 2,
+          y + H / 2,
+          unequal ? `b₂=${b2}` : `b=${b}`,
+          18,
+        );
         // s label next to the web, not overlapping b
-        dims += `<text x="${x+S/2+6}" y="${y+4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${s}</text>`;
-        if(unequal) {
-            dims += dimLine(x-B1/2, y-H/2, x+B1/2, y-H/2, `b₁=${b1}`, -14);
-            dims += `<text x="${x+B1/2+6}" y="${y-H/2+T1/2+3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t₁=${t1}</text>`;
-            dims += `<text x="${x+B2/2+6}" y="${y+H/2-T2/2+3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t₂=${t2}</text>`;
+        dims += `<text x="${x + S / 2 + 6}" y="${y + 4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${s}</text>`;
+        if (unequal) {
+          dims += dimLine(
+            x - B1 / 2,
+            y - H / 2,
+            x + B1 / 2,
+            y - H / 2,
+            `b₁=${b1}`,
+            -14,
+          );
+          dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t₁=${t1}</text>`;
+          dims += `<text x="${x + B2 / 2 + 6}" y="${y + H / 2 - T2 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t₂=${t2}</text>`;
         } else {
-            dims += `<text x="${x+B1/2+6}" y="${y-H/2+T1/2+3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${t1}</text>`;
+          dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${t1}</text>`;
         }
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildTSvg(v) {
-        const sc = Math.min((SZ-2*PAD)/v.h, (SZ-2*PAD)/v.b);
-        const H=v.h*sc, B=v.b*sc, T=Math.max(v.t*sc,4), S=Math.max(v.s*sc,4);
-        const x=CX, top=CY-H/2;
-        const shape = `<polygon points="${x-B/2},${top} ${x+B/2},${top} ${x+B/2},${top+T} ${x+S/2},${top+T} ${x+S/2},${top+H} ${x-S/2},${top+H} ${x-S/2},${top+T} ${x-B/2},${top+T}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-        let dims = dimLine(x-B/2, top, x-B/2, top+H, `h=${v.h}`, -22);
-        dims += dimLine(x-B/2, top, x+B/2, top, `b=${v.b}`, -14);
-        dims += `<text x="${x+B/2+6}" y="${top+T/2+3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
-        dims += `<text x="${x+S/2+6}" y="${top+T+20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${v.s}</text>`;
+      function buildTSvg(v) {
+        const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / v.b);
+        const H = v.h * sc,
+          B = v.b * sc,
+          T = Math.max(v.t * sc, 4),
+          S = Math.max(v.s * sc, 4);
+        const x = CX,
+          top = CY - H / 2;
+        const shape = `<polygon points="${x - B / 2},${top} ${x + B / 2},${top} ${x + B / 2},${top + T} ${x + S / 2},${top + T} ${x + S / 2},${top + H} ${x - S / 2},${top + H} ${x - S / 2},${top + T} ${x - B / 2},${top + T}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(x - B / 2, top, x - B / 2, top + H, `h=${v.h}`, -22);
+        dims += dimLine(x - B / 2, top, x + B / 2, top, `b=${v.b}`, -14);
+        dims += `<text x="${x + B / 2 + 6}" y="${top + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
+        dims += `<text x="${x + S / 2 + 6}" y="${top + T + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${v.s}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildCASvg(v, isProf=false) {
-        const sc = Math.min((SZ-2*PAD)/v.h, (SZ-2*PAD)/(v.b*2||100));
-        const H=v.h*sc, B=Math.max((v.b||50)*sc,8), T=Math.max(v.t*sc,3), C=v.c?Math.max(v.c*sc,6):0;
-        const left=CX-B/2, top=CY-H/2;
+      function buildCASvg(v, isProf = false) {
+        const sc = Math.min(
+          (SZ - 2 * PAD) / v.h,
+          (SZ - 2 * PAD) / (v.b * 2 || 100),
+        );
+        const H = v.h * sc,
+          B = Math.max((v.b || 50) * sc, 8),
+          T = Math.max(v.t * sc, 3),
+          C = v.c ? Math.max(v.c * sc, 6) : 0;
+        const left = CX - B / 2,
+          top = CY - H / 2;
         let pts;
-        if(C>0) {
-            // CA: channel opening RIGHT with inward lips
-            // Clockwise from top-left of web
-            pts = `${left},${top} ${left+B},${top} ${left+B},${top+C} ${left+B-T},${top+C} ${left+B-T},${top+T} ${left+T},${top+T} ${left+T},${top+H-T} ${left+B-T},${top+H-T} ${left+B-T},${top+H-C} ${left+B},${top+H-C} ${left+B},${top+H} ${left},${top+H}`;
+        if (C > 0) {
+          // CA: channel opening RIGHT with inward lips
+          // Clockwise from top-left of web
+          pts = `${left},${top} ${left + B},${top} ${left + B},${top + C} ${left + B - T},${top + C} ${left + B - T},${top + T} ${left + T},${top + T} ${left + T},${top + H - T} ${left + B - T},${top + H - T} ${left + B - T},${top + H - C} ${left + B},${top + H - C} ${left + B},${top + H} ${left},${top + H}`;
         } else {
-            pts = `${left},${top} ${left+B},${top} ${left+B},${top+T} ${left+T},${top+T} ${left+T},${top+H-T} ${left+B},${top+H-T} ${left+B},${top+H} ${left},${top+H}`;
+          pts = `${left},${top} ${left + B},${top} ${left + B},${top + T} ${left + T},${top + T} ${left + T},${top + H - T} ${left + B},${top + H - T} ${left + B},${top + H} ${left},${top + H}`;
         }
         const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
         // h on the right side
-        let dims = dimLine(left+B+4, top, left+B+4, top+H, `h=${v.h}`, 16);
+        let dims = dimLine(
+          left + B + 4,
+          top,
+          left + B + 4,
+          top + H,
+          `h=${v.h}`,
+          16,
+        );
         // b at the bottom
-        dims += dimLine(left, top+H, left+B, top+H, `b=${v.b||50}`, 16);
+        dims += dimLine(left, top + H, left + B, top + H, `b=${v.b || 50}`, 16);
         // t at the top-right
-        dims += `<text x="${left+B+6}" y="${top+T/2+3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
+        dims += `<text x="${left + B + 6}" y="${top + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
         // c on the right for the lip
-        if(C>0) dims += `<text x="${left+B+6}" y="${top+H-C/2+3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">c=${v.c}</text>`;
+        if (C > 0)
+          dims += `<text x="${left + B + 6}" y="${top + H - C / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">c=${v.c}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildCSvg(v, unequal=false) {
-        const bVal = unequal ? Math.max(v.b1||75, v.b2||75) : v.b;
-        const sc = Math.min((SZ-2*PAD)/v.h, (SZ-2*PAD)/(bVal*2));
-        const H=v.h*sc, B=bVal*sc, T=Math.max(v.t*sc,3);
-        const x=CX, top=CY-H/2;
-        const pts = `${x-B},${top} ${x},${top} ${x},${top+T} ${x-B+T},${top+T} ${x-B+T},${top+H-T} ${x},${top+H-T} ${x},${top+H} ${x-B},${top+H}`;
+      function buildCSvg(v, unequal = false) {
+        const bVal = unequal ? Math.max(v.b1 || 75, v.b2 || 75) : v.b;
+        const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / (bVal * 2));
+        const H = v.h * sc,
+          B = bVal * sc,
+          T = Math.max(v.t * sc, 3);
+        const x = CX,
+          top = CY - H / 2;
+        const pts = `${x - B},${top} ${x},${top} ${x},${top + T} ${x - B + T},${top + T} ${x - B + T},${top + H - T} ${x},${top + H - T} ${x},${top + H} ${x - B},${top + H}`;
         const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-        let dims = dimLine(x+4, top, x+4, top+H, `h=${v.h}`, 14);
-        if(unequal) {
-            dims += dimLine(x-B, top, x, top, `b₁=${v.b1}`, -14);
-            dims += dimLine(x-B, top+H, x, top+H, `b₂=${v.b2}`, 16);
+        let dims = dimLine(x + 4, top, x + 4, top + H, `h=${v.h}`, 14);
+        if (unequal) {
+          dims += dimLine(x - B, top, x, top, `b₁=${v.b1}`, -14);
+          dims += dimLine(x - B, top + H, x, top + H, `b₂=${v.b2}`, 16);
         } else {
-            dims += dimLine(x-B, top+H, x, top+H, `b=${v.b}`, 16);
+          dims += dimLine(x - B, top + H, x, top + H, `b=${v.b}`, 16);
         }
-        dims += `<text x="${x+6}" y="${top+T+12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
+        dims += `<text x="${x + 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildLSvg(v) {
+      function buildLSvg(v) {
         const maxD = Math.max(v.h, v.b);
-        const sc = (SZ-2*PAD)/maxD;
-        const H=v.h*sc, B=v.b*sc, T=Math.max(v.t*sc,3);
-        const x=CX-B/2, top=CY-H/2;
-        const pts = `${x},${top} ${x+T},${top} ${x+T},${top+H-T} ${x+B},${top+H-T} ${x+B},${top+H} ${x},${top+H}`;
+        const sc = (SZ - 2 * PAD) / maxD;
+        const H = v.h * sc,
+          B = v.b * sc,
+          T = Math.max(v.t * sc, 3);
+        const x = CX - B / 2,
+          top = CY - H / 2;
+        const pts = `${x},${top} ${x + T},${top} ${x + T},${top + H - T} ${x + B},${top + H - T} ${x + B},${top + H} ${x},${top + H}`;
         const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-        let dims = dimLine(x, top, x, top+H, `h=${v.h}`, -20);
-        dims += dimLine(x, top+H, x+B, top+H, `b=${v.b}`, 16);
-        dims += `<text x="${x+T+6}" y="${top+20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
+        let dims = dimLine(x, top, x, top + H, `h=${v.h}`, -20);
+        dims += dimLine(x, top + H, x + B, top + H, `b=${v.b}`, 16);
+        dims += `<text x="${x + T + 6}" y="${top + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildXLSvg(v) {
+      function buildXLSvg(v) {
         const maxD = Math.max(v.h, v.b);
-        const sc = (SZ-2*PAD)/maxD * 0.7;
-        const H=v.h*sc, B=v.b*sc, T=Math.max(v.t*sc,3);
+        const sc = ((SZ - 2 * PAD) / maxD) * 0.7;
+        const H = v.h * sc,
+          B = v.b * sc,
+          T = Math.max(v.t * sc, 3);
         const gap = 6;
-        const ax = CX - gap/2, ay = CY - gap/2;
-        const aPts = `${ax},${ay} ${ax},${ay-H} ${ax-T},${ay-H} ${ax-T},${ay-T} ${ax-B},${ay-T} ${ax-B},${ay}`;
-        const bx = CX + gap/2, by = CY + gap/2;
-        const bPts = `${bx},${by} ${bx},${by+H} ${bx+T},${by+H} ${bx+T},${by+T} ${bx+B},${by+T} ${bx+B},${by}`;
+        const ax = CX - gap / 2,
+          ay = CY - gap / 2;
+        const aPts = `${ax},${ay} ${ax},${ay - H} ${ax - T},${ay - H} ${ax - T},${ay - T} ${ax - B},${ay - T} ${ax - B},${ay}`;
+        const bx = CX + gap / 2,
+          by = CY + gap / 2;
+        const bPts = `${bx},${by} ${bx},${by + H} ${bx + T},${by + H} ${bx + T},${by + T} ${bx + B},${by + T} ${bx + B},${by}`;
         const shape = `<polygon points="${aPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
                        <polygon points="${bPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>`;
-        let dims = dimLine(ax-T, ay-H, ax-T, ay, `h=${v.h}`, -18);
-        dims += dimLine(ax-B, ay, ax, ay, `b=${v.b}`, 16);
-        dims += `<text x="${ax+8}" y="${ay-H+14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
+        let dims = dimLine(ax - T, ay - H, ax - T, ay, `h=${v.h}`, -18);
+        dims += dimLine(ax - B, ay, ax, ay, `b=${v.b}`, 16);
+        dims += `<text x="${ax + 8}" y="${ay - H + 14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildPlateSvg(v) {
-        const sc = Math.min((SZ-2*PAD)/v.h, (SZ-2*PAD)/v.b);
-        const H=v.h*sc, B=v.b*sc;
-        const x=CX-B/2, y=CY-H/2;
+      function buildPlateSvg(v) {
+        const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / v.b);
+        const H = v.h * sc,
+          B = v.b * sc;
+        const x = CX - B / 2,
+          y = CY - H / 2;
         const shape = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" rx="2"/>`;
-        let dims = dimLine(x, y, x, y+H, `h=${v.h}`, -22);
-        dims += dimLine(x, y+H, x+B, y+H, `b=${v.b}`, 16);
-        dims += `<text x="${CX}" y="${CY+4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">t=${v.t}</text>`;
+        let dims = dimLine(x, y, x, y + H, `h=${v.h}`, -22);
+        dims += dimLine(x, y + H, x + B, y + H, `b=${v.b}`, 16);
+        dims += `<text x="${CX}" y="${CY + 4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">t=${v.t}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildPipeSvg(v) {
-        const sc = (SZ-2*PAD)/(v.dia);
-        const R = v.dia*sc/2, r = (v.dia-2*v.thick)*sc/2;
+      function buildPipeSvg(v) {
+        const sc = (SZ - 2 * PAD) / v.dia;
+        const R = (v.dia * sc) / 2,
+          r = ((v.dia - 2 * v.thick) * sc) / 2;
         const shape = `<circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="#3b82f6" stroke-width="2"/>
                        <circle cx="${CX}" cy="${CY}" r="${r}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2"/>
-                       <path d="M${CX-R},${CY} A${R},${R} 0 0,1 ${CX+R},${CY}" fill="rgba(59,130,246,0.12)"/>
-                       <path d="M${CX-r},${CY} A${r},${r} 0 0,1 ${CX+r},${CY}" fill="rgba(11,18,32,0.9)"/>`;
-        let dims = dimLine(CX, CY, CX+R, CY, `Ø=${v.dia}`, -14);
-        dims += `<text x="${CX}" y="${CY+R+16}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="middle">e=${v.thick}</text>`;
+                       <path d="M${CX - R},${CY} A${R},${R} 0 0,1 ${CX + R},${CY}" fill="rgba(59,130,246,0.12)"/>
+                       <path d="M${CX - r},${CY} A${r},${r} 0 0,1 ${CX + r},${CY}" fill="rgba(11,18,32,0.9)"/>`;
+        let dims = dimLine(CX, CY, CX + R, CY, `Ø=${v.dia}`, -14);
+        dims += `<text x="${CX}" y="${CY + R + 16}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="middle">e=${v.thick}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    function buildTubeSvg(v) {
-        const sc = Math.min((SZ-2*PAD)/v.h, (SZ-2*PAD)/v.b);
-        const H=v.h*sc, B=v.b*sc, T=Math.max(v.t*sc, 3);
-        const x=CX-B/2, y=CY-H/2;
+      function buildTubeSvg(v) {
+        const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / v.b);
+        const H = v.h * sc,
+          B = v.b * sc,
+          T = Math.max(v.t * sc, 3);
+        const x = CX - B / 2,
+          y = CY - H / 2;
         const outer = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="none" stroke="#3b82f6" stroke-width="2" rx="3"/>`;
-        const inner = `<rect x="${x+T}" y="${y+T}" width="${B-2*T}" height="${H-2*T}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" rx="1"/>`;
+        const inner = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" rx="1"/>`;
         const fill = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="rgba(59,130,246,0.12)" rx="3"/>`;
-        const innerClear = `<rect x="${x+T}" y="${y+T}" width="${B-2*T}" height="${H-2*T}" fill="rgba(11,18,32,0.85)" rx="1"/>`;
-        let dims = dimLine(x, y, x, y+H, `h=${v.h}`, -22);
-        dims += dimLine(x, y+H, x+B, y+H, `b=${v.b}`, 16);
-        dims += `<text x="${CX}" y="${CY+4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">t=${v.t}</text>`;
+        const innerClear = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="rgba(11,18,32,0.85)" rx="1"/>`;
+        let dims = dimLine(x, y, x, y + H, `h=${v.h}`, -22);
+        dims += dimLine(x, y + H, x + B, y + H, `b=${v.b}`, 16);
+        dims += `<text x="${CX}" y="${CY + 4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">t=${v.t}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${fill}${innerClear}${outer}${inner}${dims}</svg>`;
-    }
+      }
 
-    function buildRBSvg(v) {
-        const sc = (SZ-2*PAD)/(v.dia);
-        const R = v.dia*sc/2;
+      function buildRBSvg(v) {
+        const sc = (SZ - 2 * PAD) / v.dia;
+        const R = (v.dia * sc) / 2;
         const shape = `<circle cx="${CX}" cy="${CY}" r="${R}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                       <line x1="${CX}" y1="${CY}" x2="${CX+R}" y2="${CY}" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>`;
-        let dims = `<text x="${CX+R/2}" y="${CY-8}" fill="#60a5fa" font-size="11" font-family="Inter" font-weight="700" text-anchor="middle">Ø=${v.dia}</text>`;
+                       <line x1="${CX}" y1="${CY}" x2="${CX + R}" y2="${CY}" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>`;
+        let dims = `<text x="${CX + R / 2}" y="${CY - 8}" fill="#60a5fa" font-size="11" font-family="Inter" font-weight="700" text-anchor="middle">Ø=${v.dia}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-    }
+      }
 
-    // ==================== APP LOGIC ====================
-    let currentProfile = 'H';
+      // ==================== APP LOGIC ====================
+      let currentProfile = "H";
 
-    function renderSelector() {
-        const container = document.getElementById('profile-selector');
-        container.innerHTML = Object.entries(PROFILES).map(([key, p]) =>
-            `<button class="profile-btn glass-card rounded-lg p-3 flex flex-col items-center justify-center text-center ${key===currentProfile?'active':''}" data-profile="${key}" title="${p.name}">
-                <i class="${p.icon} profile-icon text-lg mb-1 ${key===currentProfile?'text-bim-blue':'text-gray-400'}"></i>
-                <span class="text-xs font-bold ${key===currentProfile?'text-white':'text-gray-500'}">${p.label}</span>
-                ${p.subtitle?`<span class="text-[9px] text-gray-600 leading-tight mt-0.5">${p.subtitle}</span>`:''}
-            </button>`
-        ).join('');
-        container.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                currentProfile = btn.dataset.profile;
-                renderSelector();
-                renderInputs();
-                calculate();
-            });
+      function renderSelector() {
+        const container = document.getElementById("profile-selector");
+        container.innerHTML = Object.entries(PROFILES)
+          .map(
+            ([key, p]) =>
+              `<button class="profile-btn glass-card rounded-lg p-3 flex flex-col items-center justify-center text-center ${key === currentProfile ? "active" : ""}" data-profile="${key}" title="${p.name}">
+                <i class="${p.icon} profile-icon text-lg mb-1 ${key === currentProfile ? "text-bim-blue" : "text-gray-400"}"></i>
+                <span class="text-xs font-bold ${key === currentProfile ? "text-white" : "text-gray-500"}">${p.label}</span>
+                ${p.subtitle ? `<span class="text-[9px] text-gray-600 leading-tight mt-0.5">${p.subtitle}</span>` : ""}
+            </button>`,
+          )
+          .join("");
+        container.querySelectorAll("button").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            currentProfile = btn.dataset.profile;
+            renderSelector();
+            renderInputs();
+            calculate();
+          });
         });
-    }
+      }
 
-    function renderInputs() {
+      function renderInputs() {
         const p = PROFILES[currentProfile];
-        const container = document.getElementById('inputs-container');
-        container.innerHTML = p.inputs.map(inp =>
-            `<div class="fade-in">
+        const container = document.getElementById("inputs-container");
+        container.innerHTML = p.inputs
+          .map(
+            (inp) =>
+              `<div class="fade-in">
                 <label class="text-xs font-semibold text-gray-400 mb-1 block">${inp.label}</label>
                 <div class="flex items-center gap-2">
                     <input type="number" id="inp-${inp.id}" value="${inp.default}" step="any" min="0"
                         class="input-field w-full px-4 py-3 rounded-lg text-white font-bold text-lg" />
                     <span class="text-xs text-gray-500 w-8">${inp.unit}</span>
                 </div>
-            </div>`
-        ).join('');
+            </div>`,
+          )
+          .join("");
         // Error message element
-        container.insertAdjacentHTML('afterend',
-            `<div id="input-error" class="hidden mt-3 p-3 rounded-lg bg-red-900/30 border border-red-500/50 text-red-400 text-sm font-medium flex items-center gap-2">
+        container.insertAdjacentHTML(
+          "afterend",
+          `<div id="input-error" class="hidden mt-3 p-3 rounded-lg bg-red-900/30 border border-red-500/50 text-red-400 text-sm font-medium flex items-center gap-2">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <span>Solo se permiten números positivos.</span>
-            </div>`);
-        container.querySelectorAll('input').forEach(inp => {
-            inp.addEventListener('input', calculate);
+            </div>`,
+        );
+        container.querySelectorAll("input").forEach((inp) => {
+          inp.addEventListener("input", calculate);
         });
-    }
+      }
 
-    function getValues() {
+      function getValues() {
         const p = PROFILES[currentProfile];
         const vals = {};
         let hasError = false;
-        p.inputs.forEach(inp => {
-            const el = document.getElementById(`inp-${inp.id}`);
-            const raw = el.value.trim();
-            const num = parseFloat(raw);
-            if (raw === '' || isNaN(num) || num < 0) {
-                hasError = true;
-                el.style.borderColor = '#ef4444';
-                el.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.2)';
-            } else {
-                el.style.borderColor = '';
-                el.style.boxShadow = '';
-            }
-            vals[inp.id] = isNaN(num) ? 0 : num;
+        p.inputs.forEach((inp) => {
+          const el = document.getElementById(`inp-${inp.id}`);
+          const raw = el.value.trim();
+          const num = parseFloat(raw);
+          if (raw === "" || isNaN(num) || num < 0) {
+            hasError = true;
+            el.style.borderColor = "#ef4444";
+            el.style.boxShadow = "0 0 0 3px rgba(239,68,68,0.2)";
+          } else {
+            el.style.borderColor = "";
+            el.style.boxShadow = "";
+          }
+          vals[inp.id] = isNaN(num) ? 0 : num;
         });
         vals._hasError = hasError;
         return vals;
-    }
+      }
 
-    function calculate() {
+      function calculate() {
         const p = PROFILES[currentProfile];
         const v = getValues();
-        const errorEl = document.getElementById('input-error');
+        const errorEl = document.getElementById("input-error");
 
         if (v._hasError) {
-            if (errorEl) errorEl.classList.remove('hidden');
-            document.getElementById('result-area').textContent = '—';
-            document.getElementById('result-weight').textContent = '—';
-            document.getElementById('result-cover').textContent = '—';
-            document.getElementById('designation-text').textContent = '—';
-            return;
+          if (errorEl) errorEl.classList.remove("hidden");
+          document.getElementById("result-area").textContent = "—";
+          document.getElementById("result-weight").textContent = "—";
+          document.getElementById("result-cover").textContent = "—";
+          document.getElementById("designation-text").textContent = "—";
+          return;
         }
 
-        if (errorEl) errorEl.classList.add('hidden');
+        if (errorEl) errorEl.classList.add("hidden");
         try {
-            const r = p.calc(v);
-            document.getElementById('result-area').textContent = r.area.toFixed(2);
-            document.getElementById('result-weight').textContent = r.weight.toFixed(2);
-            document.getElementById('result-cover').textContent = r.cover.toFixed(3);
-            document.getElementById('designation-text').textContent = r.desig;
-            document.getElementById('svg-container').innerHTML = p.svg(v);
+          const r = p.calc(v);
+          document.getElementById("result-area").textContent =
+            r.area.toFixed(2);
+          document.getElementById("result-weight").textContent =
+            r.weight.toFixed(2);
+          document.getElementById("result-cover").textContent =
+            r.cover.toFixed(3);
+          document.getElementById("designation-text").textContent = r.desig;
+          document.getElementById("svg-container").innerHTML = p.svg(v);
         } catch (e) {
-            document.getElementById('result-area').textContent = '—';
-            document.getElementById('result-weight').textContent = '—';
-            document.getElementById('result-cover').textContent = '—';
-            document.getElementById('designation-text').textContent = 'Error';
+          document.getElementById("result-area").textContent = "—";
+          document.getElementById("result-weight").textContent = "—";
+          document.getElementById("result-cover").textContent = "—";
+          document.getElementById("designation-text").textContent = "Error";
         }
-    }
+      }
 
-    // ==================== INIT ====================
-    renderSelector();
-    renderInputs();
-    calculate();
+      // ==================== INIT ====================
+      renderSelector();
+      renderInputs();
+      calculate();
     </script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Soporte Revit: Secretos del Acero | Blog BIM | Andrés Gallo P.
+    </title>
+    <meta
+      name="description"
+      content="Lecciones aprendidas de la Clinica de Soporte de Autodesk University 2025: Troubleshooting de conexiones de acero, modelo analítico y errores comunes en Revit."
+    />
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .text-gradient-article {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(135deg, #f87171, #f59e0b, #3b82f6);
+      }
+      .support-card {
+        border-left: 4px solid;
+      }
+      .prose-article h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .prose-article p {
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+      }
+      .progress-bar {
+        height: 3px;
+        background: linear-gradient(90deg, #ef4444, #f59e0b);
+        width: 0%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transition: width 0.1s ease;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-red-500 selection:text-white transition-colors duration-300"
+  >
+    <!-- Reading Progress Bar -->
+    <div id="progress" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+            onclick="window.location.href = '../index.html'"
+          >
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="../index.html#home"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="../index.html#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="../index.html#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="../index.html#portfolio"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="index.html"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="../index.html#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="../tool/profile-calculator.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
+            </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="../index.html#home"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="../index.html#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="../index.html#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="../index.html#portfolio"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="index.html"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="../index.html#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="../tool/profile-calculator.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <section
+      class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden"
+    >
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-20 left-10 w-72 h-72 bg-red-500 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-96 h-96 bg-orange-600 rounded-full blur-3xl"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+          <a
+            href="index.html"
+            class="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
+          >
+            <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Blog
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span
+            class="bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full"
+          >
+            <i class="fa-solid fa-life-ring mr-1"></i> Soporte
+          </span>
+          <span class="text-gray-400 text-sm"
+            ><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span
+          >
+          <span class="text-gray-400 text-sm"
+            ><i class="fa-regular fa-clock mr-1"></i> 10 min lectura</span
+          >
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight"
+        >
+          <span class="text-red-400 text-5xl">🚑</span> Secretos de Soporte:
+          <span class="text-gradient-article">Acero en Revit</span>
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Lo que aprendimos en la "Revit Support Clinic" de Autodesk University
+          2025: troubleshooting, errores comunes y cómo evitar que tu modelo
+          explote.
+        </p>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section
+      class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose-article">
+        <!-- Intro -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-user-doctor text-red-500 mr-2"></i>
+            Diagnóstico de la Clínica
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Cada año en Autodesk University, el equipo de soporte técnico
+            presenta los casos más recurrentes que reciben de usuarios de todo
+            el mundo. Este año, el foco estuvo en las
+            <strong>Estructuras de Acero y Conexiones</strong>.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 mb-0">
+            Si alguna vez te has preguntado por qué no aparece el botón de
+            conexión, o por qué "Propagate Connection" ignora la mitad de tu
+            edificio, estás en el lugar correcto.
+          </p>
+        </div>
+
+        <!-- Problem 1: Connections Fail -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10 support-card border-red-500"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i
+              class="fa-solid fa-triangle-exclamation text-yellow-500 mr-2"
+            ></i>
+            Problema #1: "No puedo crear la conexión"
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            El error más común reportado al soporte: seleccionas la viga y la
+            columna, haces clic en una conexión, y... nada. O peor, un warning
+            genérico.
+          </p>
+
+          <div class="bg-gray-900/50 rounded-xl p-6 mt-4">
+            <h4 class="font-bold text-white mb-2">La Solución del Experto:</h4>
+            <ul class="space-y-3 mb-0 text-gray-300 text-sm">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2"
+                  ><i class="fa-solid fa-check"></i
+                ></span>
+                <span
+                  ><strong>Material Behavior:</strong> Verifica dentro de la
+                  familia que el parámetro "Material for Model Behavior" esté
+                  configurado como <code>Steel</code>. Si está en
+                  <code>Concrete</code> o <code>Other</code>, las herramientas
+                  de acero no funcionarán.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-2"
+                  ><i class="fa-solid fa-check"></i
+                ></span>
+                <span
+                  ><strong>Certified Families:</strong> Usa familias
+                  certificadas de la librería de Autodesk. Las familias creadas
+                  "desde cero" a menudo carecen de los puntos de referencia
+                  internos que el motor de conexiones necesita.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Problem 2: Analytical Mismatch -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10 support-card border-purple-500"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-brain text-purple-400 mr-2"></i> Problema #2:
+            El Modelo Analítico Desconectado
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Desde Revit 2024/2025, el modelo analítico es
+            <strong>autónomo</strong>. Esto ha causado confusión: mueves la viga
+            física, pero la línea analítica se queda atrás.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400">
+            <strong>Lección aprendida:</strong> Deja de intentar alinear el
+            analítico "a ojo". Usa la herramienta
+            <strong>Analytical Automation</strong> (basada en Dynamo) para
+            regenerar el modelo analítico basado en las reglas físicas actuales.
+            Es más rápido y evita errores de nudos desconectados en Robot/ETABS.
+          </p>
+        </div>
+
+        <!-- Problem 3: Performance -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10 support-card border-green-500"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-gauge-high text-green-400 mr-2"></i> Problema
+            #3: Rendimiento en Modelos Masivos
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            ¿Tu modelo tarda 10 minutos en abrir? El culpable suele ser el
+            exceso de detalle en vistas generales.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-4 mt-6">
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h4 class="font-bold text-red-400 text-sm mb-2">
+                <i class="fa-solid fa-xmark mr-1"></i> Lo que hacíamos mal
+              </h4>
+              <p class="text-xs text-gray-400">
+                Dejar el nivel de detalle en "Fine" en todas las vistas 3D de
+                coordinación.
+              </p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h4 class="font-bold text-green-400 text-sm mb-2">
+                <i class="fa-solid fa-check mr-1"></i> La recomendación
+              </h4>
+              <p class="text-xs text-gray-400">
+                Usar "Medium" o "Coarse" para todo lo que no sea planos de
+                detalle. Las tuercas y tornillos consumen muchísima GPU.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Section Placeholder -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 bg-blue-900/10"
+        >
+          <div class="text-center">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              ¿Tienes un caso de soporte "imposible"?
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+              A veces la documentación oficial no basta. Si estás atascado con
+              un error de Revit, escríbeme.
+            </p>
+            <a
+              href="mailto:tu-email@ejemplo.com?subject=Consulta%20Blog%20Revit%20Support"
+              class="inline-flex items-center bg-bim-blue hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-bold transition-transform hover:-translate-y-1"
+            >
+              <i class="fa-solid fa-paper-plane mr-2"></i> Enviar mi caso
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Blog -->
+    <section
+      class="py-12 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+        <a
+          href="index.html"
+          class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
+        >
+          <i
+            class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"
+          ></i>
+          Volver al Blog
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">
+          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
+        </p>
+        <p class="text-gray-600 text-xs mt-2">
+          Diseñado con pasión por la ingeniería y la tecnología.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
+      aria-label="Volver al inicio"
+    >
+      <i
+        class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
+      ></i>
+    </button>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+      // Scroll Progress Bar
+      window.addEventListener("scroll", () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progress").style.width = scrolled + "%";
+      });
+    </script>
+  </body>
+</html>
