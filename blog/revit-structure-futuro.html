@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Futuro de Revit Structure | Blog BIM | Andrés Gallo P.</title>
+    <meta
+      name="description"
+      content="Análisis técnico del roadmap de Revit Structure 2025+: conexiones de acero, modelo analítico autónomo y el futuro del detallado BIM para ingenieros estructurales."
+    />
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .text-gradient-article {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(135deg, #3b82f6, #6366f1, #06b6d4);
+      }
+      .roadmap-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .roadmap-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+      }
+      .prose-article h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .prose-article p {
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+      }
+      .progress-bar {
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #6366f1);
+        width: 0%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transition: width 0.1s ease;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
+  >
+    <!-- Reading Progress Bar -->
+    <div id="progress" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+            onclick="window.location.href = '../index.html'"
+          >
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="../index.html#home"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="../index.html#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="../index.html#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="../index.html#portfolio"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="index.html"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="../index.html#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="../tool/profile-calculator.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
+            </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="../index.html#home"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="../index.html#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="../index.html#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="../index.html#portfolio"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="index.html"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="../index.html#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="../tool/profile-calculator.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <section
+      class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden"
+    >
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-96 h-96 bg-bim-blue rounded-full blur-3xl"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+          <a
+            href="index.html"
+            class="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
+          >
+            <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Blog
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span
+            class="bg-indigo-600/90 text-white text-xs font-bold px-3 py-1 rounded-full"
+          >
+            <i class="fa-solid fa-building mr-1"></i> Revit Structure
+          </span>
+          <span class="text-gray-400 text-sm"
+            ><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span
+          >
+          <span class="text-gray-400 text-sm"
+            ><i class="fa-regular fa-clock mr-1"></i> 8 min lectura</span
+          >
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight"
+        >
+          <span class="text-indigo-400 text-5xl">🔗</span> ¿El Fin de la
+          <span class="text-gradient-article">Brecha BIM</span>?
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Analizando el futuro de Revit Structure: del diseño conceptual al
+          detallado de fabricación, sin salir del entorno BIM.
+        </p>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section
+      class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose-article">
+        <!-- Intro -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-diagram-project text-bim-blue mr-2"></i> El
+            Flujo Fragmentado
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Históricamente, el flujo de trabajo estructural ha estado
+            fragmentado. Usamos
+            <strong class="text-gray-900 dark:text-white">Revit</strong> para la
+            coordinación inicial y el diseño conceptual, pero cuando llega el
+            momento del detallado de acero real, saltamos a
+            <strong class="text-bim-blue">Tekla Structures</strong> o
+            <strong class="text-bim-blue">Advance Steel</strong>.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 mb-0">
+            Sin embargo, el último
+            <a
+              href="https://autodeskblog.wpengine.com/aec/roadmap/revit-structure-roadmap/"
+              target="_blank"
+              class="text-bim-blue hover:text-blue-400 underline transition-colors"
+              >Roadmap de Autodesk</a
+            >
+            sugiere que esta barrera está a punto de caer. Analicemos qué
+            significa esto para los proyectistas estructurales.
+          </p>
+        </div>
+
+        <!-- Hito 1: Fabrication-Ready -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-bolt text-yellow-400 mr-2"></i> Hito 1: Hacia
+            un Revit "Fabrication-Ready"
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            La inversión de Autodesk se centra ahora en la precisión. No se
+            trata solo de "dibujar" el acero, sino de que Revit sea capaz de
+            manejar las
+            <strong class="text-gray-900 dark:text-white"
+              >conexiones de acero</strong
+            >
+            y el
+            <strong class="text-gray-900 dark:text-white"
+              >armado de concreto (rebar)</strong
+            >
+            con niveles de desarrollo (LOD) 400 de forma nativa.
+          </p>
+
+          <!-- Callout -->
+          <div
+            class="bg-blue-900/20 rounded-xl p-6 border border-blue-800/30 mt-6"
+          >
+            <h4 class="font-bold text-bim-blue text-sm mb-2">
+              <i class="fa-solid fa-lightbulb mr-1"></i> Punto Clave para
+              Proyectistas:
+            </h4>
+            <p class="text-gray-400 text-sm mb-0">
+              La automatización de conexiones mediante scripts de Dynamo y
+              herramientas nativas está reduciendo la necesidad de modelar placa
+              por placa manualmente. ¿Podrá alcanzar la velocidad de macros de
+              Tekla? Estamos cada vez más cerca.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hito 2: Modelo Analítico -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-brain text-purple-400 mr-2"></i> Hito 2: El
+            Modelo Analítico Autónomo
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Una de las tarjetas más interesantes del roadmap es la evolución del
+            <strong class="text-gray-900 dark:text-white"
+              >Modelo Analítico</strong
+            >. Antes, si movías un muro, el modelo analítico se rompía. Ahora,
+            Revit permite crear un modelo analítico independiente.
+          </p>
+
+          <div class="space-y-4 mt-6">
+            <div class="flex items-start gap-3">
+              <span class="text-bim-blue mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Flexibilidad:</strong
+                >
+                <span class="text-gray-600 dark:text-gray-400"
+                  >El ingeniero puede empezar a calcular antes de que el modelo
+                  físico esté terminado.</span
+                >
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-bim-blue mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Sincronización:</strong
+                >
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Mejor integración con Robot Structural Analysis y software de
+                  terceros.</span
+                >
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-bim-blue mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <div>
+                <strong class="text-gray-900 dark:text-white">Control:</strong>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Menos errores de "nodos no conectados" al exportar.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Roadmap Visualization -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-6"
+          >
+            <i class="fa-solid fa-road text-cyan-400 mr-2"></i> Estado del
+            Roadmap
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-8">
+            Así se ve el avance de las funcionalidades clave según Autodesk:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Available -->
+            <div
+              class="roadmap-card bg-gray-800/50 p-6 rounded-xl border border-emerald-800/40 border-t-4 border-t-emerald-500"
+            >
+              <span
+                class="text-xs font-bold text-emerald-400 uppercase tracking-wider"
+                ><i class="fa-solid fa-circle-check mr-1"></i> Disponible</span
+              >
+              <h4 class="font-bold text-gray-900 dark:text-white mt-3 text-lg">
+                Nodos Analíticos
+              </h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 mb-0">
+                Mejoras en la edición directa de nodos estructurales y mayor
+                control del modelo analítico.
+              </p>
+            </div>
+            <!-- In Progress -->
+            <div
+              class="roadmap-card bg-gray-800/50 p-6 rounded-xl border border-blue-800/40 border-t-4 border-t-bim-blue"
+            >
+              <span
+                class="text-xs font-bold text-bim-blue uppercase tracking-wider"
+                ><i class="fa-solid fa-spinner mr-1"></i> En Progreso</span
+              >
+              <h4 class="font-bold text-gray-900 dark:text-white mt-3 text-lg">
+                Automation Connections
+              </h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 mb-0">
+                Algoritmos para detallado automático de conexiones de acero
+                estructural.
+              </p>
+            </div>
+            <!-- Coming Soon -->
+            <div
+              class="roadmap-card bg-gray-800/50 p-6 rounded-xl border border-purple-800/40 border-t-4 border-t-purple-500"
+            >
+              <span
+                class="text-xs font-bold text-purple-400 uppercase tracking-wider"
+                ><i class="fa-solid fa-clock mr-1"></i> Próximamente</span
+              >
+              <h4 class="font-bold text-gray-900 dark:text-white mt-3 text-lg">
+                Fabrication Sync
+              </h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 mb-0">
+                Integración bidireccional perfecta entre el modelo BIM y el
+                taller de fabricación.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conclusión -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-scale-balanced text-orange-400 mr-2"></i> ¿Qué
+            Significa Esto Para Nosotros?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Como alguien que utiliza el
+            <strong class="text-gray-900 dark:text-white"
+              >Tridente del Proyectista</strong
+            >
+            (Revit – Tekla – Advance Steel), mi conclusión es que Revit está
+            absorbiendo las funciones de Advance Steel. Para proyectos de
+            mediana complejidad, ya no será necesario salir del entorno Revit.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 mb-0">
+            Sin embargo, para proyectos industriales masivos,
+            <strong class="text-bim-blue">Tekla Structures</strong>
+            sigue manteniendo el trono debido a su gestión de bases de datos de
+            fabricación CNC y su ecosistema maduro de macros y componentes
+            personalizados.
+          </p>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 border-l-4 border-l-bim-blue"
+        >
+          <h3 class="text-xl font-extrabold text-gray-900 dark:text-white mb-4">
+            <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i>
+            Conclusiones Clave
+          </h3>
+          <ul class="space-y-3 mb-0">
+            <li class="flex items-start text-gray-600 dark:text-gray-400">
+              <span class="text-bim-blue mr-2 mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <span
+                ><strong class="text-gray-900 dark:text-white"
+                  >Revit está cerrando la brecha</strong
+                >
+                entre diseño conceptual y detallado de fabricación.
+                Fabrication-Ready es el objetivo.</span
+              >
+            </li>
+            <li class="flex items-start text-gray-600 dark:text-gray-400">
+              <span class="text-bim-blue mr-2 mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <span
+                ><strong class="text-gray-900 dark:text-white"
+                  >El modelo analítico autónomo</strong
+                >
+                es un game-changer para ingenieros calculistas que trabajan en
+                paralelo con el equipo de modelado.</span
+              >
+            </li>
+            <li class="flex items-start text-gray-600 dark:text-gray-400">
+              <span class="text-bim-blue mr-2 mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <span
+                ><strong class="text-gray-900 dark:text-white"
+                  >Advance Steel será absorbido</strong
+                >
+                progresivamente. Para proyectos medianos, Revit será
+                suficiente.</span
+              >
+            </li>
+            <li class="flex items-start text-gray-600 dark:text-gray-400">
+              <span class="text-bim-blue mr-2 mt-1"
+                ><i class="fa-solid fa-check-circle"></i
+              ></span>
+              <span
+                ><strong class="text-gray-900 dark:text-white"
+                  >Tekla mantiene el trono industrial</strong
+                >
+                para proyectos masivos con fabricación CNC y alta
+                complejidad.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Blog -->
+    <section
+      class="py-12 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+        <a
+          href="index.html"
+          class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
+        >
+          <i
+            class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"
+          ></i>
+          Volver al Blog
+        </a>
+        <a
+          href="../index.html#contact"
+          class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm"
+        >
+          <i class="fa-solid fa-envelope mr-1"></i> ¿Preguntas? Contáctame
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">
+          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
+        </p>
+        <p class="text-gray-600 text-xs mt-2">
+          Diseñado con pasión por la ingeniería y la tecnología.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
+      aria-label="Volver al inicio"
+    >
+      <i
+        class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
+      ></i>
+    </button>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+      // Scroll Progress Bar
+      window.addEventListener("scroll", () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progress").style.width = scrolled + "%";
+      });
+    </script>
+  </body>
+</html>
