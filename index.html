@@ -1,859 +1,1448 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="scroll-smooth dark">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Andrés Gallo P. | Modelador BIM Estructural</title>
-    <meta name="description"
-        content="Portafolio de Andrés Gallo P., Modelador BIM y Proyectista Estructural con más de 13 años de experiencia en proyectos de ingeniería, especialista en Revit, Tekla y Navisworks.">
-    <meta name="keywords"
-        content="Modelador BIM, Proyectista Estructural, Revit, Tekla, Navisworks, Ingeniería Estructural, Andrés Gallo, Portafolio, BIM, Chile">
+    <meta
+      name="description"
+      content="Portafolio de Andrés Gallo P., Modelador BIM y Proyectista Estructural con más de 13 años de experiencia en proyectos de ingeniería, especialista en Revit, Tekla y Navisworks."
+    />
+    <meta
+      name="keywords"
+      content="Modelador BIM, Proyectista Estructural, Revit, Tekla, Navisworks, Ingeniería Estructural, Andrés Gallo, Portafolio, BIM, Chile"
+    />
 
-    <meta property="og:title" content="Andrés Gallo P. | Modelador BIM Estructural">
-    <meta property="og:description"
-        content="Portafolio profesional de un especialista en Modelado BIM Estructural con amplia experiencia en proyectos internacionales.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://atelijudesign.com/">
-    <meta property="og:image"
-        content="https://media.licdn.com/dms/image/v2/D4E16AQG51b87vaP7Cg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1704140580018?e=1765411200&v=beta&t=V995JtL__kYixyvUUkQafuwzc3vOREvKVS__uocP0ak">
+    <meta
+      property="og:title"
+      content="Andrés Gallo P. | Modelador BIM Estructural"
+    />
+    <meta
+      property="og:description"
+      content="Portafolio profesional de un especialista en Modelado BIM Estructural con amplia experiencia en proyectos internacionales."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atelijudesign.com/" />
+    <meta
+      property="og:image"
+      content="https://media.licdn.com/dms/image/v2/D4E16AQG51b87vaP7Cg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1704140580018?e=1765411200&v=beta&t=V995JtL__kYixyvUUkQafuwzc3vOREvKVS__uocP0ak"
+    />
 
-    <link rel="icon" href="assets/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body
-    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300">
-
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
+  >
     <!-- Navigation -->
     <nav
-        class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div id="logo" class="flex-shrink-0 flex items-center cursor-pointer">
-                    <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-                    <span class="font-bold text-xl text-gray-900 dark:text-white">Andrés Gallo P<span
-                            class="text-bim-blue">.BIM</span></span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-                        <a href="#home"
-                            class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors">INICIO</a>
-                        <a href="#about"
-                            class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">SOBRE
-                            MÍ</a>
-                        <a href="#curriculum"
-                            class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">EXPERIENCIA</a>
-                        <a href="#portfolio"
-                            class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">PORTAFOLIO</a>
-                        <span
-                            class="text-gray-400 dark:text-gray-500 px-3 py-2 rounded-md text-base font-bold cursor-not-allowed">BLOG
-                            (PRÓXIMAMENTE)</span>
-                        <a href="#contact"
-                            class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">CONTACTO</a>
-                        <a href="automatizacion/bim-dev-roadmap.html"
-                            class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">AUTOMATIZACIÓN</a>
-                        <a href="automatizacion/profile-calculator.html"
-                            class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a>
-                    </div>
-                </div>
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-menu-button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-                        aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Abrir menú principal</span>
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div id="logo" class="flex-shrink-0 flex items-center cursor-pointer">
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="#home"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="#portfolio"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="blog/index.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="automatizacion/bim-dev-roadmap.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >AUTOMATIZACIÓN</a
+              >
+              <a
+                href="automatizacion/profile-calculator.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
             </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
         </div>
-        <div class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-            id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Inicio</a>
-                <a href="#about"
-                    class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Sobre
-                    Mí</a>
-                <a href="#curriculum"
-                    class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Experiencia</a>
-                <a href="#portfolio"
-                    class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Portafolio</a>
-                <span class="text-gray-400 dark:text-gray-500 block px-3 py-2 rounded-md text-base font-bold">Blog
-                    (Próximamente)</span>
-                <a href="#contact"
-                    class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Contacto</a>
-                <a href="automatizacion/bim-dev-roadmap.html"
-                    class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Automatización</a>
-                <a href="automatizacion/profile-calculator.html"
-                    class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a>
-            </div>
+      </div>
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#home"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="#portfolio"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="blog/index.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="automatizacion/bim-dev-roadmap.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Automatización</a
+          >
+          <a
+            href="automatizacion/profile-calculator.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
+          >
         </div>
+      </div>
     </nav>
 
-
-
     <!-- Hero Section -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="0.5" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
+    <section
+      id="home"
+      class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden"
+    >
+      <div
+        class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20"
+      >
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="#3b82f6"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <div
+          class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-sm font-semibold tracking-wide"
+        >
+          DISPONIBLE PARA PROYECTOS
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6"
+        >
+          Andrés Gallo P.
+        </h1>
+        <h2
+          class="text-2xl md:text-3xl font-semibold text-gray-600 dark:text-gray-400 mb-8"
+        >
+          Modelador BIM & Proyectista Estructural
+        </h2>
+        <p
+          class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-400 mb-10"
+        >
+          Más de 13 años construyendo sueños y optimizando la ingeniería
+          estructural mediante metodologías BIM avanzadas. Especialista en
+          Revit, Tekla y Navisworks.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="Andres_Gallo_CV.pdf"
+            download="Andres_Gallo_CV.pdf"
+            class="hero-button px-8 py-4 bg-bim-blue hover:bg-blue-600 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-file-arrow-down mr-2"></i> Descargar CV
+          </a>
+          <a
+            href="Andres_Gallo_Portfolio.pdf"
+            class="hero-button px-8 py-4 bg-bim-blue hover:bg-blue-600 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-folder-open mr-2"></i> Descargar Portafolio
+          </a>
+        </div>
+        <div
+          id="stats-container"
+          class="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-gray-800 pt-8"
+        >
+          <div>
             <div
-                class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-sm font-semibold tracking-wide">
-                DISPONIBLE PARA PROYECTOS
+              class="stat-number text-3xl font-bold text-gray-900 dark:text-white"
+              data-target="14"
+            >
+              +0
             </div>
-            <h1
-                class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6">
-                Andrés Gallo P.
-            </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 dark:text-gray-400 mb-8">
-                Modelador BIM & Proyectista Estructural
-            </h2>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-400 mb-10">
-                Más de 13 años construyendo sueños y optimizando la ingeniería estructural mediante metodologías BIM
-                avanzadas. Especialista en Revit, Tekla y Navisworks.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="Andres_Gallo_CV.pdf" download="Andres_Gallo_CV.pdf"
-                    class="hero-button px-8 py-4 bg-bim-blue hover:bg-blue-600 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center">
-                    <i class="fa-solid fa-file-arrow-down mr-2"></i> Descargar CV
-                </a>
-                <a href="Andres_Gallo_Portfolio.pdf"
-                    class="hero-button px-8 py-4 bg-bim-blue hover:bg-blue-600 text-white rounded-lg font-bold text-lg transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center">
-                    <i class="fa-solid fa-folder-open mr-2"></i> Descargar Portafolio
-                </a>
+            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
+              Años de Experiencia
             </div>
-            <div id="stats-container" class="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-gray-800 pt-8">
-                <div>
-                    <div class="stat-number text-3xl font-bold text-gray-900 dark:text-white" data-target="14">+0</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">Años de Experiencia</div>
-                </div>
-                <div>
-                    <div class="stat-number text-3xl font-bold text-gray-900 dark:text-white" data-target="320">+0k
-                    </div>
-                    <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">m² Modelados
-                        (Aeropuertos,Hospitales,Centros Comerciales, etc)</div>
-                </div>
-                <div>
-                    <div class="stat-number text-3xl font-bold text-gray-900 dark:text-white" data-target="100">0%</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">Compromiso BIM</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold text-gray-900 dark:text-white">INT</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">Proyectos Internacionales</div>
-                </div>
+          </div>
+          <div>
+            <div
+              class="stat-number text-3xl font-bold text-gray-900 dark:text-white"
+              data-target="320"
+            >
+              +0k
             </div>
+            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
+              m² Modelados (Aeropuertos,Hospitales,Centros Comerciales, etc)
+            </div>
+          </div>
+          <div>
+            <div
+              class="stat-number text-3xl font-bold text-gray-900 dark:text-white"
+              data-target="100"
+            >
+              0%
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
+              Compromiso BIM
+            </div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-gray-900 dark:text-white">
+              INT
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
+              Proyectos Internacionales
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
-                <div class="mb-10 lg:mb-0">
-                    <h3 class="text-bim-blue font-bold uppercase tracking-wide mb-2">Sobre Mí</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Proyectista
-                        Estructural | Experto en modelado BIM y despiece de acero y hormigón.</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                        Con más de 14 años de experiencia como modelador BIM especializado en ingeniería estructural, he
-                        proporcionado constantemente mis habilidades a grandes organizaciones como Black & Veatch,
-                        Arcadis, AFRY entre otras.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                        Mi trayectoria profesional abarca una amplia gama de proyectos, desde innovadores proyectos
-                        mineros hasta complejas iniciativas en hospitales, aeropuertos, pulpa y papel e infraestructura
-                        civil.
-                    </p>
-                    <p class="text-gray-300 font-medium mb-4">
-                        He contribuido significativamente a proyectos emblemáticos tanto nacionales como
-                        internacionales, entre los que destacan:
-                    </p>
-                    <div class="space-y-4 mb-8">
-                        <div
-                            class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up">
-                            <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-                            <div class="p-4">
-                                <p class="text-gray-300 text-sm leading-relaxed">
-                                    <span
-                                        class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors">
-                                        <img src="https://flagcdn.com/24x18/mx.png" alt="Bandera de México"
-                                            class="mr-2 h-3 w-auto shadow-sm" loading="lazy">
-                                        Máquina Papelera MP05 (ABSORMEX, México)
-                                    </span>
-                                    Ingeniería de detalles para 8000 m²
-                                </p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up">
-                            <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-                            <div class="p-4">
-                                <p class="text-gray-300 text-sm leading-relaxed">
-                                    <span
-                                        class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors">
-                                        <img src="https://flagcdn.com/24x18/cl.png" alt="Bandera de Chile"
-                                            class="mr-2 h-3 w-auto shadow-sm" loading="lazy">
-                                        Ampliación del Aeropuerto Internacional Arturo Merino Benítez (Chile)
-                                    </span>
-                                    Proyecto de 320,000 m²
-                                </p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up">
-                            <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-                            <div class="p-4">
-                                <p class="text-gray-300 text-sm leading-relaxed">
-                                    <span
-                                        class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors">
-                                        <img src="https://flagcdn.com/24x18/cl.png" alt="Bandera de Chile"
-                                            class="mr-2 h-3 w-auto shadow-sm" loading="lazy">
-                                        Nuevo Complejo Fronterizo Los Libertadores (Chile)
-                                    </span>
-                                    Proyecto de 35,000 m²
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+    <section
+      id="about"
+      class="py-20 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
+          <div class="mb-10 lg:mb-0">
+            <h3 class="text-bim-blue font-bold uppercase tracking-wide mb-2">
+              Sobre Mí
+            </h3>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6"
+            >
+              Proyectista Estructural | Experto en modelado BIM y despiece de
+              acero y hormigón.
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              Con más de 14 años de experiencia como modelador BIM
+              especializado en ingeniería estructural, he proporcionado
+              constantemente mis habilidades a grandes organizaciones como Black
+              & Veatch, Arcadis, AFRY entre otras.
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              Mi trayectoria profesional abarca una amplia gama de proyectos,
+              desde innovadores proyectos mineros hasta complejas iniciativas en
+              hospitales, aeropuertos, pulpa y papel e infraestructura civil.
+            </p>
+            <p class="text-gray-300 font-medium mb-4">
+              He contribuido significativamente a proyectos emblemáticos tanto
+              nacionales como internacionales, entre los que destacan:
+            </p>
+            <div class="space-y-4 mb-8">
+              <div
+                class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
+              >
+                <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
+                <div class="p-4">
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    <span
+                      class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
+                    >
+                      <img
+                        src="https://flagcdn.com/24x18/mx.png"
+                        alt="Bandera de México"
+                        class="mr-2 h-3 w-auto shadow-sm"
+                        loading="lazy"
+                      />
+                      Máquina Papelera MP05 (ABSORMEX, México)
+                    </span>
+                    Ingeniería de detalles para 8000 m²
+                  </p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-l-4 border-bim-blue pl-4">
-                        Habilidades Clave</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-bim-blue mb-3"><i class="fa-solid fa-users-gear"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-sm">Trabajo Colaborativo</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">ACC / BIM 360</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-bim-blue mb-3"><i class="fa-solid fa-ruler-combined"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-sm">Ingeniería de Detalle</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">Estructural</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-bim-blue mb-3"><i class="fa-solid fa-diagram-project"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white text-sm">Modelado Conexiones</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">Acero / Hormigón</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-blue-500 mb-3"><i class="fa-solid fa-cube"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">Revit</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500">Expert</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-blue-400 mb-3"><i class="fa-solid fa-building"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">Tekla</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500">Structures</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-green-500 mb-3"><i class="fa-solid fa-eye"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">Navisworks</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500">Coordination</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-red-500 mb-3"><i class="fa-solid fa-drafting-compass"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">AutoCAD</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500">2D Drafting</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-yellow-500 mb-3"><i class="fa-brands fa-python"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">Python</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500">Automation</p>
-                        </div>
-                        <div
-                            class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up">
-                            <div class="text-4xl text-orange-500 mb-3"><i class="fa-brands fa-html5"></i></div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">Web Dev</h4>
-                            <p class="text-xs text-gray-600 dark:text-gray-500">HTML/CSS/Git</p>
-                        </div>
-                    </div>
+              </div>
+              <div
+                class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
+              >
+                <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
+                <div class="p-4">
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    <span
+                      class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
+                    >
+                      <img
+                        src="https://flagcdn.com/24x18/cl.png"
+                        alt="Bandera de Chile"
+                        class="mr-2 h-3 w-auto shadow-sm"
+                        loading="lazy"
+                      />
+                      Ampliación del Aeropuerto Internacional Arturo Merino
+                      Benítez (Chile)
+                    </span>
+                    Proyecto de 320,000 m²
+                  </p>
                 </div>
+              </div>
+              <div
+                class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
+              >
+                <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
+                <div class="p-4">
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    <span
+                      class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
+                    >
+                      <img
+                        src="https://flagcdn.com/24x18/cl.png"
+                        alt="Bandera de Chile"
+                        class="mr-2 h-3 w-auto shadow-sm"
+                        loading="lazy"
+                      />
+                      Nuevo Complejo Fronterizo Los Libertadores (Chile)
+                    </span>
+                    Proyecto de 35,000 m²
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+          <div>
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-l-4 border-bim-blue pl-4"
+            >
+              Habilidades Clave
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-bim-blue mb-3">
+                  <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white text-sm">
+                  Trabajo Colaborativo
+                </h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">
+                  ACC / BIM 360
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-bim-blue mb-3">
+                  <i class="fa-solid fa-ruler-combined"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white text-sm">
+                  Ingeniería de Detalle
+                </h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">
+                  Estructural
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-bim-blue mb-3">
+                  <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white text-sm">
+                  Modelado Conexiones
+                </h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">
+                  Acero / Hormigón
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-blue-500 mb-3">
+                  <i class="fa-solid fa-cube"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white">Revit</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500">Expert</p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-blue-400 mb-3">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white">Tekla</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500">
+                  Structures
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-green-500 mb-3">
+                  <i class="fa-solid fa-eye"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white">
+                  Navisworks
+                </h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500">
+                  Coordination
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-red-500 mb-3">
+                  <i class="fa-solid fa-drafting-compass"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white">AutoCAD</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500">
+                  2D Drafting
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-yellow-500 mb-3">
+                  <i class="fa-brands fa-python"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white">Python</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500">
+                  Automation
+                </p>
+              </div>
+              <div
+                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
+              >
+                <div class="text-4xl text-orange-500 mb-3">
+                  <i class="fa-brands fa-html5"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 dark:text-white">Web Dev</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-500">
+                  HTML/CSS/Git
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Servicios Especializados</h2>
-                <div class="h-1.5 w-24 bg-bim-blue mx-auto mt-4 rounded-full"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up">
-                    <i class="fa-solid fa-city text-3xl text-bim-blue mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Modelado Arquitectónico</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Modelos 3D detallados incluyendo elementos como
-                        muros, ventanas y puertas.</p>
-                </div>
-                <div class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up">
-                    <i class="fa-solid fa-network-wired text-3xl text-bim-blue mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Modelado Estructural</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Desarrollo de columnas, vigas, losas y
-                        conexiones complejas en acero y hormigón.</p>
-                </div>
-                <div class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up">
-                    <i class="fa-solid fa-cubes-stacked text-3xl text-bim-blue mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Desarrollo de Familias</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Creación de contenido BIM personalizado adaptado
-                        a las necesidades del proyecto.</p>
-                </div>
-                <div class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up">
-                    <i class="fa-solid fa-file-contract text-3xl text-bim-blue mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Documentación</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Generación de planos 2D y 3D precisos derivados
-                        directamente del modelo BIM.</p>
-                </div>
-            </div>
+    <section
+      id="services"
+      class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+          >
+            Servicios Especializados
+          </h2>
+          <div class="h-1.5 w-24 bg-bim-blue mx-auto mt-4 rounded-full"></div>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
+          >
+            <i class="fa-solid fa-city text-3xl text-bim-blue mb-4"></i>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Modelado Arquitectónico
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              Modelos 3D detallados incluyendo elementos como muros, ventanas y
+              puertas.
+            </p>
+          </div>
+          <div
+            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
+          >
+            <i
+              class="fa-solid fa-network-wired text-3xl text-bim-blue mb-4"
+            ></i>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Modelado Estructural
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              Desarrollo de columnas, vigas, losas y conexiones complejas en
+              acero y hormigón.
+            </p>
+          </div>
+          <div
+            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
+          >
+            <i
+              class="fa-solid fa-cubes-stacked text-3xl text-bim-blue mb-4"
+            ></i>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Desarrollo de Familias
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              Creación de contenido BIM personalizado adaptado a las
+              necesidades del proyecto.
+            </p>
+          </div>
+          <div
+            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
+          >
+            <i
+              class="fa-solid fa-file-contract text-3xl text-bim-blue mb-4"
+            ></i>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Documentación
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              Generación de planos 2D y 3D precisos derivados directamente del
+              modelo BIM.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Curriculum Section -->
-    <section id="curriculum" class="py-24 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Experiencia y Formación
-                </h2>
-                <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
-                <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-lg">Mi trayectoria profesional y académica.</p>
-            </div>
-            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
-                <div class="mb-12 lg:mb-0">
-                    <div class="flex items-center mb-6">
-                        <i class="fa-solid fa-briefcase text-bim-blue text-xl mr-3"></i>
-                        <h3 class="text-xl font-bold text-white">Experiencia Profesional</h3>
-                    </div>
-                    <div class="space-y-4" id="experience-accordion">
-                        <div class="accordion-item active glass-card rounded-lg fade-in-up">
-                            <button class="w-full text-left p-5 cursor-pointer">
-                                <div class="flex justify-between items-center">
-                                    <div>
-                                        <h4 class="job-title text-lg font-bold text-bim-blue transition-colors">
-                                            Proyectista Estructural</h4>
-                                        <p class="text-bim-blue text-sm font-medium mt-1">GHD</p>
-                                    </div>
-                                    <div class="text-right"><span class="text-gray-400 text-xs block">Dic 2024 -
-                                            Presente</span><i
-                                            class="fa-solid fa-chevron-down arrow-icon text-bim-blue mt-2 transition-transform duration-300 transform rotate-180"></i>
-                                    </div>
-                                </div>
-                            </button>
-                            <div class="accordion-content" style="max-height: 500px;">
-                                <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                                    <p class="text-gray-300 text-sm font-semibold mb-2">Proyecto Remoción de Tranque
-                                        Pérez Caldera:</p>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start text-sm text-gray-400"><i
-                                                class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"></i>Modelado BIM
-                                            de las especialidades de estructuras.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item glass-card rounded-lg fade-in-up">
-                            <button class="w-full text-left p-5 cursor-pointer">
-                                <div class="flex justify-between items-center">
-                                    <div>
-                                        <h4 class="job-title text-lg font-bold text-white transition-colors">Proyectista
-                                            Estructural</h4>
-                                        <p class="text-gray-500 text-sm font-medium mt-1">ARCADIS</p>
-                                    </div>
-                                    <div class="text-right"><span class="text-gray-400 text-xs block">Jun 2024 - Nov
-                                            2024</span><i
-                                            class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"></i>
-                                    </div>
-                                </div>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                                    <p class="text-gray-300 text-sm font-semibold mb-2">Proyecto Arqueros:</p>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start text-sm text-gray-400"><i
-                                                class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"></i>Modelado de
-                                            estructura del chancador primario.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item glass-card rounded-lg fade-in-up">
-                            <button class="w-full text-left p-5 cursor-pointer">
-                                <div class="flex justify-between items-center">
-                                    <div>
-                                        <h4 class="job-title text-lg font-bold text-white transition-colors">Modelador
-                                            BIM Senior</h4>
-                                        <p class="text-gray-500 text-sm font-medium mt-1">AFRY Chile</p>
-                                    </div>
-                                    <div class="text-right"><span class="text-gray-400 text-xs block">Dic 2022 - May
-                                            2024</span><i
-                                            class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"></i>
-                                    </div>
-                                </div>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                                    <p class="text-gray-300 text-sm font-semibold mb-2">Proyectos MP5 (Softys) y CMPC
-                                        Laja:</p>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start text-sm text-gray-400"><i
-                                                class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"></i>Modelado BIM
-                                            de especialidades de estructura y arquitectura.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="mb-10">
-                        <div class="flex items-center mb-6">
-                            <i class="fa-solid fa-graduation-cap text-bim-blue text-xl mr-3"></i>
-                            <h3 class="text-xl font-bold text-white">Formación Académica</h3>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <h4 class="text-lg font-bold text-gray-900 dark:text-white">Dibujante Técnico
-                                        </h4>
-                                        <p class="text-bim-blue text-sm mt-1">Liceo Politécnico Galvarino N°2</p>
-                                    </div><span class="text-gray-600 dark:text-gray-400 text-sm">2003 - 2005</span>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <h4 class="text-lg font-bold text-gray-900 dark:text-white">Práctica Profesional
-                                        </h4>
-                                        <p class="text-bim-blue text-sm mt-1">Ilustre Municipalidad de Lampa</p>
-                                    </div><span class="text-gray-600 dark:text-gray-400 text-sm">2006</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center mb-6">
-                            <i class="fa-solid fa-certificate text-bim-blue text-xl mr-3"></i>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Certificaciones</h3>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <h4 class="text-gray-900 dark:text-white font-bold">Modelado BIM con Revit
-                                            Structures</h4>
-                                        <p class="text-bim-blue text-xs mt-1">Certificación Profesional</p>
-                                    </div><span class="text-gray-600 dark:text-gray-400 text-sm">2024</span>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <h4 class="text-gray-900 dark:text-white font-bold">Experto en Revit
-                                            (Colaboración)</h4>
-                                        <p class="text-bim-blue text-xs mt-1">Autodesk / Training Center</p>
-                                    </div><span class="text-gray-600 dark:text-gray-400 text-sm">2023</span>
-                                </div>
-                            </div>
-                            <div class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up">
-                                <div class="flex justify-between">
-                                    <div>
-                                        <h4 class="text-gray-900 dark:text-white font-bold">Tekla Structures &
-                                            Navisworks</h4>
-                                        <p class="text-bim-blue text-xs mt-1">Especialización Técnica</p>
-                                    </div><span class="text-gray-600 dark:text-gray-400 text-sm">2022</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section
+      id="curriculum"
+      class="py-24 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Experiencia y Formación
+          </h2>
+          <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
+          <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-lg">
+            Mi trayectoria profesional y académica.
+          </p>
         </div>
+        <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+          <div class="mb-12 lg:mb-0">
+            <div class="flex items-center mb-6">
+              <i class="fa-solid fa-briefcase text-bim-blue text-xl mr-3"></i>
+              <h3 class="text-xl font-bold text-white">
+                Experiencia Profesional
+              </h3>
+            </div>
+            <div class="space-y-4" id="experience-accordion">
+              <div
+                class="accordion-item active glass-card rounded-lg fade-in-up"
+              >
+                <button class="w-full text-left p-5 cursor-pointer">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h4
+                        class="job-title text-lg font-bold text-bim-blue transition-colors"
+                      >
+                        Proyectista/Modelador BIM
+                      </h4>
+                      <p class="text-bim-blue text-sm font-medium mt-1">
+                        BIOSMI
+                      </p>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-gray-400 text-xs block"
+                        >Ene 2026 - Presente</span
+                      ><i
+                        class="fa-solid fa-chevron-down arrow-icon text-bim-blue mt-2 transition-transform duration-300 transform rotate-180"
+                      ></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="accordion-content" style="max-height: 500px">
+                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
+                    <p class="text-gray-300 text-sm font-semibold mb-2">
+                      Proyecto Remoción de Tranque Pérez Caldera:
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start text-sm text-gray-400">
+                        <i
+                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
+                        ></i
+                        >Modelado BIM de las especialidades de estructuras.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="accordion-item active glass-card rounded-lg fade-in-up"
+              >
+                <button class="w-full text-left p-5 cursor-pointer">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h4
+                        class="job-title text-lg font-bold text-white transition-colors"
+                      >
+                        Proyectista Estructural
+                      </h4>
+                      <p class="text-gray-500 text-sm font-medium mt-1">GHD</p>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-gray-400 text-xs block"
+                        >Dic 2024 - May 2025</span
+                      ><i
+                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300 transform rotate-180"
+                      ></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="accordion-content" style="max-height: 500px">
+                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
+                    <p class="text-gray-300 text-sm font-semibold mb-2">
+                      Proyecto Remoción de Tranque Pérez Caldera:
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start text-sm text-gray-400">
+                        <i
+                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
+                        ></i
+                        >Modelado BIM de las especialidades de estructuras.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item glass-card rounded-lg fade-in-up">
+                <button class="w-full text-left p-5 cursor-pointer">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h4
+                        class="job-title text-lg font-bold text-white transition-colors"
+                      >
+                        Proyectista Estructural
+                      </h4>
+                      <p class="text-gray-500 text-sm font-medium mt-1">
+                        ARCADIS
+                      </p>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-gray-400 text-xs block"
+                        >Jun 2024 - Nov 2024</span
+                      ><i
+                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
+                      ></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="accordion-content">
+                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
+                    <p class="text-gray-300 text-sm font-semibold mb-2">
+                      Proyecto Arqueros:
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start text-sm text-gray-400">
+                        <i
+                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
+                        ></i
+                        >Modelado de estructura del chancador primario.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item glass-card rounded-lg fade-in-up">
+                <button class="w-full text-left p-5 cursor-pointer">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h4
+                        class="job-title text-lg font-bold text-white transition-colors"
+                      >
+                        Modelador BIM Senior
+                      </h4>
+                      <p class="text-gray-500 text-sm font-medium mt-1">
+                        AFRY Chile
+                      </p>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-gray-400 text-xs block"
+                        >Dic 2022 - May 2024</span
+                      ><i
+                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
+                      ></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="accordion-content">
+                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
+                    <p class="text-gray-300 text-sm font-semibold mb-2">
+                      Proyectos MP5 (Softys) y CMPC Laja:
+                    </p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start text-sm text-gray-400">
+                        <i
+                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
+                        ></i
+                        >Modelado BIM de especialidades de estructura y
+                        arquitectura.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="mb-10">
+              <div class="flex items-center mb-6">
+                <i
+                  class="fa-solid fa-graduation-cap text-bim-blue text-xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-white">
+                  Formación Académica
+                </h3>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
+                >
+                  <div class="flex justify-between">
+                    <div>
+                      <h4
+                        class="text-lg font-bold text-gray-900 dark:text-white"
+                      >
+                        Dibujante Técnico
+                      </h4>
+                      <p class="text-bim-blue text-sm mt-1">
+                        Liceo Politécnico Galvarino N°2
+                      </p>
+                    </div>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm"
+                      >2003 - 2005</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
+                >
+                  <div class="flex justify-between">
+                    <div>
+                      <h4
+                        class="text-lg font-bold text-gray-900 dark:text-white"
+                      >
+                        Práctica Profesional
+                      </h4>
+                      <p class="text-bim-blue text-sm mt-1">
+                        Ilustre Municipalidad de Lampa
+                      </p>
+                    </div>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm"
+                      >2006</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center mb-6">
+                <i
+                  class="fa-solid fa-certificate text-bim-blue text-xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                  Certificaciones
+                </h3>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
+                >
+                  <div class="flex justify-between">
+                    <div>
+                      <h4 class="text-gray-900 dark:text-white font-bold">
+                        Modelado BIM con Revit Structures
+                      </h4>
+                      <p class="text-bim-blue text-xs mt-1">
+                        Certificación Profesional
+                      </p>
+                    </div>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm"
+                      >2024</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
+                >
+                  <div class="flex justify-between">
+                    <div>
+                      <h4 class="text-gray-900 dark:text-white font-bold">
+                        Experto en Revit (Colaboración)
+                      </h4>
+                      <p class="text-bim-blue text-xs mt-1">
+                        Autodesk / Training Center
+                      </p>
+                    </div>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm"
+                      >2023</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
+                >
+                  <div class="flex justify-between">
+                    <div>
+                      <h4 class="text-gray-900 dark:text-white font-bold">
+                        Tekla Structures & Navisworks
+                      </h4>
+                      <p class="text-bim-blue text-xs mt-1">
+                        Especialización Técnica
+                      </p>
+                    </div>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm"
+                      >2022</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Proyectos Destacados</h2>
-                <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
-                <p class="text-gray-400 mt-4">Una selección de mis trabajos más recientes.</p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-bim-blue text-white border border-bim-blue"
-                    data-filter="all">Todos</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-                    data-filter="revit">Revit</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-                    data-filter="tekla">Tekla</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-                    data-filter="navisworks">Navisworks</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-                    data-filter="civil-3d">Civil 3D</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-                    data-filter="autocad">AutoCAD</button>
-                <button
-                    class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-                    data-filter="acc">ACC</button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Aeropuerto AMB -->
-                <!-- Aeropuerto AMB -->
-                <div class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up"
-                    data-software="revit">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="assets/img/amb_00.PNG" alt="Aeropuerto AMB"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700">
-                            Infraestructura</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight">
-                                Aeropuerto AMB</h3>
-                            <span
-                                class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1">2018</span>
-                        </div>
-
-                        <p class="text-gray-400 text-sm mb-4">Ampliación del Aeropuerto Internacional Arturo Merino
-                            Benítez.</p>
-
-                        <div class="mb-4">
-                            <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">Tecnologías:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Revit</span>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Modelado complejo de Terminal 2, Espigones y estacionamientos cubriendo 320,000 m².
-                            Coordinación interdisciplinaria y gestión de modelos BIM.
-                        </p>
-
-                        <a href="project/aeropuerto-amb.html"
-                            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors">
-                            Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Máquina Papelera MP05 -->
-                <div class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-                    data-software="revit">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="assets/img/mp5_01.png" alt="Máquina Papelera MP05"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700">
-                            Industrial</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight">Máquina
-                                Papelera MP05</h3>
-                            <span
-                                class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1">2023</span>
-                        </div>
-
-                        <p class="text-gray-400 text-sm mb-4">Ingeniería de detalles para ABSORMEX en México.</p>
-
-                        <div class="mb-4">
-                            <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">Tecnologías:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Revit</span>
-                                <span class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">BIM
-                                    360</span>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Estructuras masivas para áreas de conversión, materia prima y zonas de descarga (8000 m²).
-                        </p>
-
-                        <a href="project/maquina-papelera.html"
-                            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors">
-                            Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hospital Marga Marga -->
-                <div class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-                    data-software="revit navisworks">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="assets/img/hmm_00.png" alt="Hospital Marga Marga"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700">
-                            Salud</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight">Hospital
-                                Marga Marga</h3>
-                            <span
-                                class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1">2019</span>
-                        </div>
-
-                        <p class="text-gray-400 text-sm mb-4">Complejo hospitalario de 75,000 m² en Villa Alemana.</p>
-
-                        <div class="mb-4">
-                            <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">Tecnologías:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Revit</span>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Modelado BIM completo de hormigón y coordinación interdisciplinaria avanzada para recinto de
-                            alta complejidad.
-                        </p>
-
-                        <a href="project/hospital-marga-marga.html"
-                            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors">
-                            Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Paso Los Libertadores -->
-                <div class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-                    data-software="tekla">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="assets/img/pfll_00.JPG" alt="Paso Los Libertadores"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700">
-                            Civil</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight">Paso
-                                fronterizo Los Libertadores</h3>
-                            <span
-                                class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1">2015</span>
-                        </div>
-
-                        <p class="text-gray-400 text-sm mb-4">Nuevo complejo fronterizo de alta montaña.</p>
-
-                        <div class="mb-4">
-                            <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">Tecnologías:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Tekla</span>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Modelado de las estructuras principales del nuevo complejo, ubicado a más de 3,200 metros de
-                            altura.
-                        </p>
-
-                        <a href="project/paso-los-libertadores.html"
-                            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors">
-                            Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyecto Arqueros -->
-                <div class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-                    data-software="revit navisworks">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="assets/img/arq_00.png" alt="Proyecto Arqueros"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700">
-                            Minería</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight">Proyecto
-                                Arqueros</h3>
-                            <span
-                                class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1">2024</span>
-                        </div>
-
-                        <p class="text-gray-400 text-sm mb-4">Desarrollo minero para producción de concentrados.</p>
-
-                        <div class="mb-4">
-                            <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">Tecnologías:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Revit</span>
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Navisworks</span>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Modelado estructural del chancador primario y estructuras anexas críticas.
-                        </p>
-
-                        <a href="project/proyecto-arqueros.html"
-                            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors">
-                            Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Desaladora Sto. Domingo -->
-                <div class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-                    data-software="revit acc">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="assets/img/desal_00.png" alt="Desaladora Sto. Domingo"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700">
-                            Hidráulica</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight">
-                                Desaladora Sto. Domingo</h3>
-                            <span
-                                class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1">2025</span>
-                        </div>
-
-                        <p class="text-gray-400 text-sm mb-4">Proyecto estratégico en Atacama.</p>
-
-                        <div class="mb-4">
-                            <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">Tecnologías:</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">Revit</span>
-                                <span
-                                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium">ACC</span>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Modelado de sentina de captación, sala eléctrica y planta de ósmosis inversa.
-                        </p>
-
-                        <a href="project/desaladora-sto-domingo.html"
-                            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors">
-                            Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <section
+      id="portfolio"
+      class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Proyectos Destacados
+          </h2>
+          <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
+          <p class="text-gray-400 mt-4">
+            Una selección de mis trabajos más recientes.
+          </p>
         </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-bim-blue text-white border border-bim-blue"
+            data-filter="all"
+          >
+            Todos
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
+            data-filter="revit"
+          >
+            Revit
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
+            data-filter="tekla"
+          >
+            Tekla
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
+            data-filter="navisworks"
+          >
+            Navisworks
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
+            data-filter="civil-3d"
+          >
+            Civil 3D
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
+            data-filter="autocad"
+          >
+            AutoCAD
+          </button>
+          <button
+            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
+            data-filter="acc"
+          >
+            ACC
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Aeropuerto AMB -->
+          <!-- Aeropuerto AMB -->
+          <div
+            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up"
+            data-software="revit"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="assets/img/amb_00.PNG"
+                alt="Aeropuerto AMB"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+              >
+                Infraestructura
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
+                >
+                  Aeropuerto AMB
+                </h3>
+                <span
+                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
+                  >2018</span
+                >
+              </div>
+
+              <p class="text-gray-400 text-sm mb-4">
+                Ampliación del Aeropuerto Internacional Arturo Merino Benítez.
+              </p>
+
+              <div class="mb-4">
+                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
+                  Tecnologías:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Revit</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
+              >
+                Modelado complejo de Terminal 2, Espigones y estacionamientos
+                cubriendo 320,000 m². Coordinación interdisciplinaria y
+                gestión de modelos BIM.
+              </p>
+
+              <a
+                href="project/aeropuerto-amb.html"
+                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              >
+                Ver detalles
+                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Máquina Papelera MP05 -->
+          <div
+            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
+            data-software="revit"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="assets/img/mp5_01.png"
+                alt="Máquina Papelera MP05"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+              >
+                Industrial
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
+                >
+                  Máquina Papelera MP05
+                </h3>
+                <span
+                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
+                  >2023</span
+                >
+              </div>
+
+              <p class="text-gray-400 text-sm mb-4">
+                Ingeniería de detalles para ABSORMEX en México.
+              </p>
+
+              <div class="mb-4">
+                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
+                  Tecnologías:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Revit</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >BIM 360</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
+              >
+                Estructuras masivas para áreas de conversión, materia prima y
+                zonas de descarga (8000 m²).
+              </p>
+
+              <a
+                href="project/maquina-papelera.html"
+                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              >
+                Ver detalles
+                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hospital Marga Marga -->
+          <div
+            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
+            data-software="revit navisworks"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="assets/img/hmm_00.png"
+                alt="Hospital Marga Marga"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+              >
+                Salud
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
+                >
+                  Hospital Marga Marga
+                </h3>
+                <span
+                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
+                  >2019</span
+                >
+              </div>
+
+              <p class="text-gray-400 text-sm mb-4">
+                Complejo hospitalario de 75,000 m² en Villa Alemana.
+              </p>
+
+              <div class="mb-4">
+                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
+                  Tecnologías:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Revit</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
+              >
+                Modelado BIM completo de hormigón y coordinación
+                interdisciplinaria avanzada para recinto de alta complejidad.
+              </p>
+
+              <a
+                href="project/hospital-marga-marga.html"
+                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              >
+                Ver detalles
+                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Paso Los Libertadores -->
+          <div
+            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
+            data-software="tekla"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="assets/img/pfll_00.JPG"
+                alt="Paso Los Libertadores"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+              >
+                Civil
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
+                >
+                  Paso fronterizo Los Libertadores
+                </h3>
+                <span
+                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
+                  >2015</span
+                >
+              </div>
+
+              <p class="text-gray-400 text-sm mb-4">
+                Nuevo complejo fronterizo de alta montaña.
+              </p>
+
+              <div class="mb-4">
+                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
+                  Tecnologías:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Tekla</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
+              >
+                Modelado de las estructuras principales del nuevo complejo,
+                ubicado a más de 3,200 metros de altura.
+              </p>
+
+              <a
+                href="project/paso-los-libertadores.html"
+                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              >
+                Ver detalles
+                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Proyecto Arqueros -->
+          <div
+            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
+            data-software="revit navisworks"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="assets/img/arq_00.png"
+                alt="Proyecto Arqueros"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+              >
+                Minería
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
+                >
+                  Proyecto Arqueros
+                </h3>
+                <span
+                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
+                  >2024</span
+                >
+              </div>
+
+              <p class="text-gray-400 text-sm mb-4">
+                Desarrollo minero para producción de concentrados.
+              </p>
+
+              <div class="mb-4">
+                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
+                  Tecnologías:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Revit</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Navisworks</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
+              >
+                Modelado estructural del chancador primario y estructuras anexas
+                críticas.
+              </p>
+
+              <a
+                href="project/proyecto-arqueros.html"
+                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              >
+                Ver detalles
+                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Desaladora Sto. Domingo -->
+          <div
+            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
+            data-software="revit acc"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="assets/img/desal_00.png"
+                alt="Desaladora Sto. Domingo"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+              >
+                Hidráulica
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
+                >
+                  Desaladora Sto. Domingo
+                </h3>
+                <span
+                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
+                  >2025</span
+                >
+              </div>
+
+              <p class="text-gray-400 text-sm mb-4">
+                Proyecto estratégico en Atacama.
+              </p>
+
+              <div class="mb-4">
+                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
+                  Tecnologías:
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >Revit</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
+                    >ACC</span
+                  >
+                </div>
+              </div>
+
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
+              >
+                Modelado de sentina de captación, sala eléctrica y planta de
+                ósmosis inversa.
+              </p>
+
+              <a
+                href="project/desaladora-sto-domingo.html"
+                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              >
+                Ver detalles
+                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
     <!-- Contact Section -->
-    <section id="contact"
-        class="py-20 bg-gradient-to-b from-white to-gray-100 dark:from-bim-dark dark:to-black transition-colors duration-300">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">Hablemos de tu próximo
-                proyecto</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-12">
-                ¿Buscas optimizar tus procesos de diseño estructural o necesitas un experto en BIM? Estoy disponible
-                para nuevas oportunidades.
-            </p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                <a href="https://www.linkedin.com/in/andresgallop/" target="_blank" rel="noopener noreferrer"
-                    class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group">
-                    <i
-                        class="fa-brands fa-linkedin-in text-3xl text-bim-blue group-hover:scale-110 transition-transform"></i>
-                </a>
-                <a href="mailto:andresgallo@pm.me"
-                    class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group">
-                    <i
-                        class="fa-regular fa-envelope text-3xl text-bim-blue group-hover:scale-110 transition-transform"></i>
-                </a>
-                <a href="tel:+56940600861"
-                    class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group">
-                    <i class="fa-solid fa-phone text-3xl text-bim-blue group-hover:scale-110 transition-transform"></i>
-                </a>
-                <a href="https://github.com/Atelijudesign" target="_blank" rel="noopener noreferrer"
-                    class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group">
-                    <i
-                        class="fa-brands fa-github text-3xl text-bim-blue group-hover:scale-110 transition-transform"></i>
-                </a>
-            </div>
-            <div class="mt-12">
-                <p class="text-gray-600 dark:text-gray-400 mb-4">También puedes visitar mi portafolio externo:</p>
-                <a href="https://www.canva.com/design/DAF48WRhjNI/rPsDP_yJ4e1jWNUWTBATUw/view" target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-bim-blue font-bold text-xl hover:text-blue-400 transition-colors underline decoration-2 underline-offset-4">
-                    Ver Portafolio digital
-                </a>
-            </div>
+    <section
+      id="contact"
+      class="py-20 bg-gradient-to-b from-white to-gray-100 dark:from-bim-dark dark:to-black transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8"
+        >
+          Hablemos de tu próximo proyecto
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-12">
+          ¿Buscas optimizar tus procesos de diseño estructural o necesitas un
+          experto en BIM? Estoy disponible para nuevas oportunidades.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <a
+            href="https://www.linkedin.com/in/andresgallop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group"
+          >
+            <i
+              class="fa-brands fa-linkedin-in text-3xl text-bim-blue group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <a
+            href="mailto:andresgallo@pm.me"
+            class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group"
+          >
+            <i
+              class="fa-regular fa-envelope text-3xl text-bim-blue group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <a
+            href="tel:+56940600861"
+            class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group"
+          >
+            <i
+              class="fa-solid fa-phone text-3xl text-bim-blue group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <a
+            href="https://github.com/Atelijudesign"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="glass-card p-8 rounded-lg flex items-center justify-center hover:border-bim-blue hover:text-bim-blue transition-all group"
+          >
+            <i
+              class="fa-brands fa-github text-3xl text-bim-blue group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
         </div>
+        <div class="mt-12">
+          <p class="text-gray-600 dark:text-gray-400 mb-4">
+            También puedes visitar mi portafolio externo:
+          </p>
+          <a
+            href="https://www.canva.com/design/DAF48WRhjNI/rPsDP_yJ4e1jWNUWTBATUw/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-bim-blue font-bold text-xl hover:text-blue-400 transition-colors underline decoration-2 underline-offset-4"
+          >
+            Ver Portafolio digital
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer
-        class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500 text-sm">
-                &copy; 2025 Andrés Gallo P. Todos los derechos reservados.
-            </p>
-            <p class="text-gray-600 text-xs mt-2">
-                Diseñado con pasión por la ingeniería y la tecnología.
-            </p>
-        </div>
+      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">
+          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
+        </p>
+        <p class="text-gray-600 text-xs mt-2">
+          Diseñado con pasión por la ingeniería y la tecnología.
+        </p>
+      </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top"
-        class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
-        aria-label="Volver al inicio">
-        <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
+      aria-label="Volver al inicio"
+    >
+      <i
+        class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
+      ></i>
     </button>
 
     <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'bim-blue': '#3b82f6',
-                        'bim-dark': '#0b1220',
-                        'bim-card': '#111827',
-                        'bim-border': '#1f2937',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <script src="js/scripts.js"></script>
-</body>
-
+  </body>
 </html>
