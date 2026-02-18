@@ -224,7 +224,7 @@
     <!-- Calculator Section -->
     <section class="py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.7fr_1.2fr] gap-6">
           <!-- Left: SVG Diagram -->
           <div
             class="glass-card rounded-xl p-6 flex flex-col items-center justify-center min-h-[350px]"
@@ -286,7 +286,7 @@
               <div class="result-value rounded-xl p-5">
                 <div class="flex items-center justify-between mb-1">
                   <span class="text-gray-400 text-sm font-medium"
-                    >Peso Lineal</span
+                    >Peso Lineal (Kg/m)</span
                   >
                   <span class="text-xs text-gray-500">kg/m</span>
                 </div>
@@ -310,9 +310,69 @@
                 >
               </div>
             </div>
+            <!-- Add to List Controls -->
+            <div class="mt-6 pt-4 border-t border-gray-700/50">
+              <label class="text-xs font-semibold text-gray-400 mb-2 block"
+                >Agregar a la Lista</label
+              >
+              <div class="flex flex-wrap gap-2 items-stretch">
+                <!-- Marca -->
+                <div class="relative flex-[2] min-w-[80px]">
+                  <input
+                    type="text"
+                    id="list-mark"
+                    placeholder="Marca"
+                    class="input-field w-full px-3 py-2.5 rounded-lg text-white text-sm text-center"
+                  />
+                  <span class="absolute right-2 top-3 text-[10px] text-gray-500"
+                    ><i class="fa-solid fa-tag"></i>
+                  </span>
+                </div>
+                <!-- Largo -->
+                <div class="relative flex-none w-[80px]">
+                  <input
+                    type="number"
+                    id="list-len"
+                    value="6"
+                    min="0.1"
+                    step="0.1"
+                    class="input-field w-full px-3 pr-7 py-2.5 rounded-lg text-white font-bold text-center text-sm"
+                  />
+                  <span
+                    class="absolute right-2 top-3 text-[10px] text-gray-500 font-medium"
+                    >m</span
+                  >
+                </div>
+                <!-- Cantidad -->
+                <div class="relative flex-none w-[80px]">
+                  <input
+                    type="number"
+                    id="list-qty"
+                    value="1"
+                    min="1"
+                    class="input-field w-full px-3 pr-7 py-2.5 rounded-lg text-white font-bold text-center text-sm"
+                  />
+                  <span
+                    class="absolute right-2 top-3 text-[10px] text-gray-500 font-medium"
+                    >un.</span
+                  >
+                </div>
+                <!-- Button -->
+                <button
+                  id="btn-add-list"
+                  class="bg-bim-blue hover:bg-blue-600 text-white font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 group text-sm whitespace-nowrap"
+                >
+                  <i
+                    class="fa-solid fa-plus group-hover:rotate-90 transition-transform text-sm"
+                  ></i>
+                  <span>+ Agregar</span>
+                </button>
+              </div>
+            </div>
+
             <!-- Quick reference -->
             <div
-              class="mt-6 p-4 rounded-lg bg-gray-800/50 border border-gray-700"
+              class="mt-4 p-4 rounded-lg bg-gray-800/50 border border-gray-700"
             >
               <p
                 class="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wider"
@@ -329,6 +389,128 @@
             </div>
           </div>
         </div>
+
+        <!-- Profile List Summary Section -->
+        <div class="mt-8 hidden" id="summary-section">
+          <div class="glass-card rounded-xl p-6 overflow-hidden mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3
+                class="text-sm font-bold text-gray-500 uppercase tracking-wider"
+              >
+                <i class="fa-solid fa-list-check mr-2"></i>Resumen de Perfiles
+                Seleccionados
+              </h3>
+              <button
+                id="btn-clear-list"
+                class="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
+              >
+                <i class="fa-solid fa-trash-can"></i> Limpiar Todo
+              </button>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
+                  >
+                    <th class="py-3 px-4 font-semibold text-left">Marca</th>
+                    <th class="py-3 px-4 font-semibold text-center w-16">
+                      Cant.
+                    </th>
+                    <th class="py-3 px-4 font-semibold">Perfil</th>
+                    <th class="py-3 px-4 font-semibold text-right">
+                      Largo <span class="text-gray-600 normal-case">(m)</span>
+                    </th>
+                    <th class="py-3 px-4 font-semibold text-right">
+                      Peso Unit.
+                      <span class="text-gray-600 normal-case">(kg/m)</span>
+                    </th>
+                    <th class="py-3 px-4 font-semibold text-right">
+                      Peso Total
+                      <span class="text-gray-600 normal-case">(kg)</span>
+                    </th>
+                    <th class="py-3 px-4 font-semibold text-center w-16"></th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="profile-list-body"
+                  class="text-sm text-gray-300 divide-y divide-gray-800"
+                >
+                  <!-- Populated by JS -->
+                </tbody>
+                <tfoot class="bg-gray-800/30">
+                  <tr class="font-bold text-white border-t border-gray-600">
+                    <td class="py-4 px-4" colspan="4" class="text-right">
+                      TOTALES:
+                    </td>
+                    <td
+                      class="py-4 px-4 text-right transform translate-x-3 text-gray-500"
+                    >
+                      —
+                    </td>
+                    <td
+                      class="py-4 px-4 text-right text-bim-blue text-lg"
+                      id="grand-total-weight"
+                    >
+                      0.00
+                      <span class="text-xs text-gray-500 font-medium ml-1"
+                        >kg</span
+                      >
+                    </td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Classification by Nominal Weight -->
+        <div class="mt-6 hidden" id="classification-section">
+          <div class="glass-card rounded-xl p-6 overflow-hidden mb-6">
+            <h3
+              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
+            >
+              <i class="fa-solid fa-weight-hanging mr-2"></i>Clasificación por
+              Nominal Weight
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
+                  >
+                    <th class="py-3 px-4 font-semibold text-left">
+                      Descripción
+                    </th>
+                    <th class="py-3 px-4 font-semibold text-right w-24">
+                      Unidad
+                    </th>
+                    <th class="py-3 px-4 font-semibold text-right w-32">
+                      Cantidad
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="classification-body" class="text-sm text-gray-300">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="mt-4 pt-3 border-t border-gray-600 flex items-center justify-between"
+            >
+              <span class="text-sm font-bold text-white"
+                >Total Acero (con conexiones):</span
+              >
+              <span
+                class="text-lg font-extrabold text-bim-blue"
+                id="classification-total"
+                >0.00 <span class="text-xs text-gray-500">kg</span></span
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -336,7 +518,7 @@
     <footer class="py-8 border-t border-gray-800 mt-12">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <p class="text-gray-500 text-sm">
-          &copy; 2025 Andrés Gallo P. — Herramientas para Proyectistas
+          &copy; 2026 Andrés Gallo P. — Herramientas para Proyectistas
           Estructurales
         </p>
       </div>
@@ -949,6 +1131,188 @@
           document.getElementById("designation-text").textContent = "Error";
         }
       }
+
+      // ==================== LIST MANAGEMENT LOGIC ====================
+      let profileList = [];
+
+      function addToProfileList() {
+        const p = PROFILES[currentProfile];
+        const v = getValues();
+
+        if (v._hasError) return; // Don't add if inputs are invalid
+
+        const qtyInput = document.getElementById("list-qty");
+        const lenInput = document.getElementById("list-len");
+        const markInput = document.getElementById("list-mark");
+
+        const qty = parseInt(qtyInput.value) || 1;
+        const len = parseFloat(lenInput.value) || 0;
+        const mark = markInput.value.trim() || "—";
+
+        if (qty < 1 || len <= 0) {
+          alert("Cantidad y Largo deben ser mayores a 0");
+          return;
+        }
+
+        // Recalculate to ensure fresh values
+        const r = p.calc(v);
+
+        // Weight is kg/m. Total Weight = (kg/m) * m * qty
+        const totalWeight = r.weight * len * qty;
+
+        const item = {
+          id: Date.now(), // simple unique id
+          qty: qty,
+          mark: mark,
+          length: len,
+          profileType: p.name,
+          designation: r.desig,
+          unitWeight: r.weight,
+          totalWeight: totalWeight,
+        };
+
+        profileList.push(item);
+        renderProfileList();
+
+        // Visual feedback
+        const btn = document.getElementById("btn-add-list");
+        const originalContent = btn.innerHTML;
+        btn.innerHTML =
+          '<i class="fa-solid fa-check"></i><span>Agregado</span>';
+        btn.classList.add("bg-green-600", "hover:bg-green-700");
+        btn.classList.remove("bg-bim-blue", "hover:bg-blue-600");
+
+        setTimeout(() => {
+          btn.innerHTML = originalContent;
+          btn.classList.add("bg-bim-blue", "hover:bg-blue-600");
+          btn.classList.remove("bg-green-600", "hover:bg-green-700");
+        }, 1000);
+      }
+
+      function removeProfile(id) {
+        profileList = profileList.filter((item) => item.id !== id);
+        renderProfileList();
+      }
+
+      function clearProfileList() {
+        if (confirm("¿Estás seguro de borrar toda la lista?")) {
+          profileList = [];
+          renderProfileList();
+        }
+      }
+
+      function renderProfileList() {
+        const tbody = document.getElementById("profile-list-body");
+        const section = document.getElementById("summary-section");
+        const classSection = document.getElementById("classification-section");
+
+        if (profileList.length === 0) {
+          section.classList.add("hidden");
+          classSection.classList.add("hidden");
+          return;
+        }
+
+        section.classList.remove("hidden");
+        classSection.classList.remove("hidden");
+
+        tbody.innerHTML = profileList
+          .map(
+            (item) => `
+            <tr class="hover:bg-gray-800/50 transition-colors group">
+               <td class="py-3 px-4 font-medium text-white text-left text-xs bg-gray-900/20">${item.mark}</td>
+               <td class="py-3 px-4 text-center font-medium text-gray-400 bg-gray-900/30">${item.qty}</td>
+               <td class="py-3 px-4 font-medium text-white">
+                  <div class="flex items-center gap-2">
+                     <span class="w-1.5 h-1.5 rounded-full bg-bim-blue"></span>
+                     ${item.designation}
+                  </div>
+               </td>
+               <td class="py-3 px-4 text-right font-mono text-gray-300">${item.length.toFixed(2)}</td>
+               <td class="py-3 px-4 text-right font-mono text-gray-400 text-xs">${item.unitWeight.toFixed(2)}</td>
+               <td class="py-3 px-4 text-right font-mono text-white font-bold bg-blue-900/10 rounded-r-lg">${item.totalWeight.toFixed(2)}</td>
+               <td class="py-3 px-4 text-center">
+                  <button onclick="removeProfile(${item.id})" class="text-gray-600 hover:text-red-400 p-1.5 rounded-md hover:bg-red-900/20 transition-all opacity-0 group-hover:opacity-100" title="Eliminar fila">
+                     <i class="fa-solid fa-xmark"></i>
+                  </button>
+               </td>
+            </tr>
+         `,
+          )
+          .join("");
+
+        // Update Totals
+        const totalWeight = profileList.reduce(
+          (sum, item) => sum + item.totalWeight,
+          0,
+        );
+
+        document.getElementById("grand-total-weight").innerHTML =
+          totalWeight.toFixed(2) +
+          ' <span class="text-xs text-gray-500 font-medium ml-1">kg</span>';
+
+        renderClassification(profileList);
+      }
+
+      function renderClassification(list) {
+        // Categories
+        let cats = {
+          light: { label: "Estructura metálica liviana <= 30 kg/m", val: 0 },
+          medium: { label: "Estructura metálica mediana 30-60 kg/m", val: 0 },
+          heavy: { label: "Estructura metálica pesada 60-90 kg/m", val: 0 },
+          extra: { label: "Estructura metálica extrapesada > 90 kg/m", val: 0 },
+        };
+
+        // Accumulate
+        list.forEach((item) => {
+          const w = item.unitWeight;
+          const tot = item.totalWeight;
+
+          if (w <= 30) cats.light.val += tot;
+          else if (w <= 60) cats.medium.val += tot;
+          else if (w <= 90) cats.heavy.val += tot;
+          else cats.extra.val += tot;
+        });
+
+        const totalBase = Object.values(cats).reduce(
+          (sum, c) => sum + c.val,
+          0,
+        );
+        const connections = totalBase * 0.1;
+        const totalFinal = totalBase + connections;
+
+        // Render
+        const tbody = document.getElementById("classification-body");
+        tbody.innerHTML = `
+            ${Object.values(cats)
+              .map(
+                (c) => `
+               <tr class="border-b border-gray-800 hover:bg-gray-800/30">
+                  <td class="py-2 px-4 text-gray-400">${c.label}</td>
+                  <td class="py-2 px-4 text-right text-gray-500 font-mono">kg</td>
+                  <td class="py-2 px-4 text-right text-white font-mono font-bold">${c.val.toFixed(2)}</td>
+               </tr>
+            `,
+              )
+              .join("")}
+            <tr class="bg-blue-900/10 border-t border-gray-700">
+               <td class="py-2 px-4 text-blue-200 font-medium">Conexiones Acero (+10% del total)</td>
+               <td class="py-2 px-4 text-right text-gray-500 font-mono">kg</td>
+               <td class="py-2 px-4 text-right text-bim-blue font-mono font-bold">${connections.toFixed(2)}</td>
+            </tr>
+         `;
+
+        const totalTon = totalFinal / 1000;
+        document.getElementById("classification-total").innerHTML =
+          `${totalFinal.toFixed(2)} <span class="text-xs text-gray-500 font-medium">kg</span> <span class="text-xs text-gray-400 ml-2">(${totalTon.toFixed(2)} t)</span>`;
+      }
+
+      // Event Listeners
+      document
+        .getElementById("btn-add-list")
+        .addEventListener("click", addToProfileList);
+      document
+        .getElementById("btn-clear-list")
+        .addEventListener("click", clearProfileList);
 
       // ==================== INIT ====================
       renderSelector();
