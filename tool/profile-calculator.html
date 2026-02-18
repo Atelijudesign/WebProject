@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -400,12 +401,20 @@
                 <i class="fa-solid fa-list-check mr-2"></i>Resumen de Perfiles
                 Seleccionados
               </h3>
-              <button
-                id="btn-clear-list"
-                class="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
-              >
-                <i class="fa-solid fa-trash-can"></i> Limpiar Todo
-              </button>
+              <div class="flex items-center gap-3">
+                <button
+                  onclick="exportToExcel()"
+                  class="text-xs bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 shadow-lg shadow-green-900/30 flex items-center gap-1.5 font-bold"
+                >
+                  <i class="fa-solid fa-file-excel"></i> Exportar Excel
+                </button>
+                <button
+                  id="btn-clear-list"
+                  class="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
+                >
+                  <i class="fa-solid fa-trash-can"></i> Limpiar Todo
+                </button>
+              </div>
             </div>
 
             <div class="overflow-x-auto">
@@ -1304,6 +1313,217 @@
         const totalTon = totalFinal / 1000;
         document.getElementById("classification-total").innerHTML =
           `${totalFinal.toFixed(2)} <span class="text-xs text-gray-500 font-medium">kg</span> <span class="text-xs text-gray-400 ml-2">(${totalTon.toFixed(2)} t)</span>`;
+      }
+
+      // ==================== EXPORT TO EXCEL ====================
+      function exportToExcel() {
+        if (profileList.length === 0) return;
+        const n = profileList.length;
+
+        // ── Style palette ──
+        const bd = {
+          top: { style: "thin", color: { rgb: "BDD7EE" } },
+          bottom: { style: "thin", color: { rgb: "BDD7EE" } },
+          left: { style: "thin", color: { rgb: "BDD7EE" } },
+          right: { style: "thin", color: { rgb: "BDD7EE" } },
+        };
+        const S = {
+          title: {
+            font: { bold: true, sz: 13, color: { rgb: "FFFFFF" } },
+            fill: { fgColor: { rgb: "1F4E79" } },
+            alignment: { horizontal: "center", vertical: "center" },
+            border: bd,
+          },
+          head: {
+            font: { bold: true, sz: 10, color: { rgb: "FFFFFF" } },
+            fill: { fgColor: { rgb: "2E75B6" } },
+            alignment: { horizontal: "center", vertical: "center" },
+            border: bd,
+          },
+          l: {
+            font: { sz: 10 },
+            border: bd,
+            alignment: { vertical: "center" },
+          },
+          c: {
+            font: { sz: 10 },
+            border: bd,
+            alignment: { horizontal: "center", vertical: "center" },
+          },
+          r: {
+            font: { sz: 10 },
+            border: bd,
+            alignment: { horizontal: "right", vertical: "center" },
+            numFmt: "#,##0.00",
+          },
+          al: {
+            font: { sz: 10 },
+            fill: { fgColor: { rgb: "F2F7FB" } },
+            border: bd,
+            alignment: { vertical: "center" },
+          },
+          ac: {
+            font: { sz: 10 },
+            fill: { fgColor: { rgb: "F2F7FB" } },
+            border: bd,
+            alignment: { horizontal: "center", vertical: "center" },
+          },
+          ar: {
+            font: { sz: 10 },
+            fill: { fgColor: { rgb: "F2F7FB" } },
+            border: bd,
+            alignment: { horizontal: "right", vertical: "center" },
+            numFmt: "#,##0.00",
+          },
+          tl: {
+            font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
+            fill: { fgColor: { rgb: "D6E4F0" } },
+            border: bd,
+            alignment: { vertical: "center" },
+          },
+          tc: {
+            font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
+            fill: { fgColor: { rgb: "D6E4F0" } },
+            border: bd,
+            alignment: { horizontal: "center", vertical: "center" },
+          },
+          tr: {
+            font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
+            fill: { fgColor: { rgb: "D6E4F0" } },
+            border: bd,
+            alignment: { horizontal: "right", vertical: "center" },
+            numFmt: "#,##0.00",
+          },
+        };
+
+        // ── Build data (AOA) ──
+        const a = [];
+        a.push(["LISTADO DE PERFILES DE ACERO", "", "", "", "", ""]);
+        a.push(["", "", "", "", "", ""]);
+        a.push([
+          "Marca",
+          "Cantidad",
+          "Perfil",
+          "Largo (m)",
+          "Peso Unit. (kg/m)",
+          "Peso Total (kg)",
+        ]);
+        profileList.forEach((i) =>
+          a.push([
+            i.mark,
+            i.qty,
+            i.designation,
+            i.length,
+            i.unitWeight,
+            i.totalWeight,
+          ]),
+        );
+        const tw = profileList.reduce((s, i) => s + i.totalWeight, 0);
+        a.push(["TOTAL", "", "", "", "", tw]);
+        a.push(["", "", "", "", "", ""]);
+        a.push(["", "", "", "", "", ""]);
+        a.push(["CLASIFICACIÓN POR NOMINAL WEIGHT", "", "", "", "", ""]);
+        a.push(["", "", "", "", "", ""]);
+        a.push(["Descripción", "Unidad", "Cantidad"]);
+
+        let cats = {
+          light: {
+            label: "Estructura metálica liviana \u2264 30 kg/m",
+            val: 0,
+          },
+          medium: { label: "Estructura metálica mediana 30-60 kg/m", val: 0 },
+          heavy: { label: "Estructura metálica pesada 60-90 kg/m", val: 0 },
+          extra: { label: "Estructura metálica extrapesada > 90 kg/m", val: 0 },
+        };
+        profileList.forEach((i) => {
+          const w = i.unitWeight;
+          if (w <= 30) cats.light.val += i.totalWeight;
+          else if (w <= 60) cats.medium.val += i.totalWeight;
+          else if (w <= 90) cats.heavy.val += i.totalWeight;
+          else cats.extra.val += i.totalWeight;
+        });
+        const tb = Object.values(cats).reduce((s, c) => s + c.val, 0);
+        const cn = tb * 0.1,
+          tf = tb + cn;
+        Object.values(cats).forEach((c) => a.push([c.label, "kg", c.val]));
+        a.push(["Conexiones Acero (+10%)", "kg", cn]);
+        a.push([""]);
+        a.push(["TOTAL ACERO (con conexiones)", "kg", tf]);
+        a.push(["", "ton", tf / 1000]);
+
+        // ── Create worksheet ──
+        const ws = XLSX.utils.aoa_to_sheet(a);
+        ws["!cols"] = [
+          { wch: 45 },
+          { wch: 14 },
+          { wch: 28 },
+          { wch: 14 },
+          { wch: 18 },
+          { wch: 16 },
+        ];
+        ws["!merges"] = [
+          { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } },
+          { s: { r: 6 + n, c: 0 }, e: { r: 6 + n, c: 5 } },
+        ];
+        ws["!rows"] = [];
+        ws["!rows"][0] = { hpx: 32 };
+        ws["!rows"][6 + n] = { hpx: 32 };
+
+        // ── Style helper ──
+        function sc(r, c, s) {
+          const addr = XLSX.utils.encode_cell({ r, c });
+          if (!ws[addr]) ws[addr] = { v: "", t: "s" };
+          ws[addr].s = s;
+        }
+
+        // Title row 0
+        for (let c = 0; c < 6; c++) sc(0, c, S.title);
+        // Profile headers row 2
+        for (let c = 0; c < 6; c++) sc(2, c, S.head);
+        // Profile data rows
+        for (let i = 0; i < n; i++) {
+          const r = 3 + i,
+            alt = i % 2 === 1;
+          sc(r, 0, alt ? S.al : S.l);
+          sc(r, 1, alt ? S.ac : S.c);
+          sc(r, 2, alt ? S.al : S.l);
+          sc(r, 3, alt ? S.ar : S.r);
+          sc(r, 4, alt ? S.ar : S.r);
+          sc(r, 5, alt ? S.ar : S.r);
+        }
+        // Profile total row
+        for (let c = 0; c < 5; c++) sc(3 + n, c, S.tl);
+        sc(3 + n, 5, S.tr);
+
+        // Classification title
+        for (let c = 0; c < 6; c++) sc(6 + n, c, S.title);
+        // Classification headers
+        for (let c = 0; c < 3; c++) sc(8 + n, c, S.head);
+        // Classification data (4 categories)
+        for (let i = 0; i < 4; i++) {
+          const r = 9 + n + i,
+            alt = i % 2 === 1;
+          sc(r, 0, alt ? S.al : S.l);
+          sc(r, 1, alt ? S.ac : S.c);
+          sc(r, 2, alt ? S.ar : S.r);
+        }
+        // Connections row
+        sc(13 + n, 0, S.al);
+        sc(13 + n, 1, S.ac);
+        sc(13 + n, 2, S.ar);
+        // Total acero
+        sc(15 + n, 0, S.tl);
+        sc(15 + n, 1, S.tc);
+        sc(15 + n, 2, S.tr);
+        // Ton row
+        sc(16 + n, 0, S.tl);
+        sc(16 + n, 1, S.tc);
+        sc(16 + n, 2, S.tr);
+
+        // ── Download ──
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Perfiles de Acero");
+        XLSX.writeFile(wb, "perfiles_acero.xlsx");
       }
 
       // Event Listeners
