@@ -41,6 +41,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -170,47 +172,114 @@
   >
     <!-- Navigation -->
     <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800"
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <a href="../index.html" class="flex items-center gap-3 group">
-            <i
-              class="fa-solid fa-cube text-2xl text-bim-blue group-hover:rotate-12 transition-transform"
-            ></i>
-            <span class="text-xl font-bold tracking-tight"
-              >Andrés Gallo <span class="text-bim-blue">BIM</span></span
+          <a
+            href="../index.html"
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+          >
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
             >
           </a>
-          <div class="hidden md:flex items-center gap-8">
-            <a
-              href="https://atelijudesign.com"
-              class="text-sm font-medium hover:text-bim-blue transition-colors relative group"
-            >
-              <span data-i18n="nav_back_home">Inicio</span>
-              <span
-                class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-bim-blue transition-all group-hover:w-full"
-              ></span>
-            </a>
-            <a
-              href="https://atelijudesign.com/blog.html"
-              class="text-sm font-medium hover:text-bim-blue transition-colors relative group"
-            >
-              <span data-i18n="nav_blog">BLOG</span>
-              <span
-                class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-bim-blue transition-all group-hover:w-full"
-              ></span>
-            </a>
-            <a
-              href="../index.html"
-              class="text-sm font-medium hover:text-bim-blue transition-colors relative group"
-            >
-              <span data-i18n="nav_tools">Tools</span>
-              <span
-                class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-bim-blue transition-all group-hover:w-full"
-              ></span>
-            </a>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="../index.html#home"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="../index.html#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="../index.html#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="../index.html#portfolio"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="../blog/index.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="../index.html#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="index.html"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
+            </div>
           </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="../index.html#home"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="../index.html#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="../index.html#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="../index.html#portfolio"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="../blog/index.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="../index.html#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="index.html"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Tools</a
+          >
         </div>
       </div>
     </nav>
@@ -332,18 +401,75 @@
             >
               <i class="fa-solid fa-magnifying-glass mr-2"></i>Buscar Perfil
             </h3>
-            <div class="relative mb-4">
+            <!-- Advanced Filters -->
+            <div
+              id="advanced-filters"
+              class="hidden mb-4 p-4 glass-card rounded-xl border-dashed border-gray-700 bg-gray-900/40"
+            >
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label
+                    class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
+                    >Ix Mín (cm⁴)</label
+                  >
+                  <input
+                    type="number"
+                    id="filter-ix"
+                    class="input-field w-full text-sm bg-gray-800/50"
+                    placeholder="Mín. Ix"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
+                    >Peso Máx (kg/m)</label
+                  >
+                  <input
+                    type="number"
+                    id="filter-weight"
+                    class="input-field w-full text-sm bg-gray-800/50"
+                    placeholder="Máx. Peso"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
+                    >Altura Máx (mm)</label
+                  >
+                  <input
+                    type="number"
+                    id="filter-h"
+                    class="input-field w-full text-sm bg-gray-800/50"
+                    placeholder="Máx. Altura"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+              >
+                <i class="fa-solid fa-search text-gray-500"></i>
+              </div>
               <input
                 type="text"
                 id="profile-search"
+                class="input-field block w-full pl-11 pr-20 py-4 text-base focus:ring-2 focus:ring-bim-blue transition-all"
                 placeholder="Escribe para buscar... (ej: IN 20)"
-                class="input-field w-full px-4 py-3 pr-10 rounded-lg text-white text-sm"
                 autocomplete="off"
                 data-i18n-placeholder="search_placeholder"
               />
-              <i
-                class="fa-solid fa-search absolute right-3 top-3.5 text-gray-500 text-sm"
-              ></i>
+              <div class="absolute inset-y-0 right-0 py-2 pr-2 flex gap-1">
+                <button
+                  id="toggle-filters-btn"
+                  onclick="toggleAdvancedFilters()"
+                  class="h-full px-3 text-gray-400 hover:text-white rounded-lg transition-colors border border-transparent hover:border-gray-700"
+                  title="Filtros Avanzados"
+                >
+                  <i class="fa-solid fa-sliders"></i>
+                </button>
+              </div>
             </div>
             <div
               id="search-results"
@@ -450,7 +576,6 @@
                 <button
                   id="btn-add-list"
                   class="bg-bim-blue hover:bg-blue-600 text-white font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 group text-sm whitespace-nowrap flex-[2]"
-                  onclick="addToProfileList()"
                 >
                   <i
                     class="fa-solid fa-plus group-hover:rotate-90 transition-transform text-sm"
@@ -503,13 +628,22 @@
                 Seleccionados
               </h3>
               <div class="flex items-center gap-2 flex-wrap">
-                <button
-                  onclick="exportToExcel()"
-                  class="text-xs bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 shadow-lg shadow-green-900/30 flex items-center gap-1.5 font-bold"
-                >
-                  <i class="fa-solid fa-file-excel"></i>
-                  <span data-i18n="btn_export">Exportar Excel</span>
-                </button>
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    onclick="exportToExcel()"
+                    class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-md flex items-center gap-2"
+                  >
+                    <i class="fa-solid fa-file-excel"></i>
+                    <span data-i18n="btn_export">Exportar Excel</span>
+                  </button>
+                  <button
+                    onclick="exportToPDF()"
+                    class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-md flex items-center gap-2"
+                  >
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Exportar PDF</span>
+                  </button>
+                </div>
                 <button
                   onclick="copyTableToClipboard()"
                   class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-1.5 font-bold"
@@ -518,23 +652,8 @@
                   <span data-i18n="btn_copy">Copiar</span>
                 </button>
                 <button
-                  onclick="saveToLocalStorage()"
-                  class="text-xs bg-blue-700 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-1.5 font-bold"
-                >
-                  <i class="fa-solid fa-floppy-disk"></i>
-                  <span data-i18n="btn_save">Guardar</span>
-                </button>
-                <button
-                  onclick="loadFromLocalStorage()"
-                  class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-1.5 font-bold"
-                >
-                  <i class="fa-solid fa-folder-open"></i>
-                  <span data-i18n="btn_load">Cargar</span>
-                </button>
-                <button
                   id="btn-clear-list"
                   class="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
-                  onclick="clearList()"
                 >
                   <i class="fa-solid fa-trash-can"></i>
                   <span data-i18n="btn_clear">Limpiar</span>
@@ -645,7 +764,10 @@
               </div>
             </div>
             <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse">
+              <table
+                id="classification-table"
+                class="w-full text-left border-collapse"
+              >
                 <thead>
                   <tr
                     class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
@@ -681,8 +803,8 @@
                 style="
                   position: relative;
                   width: 100%;
-                  max-width: 320px;
-                  height: 220px;
+                  max-width: 360px;
+                  height: 300px;
                 "
               >
                 <canvas id="weight-donut-chart"></canvas>
@@ -729,33 +851,38 @@
               <table class="w-full text-left border-collapse">
                 <thead>
                   <tr
+                    id="comparator-header-row"
                     class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
                   >
                     <th
-                      class="py-3 px-4 font-semibold w-1/4"
+                      class="py-3 px-4 font-semibold w-1/5"
                       data-i18n="cmp_prop"
                     >
                       Propiedad
                     </th>
                     <th
-                      class="py-3 px-4 font-semibold text-center w-1/4 text-bim-blue"
-                      id="comp-name-a"
-                      data-i18n="cmp_profile_a"
+                      class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
+                      id="comp-name-0"
                     >
-                      Perfil A
+                      —
                     </th>
                     <th
-                      class="py-3 px-4 font-semibold text-center w-1/4"
-                      id="comp-name-b"
-                      data-i18n="cmp_profile_b"
+                      class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
+                      id="comp-name-1"
                     >
-                      Perfil B
+                      —
                     </th>
                     <th
-                      class="py-3 px-4 font-semibold text-right w-1/4"
-                      data-i18n="cmp_diff"
+                      class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
+                      id="comp-name-2"
                     >
-                      Diferencia
+                      —
+                    </th>
+                    <th
+                      class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
+                      id="comp-name-3"
+                    >
+                      —
                     </th>
                   </tr>
                 </thead>
@@ -881,9 +1008,25 @@
         const profiles = ICHA_CATALOG[currentSeries].profiles;
         const q = query.toLowerCase().replace(/\s+/g, "");
 
+        // Advanced Filter Values
+        const minIx =
+          parseFloat(document.getElementById("filter-ix").value) || 0;
+        const maxW =
+          parseFloat(document.getElementById("filter-weight").value) ||
+          Infinity;
+        const maxH =
+          parseFloat(document.getElementById("filter-h").value) || Infinity;
+
         const filtered = profiles.filter((p) => {
           const desig = p.designation.toLowerCase().replace(/\s+/g, "");
-          return desig.includes(q);
+          const matchesSearch = desig.includes(q);
+
+          const profileH = p.H_mm || getHeightFromDesig(p.designation) || 0;
+          const matchesIx = (p.Ix_cm4 || 0) >= minIx;
+          const matchesWeight = p.weight <= maxW;
+          const matchesH = profileH <= maxH;
+
+          return matchesSearch && matchesIx && matchesWeight && matchesH;
         });
 
         if (filtered.length === 0) {
@@ -897,8 +1040,11 @@
             (p, i) => `
           <div class="dropdown-item px-4 py-2.5 cursor-pointer text-sm flex items-center justify-between border-b border-gray-800/50 last:border-0"
                data-index="${profiles.indexOf(p)}" data-filtered-index="${i}">
-            <span class="font-semibold text-white">${p.designation}</span>
-            <span class="text-xs text-gray-500">${p.weight} kg/m</span>
+            <div class="flex flex-col">
+              <span class="font-semibold text-white">${p.designation}</span>
+              ${p.Ix_cm4 ? `<span class="text-[10px] text-bim-blue">Ix: ${p.Ix_cm4} cm⁴</span>` : ""}
+            </div>
+            <span class="text-xs text-gray-500 font-medium">${p.weight} kg/m</span>
           </div>`,
           )
           .join("");
@@ -1306,11 +1452,29 @@
         const desigText = document.getElementById("designation-text");
         desigText.textContent = profile.designation;
 
-        const h = profile.H_mm || getHeightFromDesig(profile.designation);
-        const b = profile.B_mm || getWidthFromDesig(profile.designation);
-        const e = profile.e_mm || 8;
-        const t = profile.t_mm || e;
-        const c = profile.C_mm || 0;
+        // Ensure we have numbers to work with
+        const h =
+          parseFloat(profile.H_mm) ||
+          getHeightFromDesig(profile.designation) ||
+          200;
+        let b =
+          parseFloat(profile.B_mm) || getWidthFromDesig(profile.designation);
+
+        // Final fallback if B is still null (common in some Soldered series if data is missing)
+        if (!b) {
+          if (["IN", "IP", "HN", "PH"].includes(currentSeries)) {
+            b = h * 0.5; // Heuristic: typical flange is half the height
+          } else {
+            b = h; // Default to square if unknown
+          }
+          console.warn(
+            `Dimension B missing for ${profile.designation}, using fallback: ${b}`,
+          );
+        }
+
+        const e = parseFloat(profile.e_mm) || 8;
+        const t = parseFloat(profile.t_mm) || e;
+        const c = parseFloat(profile.C_mm) || 0;
 
         let svg = "";
         const series = currentSeries;
@@ -1352,9 +1516,9 @@
         const qty = parseInt(document.getElementById("list-qty").value) || 1;
 
         profileList.push({
+          ...selectedProfile,
           mark,
           qty,
-          designation: selectedProfile.designation,
           length: len,
           unitWeight: selectedProfile.weight,
           totalWeight: qty * len * selectedProfile.weight,
@@ -1485,11 +1649,17 @@
           .map((c) => c.name.split("≤")[0].trim()) // Hacky adaptation, or just use t(chart_light) etc directly
           .concat([t("chart_conns")]);
         const data = [...catWeights, connection];
+        const total = data.reduce((a, b) => a + b, 0);
+        const labelsWithPct = labels.map((l, i) => {
+          const pct = total > 0 ? ((data[i] / total) * 100).toFixed(1) : "0.0";
+          return `${l} (${pct}%)`;
+        });
+
         const colors = ["#3b82f6", "#06b6d4", "#f59e0b", "#ef4444", "#8b5cf6"];
         donutChart = new Chart(ctx, {
           type: "doughnut",
           data: {
-            labels: labels,
+            labels: labelsWithPct,
             datasets: [
               {
                 data: data,
@@ -1502,15 +1672,18 @@
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+              padding: { top: 10, bottom: 10, left: 10, right: 30 },
+            },
             plugins: {
               legend: {
-                position: "right",
+                position: "bottom",
                 labels: {
                   color: "#9ca3af",
-                  font: { size: 11 },
-                  padding: 12,
+                  font: { size: 10 },
+                  padding: 15,
                   usePointStyle: true,
-                  pointStyleWidth: 10,
+                  pointStyleWidth: 8,
                 },
               },
               tooltip: {
@@ -1563,12 +1736,7 @@
           return;
         }
 
-        const qtyInput = document.getElementById("list-qty");
-        const qty = parseInt(qtyInput.value) || 1;
-
-        // ICHA profiles have mechanical properties in the object
         const p = selectedProfile;
-
         const item = {
           name: p.designation,
           weight: p.weight,
@@ -1579,7 +1747,7 @@
           wy: p.Wy_cm3 || 0,
         };
 
-        if (comparatorList.length >= 2) {
+        if (comparatorList.length >= 4) {
           comparatorList.shift();
         }
         comparatorList.push(item);
@@ -1590,14 +1758,12 @@
           "purple",
         );
 
-        // Scroll to comparator if 2 items
-        if (comparatorList.length >= 2) {
-          setTimeout(() => {
-            const section = document.getElementById("comparator-section");
-            section.classList.remove("hidden");
-            section.scrollIntoView({ behavior: "smooth" });
-          }, 500);
-        }
+        // Scroll to comparator
+        setTimeout(() => {
+          const section = document.getElementById("comparator-section");
+          section.classList.remove("hidden");
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 500);
       }
 
       function clearComparator() {
@@ -1615,14 +1781,20 @@
         section.classList.remove("hidden");
 
         const tbody = document.getElementById("comparator-body");
-        const hA = document.getElementById("comp-name-a");
-        const hB = document.getElementById("comp-name-b");
 
-        const A = comparatorList[0];
-        const B = comparatorList[1] || null;
-
-        hA.textContent = A.name;
-        hB.textContent = B ? B.name : "—";
+        // Update Headers
+        for (let i = 0; i < 4; i++) {
+          const el = document.getElementById(`comp-name-${i}`);
+          if (comparatorList[i]) {
+            el.textContent = comparatorList[i].name;
+            el.classList.remove("text-gray-600");
+            el.classList.add("text-bim-blue");
+          } else {
+            el.textContent = "—";
+            el.classList.remove("text-bim-blue");
+            el.classList.add("text-gray-600");
+          }
+        }
 
         const props = [
           { id: "weight", label: t("res_weight"), unit: "kg/m" },
@@ -1635,35 +1807,15 @@
 
         tbody.innerHTML = props
           .map((p) => {
-            const vA = A[p.id] || 0;
-            const vB = B ? B[p.id] || 0 : 0;
+            let rowHtml = `<td class="py-3 px-4 text-gray-400 font-medium">${p.label} <span class="text-[10px] text-gray-600 block">${p.unit}</span></td>`;
 
-            let diffStr = "—";
-
-            if (B) {
-              const diff = vB - vA;
-              const pct = vA !== 0 ? (diff / vA) * 100 : 0;
-              const sign = diff > 0 ? "+" : "";
-
-              // Same color logic as calculator
-              const colorClass =
-                diff > 0
-                  ? "text-green-400"
-                  : diff < 0
-                    ? "text-red-400"
-                    : "text-gray-400";
-
-              diffStr = `<span class="${colorClass} font-bold">${sign}${diff.toFixed(2)}</span> <span class="text-xs text-gray-500">(${sign}${pct.toFixed(1)}%)</span>`;
+            for (let i = 0; i < 4; i++) {
+              const val = comparatorList[i] ? comparatorList[i][p.id] : null;
+              rowHtml += `<td class="py-3 px-4 text-center font-mono ${val !== null ? "text-white" : "text-gray-700"}">
+                ${val !== null ? val.toFixed(2) : "—"}
+              </td>`;
             }
-
-            return `
-            <tr class="border-b border-gray-800 hover:bg-gray-800/20">
-              <td class="py-3 px-4 text-gray-400">${p.label} <span class="text-xs text-gray-600 ml-1">${p.unit}</span></td>
-              <td class="py-3 px-4 text-center font-mono text-white">${vA.toFixed(2)}</td>
-              <td class="py-3 px-4 text-center font-mono text-white">${B ? vB.toFixed(2) : "—"}</td>
-              <td class="py-3 px-4 text-right font-mono">${diffStr}</td>
-            </tr>
-          `;
+            return `<tr class="border-b border-gray-800/50 hover:bg-gray-800/20">${rowHtml}</tr>`;
           })
           .join("");
       }
@@ -1676,7 +1828,7 @@
           text += `${item.mark}\t${item.qty}\t${item.designation}\t${item.length.toFixed(2)}\t${item.unitWeight.toFixed(2)}\t${item.totalWeight.toFixed(2)}\n`;
         });
         const total = profileList.reduce((s, i) => s + i.totalWeight, 0);
-        text += `TOTAL\t\t\t\t\t${total.toFixed(2)}\n`;
+        text += `${t("total_label")}\t\t\t\t\t${total.toFixed(2)}\n`;
         navigator.clipboard.writeText(text).then(() => {
           showToast(t("msg_copied"), "fa-clipboard", "green");
         });
@@ -1703,6 +1855,117 @@
       }
 
       // ==================== EXCEL EXPORT ====================
+      function exportToPDF() {
+        if (profileList.length === 0) {
+          showToast(t("msg_no_data"), "fa-triangle-exclamation", "amber");
+          return;
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Header
+        doc.setFillColor(11, 18, 32);
+        doc.rect(0, 0, 210, 40, "F");
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(22);
+        doc.setFont("helvetica", "bold");
+        doc.text(t("excel_title_catalog"), 15, 25);
+
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "normal");
+        doc.text("Andrés Gallo P. — BIM Developer", 15, 33);
+        doc.text(new Date().toLocaleDateString(), 180, 33);
+
+        // Profiles Table
+        const head = [
+          [
+            t("th_profile"),
+            t("prop_weight"),
+            t("prop_area"),
+            "Ix (cm4)",
+            "Iy (cm4)",
+            "Wx (cm3)",
+            "Wy (cm3)",
+          ],
+        ];
+        const body = profileList.map((p) => [
+          p.designation,
+          p.unitWeight.toFixed(2),
+          p.A_cm2 ? p.A_cm2.toFixed(2) : "—",
+          p.Ix_cm4 ? p.Ix_cm4.toFixed(2) : "—",
+          p.Iy_cm4 ? p.Iy_cm4.toFixed(2) : "—",
+          p.Wx_cm3 ? p.Wx_cm3.toFixed(2) : "—",
+          p.Wy_cm3 ? p.Wy_cm3.toFixed(2) : "—",
+        ]);
+
+        doc.autoTable({
+          head: head,
+          body: body,
+          startY: 50,
+          theme: "grid",
+          headStyles: { fillColor: [59, 130, 246], halign: "center" },
+          styles: { fontSize: 8 },
+          columnStyles: {
+            0: { cellWidth: 40 },
+          },
+        });
+
+        // Classification Table
+        const finalY = doc.lastAutoTable.finalY + 15;
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(14);
+        doc.text(t("sect_classification"), 15, finalY);
+
+        const classTable = document.getElementById("classification-table");
+        if (classTable) {
+          doc.autoTable({
+            html: "#classification-table",
+            startY: finalY + 5,
+            theme: "striped",
+            headStyles: { fillColor: [31, 41, 55] },
+            styles: { fontSize: 9 },
+          });
+        }
+
+        // Add Chart Image
+        const chartCanvas = document.getElementById("weight-donut-chart");
+        if (chartCanvas) {
+          try {
+            const chartImg = chartCanvas.toDataURL("image/png", 1.0);
+            const chartY =
+              (doc.lastAutoTable ? doc.lastAutoTable.finalY : finalY) + 10;
+
+            // Maintain aspect ratio
+            const canvasW = chartCanvas.width;
+            const canvasH = chartCanvas.height;
+            const pdfW = 80;
+            const pdfH = (canvasH / canvasW) * pdfW;
+
+            // Center chart
+            const xPos = (210 - pdfW) / 2;
+            doc.addImage(chartImg, "PNG", xPos, chartY, pdfW, pdfH);
+          } catch (e) {
+            console.error("Error capturing chart:", e);
+          }
+        }
+
+        // Footer
+        const pageCount = doc.internal.getNumberOfPages();
+        for (let i = 1; i <= pageCount; i++) {
+          doc.setPage(i);
+          doc.setFontSize(8);
+          doc.setTextColor(150);
+          doc.text(
+            `Página ${i} de ${pageCount}`,
+            180,
+            doc.internal.pageSize.height - 10,
+          );
+        }
+
+        doc.save(`Catalogo_ICHA_${new Date().getTime()}.pdf`);
+      }
+
       function exportToExcel() {
         if (profileList.length === 0) return;
         const n = profileList.length;
@@ -1992,8 +2255,32 @@
         });
       });
 
+      function toggleAdvancedFilters() {
+        const filters = document.getElementById("advanced-filters");
+        const btn = document.getElementById("toggle-filters-btn");
+        const isHidden = filters.classList.contains("hidden");
+
+        if (isHidden) {
+          filters.classList.remove("hidden");
+          filters.classList.add("fade-in-up");
+          btn.classList.add("text-bim-blue", "bg-gray-800");
+        } else {
+          filters.classList.add("hidden");
+          btn.classList.remove("text-bim-blue", "bg-gray-800");
+        }
+      }
+
+      // Add listeners for advanced filters
+      document.querySelectorAll("#advanced-filters input").forEach((input) => {
+        input.addEventListener("input", () => {
+          const query = document.getElementById("profile-search").value;
+          showSearchResults(query);
+        });
+      });
+
       // ==================== INIT ====================
       renderSeriesSelector();
     </script>
+    <script src="../js/scripts.js"></script>
   </body>
 </html>

@@ -64,6 +64,7 @@ const TRANSLATIONS = {
     th_len: "Largo",
     th_unit_weight: "Peso Unit.",
     th_total_weight: "Peso Total",
+    total_label: "TOTAL",
 
     // Classification
     cls_desc: "Descripción",
@@ -105,6 +106,8 @@ const TRANSLATIONS = {
     // Excel Headers
     excel_title: "LISTADO DE PERFILES DE ACERO",
     excel_title_catalog: "CATÁLOGO ICHA — RESUMEN DE PERFILES",
+    pdf_title: "LISTADO DE PERFILES DE ACERO",
+    pdf_title_catalog: "CATÁLOGO ICHA — RESUMEN DE PERFILES",
     excel_class_title: "CLASIFICACIÓN POR NOMINAL WEIGHT",
     excel_conns: "Conexiones Acero",
     excel_total_final: "TOTAL ACERO (con conexiones)",
@@ -220,6 +223,7 @@ const TRANSLATIONS = {
     th_len: "Length",
     th_unit_weight: "Unit Wt.",
     th_total_weight: "Total Wt.",
+    total_label: "TOTAL",
 
     // Classification
     cls_desc: "Description",
@@ -260,6 +264,8 @@ const TRANSLATIONS = {
     // Excel Headers
     excel_title: "STEEL PROFILES LIST",
     excel_title_catalog: "ICHA CATALOG — PROFILES SUMMARY",
+    pdf_title: "STEEL PROFILES LIST",
+    pdf_title_catalog: "ICHA CATALOG — PROFILES SUMMARY",
     excel_class_title: "CLASSIFICATION BY NOMINAL WEIGHT",
     excel_conns: "Steel Connections",
     excel_total_final: "TOTAL STEEL (w/ connections)",

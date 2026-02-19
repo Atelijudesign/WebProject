@@ -62,12 +62,16 @@
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <div id="logo" class="flex-shrink-0 flex items-center cursor-pointer">
+          <a
+            href="#home"
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+          >
             <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
             <span class="font-bold text-xl text-gray-900 dark:text-white"
               >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
             >
-          </div>
+          </a>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
               <a
@@ -1351,81 +1355,15 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <!-- Contact Form -->
-          <div
-            class="glass-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800"
-          >
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Envíame un mensaje
-            </h3>
-            <form
-              id="contact-form"
-              action="https://formspree.io/f/mqkenrzv"
-              method="POST"
-              class="space-y-6"
-            >
-              <div>
-                <label
-                  for="name"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >Nombre</label
-                >
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 focus:border-bim-blue focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white"
-                  placeholder="Tu nombre"
-                />
-              </div>
-              <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 focus:border-bim-blue focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white"
-                  placeholder="tu@email.com"
-                />
-              </div>
-              <div>
-                <label
-                  for="message"
-                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >Mensaje</label
-                >
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                  class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 focus:border-bim-blue focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-gray-900 dark:text-white resize-none"
-                  placeholder="¿En qué puedo ayudarte?"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full py-3 px-6 bg-bim-blue hover:bg-blue-600 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2"
-              >
-                <span>Enviar Mensaje</span>
-                <i class="fa-solid fa-paper-plane"></i>
-              </button>
-            </form>
-          </div>
-
+        <div class="max-w-xl mx-auto">
           <!-- Social Links & Info -->
           <div class="space-y-8">
             <div
               class="glass-card p-8 rounded-2xl border border-gray-200 dark:border-gray-800"
             >
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center"
+              >
                 Información de Contacto
               </h3>
               <div class="space-y-6">
@@ -1444,24 +1382,6 @@
                     </p>
                     <p class="text-gray-900 dark:text-white font-medium">
                       andresgallo@pm.me
-                    </p>
-                  </div>
-                </a>
-                <a
-                  href="tel:+56940600861"
-                  class="flex items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-bim-blue/10 transition-colors group"
-                >
-                  <div
-                    class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400 mr-4 group-hover:scale-110 transition-transform"
-                  >
-                    <i class="fa-solid fa-phone text-xl"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      Teléfono
-                    </p>
-                    <p class="text-gray-900 dark:text-white font-medium">
-                      +56 9 4060 0861
                     </p>
                   </div>
                 </a>

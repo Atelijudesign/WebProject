@@ -129,24 +129,114 @@
   >
     <!-- Navigation -->
     <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800"
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <a href="../index.html" class="flex-shrink-0 flex items-center group">
-            <i
-              class="fa-solid fa-arrow-left text-gray-400 group-hover:text-bim-blue mr-3 transition-colors"
-            ></i>
+          <a
+            href="../index.html"
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+          >
             <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
             <span class="font-bold text-xl text-gray-900 dark:text-white"
               >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
             >
           </a>
-          <div class="hidden md:flex items-center space-x-2">
-            <span class="text-bim-blue text-sm font-semibold"
-              ><i class="fa-solid fa-toolbox mr-1"></i> Herramientas</span
-            >
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="../index.html#home"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="../index.html#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="../index.html#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="../index.html#portfolio"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="../blog/index.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="../index.html#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="index.html"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
+            </div>
           </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="../index.html#home"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="../index.html#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="../index.html#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="../index.html#portfolio"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="../blog/index.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="../index.html#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="index.html"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Tools</a
+          >
         </div>
       </div>
     </nav>
@@ -308,5 +398,6 @@
         </p>
       </div>
     </footer>
+    <script src="../js/scripts.js"></script>
   </body>
 </html>
