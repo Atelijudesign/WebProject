@@ -98,6 +98,9 @@
           transform: translateY(0);
         }
       }
+      .svg-diagram {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
+      }
       .search-dropdown {
         max-height: 280px;
         overflow-y: auto;
@@ -159,8 +162,10 @@
             >
           </a>
           <div class="hidden md:flex items-center space-x-2">
-            <span class="text-gray-500 text-sm"
-              ><i class="fa-solid fa-toolbox mr-1"></i> Tools</span
+            <a
+              href="index.html"
+              class="text-gray-500 hover:text-bim-blue text-sm transition-colors"
+              ><i class="fa-solid fa-toolbox mr-1"></i> Tools</a
             >
             <span class="text-gray-600">›</span>
             <span class="text-bim-blue text-sm font-semibold"
@@ -237,8 +242,36 @@
     <!-- Main Calculator Section -->
     <section class="py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-6">
-          <!-- Left: Search & Select -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.7fr_1.2fr] gap-6">
+          <!-- Left: SVG Diagram -->
+          <div
+            class="glass-card rounded-xl p-6 flex flex-col items-center justify-center min-h-[350px]"
+            id="diagram-panel"
+          >
+            <h3
+              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"
+            >
+              <i class="fa-solid fa-vector-square mr-2"></i>Sección Transversal
+            </h3>
+            <div
+              id="svg-container"
+              class="flex-1 flex items-center justify-center w-full svg-diagram"
+            >
+              <div class="text-center text-gray-600">
+                <i class="fa-solid fa-shapes text-4xl mb-3 block"></i>
+                <p class="text-sm">Selecciona un perfil</p>
+              </div>
+            </div>
+            <div id="profile-designation" class="mt-4 text-center">
+              <span
+                class="text-2xl font-extrabold text-white"
+                id="designation-text"
+                >—</span
+              >
+            </div>
+          </div>
+
+          <!-- Center: Search & Select -->
           <div class="glass-card rounded-xl p-6" id="search-panel">
             <h3
               class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
@@ -539,8 +572,8 @@
         },
         A_cm2: { label: "Área Sección", unit: "cm²", icon: "fa-vector-square" },
         B_mm: { label: "Ancho (B)", unit: "mm", icon: "fa-arrows-left-right" },
-        e_mm: { label: "Espesor (e)", unit: "mm", icon: "fa-ruler" },
-        t_mm: { label: "Espesor ala (t)", unit: "mm", icon: "fa-ruler" },
+        e_mm: { label: "Espesor ala (e)", unit: "mm", icon: "fa-ruler" },
+        t_mm: { label: "Espesor alma (t)", unit: "mm", icon: "fa-ruler" },
         C_mm: { label: "Labio (C)", unit: "mm", icon: "fa-ruler" },
         Ix_cm4: { label: "Ix", unit: "cm⁴", icon: "fa-rotate" },
         Wx_cm3: { label: "Wx", unit: "cm³", icon: "fa-cube" },
@@ -676,6 +709,9 @@
 
         // Render properties
         renderProperties(profile);
+
+        // Render SVG cross-section
+        renderSvgDiagram(profile);
       }
 
       function renderProperties(profile) {
@@ -736,7 +772,295 @@
         return n.toFixed(n < 10 ? 2 : 1);
       }
 
-      // ==================== PROFILE LIST ====================
+      // ==================== SVG CROSS-SECTION ====================
+      const SZ = 240,
+        CX = SZ / 2,
+        CY = SZ / 2,
+        PAD = 45;
+
+      function dimLine(x1, y1, x2, y2, label, offset = 0, color = "#60a5fa") {
+        const isV = Math.abs(x1 - x2) < 2;
+        const ox = isV ? offset : 0,
+          oy = isV ? 0 : offset;
+        const mx = (x1 + x2) / 2 + ox,
+          my = (y1 + y2) / 2 + oy;
+        const tox = isV ? (offset > 0 ? 8 : -8) : 0;
+        const toy = isV ? 0 : offset > 0 ? 12 : -6;
+        const tx = Math.max(24, Math.min(SZ - 24, mx + tox));
+        const ty = Math.max(10, Math.min(SZ - 4, my + toy));
+        return `<line x1="${x1 + ox}" y1="${y1 + oy}" x2="${x2 + ox}" y2="${y2 + oy}" stroke="${color}" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.7"/>
+                <text x="${tx}" y="${ty}" fill="${color}" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">${label}</text>`;
+      }
+
+      function getHeightFromDesig(designation) {
+        const m = designation.match(/(\d+)/);
+        return m ? parseFloat(m[1]) * 10 : 300;
+      }
+
+      // H / I shape (IN, IP, HN, PH)
+      function buildICHAHSvg(h, b, s, t) {
+        const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
+        const H = h * sc,
+          B = b * sc,
+          S = Math.max(s * sc, 4),
+          T = Math.max(t * sc, 4);
+        const x = CX,
+          y = CY;
+        const shape = `<polygon points="${x - B / 2},${y - H / 2} ${x + B / 2},${y - H / 2} ${x + B / 2},${y - H / 2 + T} ${x + S / 2},${y - H / 2 + T} ${x + S / 2},${y + H / 2 - T} ${x + B / 2},${y + H / 2 - T} ${x + B / 2},${y + H / 2} ${x - B / 2},${y + H / 2} ${x - B / 2},${y + H / 2 - T} ${x - S / 2},${y + H / 2 - T} ${x - S / 2},${y - H / 2 + T} ${x - B / 2},${y - H / 2 + T}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(
+          x - B / 2,
+          y - H / 2,
+          x - B / 2,
+          y + H / 2,
+          `h=${h}`,
+          -22,
+        );
+        dims += dimLine(
+          x - B / 2,
+          y + H / 2,
+          x + B / 2,
+          y + H / 2,
+          `b=${b}`,
+          18,
+        );
+        dims += `<text x="${x + S / 2 + 6}" y="${y + 4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${s}</text>`;
+        dims += `<text x="${x + B / 2 + 6}" y="${y - H / 2 + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${t}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Channel C shape
+      function buildICHACSvg(h, b, e, t) {
+        const bVal = b || 80;
+        const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / (bVal * 2));
+        const H = h * sc,
+          B = bVal * sc,
+          T = Math.max((t || e) * sc, 3);
+        const x = CX,
+          top = CY - H / 2;
+        const pts = `${x - B},${top} ${x},${top} ${x},${top + T} ${x - B + T},${top + T} ${x - B + T},${top + H - T} ${x},${top + H - T} ${x},${top + H} ${x - B},${top + H}`;
+        const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(x + 4, top, x + 4, top + H, `h=${h}`, 14);
+        dims += dimLine(x - B, top + H, x, top + H, `b=${bVal}`, 16);
+        dims += `<text x="${x + 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e || t}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Stiffened channel (CA)
+      function buildICHACASvg(h, b, e, t, c) {
+        const sc = Math.min(
+          (SZ - 2 * PAD) / h,
+          (SZ - 2 * PAD) / ((b || 80) * 2),
+        );
+        const H = h * sc,
+          B = Math.max((b || 50) * sc, 8),
+          T = Math.max((t || e) * sc, 3);
+        const C = c ? Math.max(c * sc, 6) : 0;
+        const left = CX - B / 2,
+          top = CY - H / 2;
+        let pts;
+        if (C > 0) {
+          pts = `${left},${top} ${left + B},${top} ${left + B},${top + C} ${left + B - T},${top + C} ${left + B - T},${top + T} ${left + T},${top + T} ${left + T},${top + H - T} ${left + B - T},${top + H - T} ${left + B - T},${top + H - C} ${left + B},${top + H - C} ${left + B},${top + H} ${left},${top + H}`;
+        } else {
+          pts = `${left},${top} ${left + B},${top} ${left + B},${top + T} ${left + T},${top + T} ${left + T},${top + H - T} ${left + B},${top + H - T} ${left + B},${top + H} ${left},${top + H}`;
+        }
+        const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(
+          left + B + 4,
+          top,
+          left + B + 4,
+          top + H,
+          `h=${h}`,
+          16,
+        );
+        dims += dimLine(left, top + H, left + B, top + H, `b=${b || 50}`, 16);
+        dims += `<text x="${left + B + 6}" y="${top + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e || t}</text>`;
+        if (C > 0)
+          dims += `<text x="${left + B + 6}" y="${top + H - C / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">c=${c}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Angle L shape
+      function buildICHALSvg(h, b, e) {
+        const bVal = b || h;
+        const maxD = Math.max(h, bVal);
+        const sc = (SZ - 2 * PAD) / maxD;
+        const H = h * sc,
+          B = bVal * sc,
+          T = Math.max(e * sc, 3);
+        const x = CX - B / 2,
+          top = CY - H / 2;
+        const pts = `${x},${top} ${x + T},${top} ${x + T},${top + H - T} ${x + B},${top + H - T} ${x + B},${top + H} ${x},${top + H}`;
+        const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(x, top, x, top + H, `h=${h}`, -20);
+        dims += dimLine(x, top + H, x + B, top + H, `b=${bVal}`, 16);
+        dims += `<text x="${x + T + 6}" y="${top + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Double angle TL shape
+      function buildICHATLSvg(h, b, e) {
+        const bVal = b || h;
+        const sc =
+          Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / (bVal * 2)) * 0.85;
+        const H = h * sc,
+          B = bVal * sc,
+          T = Math.max(e * sc, 3);
+        const gap = 6;
+        // Left angle (mirrored)
+        const lx = CX - gap / 2,
+          top = CY - H / 2;
+        const lPts = `${lx},${top} ${lx - T},${top} ${lx - T},${top + H - T} ${lx - B},${top + H - T} ${lx - B},${top + H} ${lx},${top + H}`;
+        // Right angle
+        const rx = CX + gap / 2;
+        const rPts = `${rx},${top} ${rx + T},${top} ${rx + T},${top + H - T} ${rx + B},${top + H - T} ${rx + B},${top + H} ${rx},${top + H}`;
+        const shape = `<polygon points="${lPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        <polygon points="${rPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(lx - B, top, lx - B, top + H, `h=${h}`, -18);
+        dims += dimLine(rx, top + H, rx + B, top + H, `b=${bVal}`, 16);
+        dims += `<text x="${rx + T + 6}" y="${top + 14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Cross angle XL shape
+      function buildICHAXLSvg(h, b, e) {
+        const bVal = b || h;
+        const maxD = Math.max(h, bVal);
+        const sc = ((SZ - 2 * PAD) / maxD) * 0.7;
+        const H = h * sc,
+          B = bVal * sc,
+          T = Math.max(e * sc, 3);
+        const gap = 6;
+        const ax = CX - gap / 2,
+          ay = CY - gap / 2;
+        const aPts = `${ax},${ay} ${ax},${ay - H} ${ax - T},${ay - H} ${ax - T},${ay - T} ${ax - B},${ay - T} ${ax - B},${ay}`;
+        const bx = CX + gap / 2,
+          by = CY + gap / 2;
+        const bPts = `${bx},${by} ${bx},${by + H} ${bx + T},${by + H} ${bx + T},${by + T} ${bx + B},${by + T} ${bx + B},${by}`;
+        const shape = `<polygon points="${aPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+                        <polygon points="${bPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>`;
+        let dims = dimLine(ax - T, ay - H, ax - T, ay, `h=${h}`, -18);
+        dims += dimLine(ax - B, ay, ax, ay, `b=${bVal}`, 16);
+        dims += `<text x="${ax + 8}" y="${ay - H + 14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Double channel IC shape
+      function buildICHAICSvg(h, b, e, t) {
+        const bVal = b || 80;
+        const sc =
+          Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / (bVal * 2)) * 0.9;
+        const H = h * sc,
+          B = bVal * sc,
+          T = Math.max((t || e) * sc, 3);
+        const gap = 4;
+        const top = CY - H / 2;
+        // Left channel (opening left)
+        const lx = CX - gap / 2;
+        const lPts = `${lx},${top} ${lx - B},${top} ${lx - B},${top + T} ${lx - T},${top + T} ${lx - T},${top + H - T} ${lx - B},${top + H - T} ${lx - B},${top + H} ${lx},${top + H}`;
+        // Right channel (opening right)
+        const rx = CX + gap / 2;
+        const rPts = `${rx},${top} ${rx + B},${top} ${rx + B},${top + T} ${rx + T},${top + T} ${rx + T},${top + H - T} ${rx + B},${top + H - T} ${rx + B},${top + H} ${rx},${top + H}`;
+        const shape = `<polygon points="${lPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        <polygon points="${rPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(rx + B + 4, top, rx + B + 4, top + H, `h=${h}`, 16);
+        dims += dimLine(rx, top + H, rx + B, top + H, `b=${bVal}`, 16);
+        dims += `<text x="${rx + T + 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e || t}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Double stiffened channel ICA shape
+      function buildICHAICASvg(h, b, e, t, c) {
+        const bVal = b || 80;
+        const sc =
+          Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / (bVal * 2)) * 0.9;
+        const H = h * sc,
+          B = Math.max(bVal * sc, 8),
+          T = Math.max((t || e) * sc, 3);
+        const C = c ? Math.max(c * sc, 6) : 0;
+        const gap = 4;
+        const top = CY - H / 2;
+        // Left stiffened channel
+        const lx = CX - gap / 2;
+        let lPts;
+        if (C > 0) {
+          lPts = `${lx},${top} ${lx - B},${top} ${lx - B},${top + C} ${lx - B + T},${top + C} ${lx - B + T},${top + T} ${lx - T},${top + T} ${lx - T},${top + H - T} ${lx - B + T},${top + H - T} ${lx - B + T},${top + H - C} ${lx - B},${top + H - C} ${lx - B},${top + H} ${lx},${top + H}`;
+        } else {
+          lPts = `${lx},${top} ${lx - B},${top} ${lx - B},${top + T} ${lx - T},${top + T} ${lx - T},${top + H - T} ${lx - B},${top + H - T} ${lx - B},${top + H} ${lx},${top + H}`;
+        }
+        // Right stiffened channel (mirrored)
+        const rx = CX + gap / 2;
+        let rPts;
+        if (C > 0) {
+          rPts = `${rx},${top} ${rx + B},${top} ${rx + B},${top + C} ${rx + B - T},${top + C} ${rx + B - T},${top + T} ${rx + T},${top + T} ${rx + T},${top + H - T} ${rx + B - T},${top + H - T} ${rx + B - T},${top + H - C} ${rx + B},${top + H - C} ${rx + B},${top + H} ${rx},${top + H}`;
+        } else {
+          rPts = `${rx},${top} ${rx + B},${top} ${rx + B},${top + T} ${rx + T},${top + T} ${rx + T},${top + H - T} ${rx + B},${top + H - T} ${rx + B},${top + H} ${rx},${top + H}`;
+        }
+        const shape = `<polygon points="${lPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        <polygon points="${rPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
+        let dims = dimLine(rx + B + 4, top, rx + B + 4, top + H, `h=${h}`, 16);
+        dims += dimLine(rx, top + H, rx + B, top + H, `b=${bVal}`, 16);
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
+      }
+
+      // Box (Cajón) shape
+      function buildICHABoxSvg(h, b, e) {
+        const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
+        const H = h * sc,
+          B = b * sc,
+          T = Math.max(e * sc, 3);
+        const x = CX - B / 2,
+          y = CY - H / 2;
+        const outer = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="none" stroke="#3b82f6" stroke-width="2" rx="3"/>`;
+        const inner = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" rx="1"/>`;
+        const fill = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="rgba(59,130,246,0.12)" rx="3"/>`;
+        const innerClear = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="rgba(11,18,32,0.85)" rx="1"/>`;
+        let dims = dimLine(x, y, x, y + H, `h=${h}`, -22);
+        dims += dimLine(x, y + H, x + B, y + H, `b=${b}`, 16);
+        dims += `<text x="${CX}" y="${CY + 4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">e=${e}</text>`;
+        return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${fill}${innerClear}${outer}${inner}${dims}</svg>`;
+      }
+
+      // Map series to SVG builder
+      function renderSvgDiagram(profile) {
+        const container = document.getElementById("svg-container");
+        const desigText = document.getElementById("designation-text");
+        desigText.textContent = profile.designation;
+
+        const h = getHeightFromDesig(profile.designation);
+        const b = profile.B_mm || h;
+        const e = profile.e_mm || 8;
+        const t = profile.t_mm || e;
+        const c = profile.C_mm || 0;
+
+        let svg = "";
+        const series = currentSeries;
+
+        if (["IN", "IP", "HN", "PH"].includes(series)) {
+          svg = buildICHAHSvg(h, b, t, e);
+        } else if (series === "C") {
+          svg = buildICHACSvg(h, b, t, e);
+        } else if (series === "CA") {
+          svg = buildICHACASvg(h, b, t, e, c);
+        } else if (series === "IC") {
+          svg = buildICHAICSvg(h, b, t, e);
+        } else if (series === "ICA") {
+          svg = buildICHAICASvg(h, b, t, e, c);
+        } else if (series === "L" || series === "L_desig") {
+          svg = buildICHALSvg(h, b, e);
+        } else if (series === "TL") {
+          svg = buildICHATLSvg(h, b, e);
+        } else if (series === "XL") {
+          svg = buildICHAXLSvg(h, b, e);
+        } else if (series === "CAJON") {
+          svg = buildICHABoxSvg(h, b, e);
+        } else {
+          // Fallback: generic H shape
+          svg = buildICHAHSvg(h, b, t, e);
+        }
+
+        container.innerHTML = svg;
+      }
+
       function addToList() {
         if (!selectedProfile) return;
         const mark = document.getElementById("list-mark").value || "—";
