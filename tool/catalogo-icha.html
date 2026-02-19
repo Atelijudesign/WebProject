@@ -291,16 +291,37 @@
         <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.7fr_1.2fr] gap-6">
           <!-- Left: SVG Diagram -->
           <!-- Diagrama SVG -->
-          <div class="glass-card rounded-xl p-6 flex flex-col items-center">
+          <!-- Diagrama SVG + 3D Viewer -->
+          <div
+            class="glass-card rounded-xl p-6 flex flex-col items-center relative min-h-[350px]"
+          >
+            <!-- Toggles -->
+            <div class="absolute top-4 right-4 flex gap-2 z-10">
+              <button
+                id="btn-2d"
+                class="px-3 py-1 text-xs font-bold rounded-lg bg-bim-blue text-white shadow-lg"
+              >
+                2D
+              </button>
+              <button
+                id="btn-3d"
+                class="px-3 py-1 text-xs font-bold rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-colors"
+              >
+                3D
+              </button>
+            </div>
+
             <h3
               class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"
               data-i18n="sect_cross_section"
             >
               Sección Transversal
             </h3>
+
+            <!-- 2D Container -->
             <div
               id="svg-container"
-              class="w-full max-w-[240px] aspect-square flex items-center justify-center"
+              class="w-full max-w-[240px] aspect-square flex items-center justify-center transition-all duration-300"
             >
               <div class="text-center text-gray-600">
                 <i class="fa-solid fa-shapes text-4xl mb-3 block"></i>
@@ -309,6 +330,13 @@
                 </p>
               </div>
             </div>
+
+            <!-- 3D Container (Hidden) -->
+            <div
+              id="canvas3d"
+              class="w-full h-[300px] hidden rounded-xl overflow-hidden cursor-move mt-2"
+            ></div>
+
             <div id="profile-designation" class="mt-4 text-center">
               <span
                 class="text-2xl font-extrabold text-white"
@@ -1332,6 +1360,10 @@
           svg = buildICHAHSvg(h, b, t, e);
         }
 
+        if (window.update3DView) {
+          window.update3DView(profile);
+        }
+
         container.innerHTML = svg;
       }
 
@@ -1985,5 +2017,100 @@
       // ==================== INIT ====================
       renderSeriesSelector();
     </script>
+    <script type="module">
+      import { init3D, updateProfile3D } from "../js/viewer3d.js";
+
+      init3D("canvas3d");
+
+      const btn2D = document.getElementById("btn-2d");
+      const btn3D = document.getElementById("btn-3d");
+      const svgContainer = document.getElementById("svg-container");
+      const canvas3D = document.getElementById("canvas3d");
+
+      btn2D.addEventListener("click", () => {
+        svgContainer.classList.remove("hidden");
+        canvas3D.classList.add("hidden");
+        btn2D.classList.add("bg-bim-blue", "text-white");
+        btn2D.classList.remove("bg-gray-700", "text-gray-300");
+        btn3D.classList.remove("bg-bim-blue", "text-white");
+        btn3D.classList.add("bg-gray-700", "text-gray-300");
+      });
+
+      btn3D.addEventListener("click", () => {
+        svgContainer.classList.add("hidden");
+        canvas3D.classList.remove("hidden");
+        btn3D.classList.add("bg-bim-blue", "text-white");
+        btn3D.classList.remove("bg-gray-700", "text-gray-300");
+        btn2D.classList.remove("bg-bim-blue", "text-white");
+        btn2D.classList.add("bg-gray-700", "text-gray-300");
+
+        // Trigger update if profile selected
+        if (selectedProfile) {
+          window.update3DView(selectedProfile);
+        }
+      });
+
+      window.update3DView = function (p) {
+        // Parse dimensions from p (which has H_mm, B_mm, etc)
+        // H, I, HE -> H
+        // C, CA -> C or CA
+        // L -> L
+        // Tubo, Circular -> Circular/Rect?
+
+        // series is defined in 'currentSeries' global but p has the data.
+        // I need to know the type. 'currentSeries' holds the key? e.g. 'H', 'PH', 'C', etc.
+
+        // Let's infer type from currentSeries symbol or name
+        // ICHA series keys: H, PH, C, CA, L, Rectangular?
+        // I need to check renderSeriesSelector to see keys.
+
+        let type = currentSeries;
+        let d = p.H_mm || p.D_mm || 0; // Height or Diameter
+        let b = p.B_mm || 0;
+        let t = p.t_mm || 0; // Flange or Wall thickness
+        let s = p.e_mm || 0; // Web thickness
+        let r = 0; // corner radius?
+
+        // Special handling
+        if (["H", "PH", "I", "IN", "IP", "HN", "IE"].includes(currentSeries))
+          type = "H";
+        else if (currentSeries === "C" || currentSeries === "Canal") type = "C";
+        else if (currentSeries === "CA" || currentSeries === "Costanera") {
+          type = "CA";
+          if (p.C_mm) r = p.C_mm;
+        } else if (["L", "Angulo", "L_desig"].includes(currentSeries))
+          type = "L";
+        else if (
+          ["Tubo", "Rectangular", "Cuadrado", "CAJON", "Box"].includes(
+            currentSeries,
+          )
+        )
+          type = "Rectangular";
+        else if (
+          ["Circular", "Cañeria", "Macizo", "Redondo"].includes(currentSeries)
+        ) {
+          type =
+            currentSeries === "Macizo" || currentSeries === "Redondo"
+              ? "RB"
+              : "Circular";
+        }
+        // Fallbacks for composite shapes not fully supported in 3D yet
+        else if (["IC", "ICA", "TL", "XL"].includes(currentSeries)) {
+          // Show base shape if possible or nothing?
+          // Let's try to show the primary component
+          if (currentSeries.startsWith("IC")) type = "C";
+          if (currentSeries.startsWith("TL")) type = "L";
+        }
+
+        // If tubular, t and s might be same
+        if (type === "Rectangular" || type === "Circular") {
+          if (!s && t) s = t;
+          if (!t && s) t = s;
+        }
+
+        updateProfile3D(type, d, b, t, s, r);
+      };
+    </script>
   </body>
 </html>
+```

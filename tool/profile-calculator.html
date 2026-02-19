@@ -679,6 +679,46 @@
                 </tbody>
               </table>
             </div>
+            <!-- SVG Diagram + 3D Viewer -->
+            <div
+              class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center relative min-h-[400px]"
+            >
+              <!-- Toggles -->
+              <div class="absolute top-4 right-4 flex gap-2 z-10">
+                <button
+                  id="btn-2d"
+                  class="px-3 py-1 text-xs font-bold rounded-lg bg-bim-blue text-white shadow-lg"
+                >
+                  2D
+                </button>
+                <button
+                  id="btn-3d"
+                  class="px-3 py-1 text-xs font-bold rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-colors"
+                >
+                  3D
+                </button>
+              </div>
+
+              <!-- 2D Container -->
+              <div
+                id="svg-container"
+                class="w-full flex justify-center transition-all duration-300"
+              >
+                <img
+                  id="profile-diagram"
+                  src="../assets/diagrams/perfil-i.svg"
+                  alt="Diagrama Perfil"
+                  class="max-w-[250px] w-full h-auto drop-shadow-2xl"
+                />
+              </div>
+
+              <!-- 3D Container (Hidden by default) -->
+              <div
+                id="canvas3d"
+                class="w-full h-[400px] hidden rounded-xl overflow-hidden cursor-move"
+              ></div>
+            </div>
+
             <!-- Donut Chart -->
             <div class="mt-6 flex justify-center">
               <div
@@ -784,9 +824,47 @@
       </div>
     </footer>
 
-    <script src="i18n.js"></script>
+    <script type="module">
+      import { init3D, updateProfile3D } from "../js/viewer3d.js";
 
-    <script id="profile-calculator-script">
+      // Initialize 3D
+      init3D("canvas3d");
+
+      // Toggle Logic
+      const btn2D = document.getElementById("btn-2d");
+      const btn3D = document.getElementById("btn-3d");
+      const svgContainer = document.getElementById("svg-container");
+      const canvas3D = document.getElementById("canvas3d");
+
+      btn2D.addEventListener("click", () => {
+        svgContainer.classList.remove("hidden");
+        canvas3D.classList.add("hidden");
+        btn2D.classList.add("bg-bim-blue", "text-white");
+        btn2D.classList.remove("bg-gray-700", "text-gray-300");
+        btn3D.classList.remove("bg-bim-blue", "text-white");
+        btn3D.classList.add("bg-gray-700", "text-gray-300");
+      });
+
+      btn3D.addEventListener("click", () => {
+        svgContainer.classList.add("hidden");
+        canvas3D.classList.remove("hidden");
+        btn3D.classList.add("bg-bim-blue", "text-white");
+        btn3D.classList.remove("bg-gray-700", "text-gray-300");
+        btn2D.classList.remove("bg-bim-blue", "text-white");
+        btn2D.classList.add("bg-gray-700", "text-gray-300");
+
+        // Trigger update when showing 3D
+        updateFromInputs();
+      });
+
+      // Hook into existing calculator update
+      window.update3DView = function (type, d, b, t, s, r) {
+        updateProfile3D(type, d, b, t, s, r);
+      };
+    </script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script>
       // ==================== PROFILE DEFINITIONS ====================
       const PROFILES = {
         H: {
@@ -1569,6 +1647,26 @@
             : "—";
 
           document.getElementById("svg-container").innerHTML = p.svg(v);
+
+          // 3D Update Hook
+          if (
+            window.update3DView &&
+            !document.getElementById("canvas3d").classList.contains("hidden")
+          ) {
+            // Normalize dimensions for 3D viewer
+            let d = v.h || 0;
+            let b = v.b || Math.max(v.b1 || 0, v.b2 || 0) || 0;
+            let t = v.t || Math.max(v.t1 || 0, v.t2 || 0) || 0;
+            let s = v.s || 0;
+            let r = v.c || 0; // 'c' for CA profiles passed as 'r'
+
+            // Mapping
+            let type3d = currentProfile;
+            if (currentProfile === "HE") type3d = "H";
+            if (currentProfile === "RB") type3d = "RB"; // Ensure name matches
+
+            window.update3DView(type3d, d, b, t, s, r);
+          }
         } catch (e) {
           console.error(e);
           document.getElementById("result-area").textContent = "—";
