@@ -1,0 +1,421 @@
+
+============================================================
+COMPARING: Excel 'L' vs JS 'L'
+============================================================
+
+  DISCREPANCY: L 6,5 * w=4.78 (JS: L 8x4.82)
+    e_mm: Excel=5.0 JS=4.0 diff=1.00
+    Ix_cm4: Excel=25.0 JS=39.1 diff=14.10
+    Wx_cm3: Excel=5.38 JS=6.72 diff=1.34
+    iu_cm: Excel=2.58 JS=3.21 diff=0.63
+
+  DISCREPANCY: L 5 * w=2.93 (JS: L 6,5x2.95)
+    e_mm: Excel=4.0 JS=3.0 diff=1.00
+    Ix_cm4: Excel=9.04 JS=15.8 diff=6.76
+    Wx_cm3: Excel=2.54 JS=3.34 diff=0.80
+    iu_cm: Excel=1.99 JS=2.61 diff=0.62
+
+============================================================
+COMPARING: Excel 'L_desig' vs JS 'L_desig'
+============================================================
+
+  DISCREPANCY: L 4*2,5 w=1.19 (JS: L 5*3x1.2)
+    Ix_cm4: Excel=2.53 JS=4.08 diff=1.55
+
+============================================================
+COMPARING: Excel 'C' vs JS 'C'
+============================================================
+
+  DISCREPANCY: C 25* w=26.6 (JS: C 30x26.6)
+    Ix_cm4: Excel=3070.0 JS=3900.0 diff=830.00
+    Wx_cm3: Excel=246.0 JS=260.0 diff=14.00
+    ix_cm: Excel=9.52 JS=10.7 diff=1.18
+    Iy_cm4: Excel=311.0 JS=143.0 diff=168.00
+    Wy_cm3: Excel=41.9 JS=24.1 diff=17.80
+    iy_cm: Excel=3.03 JS=2.05 diff=0.98
+    X_cm: Excel=2.58 JS=1.59 diff=0.99
+
+  DISCREPANCY: C 25* w=15.1 (JS: C 30x15.1)
+    Ix_cm4: Excel=1650.0 JS=2030.0 diff=380.00
+    Wx_cm3: Excel=132.0 JS=136.0 diff=4.00
+    ix_cm: Excel=9.28 JS=10.3 diff=1.02
+    Iy_cm4: Excel=90.9 JS=29.0 diff=61.90
+    Wy_cm3: Excel=15.5 JS=6.98 diff=8.52
+    iy_cm: Excel=2.18 JS=1.23 diff=0.95
+    X_cm: Excel=1.62 JS=0.84 diff=0.78
+
+  DISCREPANCY: C 20* w=20.3 (JS: C 30x20.3)
+    e_mm: Excel=8.0 JS=6.0 diff=2.00
+    Ix_cm4: Excel=1440.0 JS=3040.0 diff=1600.00
+    Wx_cm3: Excel=144.0 JS=202.0 diff=58.00
+    ix_cm: Excel=7.46 JS=10.8 diff=3.34
+    Iy_cm4: Excel=128.0 JS=112.0 diff=16.00
+    Wy_cm3: Excel=23.1 JS=18.6 diff=4.50
+
+  DISCREPANCY: C 20* w=13.1 (JS: C 25x13.1)
+    Ix_cm4: Excel=967.0 JS=1280.0 diff=313.00
+    Wx_cm3: Excel=96.7 JS=102.0 diff=5.30
+    ix_cm: Excel=7.61 JS=8.75 diff=1.14
+    Iy_cm4: Excel=85.5 JS=28.0 diff=57.50
+    Wy_cm3: Excel=15.1 JS=6.89 diff=8.21
+    iy_cm: Excel=2.26 JS=1.3 diff=0.96
+    X_cm: Excel=1.83 JS=0.929 diff=0.90
+
+  DISCREPANCY: C 17,5* w=12.1 (JS: C 30x12.1)
+    e_mm: Excel=5.0 JS=4.0 diff=1.00
+    Ix_cm4: Excel=705.0 JS=1660.0 diff=955.00
+    Wx_cm3: Excel=80.5 JS=111.0 diff=30.50
+    ix_cm: Excel=6.76 JS=10.4 diff=3.64
+    Iy_cm4: Excel=82.1 JS=24.0 diff=58.10
+    Wy_cm3: Excel=14.8 JS=5.71 diff=9.09
+    iy_cm: Excel=2.31 JS=1.24 diff=1.07
+    X_cm: Excel=1.96 JS=0.797 diff=1.16
+
+  DISCREPANCY: C 15* w=11.1 (JS: C 20x11.1)
+    B_mm: Excel=75.0 JS=50.0 diff=25.00
+    Ix_cm4: Excel=491.0 JS=729.0 diff=238.00
+    Wx_cm3: Excel=65.4 JS=72.9 diff=7.50
+    ix_cm: Excel=5.88 JS=7.17 diff=1.29
+    Iy_cm4: Excel=78.2 JS=26.7 diff=51.50
+    Wy_cm3: Excel=14.5 JS=6.75 diff=7.75
+    iy_cm: Excel=2.35 JS=1.37 diff=0.98
+    X_cm: Excel=2.11 JS=1.05 diff=1.06
+
+  DISCREPANCY: C 15* w=9.01 (JS: C 20x9.01)
+    Ix_cm4: Excel=404.0 JS=600.0 diff=196.00
+    Wx_cm3: Excel=53.8 JS=60.0 diff=6.20
+    ix_cm: Excel=5.93 JS=7.23 diff=1.30
+    Iy_cm4: Excel=64.1 JS=22.1 diff=42.00
+    Wy_cm3: Excel=11.8 JS=5.52 diff=6.28
+    iy_cm: Excel=2.36 JS=1.39 diff=0.97
+    X_cm: Excel=2.06 JS=1.0 diff=1.06
+
+  DISCREPANCY: C 15* w=9.17 (JS: C 30x9.19)
+    e_mm: Excel=5.0 JS=3.0 diff=2.00
+    Ix_cm4: Excel=359.0 JS=1270.0 diff=911.00
+    Wx_cm3: Excel=47.9 JS=84.8 diff=36.90
+    ix_cm: Excel=5.55 JS=10.4 diff=4.85
+    Iy_cm4: Excel=24.8 JS=18.6 diff=6.20
+    Wy_cm3: Excel=6.55 JS=4.37 diff=2.18
+
+  DISCREPANCY: C 12,5* w=8.19 (JS: C 17,5x8.22)
+    e_mm: Excel=5.0 JS=4.0 diff=1.00
+    Ix_cm4: Excel=231.0 JS=432.0 diff=201.00
+    Wx_cm3: Excel=37.0 JS=49.4 diff=12.40
+    ix_cm: Excel=4.71 JS=6.42 diff=1.71
+    Iy_cm4: Excel=23.4 JS=21.3 diff=2.10
+    Wy_cm3: Excel=6.4 JS=5.45 diff=0.95
+
+  DISCREPANCY: C 12,5* w=4.25 (JS: C 17,5x4.21)
+    Ix_cm4: Excel=127.0 JS=229.0 diff=102.00
+    Wx_cm3: Excel=20.3 JS=26.2 diff=5.90
+    ix_cm: Excel=4.83 JS=6.53 diff=1.70
+    Iy_cm4: Excel=12.8 JS=11.4 diff=1.40
+    Wy_cm3: Excel=3.38 JS=2.84 diff=0.54
+
+  DISCREPANCY: C 10* w=5.87 (JS: C 12,5x5.87)
+    Ix_cm4: Excel=113.0 JS=171.0 diff=58.00
+    Wx_cm3: Excel=22.6 JS=27.4 diff=4.80
+    ix_cm: Excel=3.89 JS=4.78 diff=0.89
+    Iy_cm4: Excel=18.1 JS=17.3 diff=0.80
+
+============================================================
+COMPARING: Excel 'CA' vs JS 'CA'
+============================================================
+
+  DISCREPANCY: CA 20* w=11.7 (JS: CA 25x11.7)
+    Ix_cm4: Excel=895.0 JS=1350.0 diff=455.00
+    Wx_cm3: Excel=89.5 JS=108.0 diff=18.50
+    ix_cm: Excel=7.64 JS=9.51 diff=1.87
+    Iy_cm4: Excel=110.0 JS=106.0 diff=4.00
+    Wy_cm3: Excel=21.3 JS=19.6 diff=1.70
+
+  DISCREPANCY: CA 15* w=8.98 (JS: CA 20x8.96)
+    Ix_cm4: Excel=406.0 JS=694.0 diff=288.00
+    Wx_cm3: Excel=54.1 JS=69.4 diff=15.30
+    ix_cm: Excel=5.95 JS=7.8 diff=1.85
+    Iy_cm4: Excel=89.7 JS=87.4 diff=2.30
+    Wy_cm3: Excel=48.5 JS=16.9 diff=31.60
+
+  DISCREPANCY: CA 15* w=8.28 (JS: CA 25x8.31)
+    e_mm: Excel=4.0 JS=2.5 diff=1.50
+    Ix_cm4: Excel=337.0 JS=969.0 diff=632.00
+    Wx_cm3: Excel=44.9 JS=77.5 diff=32.60
+    ix_cm: Excel=5.65 JS=9.57 diff=3.92
+    Iy_cm4: Excel=32.9 JS=73.1 diff=40.20
+    Wy_cm3: Excel=9.52 JS=13.2 diff=3.68
+    iy_cm: Excel=1.77 JS=2.63 diff=0.86
+
+  DISCREPANCY: CA 15* w=7.33 (JS: CA 20x7.33)
+    e_mm: Excel=3.5 JS=2.5 diff=1.00
+    Ix_cm4: Excel=302.0 JS=573.0 diff=271.00
+    Wx_cm3: Excel=40.3 JS=57.3 diff=17.00
+    ix_cm: Excel=5.68 JS=7.84 diff=2.16
+    Iy_cm4: Excel=30.1 JS=68.4 diff=38.30
+    Wy_cm3: Excel=8.7 JS=12.9 diff=4.20
+    iy_cm: Excel=1.79 JS=2.71 diff=0.92
+    X_cm: Excel=1.54 JS=2.2 diff=0.66
+
+  DISCREPANCY: CA 10* w=5.96 (JS: CA 20x5.92)
+    e_mm: Excel=3.5 JS=2.0 diff=1.50
+    Ix_cm4: Excel=114.0 JS=467.0 diff=353.00
+    Wx_cm3: Excel=22.9 JS=46.7 diff=23.80
+    ix_cm: Excel=3.88 JS=7.87 diff=3.99
+    Iy_cm4: Excel=26.1 JS=56.3 diff=30.20
+    Wy_cm3: Excel=8.29 JS=10.6 diff=2.31
+    iy_cm: Excel=1.85 JS=2.73 diff=0.88
+
+  DISCREPANCY: CA 8* w=3.41 (JS: CA 10x3.4)
+    Ix_cm4: Excel=42.5 JS=69.2 diff=26.70
+    Wx_cm3: Excel=10.6 JS=13.8 diff=3.20
+    ix_cm: Excel=3.13 JS=4.0 diff=0.87
+    Iy_cm4: Excel=9.56 JS=15.0 diff=5.44
+    Wy_cm3: Excel=3.76 JS=4.57 diff=0.81
+
+============================================================
+COMPARING: Excel 'IN' vs JS 'IN'
+============================================================
+
+  DISCREPANCY: IN 90 * w=280.0 (JS: IN 100x280.0)
+    e_mm: Excel=32.0 JS=28.0 diff=4.00
+    t_mm: Excel=12.0 JS=14.0 diff=2.00
+    Ix_cm4: Excel=541000.0 JS=627000.0 diff=86000.00
+    Wx_cm3: Excel=12000.0 JS=12500.0 diff=500.00
+    ix_cm: Excel=39.0 JS=42.0 diff=3.00
+    Iy_cm4: Excel=34100.0 JS=29900.0 diff=4200.00
+    Wy_cm3: Excel=1710.0 JS=1490.0 diff=220.00
+    iy_cm: Excel=9.79 JS=9.16 diff=0.63
+
+  DISCREPANCY: IN 80 * w=180.0 (JS: IN 90x180.0)
+    e_mm: Excel=22.0 JS=18.0 diff=4.00
+    t_mm: Excel=10.0 JS=12.0 diff=2.00
+    Ix_cm4: Excel=269000.0 JS=310000.0 diff=41000.00
+    Wx_cm3: Excel=7630.0 JS=6880.0 diff=750.00
+    ix_cm: Excel=34.2 JS=36.7 diff=2.50
+    Iy_cm4: Excel=15700.0 JS=12900.0 diff=2800.00
+    Wy_cm3: Excel=899.0 JS=736.0 diff=163.00
+    iy_cm: Excel=8.28 JS=7.49 diff=0.79
+
+  DISCREPANCY: IN 70 * w=194.0 (JS: IN 100x194.0)
+    e_mm: Excel=28.0 JS=16.0 diff=12.00
+    t_mm: Excel=8.0 JS=14.0 diff=6.00
+    Ix_cm4: Excel=239000.0 JS=377000.0 diff=138000.00
+    Wx_cm3: Excel=68300.0 JS=7540.0 diff=60760.00
+    ix_cm: Excel=31.1 JS=39.0 diff=7.90
+    Iy_cm4: Excel=20000.0 JS=11500.0 diff=8500.00
+    Wy_cm3: Excel=1140.0 JS=655.0 diff=485.00
+    iy_cm: Excel=8.99 JS=6.8 diff=2.19
+
+  DISCREPANCY: IN 70 * w=145.0 (JS: IN 80x145.0)
+    e_mm: Excel=22.0 JS=18.0 diff=4.00
+    t_mm: Excel=8.0 JS=10.0 diff=2.00
+    Ix_cm4: Excel=171000.0 JS=202000.0 diff=31000.00
+    Wx_cm3: Excel=4870.0 JS=5060.0 diff=190.00
+    ix_cm: Excel=30.4 JS=33.1 diff=2.70
+    Iy_cm4: Excel=9900.0 JS=8110.0 diff=1790.00
+    Wy_cm3: Excel=660.0 JS=540.0 diff=120.00
+    iy_cm: Excel=7.33 JS=6.63 diff=0.70
+
+  DISCREPANCY: IN 70 * w=136.0 (JS: IN 80x136.0)
+    e_mm: Excel=20.0 JS=16.0 diff=4.00
+    t_mm: Excel=8.0 JS=10.0 diff=2.00
+    Ix_cm4: Excel=158000.0 JS=185000.0 diff=27000.00
+    Wx_cm3: Excel=5410.0 JS=4630.0 diff=780.00
+    ix_cm: Excel=30.2 JS=32.7 diff=2.50
+    Iy_cm4: Excel=9000.0 JS=7210.0 diff=1790.00
+    Wy_cm3: Excel=600.0 JS=480.0 diff=120.00
+    iy_cm: Excel=7.22 JS=6.46 diff=0.76
+
+  DISCREPANCY: IN 50 * w=166.0 (JS: IN 60x166.0)
+    e_mm: Excel=25.0 JS=28.0 diff=3.00
+    Ix_cm4: Excel=105000.0 JS=148000.0 diff=43000.00
+    Wx_cm3: Excel=4200.0 JS=4940.0 diff=740.00
+    ix_cm: Excel=22.3 JS=26.5 diff=4.20
+    Iy_cm4: Excel=17900.0 JS=12600.0 diff=5300.00
+    Wy_cm3: Excel=1020.0 JS=840.0 diff=180.00
+    iy_cm: Excel=9.2 JS=7.72 diff=1.48
+
+  DISCREPANCY: IN 50 * w=114.0 (JS: IN 60x114.0)
+    e_mm: Excel=18.0 JS=20.0 diff=2.00
+    Ix_cm4: Excel=69400.0 JS=95800.0 diff=26400.00
+    Wx_cm3: Excel=2780.0 JS=3190.0 diff=410.00
+    ix_cm: Excel=21.9 JS=25.7 diff=3.80
+    Iy_cm4: Excel=8100.0 JS=5210.0 diff=2890.00
+    Wy_cm3: Excel=540.0 JS=417.0 diff=123.00
+    iy_cm: Excel=7.47 JS=6.0 diff=1.47
+
+  DISCREPANCY: IN 45 * w=129.0 (JS: IN 60x129.0)
+    A_cm2: Excel=164.0 JS=165.0 diff=1.00
+    e_mm: Excel=22.0 JS=20.0 diff=2.00
+    Ix_cm4: Excel=65000.0 JS=113000.0 diff=48000.00
+    Wx_cm3: Excel=2890.0 JS=3760.0 diff=870.00
+    ix_cm: Excel=19.9 JS=26.1 diff=6.20
+    Iy_cm4: Excel=9900.0 JS=9000.0 diff=900.00
+    Wy_cm3: Excel=660.0 JS=600.0 diff=60.00
+
+  DISCREPANCY: IN 40 * w=126.0 (JS: IN 70x126.0)
+    A_cm2: Excel=160.0 JS=161.0 diff=1.00
+    e_mm: Excel=22.0 JS=18.0 diff=4.00
+    Ix_cm4: Excel=50200.0 JS=145000.0 diff=94800.00
+    Wx_cm3: Excel=2510.0 JS=4150.0 diff=1640.00
+    ix_cm: Excel=17.7 JS=30.0 diff=12.30
+    Iy_cm4: Excel=9900.0 JS=8100.0 diff=1800.00
+    Wy_cm3: Excel=660.0 JS=540.0 diff=120.00
+    iy_cm: Excel=7.85 JS=7.09 diff=0.76
+
+  DISCREPANCY: IN 35 * w=123.0 (JS: IN 50x123.0)
+    A_cm2: Excel=156.0 JS=157.0 diff=1.00
+    e_mm: Excel=22.0 JS=20.0 diff=2.00
+    Ix_cm4: Excel=37500.0 JS=75600.0 diff=38100.00
+    Wx_cm3: Excel=2140.0 JS=3030.0 diff=890.00
+    ix_cm: Excel=15.5 JS=22.0 diff=6.50
+    Iy_cm4: Excel=9900.0 JS=9000.0 diff=900.00
+    Wy_cm3: Excel=660.0 JS=600.0 diff=60.00
+
+  DISCREPANCY: IN 35 * w=109.0 (JS: IN 40x109.0)
+    A_cm2: Excel=139.0 JS=138.0 diff=1.00
+    e_mm: Excel=20.0 JS=22.0 diff=2.00
+    t_mm: Excel=6.0 JS=8.0 diff=2.00
+    Ix_cm4: Excel=34200.0 JS=42300.0 diff=8100.00
+    Wx_cm3: Excel=1950.0 JS=2120.0 diff=170.00
+    ix_cm: Excel=15.7 JS=17.5 diff=1.80
+    Iy_cm4: Excel=9000.0 JS=5730.0 diff=3270.00
+    Wy_cm3: Excel=600.0 JS=458.0 diff=142.00
+    iy_cm: Excel=8.06 JS=6.43 diff=1.63
+
+  DISCREPANCY: IN 35 * w=106.0 (JS: IN 60x106.0)
+    A_cm2: Excel=134.0 JS=135.0 diff=1.00
+    e_mm: Excel=22.0 JS=18.0 diff=4.00
+    Ix_cm4: Excel=31500.0 JS=88200.0 diff=56700.00
+    Wx_cm3: Excel=1800.0 JS=2940.0 diff=1140.00
+    ix_cm: Excel=15.3 JS=25.5 diff=10.20
+    Iy_cm4: Excel=5730.0 JS=4690.0 diff=1040.00
+    Wy_cm3: Excel=458.0 JS=375.0 diff=83.00
+    iy_cm: Excel=6.53 JS=5.89 diff=0.64
+
+============================================================
+COMPARING: Excel 'IP' vs JS 'IP'
+============================================================
+
+  DISCREPANCY: IP 70 * w=236.0 (JS: IP 80x236.0)
+    e_mm: Excel=32.0 JS=28.0 diff=4.00
+    t_mm: Excel=12.0 JS=14.0 diff=2.00
+    Ix_cm4: Excel=276000.0 JS=340000.0 diff=64000.00
+    Wx_cm3: Excel=7880.0 JS=8510.0 diff=630.00
+    ix_cm: Excel=30.3 JS=33.7 diff=3.40
+    Iy_cm4: Excel=22900.0 JS=20000.0 diff=2900.00
+    Wy_cm3: Excel=1310.0 JS=1140.0 diff=170.00
+    iy_cm: Excel=8.73 JS=8.17 diff=0.56
+
+  DISCREPANCY: IP 60 * w=183.0 (JS: IP 70x183.0)
+    e_mm: Excel=28.0 JS=22.0 diff=6.00
+    Ix_cm4: Excel=154000.0 JS=205000.0 diff=51000.00
+    Wx_cm3: Excel=5120.0 JS=5860.0 diff=740.00
+    ix_cm: Excel=25.7 JS=29.7 diff=4.00
+    Iy_cm4: Excel=12600.0 JS=15700.0 diff=3100.00
+    Wy_cm3: Excel=841.0 JS=899.0 diff=58.00
+    iy_cm: Excel=7.35 JS=8.22 diff=0.87
+
+  DISCREPANCY: IP 60 * w=156.0 (JS: IP 70x156.0)
+    e_mm: Excel=22.0 JS=20.0 diff=2.00
+    Ix_cm4: Excel=127000.0 JS=168000.0 diff=41000.00
+    Wx_cm3: Excel=4250.0 JS=4790.0 diff=540.00
+    ix_cm: Excel=25.3 JS=29.0 diff=3.70
+    Iy_cm4: Excel=9910.0 JS=9010.0 diff=900.00
+    Wy_cm3: Excel=661.0 JS=601.0 diff=60.00
+
+  DISCREPANCY: IP 60 * w=147.0 (JS: IP 70x147.0)
+    A_cm2: Excel=187.0 JS=188.0 diff=1.00
+    e_mm: Excel=20.0 JS=18.0 diff=2.00
+    Ix_cm4: Excel=119000.0 JS=155000.0 diff=36000.00
+    Wx_cm3: Excel=3950.0 JS=4430.0 diff=480.00
+    ix_cm: Excel=25.2 JS=28.7 diff=3.50
+    Iy_cm4: Excel=9010.0 JS=8110.0 diff=900.00
+    Wy_cm3: Excel=601.0 JS=541.0 diff=60.00
+
+  DISCREPANCY: IP 50 * w=139.0 (JS: IP 60x139.0)
+    A_cm2: Excel=178.0 JS=177.0 diff=1.00
+    B_mm: Excel=300.0 JS=250.0 diff=50.00
+    t_mm: Excel=10.0 JS=12.0 diff=2.00
+    Ix_cm4: Excel=83400.0 JS=109000.0 diff=25600.00
+    Wx_cm3: Excel=3330.0 JS=3640.0 diff=310.00
+    ix_cm: Excel=21.7 JS=24.8 diff=3.10
+    Iy_cm4: Excel=9900.0 JS=5740.0 diff=4160.00
+    Wy_cm3: Excel=660.0 JS=459.0 diff=201.00
+    iy_cm: Excel=7.47 JS=5.7 diff=1.77
+
+============================================================
+COMPARING: Excel 'HN' vs JS 'HN'
+============================================================
+
+  DISCREPANCY: HN 40 * w=301.0 (JS: HN 45x301.0)
+    e_mm: Excel=40.0 JS=35.0 diff=5.00
+    t_mm: Excel=20.0 JS=18.0 diff=2.00
+    Ix_cm4: Excel=110000.0 JS=144000.0 diff=34000.00
+    Wx_cm3: Excel=5480.0 JS=6410.0 diff=930.00
+    ix_cm: Excel=16.9 JS=19.4 diff=2.50
+    Iy_cm4: Excel=42700.0 JS=53200.0 diff=10500.00
+    Wy_cm3: Excel=2130.0 JS=2360.0 diff=230.00
+    iy_cm: Excel=10.5 JS=11.8 diff=1.30
+
+  DISCREPANCY: HN 40 * w=214.0 (JS: HN 45x214.0)
+    e_mm: Excel=28.0 JS=25.0 diff=3.00
+    t_mm: Excel=14.0 JS=12.0 diff=2.00
+    Ix_cm4: Excel=82400.0 JS=108000.0 diff=25600.00
+    Wx_cm3: Excel=4120.0 JS=4810.0 diff=690.00
+    ix_cm: Excel=17.4 JS=19.9 diff=2.50
+    Iy_cm4: Excel=29900.0 JS=38000.0 diff=8100.00
+    Wy_cm3: Excel=1490.0 JS=1690.0 diff=200.00
+    iy_cm: Excel=10.5 JS=11.8 diff=1.30
+
+  DISCREPANCY: HN 35 * w=166.0 (JS: HN 45x166.0)
+    e_mm: Excel=25.0 JS=18.0 diff=7.00
+    Ix_cm4: Excel=49000.0 JS=82700.0 diff=33700.00
+    Wx_cm3: Excel=2800.0 JS=3680.0 diff=880.00
+    ix_cm: Excel=15.2 JS=19.8 diff=4.60
+    Iy_cm4: Excel=17900.0 JS=27300.0 diff=9400.00
+    Wy_cm3: Excel=1020.0 JS=1220.0 diff=200.00
+    iy_cm: Excel=9.2 JS=11.4 diff=2.20
+
+  DISCREPANCY: HN 30 * w=180.0 (JS: HN 45x180.0)
+    e_mm: Excel=32.0 JS=20.0 diff=12.00
+    t_mm: Excel=16.0 JS=12.0 diff=4.00
+    Ix_cm4: Excel=36400.0 JS=90200.0 diff=53800.00
+    Wx_cm3: Excel=2430.0 JS=4010.0 diff=1580.00
+    ix_cm: Excel=12.6 JS=19.8 diff=7.20
+    Iy_cm4: Excel=14400.0 JS=30400.0 diff=16000.00
+    Wy_cm3: Excel=961.0 JS=1350.0 diff=389.00
+    iy_cm: Excel=7.92 JS=11.5 diff=3.58
+
+  DISCREPANCY: HN 25 * w=106.0 (JS: HN 30x106.0)
+    A_cm2: Excel=135.0 JS=134.0 diff=1.00
+    e_mm: Excel=22.0 JS=18.0 diff=4.00
+    t_mm: Excel=12.0 JS=10.0 diff=2.00
+    Ix_cm4: Excel=15200.0 JS=23000.0 diff=7800.00
+    Wx_cm3: Excel=1220.0 JS=1540.0 diff=320.00
+    ix_cm: Excel=10.6 JS=13.1 diff=2.50
+    Iy_cm4: Excel=5730.0 JS=8100.0 diff=2370.00
+    Wy_cm3: Excel=459.0 JS=540.0 diff=81.00
+    iy_cm: Excel=6.52 JS=7.76 diff=1.24
+
+============================================================
+COMPARING: Excel 'PH' vs JS 'PH'
+============================================================
+
+  DISCREPANCY: PH 35* w=101.0 (JS: PH 40x101.0)
+    e_mm: Excel=14.0 JS=12.0 diff=2.00
+    t_mm: Excel=14.0 JS=12.0 diff=2.00
+    Ix_cm4: Excel=27600.0 JS=36900.0 diff=9300.00
+    Wx_cm3: Excel=1580.0 JS=1850.0 diff=270.00
+    ix_cm: Excel=14.6 JS=16.9 diff=2.30
+    Iy_cm4: Excel=6310.0 JS=8580.0 diff=2270.00
+    Wy_cm3: Excel=420.0 JS=490.0 diff=70.00
+    iy_cm: Excel=6.99 JS=8.15 diff=1.16
+
+
+============================================================
+SUMMARY
+============================================================
+Total profiles compared: 479
+Total with discrepancies: 43
+Total missing from JS: 0

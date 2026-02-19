@@ -8,6 +8,16 @@
       name="description"
       content="Herramientas de productividad para proyectistas estructurales. Calculadora de peso y área de perfiles de acero."
     />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calculadora de Perfiles de Acero" />
+    <meta
+      property="og:description"
+      content="Herramienta web gratuita para calcular peso, área y perímetro de cobertura de perfiles de acero personalizados."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+
     <link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link
       rel="stylesheet"
@@ -18,6 +28,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
     <script>
       tailwind.config = {
@@ -195,10 +206,16 @@
           <h1
             class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
           >
-            Calcular el peso <span class="text-bim-blue">(kg/m)</span> de los
-            <span class="text-bim-blue">Perfiles de Acero</span>
+            <span data-i18n="calc_hero_title_prefix">Calcular el peso</span>
+            <span class="text-bim-blue">(kg/m)</span>
+            <span data-i18n="calc_hero_title_suffix"
+              >de los Perfiles de Acero</span
+            >
           </h1>
-          <p class="max-w-2xl mx-auto text-gray-400 text-lg">
+          <p
+            class="max-w-2xl mx-auto text-gray-400 text-lg"
+            data-i18n="calc_hero_desc"
+          >
             Como proyectistas, a veces necesitamos verificar datos rápidos sin
             abrir el software pesado. Calcula peso, área y superficie en tiempo
             real de 12 tipos de perfiles estructurales en tiempo real.
@@ -213,7 +230,10 @@
         <h2
           class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
         >
-          <i class="fa-solid fa-shapes mr-2"></i>Selecciona el tipo de perfil
+          <i class="fa-solid fa-shapes mr-2"></i
+          ><span data-i18n="sect_select_type"
+            >Selecciona el tipo de perfil</span
+          >
         </h2>
         <div
           class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2"
@@ -236,7 +256,8 @@
             <h3
               class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"
             >
-              <i class="fa-solid fa-vector-square mr-2"></i>Sección Transversal
+              <i class="fa-solid fa-vector-square mr-2"></i
+              ><span data-i18n="sect_cross_section">Sección Transversal</span>
             </h3>
             <div
               id="svg-container"
@@ -258,7 +279,8 @@
             <h3
               class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
             >
-              <i class="fa-solid fa-sliders mr-2"></i>Dimensiones
+              <i class="fa-solid fa-sliders mr-2"></i
+              ><span data-i18n="sect_dimensions">Dimensiones</span>
             </h3>
             <div id="inputs-container" class="space-y-3 fade-in">
               <!-- Populated by JS -->
@@ -270,12 +292,15 @@
             <h3
               class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
             >
-              <i class="fa-solid fa-calculator mr-2"></i>Resultados
+              <i class="fa-solid fa-calculator mr-2"></i
+              ><span data-i18n="sect_results">Resultados</span>
             </h3>
             <div class="space-y-4">
               <div class="result-value rounded-xl p-5">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="text-gray-400 text-sm font-medium"
+                  <span
+                    class="text-gray-400 text-sm font-medium"
+                    data-i18n="res_area"
                     >Área de Sección</span
                   >
                   <span class="text-xs text-gray-500">cm²</span>
@@ -288,8 +313,10 @@
               </div>
               <div class="result-value rounded-xl p-5">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="text-gray-400 text-sm font-medium"
-                    >Peso Lineal (Kg/m)</span
+                  <span
+                    class="text-gray-400 text-sm font-medium"
+                    data-i18n="res_weight"
+                    >Peso Lineal</span
                   >
                   <span class="text-xs text-gray-500">kg/m</span>
                 </div>
@@ -312,10 +339,69 @@
                   >0.000</span
                 >
               </div>
+              <!-- Mechanical Properties -->
+              <div class="pt-3 border-t border-gray-700/50">
+                <p
+                  class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3"
+                >
+                  <i class="fa-solid fa-ruler-combined mr-1"></i
+                  ><span data-i18n="sect_properties"
+                    >Propiedades Mecánicas</span
+                  >
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="result-value rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-gray-400 text-xs font-medium">Ix</span>
+                      <span class="text-[10px] text-gray-600">cm⁴</span>
+                    </div>
+                    <span
+                      class="text-xl font-extrabold text-white"
+                      id="result-ix"
+                      >—</span
+                    >
+                  </div>
+                  <div class="result-value rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-gray-400 text-xs font-medium">Iy</span>
+                      <span class="text-[10px] text-gray-600">cm⁴</span>
+                    </div>
+                    <span
+                      class="text-xl font-extrabold text-white"
+                      id="result-iy"
+                      >—</span
+                    >
+                  </div>
+                  <div class="result-value rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-gray-400 text-xs font-medium">Wx</span>
+                      <span class="text-[10px] text-gray-600">cm³</span>
+                    </div>
+                    <span
+                      class="text-xl font-extrabold text-bim-blue"
+                      id="result-wx"
+                      >—</span
+                    >
+                  </div>
+                  <div class="result-value rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-gray-400 text-xs font-medium">Wy</span>
+                      <span class="text-[10px] text-gray-600">cm³</span>
+                    </div>
+                    <span
+                      class="text-xl font-extrabold text-bim-blue"
+                      id="result-wy"
+                      >—</span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- Add to List Controls -->
             <div class="mt-6 pt-4 border-t border-gray-700/50">
-              <label class="text-xs font-semibold text-gray-400 mb-2 block"
+              <label
+                class="text-xs font-semibold text-gray-400 mb-2 block"
+                data-i18n="lbl_add_list"
                 >Agregar a la Lista</label
               >
               <div class="flex flex-wrap gap-2 items-stretch">
@@ -325,6 +411,7 @@
                     type="text"
                     id="list-mark"
                     placeholder="Marca"
+                    data-i18n="lbl_mark"
                     class="input-field w-full px-3 py-2.5 rounded-lg text-white text-sm text-center"
                   />
                   <span class="absolute right-2 top-3 text-[10px] text-gray-500"
@@ -363,12 +450,21 @@
                 <!-- Button -->
                 <button
                   id="btn-add-list"
-                  class="bg-bim-blue hover:bg-blue-600 text-white font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 group text-sm whitespace-nowrap"
+                  class="bg-bim-blue hover:bg-blue-600 text-white font-bold py-2.5 px-5 rounded-lg transition-colors flex items-center justify-center gap-2 group text-sm whitespace-nowrap flex-[2]"
+                  onclick="addToProfileList()"
                 >
                   <i
                     class="fa-solid fa-plus group-hover:rotate-90 transition-transform text-sm"
                   ></i>
-                  <span>+ Agregar</span>
+                  <span data-i18n="btn_add">Agregar</span>
+                </button>
+                <button
+                  onclick="addToComparator()"
+                  class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 group text-sm whitespace-nowrap"
+                  title="Agregar al Comparador (Max 2)"
+                >
+                  <i class="fa-solid fa-code-compare"></i>
+                  <span>VS</span>
                 </button>
               </div>
             </div>
@@ -383,10 +479,10 @@
                 Referencia
               </p>
               <p class="text-xs text-gray-400">
-                Densidad del acero:
+                <span data-i18n="ref_density">Densidad del acero:</span>
                 <span class="text-white font-bold">7,850 kg/m³</span>
               </p>
-              <p class="text-xs text-gray-400 mt-1">
+              <p class="text-xs text-gray-400 mt-1" data-i18n="ref_formula">
                 Peso = Área × 0.00785 × 100
               </p>
             </div>
@@ -400,10 +496,12 @@
               <h3
                 class="text-sm font-bold text-gray-500 uppercase tracking-wider"
               >
-                <i class="fa-solid fa-list-check mr-2"></i>Resumen de Perfiles
-                Seleccionados
+                <i class="fa-solid fa-list-check mr-2"></i
+                ><span data-i18n="sect_summary"
+                  >Resumen de Perfiles Seleccionados</span
+                >
               </h3>
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2 flex-wrap">
                 <button
                   onclick="exportToExcel()"
                   class="text-xs bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 shadow-lg shadow-green-900/30 flex items-center gap-1.5 font-bold"
@@ -411,10 +509,30 @@
                   <i class="fa-solid fa-file-excel"></i> Exportar Excel
                 </button>
                 <button
+                  onclick="copyTableToClipboard()"
+                  id="btn-copy-table"
+                  class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-1.5 font-bold"
+                >
+                  <i class="fa-solid fa-clipboard"></i> Copiar
+                </button>
+                <button
+                  onclick="saveToLocalStorage()"
+                  class="text-xs bg-blue-700 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-1.5 font-bold"
+                >
+                  <i class="fa-solid fa-floppy-disk"></i> Guardar
+                </button>
+                <button
+                  onclick="loadFromLocalStorage()"
+                  class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded-lg transition-all hover:-translate-y-0.5 flex items-center gap-1.5 font-bold"
+                >
+                  <i class="fa-solid fa-folder-open"></i> Cargar
+                </button>
+                <button
                   id="btn-clear-list"
                   class="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
                 >
-                  <i class="fa-solid fa-trash-can"></i> Limpiar Todo
+                  <i class="fa-solid fa-trash-can"></i>
+                  <span data-i18n="btn_clear">Limpiar</span>
                 </button>
               </div>
             </div>
@@ -425,20 +543,31 @@
                   <tr
                     class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
                   >
-                    <th class="py-3 px-4 font-semibold text-left">Marca</th>
-                    <th class="py-3 px-4 font-semibold text-center w-16">
+                    <th
+                      class="py-3 px-4 font-semibold text-left"
+                      data-i18n="th_mark"
+                    >
+                      Marca
+                    </th>
+                    <th
+                      class="py-3 px-4 font-semibold text-center w-16"
+                      data-i18n="th_qty"
+                    >
                       Cant.
                     </th>
-                    <th class="py-3 px-4 font-semibold">Perfil</th>
-                    <th class="py-3 px-4 font-semibold text-right">
-                      Largo <span class="text-gray-600 normal-case">(m)</span>
+                    <th class="py-3 px-4 font-semibold" data-i18n="th_profile">
+                      Perfil
                     </th>
                     <th class="py-3 px-4 font-semibold text-right">
-                      Peso Unit.
+                      <span data-i18n="th_len">Largo</span>
+                      <span class="text-gray-600 normal-case">(m)</span>
+                    </th>
+                    <th class="py-3 px-4 font-semibold text-right">
+                      <span data-i18n="th_unit_weight">Peso Unit.</span>
                       <span class="text-gray-600 normal-case">(kg/m)</span>
                     </th>
                     <th class="py-3 px-4 font-semibold text-right">
-                      Peso Total
+                      <span data-i18n="th_total_weight">Peso Total</span>
                       <span class="text-gray-600 normal-case">(kg)</span>
                     </th>
                     <th class="py-3 px-4 font-semibold text-center w-16"></th>
@@ -488,7 +617,10 @@
                 Nominal Weight
               </h3>
               <div class="flex items-center gap-2">
-                <label class="text-xs text-gray-400" for="conn-pct"
+                <label
+                  class="text-xs text-gray-400"
+                  for="conn-pct"
+                  data-i18n="lbl_connections"
                   >Conexiones:</label
                 >
                 <input
@@ -511,13 +643,22 @@
                   <tr
                     class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
                   >
-                    <th class="py-3 px-4 font-semibold text-left">
+                    <th
+                      class="py-3 px-4 font-semibold text-left"
+                      data-i18n="cls_desc"
+                    >
                       Descripción
                     </th>
-                    <th class="py-3 px-4 font-semibold text-right w-24">
+                    <th
+                      class="py-3 px-4 font-semibold text-right w-24"
+                      data-i18n="cls_unit"
+                    >
                       Unidad
                     </th>
-                    <th class="py-3 px-4 font-semibold text-right w-32">
+                    <th
+                      class="py-3 px-4 font-semibold text-right w-32"
+                      data-i18n="cls_qty"
+                    >
                       Cantidad
                     </th>
                   </tr>
@@ -527,10 +668,25 @@
                 </tbody>
               </table>
             </div>
+            <!-- Donut Chart -->
+            <div class="mt-6 flex justify-center">
+              <div
+                style="
+                  position: relative;
+                  width: 100%;
+                  max-width: 320px;
+                  height: 220px;
+                "
+              >
+                <canvas id="weight-donut-chart"></canvas>
+              </div>
+            </div>
             <div
               class="mt-4 pt-3 border-t border-gray-600 flex items-center justify-between"
             >
-              <span class="text-sm font-bold text-white"
+              <span
+                class="text-sm font-bold text-white"
+                data-i18n="cls_total_steel"
                 >Total Acero (con conexiones):</span
               >
               <span
@@ -541,18 +697,83 @@
             </div>
           </div>
         </div>
+
+        <!-- Comparator Section -->
+        <div class="mt-6 hidden" id="comparator-section">
+          <div class="glass-card rounded-xl p-6 overflow-hidden mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3
+                class="text-sm font-bold text-gray-500 uppercase tracking-wider"
+              >
+                <i class="fa-solid fa-code-compare mr-2"></i>Comparador de
+                Perfiles
+              </h3>
+              <button
+                onclick="clearComparator()"
+                class="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
+              >
+                <i class="fa-solid fa-trash-can"></i>
+                <span data-i18n="btn_clear_local">Limpiar Local</span>
+              </button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-gray-700 text-xs text-gray-400 uppercase tracking-wider"
+                  >
+                    <th
+                      class="py-3 px-4 font-semibold text-left"
+                      data-i18n="cmp_prop"
+                    >
+                      Propiedad
+                    </th>
+                    <th
+                      class="py-3 px-4 font-semibold text-center text-bim-blue"
+                      id="comp-name-a"
+                      data-i18n="cmp_profile_a"
+                    >
+                      Perfil A
+                    </th>
+                    <th
+                      class="py-3 px-4 font-semibold text-center text-purple-400"
+                      id="comp-name-b"
+                      data-i18n="cmp_profile_b"
+                    >
+                      Perfil B
+                    </th>
+                    <th
+                      class="py-3 px-4 font-semibold text-right"
+                      data-i18n="cmp_diff"
+                    >
+                      Diferencia
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="comparator-body"
+                  class="text-sm text-gray-300 divide-y divide-gray-800"
+                >
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-8 border-t border-gray-800 mt-12">
       <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">
+        <p class="text-gray-500 text-sm" data-i18n="footer_text">
           &copy; 2026 Andrés Gallo P. — Herramientas para Proyectistas
           Estructurales
         </p>
       </div>
     </footer>
+
+    <script src="i18n.js"></script>
 
     <script id="profile-calculator-script">
       // ==================== PROFILE DEFINITIONS ====================
@@ -573,7 +794,13 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.b - v.s + (2 * v.b - v.s) + 2 * v.h) / 1000;
             const desig = `H ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            // Mechanical properties (mm⁴ → cm⁴: /10000)
+            const hw = v.h - 2 * v.t;
+            const Ix = (v.b * v.h ** 3 - (v.b - v.s) * hw ** 3) / 12 / 10000;
+            const Iy = (2 * v.t * v.b ** 3 + hw * v.s ** 3) / 12 / 10000;
+            const Wx = Ix / (v.h / 2 / 10);
+            const Wy = Iy / (v.b / 2 / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildHSvg(v.h, v.b, v.s, v.t, v.t, false);
@@ -598,7 +825,29 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.b1 - v.s + (2 * v.b2 - v.s) + 2 * v.h) / 1000;
             const desig = `HE ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const hw = v.h - v.t1 - v.t2;
+            const A = v.b1 * v.t1 + v.b2 * v.t2 + hw * v.s;
+            const ybar =
+              (v.b1 * v.t1 * (v.h - v.t1 / 2) +
+                hw * v.s * (v.t2 + hw / 2) +
+                v.b2 * v.t2 * (v.t2 / 2)) /
+              A;
+            const Ix =
+              ((v.b1 * v.t1 ** 3) / 12 +
+                v.b1 * v.t1 * (v.h - v.t1 / 2 - ybar) ** 2 +
+                (v.s * hw ** 3) / 12 +
+                v.s * hw * (v.t2 + hw / 2 - ybar) ** 2 +
+                (v.b2 * v.t2 ** 3) / 12 +
+                v.b2 * v.t2 * (v.t2 / 2 - ybar) ** 2) /
+              10000;
+            const bmax = Math.max(v.b1, v.b2);
+            const Iy =
+              (v.t1 * v.b1 ** 3 + hw * v.s ** 3 + v.t2 * v.b2 ** 3) /
+              12 /
+              10000;
+            const Wx = Ix / (Math.max(ybar, v.h - ybar) / 10);
+            const Wy = Iy / (bmax / 2 / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildHSvg(
@@ -628,7 +877,21 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 2 * v.b) / 1000;
             const desig = `T ${(v.h * 0.1).toFixed(1)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const A = v.b * v.t + (v.h - v.t) * v.s;
+            const ybar =
+              (v.b * v.t * (v.h - v.t / 2) +
+                (v.h - v.t) * v.s * ((v.h - v.t) / 2)) /
+              A;
+            const Ix =
+              ((v.b * v.t ** 3) / 12 +
+                v.b * v.t * (v.h - v.t / 2 - ybar) ** 2 +
+                (v.s * (v.h - v.t) ** 3) / 12 +
+                v.s * (v.h - v.t) * ((v.h - v.t) / 2 - ybar) ** 2) /
+              10000;
+            const Iy = (v.t * v.b ** 3 + (v.h - v.t) * v.s ** 3) / 12 / 10000;
+            const Wx = Ix / (Math.max(ybar, v.h - ybar) / 10);
+            const Wy = Iy / (v.b / 2 / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildTSvg(v);
@@ -650,7 +913,29 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 4 * v.b + 4 * v.c - 4 * v.t) / 1000;
             const desig = `CA ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const hw = v.h - 2 * v.t;
+            const Ix =
+              ((2 * v.b * v.t ** 3) / 12 +
+                2 * v.b * v.t * (v.h / 2 - v.t / 2) ** 2 +
+                (v.t * hw ** 3) / 12 +
+                (2 * v.c * v.t ** 3) / 12) /
+              10000;
+            const A_t = (v.h + 2 * v.b + 2 * v.c - 6.5752 * v.t) * v.t;
+            const ybar_y =
+              (2 * ((v.b * v.t * v.b) / 2) +
+                (hw * v.t * v.t) / 2 +
+                2 * v.c * v.t * (v.b - v.t / 2)) /
+              A_t;
+            const Iy =
+              ((2 * v.t * v.b ** 3) / 12 +
+                2 * v.b * v.t * (v.b / 2 - ybar_y) ** 2 +
+                (hw * v.t ** 3) / 12 +
+                hw * v.t * (v.t / 2 - ybar_y) ** 2 +
+                (2 * v.t * v.c ** 3) / 12) /
+              10000;
+            const Wx = Ix / (v.h / 2 / 10);
+            const Wy = Iy / (Math.max(ybar_y, v.b + v.c - ybar_y) / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildCASvg(v);
@@ -670,7 +955,24 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 4 * v.b - 2 * v.t) / 1000;
             const desig = `C ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const hw = v.h - 2 * v.t;
+            const Ix =
+              ((2 * v.b * v.t ** 3) / 12 +
+                2 * v.b * v.t * (v.h / 2 - v.t / 2) ** 2 +
+                (v.t * hw ** 3) / 12) /
+              10000;
+            const A_c = (v.h + 2 * v.b - 3.2876 * v.t) * v.t;
+            const ybar =
+              (2 * v.b * v.t * (v.b / 2) + hw * v.t * (v.t / 2)) / A_c;
+            const Iy =
+              ((2 * v.t * v.b ** 3) / 12 +
+                2 * v.b * v.t * (v.b / 2 - ybar) ** 2 +
+                (hw * v.t ** 3) / 12 +
+                hw * v.t * (v.t / 2 - ybar) ** 2) /
+              10000;
+            const Wx = Ix / (v.h / 2 / 10);
+            const Wy = Iy / (Math.max(ybar, v.b - ybar) / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildCSvg(v);
@@ -692,7 +994,32 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 2 * v.b1 + 2 * v.b2 - 2 * v.t) / 1000;
             const desig = `CE ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const hw = v.h - 2 * v.t;
+            const Ix =
+              ((v.b1 * v.t ** 3) / 12 +
+                v.b1 * v.t * (v.h / 2 - v.t / 2) ** 2 +
+                (v.b2 * v.t ** 3) / 12 +
+                v.b2 * v.t * (v.h / 2 - v.t / 2) ** 2 +
+                (v.t * hw ** 3) / 12) /
+              10000;
+            const A_c = (v.b1 + v.b2 + v.h - 3.2876 * v.t) * v.t;
+            const ybar =
+              (v.b1 * v.t * (v.b1 / 2) +
+                v.b2 * v.t * (v.b2 / 2) +
+                hw * v.t * (v.t / 2)) /
+              A_c;
+            const bmax = Math.max(v.b1, v.b2);
+            const Iy =
+              ((v.t * v.b1 ** 3) / 12 +
+                v.b1 * v.t * (v.b1 / 2 - ybar) ** 2 +
+                (v.t * v.b2 ** 3) / 12 +
+                v.b2 * v.t * (v.b2 / 2 - ybar) ** 2 +
+                (hw * v.t ** 3) / 12 +
+                hw * v.t * (v.t / 2 - ybar) ** 2) /
+              10000;
+            const Wx = Ix / (v.h / 2 / 10);
+            const Wy = Iy / (Math.max(ybar, bmax - ybar) / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildCSvg(v, true);
@@ -713,7 +1040,24 @@
             const weight = area * 0.00785 * 100;
             const cover = ((2 * v.h + 2 * v.b - v.t) * 2) / 1000;
             const desig = `XL ${((v.h + v.b) * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            // Double angle: 2× single angle Ix about centroid
+            const A1 = (v.h + v.b - 1.6438 * v.t) * v.t;
+            const ybar1 =
+              (v.h * v.t * (v.h / 2) + (v.b - v.t) * v.t * (v.t / 2)) / A1;
+            const Ix1 =
+              (v.t * v.h ** 3) / 12 +
+              v.h * v.t * (v.h / 2 - ybar1) ** 2 +
+              ((v.b - v.t) * v.t ** 3) / 12 +
+              (v.b - v.t) * v.t * (v.t / 2 - ybar1) ** 2;
+            const Ix = (2 * Ix1) / 10000;
+            const Iy1 =
+              (v.h * v.t ** 3) / 12 +
+              (v.b - v.t) * v.t * (v.b / 2) ** 2 +
+              (v.t * (v.b - v.t) ** 3) / 12;
+            const Iy = (2 * Iy1) / 10000;
+            const Wx = Ix / (Math.max(ybar1, v.h - ybar1) / 10);
+            const Wy = Iy / (v.b / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildXLSvg(v);
@@ -733,7 +1077,28 @@
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 2 * v.b - v.t) / 1000;
             const desig = `L ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const A_L = (v.h + v.b - 1.6438 * v.t) * v.t;
+            const ybar =
+              (v.h * v.t * (v.h / 2) + (v.b - v.t) * v.t * (v.t / 2)) / A_L;
+            const xbar =
+              (v.h * v.t * (v.t / 2) +
+                (v.b - v.t) * v.t * ((v.b - v.t) / 2 + v.t)) /
+              A_L;
+            const Ix =
+              ((v.t * v.h ** 3) / 12 +
+                v.h * v.t * (v.h / 2 - ybar) ** 2 +
+                ((v.b - v.t) * v.t ** 3) / 12 +
+                (v.b - v.t) * v.t * (v.t / 2 - ybar) ** 2) /
+              10000;
+            const Iy =
+              ((v.h * v.t ** 3) / 12 +
+                v.h * v.t * (v.t / 2 - xbar) ** 2 +
+                (v.t * (v.b - v.t) ** 3) / 12 +
+                (v.b - v.t) * v.t * ((v.b - v.t) / 2 + v.t - xbar) ** 2) /
+              10000;
+            const Wx = Ix / (Math.max(ybar, v.h - ybar) / 10);
+            const Wy = Iy / (Math.max(xbar, v.b - xbar) / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildLSvg(v);
@@ -753,7 +1118,12 @@
             const weight = (v.h * v.b * v.t * 0.000785) / 100;
             const cover = (2 * v.b + 2 * v.t) / 1000;
             const desig = `PL ${v.h}×${v.b}×${v.t}`;
-            return { area, weight, cover, desig };
+            // Plate bending about centroidal axes
+            const Ix = (v.b * v.t ** 3) / 12 / 10000;
+            const Iy = (v.t * v.b ** 3) / 12 / 10000;
+            const Wx = Ix / (v.t / 2 / 10);
+            const Wy = Iy / (v.b / 2 / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildPlateSvg(v);
@@ -774,7 +1144,11 @@
             const weight = (area * 1000 * 0.00786) / 10;
             const cover = (3.14 * v.dia) / 1000;
             const desig = `PIPE Ø${v.dia} × ${v.thick}`;
-            return { area, weight, cover, desig };
+            const Ix = (Math.PI * (ro ** 4 - ri ** 4)) / 4 / 10000;
+            const Iy = Ix;
+            const Wx = Ix / (ro / 10);
+            const Wy = Iy / (ro / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildPipeSvg(v);
@@ -795,7 +1169,13 @@
             const weight = area * 0.00785 * 100;
             const cover = ((2 * v.h + 4 * v.b - 2 * v.t) * 2) / 1000;
             const desig = `CJ ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
-            return { area, weight, cover, desig };
+            const hw = v.h - 2 * v.t,
+              bw = v.b - 2 * v.t;
+            const Ix = (v.b * v.h ** 3 - bw * hw ** 3) / 12 / 10000;
+            const Iy = (v.h * v.b ** 3 - hw * bw ** 3) / 12 / 10000;
+            const Wx = Ix / (v.h / 2 / 10);
+            const Wy = Iy / (v.b / 2 / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildTubeSvg(v);
@@ -811,7 +1191,12 @@
             const weight = (v.dia * v.dia * 1000 * 0.000616) / 100;
             const cover = (2 * 3.14 * (v.dia / 2)) / 1000;
             const desig = `ARMADURA Ø${v.dia}`;
-            return { area, weight, cover, desig };
+            const r = v.dia / 2;
+            const Ix = (Math.PI * r ** 4) / 4 / 10000;
+            const Iy = Ix;
+            const Wx = Ix / (r / 10);
+            const Wy = Iy / (r / 10);
+            return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
           },
           svg(v) {
             return buildRBSvg(v);
@@ -1099,7 +1484,7 @@
           "afterend",
           `<div id="input-error" class="hidden mt-3 p-3 rounded-lg bg-red-900/30 border border-red-500/50 text-red-400 text-sm font-medium flex items-center gap-2">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>Solo se permiten números positivos.</span>
+                <span data-i18n="err_invalid_profile">Solo se permiten números positivos.</span>
             </div>`,
         );
         container.querySelectorAll("input").forEach((inp) => {
@@ -1140,6 +1525,10 @@
           document.getElementById("result-weight").textContent = "—";
           document.getElementById("result-cover").textContent = "—";
           document.getElementById("designation-text").textContent = "—";
+          document.getElementById("result-ix").textContent = "—";
+          document.getElementById("result-iy").textContent = "—";
+          document.getElementById("result-wx").textContent = "—";
+          document.getElementById("result-wy").textContent = "—";
           return;
         }
 
@@ -1153,12 +1542,33 @@
           document.getElementById("result-cover").textContent =
             r.cover.toFixed(3);
           document.getElementById("designation-text").textContent = r.desig;
+
+          // Mechanical Properties
+          document.getElementById("result-ix").textContent = r.Ix
+            ? r.Ix.toFixed(2)
+            : "—";
+          document.getElementById("result-iy").textContent = r.Iy
+            ? r.Iy.toFixed(2)
+            : "—";
+          document.getElementById("result-wx").textContent = r.Wx
+            ? r.Wx.toFixed(2)
+            : "—";
+          document.getElementById("result-wy").textContent = r.Wy
+            ? r.Wy.toFixed(2)
+            : "—";
+
           document.getElementById("svg-container").innerHTML = p.svg(v);
         } catch (e) {
+          console.error(e);
           document.getElementById("result-area").textContent = "—";
           document.getElementById("result-weight").textContent = "—";
           document.getElementById("result-cover").textContent = "—";
           document.getElementById("designation-text").textContent = "Error";
+          // Error handling could be improved with i18n but "Error" is universal enough or use t('err_calc') if added
+          document.getElementById("result-ix").textContent = "—";
+          document.getElementById("result-iy").textContent = "—";
+          document.getElementById("result-wx").textContent = "—";
+          document.getElementById("result-wy").textContent = "—";
         }
       }
 
@@ -1180,7 +1590,7 @@
         const mark = markInput.value.trim() || "—";
 
         if (qty < 1 || len <= 0) {
-          alert("Cantidad y Largo deben ser mayores a 0");
+          alert(t("msg_invalid_qty"));
           return;
         }
 
@@ -1207,8 +1617,7 @@
         // Visual feedback
         const btn = document.getElementById("btn-add-list");
         const originalContent = btn.innerHTML;
-        btn.innerHTML =
-          '<i class="fa-solid fa-check"></i><span>Agregado</span>';
+        btn.innerHTML = `<i class="fa-solid fa-check"></i><span>${t("btn_added_state")}</span>`;
         btn.classList.add("bg-green-600", "hover:bg-green-700");
         btn.classList.remove("bg-bim-blue", "hover:bg-blue-600");
 
@@ -1228,7 +1637,187 @@
         if (confirm("¿Estás seguro de borrar toda la lista?")) {
           profileList = [];
           renderProfileList();
+          localStorage.removeItem("bim-profile-calc-list");
         }
+      }
+
+      // ==================== LOCAL STORAGE ====================
+      function saveToLocalStorage() {
+        localStorage.setItem(
+          "bim-profile-calc-list",
+          JSON.stringify(profileList),
+        );
+        showToast(t("msg_saved"), "fa-floppy-disk", "green");
+      }
+
+      function loadFromLocalStorage() {
+        const data = localStorage.getItem("bim-profile-calc-list");
+        if (!data) {
+          showToast(t("msg_no_data"), "fa-circle-info", "amber");
+          return;
+        }
+        try {
+          profileList = JSON.parse(data);
+          renderProfileList();
+          showToast(
+            `${t("msg_loaded")} (${profileList.length})`,
+            "fa-folder-open",
+            "blue",
+          );
+        } catch (e) {
+          showToast(t("err_load"), "fa-triangle-exclamation", "red");
+        }
+      }
+
+      // ==================== COMPARATOR LOGIC ====================
+      let comparatorList = [];
+
+      function addToComparator() {
+        const p = PROFILES[currentProfile];
+        const v = getValues();
+        if (v._hasError) {
+          showToast(t("err_invalid_profile"), "fa-triangle-exclamation", "red");
+          return;
+        }
+
+        const r = p.calc(v);
+
+        const item = {
+          name: r.desig,
+          weight: r.weight,
+          area: r.area,
+          ix: r.Ix || 0,
+          iy: r.Iy || 0,
+          wx: r.Wx || 0,
+          wy: r.Wy || 0,
+        };
+
+        // Don't add duplicates? Optional.
+        // Let's just push. If > 2 shift.
+        if (comparatorList.length >= 2) {
+          comparatorList.shift();
+        }
+        comparatorList.push(item);
+        renderComparator();
+        showToast(
+          `${t("msg_added_comp")}: ${item.name}`,
+          "fa-code-compare",
+          "purple",
+        );
+
+        // Scroll to comparator if 2 items
+        if (comparatorList.length >= 2) {
+          setTimeout(() => {
+            const section = document.getElementById("comparator-section");
+            section.classList.remove("hidden");
+            section.scrollIntoView({ behavior: "smooth" });
+          }, 500);
+        }
+      }
+
+      function clearComparator() {
+        comparatorList = [];
+        renderComparator();
+        showToast(t("msg_cleared"), "fa-trash-can", "gray");
+      }
+
+      function renderComparator() {
+        const section = document.getElementById("comparator-section");
+        if (comparatorList.length === 0) {
+          section.classList.add("hidden");
+          return;
+        }
+        section.classList.remove("hidden");
+
+        const tbody = document.getElementById("comparator-body");
+        const hA = document.getElementById("comp-name-a");
+        const hB = document.getElementById("comp-name-b");
+
+        const A = comparatorList[0];
+        const B = comparatorList[1] || null;
+
+        hA.textContent = A.name;
+        hB.textContent = B ? B.name : "—";
+
+        const props = [
+          { id: "weight", label: t("res_weight"), unit: "kg/m" },
+          { id: "area", label: t("res_area"), unit: "cm²" },
+          { id: "ix", label: "Ix", unit: "cm⁴" },
+          { id: "iy", label: "Iy", unit: "cm⁴" },
+          { id: "wx", label: "Wx", unit: "cm³" },
+          { id: "wy", label: "Wy", unit: "cm³" },
+        ];
+
+        tbody.innerHTML = props
+          .map((p) => {
+            const vA = A[p.id];
+            const vB = B ? B[p.id] : 0;
+
+            let diffStr = "—";
+
+            if (B) {
+              const diff = vB - vA;
+              const pct = vA !== 0 ? (diff / vA) * 100 : 0;
+              const sign = diff > 0 ? "+" : "";
+
+              // Color logic:
+              // diff > 0 (B is bigger) -> Green? Or Red?
+              // Usually Green = Positive/Good. But heavier is sometimes bad.
+              // Let's just use Green for + and Red for -.
+              const colorClass =
+                diff > 0
+                  ? "text-green-400"
+                  : diff < 0
+                    ? "text-red-400"
+                    : "text-gray-400";
+
+              diffStr = `<span class="${colorClass} font-bold">${sign}${diff.toFixed(2)}</span> <span class="text-xs text-gray-500">(${sign}${pct.toFixed(1)}%)</span>`;
+            }
+
+            return `
+            <tr class="border-b border-gray-800 hover:bg-gray-800/20">
+              <td class="py-3 px-4 text-gray-400">${p.label} <span class="text-xs text-gray-600 ml-1">${p.unit}</span></td>
+              <td class="py-3 px-4 text-center font-mono text-white">${vA.toFixed(2)}</td>
+              <td class="py-3 px-4 text-center font-mono text-white">${B ? vB.toFixed(2) : "—"}</td>
+              <td class="py-3 px-4 text-right font-mono">${diffStr}</td>
+            </tr>
+          `;
+          })
+          .join("");
+      }
+
+      // ==================== COPY TO CLIPBOARD ====================
+      function copyTableToClipboard() {
+        if (profileList.length === 0) return;
+        let text = `${t("th_mark")}\t${t("th_qty")}\t${t("th_profile")}\t${t("th_len")} (m)\t${t("th_unit_weight")} (kg/m)\t${t("th_total_weight")} (kg)\n`;
+        profileList.forEach((item) => {
+          text += `${item.mark}\t${item.qty}\t${item.designation}\t${item.length.toFixed(2)}\t${item.unitWeight.toFixed(2)}\t${item.totalWeight.toFixed(2)}\n`;
+        });
+        const total = profileList.reduce((s, i) => s + i.totalWeight, 0);
+        text += `TOTAL\t\t\t\t\t${total.toFixed(2)}\n`;
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(t("msg_copied"), "fa-clipboard", "green");
+        });
+      }
+
+      // ==================== TOAST NOTIFICATION ====================
+      function showToast(message, icon, color) {
+        const existing = document.getElementById("bim-toast");
+        if (existing) existing.remove();
+        const toast = document.createElement("div");
+        toast.id = "bim-toast";
+        toast.className = `fixed bottom-20 right-8 bg-${color}-600 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 text-sm font-bold z-50 transition-all transform translate-y-2 opacity-0`;
+        toast.innerHTML = `<i class="fa-solid ${icon}"></i> ${message}`;
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => {
+          toast.style.transform = "translateY(0)";
+          toast.style.opacity = "1";
+        });
+        setTimeout(() => {
+          toast.style.transform = "translateY(10px)";
+          toast.style.opacity = "0";
+          setTimeout(() => toast.remove(), 300);
+        }, 2500);
       }
 
       function renderProfileList() {
@@ -1336,6 +1925,68 @@
         const totalTon = totalFinal / 1000;
         document.getElementById("classification-total").innerHTML =
           `${totalFinal.toFixed(2)} <span class="text-xs text-gray-500 font-medium">kg</span> <span class="text-xs text-gray-400 ml-2">(${totalTon.toFixed(2)} t)</span>`;
+        // ── Render Donut Chart ──
+        renderDonutChart(cats, connections);
+      }
+
+      // ==================== DONUT CHART ====================
+      let donutChart = null;
+      function renderDonutChart(cats, connections) {
+        const ctx = document.getElementById("weight-donut-chart");
+        if (!ctx) return;
+        if (donutChart) donutChart.destroy();
+        const labels = [
+          t("chart_light"),
+          t("chart_medium"),
+          t("chart_heavy"),
+          t("chart_extra"),
+          t("chart_conns"),
+        ];
+        const data = [
+          cats.light.val,
+          cats.medium.val,
+          cats.heavy.val,
+          cats.extra.val,
+          connections,
+        ];
+        const colors = ["#3b82f6", "#06b6d4", "#f59e0b", "#ef4444", "#8b5cf6"];
+        donutChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: data,
+                backgroundColor: colors,
+                borderColor: "#111827",
+                borderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "right",
+                labels: {
+                  color: "#9ca3af",
+                  font: { size: 11 },
+                  padding: 12,
+                  usePointStyle: true,
+                  pointStyleWidth: 10,
+                },
+              },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) =>
+                    `${ctx.label}: ${ctx.parsed.toFixed(1)} kg (${((ctx.parsed / ctx.dataset.data.reduce((a, b) => a + b, 0)) * 100).toFixed(1)}%)`,
+                },
+              },
+            },
+            cutout: "55%",
+          },
+        });
       }
 
       // ==================== EXPORT TO EXCEL ====================
@@ -1421,15 +2072,15 @@
 
         // ── Build data (AOA) ──
         const a = [];
-        a.push(["LISTADO DE PERFILES DE ACERO", "", "", "", "", ""]);
+        a.push([t("excel_title").toUpperCase(), "", "", "", "", ""]);
         a.push(["", "", "", "", "", ""]);
         a.push([
-          "Marca",
-          "Cantidad",
-          "Perfil",
-          "Largo (m)",
-          "Peso Unit. (kg/m)",
-          "Peso Total (kg)",
+          t("th_mark"),
+          t("th_qty"),
+          t("th_profile"),
+          `${t("th_len")} (m)`,
+          `${t("th_unit_weight")} (kg/m)`,
+          `${t("th_total_weight")} (kg)`,
         ]);
         profileList.forEach((i) =>
           a.push([
@@ -1445,18 +2096,18 @@
         a.push(["TOTAL", "", "", "", "", tw]);
         a.push(["", "", "", "", "", ""]);
         a.push(["", "", "", "", "", ""]);
-        a.push(["CLASIFICACIÓN POR NOMINAL WEIGHT", "", "", "", "", ""]);
+        a.push([t("excel_class_title").toUpperCase(), "", "", "", "", ""]);
         a.push(["", "", "", "", "", ""]);
-        a.push(["Descripción", "Unidad", "Cantidad"]);
+        a.push([t("cls_desc"), t("cls_unit"), t("cls_qty")]);
 
         let cats = {
           light: {
-            label: "Estructura metálica liviana \u2264 30 kg/m",
+            label: t("cat_light"),
             val: 0,
           },
-          medium: { label: "Estructura metálica mediana 30-60 kg/m", val: 0 },
-          heavy: { label: "Estructura metálica pesada 60-90 kg/m", val: 0 },
-          extra: { label: "Estructura metálica extrapesada > 90 kg/m", val: 0 },
+          medium: { label: t("cat_medium"), val: 0 },
+          heavy: { label: t("cat_heavy"), val: 0 },
+          extra: { label: t("cat_extra"), val: 0 },
         };
         profileList.forEach((i) => {
           const w = i.unitWeight;
@@ -1471,9 +2122,9 @@
         const cn = tb * (connPct / 100),
           tf = tb + cn;
         Object.values(cats).forEach((c) => a.push([c.label, "kg", c.val]));
-        a.push([`Conexiones Acero (+${connPct}%)`, "kg", cn]);
+        a.push([`${t("excel_conns")} (+${connPct}%)`, "kg", cn]);
         a.push([""]);
-        a.push(["TOTAL ACERO (con conexiones)", "kg", tf]);
+        a.push([t("excel_total_final"), "kg", tf]);
         a.push(["", "ton", tf / 1000]);
 
         // ── Create worksheet ──

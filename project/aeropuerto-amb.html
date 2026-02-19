@@ -1,186 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="scroll-smooth dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aeropuerto AMB | Andrés Gallo P.</title>
-    <meta name="description" content="Detalles del proyecto de ampliación del Aeropuerto Internacional Arturo Merino Benítez.">
-    
-    <link rel="icon" href="../assets/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta
+      name="description"
+      content="Detalles del proyecto de ampliación del Aeropuerto Internacional Arturo Merino Benítez."
+    />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'bim-blue': '#3b82f6',
-                        'bim-dark': '#0b1220',
-                        'bim-card': '#111827',
-                        'bim-border': '#1f2937',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300">
-
-<!-- Navigation -->
-<nav class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            <div id="logo" class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='../index.html'">
-                <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-                <span class="font-bold text-xl text-gray-900 dark:text-white">Andrés Gallo P<span class="text-bim-blue">.BIM</span></span>
+          <div
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+            onclick="window.location.href = '../index.html'"
+          >
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="../index.html#home"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="../index.html#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="../index.html#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="../index.html#portfolio"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="../index.html#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="../blog/index.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="../tool/index.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
             </div>
-            <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-                    <a href="../index.html#home" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">INICIO</a>
-                    <a href="../index.html#about" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">SOBRE MÍ</a>
-                    <a href="../index.html#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">EXPERIENCIA</a>
-                    <a href="../index.html#portfolio" class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors">PORTAFOLIO</a>
-                    <a href="../index.html#contact" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">CONTACTO</a>
-                </div>
-            </div>
-            <div class="-mr-2 flex md:hidden">
-                <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Abrir menú principal</span>
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
         </div>
-    </div>
-    <div class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700" id="mobile-menu">
+      </div>
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="../index.html#home" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Inicio</a>
-            <a href="../index.html#about" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Sobre Mí</a>
-            <a href="../index.html#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Experiencia</a>
-            <a href="../index.html#portfolio" class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Portafolio</a>
-            <a href="../index.html#contact" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Contacto</a>
+          <a
+            href="../index.html#home"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="../index.html#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="../index.html#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="../index.html#portfolio"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="../index.html#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="../blog/index.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="../tool/index.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
+          >
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<!-- Hero Section -->
-<section class="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="/assets/img/amb_00.PNG" alt="Aeropuerto AMB" class="w-full h-full object-cover">
+    <!-- Hero Section -->
+    <section
+      class="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/assets/img/amb_00.PNG"
+          alt="Aeropuerto AMB"
+          class="w-full h-full object-cover"
+        />
         <div class="absolute inset-0 bg-gray-900/80 dark:bg-gray-900/90"></div>
-    </div>
-    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <span class="inline-block py-1 px-3 rounded-full bg-bim-blue/20 border border-bim-blue text-bim-blue text-sm font-bold mb-6 tracking-wider">INFRAESTRUCTURA</span>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight">Aeropuerto AMB</h1>
-        <p class="text-xl md:text-2xl text-gray-300 font-light">Ampliación del Aeropuerto Internacional Arturo Merino Benítez</p>
-        
+      </div>
+      <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        <span
+          class="inline-block py-1 px-3 rounded-full bg-bim-blue/20 border border-bim-blue text-bim-blue text-sm font-bold mb-6 tracking-wider"
+          >INFRAESTRUCTURA</span
+        >
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight"
+        >
+          Aeropuerto AMB
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 font-light">
+          Ampliación del Aeropuerto Internacional Arturo Merino Benítez
+        </p>
+
         <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-            <a href="../index.html#portfolio" class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group">
-                <i class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i> Volver al Portafolio
-            </a>
+          <a
+            href="../index.html#portfolio"
+            class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group"
+          >
+            <i
+              class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"
+            ></i>
+            Volver al Portafolio
+          </a>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- Content Section -->
-<section class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Content Section -->
+    <section
+      class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <!-- Main Content -->
-            <div class="lg:col-span-2">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Descripción del Proyecto</h2>
-                <div class="prose prose-lg text-gray-600 dark:text-gray-400">
-                    <p class="mb-6">
-                        Este proyecto consistió en la ampliación significativa del Aeropuerto Internacional Arturo Merino Benítez en Santiago de Chile. El alcance incluyó el modelado complejo de la nueva Terminal 2, los espigones de embarque y los edificios de estacionamientos, cubriendo una superficie total de más de 320,000 m².
-                    </p>
-                    <p class="mb-6">
-                        Como parte del equipo de ingeniería, mi rol se centró en la coordinación interdisciplinaria y la gestión de modelos BIM para asegurar la integración precisa de las estructuras de acero y hormigón con las instalaciones MEP y los sistemas arquitectónicos.
-                    </p>
-                    <p>
-                        El uso de metodologías BIM avanzadas permitió detectar y resolver conflictos en etapas tempranas, optimizando los tiempos de construcción y reduciendo costos operativos.
-                    </p>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 mt-12">Galería de Imágenes</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                    <div class="glass-card rounded-xl overflow-hidden h-48 group">
-                        <img src="/assets/img/amb_01.jpg" alt="Aeropuerto Construcción" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="glass-card rounded-xl overflow-hidden h-48 group">
-                        <img src="/assets/img/amb_02.jpg" alt="Terminal Aérea" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="glass-card rounded-xl overflow-hidden h-48 group">
-                        <img src="/assets/img/amb_pl1.png" alt="Estructura de Acero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <div class="glass-card rounded-xl overflow-hidden h-48 group">
-                        <img src="/assets/img/amb_pl1.png" alt="Estructura de Acero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                </div>
-
-
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Descripción del Proyecto
+            </h2>
+            <div class="prose prose-lg text-gray-600 dark:text-gray-400">
+              <p class="mb-6">
+                Este proyecto consistió en la ampliación significativa del
+                Aeropuerto Internacional Arturo Merino Benítez en Santiago de
+                Chile. El alcance incluyó el modelado complejo de la nueva
+                Terminal 2, los espigones de embarque y los edificios de
+                estacionamientos, cubriendo una superficie total de más de
+                320,000 m².
+              </p>
+              <p class="mb-6">
+                Como parte del equipo de ingeniería, mi rol se centró en la
+                coordinación interdisciplinaria y la gestión de modelos BIM para
+                asegurar la integración precisa de las estructuras de acero y
+                hormigón con las instalaciones MEP y los sistemas
+                arquitectónicos.
+              </p>
+              <p>
+                El uso de metodologías BIM avanzadas permitió detectar y
+                resolver conflictos en etapas tempranas, optimizando los tiempos
+                de construcción y reduciendo costos operativos.
+              </p>
             </div>
 
-            <!-- Sidebar -->
-            <div class="lg:col-span-1">
-                <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg sticky top-24">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Ficha Técnica</h3>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-                            <span class="text-gray-500 dark:text-gray-400">Año</span>
-                            <span class="text-gray-900 dark:text-white font-medium">2020</span>
-                        </li>
-                        <li class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-                            <span class="text-gray-500 dark:text-gray-400">Ubicación</span>
-                            <span class="text-gray-900 dark:text-white font-medium">Santiago, Chile</span>
-                        </li>
-                        <li class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-                            <span class="text-gray-500 dark:text-gray-400">Superficie</span>
-                            <span class="text-gray-900 dark:text-white font-medium">320,000 m²</span>
-                        </li>
-                        <li class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-                            <span class="text-gray-500 dark:text-gray-400">Categoría</span>
-                            <span class="text-gray-900 dark:text-white font-medium">Infraestructura</span>
-                        </li>
-                    </ul>
-
-                    <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Tecnologías Utilizadas</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium border border-gray-200 dark:border-gray-600">Revit</span>
-                        <span class="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium border border-gray-200 dark:border-gray-600">Navisworks</span>
-                        <span class="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium border border-gray-200 dark:border-gray-600">AutoCAD</span>
-                    </div>
-                </div>
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 mt-12"
+            >
+              Galería de Imágenes
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div class="glass-card rounded-xl overflow-hidden h-48 group">
+                <img
+                  src="/assets/img/amb_01.jpg"
+                  alt="Aeropuerto Construcción"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div class="glass-card rounded-xl overflow-hidden h-48 group">
+                <img
+                  src="/assets/img/amb_02.jpg"
+                  alt="Terminal Aérea"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div class="glass-card rounded-xl overflow-hidden h-48 group">
+                <img
+                  src="/assets/img/amb_pl1.png"
+                  alt="Estructura de Acero"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div class="glass-card rounded-xl overflow-hidden h-48 group">
+                <img
+                  src="/assets/img/amb_pl1.png"
+                  alt="Estructura de Acero"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
             </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div
+              class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg sticky top-24"
+            >
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">
+                Ficha Técnica
+              </h3>
+              <ul class="space-y-4 mb-8">
+                <li
+                  class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2"
+                >
+                  <span class="text-gray-500 dark:text-gray-400">Año</span>
+                  <span class="text-gray-900 dark:text-white font-medium"
+                    >2020</span
+                  >
+                </li>
+                <li
+                  class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2"
+                >
+                  <span class="text-gray-500 dark:text-gray-400"
+                    >Ubicación</span
+                  >
+                  <span class="text-gray-900 dark:text-white font-medium"
+                    >Santiago, Chile</span
+                  >
+                </li>
+                <li
+                  class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2"
+                >
+                  <span class="text-gray-500 dark:text-gray-400"
+                    >Superficie</span
+                  >
+                  <span class="text-gray-900 dark:text-white font-medium"
+                    >320,000 m²</span
+                  >
+                </li>
+                <li
+                  class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2"
+                >
+                  <span class="text-gray-500 dark:text-gray-400"
+                    >Categoría</span
+                  >
+                  <span class="text-gray-900 dark:text-white font-medium"
+                    >Infraestructura</span
+                  >
+                </li>
+              </ul>
+
+              <h4
+                class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4"
+              >
+                Tecnologías Utilizadas
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium border border-gray-200 dark:border-gray-600"
+                  >Revit</span
+                >
+                <span
+                  class="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium border border-gray-200 dark:border-gray-600"
+                  >Navisworks</span
+                >
+                <span
+                  class="px-3 py-1 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full font-medium border border-gray-200 dark:border-gray-600"
+                  >AutoCAD</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-
-
-<!-- Footer -->
-<footer class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 text-center">
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center">
         <p class="text-gray-500 text-sm">
-            &copy; 2025 Andrés Gallo P. Todos los derechos reservados.
+          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
         </p>
         <p class="text-gray-600 text-xs mt-2">
-            Diseñado con pasión por la ingeniería y la tecnología.
+          Diseñado con pasión por la ingeniería y la tecnología.
         </p>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<!-- Back to Top Button -->
-<button id="back-to-top" class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110" aria-label="Volver al inicio">
-    <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
-</button>
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
+      aria-label="Volver al inicio"
+    >
+      <i
+        class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
+      ></i>
+    </button>
 
-<script src="../js/scripts.js"></script>
-</body>
+    <script src="../js/scripts.js"></script>
+  </body>
 </html>

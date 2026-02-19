@@ -33,7 +33,8 @@ const ICHA_CATALOG = {
         "ix_cm": 6.25,
         "xy_cm": 5.65,
         "iu_cm": 7.97,
-        "iv_cm": 3.82
+        "iv_cm": 3.82,
+        "B_mm": 200.0
       },
       {
         "designation": "L 20x35.8",
@@ -46,7 +47,8 @@ const ICHA_CATALOG = {
         "ix_cm": 6.28,
         "xy_cm": 5.55,
         "iu_cm": 8.0,
-        "iv_cm": 3.86
+        "iv_cm": 3.86,
+        "B_mm": 200.0
       },
       {
         "designation": "L 20x30.1",
@@ -59,7 +61,8 @@ const ICHA_CATALOG = {
         "ix_cm": 6.31,
         "xy_cm": 5.46,
         "iu_cm": 8.03,
-        "iv_cm": 3.9
+        "iv_cm": 3.9,
+        "B_mm": 200.0
       },
       {
         "designation": "L 17,5x35.9",
@@ -86,7 +89,8 @@ const ICHA_CATALOG = {
         "ix_cm": 5.47,
         "xy_cm": 4.93,
         "iu_cm": 6.98,
-        "iv_cm": 3.35
+        "iv_cm": 3.35,
+        "B_mm": 175.0
       },
       {
         "designation": "L 17,5x26.2",
@@ -99,7 +103,8 @@ const ICHA_CATALOG = {
         "ix_cm": 5.5,
         "xy_cm": 4.84,
         "iu_cm": 7.01,
-        "iv_cm": 3.39
+        "iv_cm": 3.39,
+        "B_mm": 175.0
       },
       {
         "designation": "L 17,5x21.2",
@@ -112,7 +117,8 @@ const ICHA_CATALOG = {
         "ix_cm": 5.53,
         "xy_cm": 4.74,
         "iu_cm": 7.03,
-        "iv_cm": 3.43
+        "iv_cm": 3.43,
+        "B_mm": 175.0
       },
       {
         "designation": "L 15x26.4",
@@ -139,7 +145,8 @@ const ICHA_CATALOG = {
         "ix_cm": 4.7,
         "xy_cm": 4.21,
         "iu_cm": 5.99,
-        "iv_cm": 2.88
+        "iv_cm": 2.88,
+        "B_mm": 150.0
       },
       {
         "designation": "L 15x18.0",
@@ -152,7 +159,8 @@ const ICHA_CATALOG = {
         "ix_cm": 4.73,
         "xy_cm": 4.12,
         "iu_cm": 6.01,
-        "iv_cm": 2.92
+        "iv_cm": 2.92,
+        "B_mm": 150.0
       },
       {
         "designation": "L 15x13.7",
@@ -165,7 +173,8 @@ const ICHA_CATALOG = {
         "ix_cm": 4.75,
         "xy_cm": 4.03,
         "iu_cm": 6.04,
-        "iv_cm": 2.95
+        "iv_cm": 2.95,
+        "B_mm": 150.0
       },
       {
         "designation": "L 12,5x18.3",
@@ -192,7 +201,8 @@ const ICHA_CATALOG = {
         "ix_cm": 3.92,
         "xy_cm": 3.5,
         "iu_cm": 4.99,
-        "iv_cm": 2.4
+        "iv_cm": 2.4,
+        "B_mm": 125.0
       },
       {
         "designation": "L 12,5x11.3",
@@ -205,7 +215,8 @@ const ICHA_CATALOG = {
         "ix_cm": 3.95,
         "xy_cm": 3.4,
         "iu_cm": 5.02,
-        "iv_cm": 2.44
+        "iv_cm": 2.44,
+        "B_mm": 125.0
       },
       {
         "designation": "L 12,5x9.49",
@@ -218,7 +229,8 @@ const ICHA_CATALOG = {
         "ix_cm": 3.96,
         "xy_cm": 3.35,
         "iu_cm": 5.03,
-        "iv_cm": 2.46
+        "iv_cm": 2.46,
+        "B_mm": 125.0
       },
       {
         "designation": "L 10x11.7",
@@ -245,7 +257,8 @@ const ICHA_CATALOG = {
         "ix_cm": 3.14,
         "xy_cm": 2.78,
         "iu_cm": 4.0,
-        "iv_cm": 1.93
+        "iv_cm": 1.93,
+        "B_mm": 100.0
       },
       {
         "designation": "L 10x7.53",
@@ -258,7 +271,8 @@ const ICHA_CATALOG = {
         "ix_cm": 3.16,
         "xy_cm": 2.73,
         "iu_cm": 4.01,
-        "iv_cm": 1.95
+        "iv_cm": 1.95,
+        "B_mm": 100.0
       },
       {
         "designation": "L 10x6.07",
@@ -271,7 +285,8 @@ const ICHA_CATALOG = {
         "ix_cm": 3.17,
         "xy_cm": 2.68,
         "iu_cm": 4.03,
-        "iv_cm": 1.97
+        "iv_cm": 1.97,
+        "B_mm": 100.0
       },
       {
         "designation": "L 8x7.07",
@@ -298,7 +313,8 @@ const ICHA_CATALOG = {
         "ix_cm": 2.51,
         "xy_cm": 2.29,
         "iu_cm": 3.2,
-        "iv_cm": 1.54
+        "iv_cm": 1.54,
+        "B_mm": 80.0
       },
       {
         "designation": "L 8x4.82",
@@ -311,7 +327,8 @@ const ICHA_CATALOG = {
         "ix_cm": 2.52,
         "xy_cm": 2.18,
         "iu_cm": 3.21,
-        "iv_cm": 1.56
+        "iv_cm": 1.56,
+        "B_mm": 80.0
       },
       {
         "designation": "L 8x4.24",
@@ -324,21 +341,22 @@ const ICHA_CATALOG = {
         "ix_cm": 2.53,
         "xy_cm": 2.16,
         "iu_cm": 3.22,
-        "iv_cm": 1.57
+        "iv_cm": 1.57,
+        "B_mm": 80.0
       },
       {
         "designation": "L 6,5x4.78",
         "base": "L 6,5",
         "weight": 4.78,
-        "B_mm": 65.0,
-        "e_mm": 5.0,
+        "B_mm": 80.0,
+        "e_mm": 4.0,
         "A_cm2": 6.09,
-        "Ix_cm4": 25.0,
-        "Wx_cm3": 5.38,
-        "ix_cm": 2.02,
-        "xy_cm": 1.86,
-        "iu_cm": 2.58,
-        "iv_cm": 1.23
+        "Ix_cm4": 39.1,
+        "Wx_cm3": 6.72,
+        "ix_cm": 2.52,
+        "xy_cm": 2.18,
+        "iu_cm": 3.21,
+        "iv_cm": 1.56
       },
       {
         "designation": "L 6,5x3.88",
@@ -350,7 +368,9 @@ const ICHA_CATALOG = {
         "Wx_cm3": 4.36,
         "ix_cm": 2.04,
         "iu_cm": 2.6,
-        "iv_cm": 1.25
+        "iv_cm": 1.25,
+        "B_mm": 65.0,
+        "xy_cm": 1.86
       },
       {
         "designation": "L 6,5x3.41",
@@ -363,7 +383,8 @@ const ICHA_CATALOG = {
         "ix_cm": 2.05,
         "xy_cm": 1.79,
         "iu_cm": 2.61,
-        "iv_cm": 1.26
+        "iv_cm": 1.26,
+        "B_mm": 65.0
       },
       {
         "designation": "L 6,5x2.95",
@@ -376,21 +397,22 @@ const ICHA_CATALOG = {
         "ix_cm": 2.05,
         "xy_cm": 1.76,
         "iu_cm": 2.61,
-        "iv_cm": 1.27
+        "iv_cm": 1.27,
+        "B_mm": 65.0
       },
       {
         "designation": "L 5x2.93",
         "base": "L 5",
         "weight": 2.93,
-        "B_mm": 50.0,
-        "e_mm": 4.0,
+        "B_mm": 65.0,
+        "e_mm": 3.0,
         "A_cm2": 3.74,
-        "Ix_cm4": 9.04,
-        "Wx_cm3": 2.54,
-        "ix_cm": 1.56,
-        "xy_cm": 1.44,
-        "iu_cm": 1.99,
-        "iv_cm": 0.95
+        "Ix_cm4": 15.8,
+        "Wx_cm3": 3.34,
+        "ix_cm": 2.05,
+        "xy_cm": 1.76,
+        "iu_cm": 2.61,
+        "iv_cm": 1.27
       },
       {
         "designation": "L 5x2.59",
@@ -403,7 +425,8 @@ const ICHA_CATALOG = {
         "ix_cm": 1.56,
         "xy_cm": 1.41,
         "iu_cm": 1.99,
-        "iv_cm": 0.96
+        "iv_cm": 0.96,
+        "B_mm": 50.0
       },
       {
         "designation": "L 5x2.24",
@@ -416,7 +439,8 @@ const ICHA_CATALOG = {
         "ix_cm": 1.57,
         "xy_cm": 1.39,
         "iu_cm": 2.0,
-        "iv_cm": 0.97
+        "iv_cm": 0.97,
+        "B_mm": 50.0
       },
       {
         "designation": "L 5x1.88",
@@ -429,7 +453,8 @@ const ICHA_CATALOG = {
         "ix_cm": 1.58,
         "xy_cm": 1.37,
         "iu_cm": 2.01,
-        "iv_cm": 0.98
+        "iv_cm": 0.98,
+        "B_mm": 50.0
       },
       {
         "designation": "L 4x2.04",
@@ -456,7 +481,8 @@ const ICHA_CATALOG = {
         "ix_cm": 1.25,
         "xy_cm": 1.14,
         "iu_cm": 1.59,
-        "iv_cm": 0.76
+        "iv_cm": 0.76,
+        "B_mm": 40.0
       },
       {
         "designation": "L 4x1.49",
@@ -469,7 +495,8 @@ const ICHA_CATALOG = {
         "ix_cm": 1.25,
         "xy_cm": 1.12,
         "iu_cm": 1.6,
-        "iv_cm": 0.77
+        "iv_cm": 0.77,
+        "B_mm": 40.0
       },
       {
         "designation": "L 4x1.2",
@@ -482,7 +509,8 @@ const ICHA_CATALOG = {
         "ix_cm": 1.26,
         "xy_cm": 1.09,
         "iu_cm": 1.161,
-        "iv_cm": 0.78
+        "iv_cm": 0.78,
+        "B_mm": 40.0
       },
       {
         "designation": "L 3x1.3",
@@ -509,7 +537,8 @@ const ICHA_CATALOG = {
         "ix_cm": 0.93,
         "xy_cm": 0.87,
         "iu_cm": 1.19,
-        "iv_cm": 0.57
+        "iv_cm": 0.57,
+        "B_mm": 30.0
       },
       {
         "designation": "L 3x0.89",
@@ -522,21 +551,22 @@ const ICHA_CATALOG = {
         "ix_cm": 0.94,
         "xy_cm": 0.84,
         "iu_cm": 1.2,
-        "iv_cm": 0.58
+        "iv_cm": 0.58,
+        "B_mm": 30.0
       },
       {
         "designation": "L 2,5x0.9",
         "base": "L 2,5",
         "weight": 0.9,
-        "B_mm": 225.0,
-        "e_mm": 2.5,
+        "B_mm": 30.0,
+        "e_mm": 2.0,
         "A_cm2": 1.15,
-        "Ix_cm4": 0.68,
+        "Ix_cm4": 1.0,
         "Wx_cm3": 0.39,
-        "ix_cm": 0.77,
+        "ix_cm": 0.94,
         "xy_cm": 0.74,
-        "iu_cm": 0.99,
-        "iv_cm": 0.46
+        "iu_cm": 1.2,
+        "iv_cm": 0.58
       },
       {
         "designation": "L 2,5x0.73",
@@ -549,7 +579,8 @@ const ICHA_CATALOG = {
         "ix_cm": 0.78,
         "xy_cm": 0.72,
         "iu_cm": 0.99,
-        "iv_cm": 0.47
+        "iv_cm": 0.47,
+        "B_mm": 225.0
       },
       {
         "designation": "L 2x0.58",
@@ -1136,18 +1167,18 @@ const ICHA_CATALOG = {
         "designation": "L 4*2,5x1.19",
         "base": "L 4*2,5",
         "weight": 1.19,
-        "e_mm": 2.5,
+        "e_mm": 2.0,
         "A_cm2": 1.52,
-        "Ix_cm4": 2.53,
-        "Wx_cm3": 0.96,
-        "ix_cm": 1.29,
-        "y_cm": 1.36,
-        "Iy_cm4": 0.788,
+        "Ix_cm4": 4.08,
+        "Wx_cm3": 1.22,
+        "ix_cm": 1.63,
+        "y_cm": 1.67,
+        "Iy_cm4": 1.16,
         "Wy_cm3": 0.41,
-        "iy_cm": 0.72,
+        "iy_cm": 0.87,
         "x_cm": 0.59,
-        "iu_cm": 1.38,
-        "iv_cm": 0.529
+        "iu_cm": 1.73,
+        "iv_cm": 0.654
       },
       {
         "designation": "L 4*2,5x0.969",
@@ -1941,7 +1972,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 396.0,
         "Wy_cm3": 52.4,
         "iy_cm": 2.91,
-        "X_cm": 2.44
+        "X_cm": 2.44,
+        "B_mm": 100.0
       },
       {
         "designation": "C 30x29.7",
@@ -1955,7 +1987,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 328.0,
         "Wy_cm3": 42.9,
         "iy_cm": 2.94,
-        "X_cm": 2.35
+        "X_cm": 2.35,
+        "B_mm": 100.0
       },
       {
         "designation": "C 30x26.6",
@@ -1984,7 +2017,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 112.0,
         "Wy_cm3": 18.6,
         "iy_cm": 2.08,
-        "X_cm": 1.51
+        "X_cm": 1.51,
+        "B_mm": 75.0
       },
       {
         "designation": "C 30x17.0",
@@ -1998,7 +2032,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 95.1,
         "Wy_cm3": 15.8,
         "iy_cm": 2.09,
-        "X_cm": 1.46
+        "X_cm": 1.46,
+        "B_mm": 75.0
       },
       {
         "designation": "C 30x15.1",
@@ -2027,7 +2062,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 24.0,
         "Wy_cm3": 5.71,
         "iy_cm": 1.24,
-        "X_cm": 0.797
+        "X_cm": 0.797,
+        "B_mm": 50.0
       },
       {
         "designation": "C 30x10.7",
@@ -2041,7 +2077,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 21.3,
         "Wy_cm3": 5.04,
         "iy_cm": 1.25,
-        "X_cm": 0.775
+        "X_cm": 0.775,
+        "B_mm": 50.0
       },
       {
         "designation": "C 30x9.19",
@@ -2055,7 +2092,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 18.6,
         "Wy_cm3": 4.37,
         "iy_cm": 1.26,
-        "X_cm": 0.754
+        "X_cm": 0.754,
+        "B_mm": 50.0
       },
       {
         "designation": "C 25x32.7",
@@ -2078,13 +2116,14 @@ const ICHA_CATALOG = {
         "weight": 26.6,
         "e_mm": 8.0,
         "A_cm2": 33.9,
-        "Ix_cm4": 3070.0,
-        "Wx_cm3": 246.0,
-        "ix_cm": 9.52,
-        "Iy_cm4": 311.0,
-        "Wy_cm3": 41.9,
-        "iy_cm": 3.03,
-        "X_cm": 2.58
+        "Ix_cm4": 3900.0,
+        "Wx_cm3": 260.0,
+        "ix_cm": 10.7,
+        "Iy_cm4": 143.0,
+        "Wy_cm3": 24.1,
+        "iy_cm": 2.05,
+        "X_cm": 1.59,
+        "B_mm": 75.0
       },
       {
         "designation": "C 25x23.5",
@@ -2113,7 +2152,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 107.0,
         "Wy_cm3": 18.3,
         "iy_cm": 2.16,
-        "X_cm": 1.67
+        "X_cm": 1.67,
+        "B_mm": 75.0
       },
       {
         "designation": "C 25x15.1",
@@ -2121,13 +2161,14 @@ const ICHA_CATALOG = {
         "weight": 15.1,
         "e_mm": 5.0,
         "A_cm2": 19.2,
-        "Ix_cm4": 1650.0,
-        "Wx_cm3": 132.0,
-        "ix_cm": 9.28,
-        "Iy_cm4": 90.9,
-        "Wy_cm3": 15.5,
-        "iy_cm": 2.18,
-        "X_cm": 1.62
+        "Ix_cm4": 2030.0,
+        "Wx_cm3": 136.0,
+        "ix_cm": 10.3,
+        "Iy_cm4": 29.0,
+        "Wy_cm3": 6.98,
+        "iy_cm": 1.23,
+        "X_cm": 0.84,
+        "B_mm": 50.0
       },
       {
         "designation": "C 25x13.1",
@@ -2156,7 +2197,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 23.2,
         "Wy_cm3": 5.63,
         "iy_cm": 1.31,
-        "X_cm": 0.885
+        "X_cm": 0.885,
+        "B_mm": 50.0
       },
       {
         "designation": "C 25x9.3",
@@ -2170,7 +2212,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 20.6,
         "Wy_cm3": 4.98,
         "iy_cm": 1.32,
-        "X_cm": 0.864
+        "X_cm": 0.864,
+        "B_mm": 50.0
       },
       {
         "designation": "C 25x8.01",
@@ -2184,7 +2227,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 17.9,
         "Wy_cm3": 4.31,
         "iy_cm": 1.33,
-        "X_cm": 0.842
+        "X_cm": 0.842,
+        "B_mm": 50.0
       },
       {
         "designation": "C 25x6.71",
@@ -2198,22 +2242,23 @@ const ICHA_CATALOG = {
         "Iy_cm4": 15.2,
         "Wy_cm3": 3.63,
         "iy_cm": 1.33,
-        "X_cm": 0.821
+        "X_cm": 0.821,
+        "B_mm": 50.0
       },
       {
         "designation": "C 20x20.3",
         "base": "C 20",
         "weight": 20.3,
         "B_mm": 75.0,
-        "e_mm": 8.0,
+        "e_mm": 6.0,
         "A_cm2": 25.9,
-        "Ix_cm4": 1440.0,
-        "Wx_cm3": 144.0,
-        "ix_cm": 7.46,
-        "Iy_cm4": 128.0,
-        "Wy_cm3": 23.1,
-        "iy_cm": 2.22,
-        "X_cm": 1.96
+        "Ix_cm4": 3040.0,
+        "Wx_cm3": 202.0,
+        "ix_cm": 10.8,
+        "Iy_cm4": 112.0,
+        "Wy_cm3": 18.6,
+        "iy_cm": 2.08,
+        "X_cm": 1.51
       },
       {
         "designation": "C 20x15.6",
@@ -2227,7 +2272,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 100.0,
         "Wy_cm3": 17.8,
         "iy_cm": 2.25,
-        "X_cm": 1.87
+        "X_cm": 1.87,
+        "B_mm": 75.0
       },
       {
         "designation": "C 20x13.1",
@@ -2235,13 +2281,14 @@ const ICHA_CATALOG = {
         "weight": 13.1,
         "e_mm": 5.0,
         "A_cm2": 16.7,
-        "Ix_cm4": 967.0,
-        "Wx_cm3": 96.7,
-        "ix_cm": 7.61,
-        "Iy_cm4": 85.5,
-        "Wy_cm3": 15.1,
-        "iy_cm": 2.26,
-        "X_cm": 1.83
+        "Ix_cm4": 1280.0,
+        "Wx_cm3": 102.0,
+        "ix_cm": 8.75,
+        "Iy_cm4": 28.0,
+        "Wy_cm3": 6.89,
+        "iy_cm": 1.3,
+        "X_cm": 0.929,
+        "B_mm": 50.0
       },
       {
         "designation": "C 20x11.1",
@@ -2270,7 +2317,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 22.1,
         "Wy_cm3": 5.52,
         "iy_cm": 1.39,
-        "X_cm": 1.0
+        "X_cm": 1.0,
+        "B_mm": 50.0
       },
       {
         "designation": "C 20x7.93",
@@ -2284,7 +2332,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 19.6,
         "Wy_cm3": 4.88,
         "iy_cm": 1.39,
-        "X_cm": 0.983
+        "X_cm": 0.983,
+        "B_mm": 50.0
       },
       {
         "designation": "C 20x6.83",
@@ -2298,7 +2347,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 17.1,
         "Wy_cm3": 4.23,
         "iy_cm": 1.4,
-        "X_cm": 0.962
+        "X_cm": 0.962,
+        "B_mm": 50.0
       },
       {
         "designation": "C 20x5.73",
@@ -2312,7 +2362,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 14.5,
         "Wy_cm3": 3.56,
         "iy_cm": 1.41,
-        "X_cm": 0.94
+        "X_cm": 0.94,
+        "B_mm": 50.0
       },
       {
         "designation": "C 20x4.61",
@@ -2326,7 +2377,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 11.8,
         "Wy_cm3": 2.88,
         "iy_cm": 1.42,
-        "X_cm": 0.919
+        "X_cm": 0.919,
+        "B_mm": 50.0
       },
       {
         "designation": "C 17,5x14.4",
@@ -2347,15 +2399,16 @@ const ICHA_CATALOG = {
         "designation": "C 17,5x12.1",
         "base": "C 17,5",
         "weight": 12.1,
-        "e_mm": 5.0,
+        "e_mm": 4.0,
         "A_cm2": 15.4,
-        "Ix_cm4": 705.0,
-        "Wx_cm3": 80.5,
-        "ix_cm": 6.76,
-        "Iy_cm4": 82.1,
-        "Wy_cm3": 14.8,
-        "iy_cm": 2.31,
-        "X_cm": 1.96
+        "Ix_cm4": 1660.0,
+        "Wx_cm3": 111.0,
+        "ix_cm": 10.4,
+        "Iy_cm4": 24.0,
+        "Wy_cm3": 5.71,
+        "iy_cm": 1.24,
+        "X_cm": 0.797,
+        "B_mm": 50.0
       },
       {
         "designation": "C 17,5x10.1",
@@ -2384,7 +2437,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 21.3,
         "Wy_cm3": 5.45,
         "iy_cm": 1.43,
-        "X_cm": 1.08
+        "X_cm": 1.08,
+        "B_mm": 50.0
       },
       {
         "designation": "C 17,5x7.24",
@@ -2398,7 +2452,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 19.0,
         "Wy_cm3": 4.82,
         "iy_cm": 1.43,
-        "X_cm": 1.06
+        "X_cm": 1.06,
+        "B_mm": 50.0
       },
       {
         "designation": "C 17,5x6.24",
@@ -2412,7 +2467,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 16.5,
         "Wy_cm3": 4.18,
         "iy_cm": 1.44,
-        "X_cm": 1.04
+        "X_cm": 1.04,
+        "B_mm": 50.0
       },
       {
         "designation": "C 17,5x5.24",
@@ -2426,7 +2482,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 14.0,
         "Wy_cm3": 3.52,
         "iy_cm": 1.45,
-        "X_cm": 1.02
+        "X_cm": 1.02,
+        "B_mm": 50.0
       },
       {
         "designation": "C 17,5x4.21",
@@ -2440,22 +2497,23 @@ const ICHA_CATALOG = {
         "Iy_cm4": 11.4,
         "Wy_cm3": 2.84,
         "iy_cm": 1.46,
-        "X_cm": 0.995
+        "X_cm": 0.995,
+        "B_mm": 50.0
       },
       {
         "designation": "C 15x11.1",
         "base": "C 15",
         "weight": 11.1,
-        "B_mm": 75.0,
+        "B_mm": 50.0,
         "e_mm": 5.0,
         "A_cm2": 14.2,
-        "Ix_cm4": 491.0,
-        "Wx_cm3": 65.4,
-        "ix_cm": 5.88,
-        "Iy_cm4": 78.2,
-        "Wy_cm3": 14.5,
-        "iy_cm": 2.35,
-        "X_cm": 2.11
+        "Ix_cm4": 729.0,
+        "Wx_cm3": 72.9,
+        "ix_cm": 7.17,
+        "Iy_cm4": 26.7,
+        "Wy_cm3": 6.75,
+        "iy_cm": 1.37,
+        "X_cm": 1.05
       },
       {
         "designation": "C 15x9.01",
@@ -2463,28 +2521,29 @@ const ICHA_CATALOG = {
         "weight": 9.01,
         "e_mm": 4.0,
         "A_cm2": 11.5,
-        "Ix_cm4": 404.0,
-        "Wx_cm3": 53.8,
-        "ix_cm": 5.93,
-        "Iy_cm4": 64.1,
-        "Wy_cm3": 11.8,
-        "iy_cm": 2.36,
-        "X_cm": 2.06
+        "Ix_cm4": 600.0,
+        "Wx_cm3": 60.0,
+        "ix_cm": 7.23,
+        "Iy_cm4": 22.1,
+        "Wy_cm3": 5.52,
+        "iy_cm": 1.39,
+        "X_cm": 1.0,
+        "B_mm": 50.0
       },
       {
         "designation": "C 15x9.17",
         "base": "C 15",
         "weight": 9.17,
         "B_mm": 50.0,
-        "e_mm": 5.0,
+        "e_mm": 3.0,
         "A_cm2": 11.7,
-        "Ix_cm4": 359.0,
-        "Wx_cm3": 47.9,
-        "ix_cm": 5.55,
-        "Iy_cm4": 24.8,
-        "Wy_cm3": 6.55,
-        "iy_cm": 1.46,
-        "X_cm": 1.22
+        "Ix_cm4": 1270.0,
+        "Wx_cm3": 84.8,
+        "ix_cm": 10.4,
+        "Iy_cm4": 18.6,
+        "Wy_cm3": 4.37,
+        "iy_cm": 1.26,
+        "X_cm": 0.754
       },
       {
         "designation": "C 15x7.44",
@@ -2498,7 +2557,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 20.5,
         "Wy_cm3": 5.36,
         "iy_cm": 1.47,
-        "X_cm": 1.17
+        "X_cm": 1.17,
+        "B_mm": 50.0
       },
       {
         "designation": "C 15x9.55",
@@ -2512,7 +2572,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 18.2,
         "Wy_cm3": 4.74,
         "iy_cm": 1.48,
-        "X_cm": 1.15
+        "X_cm": 1.15,
+        "B_mm": 50.0
       },
       {
         "designation": "C 15x5.66",
@@ -2526,7 +2587,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 15.9,
         "Wy_cm3": 4.11,
         "iy_cm": 1.49,
-        "X_cm": 1.13
+        "X_cm": 1.13,
+        "B_mm": 50.0
       },
       {
         "designation": "C 15x4.74",
@@ -2540,7 +2602,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 13.5,
         "Wy_cm3": 3.46,
         "iy_cm": 1.49,
-        "X_cm": 1.11
+        "X_cm": 1.11,
+        "B_mm": 50.0
       },
       {
         "designation": "C 15x3.82",
@@ -2554,22 +2617,23 @@ const ICHA_CATALOG = {
         "Iy_cm4": 10.9,
         "Wy_cm3": 2.8,
         "iy_cm": 1.5,
-        "X_cm": 1.09
+        "X_cm": 1.09,
+        "B_mm": 50.0
       },
       {
         "designation": "C 12,5x8.19",
         "base": "C 12,5",
         "weight": 8.19,
         "B_mm": 50.0,
-        "e_mm": 5.0,
+        "e_mm": 4.0,
         "A_cm2": 10.4,
-        "Ix_cm4": 231.0,
-        "Wx_cm3": 37.0,
-        "ix_cm": 4.71,
-        "Iy_cm4": 23.4,
-        "Wy_cm3": 6.4,
+        "Ix_cm4": 432.0,
+        "Wx_cm3": 49.4,
+        "ix_cm": 6.42,
+        "Iy_cm4": 21.3,
+        "Wy_cm3": 5.45,
         "iy_cm": 1.5,
-        "X_cm": 1.34
+        "X_cm": 1.08
       },
       {
         "designation": "C 12,5x6.65",
@@ -2583,7 +2647,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 19.4,
         "Wy_cm3": 5.24,
         "iy_cm": 1.51,
-        "X_cm": 1.29
+        "X_cm": 1.29,
+        "B_mm": 50.0
       },
       {
         "designation": "C 12,5x5.87",
@@ -2597,7 +2662,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 17.3,
         "Wy_cm3": 4.63,
         "iy_cm": 1.52,
-        "X_cm": 1.27
+        "X_cm": 1.27,
+        "B_mm": 50.0
       },
       {
         "designation": "C 12,5x5.07",
@@ -2611,21 +2677,23 @@ const ICHA_CATALOG = {
         "Iy_cm4": 15.1,
         "Wy_cm3": 4.02,
         "iy_cm": 1.53,
-        "X_cm": 1.24
+        "X_cm": 1.24,
+        "B_mm": 50.0
       },
       {
         "designation": "C 12,5x4.25",
         "base": "C 12,5",
         "weight": 4.25,
-        "e_mm": 2.5,
+        "e_mm": 2.0,
         "A_cm2": 5.42,
-        "Ix_cm4": 127.0,
-        "Wx_cm3": 20.3,
-        "ix_cm": 4.83,
-        "Iy_cm4": 12.8,
-        "Wy_cm3": 3.38,
+        "Ix_cm4": 229.0,
+        "Wx_cm3": 26.2,
+        "ix_cm": 6.53,
+        "Iy_cm4": 11.4,
+        "Wy_cm3": 2.84,
         "iy_cm": 1.54,
-        "X_cm": 1.22
+        "X_cm": 0.995,
+        "B_mm": 50.0
       },
       {
         "designation": "C 12,5x3.43",
@@ -2639,22 +2707,23 @@ const ICHA_CATALOG = {
         "Iy_cm4": 10.4,
         "Wy_cm3": 2.74,
         "iy_cm": 1.54,
-        "X_cm": 1.2
+        "X_cm": 1.2,
+        "B_mm": 50.0
       },
       {
         "designation": "C 10x5.87",
         "base": "C 10",
         "weight": 5.87,
         "B_mm": 50.0,
-        "e_mm": 4.0,
+        "e_mm": 3.5,
         "A_cm2": 7.47,
-        "Ix_cm4": 113.0,
-        "Wx_cm3": 22.6,
-        "ix_cm": 3.89,
-        "Iy_cm4": 18.1,
-        "Wy_cm3": 5.07,
+        "Ix_cm4": 171.0,
+        "Wx_cm3": 27.4,
+        "ix_cm": 4.78,
+        "Iy_cm4": 17.3,
+        "Wy_cm3": 4.63,
         "iy_cm": 1.56,
-        "X_cm": 1.44
+        "X_cm": 1.27
       },
       {
         "designation": "C 10x5.18",
@@ -2668,7 +2737,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 16.1,
         "Wy_cm3": 4.49,
         "iy_cm": 1.56,
-        "X_cm": 1.41
+        "X_cm": 1.41,
+        "B_mm": 50.0
       },
       {
         "designation": "C 10x4.48",
@@ -2682,7 +2752,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 14.1,
         "Wy_cm3": 3.89,
         "iy_cm": 1.57,
-        "X_cm": 1.39
+        "X_cm": 1.39,
+        "B_mm": 50.0
       },
       {
         "designation": "C 10x3.76",
@@ -2696,7 +2767,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 11.9,
         "Wy_cm3": 3.28,
         "iy_cm": 1.58,
-        "X_cm": 1.37
+        "X_cm": 1.37,
+        "B_mm": 50.0
       },
       {
         "designation": "C 10x3.04",
@@ -2709,7 +2781,9 @@ const ICHA_CATALOG = {
         "Iy_cm4": 9.72,
         "Wy_cm3": 2.66,
         "iy_cm": 1.58,
-        "X_cm": 1.34
+        "X_cm": 1.34,
+        "B_mm": 50.0,
+        "e_mm": 2.0
       },
       {
         "designation": "C  8x3.54",
@@ -2738,7 +2812,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 5.97,
         "Wy_cm3": 2.07,
         "iy_cm": 1.25,
-        "X_cm": 1.12
+        "X_cm": 1.12,
+        "B_mm": 40.0
       },
       {
         "designation": "C  8x2.41",
@@ -2752,7 +2827,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 4.89,
         "Wy_cm3": 1.68,
         "iy_cm": 1.26,
-        "X_cm": 1.09
+        "X_cm": 1.09,
+        "B_mm": 40.0
       },
       {
         "designation": "C  5x1.8",
@@ -2781,7 +2857,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 1.13,
         "Wy_cm3": 0.634,
         "iy_cm": 0.776,
-        "X_cm": 0.718
+        "X_cm": 0.718,
+        "B_mm": 25.0
       }
     ]
   },
@@ -3388,7 +3465,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 351.0,
         "Wy_cm3": 49.9,
         "iy_cm": 3.62,
-        "X_cm": 2.97
+        "X_cm": 2.97,
+        "B_mm": 100.0
       },
       {
         "designation": "CA 30x16.8",
@@ -3403,7 +3481,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 274.0,
         "Wy_cm3": 38.3,
         "iy_cm": 3.58,
-        "X_cm": 2.84
+        "X_cm": 2.84,
+        "B_mm": 100.0
       },
       {
         "designation": "CA 30x14.9",
@@ -3434,7 +3513,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 112.0,
         "Wy_cm3": 19.9,
         "iy_cm": 2.59,
-        "X_cm": 1.88
+        "X_cm": 1.88,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 30x11.3",
@@ -3449,7 +3529,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 98.7,
         "Wy_cm3": 17.5,
         "iy_cm": 2.62,
-        "X_cm": 1.88
+        "X_cm": 1.88,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 25x19.1",
@@ -3480,7 +3561,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 259.0,
         "Wy_cm3": 37.6,
         "iy_cm": 3.66,
-        "X_cm": 3.11
+        "X_cm": 3.11,
+        "B_mm": 100.0
       },
       {
         "designation": "CA 25x13.3",
@@ -3511,7 +3593,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 106.0,
         "Wy_cm3": 19.6,
         "iy_cm": 2.67,
-        "X_cm": 2.08
+        "X_cm": 2.08,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 25x10.1",
@@ -3526,7 +3609,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 93.7,
         "Wy_cm3": 17.3,
         "iy_cm": 2.69,
-        "X_cm": 2.08
+        "X_cm": 2.08,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 25x8.31",
@@ -3541,7 +3625,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 73.1,
         "Wy_cm3": 13.2,
         "iy_cm": 2.63,
-        "X_cm": 1.95
+        "X_cm": 1.95,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 20x11.7",
@@ -3549,15 +3634,15 @@ const ICHA_CATALOG = {
         "weight": 11.7,
         "B_mm": 75.0,
         "C_mm": 25.0,
-        "e_mm": 4.0,
+        "e_mm": 3.5,
         "A_cm2": 14.9,
-        "Ix_cm4": 895.0,
-        "Wx_cm3": 89.5,
-        "ix_cm": 7.64,
-        "Iy_cm4": 110.0,
-        "Wy_cm3": 21.3,
+        "Ix_cm4": 1350.0,
+        "Wx_cm3": 108.0,
+        "ix_cm": 9.51,
+        "Iy_cm4": 106.0,
+        "Wy_cm3": 19.6,
         "iy_cm": 2.71,
-        "X_cm": 2.32
+        "X_cm": 2.08
       },
       {
         "designation": "CA 20x10.4",
@@ -3572,7 +3657,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 99.1,
         "Wy_cm3": 19.2,
         "iy_cm": 2.74,
-        "X_cm": 2.33
+        "X_cm": 2.33,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 20x8.96",
@@ -3587,7 +3673,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 87.4,
         "Wy_cm3": 16.9,
         "iy_cm": 2.77,
-        "X_cm": 2.33
+        "X_cm": 2.33,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 20x7.33",
@@ -3602,7 +3689,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 68.4,
         "Wy_cm3": 12.9,
         "iy_cm": 2.71,
-        "X_cm": 2.2
+        "X_cm": 2.2,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 20x5.92",
@@ -3617,7 +3705,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 56.3,
         "Wy_cm3": 10.6,
         "iy_cm": 2.73,
-        "X_cm": 2.2
+        "X_cm": 2.2,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 17,5x10.9",
@@ -3648,7 +3737,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 94.7,
         "Wy_cm3": 18.9,
         "iy_cm": 2.77,
-        "X_cm": 2.48
+        "X_cm": 2.48,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 17,5x8.37",
@@ -3663,7 +3753,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 83.6,
         "Wy_cm3": 16.7,
         "iy_cm": 2.8,
-        "X_cm": 2.48
+        "X_cm": 2.48,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 17,5x6.84",
@@ -3678,7 +3769,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 65.5,
         "Wy_cm3": 12.7,
         "iy_cm": 2.74,
-        "X_cm": 2.35
+        "X_cm": 2.35,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 17,5x5.52",
@@ -3693,7 +3785,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 54.0,
         "Wy_cm3": 10.5,
         "iy_cm": 2.77,
-        "X_cm": 2.35
+        "X_cm": 2.35,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 15x8.98",
@@ -3701,15 +3794,15 @@ const ICHA_CATALOG = {
         "weight": 8.98,
         "B_mm": 75.0,
         "C_mm": 25.0,
-        "e_mm": 3.5,
+        "e_mm": 3.0,
         "A_cm2": 11.4,
-        "Ix_cm4": 406.0,
-        "Wx_cm3": 54.1,
-        "ix_cm": 5.95,
-        "Iy_cm4": 89.7,
-        "Wy_cm3": 48.5,
+        "Ix_cm4": 694.0,
+        "Wx_cm3": 69.4,
+        "ix_cm": 7.8,
+        "Iy_cm4": 87.4,
+        "Wy_cm3": 16.9,
         "iy_cm": 2.8,
-        "X_cm": 2.66
+        "X_cm": 2.33
       },
       {
         "designation": "CA 15x7.78",
@@ -3724,38 +3817,40 @@ const ICHA_CATALOG = {
         "Iy_cm4": 79.2,
         "Wy_cm3": 16.4,
         "iy_cm": 2.83,
-        "X_cm": 2.66
+        "X_cm": 2.66,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 15x8.28",
         "base": "CA 15",
         "weight": 8.28,
-        "B_mm": 50.0,
+        "B_mm": 75.0,
         "C_mm": 20.0,
-        "e_mm": 4.0,
+        "e_mm": 2.5,
         "A_cm2": 10.5,
-        "Ix_cm4": 337.0,
-        "Wx_cm3": 44.9,
-        "ix_cm": 5.65,
-        "Iy_cm4": 32.9,
-        "Wy_cm3": 9.52,
-        "iy_cm": 1.77,
-        "X_cm": 1.54
+        "Ix_cm4": 969.0,
+        "Wx_cm3": 77.5,
+        "ix_cm": 9.57,
+        "Iy_cm4": 73.1,
+        "Wy_cm3": 13.2,
+        "iy_cm": 2.63,
+        "X_cm": 1.95
       },
       {
         "designation": "CA 15x7.33",
         "base": "CA 15",
         "weight": 7.33,
         "C_mm": 20.0,
-        "e_mm": 3.5,
+        "e_mm": 2.5,
         "A_cm2": 9.34,
-        "Ix_cm4": 302.0,
-        "Wx_cm3": 40.3,
-        "ix_cm": 5.68,
-        "Iy_cm4": 30.1,
-        "Wy_cm3": 8.7,
-        "iy_cm": 1.79,
-        "X_cm": 1.54
+        "Ix_cm4": 573.0,
+        "Wx_cm3": 57.3,
+        "ix_cm": 7.84,
+        "Iy_cm4": 68.4,
+        "Wy_cm3": 12.9,
+        "iy_cm": 2.71,
+        "X_cm": 2.2,
+        "B_mm": 75.0
       },
       {
         "designation": "CA 15x6.36",
@@ -3770,7 +3865,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 26.9,
         "Wy_cm3": 7.78,
         "iy_cm": 1.82,
-        "X_cm": 1.54
+        "X_cm": 1.54,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 15x5.37",
@@ -3785,7 +3881,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 23.4,
         "Wy_cm3": 6.76,
         "iy_cm": 1.85,
-        "X_cm": 1.54
+        "X_cm": 1.54,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 15x4.19",
@@ -3800,7 +3897,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 17.1,
         "Wy_cm3": 4.78,
         "iy_cm": 1.79,
-        "X_cm": 1.42
+        "X_cm": 1.42,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 12,5x7.49",
@@ -3831,7 +3929,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 28.3,
         "Wy_cm3": 8.53,
         "iy_cm": 1.83,
-        "X_cm": 1.68
+        "X_cm": 1.68,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 12,5x5.78",
@@ -3846,7 +3945,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 25.3,
         "Wy_cm3": 7.63,
         "iy_cm": 1.85,
-        "X_cm": 1.69
+        "X_cm": 1.69,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 12,5x4.88",
@@ -3861,7 +3961,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 22.0,
         "Wy_cm3": 6.63,
         "iy_cm": 1.88,
-        "X_cm": 1.69
+        "X_cm": 1.69,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 12,5x3.8",
@@ -3876,23 +3977,24 @@ const ICHA_CATALOG = {
         "Iy_cm4": 16.2,
         "Wy_cm3": 4.69,
         "iy_cm": 1.83,
-        "X_cm": 1.56
+        "X_cm": 1.56,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 10x5.96",
         "base": "CA 10",
         "weight": 5.96,
-        "B_mm": 50.0,
+        "B_mm": 75.0,
         "C_mm": 20.0,
-        "e_mm": 3.5,
+        "e_mm": 2.0,
         "A_cm2": 7.59,
-        "Ix_cm4": 114.0,
-        "Wx_cm3": 22.9,
-        "ix_cm": 3.88,
-        "Iy_cm4": 26.1,
-        "Wy_cm3": 8.29,
-        "iy_cm": 1.85,
-        "X_cm": 1.86
+        "Ix_cm4": 467.0,
+        "Wx_cm3": 46.7,
+        "ix_cm": 7.87,
+        "Iy_cm4": 56.3,
+        "Wy_cm3": 10.6,
+        "iy_cm": 2.73,
+        "X_cm": 2.2
       },
       {
         "designation": "CA 10x5.19",
@@ -3907,7 +4009,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 23.3,
         "Wy_cm3": 7.43,
         "iy_cm": 1.88,
-        "X_cm": 1.86
+        "X_cm": 1.86,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 10x4.39",
@@ -3922,7 +4025,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 20.3,
         "Wy_cm3": 6.46,
         "iy_cm": 1.9,
-        "X_cm": 1.86
+        "X_cm": 1.86,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 10x3.4",
@@ -3937,7 +4041,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 15.0,
         "Wy_cm3": 4.57,
         "iy_cm": 1.86,
-        "X_cm": 1.73
+        "X_cm": 1.73,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 8x4.01",
@@ -3960,15 +4065,16 @@ const ICHA_CATALOG = {
         "base": "CA 8",
         "weight": 3.41,
         "C_mm": 15.0,
-        "e_mm": 2.5,
+        "e_mm": 2.0,
         "A_cm2": 4.34,
-        "Ix_cm4": 42.5,
-        "Wx_cm3": 10.6,
-        "ix_cm": 3.13,
-        "Iy_cm4": 9.56,
-        "Wy_cm3": 3.76,
-        "iy_cm": 1.48,
-        "X_cm": 1.46
+        "Ix_cm4": 69.2,
+        "Wx_cm3": 13.8,
+        "ix_cm": 4.0,
+        "Iy_cm4": 15.0,
+        "Wy_cm3": 4.57,
+        "iy_cm": 1.86,
+        "X_cm": 1.73,
+        "B_mm": 50.0
       },
       {
         "designation": "CA 8x2.78",
@@ -3983,7 +4089,8 @@ const ICHA_CATALOG = {
         "Iy_cm4": 8.07,
         "Wy_cm3": 3.18,
         "iy_cm": 1.51,
-        "X_cm": 1.46
+        "X_cm": 1.46,
+        "B_mm": 40.0
       }
     ]
   },
@@ -5035,7 +5142,8 @@ const ICHA_CATALOG = {
         "ix_cm": 42.6,
         "Iy_cm4": 37400.0,
         "Wy_cm3": 1870.0,
-        "iy_cm": 9.54
+        "iy_cm": 9.54,
+        "B_mm": 400.0
       },
       {
         "designation": "IN 100x304.0",
@@ -5049,7 +5157,8 @@ const ICHA_CATALOG = {
         "ix_cm": 42.4,
         "Iy_cm4": 34200.0,
         "Wy_cm3": 1710.0,
-        "iy_cm": 9.39
+        "iy_cm": 9.39,
+        "B_mm": 400.0
       },
       {
         "designation": "IN 100x280.0",
@@ -5063,7 +5172,8 @@ const ICHA_CATALOG = {
         "ix_cm": 42.0,
         "Iy_cm4": 29900.0,
         "Wy_cm3": 1490.0,
-        "iy_cm": 9.16
+        "iy_cm": 9.16,
+        "B_mm": 400.0
       },
       {
         "designation": "IN 100x279.0",
@@ -5092,7 +5202,8 @@ const ICHA_CATALOG = {
         "ix_cm": 41.4,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 7.81
+        "iy_cm": 7.81,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 100x242.0",
@@ -5106,7 +5217,8 @@ const ICHA_CATALOG = {
         "ix_cm": 40.9,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 7.62
+        "iy_cm": 7.62,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 100x226.0",
@@ -5120,7 +5232,8 @@ const ICHA_CATALOG = {
         "ix_cm": 40.4,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 900.0,
-        "iy_cm": 7.4
+        "iy_cm": 7.4,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 100x215.0",
@@ -5134,7 +5247,8 @@ const ICHA_CATALOG = {
         "ix_cm": 40.0,
         "Iy_cm4": 14300.0,
         "Wy_cm3": 818.0,
-        "iy_cm": 7.22
+        "iy_cm": 7.22,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 100x205.0",
@@ -5148,7 +5262,8 @@ const ICHA_CATALOG = {
         "ix_cm": 39.6,
         "Iy_cm4": 12900.0,
         "Wy_cm3": 736.0,
-        "iy_cm": 7.03
+        "iy_cm": 7.03,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 100x194.0",
@@ -5162,7 +5277,8 @@ const ICHA_CATALOG = {
         "ix_cm": 39.0,
         "Iy_cm4": 11500.0,
         "Wy_cm3": 655.0,
-        "iy_cm": 6.8
+        "iy_cm": 6.8,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 90x328.0",
@@ -5191,21 +5307,23 @@ const ICHA_CATALOG = {
         "ix_cm": 39.1,
         "Iy_cm4": 37300.0,
         "Wy_cm3": 1870.0,
-        "iy_cm": 9.92
+        "iy_cm": 9.92,
+        "B_mm": 400.0
       },
       {
         "designation": "IN 90x280.0",
         "base": "IN 90",
         "weight": 280.0,
-        "e_mm": 32.0,
-        "t_mm": 12.0,
+        "e_mm": 28.0,
+        "t_mm": 14.0,
         "A_cm2": 356.0,
-        "Ix_cm4": 541000.0,
-        "Wx_cm3": 12000.0,
-        "ix_cm": 39.0,
-        "Iy_cm4": 34100.0,
-        "Wy_cm3": 1710.0,
-        "iy_cm": 9.79
+        "Ix_cm4": 627000.0,
+        "Wx_cm3": 12500.0,
+        "ix_cm": 42.0,
+        "Iy_cm4": 29900.0,
+        "Wy_cm3": 1490.0,
+        "iy_cm": 9.16,
+        "B_mm": 400.0
       },
       {
         "designation": "IN 90x255.0",
@@ -5219,7 +5337,8 @@ const ICHA_CATALOG = {
         "ix_cm": 38.7,
         "Iy_cm4": 29900.0,
         "Wy_cm3": 1490.0,
-        "iy_cm": 9.58
+        "iy_cm": 9.58,
+        "B_mm": 400.0
       },
       {
         "designation": "IN 90x254.0",
@@ -5248,7 +5367,8 @@ const ICHA_CATALOG = {
         "ix_cm": 38.2,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 8.21
+        "iy_cm": 8.21,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 90x217.0",
@@ -5262,7 +5382,8 @@ const ICHA_CATALOG = {
         "ix_cm": 37.8,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 8.03
+        "iy_cm": 8.03,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 90x202.0",
@@ -5276,7 +5397,8 @@ const ICHA_CATALOG = {
         "ix_cm": 37.4,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 899.0,
-        "iy_cm": 7.83
+        "iy_cm": 7.83,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 90x191.0",
@@ -5290,7 +5412,8 @@ const ICHA_CATALOG = {
         "ix_cm": 37.1,
         "Iy_cm4": 14300.0,
         "Wy_cm3": 817.0,
-        "iy_cm": 7.67
+        "iy_cm": 7.67,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 90x180.0",
@@ -5304,7 +5427,8 @@ const ICHA_CATALOG = {
         "ix_cm": 36.7,
         "Iy_cm4": 12900.0,
         "Wy_cm3": 736.0,
-        "iy_cm": 7.49
+        "iy_cm": 7.49,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 90x170.0",
@@ -5318,7 +5442,8 @@ const ICHA_CATALOG = {
         "ix_cm": 36.3,
         "Iy_cm4": 11400.0,
         "Wy_cm3": 6540.0,
-        "iy_cm": 7.28
+        "iy_cm": 7.28,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 80x250.0",
@@ -5347,7 +5472,8 @@ const ICHA_CATALOG = {
         "ix_cm": 35.0,
         "Iy_cm4": 22900.0,
         "Wy_cm3": 1310.0,
-        "iy_cm": 8.77
+        "iy_cm": 8.77,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 80x212.0",
@@ -5361,7 +5487,8 @@ const ICHA_CATALOG = {
         "ix_cm": 34.7,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 8.6
+        "iy_cm": 8.6,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 80x196.0",
@@ -5375,21 +5502,23 @@ const ICHA_CATALOG = {
         "ix_cm": 34.5,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 8.45
+        "iy_cm": 8.45,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 80x180.0",
         "base": "IN 80",
         "weight": 180.0,
-        "e_mm": 22.0,
-        "t_mm": 10.0,
+        "e_mm": 18.0,
+        "t_mm": 12.0,
         "A_cm2": 230.0,
-        "Ix_cm4": 269000.0,
-        "Wx_cm3": 7630.0,
-        "ix_cm": 34.2,
-        "Iy_cm4": 15700.0,
-        "Wy_cm3": 899.0,
-        "iy_cm": 8.28
+        "Ix_cm4": 310000.0,
+        "Wx_cm3": 6880.0,
+        "ix_cm": 36.7,
+        "Iy_cm4": 12900.0,
+        "Wy_cm3": 736.0,
+        "iy_cm": 7.49,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 80x177.0",
@@ -5418,7 +5547,8 @@ const ICHA_CATALOG = {
         "ix_cm": 33.7,
         "Iy_cm4": 9910.0,
         "Wy_cm3": 660.0,
-        "iy_cm": 6.91
+        "iy_cm": 6.91,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 80x154.0",
@@ -5432,7 +5562,8 @@ const ICHA_CATALOG = {
         "ix_cm": 33.4,
         "Iy_cm4": 9010.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 6.78
+        "iy_cm": 6.78,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 80x145.0",
@@ -5446,7 +5577,8 @@ const ICHA_CATALOG = {
         "ix_cm": 33.1,
         "Iy_cm4": 8110.0,
         "Wy_cm3": 540.0,
-        "iy_cm": 6.63
+        "iy_cm": 6.63,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 80x136.0",
@@ -5460,7 +5592,8 @@ const ICHA_CATALOG = {
         "ix_cm": 32.7,
         "Iy_cm4": 7210.0,
         "Wy_cm3": 480.0,
-        "iy_cm": 6.46
+        "iy_cm": 6.46,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 80x127.0",
@@ -5474,7 +5607,8 @@ const ICHA_CATALOG = {
         "ix_cm": 32.3,
         "Iy_cm4": 6310.0,
         "Wy_cm3": 420.0,
-        "iy_cm": 6.25
+        "iy_cm": 6.25,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 70x232.0",
@@ -5503,21 +5637,23 @@ const ICHA_CATALOG = {
         "ix_cm": 31.2,
         "Iy_cm4": 22900.0,
         "Wy_cm3": 1310.0,
-        "iy_cm": 9.12
+        "iy_cm": 9.12,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 70x194.0",
         "base": "IN 70",
         "weight": 194.0,
-        "e_mm": 28.0,
-        "t_mm": 8.0,
+        "e_mm": 16.0,
+        "t_mm": 14.0,
         "A_cm2": 248.0,
-        "Ix_cm4": 239000.0,
-        "Wx_cm3": 68300.0,
-        "ix_cm": 31.1,
-        "Iy_cm4": 20000.0,
-        "Wy_cm3": 1140.0,
-        "iy_cm": 8.99
+        "Ix_cm4": 377000.0,
+        "Wx_cm3": 7540.0,
+        "ix_cm": 39.0,
+        "Iy_cm4": 11500.0,
+        "Wy_cm3": 655.0,
+        "iy_cm": 6.8,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 70x178.0",
@@ -5531,7 +5667,8 @@ const ICHA_CATALOG = {
         "ix_cm": 31.0,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 8.87
+        "iy_cm": 8.87,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 70x162.0",
@@ -5545,7 +5682,8 @@ const ICHA_CATALOG = {
         "ix_cm": 30.8,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 898.0,
-        "iy_cm": 8.73
+        "iy_cm": 8.73,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 70x159.0",
@@ -5566,29 +5704,31 @@ const ICHA_CATALOG = {
         "designation": "IN 70x145.0",
         "base": "IN 70",
         "weight": 145.0,
-        "e_mm": 22.0,
-        "t_mm": 8.0,
+        "e_mm": 18.0,
+        "t_mm": 10.0,
         "A_cm2": 184.0,
-        "Ix_cm4": 171000.0,
-        "Wx_cm3": 4870.0,
-        "ix_cm": 30.4,
-        "Iy_cm4": 9900.0,
-        "Wy_cm3": 660.0,
-        "iy_cm": 7.33
+        "Ix_cm4": 202000.0,
+        "Wx_cm3": 5060.0,
+        "ix_cm": 33.1,
+        "Iy_cm4": 8110.0,
+        "Wy_cm3": 540.0,
+        "iy_cm": 6.63,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 70x136.0",
         "base": "IN 70",
         "weight": 136.0,
-        "e_mm": 20.0,
-        "t_mm": 8.0,
+        "e_mm": 16.0,
+        "t_mm": 10.0,
         "A_cm2": 173.0,
-        "Ix_cm4": 158000.0,
-        "Wx_cm3": 5410.0,
-        "ix_cm": 30.2,
-        "Iy_cm4": 9000.0,
-        "Wy_cm3": 600.0,
-        "iy_cm": 7.22
+        "Ix_cm4": 185000.0,
+        "Wx_cm3": 4630.0,
+        "ix_cm": 32.7,
+        "Iy_cm4": 7210.0,
+        "Wy_cm3": 480.0,
+        "iy_cm": 6.46,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 70x126.0",
@@ -5602,7 +5742,8 @@ const ICHA_CATALOG = {
         "ix_cm": 30.0,
         "Iy_cm4": 8100.0,
         "Wy_cm3": 540.0,
-        "iy_cm": 7.09
+        "iy_cm": 7.09,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 70x117.0",
@@ -5616,7 +5757,8 @@ const ICHA_CATALOG = {
         "ix_cm": 29.7,
         "Iy_cm4": 7200.0,
         "Wy_cm3": 480.0,
-        "iy_cm": 6.94
+        "iy_cm": 6.94,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 70x108.0",
@@ -5630,7 +5772,8 @@ const ICHA_CATALOG = {
         "ix_cm": 29.4,
         "Iy_cm4": 6300.0,
         "Wy_cm3": 420.0,
-        "iy_cm": 6.76
+        "iy_cm": 6.76,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 60x184.0",
@@ -5659,7 +5802,8 @@ const ICHA_CATALOG = {
         "ix_cm": 26.5,
         "Iy_cm4": 12600.0,
         "Wy_cm3": 840.0,
-        "iy_cm": 7.72
+        "iy_cm": 7.72,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 60x152.0",
@@ -5673,7 +5817,8 @@ const ICHA_CATALOG = {
         "ix_cm": 26.4,
         "Iy_cm4": 11300.0,
         "Wy_cm3": 750.0,
-        "iy_cm": 7.62
+        "iy_cm": 7.62,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 60x139.0",
@@ -5687,7 +5832,8 @@ const ICHA_CATALOG = {
         "ix_cm": 26.3,
         "Iy_cm4": 9900.0,
         "Wy_cm3": 660.0,
-        "iy_cm": 7.49
+        "iy_cm": 7.49,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 60x129.0",
@@ -5701,7 +5847,8 @@ const ICHA_CATALOG = {
         "ix_cm": 26.1,
         "Iy_cm4": 9000.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 7.39
+        "iy_cm": 7.39,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 60x121.0",
@@ -5730,7 +5877,8 @@ const ICHA_CATALOG = {
         "ix_cm": 25.7,
         "Iy_cm4": 5210.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 6.0
+        "iy_cm": 6.0,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 60x106.0",
@@ -5744,7 +5892,8 @@ const ICHA_CATALOG = {
         "ix_cm": 25.5,
         "Iy_cm4": 4690.0,
         "Wy_cm3": 375.0,
-        "iy_cm": 5.89
+        "iy_cm": 5.89,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 60x98.5",
@@ -5758,7 +5907,8 @@ const ICHA_CATALOG = {
         "ix_cm": 25.3,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 330.0,
-        "iy_cm": 5.77
+        "iy_cm": 5.77,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 60x90.9",
@@ -5772,7 +5922,8 @@ const ICHA_CATALOG = {
         "ix_cm": 25.0,
         "Iy_cm4": 3650.0,
         "Wy_cm3": 292.0,
-        "iy_cm": 5.61
+        "iy_cm": 5.61,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 60x83.8",
@@ -5786,7 +5937,8 @@ const ICHA_CATALOG = {
         "ix_cm": 24.7,
         "Iy_cm4": 3130.0,
         "Wy_cm3": 250.0,
-        "iy_cm": 5.43
+        "iy_cm": 5.43,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 50x182.0",
@@ -5807,15 +5959,16 @@ const ICHA_CATALOG = {
         "designation": "IN 50x166.0",
         "base": "IN 50",
         "weight": 166.0,
-        "e_mm": 25.0,
+        "e_mm": 28.0,
         "t_mm": 8.0,
-        "A_cm2": 211.0,
-        "Ix_cm4": 105000.0,
-        "Wx_cm3": 4200.0,
-        "ix_cm": 22.3,
-        "Iy_cm4": 17900.0,
-        "Wy_cm3": 1020.0,
-        "iy_cm": 9.2
+        "A_cm2": 212.0,
+        "Ix_cm4": 148000.0,
+        "Wx_cm3": 4940.0,
+        "ix_cm": 26.5,
+        "Iy_cm4": 12600.0,
+        "Wy_cm3": 840.0,
+        "iy_cm": 7.72,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 50x150.0",
@@ -5829,7 +5982,8 @@ const ICHA_CATALOG = {
         "ix_cm": 22.3,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 898.0,
-        "iy_cm": 9.09
+        "iy_cm": 9.09,
+        "B_mm": 350.0
       },
       {
         "designation": "IN 50x132.0",
@@ -5858,21 +6012,23 @@ const ICHA_CATALOG = {
         "ix_cm": 22.0,
         "Iy_cm4": 9000.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 7.58
+        "iy_cm": 7.58,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 50x114.0",
         "base": "IN 50",
         "weight": 114.0,
-        "e_mm": 18.0,
+        "e_mm": 20.0,
         "t_mm": 8.0,
         "A_cm2": 145.0,
-        "Ix_cm4": 69400.0,
-        "Wx_cm3": 2780.0,
-        "ix_cm": 21.9,
-        "Iy_cm4": 8100.0,
-        "Wy_cm3": 540.0,
-        "iy_cm": 7.47
+        "Ix_cm4": 95800.0,
+        "Wx_cm3": 3190.0,
+        "ix_cm": 25.7,
+        "Iy_cm4": 5210.0,
+        "Wy_cm3": 417.0,
+        "iy_cm": 6.0,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 50x105.0",
@@ -5886,7 +6042,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.7,
         "Iy_cm4": 7200.0,
         "Wy_cm3": 480.0,
-        "iy_cm": 7.35
+        "iy_cm": 7.35,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 50x99.8",
@@ -5915,7 +6072,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.4,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 333.0,
-        "iy_cm": 5.96
+        "iy_cm": 5.96,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 50x84.6",
@@ -5929,7 +6087,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.2,
         "Iy_cm4": 3650.0,
         "Wy_cm3": 292.0,
-        "iy_cm": 5.82
+        "iy_cm": 5.82,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 50x77.0",
@@ -5943,7 +6102,8 @@ const ICHA_CATALOG = {
         "ix_cm": 20.9,
         "Iy_cm4": 3130.0,
         "Wy_cm3": 250.0,
-        "iy_cm": 5.65
+        "iy_cm": 5.65,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 45x157.0",
@@ -5972,21 +6132,23 @@ const ICHA_CATALOG = {
         "ix_cm": 19.9,
         "Iy_cm4": 11300.0,
         "Wy_cm3": 750.0,
-        "iy_cm": 7.86
+        "iy_cm": 7.86,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 45x129.0",
         "base": "IN 45",
         "weight": 129.0,
-        "e_mm": 22.0,
+        "e_mm": 20.0,
         "t_mm": 8.0,
-        "A_cm2": 164.0,
-        "Ix_cm4": 65000.0,
-        "Wx_cm3": 2890.0,
-        "ix_cm": 19.9,
-        "Iy_cm4": 9900.0,
-        "Wy_cm3": 660.0,
-        "iy_cm": 7.76
+        "A_cm2": 165.0,
+        "Ix_cm4": 113000.0,
+        "Wx_cm3": 3760.0,
+        "ix_cm": 26.1,
+        "Iy_cm4": 9000.0,
+        "Wy_cm3": 600.0,
+        "iy_cm": 7.39,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 45x120.0",
@@ -6000,7 +6162,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.8,
         "Iy_cm4": 9000.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 7.68
+        "iy_cm": 7.68,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 45x112.0",
@@ -6029,7 +6192,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.6,
         "Iy_cm4": 5210.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 6.26
+        "iy_cm": 6.26,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 45x96.6",
@@ -6043,7 +6207,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.5,
         "Iy_cm4": 4690.0,
         "Wy_cm3": 375.0,
-        "iy_cm": 6.17
+        "iy_cm": 6.17,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 45x89.1",
@@ -6057,7 +6222,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.4,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 333.0,
-        "iy_cm": 6.06
+        "iy_cm": 6.06,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 45x82.5",
@@ -6086,7 +6252,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.0,
         "Iy_cm4": 2140.0,
         "Wy_cm3": 214.0,
-        "iy_cm": 4.68
+        "iy_cm": 4.68,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 45x70.5",
@@ -6100,7 +6267,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.8,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 4.56
+        "iy_cm": 4.56,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 45x64.4",
@@ -6114,7 +6282,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.5,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 4.42
+        "iy_cm": 4.42,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 40x140.0",
@@ -6135,15 +6304,16 @@ const ICHA_CATALOG = {
         "designation": "IN 40x126.0",
         "base": "IN 40",
         "weight": 126.0,
-        "e_mm": 22.0,
+        "e_mm": 18.0,
         "t_mm": 8.0,
-        "A_cm2": 160.0,
-        "Ix_cm4": 50200.0,
-        "Wx_cm3": 2510.0,
-        "ix_cm": 17.7,
-        "Iy_cm4": 9900.0,
-        "Wy_cm3": 660.0,
-        "iy_cm": 7.85
+        "A_cm2": 161.0,
+        "Ix_cm4": 145000.0,
+        "Wx_cm3": 4150.0,
+        "ix_cm": 30.0,
+        "Iy_cm4": 8100.0,
+        "Wy_cm3": 540.0,
+        "iy_cm": 7.09,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 40x111.0",
@@ -6157,7 +6327,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.0,
         "Iy_cm4": 9000.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 7.97
+        "iy_cm": 7.97,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 40x109.0",
@@ -6186,7 +6357,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.8,
         "Iy_cm4": 5210.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 6.54
+        "iy_cm": 6.54,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 40x87.8",
@@ -6200,7 +6372,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.8,
         "Iy_cm4": 4690.0,
         "Wy_cm3": 375.0,
-        "iy_cm": 6.47
+        "iy_cm": 6.47,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 40x80.1",
@@ -6214,7 +6387,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.7,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 333.0,
-        "iy_cm": 6.39
+        "iy_cm": 6.39,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 40x73.7",
@@ -6243,7 +6417,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.4,
         "Iy_cm4": 2130.0,
         "Wy_cm3": 213.0,
-        "iy_cm": 4.98
+        "iy_cm": 4.98,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 40x61.5",
@@ -6257,7 +6432,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.3,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 4.88
+        "iy_cm": 4.88,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 40x55.4",
@@ -6271,7 +6447,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.1,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 4.76
+        "iy_cm": 4.76,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 40x49.3",
@@ -6285,7 +6462,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.9,
         "Iy_cm4": 1330.0,
         "Wy_cm3": 133.0,
-        "iy_cm": 4.61
+        "iy_cm": 4.61,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 35x137.0",
@@ -6306,44 +6484,46 @@ const ICHA_CATALOG = {
         "designation": "IN 35x123.0",
         "base": "IN 35",
         "weight": 123.0,
-        "e_mm": 22.0,
+        "e_mm": 20.0,
         "t_mm": 8.0,
-        "A_cm2": 156.0,
-        "Ix_cm4": 37500.0,
-        "Wx_cm3": 2140.0,
-        "ix_cm": 15.5,
-        "Iy_cm4": 9900.0,
-        "Wy_cm3": 660.0,
-        "iy_cm": 7.95
+        "A_cm2": 157.0,
+        "Ix_cm4": 75600.0,
+        "Wx_cm3": 3030.0,
+        "ix_cm": 22.0,
+        "Iy_cm4": 9000.0,
+        "Wy_cm3": 600.0,
+        "iy_cm": 7.58,
+        "B_mm": 300.0
       },
       {
         "designation": "IN 35x109.0",
         "base": "IN 35",
         "weight": 109.0,
-        "e_mm": 20.0,
-        "t_mm": 6.0,
-        "A_cm2": 139.0,
-        "Ix_cm4": 34200.0,
-        "Wx_cm3": 1950.0,
-        "ix_cm": 15.7,
-        "Iy_cm4": 9000.0,
-        "Wy_cm3": 600.0,
-        "iy_cm": 8.06
+        "e_mm": 22.0,
+        "t_mm": 8.0,
+        "A_cm2": 138.0,
+        "Ix_cm4": 42300.0,
+        "Wx_cm3": 2120.0,
+        "ix_cm": 17.5,
+        "Iy_cm4": 5730.0,
+        "Wy_cm3": 458.0,
+        "iy_cm": 6.43,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 35x106.0",
         "base": "IN 35",
         "weight": 106.0,
         "B_mm": 250.0,
-        "e_mm": 22.0,
+        "e_mm": 18.0,
         "t_mm": 8.0,
-        "A_cm2": 134.0,
-        "Ix_cm4": 31500.0,
-        "Wx_cm3": 1800.0,
-        "ix_cm": 15.3,
-        "Iy_cm4": 5730.0,
-        "Wy_cm3": 458.0,
-        "iy_cm": 6.53
+        "A_cm2": 135.0,
+        "Ix_cm4": 88200.0,
+        "Wx_cm3": 2940.0,
+        "ix_cm": 25.5,
+        "Iy_cm4": 4690.0,
+        "Wy_cm3": 375.0,
+        "iy_cm": 5.89
       },
       {
         "designation": "IN 35x93.1",
@@ -6357,7 +6537,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.6,
         "Iy_cm4": 5210.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 6.63
+        "iy_cm": 6.63,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 35x85.4",
@@ -6371,7 +6552,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.6,
         "Iy_cm4": 4690.0,
         "Wy_cm3": 375.0,
-        "iy_cm": 6.56
+        "iy_cm": 6.56,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 35x77.8",
@@ -6385,7 +6567,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.5,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 333.0,
-        "iy_cm": 6.49
+        "iy_cm": 6.49,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 35x71.3",
@@ -6414,7 +6597,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.3,
         "Iy_cm4": 2130.0,
         "Wy_cm3": 213.0,
-        "iy_cm": 5.07
+        "iy_cm": 5.07,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 35x59.1",
@@ -6428,7 +6612,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.2,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 4.98
+        "iy_cm": 4.98,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 35x53.0",
@@ -6442,7 +6627,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.1,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 4.87
+        "iy_cm": 4.87,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 35x46.9",
@@ -6456,7 +6642,8 @@ const ICHA_CATALOG = {
         "ix_cm": 14.9,
         "Iy_cm4": 1330.0,
         "Wy_cm3": 133.0,
-        "iy_cm": 4.72
+        "iy_cm": 4.72,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 30x102.0",
@@ -6485,7 +6672,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.3,
         "Iy_cm4": 5210.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 6.71
+        "iy_cm": 6.71,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 30x83.1",
@@ -6499,7 +6687,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.3,
         "Iy_cm4": 4690.0,
         "Wy_cm3": 375.0,
-        "iy_cm": 6.66
+        "iy_cm": 6.66,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 30x75.4",
@@ -6513,7 +6702,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.3,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 333.0,
-        "iy_cm": 6.59
+        "iy_cm": 6.59,
+        "B_mm": 250.0
       },
       {
         "designation": "IN 30x69.0",
@@ -6542,7 +6732,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.2,
         "Iy_cm4": 2130.0,
         "Wy_cm3": 213.0,
-        "iy_cm": 5.16
+        "iy_cm": 5.16,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 30x56.8",
@@ -6556,7 +6747,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.1,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 5.08
+        "iy_cm": 5.08,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 30x50.7",
@@ -6570,7 +6762,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.1,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 4.98
+        "iy_cm": 4.98,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 30x44.6",
@@ -6584,7 +6777,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.9,
         "Iy_cm4": 1330.0,
         "Wy_cm3": 133.0,
-        "iy_cm": 4.85
+        "iy_cm": 4.85,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 30x41.3",
@@ -6613,7 +6807,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.6,
         "Iy_cm4": 563.0,
         "Wy_cm3": 75.1,
-        "iy_cm": 3.47
+        "iy_cm": 3.47,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 30x32.2",
@@ -6627,7 +6822,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.4,
         "Iy_cm4": 451.0,
         "Wy_cm3": 60.1,
-        "iy_cm": 3.31
+        "iy_cm": 3.31,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 25x72.7",
@@ -6656,7 +6852,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.0,
         "Iy_cm4": 2400.0,
         "Wy_cm3": 240.0,
-        "iy_cm": 5.32
+        "iy_cm": 5.32,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 25x60.5",
@@ -6670,7 +6867,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.0,
         "Iy_cm4": 2130.0,
         "Wy_cm3": 213.0,
-        "iy_cm": 5.26
+        "iy_cm": 5.26,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 25x54.4",
@@ -6684,7 +6882,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.0,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 5.19
+        "iy_cm": 5.19,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 25x46.6",
@@ -6698,7 +6897,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.1,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 5.19
+        "iy_cm": 5.19,
+        "B_mm": 200.0
       },
       {
         "designation": "IN 25x43.4",
@@ -6727,7 +6927,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.9,
         "Iy_cm4": 675.0,
         "Wy_cm3": 90.0,
-        "iy_cm": 3.78
+        "iy_cm": 3.78,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 25x32.6",
@@ -6741,7 +6942,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.8,
         "Iy_cm4": 563.0,
         "Wy_cm3": 75.0,
-        "iy_cm": 3.68
+        "iy_cm": 3.68,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 25x27.7",
@@ -6770,7 +6972,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.4,
         "Iy_cm4": 167.0,
         "Wy_cm3": 33.4,
-        "iy_cm": 2.3
+        "iy_cm": 2.3,
+        "B_mm": 100.0
       },
       {
         "designation": "IN 25x21.7",
@@ -6784,7 +6987,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.2,
         "Iy_cm4": 134.0,
         "Wy_cm3": 26.7,
-        "iy_cm": 2.2
+        "iy_cm": 2.2,
+        "B_mm": 100.0
       },
       {
         "designation": "IN 25x18.8",
@@ -6798,7 +7002,8 @@ const ICHA_CATALOG = {
         "ix_cm": 9.91,
         "Iy_cm4": 100.0,
         "Wy_cm3": 20.0,
-        "iy_cm": 2.05
+        "iy_cm": 2.05,
+        "B_mm": 100.0
       },
       {
         "designation": "IN 20x50.1",
@@ -6827,7 +7032,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.61,
         "Iy_cm4": 900.0,
         "Wy_cm3": 120.0,
-        "iy_cm": 3.94
+        "iy_cm": 3.94,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 20x41.1",
@@ -6841,7 +7047,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.63,
         "Iy_cm4": 788.0,
         "Wy_cm3": 105.0,
-        "iy_cm": 3.88
+        "iy_cm": 3.88,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 20x35.2",
@@ -6855,7 +7062,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.73,
         "Iy_cm4": 675.0,
         "Wy_cm3": 90.0,
-        "iy_cm": 3.88
+        "iy_cm": 3.88,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 20x30.6",
@@ -6869,7 +7077,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.7,
         "Iy_cm4": 563.0,
         "Wy_cm3": 75.0,
-        "iy_cm": 3.8
+        "iy_cm": 3.8,
+        "B_mm": 150.0
       },
       {
         "designation": "IN 20x25.7",
@@ -6898,7 +7107,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.41,
         "Iy_cm4": 167.0,
         "Wy_cm3": 33.4,
-        "iy_cm": 2.4
+        "iy_cm": 2.4,
+        "B_mm": 100.0
       },
       {
         "designation": "IN 20x19.8",
@@ -6912,7 +7122,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.3,
         "Iy_cm4": 134.0,
         "Wy_cm3": 26.7,
-        "iy_cm": 2.3
+        "iy_cm": 2.3,
+        "B_mm": 100.0
       },
       {
         "designation": "IN 20x16.8",
@@ -6926,7 +7137,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.11,
         "Iy_cm4": 100.0,
         "Wy_cm3": 20.0,
-        "iy_cm": 2.16
+        "iy_cm": 2.16,
+        "B_mm": 100.0
       },
       {
         "designation": "IN 20x13.8",
@@ -6940,7 +7152,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.19,
         "Iy_cm4": 83.0,
         "Wy_cm3": 16.7,
-        "iy_cm": 2.18
+        "iy_cm": 2.18,
+        "B_mm": 100.0
       }
     ]
   },
@@ -6975,7 +7188,8 @@ const ICHA_CATALOG = {
         "ix_cm": 41.6,
         "Iy_cm4": 37400.0,
         "Wy_cm3": 1870.0,
-        "iy_cm": 9.14
+        "iy_cm": 9.14,
+        "B_mm": 400.0
       },
       {
         "designation": "IP 100x333.0",
@@ -6989,7 +7203,8 @@ const ICHA_CATALOG = {
         "ix_cm": 41.3,
         "Iy_cm4": 34200.0,
         "Wy_cm3": 1710.0,
-        "iy_cm": 8.97
+        "iy_cm": 8.97,
+        "B_mm": 400.0
       },
       {
         "designation": "IP 100x309.0",
@@ -7003,7 +7218,8 @@ const ICHA_CATALOG = {
         "ix_cm": 40.8,
         "Iy_cm4": 29900.0,
         "Wy_cm3": 1500.0,
-        "iy_cm": 8.71
+        "iy_cm": 8.71,
+        "B_mm": 400.0
       },
       {
         "designation": "IP 100x308.0",
@@ -7032,7 +7248,8 @@ const ICHA_CATALOG = {
         "ix_cm": 40.1,
         "Iy_cm4": 20100.0,
         "Wy_cm3": 1150.0,
-        "iy_cm": 7.4
+        "iy_cm": 7.4,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 100x272.0",
@@ -7046,7 +7263,8 @@ const ICHA_CATALOG = {
         "ix_cm": 39.7,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 7.19
+        "iy_cm": 7.19,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 100x256.0",
@@ -7060,7 +7278,8 @@ const ICHA_CATALOG = {
         "ix_cm": 39.1,
         "Iy_cm4": 15800.0,
         "Wy_cm3": 901.0,
-        "iy_cm": 6.95
+        "iy_cm": 6.95,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 100x246.0",
@@ -7074,7 +7293,8 @@ const ICHA_CATALOG = {
         "ix_cm": 38.7,
         "Iy_cm4": 14300.0,
         "Wy_cm3": 819.0,
-        "iy_cm": 6.77
+        "iy_cm": 6.77,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 90x354.0",
@@ -7103,7 +7323,8 @@ const ICHA_CATALOG = {
         "ix_cm": 38.1,
         "Iy_cm4": 37400.0,
         "Wy_cm3": 1870.0,
-        "iy_cm": 9.51
+        "iy_cm": 9.51,
+        "B_mm": 400.0
       },
       {
         "designation": "IP 90x306.0",
@@ -7117,7 +7338,8 @@ const ICHA_CATALOG = {
         "ix_cm": 37.9,
         "Iy_cm4": 34200.0,
         "Wy_cm3": 1710.0,
-        "iy_cm": 9.36
+        "iy_cm": 9.36,
+        "B_mm": 400.0
       },
       {
         "designation": "IP 90x282.0",
@@ -7131,7 +7353,8 @@ const ICHA_CATALOG = {
         "ix_cm": 37.5,
         "Iy_cm4": 29900.0,
         "Wy_cm3": 1490.0,
-        "iy_cm": 9.12
+        "iy_cm": 9.12,
+        "B_mm": 400.0
       },
       {
         "designation": "IP 90x281.0",
@@ -7160,7 +7383,8 @@ const ICHA_CATALOG = {
         "ix_cm": 37.0,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 7.78
+        "iy_cm": 7.78,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 90x244.0",
@@ -7174,7 +7398,8 @@ const ICHA_CATALOG = {
         "ix_cm": 36.6,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 7.59
+        "iy_cm": 7.59,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 90x228.0",
@@ -7188,7 +7413,8 @@ const ICHA_CATALOG = {
         "ix_cm": 36.2,
         "Iy_cm4": 15800.0,
         "Wy_cm3": 900.0,
-        "iy_cm": 7.36
+        "iy_cm": 7.36,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 90x218.0",
@@ -7202,7 +7428,8 @@ const ICHA_CATALOG = {
         "ix_cm": 35.8,
         "Iy_cm4": 14300.0,
         "Wy_cm3": 818.0,
-        "iy_cm": 7.18
+        "iy_cm": 7.18,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 90x207.0",
@@ -7216,7 +7443,8 @@ const ICHA_CATALOG = {
         "ix_cm": 35.4,
         "Iy_cm4": 12900.0,
         "Wy_cm3": 737.0,
-        "iy_cm": 6.98
+        "iy_cm": 6.98,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 80x273.0",
@@ -7245,7 +7473,8 @@ const ICHA_CATALOG = {
         "ix_cm": 34.0,
         "Iy_cm4": 22900.0,
         "Wy_cm3": 1310.0,
-        "iy_cm": 8.36
+        "iy_cm": 8.36,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 80x236.0",
@@ -7259,7 +7488,8 @@ const ICHA_CATALOG = {
         "ix_cm": 33.7,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 8.17
+        "iy_cm": 8.17,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 80x220.0",
@@ -7273,7 +7503,8 @@ const ICHA_CATALOG = {
         "ix_cm": 33.4,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 7.99
+        "iy_cm": 7.99,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 80x204.0",
@@ -7287,7 +7518,8 @@ const ICHA_CATALOG = {
         "ix_cm": 33.0,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 899.0,
-        "iy_cm": 7.78
+        "iy_cm": 7.78,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 80x200.0",
@@ -7316,7 +7548,8 @@ const ICHA_CATALOG = {
         "ix_cm": 32.4,
         "Iy_cm4": 9920.0,
         "Wy_cm3": 661.0,
-        "iy_cm": 6.46
+        "iy_cm": 6.46,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 80x178.0",
@@ -7330,7 +7563,8 @@ const ICHA_CATALOG = {
         "ix_cm": 32.1,
         "Iy_cm4": 9020.0,
         "Wy_cm3": 601.0,
-        "iy_cm": 6.31
+        "iy_cm": 6.31,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 80x169.0",
@@ -7344,7 +7578,8 @@ const ICHA_CATALOG = {
         "ix_cm": 31.8,
         "Iy_cm4": 8120.0,
         "Wy_cm3": 541.0,
-        "iy_cm": 6.15
+        "iy_cm": 6.15,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 80x160.0",
@@ -7358,7 +7593,8 @@ const ICHA_CATALOG = {
         "ix_cm": 31.4,
         "Iy_cm4": 7220.0,
         "Wy_cm3": 481.0,
-        "iy_cm": 5.96
+        "iy_cm": 5.96,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 70x252.0",
@@ -7379,15 +7615,16 @@ const ICHA_CATALOG = {
         "designation": "IP 70x236.0",
         "base": "IP 70",
         "weight": 236.0,
-        "e_mm": 32.0,
-        "t_mm": 12.0,
+        "e_mm": 28.0,
+        "t_mm": 14.0,
         "A_cm2": 300.0,
-        "Ix_cm4": 276000.0,
-        "Wx_cm3": 7880.0,
-        "ix_cm": 30.3,
-        "Iy_cm4": 22900.0,
-        "Wy_cm3": 1310.0,
-        "iy_cm": 8.73
+        "Ix_cm4": 340000.0,
+        "Wx_cm3": 8510.0,
+        "ix_cm": 33.7,
+        "Iy_cm4": 20000.0,
+        "Wy_cm3": 1140.0,
+        "iy_cm": 8.17,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 70x215.0",
@@ -7401,7 +7638,8 @@ const ICHA_CATALOG = {
         "ix_cm": 30.1,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 8.56
+        "iy_cm": 8.56,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 70x199.0",
@@ -7415,7 +7653,8 @@ const ICHA_CATALOG = {
         "ix_cm": 29.9,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 8.41
+        "iy_cm": 8.41,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 70x183.0",
@@ -7429,7 +7668,8 @@ const ICHA_CATALOG = {
         "ix_cm": 29.7,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 899.0,
-        "iy_cm": 8.22
+        "iy_cm": 8.22,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 70x179.0",
@@ -7458,7 +7698,8 @@ const ICHA_CATALOG = {
         "ix_cm": 29.2,
         "Iy_cm4": 9900.0,
         "Wy_cm3": 661.0,
-        "iy_cm": 6.86
+        "iy_cm": 6.86,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 70x156.0",
@@ -7472,7 +7713,8 @@ const ICHA_CATALOG = {
         "ix_cm": 29.0,
         "Iy_cm4": 9010.0,
         "Wy_cm3": 601.0,
-        "iy_cm": 6.73
+        "iy_cm": 6.73,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 70x147.0",
@@ -7486,7 +7728,8 @@ const ICHA_CATALOG = {
         "ix_cm": 28.7,
         "Iy_cm4": 8110.0,
         "Wy_cm3": 541.0,
-        "iy_cm": 6.57
+        "iy_cm": 6.57,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 70x138.0",
@@ -7500,7 +7743,8 @@ const ICHA_CATALOG = {
         "ix_cm": 28.4,
         "Iy_cm4": 7210.0,
         "Wy_cm3": 481.0,
-        "iy_cm": 6.4
+        "iy_cm": 6.4,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 70x129.0",
@@ -7514,7 +7758,8 @@ const ICHA_CATALOG = {
         "ix_cm": 28.0,
         "Iy_cm4": 6310.0,
         "Wy_cm3": 421.0,
-        "iy_cm": 6.19
+        "iy_cm": 6.19,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 60x201.0",
@@ -7535,15 +7780,16 @@ const ICHA_CATALOG = {
         "designation": "IP 60x183.0",
         "base": "IP 60",
         "weight": 183.0,
-        "e_mm": 28.0,
+        "e_mm": 22.0,
         "t_mm": 12.0,
         "A_cm2": 233.0,
-        "Ix_cm4": 154000.0,
-        "Wx_cm3": 5120.0,
-        "ix_cm": 25.7,
-        "Iy_cm4": 12600.0,
-        "Wy_cm3": 841.0,
-        "iy_cm": 7.35
+        "Ix_cm4": 205000.0,
+        "Wx_cm3": 5860.0,
+        "ix_cm": 29.7,
+        "Iy_cm4": 15700.0,
+        "Wy_cm3": 899.0,
+        "iy_cm": 8.22,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 60x170.0",
@@ -7557,35 +7803,38 @@ const ICHA_CATALOG = {
         "ix_cm": 25.5,
         "Iy_cm4": 11300.0,
         "Wy_cm3": 751.0,
-        "iy_cm": 7.22
+        "iy_cm": 7.22,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 60x156.0",
         "base": "IP 60",
         "weight": 156.0,
-        "e_mm": 22.0,
+        "e_mm": 20.0,
         "t_mm": 12.0,
         "A_cm2": 199.0,
-        "Ix_cm4": 127000.0,
-        "Wx_cm3": 4250.0,
-        "ix_cm": 25.3,
-        "Iy_cm4": 9910.0,
-        "Wy_cm3": 661.0,
-        "iy_cm": 7.06
+        "Ix_cm4": 168000.0,
+        "Wx_cm3": 4790.0,
+        "ix_cm": 29.0,
+        "Iy_cm4": 9010.0,
+        "Wy_cm3": 601.0,
+        "iy_cm": 6.73,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 60x147.0",
         "base": "IP 60",
         "weight": 147.0,
-        "e_mm": 20.0,
+        "e_mm": 18.0,
         "t_mm": 12.0,
-        "A_cm2": 187.0,
-        "Ix_cm4": 119000.0,
-        "Wx_cm3": 3950.0,
-        "ix_cm": 25.2,
-        "Iy_cm4": 9010.0,
-        "Wy_cm3": 601.0,
-        "iy_cm": 6.94
+        "A_cm2": 188.0,
+        "Ix_cm4": 155000.0,
+        "Wx_cm3": 4430.0,
+        "ix_cm": 28.7,
+        "Iy_cm4": 8110.0,
+        "Wy_cm3": 541.0,
+        "iy_cm": 6.57,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 60x139.0",
@@ -7614,7 +7863,8 @@ const ICHA_CATALOG = {
         "ix_cm": 24.7,
         "Iy_cm4": 5220.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 5.59
+        "iy_cm": 5.59,
+        "B_mm": 250.0
       },
       {
         "designation": "IP 60x124.0",
@@ -7628,7 +7878,8 @@ const ICHA_CATALOG = {
         "ix_cm": 24.4,
         "Iy_cm4": 4700.0,
         "Wy_cm3": 376.0,
-        "iy_cm": 5.46
+        "iy_cm": 5.46,
+        "B_mm": 250.0
       },
       {
         "designation": "IP 60x116.0",
@@ -7642,7 +7893,8 @@ const ICHA_CATALOG = {
         "ix_cm": 24.2,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 334.0,
-        "iy_cm": 5.31
+        "iy_cm": 5.31,
+        "B_mm": 250.0
       },
       {
         "designation": "IP 60x109.0",
@@ -7656,7 +7908,8 @@ const ICHA_CATALOG = {
         "ix_cm": 23.8,
         "Iy_cm4": 3650.0,
         "Wy_cm3": 292.0,
-        "iy_cm": 5.13
+        "iy_cm": 5.13,
+        "B_mm": 250.0
       },
       {
         "designation": "IP 50x189.0",
@@ -7685,7 +7938,8 @@ const ICHA_CATALOG = {
         "ix_cm": 22.0,
         "Iy_cm4": 17900.0,
         "Wy_cm3": 1020.0,
-        "iy_cm": 9.01
+        "iy_cm": 9.01,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 50x157.0",
@@ -7699,22 +7953,23 @@ const ICHA_CATALOG = {
         "ix_cm": 21.9,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 899.0,
-        "iy_cm": 8.88
+        "iy_cm": 8.88,
+        "B_mm": 350.0
       },
       {
         "designation": "IP 50x139.0",
         "base": "IP 50",
         "weight": 139.0,
-        "B_mm": 300.0,
+        "B_mm": 250.0,
         "e_mm": 22.0,
-        "t_mm": 10.0,
-        "A_cm2": 178.0,
-        "Ix_cm4": 83400.0,
-        "Wx_cm3": 3330.0,
-        "ix_cm": 21.7,
-        "Iy_cm4": 9900.0,
-        "Wy_cm3": 660.0,
-        "iy_cm": 7.47
+        "t_mm": 12.0,
+        "A_cm2": 177.0,
+        "Ix_cm4": 109000.0,
+        "Wx_cm3": 3640.0,
+        "ix_cm": 24.8,
+        "Iy_cm4": 5740.0,
+        "Wy_cm3": 459.0,
+        "iy_cm": 5.7
       },
       {
         "designation": "IP 50x130.0",
@@ -7728,7 +7983,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.6,
         "Iy_cm4": 9000.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 7.36
+        "iy_cm": 7.36,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 50x121.0",
@@ -7742,7 +7998,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.5,
         "Iy_cm4": 8100.0,
         "Wy_cm3": 540.0,
-        "iy_cm": 7.24
+        "iy_cm": 7.24,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 50x112.0",
@@ -7756,7 +8013,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.3,
         "Iy_cm4": 7200.0,
         "Wy_cm3": 480.0,
-        "iy_cm": 7.1
+        "iy_cm": 7.1,
+        "B_mm": 300.0
       },
       {
         "designation": "IP 50x107.0",
@@ -7785,7 +8043,8 @@ const ICHA_CATALOG = {
         "ix_cm": 20.9,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 334.0,
-        "iy_cm": 5.74
+        "iy_cm": 5.74,
+        "B_mm": 250.0
       },
       {
         "designation": "IP 50x92.0",
@@ -7799,7 +8058,8 @@ const ICHA_CATALOG = {
         "ix_cm": 20.7,
         "Iy_cm4": 3650.0,
         "Wy_cm3": 292.0,
-        "iy_cm": 5.58
+        "iy_cm": 5.58,
+        "B_mm": 250.0
       },
       {
         "designation": "IP 50x84.5",
@@ -7813,7 +8073,8 @@ const ICHA_CATALOG = {
         "ix_cm": 20.4,
         "Iy_cm4": 3130.0,
         "Wy_cm3": 250.0,
-        "iy_cm": 5.39
+        "iy_cm": 5.39,
+        "B_mm": 250.0
       }
     ]
   },
@@ -7848,7 +8109,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.5,
         "Iy_cm4": 83400.0,
         "Wy_cm3": 3330.0,
-        "iy_cm": 13.1
+        "iy_cm": 13.1,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x336.0",
@@ -7862,7 +8124,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.7,
         "Iy_cm4": 72900.0,
         "Wy_cm3": 2920.0,
-        "iy_cm": 13.1
+        "iy_cm": 13.1,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x306.0",
@@ -7876,7 +8139,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.9,
         "Iy_cm4": 66700.0,
         "Wy_cm3": 2670.0,
-        "iy_cm": 13.1
+        "iy_cm": 13.1,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x269.0",
@@ -7890,7 +8154,8 @@ const ICHA_CATALOG = {
         "ix_cm": 22.0,
         "Iy_cm4": 58300.0,
         "Wy_cm3": 2330.0,
-        "iy_cm": 13.1
+        "iy_cm": 13.1,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x246.0",
@@ -7904,7 +8169,8 @@ const ICHA_CATALOG = {
         "ix_cm": 22.0,
         "Iy_cm4": 52100.0,
         "Wy_cm3": 2080.0,
-        "iy_cm": 12.9
+        "iy_cm": 12.9,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x223.0",
@@ -7918,7 +8184,8 @@ const ICHA_CATALOG = {
         "ix_cm": 22.0,
         "Iy_cm4": 45800.0,
         "Wy_cm3": 1830.0,
-        "iy_cm": 12.7
+        "iy_cm": 12.7,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x208.0",
@@ -7932,7 +8199,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.9,
         "Iy_cm4": 41700.0,
         "Wy_cm3": 1670.0,
-        "iy_cm": 12.6
+        "iy_cm": 12.6,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x192.0",
@@ -7946,7 +8214,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.8,
         "Iy_cm4": 37500.0,
         "Wy_cm3": 1500.0,
-        "iy_cm": 12.4
+        "iy_cm": 12.4,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 50x177.0",
@@ -7960,7 +8229,8 @@ const ICHA_CATALOG = {
         "ix_cm": 21.6,
         "Iy_cm4": 33300.0,
         "Wy_cm3": 1330.0,
-        "iy_cm": 12.2
+        "iy_cm": 12.2,
+        "B_mm": 500.0
       },
       {
         "designation": "HN 45x341.0",
@@ -7989,7 +8259,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.4,
         "Iy_cm4": 53200.0,
         "Wy_cm3": 2360.0,
-        "iy_cm": 11.8
+        "iy_cm": 11.8,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x275.0",
@@ -8003,7 +8274,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.6,
         "Iy_cm4": 48600.0,
         "Wy_cm3": 2160.0,
-        "iy_cm": 11.8
+        "iy_cm": 11.8,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x241.0",
@@ -8017,7 +8289,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.7,
         "Iy_cm4": 42500.0,
         "Wy_cm3": 1890.0,
-        "iy_cm": 11.8
+        "iy_cm": 11.8,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x214.0",
@@ -8031,7 +8304,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.9,
         "Iy_cm4": 38000.0,
         "Wy_cm3": 1690.0,
-        "iy_cm": 11.8
+        "iy_cm": 11.8,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x194.0",
@@ -8045,7 +8319,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.9,
         "Iy_cm4": 33400.0,
         "Wy_cm3": 1490.0,
-        "iy_cm": 11.6
+        "iy_cm": 11.6,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x180.0",
@@ -8059,7 +8334,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.8,
         "Iy_cm4": 30400.0,
         "Wy_cm3": 1350.0,
-        "iy_cm": 11.5
+        "iy_cm": 11.5,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x166.0",
@@ -8073,7 +8349,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.8,
         "Iy_cm4": 27300.0,
         "Wy_cm3": 1220.0,
-        "iy_cm": 11.4
+        "iy_cm": 11.4,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x152.0",
@@ -8087,7 +8364,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.7,
         "Iy_cm4": 24300.0,
         "Wy_cm3": 1080.0,
-        "iy_cm": 11.2
+        "iy_cm": 11.2,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 45x139.0",
@@ -8101,22 +8379,23 @@ const ICHA_CATALOG = {
         "ix_cm": 19.5,
         "Iy_cm4": 21300.0,
         "Wy_cm3": 945.0,
-        "iy_cm": 11.0
+        "iy_cm": 11.0,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 40x301.0",
         "base": "HN 40",
         "weight": 301.0,
-        "B_mm": 400.0,
-        "e_mm": 40.0,
-        "t_mm": 20.0,
-        "A_cm2": 384.0,
-        "Ix_cm4": 110000.0,
-        "Wx_cm3": 5480.0,
-        "ix_cm": 16.9,
-        "Iy_cm4": 42700.0,
-        "Wy_cm3": 2130.0,
-        "iy_cm": 10.5
+        "B_mm": 450.0,
+        "e_mm": 35.0,
+        "t_mm": 18.0,
+        "A_cm2": 383.0,
+        "Ix_cm4": 144000.0,
+        "Wx_cm3": 6410.0,
+        "ix_cm": 19.4,
+        "Iy_cm4": 53200.0,
+        "Wy_cm3": 2360.0,
+        "iy_cm": 11.8
       },
       {
         "designation": "HN 40x266.0",
@@ -8130,7 +8409,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.1,
         "Iy_cm4": 37300.0,
         "Wy_cm3": 1870.0,
-        "iy_cm": 10.5
+        "iy_cm": 10.5,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x243.0",
@@ -8144,21 +8424,23 @@ const ICHA_CATALOG = {
         "ix_cm": 17.2,
         "Iy_cm4": 34100.0,
         "Wy_cm3": 1710.0,
-        "iy_cm": 10.5
+        "iy_cm": 10.5,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x214.0",
         "base": "HN 40",
         "weight": 214.0,
-        "e_mm": 28.0,
-        "t_mm": 14.0,
-        "A_cm2": 272.0,
-        "Ix_cm4": 82400.0,
-        "Wx_cm3": 4120.0,
-        "ix_cm": 17.4,
-        "Iy_cm4": 29900.0,
-        "Wy_cm3": 1490.0,
-        "iy_cm": 10.5
+        "e_mm": 25.0,
+        "t_mm": 12.0,
+        "A_cm2": 273.0,
+        "Ix_cm4": 108000.0,
+        "Wx_cm3": 4810.0,
+        "ix_cm": 19.9,
+        "Iy_cm4": 38000.0,
+        "Wy_cm3": 1690.0,
+        "iy_cm": 11.8,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 40x190.0",
@@ -8172,7 +8454,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.6,
         "Iy_cm4": 26700.0,
         "Wy_cm3": 1330.0,
-        "iy_cm": 10.5
+        "iy_cm": 10.5,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x172.0",
@@ -8186,7 +8469,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.6,
         "Iy_cm4": 23500.0,
         "Wy_cm3": 1170.0,
-        "iy_cm": 10.4
+        "iy_cm": 10.4,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x160.0",
@@ -8200,7 +8484,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.5,
         "Iy_cm4": 21300.0,
         "Wy_cm3": 1070.0,
-        "iy_cm": 10.2
+        "iy_cm": 10.2,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x147.0",
@@ -8214,7 +8499,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.5,
         "Iy_cm4": 19200.0,
         "Wy_cm3": 960.0,
-        "iy_cm": 10.1
+        "iy_cm": 10.1,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x135.0",
@@ -8228,7 +8514,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.4,
         "Iy_cm4": 17100.0,
         "Wy_cm3": 854.0,
-        "iy_cm": 9.96
+        "iy_cm": 9.96,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 40x123.0",
@@ -8242,7 +8529,8 @@ const ICHA_CATALOG = {
         "ix_cm": 17.3,
         "Iy_cm4": 14900.0,
         "Wy_cm3": 747.0,
-        "iy_cm": 9.77
+        "iy_cm": 9.77,
+        "B_mm": 400.0
       },
       {
         "designation": "HN 35x232.0",
@@ -8271,7 +8559,8 @@ const ICHA_CATALOG = {
         "ix_cm": 14.9,
         "Iy_cm4": 22900.0,
         "Wy_cm3": 1310.0,
-        "iy_cm": 9.21
+        "iy_cm": 9.21,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x186.0",
@@ -8285,21 +8574,23 @@ const ICHA_CATALOG = {
         "ix_cm": 15.1,
         "Iy_cm4": 20000.0,
         "Wy_cm3": 1140.0,
-        "iy_cm": 9.19
+        "iy_cm": 9.19,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x166.0",
         "base": "HN 35",
         "weight": 166.0,
-        "e_mm": 25.0,
+        "e_mm": 18.0,
         "t_mm": 12.0,
-        "A_cm2": 211.0,
-        "Ix_cm4": 49000.0,
-        "Wx_cm3": 2800.0,
-        "ix_cm": 15.2,
-        "Iy_cm4": 17900.0,
-        "Wy_cm3": 1020.0,
-        "iy_cm": 9.2
+        "A_cm2": 212.0,
+        "Ix_cm4": 82700.0,
+        "Wx_cm3": 3680.0,
+        "ix_cm": 19.8,
+        "Iy_cm4": 27300.0,
+        "Wy_cm3": 1220.0,
+        "iy_cm": 11.4,
+        "B_mm": 450.0
       },
       {
         "designation": "HN 35x150.0",
@@ -8313,7 +8604,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.2,
         "Iy_cm4": 15700.0,
         "Wy_cm3": 899.0,
-        "iy_cm": 9.08
+        "iy_cm": 9.08,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x134.0",
@@ -8327,7 +8619,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.4,
         "Iy_cm4": 14300.0,
         "Wy_cm3": 817.0,
-        "iy_cm": 9.14
+        "iy_cm": 9.14,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x124.0",
@@ -8341,7 +8634,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.4,
         "Iy_cm4": 12900.0,
         "Wy_cm3": 735.0,
-        "iy_cm": 9.04
+        "iy_cm": 9.04,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x113.0",
@@ -8355,7 +8649,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.4,
         "Iy_cm4": 11400.0,
         "Wy_cm3": 653.0,
-        "iy_cm": 8.92
+        "iy_cm": 8.92,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x102.0",
@@ -8369,7 +8664,8 @@ const ICHA_CATALOG = {
         "ix_cm": 15.3,
         "Iy_cm4": 10000.0,
         "Wy_cm3": 572.0,
-        "iy_cm": 8.77
+        "iy_cm": 8.77,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 35x91.5",
@@ -8383,22 +8679,23 @@ const ICHA_CATALOG = {
         "ix_cm": 15.2,
         "Iy_cm4": 8580.0,
         "Wy_cm3": 490.0,
-        "iy_cm": 8.58
+        "iy_cm": 8.58,
+        "B_mm": 350.0
       },
       {
         "designation": "HN 30x180.0",
         "base": "HN 30",
         "weight": 180.0,
-        "B_mm": 300.0,
-        "e_mm": 32.0,
-        "t_mm": 16.0,
-        "A_cm2": 230.0,
-        "Ix_cm4": 36400.0,
-        "Wx_cm3": 2430.0,
-        "ix_cm": 12.6,
-        "Iy_cm4": 14400.0,
-        "Wy_cm3": 961.0,
-        "iy_cm": 7.92
+        "B_mm": 450.0,
+        "e_mm": 20.0,
+        "t_mm": 12.0,
+        "A_cm2": 229.0,
+        "Ix_cm4": 90200.0,
+        "Wx_cm3": 4010.0,
+        "ix_cm": 19.8,
+        "Iy_cm4": 30400.0,
+        "Wy_cm3": 1350.0,
+        "iy_cm": 11.5
       },
       {
         "designation": "HN 30x159.0",
@@ -8412,7 +8709,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.8,
         "Iy_cm4": 12600.0,
         "Wy_cm3": 840.0,
-        "iy_cm": 7.9
+        "iy_cm": 7.9,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x141.0",
@@ -8426,7 +8724,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.9,
         "Iy_cm4": 11300.0,
         "Wy_cm3": 750.0,
-        "iy_cm": 7.91
+        "iy_cm": 7.91,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x128.0",
@@ -8440,7 +8739,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.9,
         "Iy_cm4": 9900.0,
         "Wy_cm3": 660.0,
-        "iy_cm": 7.8
+        "iy_cm": 7.8,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x115.0",
@@ -8454,7 +8754,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.1,
         "Iy_cm4": 9000.0,
         "Wy_cm3": 600.0,
-        "iy_cm": 7.85
+        "iy_cm": 7.85,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x106.0",
@@ -8468,7 +8769,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.1,
         "Iy_cm4": 8100.0,
         "Wy_cm3": 540.0,
-        "iy_cm": 7.76
+        "iy_cm": 7.76,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x92.2",
@@ -8482,7 +8784,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.3,
         "Iy_cm4": 7200.0,
         "Wy_cm3": 480.0,
-        "iy_cm": 7.83
+        "iy_cm": 7.83,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x83.0",
@@ -8496,7 +8799,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.2,
         "Iy_cm4": 6300.0,
         "Wy_cm3": 420.0,
-        "iy_cm": 7.72
+        "iy_cm": 7.72,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x73.9",
@@ -8510,7 +8814,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.2,
         "Iy_cm4": 5400.0,
         "Wy_cm3": 360.0,
-        "iy_cm": 7.58
+        "iy_cm": 7.58,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 30x64.7",
@@ -8524,7 +8829,8 @@ const ICHA_CATALOG = {
         "ix_cm": 13.1,
         "Iy_cm4": 4500.0,
         "Wy_cm3": 300.0,
-        "iy_cm": 7.39
+        "iy_cm": 7.39,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 25x131.0",
@@ -8553,21 +8859,23 @@ const ICHA_CATALOG = {
         "ix_cm": 10.6,
         "Iy_cm4": 6510.0,
         "Wy_cm3": 521.0,
-        "iy_cm": 6.61
+        "iy_cm": 6.61,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x106.0",
         "base": "HN 25",
         "weight": 106.0,
-        "e_mm": 22.0,
-        "t_mm": 12.0,
-        "A_cm2": 135.0,
-        "Ix_cm4": 15200.0,
-        "Wx_cm3": 1220.0,
-        "ix_cm": 10.6,
-        "Iy_cm4": 5730.0,
-        "Wy_cm3": 459.0,
-        "iy_cm": 6.52
+        "e_mm": 18.0,
+        "t_mm": 10.0,
+        "A_cm2": 134.0,
+        "Ix_cm4": 23000.0,
+        "Wx_cm3": 1540.0,
+        "ix_cm": 13.1,
+        "Iy_cm4": 8100.0,
+        "Wy_cm3": 540.0,
+        "iy_cm": 7.76,
+        "B_mm": 300.0
       },
       {
         "designation": "HN 25x95.0",
@@ -8581,7 +8889,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.8,
         "Iy_cm4": 5210.0,
         "Wy_cm3": 417.0,
-        "iy_cm": 6.56
+        "iy_cm": 6.56,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x87.4",
@@ -8595,7 +8904,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.8,
         "Iy_cm4": 4690.0,
         "Wy_cm3": 375.0,
-        "iy_cm": 6.49
+        "iy_cm": 6.49,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x76.5",
@@ -8609,7 +8919,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.9,
         "Iy_cm4": 4170.0,
         "Wy_cm3": 333.0,
-        "iy_cm": 6.54
+        "iy_cm": 6.54,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x68.9",
@@ -8623,7 +8934,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.9,
         "Iy_cm4": 3650.0,
         "Wy_cm3": 292.0,
-        "iy_cm": 6.45
+        "iy_cm": 6.45,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x57.7",
@@ -8637,7 +8949,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.1,
         "Iy_cm4": 3130.0,
         "Wy_cm3": 250.0,
-        "iy_cm": 6.52
+        "iy_cm": 6.52,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x50.1",
@@ -8651,7 +8964,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.1,
         "Iy_cm4": 2600.0,
         "Wy_cm3": 208.0,
-        "iy_cm": 6.39
+        "iy_cm": 6.39,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 25x42.4",
@@ -8665,7 +8979,8 @@ const ICHA_CATALOG = {
         "ix_cm": 11.0,
         "Iy_cm4": 2080.0,
         "Wy_cm3": 167.0,
-        "iy_cm": 6.21
+        "iy_cm": 6.21,
+        "B_mm": 250.0
       },
       {
         "designation": "HN 20x90.3",
@@ -8694,7 +9009,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.41,
         "Iy_cm4": 2930.0,
         "Wy_cm3": 293.0,
-        "iy_cm": 5.32
+        "iy_cm": 5.32,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x75.4",
@@ -8708,7 +9024,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.45,
         "Iy_cm4": 2670.0,
         "Wy_cm3": 267.0,
-        "iy_cm": 5.27
+        "iy_cm": 5.27,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x69.4",
@@ -8722,7 +9039,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.47,
         "Iy_cm4": 2400.0,
         "Wy_cm3": 240.0,
-        "iy_cm": 5.21
+        "iy_cm": 5.21,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x60.8",
@@ -8736,7 +9054,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.61,
         "Iy_cm4": 2130.0,
         "Wy_cm3": 213.0,
-        "iy_cm": 5.25
+        "iy_cm": 5.25,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x54.8",
@@ -8750,7 +9069,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.63,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 5.17
+        "iy_cm": 5.17,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x46.0",
@@ -8764,7 +9084,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.79,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 5.23
+        "iy_cm": 5.23,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x39.9",
@@ -8778,7 +9099,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.77,
         "Iy_cm4": 1330.0,
         "Wy_cm3": 133.0,
-        "iy_cm": 5.12
+        "iy_cm": 5.12,
+        "B_mm": 200.0
       },
       {
         "designation": "HN 20x33.8",
@@ -8792,7 +9114,8 @@ const ICHA_CATALOG = {
         "ix_cm": 8.71,
         "Iy_cm4": 1070.0,
         "Wy_cm3": 107.0,
-        "iy_cm": 4.98
+        "iy_cm": 4.98,
+        "B_mm": 200.0
       }
     ]
   },
@@ -8827,7 +9150,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.5,
         "Iy_cm4": 29900.0,
         "Wy_cm3": 1500.0,
-        "iy_cm": 9.46
+        "iy_cm": 9.46,
+        "B_mm": 400.0
       },
       {
         "designation": "PH 45x235.0",
@@ -8841,7 +9165,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.6,
         "Iy_cm4": 26700.0,
         "Wy_cm3": 1340.0,
-        "iy_cm": 9.44
+        "iy_cm": 9.44,
+        "B_mm": 400.0
       },
       {
         "designation": "PH 45x208.0",
@@ -8855,7 +9180,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.7,
         "Iy_cm4": 23500.0,
         "Wy_cm3": 1180.0,
-        "iy_cm": 9.41
+        "iy_cm": 9.41,
+        "B_mm": 400.0
       },
       {
         "designation": "PH 45x190.0",
@@ -8869,7 +9195,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.8,
         "Iy_cm4": 21400.0,
         "Wy_cm3": 1070.0,
-        "iy_cm": 9.4
+        "iy_cm": 9.4,
+        "B_mm": 400.0
       },
       {
         "designation": "PH 45x172.0",
@@ -8883,7 +9210,8 @@ const ICHA_CATALOG = {
         "ix_cm": 18.9,
         "Iy_cm4": 19200.0,
         "Wy_cm3": 961.0,
-        "iy_cm": 9.38
+        "iy_cm": 9.38,
+        "B_mm": 400.0
       },
       {
         "designation": "PH 45x153.0",
@@ -8897,7 +9225,8 @@ const ICHA_CATALOG = {
         "ix_cm": 19.0,
         "Iy_cm4": 17100.0,
         "Wy_cm3": 854.0,
-        "iy_cm": 9.36
+        "iy_cm": 9.36,
+        "B_mm": 400.0
       },
       {
         "designation": "PH 40x206.0",
@@ -8926,7 +9255,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.4,
         "Iy_cm4": 15800.0,
         "Wy_cm3": 900.0,
-        "iy_cm": 8.23
+        "iy_cm": 8.23,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 40x166.0",
@@ -8940,7 +9270,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.6,
         "Iy_cm4": 14300.0,
         "Wy_cm3": 818.0,
-        "iy_cm": 8.22
+        "iy_cm": 8.22,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 40x150.0",
@@ -8954,7 +9285,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.7,
         "Iy_cm4": 12900.0,
         "Wy_cm3": 736.0,
-        "iy_cm": 8.2
+        "iy_cm": 8.2,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 40x134.0",
@@ -8968,7 +9300,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.8,
         "Iy_cm4": 11400.0,
         "Wy_cm3": 654.0,
-        "iy_cm": 8.18
+        "iy_cm": 8.18,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 40x118.0",
@@ -8982,7 +9315,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.8,
         "Iy_cm4": 10000.0,
         "Wy_cm3": 572.0,
-        "iy_cm": 8.17
+        "iy_cm": 8.17,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 40x101.0",
@@ -8996,7 +9330,8 @@ const ICHA_CATALOG = {
         "ix_cm": 16.9,
         "Iy_cm4": 8580.0,
         "Wy_cm3": 490.0,
-        "iy_cm": 8.15
+        "iy_cm": 8.15,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 35x156.0",
@@ -9025,7 +9360,8 @@ const ICHA_CATALOG = {
         "ix_cm": 14.4,
         "Iy_cm4": 9020.0,
         "Wy_cm3": 601.0,
-        "iy_cm": 7.04
+        "iy_cm": 7.04,
+        "B_mm": 300.0
       },
       {
         "designation": "PH 35x129.0",
@@ -9039,7 +9375,8 @@ const ICHA_CATALOG = {
         "ix_cm": 14.5,
         "Iy_cm4": 8120.0,
         "Wy_cm3": 541.0,
-        "iy_cm": 7.02
+        "iy_cm": 7.02,
+        "B_mm": 300.0
       },
       {
         "designation": "PH 35x115.0",
@@ -9053,21 +9390,23 @@ const ICHA_CATALOG = {
         "ix_cm": 14.5,
         "Iy_cm4": 7210.0,
         "Wy_cm3": 481.0,
-        "iy_cm": 7.01
+        "iy_cm": 7.01,
+        "B_mm": 300.0
       },
       {
         "designation": "PH 35x101.0",
         "base": "PH 35",
         "weight": 101.0,
-        "e_mm": 14.0,
-        "t_mm": 14.0,
+        "e_mm": 12.0,
+        "t_mm": 12.0,
         "A_cm2": 129.0,
-        "Ix_cm4": 27600.0,
-        "Wx_cm3": 1580.0,
-        "ix_cm": 14.6,
-        "Iy_cm4": 6310.0,
-        "Wy_cm3": 420.0,
-        "iy_cm": 6.99
+        "Ix_cm4": 36900.0,
+        "Wx_cm3": 1850.0,
+        "ix_cm": 16.9,
+        "Iy_cm4": 8580.0,
+        "Wy_cm3": 490.0,
+        "iy_cm": 8.15,
+        "B_mm": 350.0
       },
       {
         "designation": "PH 35x87.2",
@@ -9081,7 +9420,8 @@ const ICHA_CATALOG = {
         "ix_cm": 14.7,
         "Iy_cm4": 5400.0,
         "Wy_cm3": 360.0,
-        "iy_cm": 6.97
+        "iy_cm": 6.97,
+        "B_mm": 300.0
       },
       {
         "designation": "PH 35x73.0",
@@ -9095,7 +9435,8 @@ const ICHA_CATALOG = {
         "ix_cm": 14.8,
         "Iy_cm4": 4500.0,
         "Wy_cm3": 300.0,
-        "iy_cm": 6.96
+        "iy_cm": 6.96,
+        "B_mm": 300.0
       },
       {
         "designation": "PH 30x119.0",
@@ -9124,7 +9465,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.3,
         "Iy_cm4": 4700.0,
         "Wy_cm3": 376.0,
-        "iy_cm": 5.85
+        "iy_cm": 5.85,
+        "B_mm": 250.0
       },
       {
         "designation": "PH 30x96.5",
@@ -9138,7 +9480,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.3,
         "Iy_cm4": 4180.0,
         "Wy_cm3": 334.0,
-        "iy_cm": 5.83
+        "iy_cm": 5.83,
+        "B_mm": 250.0
       },
       {
         "designation": "PH 30x84.8",
@@ -9152,7 +9495,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.4,
         "Iy_cm4": 3650.0,
         "Wy_cm3": 292.0,
-        "iy_cm": 5.81
+        "iy_cm": 5.81,
+        "B_mm": 250.0
       },
       {
         "designation": "PH 30x73.1",
@@ -9166,7 +9510,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.5,
         "Iy_cm4": 3130.0,
         "Wy_cm3": 250.0,
-        "iy_cm": 5.8
+        "iy_cm": 5.8,
+        "B_mm": 250.0
       },
       {
         "designation": "PH 30x61.2",
@@ -9180,7 +9525,8 @@ const ICHA_CATALOG = {
         "ix_cm": 12.6,
         "Iy_cm4": 2610.0,
         "Wy_cm3": 209.0,
-        "iy_cm": 5.78
+        "iy_cm": 5.78,
+        "B_mm": 250.0
       },
       {
         "designation": "PH 25x77.6",
@@ -9209,7 +9555,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.2,
         "Iy_cm4": 1870.0,
         "Wy_cm3": 187.0,
-        "iy_cm": 4.64
+        "iy_cm": 4.64,
+        "B_mm": 200.0
       },
       {
         "designation": "PH 25x59.0",
@@ -9223,7 +9570,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.3,
         "Iy_cm4": 1600.0,
         "Wy_cm3": 160.0,
-        "iy_cm": 4.62
+        "iy_cm": 4.62,
+        "B_mm": 200.0
       },
       {
         "designation": "PH 25x49.5",
@@ -9237,7 +9585,8 @@ const ICHA_CATALOG = {
         "ix_cm": 10.4,
         "Iy_cm4": 1340.0,
         "Wy_cm3": 134.0,
-        "iy_cm": 4.6
+        "iy_cm": 4.6,
+        "B_mm": 200.0
       },
       {
         "designation": "PH 25x39.8",
@@ -9251,8 +9600,9 @@ const ICHA_CATALOG = {
         "ix_cm": 10.5,
         "Iy_cm4": 1070.0,
         "Wy_cm3": 107.0,
-        "iy_cm": 4.59
+        "iy_cm": 4.59,
+        "B_mm": 200.0
       }
     ]
   }
-};
+}
