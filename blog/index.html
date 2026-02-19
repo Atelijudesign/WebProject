@@ -3,11 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog BIM | Andrés Gallo P.</title>
+    <title>Blog BIM Developer | Revit API, Python & C# | Andrés Gallo P.</title>
     <meta
       name="description"
-      content="Blog sobre desarrollo BIM, automatización en Revit, pyRevit, C# y herramientas para ingenieros estructurales."
+      content="Artículos y tutoriales sobre desarrollo de software BIM, automatización con Revit API, pyRevit y C#. Recursos para ingenieros estructurales que programan."
     />
+    <!-- OG Tags -->
+    <meta property="og:title" content="Blog BIM Developer | Andrés Gallo P." />
+    <meta
+      property="og:description"
+      content="Aprende a programar plugins para Revit y automatizar tareas de ingeniería con Python y C#."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
 
     <link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -229,7 +237,8 @@
           class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10"
         >
           Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo
-          lo que un ingeniero estructural necesita para automatizar su trabajo.
+          lo que un Proyectista Estructural necesita para automatizar su
+          trabajo.
         </p>
 
         <!-- Search Bar -->
@@ -353,7 +362,7 @@
                   ><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span
+                <span class="reading-time"
                   ><i class="fa-regular fa-clock mr-1"></i> 8 min lectura</span
                 >
               </div>
@@ -425,7 +434,7 @@
                   ><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span
+                <span class="reading-time"
                   ><i class="fa-regular fa-clock mr-1"></i> 15 min lectura</span
                 >
               </div>
@@ -510,7 +519,7 @@
                   ><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span
+                <span class="reading-time"
                   ><i class="fa-regular fa-clock mr-1"></i> 8 min lectura</span
                 >
               </div>
@@ -589,7 +598,7 @@
                   ><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span
+                <span class="reading-time"
                   ><i class="fa-regular fa-clock mr-1"></i> 10 min lectura</span
                 >
               </div>
@@ -666,7 +675,7 @@
                   ><i class="fa-regular fa-calendar mr-1"></i> 19 Feb 2026</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span
+                <span class="reading-time"
                   ><i class="fa-regular fa-clock mr-1"></i> 6 min lectura</span
                 >
               </div>
@@ -926,11 +935,21 @@
 
         blogCards.forEach((card) => {
           const cardCategory = card.dataset.category;
-          const cardTitle = card.dataset.title || "";
+
+          // Content-aware search
+          const title =
+            card.querySelector("h3")?.textContent.toLowerCase() || "";
+          const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+          const meta = card.dataset.title || ""; // Keep data-title as fallback/keyword store
 
           const matchesCategory =
             activeCategory === "all" || cardCategory === activeCategory;
-          const matchesSearch = !searchTerm || cardTitle.includes(searchTerm);
+
+          const matchesSearch =
+            !searchTerm ||
+            title.includes(searchTerm) ||
+            desc.includes(searchTerm) ||
+            meta.includes(searchTerm);
 
           if (matchesCategory && matchesSearch) {
             card.classList.remove("hidden-card");
@@ -957,6 +976,42 @@
       });
 
       searchInput.addEventListener("input", filterPosts);
+
+      // --- Dynamic Reading Time ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const blogCards = document.querySelectorAll(".blog-card");
+
+        blogCards.forEach(async (card) => {
+          // Find the link to the article
+          const link = card.querySelector("a[href]");
+          if (!link) return;
+
+          const url = link.href;
+          const timeElement = card.querySelector(".reading-time");
+
+          if (timeElement && url) {
+            try {
+              // Fetch article content
+              const response = await fetch(url);
+              if (!response.ok) return;
+
+              const text = await response.text();
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(text, "text/html");
+
+              // Get content from .prose-article
+              const content = doc.querySelector(".prose-article");
+              if (content) {
+                const words = content.textContent.trim().split(/\s+/).length;
+                const readingTime = Math.ceil(words / 200); // 200 wpm
+                timeElement.innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${readingTime} min lectura`;
+              }
+            } catch (error) {
+              console.error("Error calculating reading time:", error);
+            }
+          }
+        });
+      });
     </script>
   </body>
 </html>

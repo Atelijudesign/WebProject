@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- Animaciones de Entrada y Contador ---
   const animatedElements = document.querySelectorAll(
-    ".fade-in-up, #stats-container"
+    ".fade-in-up, #stats-container",
   );
   const observer = new IntersectionObserver(
     (entries) => {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   animatedElements.forEach((el) => observer.observe(el));
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileMenu.classList.toggle("hidden");
       mobileMenuButton.setAttribute(
         "aria-expanded",
-        !mobileMenu.classList.contains("hidden")
+        !mobileMenu.classList.contains("hidden"),
       );
     });
     mobileMenu.addEventListener("click", (e) => {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("logo")
     ?.addEventListener("click", () =>
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      window.scrollTo({ top: 0, behavior: "smooth" }),
     );
 
   const backToTopButton = document.getElementById("back-to-top");
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     backToTopButton.addEventListener("click", () =>
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      window.scrollTo({ top: 0, behavior: "smooth" }),
     );
   }
 
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.classList.remove(
           "bg-gray-800",
           "text-gray-300",
-          "border-gray-700"
+          "border-gray-700",
         );
         button.classList.add("bg-bim-blue", "text-white", "border-bim-blue");
 
@@ -148,6 +148,135 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       });
+    });
+  }
+
+  // --- Lightbox Gallery ---
+  function initLightbox() {
+    const images = document.querySelectorAll(".glass-card img");
+    if (images.length === 0) return;
+
+    // Create Lightbox DOM
+    const overlay = document.createElement("div");
+    overlay.className = "lightbox-overlay";
+    overlay.innerHTML = `
+      <button class="lightbox-close">&times;</button>
+      <button class="lightbox-prev">&#10094;</button>
+      <button class="lightbox-next">&#10095;</button>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="Lightbox Image">
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const imgElement = overlay.querySelector(".lightbox-image");
+    const closeBtn = overlay.querySelector(".lightbox-close");
+    const prevBtn = overlay.querySelector(".lightbox-prev");
+    const nextBtn = overlay.querySelector(".lightbox-next");
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (index < 0) index = images.length - 1;
+      if (index >= images.length) index = 0;
+      currentIndex = index;
+      imgElement.src = images[currentIndex].src;
+      imgElement.alt = images[currentIndex].alt;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      overlay.classList.add("active");
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove("active");
+    }
+
+    // Event Listeners
+    images.forEach((img, index) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", () => openLightbox(index));
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeLightbox();
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!overlay.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    });
+  }
+
+  initLightbox();
+
+  // --- Contact Form Handling ---
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const button = contactForm.querySelector("button[type='submit']");
+      const originalText = button.innerHTML;
+
+      button.disabled = true;
+      button.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          button.classList.remove("bg-bim-blue", "hover:bg-blue-600");
+          button.classList.add("bg-green-600", "hover:bg-green-500");
+          button.innerHTML =
+            '<i class="fa-solid fa-check"></i> ¡Mensaje Enviado!';
+          contactForm.reset();
+          setTimeout(() => {
+            button.classList.remove("bg-green-600", "hover:bg-green-500");
+            button.classList.add("bg-bim-blue", "hover:bg-blue-600");
+            button.innerHTML = originalText;
+            button.disabled = false;
+          }, 5000);
+        } else {
+          throw new Error("Error al enviar");
+        }
+      } catch (error) {
+        button.classList.remove("bg-bim-blue", "hover:bg-blue-600");
+        button.classList.add("bg-red-600", "hover:bg-red-500");
+        button.innerHTML =
+          '<i class="fa-solid fa-triangle-exclamation"></i> Error';
+        console.error(error);
+        setTimeout(() => {
+          button.classList.remove("bg-red-600", "hover:bg-red-500");
+          button.classList.add("bg-bim-blue", "hover:bg-blue-600");
+          button.innerHTML = originalText;
+          button.disabled = false;
+        }, 3000);
+      }
     });
   }
 });
