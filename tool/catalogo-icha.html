@@ -500,12 +500,31 @@
         <!-- Classification by Nominal Weight -->
         <div class="mt-6 hidden" id="classification-section">
           <div class="glass-card rounded-xl p-6 overflow-hidden mb-6">
-            <h3
-              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
-            >
-              <i class="fa-solid fa-weight-hanging mr-2"></i>Clasificación por
-              Nominal Weight
-            </h3>
+            <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+              <h3
+                class="text-sm font-bold text-gray-500 uppercase tracking-wider"
+              >
+                <i class="fa-solid fa-weight-hanging mr-2"></i>Clasificación por
+                Nominal Weight
+              </h3>
+              <div class="flex items-center gap-2">
+                <label class="text-xs text-gray-400" for="conn-pct"
+                  >Conexiones:</label
+                >
+                <input
+                  type="number"
+                  id="conn-pct"
+                  value="10"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="w-16 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-white text-center focus:border-bim-blue focus:outline-none"
+                  onchange="updateClassification()"
+                  oninput="updateClassification()"
+                />
+                <span class="text-xs text-gray-500">%</span>
+              </div>
+            </div>
             <div class="overflow-x-auto">
               <table class="w-full text-left border-collapse">
                 <thead>
@@ -1159,7 +1178,9 @@
 
         const tbody = document.getElementById("classification-body");
         const totalWeight = catWeights.reduce((a, b) => a + b, 0);
-        const connection = totalWeight * 0.1;
+        const connPct =
+          parseFloat(document.getElementById("conn-pct").value) || 10;
+        const connection = totalWeight * (connPct / 100);
         const grandTotal = totalWeight + connection;
 
         tbody.innerHTML =
@@ -1175,7 +1196,7 @@
             })
             .join("") +
           `<tr class="border-b border-gray-800 bg-gray-800/20">
-            <td class="py-3 px-4 font-semibold text-yellow-400">+ 10% Conexiones</td>
+            <td class="py-3 px-4 font-semibold text-yellow-400">+ ${connPct}% Conexiones</td>
             <td class="py-3 px-4 text-right text-gray-500">kg</td>
             <td class="py-3 px-4 text-right font-bold text-yellow-400">${connection.toFixed(2)}</td>
           </tr>`;
@@ -1187,18 +1208,89 @@
       // ==================== EXCEL EXPORT ====================
       function exportToExcel() {
         if (profileList.length === 0) return;
+        const n = profileList.length;
 
-        const wb = XLSX.utils.book_new();
-        const data = [];
+        // ── Style palette ──
+        const bd = {
+          top: { style: "thin", color: { rgb: "BDD7EE" } },
+          bottom: { style: "thin", color: { rgb: "BDD7EE" } },
+          left: { style: "thin", color: { rgb: "BDD7EE" } },
+          right: { style: "thin", color: { rgb: "BDD7EE" } },
+        };
+        const S = {
+          title: {
+            font: { bold: true, sz: 13, color: { rgb: "FFFFFF" } },
+            fill: { fgColor: { rgb: "1F4E79" } },
+            alignment: { horizontal: "center", vertical: "center" },
+            border: bd,
+          },
+          head: {
+            font: { bold: true, sz: 10, color: { rgb: "FFFFFF" } },
+            fill: { fgColor: { rgb: "2E75B6" } },
+            alignment: { horizontal: "center", vertical: "center" },
+            border: bd,
+          },
+          l: {
+            font: { sz: 10 },
+            border: bd,
+            alignment: { vertical: "center" },
+          },
+          c: {
+            font: { sz: 10 },
+            border: bd,
+            alignment: { horizontal: "center", vertical: "center" },
+          },
+          r: {
+            font: { sz: 10 },
+            border: bd,
+            alignment: { horizontal: "right", vertical: "center" },
+            numFmt: "#,##0.00",
+          },
+          al: {
+            font: { sz: 10 },
+            fill: { fgColor: { rgb: "F2F7FB" } },
+            border: bd,
+            alignment: { vertical: "center" },
+          },
+          ac: {
+            font: { sz: 10 },
+            fill: { fgColor: { rgb: "F2F7FB" } },
+            border: bd,
+            alignment: { horizontal: "center", vertical: "center" },
+          },
+          ar: {
+            font: { sz: 10 },
+            fill: { fgColor: { rgb: "F2F7FB" } },
+            border: bd,
+            alignment: { horizontal: "right", vertical: "center" },
+            numFmt: "#,##0.00",
+          },
+          tl: {
+            font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
+            fill: { fgColor: { rgb: "D6E4F0" } },
+            border: bd,
+            alignment: { vertical: "center" },
+          },
+          tc: {
+            font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
+            fill: { fgColor: { rgb: "D6E4F0" } },
+            border: bd,
+            alignment: { horizontal: "center", vertical: "center" },
+          },
+          tr: {
+            font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
+            fill: { fgColor: { rgb: "D6E4F0" } },
+            border: bd,
+            alignment: { horizontal: "right", vertical: "center" },
+            numFmt: "#,##0.00",
+          },
+        };
 
-        // Title
-        data.push(["CATÁLOGO ICHA — RESUMEN DE PERFILES"]);
-        data.push([`Fecha: ${new Date().toLocaleDateString("es-CL")}`]);
-        data.push([]);
-
-        // Profile list header
-        data.push(["LISTADO DE PERFILES"]);
-        data.push([
+        // ── Build data (AOA) ──
+        const a = [];
+        a.push(["CATÁLOGO ICHA — RESUMEN DE PERFILES", "", "", "", "", ""]);
+        a.push(["", "", "", "", "", ""]);
+        a.push([
           "Marca",
           "Cant.",
           "Perfil",
@@ -1206,26 +1298,23 @@
           "Peso Unit. (kg/m)",
           "Peso Total (kg)",
         ]);
-
-        let totalWeight = 0;
-        profileList.forEach((item) => {
-          totalWeight += item.totalWeight;
-          data.push([
-            item.mark,
-            item.qty,
-            item.designation,
-            item.length,
-            item.unitWeight,
-            item.totalWeight,
-          ]);
-        });
-
-        data.push(["", "", "", "", "TOTAL:", totalWeight]);
-        data.push([]);
-
-        // Classification
-        data.push(["CLASIFICACIÓN POR NOMINAL WEIGHT"]);
-        data.push(["Descripción", "Unidad", "Cantidad"]);
+        profileList.forEach((i) =>
+          a.push([
+            i.mark,
+            i.qty,
+            i.designation,
+            i.length,
+            i.unitWeight,
+            i.totalWeight,
+          ]),
+        );
+        const tw = profileList.reduce((s, i) => s + i.totalWeight, 0);
+        a.push(["TOTAL", "", "", "", "", tw]);
+        a.push(["", "", "", "", "", ""]);
+        a.push(["", "", "", "", "", ""]);
+        a.push(["CLASIFICACIÓN POR NOMINAL WEIGHT", "", "", "", "", ""]);
+        a.push(["", "", "", "", "", ""]);
+        a.push(["Descripción", "Unidad", "Cantidad"]);
 
         const categories = [
           { name: "Perfiles Livianos (< 25 kg/m)", min: 0, max: 25 },
@@ -1251,107 +1340,90 @@
           }
         });
 
+        const tb = catWeights.reduce((s, v) => s + v, 0);
+        const connPct =
+          parseFloat(document.getElementById("conn-pct").value) || 10;
+        const cn = tb * (connPct / 100),
+          tf = tb + cn;
         categories.forEach((cat, i) => {
-          data.push([cat.name, "kg", catWeights[i]]);
+          a.push([cat.name, "kg", catWeights[i]]);
         });
+        a.push([`Conexiones Acero (+${connPct}%)`, "kg", cn]);
+        a.push([""]);
+        a.push(["TOTAL ACERO (con conexiones)", "kg", tf]);
+        a.push(["", "ton", tf / 1000]);
 
-        const connection = totalWeight * 0.1;
-        data.push(["+ 10% Conexiones", "kg", connection]);
-        data.push(["TOTAL ACERO", "kg", totalWeight + connection]);
-
-        const ws = XLSX.utils.aoa_to_sheet(data);
-
-        // Column widths
+        // ── Create worksheet ──
+        const ws = XLSX.utils.aoa_to_sheet(a);
         ws["!cols"] = [
-          { wch: 35 },
-          { wch: 8 },
-          { wch: 25 },
-          { wch: 12 },
+          { wch: 45 },
+          { wch: 14 },
+          { wch: 28 },
+          { wch: 14 },
           { wch: 18 },
-          { wch: 18 },
+          { wch: 16 },
         ];
+        ws["!merges"] = [
+          { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } },
+          { s: { r: 6 + n, c: 0 }, e: { r: 6 + n, c: 5 } },
+        ];
+        ws["!rows"] = [];
+        ws["!rows"][0] = { hpx: 32 };
+        ws["!rows"][6 + n] = { hpx: 32 };
 
-        // Styling
-        const titleStyle = {
-          font: { bold: true, sz: 14, color: { rgb: "1F4E79" } },
-          alignment: { horizontal: "left" },
-        };
-        const headerStyle = {
-          font: { bold: true, sz: 10, color: { rgb: "FFFFFF" } },
-          fill: { fgColor: { rgb: "2E75B6" } },
-          alignment: { horizontal: "center" },
-          border: {
-            top: { style: "thin", color: { rgb: "1F4E79" } },
-            bottom: { style: "thin", color: { rgb: "1F4E79" } },
-          },
-        };
-        const totalStyle = {
-          font: { bold: true, sz: 11, color: { rgb: "1F4E79" } },
-          fill: { fgColor: { rgb: "D6E4F0" } },
-          border: {
-            top: { style: "medium", color: { rgb: "1F4E79" } },
-            bottom: { style: "medium", color: { rgb: "1F4E79" } },
-          },
-        };
-        const dataStyleEven = {
-          font: { sz: 10 },
-          fill: { fgColor: { rgb: "F2F7FB" } },
-          border: {
-            bottom: { style: "thin", color: { rgb: "D6E4F0" } },
-          },
-        };
-        const dataStyleOdd = {
-          font: { sz: 10 },
-          fill: { fgColor: { rgb: "FFFFFF" } },
-          border: {
-            bottom: { style: "thin", color: { rgb: "D6E4F0" } },
-          },
-        };
-
-        // Apply title styles
-        if (ws["A1"]) ws["A1"].s = titleStyle;
-        if (ws["A2"])
-          ws["A2"].s = { font: { sz: 9, color: { rgb: "808080" } } };
-        if (ws["A4"])
-          ws["A4"].s = {
-            font: { bold: true, sz: 12, color: { rgb: "1F4E79" } },
-          };
-
-        // Apply header styles (row 5 = index 4)
-        const cols = ["A", "B", "C", "D", "E", "F"];
-        cols.forEach((c) => {
-          const cell = ws[`${c}5`];
-          if (cell) cell.s = headerStyle;
-        });
-
-        // Apply data styles
-        for (let i = 0; i < profileList.length; i++) {
-          const row = 6 + i;
-          cols.forEach((c) => {
-            const cell = ws[`${c}${row}`];
-            if (cell) cell.s = i % 2 === 0 ? dataStyleEven : dataStyleOdd;
-          });
+        // ── Style helper ──
+        function sc(r, c, s) {
+          const addr = XLSX.utils.encode_cell({ r, c });
+          if (!ws[addr]) ws[addr] = { v: "", t: "s" };
+          ws[addr].s = s;
         }
 
-        // Apply total row style
-        const totalRow = 6 + profileList.length;
-        cols.forEach((c) => {
-          const cell = ws[`${c}${totalRow}`];
-          if (cell) cell.s = totalStyle;
-        });
+        // Title row 0
+        for (let c = 0; c < 6; c++) sc(0, c, S.title);
+        // Profile headers row 2
+        for (let c = 0; c < 6; c++) sc(2, c, S.head);
+        // Profile data rows
+        for (let i = 0; i < n; i++) {
+          const r = 3 + i,
+            alt = i % 2 === 1;
+          sc(r, 0, alt ? S.al : S.l);
+          sc(r, 1, alt ? S.ac : S.c);
+          sc(r, 2, alt ? S.al : S.l);
+          sc(r, 3, alt ? S.ar : S.r);
+          sc(r, 4, alt ? S.ar : S.r);
+          sc(r, 5, alt ? S.ar : S.r);
+        }
+        // Profile total row
+        for (let c = 0; c < 5; c++) sc(3 + n, c, S.tl);
+        sc(3 + n, 5, S.tr);
 
-        // Classification section styles
-        const classHeaderRow = totalRow + 2;
-        if (ws[`A${classHeaderRow}`])
-          ws[`A${classHeaderRow}`].s = {
-            font: { bold: true, sz: 12, color: { rgb: "1F4E79" } },
-          };
-        const classColHeaderRow = classHeaderRow + 1;
-        ["A", "B", "C"].forEach((c) => {
-          const cell = ws[`${c}${classColHeaderRow}`];
-          if (cell) cell.s = headerStyle;
-        });
+        // Classification title
+        for (let c = 0; c < 6; c++) sc(6 + n, c, S.title);
+        // Classification headers
+        for (let c = 0; c < 3; c++) sc(8 + n, c, S.head);
+        // Classification data (4 categories)
+        for (let i = 0; i < 4; i++) {
+          const r = 9 + n + i,
+            alt = i % 2 === 1;
+          sc(r, 0, alt ? S.al : S.l);
+          sc(r, 1, alt ? S.ac : S.c);
+          sc(r, 2, alt ? S.ar : S.r);
+        }
+        // Connections row
+        sc(13 + n, 0, S.al);
+        sc(13 + n, 1, S.ac);
+        sc(13 + n, 2, S.ar);
+        // Total acero
+        sc(15 + n, 0, S.tl);
+        sc(15 + n, 1, S.tc);
+        sc(15 + n, 2, S.tr);
+        // Ton row
+        sc(16 + n, 0, S.tl);
+        sc(16 + n, 1, S.tc);
+        sc(16 + n, 2, S.tr);
 
+        // ── Download ──
+        const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Catálogo ICHA");
         XLSX.writeFile(
           wb,

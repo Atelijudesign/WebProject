@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Herramientas Web para Acero Estructural | Blog BIM | Andrés Gallo P.
+    </title>
+    <meta
+      name="description"
+      content="Calculadora de perfiles de acero y catálogo digital ICHA: herramientas web gratuitas para ingenieros estructurales. Cálculo de peso, área, diagramas SVG y exportación a Excel."
+    />
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .text-gradient-article {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
+      }
+      .tool-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .tool-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+      }
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+      .prose-article h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .prose-article p {
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+      }
+      .progress-bar {
+        height: 3px;
+        background: linear-gradient(90deg, #06b6d4, #3b82f6);
+        width: 0%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transition: width 0.1s ease;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
+  >
+    <!-- Reading Progress Bar -->
+    <div id="progress" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div
+            id="logo"
+            class="flex-shrink-0 flex items-center cursor-pointer"
+            onclick="window.location.href = '../index.html'"
+          >
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a
+                href="../index.html#home"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >INICIO</a
+              >
+              <a
+                href="../index.html#about"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >SOBRE MÍ</a
+              >
+              <a
+                href="../index.html#curriculum"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >EXPERIENCIA</a
+              >
+              <a
+                href="../index.html#portfolio"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >PORTAFOLIO</a
+              >
+              <a
+                href="index.html"
+                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >BLOG</a
+              >
+              <a
+                href="../index.html#contact"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >CONTACTO</a
+              >
+              <a
+                href="../tool/index.html"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+              >
+            </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Abrir menú principal</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+        id="mobile-menu"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="../index.html#home"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Inicio</a
+          >
+          <a
+            href="../index.html#about"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Sobre Mí</a
+          >
+          <a
+            href="../index.html#curriculum"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Experiencia</a
+          >
+          <a
+            href="../index.html#portfolio"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Portafolio</a
+          >
+          <a
+            href="index.html"
+            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Blog</a
+          >
+          <a
+            href="../index.html#contact"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Contacto</a
+          >
+          <a
+            href="../tool/index.html"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <section
+      class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden"
+    >
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-96 h-96 bg-bim-blue rounded-full blur-3xl"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+          <a
+            href="index.html"
+            class="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
+          >
+            <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Blog
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span
+            class="bg-cyan-600/90 text-white text-xs font-bold px-3 py-1 rounded-full"
+          >
+            <i class="fa-solid fa-toolbox mr-1"></i> Herramientas BIM
+          </span>
+          <span class="text-gray-400 text-sm"
+            ><i class="fa-regular fa-calendar mr-1"></i> 19 Feb 2026</span
+          >
+          <span class="text-gray-400 text-sm"
+            ><i class="fa-regular fa-clock mr-1"></i> 6 min lectura</span
+          >
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight"
+        >
+          <span class="text-cyan-400 text-5xl">🛠️</span> Herramientas Web para
+          <span class="text-gradient-article">Acero Estructural</span>
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Calculadora de perfiles y catálogo digital ICHA: todo lo que un
+          proyectista estructural necesita, directo en el navegador.
+        </p>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section
+      class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose-article">
+        <!-- Intro: El Problema -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i> El
+            Problema
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            ¿Cuántas veces has tenido que consultar una tabla PDF del catálogo
+            ICHA para buscar el peso de un perfil? ¿O abrir una planilla Excel
+            antigua para calcular el área de un perfil soldado? Como
+            proyectistas estructurales, pasamos demasiado tiempo en tareas que
+            deberían ser instantáneas.
+          </p>
+          <p class="text-gray-600 dark:text-gray-400 mb-0">
+            Por eso creé dos
+            <strong class="text-gray-900 dark:text-white"
+              >herramientas web gratuitas</strong
+            >
+            que resuelven este problema: una
+            <strong class="text-bim-blue">Calculadora de Perfiles</strong>
+            para secciones personalizadas y un
+            <strong class="text-bim-blue">Catálogo Digital ICHA</strong>
+            con todos los datos del Instituto Chileno del Acero. Veamos qué hace
+            cada una.
+          </p>
+        </div>
+
+        <!-- Tool 1: Calculadora de Perfiles -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-calculator text-bim-blue mr-2"></i>
+            Calculadora de Perfiles de Acero
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Esta herramienta permite
+            <strong class="text-gray-900 dark:text-white"
+              >calcular propiedades de perfiles</strong
+            >
+            a partir de las dimensiones que tú ingresas. No dependes de tablas
+            estáticas: simplemente seleccionas el tipo de sección, ingresas las
+            dimensiones, y obtienes los resultados al instante.
+          </p>
+
+          <!-- Profile types grid -->
+          <h4 class="text-lg font-bold text-gray-900 dark:text-white mt-6 mb-4">
+            <i class="fa-solid fa-shapes text-cyan-400 mr-2"></i> Tipos de
+            Perfiles Soportados
+          </h4>
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6"
+          >
+            <div
+              class="bg-gray-800/50 rounded-xl p-3 text-center border border-gray-700"
+            >
+              <i class="fa-solid fa-h text-bim-blue text-xl mb-1 block"></i>
+              <span class="text-xs font-bold text-gray-300">H / W</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-xl p-3 text-center border border-gray-700"
+            >
+              <i class="fa-solid fa-t text-bim-blue text-xl mb-1 block"></i>
+              <span class="text-xs font-bold text-gray-300">T</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-xl p-3 text-center border border-gray-700"
+            >
+              <i class="fa-solid fa-c text-bim-blue text-xl mb-1 block"></i>
+              <span class="text-xs font-bold text-gray-300">C / CA</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-xl p-3 text-center border border-gray-700"
+            >
+              <i class="fa-solid fa-l text-bim-blue text-xl mb-1 block"></i>
+              <span class="text-xs font-bold text-gray-300">L / XL</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-xl p-3 text-center border border-gray-700"
+            >
+              <i
+                class="fa-solid fa-circle text-bim-blue text-xl mb-1 block"
+              ></i>
+              <span class="text-xs font-bold text-gray-300">Pipe / RB</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="feature-icon bg-blue-900/30 text-bim-blue">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Cálculo en tiempo real</strong
+                >
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
+                  Área (cm²), peso unitario (kg/m) y área de cobertura se
+                  recalculan instantáneamente al modificar cualquier dimensión.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="feature-icon bg-cyan-900/30 text-cyan-400">
+                <i class="fa-solid fa-draw-polygon"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Diagrama SVG interactivo</strong
+                >
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
+                  Se genera un diagrama de sección transversal con dimensiones
+                  acotadas (h, b, t, s) que se actualiza con cada cambio.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="feature-icon bg-purple-900/30 text-purple-400">
+                <i class="fa-solid fa-tag"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Designación automática</strong
+                >
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
+                  Genera la designación del perfil según convención chilena (ej:
+                  H 20 × 27.13, CJ 10 × 15.42, PIPE Ø152.4 × 7.11).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 2: Catálogo ICHA -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-book text-emerald-400 mr-2"></i> Catálogo
+            Digital ICHA
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            El
+            <strong class="text-gray-900 dark:text-white"
+              >Instituto Chileno del Acero (ICHA)</strong
+            >
+            publica las tablas de propiedades de los perfiles de acero laminados
+            y conformados disponibles en Chile. Esta herramienta digitaliza ese
+            catálogo completo, permitiendo
+            <strong class="text-bim-blue">buscar, consultar y comparar</strong>
+            perfiles de forma rápida.
+          </p>
+
+          <!-- Series grid -->
+          <h4 class="text-lg font-bold text-gray-900 dark:text-white mt-6 mb-4">
+            <i class="fa-solid fa-layer-group text-emerald-400 mr-2"></i>
+            Series Disponibles
+          </h4>
+          <div
+            class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mb-6"
+          >
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">IN</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">IP</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">HN</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">PH</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">C</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">CA</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">L</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">TL</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">XL</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">IC</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">ICA</span>
+            </div>
+            <div
+              class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
+            >
+              <span class="text-xs font-bold text-bim-blue">CAJÓN</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="feature-icon bg-emerald-900/30 text-emerald-400">
+                <i class="fa-solid fa-search"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Búsqueda interactiva</strong
+                >
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
+                  Escribe la designación y el buscador filtra los perfiles en
+                  tiempo real. Navegación con teclado incluida.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="feature-icon bg-blue-900/30 text-bim-blue">
+                <i class="fa-solid fa-table-cells"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Propiedades mecánicas completas</strong
+                >
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
+                  Peso (kg/m), área (cm²), dimensiones (B, e, t, C), momentos de
+                  inercia (Ix, Iy), módulos resistentes (Wx, Wy), radios de giro
+                  (ix, iy) y más.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="feature-icon bg-cyan-900/30 text-cyan-400">
+                <i class="fa-solid fa-draw-polygon"></i>
+              </div>
+              <div>
+                <strong class="text-gray-900 dark:text-white"
+                  >Diagrama SVG de sección</strong
+                >
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
+                  Cada perfil muestra su sección transversal con dimensiones
+                  acotadas, adaptándose automáticamente al tipo de serie.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shared Features -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
+        >
+          <h3
+            class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4"
+          >
+            <i class="fa-solid fa-arrows-rotate text-orange-400 mr-2"></i>
+            Funciones Compartidas
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Ambas herramientas comparten un flujo de trabajo diseñado para el
+            día a día del proyectista. Una vez que seleccionas o calculas un
+            perfil, puedes agregarlo a un
+            <strong class="text-gray-900 dark:text-white"
+              >listado de materiales</strong
+            >
+            y exportar todo a Excel:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div
+              class="tool-card bg-gray-800/50 p-5 rounded-xl border border-gray-700"
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <span
+                  class="w-10 h-10 rounded-lg bg-blue-900/40 text-bim-blue flex items-center justify-center text-lg"
+                >
+                  <i class="fa-solid fa-list-check"></i>
+                </span>
+                <h4 class="font-bold text-gray-900 dark:text-white text-base">
+                  Listado de Perfiles
+                </h4>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">
+                Agrega perfiles con marca, cantidad y largo. El peso total se
+                calcula automáticamente por fila y como total general.
+              </p>
+            </div>
+            <div
+              class="tool-card bg-gray-800/50 p-5 rounded-xl border border-gray-700"
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <span
+                  class="w-10 h-10 rounded-lg bg-orange-900/40 text-orange-400 flex items-center justify-center text-lg"
+                >
+                  <i class="fa-solid fa-weight-scale"></i>
+                </span>
+                <h4 class="font-bold text-gray-900 dark:text-white text-base">
+                  Clasificación por Peso
+                </h4>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">
+                Clasifica automáticamente los perfiles en categorías (liviano,
+                medio, pesado, extra pesado) según su peso unitario en kg/m.
+              </p>
+            </div>
+            <div
+              class="tool-card bg-gray-800/50 p-5 rounded-xl border border-gray-700"
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <span
+                  class="w-10 h-10 rounded-lg bg-yellow-900/40 text-yellow-400 flex items-center justify-center text-lg"
+                >
+                  <i class="fa-solid fa-link"></i>
+                </span>
+                <h4 class="font-bold text-gray-900 dark:text-white text-base">
+                  % Conexiones Configurable
+                </h4>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">
+                Agrega un porcentaje adicional por conexiones de acero. El valor
+                es configurable (por defecto 10%) y se adapta a las necesidades
+                de cada proyecto.
+              </p>
+            </div>
+            <div
+              class="tool-card bg-gray-800/50 p-5 rounded-xl border border-gray-700"
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <span
+                  class="w-10 h-10 rounded-lg bg-emerald-900/40 text-emerald-400 flex items-center justify-center text-lg"
+                >
+                  <i class="fa-solid fa-file-excel"></i>
+                </span>
+                <h4 class="font-bold text-gray-900 dark:text-white text-base">
+                  Exportación Excel
+                </h4>
+              </div>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">
+                Genera un archivo .xlsx con formato profesional: barras de
+                título, colores corporativos, filas alternadas y totales en kg y
+                ton.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack callout -->
+        <div
+          class="bg-blue-900/20 rounded-xl p-6 border border-blue-800/30 mb-10"
+        >
+          <h4 class="font-bold text-bim-blue text-sm mb-2">
+            <i class="fa-solid fa-code mr-1"></i> Stack Tecnológico
+          </h4>
+          <p class="text-gray-400 text-sm mb-0">
+            Ambas herramientas están construidas con
+            <strong class="text-gray-300"
+              >HTML + JavaScript + Tailwind CSS</strong
+            >, sin backend ni dependencias complejas. La exportación Excel usa
+            la librería
+            <strong class="text-gray-300">SheetJS (xlsx)</strong> con estilos
+            personalizados. El catálogo ICHA carga los datos desde un archivo
+            <code class="text-bim-blue">icha_data.js</code> que contiene todas
+            las series y propiedades mecánicas extraídas del documento oficial.
+          </p>
+        </div>
+
+        <!-- CTA: Try the tools -->
+        <div
+          class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 border-l-4 border-l-bim-blue"
+        >
+          <h3 class="text-xl font-extrabold text-gray-900 dark:text-white mb-4">
+            <i class="fa-solid fa-rocket text-bim-blue mr-2"></i> ¡Pruébalas
+            Ahora!
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            Ambas herramientas son
+            <strong class="text-gray-900 dark:text-white"
+              >100% gratuitas</strong
+            >
+            y funcionan directamente en tu navegador, sin necesidad de instalar
+            nada. Ábrelas, agrega perfiles, y exporta tu listado a Excel en
+            segundos.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="../tool/profile-calculator.html"
+              class="inline-flex items-center justify-center bg-bim-blue hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 active:scale-95"
+            >
+              <i class="fa-solid fa-calculator mr-2"></i> Calculadora de
+              Perfiles
+            </a>
+            <a
+              href="../tool/catalogo-icha.html"
+              class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 active:scale-95"
+            >
+              <i class="fa-solid fa-book mr-2"></i> Catálogo ICHA
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Buttons -->
+    <section
+      class="py-10 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <p
+          class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4"
+        >
+          <i class="fa-solid fa-share-nodes mr-2"></i>Comparte este artículo
+        </p>
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+          <a
+            onclick="
+              window.open(
+                'https://www.linkedin.com/sharing/share-offsite/?url=' +
+                  encodeURIComponent(window.location.href),
+                '_blank',
+                'width=600,height=500',
+              )
+            "
+            class="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
+          >
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a
+            onclick="
+              window.open(
+                'https://www.facebook.com/sharer/sharer.php?u=' +
+                  encodeURIComponent(window.location.href),
+                '_blank',
+                'width=600,height=500',
+              )
+            "
+            class="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/30 transition-all hover:-translate-y-0.5"
+          >
+            <i class="fa-brands fa-facebook-f"></i> Facebook
+          </a>
+          <a
+            onclick="
+              window.open(
+                'https://twitter.com/intent/tweet?url=' +
+                  encodeURIComponent(window.location.href) +
+                  '&text=' +
+                  encodeURIComponent(document.title),
+                '_blank',
+                'width=600,height=500',
+              )
+            "
+            class="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-gray-500/30 transition-all hover:-translate-y-0.5 border border-gray-700"
+          >
+            <i class="fa-brands fa-x-twitter"></i> X
+          </a>
+          <a
+            onclick="
+              window.open(
+                'https://www.reddit.com/submit?url=' +
+                  encodeURIComponent(window.location.href) +
+                  '&title=' +
+                  encodeURIComponent(document.title),
+                '_blank',
+                'width=600,height=500',
+              )
+            "
+            class="cursor-pointer inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF4500] hover:bg-[#cc3700] text-white text-sm font-bold shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-0.5"
+          >
+            <i class="fa-brands fa-reddit-alien"></i> Reddit
+          </a>
+          <button
+            onclick="
+              navigator.clipboard.writeText(window.location.href).then(() => {
+                this.innerHTML =
+                  '<i class=\'fa-solid fa-check\'></i> ¡Copiado!';
+                setTimeout(() => {
+                  this.innerHTML =
+                    '<i class=\'fa-solid fa-link\'></i> Copiar Link';
+                }, 2000);
+              })
+            "
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-700 hover:bg-gray-600 text-white text-sm font-bold shadow-lg hover:shadow-gray-500/30 transition-all hover:-translate-y-0.5"
+          >
+            <i class="fa-solid fa-link"></i> Copiar Link
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Blog -->
+    <section
+      class="py-12 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+        <a
+          href="index.html"
+          class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
+        >
+          <i
+            class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"
+          ></i>
+          Volver al Blog
+        </a>
+        <a
+          href="../index.html#contact"
+          class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm"
+        >
+          <i class="fa-solid fa-envelope mr-1"></i> ¿Preguntas? Contáctame
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-gray-500 text-sm">
+          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
+        </p>
+        <p class="text-gray-600 text-xs mt-2">
+          Diseñado con pasión por la ingeniería y la tecnología.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
+      aria-label="Volver al inicio"
+    >
+      <i
+        class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
+      ></i>
+    </button>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+      // Scroll Progress Bar
+      window.addEventListener("scroll", () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progress").style.width = scrolled + "%";
+      });
+    </script>
+  </body>
+</html>

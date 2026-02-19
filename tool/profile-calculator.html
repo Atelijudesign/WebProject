@@ -480,12 +480,31 @@
         <!-- Classification by Nominal Weight -->
         <div class="mt-6 hidden" id="classification-section">
           <div class="glass-card rounded-xl p-6 overflow-hidden mb-6">
-            <h3
-              class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
-            >
-              <i class="fa-solid fa-weight-hanging mr-2"></i>Clasificación por
-              Nominal Weight
-            </h3>
+            <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+              <h3
+                class="text-sm font-bold text-gray-500 uppercase tracking-wider"
+              >
+                <i class="fa-solid fa-weight-hanging mr-2"></i>Clasificación por
+                Nominal Weight
+              </h3>
+              <div class="flex items-center gap-2">
+                <label class="text-xs text-gray-400" for="conn-pct"
+                  >Conexiones:</label
+                >
+                <input
+                  type="number"
+                  id="conn-pct"
+                  value="10"
+                  min="0"
+                  max="100"
+                  step="1"
+                  class="w-16 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-sm text-white text-center focus:border-bim-blue focus:outline-none"
+                  onchange="updateClassification()"
+                  oninput="updateClassification()"
+                />
+                <span class="text-xs text-gray-500">%</span>
+              </div>
+            </div>
             <div class="overflow-x-auto">
               <table class="w-full text-left border-collapse">
                 <thead>
@@ -1288,7 +1307,9 @@
           (sum, c) => sum + c.val,
           0,
         );
-        const connections = totalBase * 0.1;
+        const connPct =
+          parseFloat(document.getElementById("conn-pct").value) || 10;
+        const connections = totalBase * (connPct / 100);
         const totalFinal = totalBase + connections;
 
         // Render
@@ -1306,7 +1327,7 @@
               )
               .join("")}
             <tr class="bg-blue-900/10 border-t border-gray-700">
-               <td class="py-2 px-4 text-blue-200 font-medium">Conexiones Acero (+10% del total)</td>
+               <td class="py-2 px-4 text-blue-200 font-medium">Conexiones Acero (+${connPct}% del total)</td>
                <td class="py-2 px-4 text-right text-gray-500 font-mono">kg</td>
                <td class="py-2 px-4 text-right text-bim-blue font-mono font-bold">${connections.toFixed(2)}</td>
             </tr>
@@ -1445,10 +1466,12 @@
           else cats.extra.val += i.totalWeight;
         });
         const tb = Object.values(cats).reduce((s, c) => s + c.val, 0);
-        const cn = tb * 0.1,
+        const connPct =
+          parseFloat(document.getElementById("conn-pct").value) || 10;
+        const cn = tb * (connPct / 100),
           tf = tb + cn;
         Object.values(cats).forEach((c) => a.push([c.label, "kg", c.val]));
-        a.push(["Conexiones Acero (+10%)", "kg", cn]);
+        a.push([`Conexiones Acero (+${connPct}%)`, "kg", cn]);
         a.push([""]);
         a.push(["TOTAL ACERO (con conexiones)", "kg", tf]);
         a.push(["", "ton", tf / 1000]);
