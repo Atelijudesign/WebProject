@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acortadores de Pandeo | Perfil XL Laminado</title>
+    <meta
+      name="description"
+      content="Calculadora de acortadores de pandeo para perfiles de acero XL laminados. Determina la distancia máxima y cantidad mínima de acortadores."
+    />
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-card {
+        background: rgba(17, 24, 39, 0.7);
+        border: 1px solid rgba(55, 65, 81, 0.5);
+        backdrop-filter: blur(12px);
+      }
+      .glass-nav {
+        background: rgba(11, 18, 32, 0.85);
+        backdrop-filter: blur(16px);
+      }
+      .input-field {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(55, 65, 81, 0.6);
+        transition: all 0.2s ease;
+      }
+      .input-field:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        outline: none;
+      }
+      .result-value {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1),
+          rgba(59, 130, 246, 0.05)
+        );
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+      .svg-diagram {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="../index.html" class="flex items-center">
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white"
+              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+            >
+          </a>
+          <div class="flex items-center space-x-4">
+            <a
+              href="index.html"
+              class="text-bim-blue font-bold text-sm hover:text-blue-400"
+            >
+              <i class="fa-solid fa-arrow-left mr-1"></i> VOLVER A TOOLS
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="pt-24 pb-12 px-4 max-w-7xl mx-auto">
+      <header class="text-center mb-10">
+        <div
+          class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-xs font-bold tracking-widest uppercase"
+        >
+          Diseño Estructural
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-white mb-4">
+          Acortadores de Pandeo
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Calcula la separación máxima y cantidad mínima de acortadores para
+          perfiles de doble ángulo (Perfil XL) según geometría y longitud.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- Visualization Card (Horizontal) -->
+        <div
+          class="glass-card rounded-2xl p-6 flex flex-col min-h-[450px] lg:col-span-2"
+        >
+          <h3
+            class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-6 flex items-center"
+          >
+            <i class="fa-solid fa-draw-polygon mr-2"></i> Esquema XL
+            (Cruciforme)
+          </h3>
+
+          <div
+            class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+          >
+            <div
+              id="svg-container"
+              class="flex flex-col items-center justify-center p-4 svg-diagram h-full border-r border-gray-800/30 last:border-0"
+            >
+              <!-- Cross-section SVG -->
+            </div>
+            <div
+              id="svg-long-container"
+              class="flex flex-col items-center justify-center p-4 svg-diagram h-full"
+            >
+              <!-- Longitudinal SVG -->
+            </div>
+          </div>
+
+          <!-- Horizontal Property Table -->
+          <div
+            class="mt-8 p-6 rounded-xl bg-bim-dark/40 border border-gray-800/50"
+          >
+            <div
+              class="flex justify-between items-center mb-4 pb-4 border-b border-gray-800/50"
+            >
+              <span
+                class="text-xs font-bold text-gray-400 uppercase tracking-widest"
+                >Propiedades de Cálculo</span
+              >
+              <span
+                id="selected-profile-name"
+                class="text-sm font-bold text-bim-blue px-3 py-1 rounded-lg bg-blue-900/20 border border-blue-800/30"
+                >—</span
+              >
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] text-gray-500 uppercase font-black"
+                  >Área (AL)</span
+                >
+                <div id="prop-al" class="text-xl font-black text-white">
+                  0.00 <small class="text-xs text-gray-600">cm²</small>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] text-gray-500 uppercase font-black"
+                  >Ctro. Grav. (xL)</span
+                >
+                <div id="prop-xl" class="text-xl font-black text-white">
+                  0.00 <small class="text-xs text-gray-600">cm</small>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] text-gray-500 uppercase font-black"
+                  >Inercia Mín (IvL)</span
+                >
+                <div id="prop-ivl" class="text-xl font-black text-white">
+                  0.00 <small class="text-xs text-gray-600">cm⁴</small>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] text-gray-500 uppercase font-black"
+                  >Radio Mín (ivL)</span
+                >
+                <div id="prop-ivl-r" class="text-xl font-black text-white">
+                  0.00 <small class="text-xs text-gray-600">cm</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inputs and Results side by side below -->
+
+        <!-- Inputs -->
+        <div class="glass-card rounded-2xl p-6 space-y-6">
+          <h3
+            class="text-sm font-bold text-gray-500 uppercase tracking-wider flex items-center"
+          >
+            <i class="fa-solid fa-sliders mr-2"></i> Parámetros
+          </h3>
+
+          <div class="space-y-4">
+            <div>
+              <label
+                class="block text-xs font-bold text-gray-400 uppercase mb-2"
+                >Catálogo ICHA (L)</label
+              >
+              <select
+                id="profile-select"
+                class="input-field w-full px-4 py-3 rounded-xl text-white text-sm focus:ring-2 focus:ring-bim-blue/20"
+              >
+                <!-- Populated by JS -->
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  class="block text-xs font-bold text-gray-400 uppercase mb-2"
+                  >Separación (d)</label
+                >
+                <div class="relative">
+                  <input
+                    type="number"
+                    id="input-d"
+                    value="0"
+                    step="1"
+                    class="input-field w-full px-4 py-3 rounded-xl text-white font-bold text-lg"
+                  />
+                  <span
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500"
+                    >mm</span
+                  >
+                </div>
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-bold text-gray-400 uppercase mb-2"
+                  >Longitud (L)</label
+                >
+                <div class="relative">
+                  <input
+                    type="number"
+                    id="input-l"
+                    value="3000"
+                    step="100"
+                    class="input-field w-full px-4 py-3 rounded-xl text-white font-bold text-lg"
+                  />
+                  <span
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-500"
+                    >mm</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-700/50">
+              <p class="text-[10px] text-gray-500 italic mb-3">
+                O ingresa dimensiones manuales:
+              </p>
+              <div class="grid grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-[10px] text-gray-500 uppercase mb-1"
+                    >Ala (B)</label
+                  >
+                  <input
+                    type="number"
+                    id="input-b-manual"
+                    placeholder="80"
+                    class="input-field w-full px-3 py-2 rounded-lg text-white text-sm text-center"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[10px] text-gray-500 uppercase mb-1"
+                    >Espesor (e)</label
+                  >
+                  <input
+                    type="number"
+                    id="input-e-manual"
+                    placeholder="6"
+                    class="input-field w-full px-3 py-2 rounded-lg text-white text-sm text-center"
+                  />
+                </div>
+                <div>
+                  <label class="block text-[10px] text-gray-500 uppercase mb-1"
+                    >Radio (R)</label
+                  >
+                  <input
+                    type="number"
+                    id="input-r-manual"
+                    placeholder="10"
+                    class="input-field w-full px-3 py-2 rounded-lg text-white text-sm text-center"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onclick="exportToExcel()"
+            class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-500 hover:text-white border border-emerald-600/30 font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+          >
+            <i class="fa-solid fa-file-excel"></i> EXPORTAR RESULTADOS
+          </button>
+        </div>
+
+        <!-- Results -->
+        <div class="glass-card rounded-2xl p-6 space-y-6">
+          <h3
+            class="text-sm font-bold text-gray-500 uppercase tracking-wider flex items-center"
+          >
+            <i class="fa-solid fa-calculator mr-2"></i> Resultados XL
+          </h3>
+
+          <div class="space-y-4">
+            <div class="result-value rounded-2xl p-4">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-gray-400 text-xs font-bold uppercase tracking-tighter"
+                  >Separación Máxima (lmax)</span
+                >
+                <span class="text-[10px] text-gray-600">mm</span>
+              </div>
+              <span id="res-lmax" class="text-4xl font-black text-white"
+                >0.00</span
+              >
+            </div>
+
+            <div class="result-value rounded-2xl p-4">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-gray-400 text-xs font-bold uppercase tracking-tighter"
+                  >Cantidad Mínima Espacios</span
+                >
+                <span class="text-[10px] text-gray-600">N°</span>
+              </div>
+              <span id="res-nmin" class="text-4xl font-black text-bim-blue"
+                >0</span
+              >
+            </div>
+
+            <div class="pt-4 border-t border-gray-700/50">
+              <p
+                class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4"
+              >
+                Propiedades Perfil XL
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="p-4 rounded-xl bg-bim-dark/50 border border-bim-border"
+                >
+                  <span class="block text-[10px] text-gray-500 uppercase mb-1"
+                    >Inercia XL (IuXL)</span
+                  >
+                  <span id="res-iuxl" class="text-lg font-bold text-white"
+                    >0.00
+                    <small class="text-xs text-gray-500 font-normal"
+                      >cm⁴</small
+                    ></span
+                  >
+                </div>
+                <div
+                  class="p-4 rounded-xl bg-bim-dark/50 border border-bim-border"
+                >
+                  <span class="block text-[10px] text-gray-500 uppercase mb-1"
+                    >Radio XL (iuXL)</span
+                  >
+                  <span
+                    id="res-iuxl-radius"
+                    class="text-lg font-bold text-white"
+                    >0.00
+                    <small class="text-xs text-gray-500 font-normal"
+                      >cm</small
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-blue-900/20 border border-blue-800/30 rounded-xl p-4 flex gap-3 items-start"
+            >
+              <i class="fa-solid fa-circle-info text-bim-blue mt-1"></i>
+              <div class="text-[10px] text-gray-400 leading-relaxed italic">
+                <p class="mb-2">
+                  <strong>Criterio Excel:</strong> lmax = 0.75 &times; ivL
+                  &times; L / iuXL.
+                </p>
+                <p>
+                  <strong>Configuración XL:</strong> Dos ángulos espalda con
+                  espalda en disposición de cruz, orientados a 45° (ejes u-v).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="icha_data.js"></script>
+    <script>
+      // State
+      let state = {
+        B: 80,
+        e: 6,
+        R: 10,
+        d: 0,
+        L: 3000,
+        profile: null,
+      };
+
+      // Initialization
+      document.addEventListener("DOMContentLoaded", () => {
+        populateProfiles();
+        setupListeners();
+        calculate();
+      });
+
+      function populateProfiles() {
+        const select = document.getElementById("profile-select");
+        const profiles = ICHA_CATALOG.L.profiles;
+
+        select.innerHTML =
+          '<option value="">--- SELECCIONA UN PERFIL ---</option>';
+        profiles.forEach((p, idx) => {
+          const opt = document.createElement("option");
+          opt.value = idx;
+          opt.textContent = p.designation;
+          select.appendChild(opt);
+        });
+      }
+
+      function setupListeners() {
+        document
+          .getElementById("profile-select")
+          .addEventListener("change", (e) => {
+            const idx = e.target.value;
+            if (idx !== "") {
+              const p = ICHA_CATALOG.L.profiles[idx];
+              state.B = p.B_mm || 80;
+              state.e = p.e_mm || 6;
+              state.R = 10; // Default radius if not in catalog
+              document.getElementById("input-b-manual").value = state.B;
+              document.getElementById("input-e-manual").value = state.e;
+              document.getElementById("input-r-manual").value = state.R;
+              state.profile = p;
+            } else {
+              state.profile = null;
+            }
+            calculate();
+          });
+
+        [
+          "input-d",
+          "input-l",
+          "input-b-manual",
+          "input-e-manual",
+          "input-r-manual",
+        ].forEach((id) => {
+          document.getElementById(id).addEventListener("input", (e) => {
+            if (id === "input-d") state.d = parseFloat(e.target.value) || 0;
+            if (id === "input-l") state.L = parseFloat(e.target.value) || 0;
+            if (id === "input-b-manual")
+              state.B = parseFloat(e.target.value) || 80;
+            if (id === "input-e-manual")
+              state.e = parseFloat(e.target.value) || 6;
+            if (id === "input-r-manual")
+              state.R = parseFloat(e.target.value) || 10;
+            calculate();
+          });
+        });
+      }
+
+      function calculate() {
+        const { B, e, R, d, L } = state;
+
+        // 1. Single Angle Properties (cm)
+        let AL, xL, ivL, IvL;
+
+        if (state.profile) {
+          AL = state.profile.A_cm2;
+          xL = state.profile.xy_cm;
+          ivL = state.profile.iv_cm;
+          IvL = Math.pow(ivL, 2) * AL;
+        } else {
+          // Manual calculation formulas from Excel for L
+          AL =
+            (e * (2 * B - e) +
+              0.2146 * (Math.pow(R, 2) - 2 * Math.pow(R / 2, 2))) /
+            100;
+          xL =
+            (6 * e * (B * (B + e) - Math.pow(e, 2)) +
+              Math.pow(R / 2, 2) * (1.1504 * (R / 2) - 2.5752 * (B + e)) +
+              Math.pow(R, 2) * (2.5752 * e + 0.5752 * R)) /
+            (12 * AL * 1000);
+
+          // IvL lookup or approx for manual
+          // approximation for iv: ~0.197 * B
+          ivL = (0.197 * B) / 10;
+          IvL = Math.pow(ivL, 2) * AL;
+        }
+
+        // 2. Combined XL Properties (Cruciform at 45°)
+        const AXL = 2 * AL;
+        // Formula: IuXL = 2 * (IvL + AL * (1.414 * (xL + d/20))^2)
+        const IuXL = 2 * (IvL + AL * Math.pow(1.414 * (xL + d / 20), 2));
+        const iuXL = Math.sqrt(IuXL / AXL);
+
+        // 3. Buckling Shorteners
+        // lmax = 0.75 * ivL * L / iuXL (mm)
+        const lmax = (0.75 * ivL * L) / iuXL;
+
+        // nmin logic to match ODD(1+ROUNDUP((L-1200)/lmax,0))
+        const innerTerm = 1 + Math.ceil((L - 1200) / lmax);
+        let nmin = innerTerm;
+        if (nmin % 2 === 0) nmin += 1;
+        if (nmin < 2) nmin = 2; // From Excel logic check
+
+        // Update UI
+        document.getElementById("selected-profile-name").textContent =
+          state.profile ? state.profile.designation : `Custom ${B}x${B}x${e}`;
+        document.getElementById("prop-al").innerHTML =
+          `${AL.toFixed(2)} <small class="text-xs text-gray-500">cm²</small>`;
+        document.getElementById("prop-xl").innerHTML =
+          `${xL.toFixed(2)} <small class="text-xs text-gray-500">cm</small>`;
+        document.getElementById("prop-ivl").innerHTML =
+          `${IvL.toFixed(2)} <small class="text-xs text-gray-500">cm⁴</small>`;
+        document.getElementById("prop-ivl-r").innerHTML =
+          `${ivL.toFixed(2)} <small class="text-xs text-gray-500">cm</small>`;
+
+        document.getElementById("res-lmax").textContent = lmax.toFixed(2);
+        document.getElementById("res-nmin").textContent = nmin;
+
+        document.getElementById("res-iuxl").innerHTML =
+          `${IuXL.toFixed(2)} <small class="text-xs text-gray-500">cm⁴</small>`;
+        document.getElementById("res-iuxl-radius").innerHTML =
+          `${iuXL.toFixed(2)} <small class="text-xs text-gray-500">cm</small>`;
+
+        updateSVG(nmin);
+      }
+
+      function updateSVG(nmin) {
+        const crossContainer = document.getElementById("svg-container");
+        const longContainer = document.getElementById("svg-long-container");
+        const { B, e, d, L } = state;
+
+        // --- Cross Section (Cruciform) ---
+        const size = 300;
+        const mid = size / 2;
+        // Adjust scale to leave space for labels and dimensions (0.6 instead of 0.75)
+        const totalW = 2 * B + d;
+        const scale = (size * 0.55) / totalW;
+
+        const b_px = B * scale;
+        const e_px = e * scale;
+        const d_px = d * scale;
+
+        const crossSVG = `
+          <svg viewBox="0 0 ${size} ${size}" class="w-full h-full">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+              </linearGradient>
+              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563" />
+              </marker>
+            </defs>
+            
+            <!-- Axes (Aligned with profiles) -->
+            <line x1="${mid - b_px - d_px / 2 - 20}" y1="${mid}" x2="${mid + b_px + d_px / 2 + 20}" y2="${mid}" stroke="#1f2937" stroke-width="1" stroke-dasharray="4" />
+            <line x1="${mid}" y1="${mid - b_px - d_px / 2 - 20}" x2="${mid}" y2="${mid + b_px + d_px / 2 + 20}" stroke="#1f2937" stroke-width="1" stroke-dasharray="4" />
+
+            <!-- Angulos en cruz -->
+            <g>
+               <!-- Angle 1 (Top-Right) -->
+               <path d="M ${mid + d_px / 2},${mid - d_px / 2} L ${mid + d_px / 2},${mid - d_px / 2 - b_px} L ${mid + d_px / 2 + e_px},${mid - d_px / 2 - b_px} L ${mid + d_px / 2 + e_px},${mid - d_px / 2 - e_px} L ${mid + d_px / 2 + b_px},${mid - d_px / 2 - e_px} L ${mid + d_px / 2 + b_px},${mid - d_px / 2} Z" 
+                     fill="url(#grad1)" stroke="#3b82f6" stroke-width="1.5" />
+               <!-- Angle 2 (Top-Left) -->
+               <path d="M ${mid - d_px / 2},${mid - d_px / 2} L ${mid - d_px / 2 - b_px},${mid - d_px / 2} L ${mid - d_px / 2 - b_px},${mid - d_px / 2 - e_px} L ${mid - d_px / 2 - e_px},${mid - d_px / 2 - e_px} L ${mid - d_px / 2 - e_px},${mid - d_px / 2 - b_px} L ${mid - d_px / 2},${mid - d_px / 2 - b_px} Z" 
+                     fill="url(#grad1)" stroke="#3b82f6" stroke-width="1.5" />
+               <!-- Angle 3 (Bottom-Left) -->
+               <path d="M ${mid - d_px / 2},${mid + d_px / 2} L ${mid - d_px / 2},${mid + d_px / 2 + b_px} L ${mid - d_px / 2 - e_px},${mid + d_px / 2 + b_px} L ${mid - d_px / 2 - e_px},${mid + d_px / 2 + e_px} L ${mid - d_px / 2 - b_px},${mid + d_px / 2 + e_px} L ${mid - d_px / 2 - b_px},${mid + d_px / 2} Z" 
+                     fill="url(#grad1)" stroke="#3b82f6" stroke-width="1.5" />
+               <!-- Angle 4 (Bottom-Right) -->
+               <path d="M ${mid + d_px / 2},${mid + d_px / 2} L ${mid + d_px / 2 + b_px},${mid + d_px / 2} L ${mid + d_px / 2 + b_px},${mid + d_px / 2 + e_px} L ${mid + d_px / 2 + e_px},${mid + d_px / 2 + e_px} L ${mid + d_px / 2 + e_px},${mid + d_px / 2 + b_px} L ${mid + d_px / 2},${mid + d_px / 2 + b_px} Z" 
+                     fill="url(#grad1)" stroke="#3b82f6" stroke-width="1.5" />
+            </g>
+
+            <!-- Dimension B (Top) -->
+            <line x1="${mid + d_px / 2}" y1="${mid - d_px / 2 - b_px - 20}" x2="${mid + d_px / 2 + b_px}" y2="${mid - d_px / 2 - b_px - 20}" stroke="#4b5563" stroke-width="0.5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="${mid + d_px / 2 + b_px / 2}" y="${mid - d_px / 2 - b_px - 25}" fill="#9ca3af" font-size="10" text-anchor="middle">B = ${B} mm</text>
+            
+            <!-- Dimension e (Right) -->
+            <line x1="${mid + d_px / 2 + b_px + 10}" y1="${mid - d_px / 2 - e_px}" x2="${mid + d_px / 2 + b_px + 10}" y2="${mid - d_px / 2}" stroke="#4b5563" stroke-width="0.5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="${mid + d_px / 2 + b_px + 12}" y="${mid - d_px / 2 - e_px / 2}" fill="#9ca3af" font-size="10" text-anchor="start" alignment-baseline="middle">e = ${e} mm</text>
+
+            <!-- Dimension d (Horizontal Center) -->
+            ${
+              d > 0
+                ? `
+            <line x1="${mid - d_px / 2}" y1="${mid + 15}" x2="${mid + d_px / 2}" y2="${mid + 15}" stroke="#4b5563" stroke-width="0.5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="${mid}" y="${mid + 28}" fill="#9ca3af" font-size="9" text-anchor="middle">d = ${d} mm</text>
+            `
+                : ""
+            }
+
+            <text x="${mid}" y="${size - 5}" fill="#6b7280" font-size="11" text-anchor="middle" font-weight="bold">VISTA TRANSVERSAL (XL)</text>
+          </svg>
+        `;
+        crossContainer.innerHTML = crossSVG;
+
+        // --- Longitudinal Section ---
+        const lH = 120;
+        const lW = 300;
+        const lScale = (lW * 0.9) / L;
+        const lPad = lW * 0.05;
+        const startX = lPad;
+        const endX = lPad + L * lScale;
+        const midY = lH / 2;
+
+        let shortenersHTML = "";
+        const numSpaces = nmin;
+        const spaceLen = L / numSpaces;
+        for (let i = 1; i < numSpaces; i++) {
+          const sx = startX + i * spaceLen * lScale;
+          shortenersHTML += `<rect x="${sx - 2}" y="${midY - 15}" width="4" height="30" fill="#3b82f6" rx="1" />`;
+          shortenersHTML += `<text x="${sx}" y="${midY + 25}" fill="#3b82f6" font-size="8" text-anchor="middle">${(i * spaceLen).toFixed(0)}</text>`;
+        }
+
+        const longSVG = `
+          <svg viewBox="0 0 ${lW} ${lH}" class="w-full h-full">
+            <!-- Main Member -->
+            <rect x="${startX}" y="${midY - 10}" width="${L * lScale}" height="20" fill="#1f2937" stroke="#374151" rx="2" />
+            
+            <!-- Shorteners -->
+            ${shortenersHTML}
+
+            <!-- Dimensions -->
+            <line x1="${startX}" y1="${midY - 30}" x2="${endX}" y2="${midY - 30}" stroke="#4b5563" stroke-width="1" />
+            <text x="${(startX + endX) / 2}" y="${midY - 35}" fill="#6b7280" font-size="10" text-anchor="middle">L = ${L} mm</text>
+            
+            <text x="${mid}" y="${lH - 5}" fill="#6b7280" font-size="10" text-anchor="middle" font-weight="bold">DISTRIBUCIÓN DE ACORTADORES (${nmin - 1} unidades)</text>
+          </svg>
+        `;
+        longContainer.innerHTML = longSVG;
+      }
+
+      function exportToExcel() {
+        const wb = XLSX.utils.book_new();
+        const data = [
+          ["REPORTE ACORTADORES DE PANDEO"],
+          [""],
+          ["PARÁMETROS"],
+          [
+            "Perfil",
+            document.getElementById("selected-profile-name").textContent,
+          ],
+          ["Separación d (mm)", state.d],
+          ["Longitud L (mm)", state.L],
+          [""],
+          ["RESULTADOS"],
+          ["lmax (mm)", document.getElementById("res-lmax").textContent],
+          ["nmin (Espacios)", document.getElementById("res-nmin").textContent],
+          [
+            "IuXL (cm4)",
+            document.getElementById("res-iuxl").textContent.replace(" cm⁴", ""),
+          ],
+          [
+            "iuXL (cm)",
+            document
+              .getElementById("res-iuxl-radius")
+              .textContent.replace(" cm", ""),
+          ],
+        ];
+
+        const ws = XLSX.utils.aoa_to_sheet(data);
+        XLSX.utils.book_append_sheet(wb, ws, "Resultados");
+        XLSX.writeFile(wb, "Calculo_Acortadores_Pandeo.xlsx");
+      }
+    </script>
+  </body>
+</html>

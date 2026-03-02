@@ -8,7 +8,9 @@ body {
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .fade-in-up.is-visible {
@@ -27,10 +29,8 @@ body {
 
 /* Fondo con patrón de cuadrícula sutil */
 .bg-grid-pattern {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 30px 30px;
 }
@@ -38,7 +38,8 @@ body {
 /* Estilo de fondo técnico para las imágenes de proyectos */
 .bg-blueprint {
   background-color: #0f172a;
-  background-image: linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
@@ -80,7 +81,9 @@ body {
 
 /* Transiciones para el Acordeón de Experiencia */
 .accordion-content {
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition:
+    max-height 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -206,17 +209,15 @@ body {
     font-size: 16px;
     background: rgba(0, 0, 0, 0.3);
   }
-  
+
   .lightbox-prev {
     left: 10px;
   }
-  
+
   .lightbox-next {
     right: 10px;
   }
 }
-
-@
 
 /* --- Hero Section Improvements --- */
 
@@ -248,7 +249,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -274,11 +275,15 @@ body {
 
 .hero-particles::before,
 .hero-particles::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   animation: floatParticles 20s infinite linear;
   pointer-events: none;
@@ -322,7 +327,7 @@ body {
 }
 
 .btn-glow::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -346,4 +351,3 @@ body {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
   transform: translateY(-2px);
 }
-@

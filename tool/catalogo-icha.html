@@ -357,7 +357,7 @@
     <!-- Main Calculator Section -->
     <section class="py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.7fr_1.2fr] gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1.1fr_1.2fr] gap-6">
           <!-- Left: SVG Diagram -->
           <!-- Diagrama SVG -->
           <!-- Diagrama SVG + 3D Viewer -->
@@ -406,7 +406,7 @@
               id="advanced-filters"
               class="hidden mb-4 p-4 glass-card rounded-xl border-dashed border-gray-700 bg-gray-900/40"
             >
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
                   <label
                     class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
@@ -417,6 +417,18 @@
                     id="filter-ix"
                     class="input-field w-full text-sm bg-gray-800/50"
                     placeholder="Mín. Ix"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
+                    >Peso Mín (kg/m)</label
+                  >
+                  <input
+                    type="number"
+                    id="filter-weight-min"
+                    class="input-field w-full text-sm bg-gray-800/50"
+                    placeholder="Mín. Peso"
                   />
                 </div>
                 <div>
@@ -483,7 +495,7 @@
               <div class="glass-card rounded-xl p-6 border-l-4 border-bim-blue">
                 <div class="flex items-center justify-between mb-4">
                   <h3
-                    class="text-2xl font-black text-white"
+                    class="text-2xl font-black text-white whitespace-nowrap"
                     id="selected-profile-name"
                   >
                     —
@@ -1011,6 +1023,8 @@
         // Advanced Filter Values
         const minIx =
           parseFloat(document.getElementById("filter-ix").value) || 0;
+        const minW =
+          parseFloat(document.getElementById("filter-weight-min").value) || 0;
         const maxW =
           parseFloat(document.getElementById("filter-weight").value) ||
           Infinity;
@@ -1023,7 +1037,7 @@
 
           const profileH = p.H_mm || getHeightFromDesig(p.designation) || 0;
           const matchesIx = (p.Ix_cm4 || 0) >= minIx;
-          const matchesWeight = p.weight <= maxW;
+          const matchesWeight = p.weight >= minW && p.weight <= maxW;
           const matchesH = profileH <= maxH;
 
           return matchesSearch && matchesIx && matchesWeight && matchesH;
@@ -1041,7 +1055,7 @@
           <div class="dropdown-item px-4 py-2.5 cursor-pointer text-sm flex items-center justify-between border-b border-gray-800/50 last:border-0"
                data-index="${profiles.indexOf(p)}" data-filtered-index="${i}">
             <div class="flex flex-col">
-              <span class="font-semibold text-white">${p.designation}</span>
+              <span class="font-semibold text-white whitespace-nowrap">${p.designation}</span>
               ${p.Ix_cm4 ? `<span class="text-[10px] text-bim-blue">Ix: ${p.Ix_cm4} cm⁴</span>` : ""}
             </div>
             <span class="text-xs text-gray-500 font-medium">${p.weight} kg/m</span>
@@ -1117,8 +1131,8 @@
           "A_cm2",
           "H_mm",
           "B_mm",
-          "e_mm",
           "t_mm",
+          "e_mm",
           "Ix_cm4",
           "Iy_cm4",
           "Wx_cm3",
