@@ -45,7 +45,6 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     /></noscript>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/assistant.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -325,6 +324,29 @@
               He contribuido significativamente a proyectos emblemáticos tanto
               nacionales como internacionales, entre los que destacan:
             </p>
+            <div
+              class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
+            >
+              <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
+              <div class="p-4">
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  <span
+                    class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
+                  >
+                    <img
+                      src="https://flagcdn.com/24x18/cl.png"
+                      alt="Bandera de Chile"
+                      class="mr-2 h-3 w-auto shadow-sm"
+                      loading="lazy"
+                      width="24"
+                      height="18"
+                    />
+                    Ingenieria de detalle EPC - Arqueros (Chile)
+                  </span>
+                  Proyecto de 30 t.
+                </p>
+              </div>
+            </div>
             <div class="space-y-4 mb-8">
               <div
                 class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
@@ -414,9 +436,7 @@
                 <h4 class="font-bold text-gray-900 dark:text-white text-sm">
                   Trabajo Colaborativo
                 </h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">
-                  ACC / BIM 360
-                </p>
+                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">ACC</p>
               </div>
               <div
                 class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
@@ -768,6 +788,36 @@
                   </div>
                 </div>
               </div>
+              <div class="accordion-item glass-card rounded-lg fade-in-up">
+                <button class="w-full text-left p-5 cursor-pointer">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h4
+                        class="job-title text-lg font-bold text-white transition-colors"
+                      >
+                        Práctica Profesional
+                      </h4>
+                      <p class="text-gray-500 text-sm font-medium mt-1">
+                        Ilustre Municipalidad de Lampa
+                      </p>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-gray-400 text-xs block">2006</span
+                      ><i
+                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
+                      ></i>
+                    </div>
+                  </div>
+                </button>
+                <div class="accordion-content">
+                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
+                    <p class="text-gray-400 text-sm">
+                      Desarrollo de labores de dibujo técnico y apoyo en
+                      proyectos municipales.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div>
@@ -800,25 +850,6 @@
                     >
                   </div>
                 </div>
-                <div
-                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
-                >
-                  <div class="flex justify-between">
-                    <div>
-                      <h4
-                        class="text-lg font-bold text-gray-900 dark:text-white"
-                      >
-                        Práctica Profesional
-                      </h4>
-                      <p class="text-bim-blue text-sm mt-1">
-                        Ilustre Municipalidad de Lampa
-                      </p>
-                    </div>
-                    <span class="text-gray-600 dark:text-gray-400 text-sm"
-                      >2006</span
-                    >
-                  </div>
-                </div>
               </div>
             </div>
             <div>
@@ -827,6 +858,7 @@
                   class="fa-solid fa-certificate text-bim-blue text-xl mr-3"
                 ></i>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                  <!--Certificaciones-->
                   Certificaciones
                 </h3>
               </div>
@@ -871,10 +903,14 @@
                   <div class="flex justify-between">
                     <div>
                       <h4 class="text-gray-900 dark:text-white font-bold">
-                        Tekla Structures & Navisworks
+                        Tekla Structures
                       </h4>
                       <p class="text-bim-blue text-xs mt-1">
-                        Especialización Técnica
+                        <a
+                          href="https://konstruedu.com/certificate/view/7da96496-76c2-11f0-aa26-026f7b22eb81"
+                          target="_blank"
+                          >KONSTRUEDU</a
+                        >
                       </p>
                     </div>
                     <span class="text-gray-600 dark:text-gray-400 text-sm"
@@ -1289,21 +1325,30 @@
             </div>
           </div>
 
-          <!-- Desaladora Sto. Domingo -->
+          <!-- Proyecto Confidencial (Anteriormente Desaladora Sto. Domingo) -->
           <div
             class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
             data-software="revit acc"
           >
             <div class="relative h-64 overflow-hidden">
+              <div
+                class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-[2px]"
+              >
+                <span
+                  class="text-white font-black text-2xl tracking-widest uppercase border-4 border-white px-4 py-2 rotate-[-15deg] shadow-2xl"
+                >
+                  Confidencial
+                </span>
+              </div>
               <img
                 src="assets/img/desal_00.png"
-                alt="Desaladora Sto. Domingo"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                alt="Proyecto Confidencial"
+                class="w-full h-full object-cover blur-md grayscale transition-transform duration-500 group-hover:scale-110"
                 width="800"
                 height="600"
               />
               <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
+                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700 z-20"
               >
                 Hidráulica
               </div>
@@ -1313,7 +1358,7 @@
                 <h3
                   class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
                 >
-                  Desaladora Sto. Domingo
+                  Proyecto Confidencial
                 </h3>
                 <span
                   class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
@@ -1322,7 +1367,7 @@
               </div>
 
               <p class="text-gray-400 text-sm mb-4">
-                Proyecto estratégico en Atacama.
+                Proyecto estratégico de infraestructura.
               </p>
 
               <div class="mb-4">
@@ -1344,17 +1389,16 @@
               <p
                 class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
               >
-                Diseño de sentina de captación, sala eléctrica y planta de
-                ósmosis inversa.
+                Diseño estructural y coordinación BIM para planta de procesos
+                industriales bajo acuerdo de confidencialidad.
               </p>
 
-              <a
-                href="project/desaladora-sto-domingo.html"
-                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
+              <div
+                class="inline-flex items-center text-gray-500 font-bold cursor-not-allowed opacity-50"
               >
-                Ver detalles
-                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-              </a>
+                Detalles Restringidos
+                <i class="fa-solid fa-lock ml-2 text-sm"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -1520,6 +1564,5 @@
       };
     </script>
     <script src="js/scripts.js" defer></script>
-    <script src="js/assistant.js"></script>
   </body>
 </html>
