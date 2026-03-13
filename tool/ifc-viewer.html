@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visor IFC | Andrés Gallo P.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/ifc-viewer.css" />
+  </head>
+  <body class="bg-gray-900 text-white overflow-hidden flex h-screen font-sans">
+    <!-- Sidebar / Menú Izquierdo -->
+    <aside
+      class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col z-10 shadow-xl"
+    >
+      <div class="p-6 flex-shrink-0">
+        <h1 class="text-2xl font-bold mb-1 flex items-center">
+          <i class="fa-solid fa-cube text-blue-500 mr-2"></i> Visor IFC
+        </h1>
+        <p class="text-gray-400 text-sm">Visualización BIM en el navegador</p>
+      </div>
+
+      <!-- Botón de carga y herramientas -->
+      <div class="px-6 pb-6">
+        <label
+          for="ifc-file-input"
+          class="w-full flex items-center justify-center px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg cursor-pointer transition-colors shadow-lg font-medium"
+        >
+          <i class="fa-solid fa-upload mr-2"></i> Cargar Archivo IFC
+        </label>
+        <input type="file" id="ifc-file-input" accept=".ifc" class="hidden" />
+      </div>
+
+      <!-- Tabs de herramientas -->
+      <div class="flex border-b border-gray-700 text-sm">
+        <button
+          class="flex-1 py-3 text-center border-b-2 border-blue-500 font-medium text-white bg-gray-700/50"
+        >
+          Modelo
+        </button>
+        <button
+          class="flex-1 py-3 text-center border-b-2 border-transparent text-gray-400 hover:text-white transition-colors"
+        >
+          Propiedades
+        </button>
+      </div>
+
+      <!-- Contenedor del panel activo (ej. Árbol espacial) -->
+      <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+        <div id="tree-container" class="text-sm">
+          <!-- El árbol de estructura irá aquí -->
+          <div
+            class="text-gray-500 text-center mt-10 p-4 border border-dashed border-gray-600 rounded-lg"
+          >
+            <i class="fa-solid fa-folder-open text-3xl mb-3 opacity-50"></i>
+            <p>Carga un modelo para ver su estructura</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer del Sidebar -->
+      <div
+        class="p-4 border-t border-gray-700 text-xs text-center text-gray-500"
+      >
+        <p>&copy; 2026 Andrés Gallo P.</p>
+      </div>
+    </aside>
+
+    <!-- Contenedor principal de 3D -->
+    <main class="flex-1 relative">
+      <div id="viewer-container" class="w-full h-full relative">
+        <!-- Loader Overlay -->
+        <div
+          id="loader-overlay"
+          class="absolute inset-0 bg-gray-900/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+        >
+          <div
+            class="w-16 h-16 border-4 border-gray-700 border-t-blue-500 rounded-full animate-spin mb-4"
+          ></div>
+          <h3 class="text-white text-xl font-medium">Cargando Modelo...</h3>
+          <p id="loader-progress" class="text-gray-400 mt-2">
+            Iniciando motor BIM
+          </p>
+        </div>
+      </div>
+
+      <!-- Barra de herramientas flotante -->
+      <div
+        class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/90 backdrop-blur-md px-6 py-3 rounded-full flex gap-4 shadow-2xl border border-gray-700 z-10"
+      >
+        <button
+          class="text-gray-300 hover:text-white transition-colors"
+          title="Restablecer Vista"
+          id="btn-reset-view"
+        >
+          <i class="fa-solid fa-expand text-xl"></i>
+        </button>
+        <div class="w-px h-6 bg-gray-600 self-center"></div>
+        <button
+          class="text-gray-300 hover:text-white transition-colors"
+          title="Modo Alámbrico"
+          id="btn-wireframe"
+        >
+          <i class="fa-solid fa-border-all text-xl"></i>
+        </button>
+        <div class="w-px h-6 bg-gray-600 self-center"></div>
+        <button
+          class="text-gray-300 hover:text-white transition-colors"
+          title="Planos de Corte"
+          id="btn-clipper"
+        >
+          <i class="fa-solid fa-scissors text-xl"></i>
+        </button>
+      </div>
+    </main>
+    <script type="module" src="./js/ifc-viewer.js"></script>
+  </body>
+</html>
