@@ -1,4 +1,20 @@
+// --- Dark Mode: aplica preferencia guardada antes del render ---
+(function () {
+  if (localStorage.getItem("theme") === "light") {
+    document.documentElement.classList.remove("dark");
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
+  // --- Dark Mode Toggle ---
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+
   // --- Animaciones de Entrada y Contador ---
   const animatedElements = document.querySelectorAll(
     ".fade-in-up, #stats-container",
@@ -115,6 +131,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+
+
+  // --- Nav Scroll Spy ---
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("#desktop-menu a[href^='#']");
+  if (sections.length > 0 && navLinks.length > 0) {
+    const NAV_HEIGHT = 72;
+    function updateActiveLink() {
+      let currentId = "";
+      const scrollY = window.scrollY + NAV_HEIGHT + 10;
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollY) currentId = section.id;
+      });
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${currentId}`;
+        link.classList.toggle("text-bim-blue", isActive);
+        link.classList.toggle("hover:text-blue-400", isActive);
+        link.classList.toggle("text-gray-700", !isActive);
+        link.classList.toggle("dark:text-white", !isActive);
+        link.classList.toggle("hover:text-bim-blue", !isActive);
+      });
+    }
+    window.addEventListener("scroll", updateActiveLink, { passive: true });
+    updateActiveLink();
+  }
 
   // --- Lógica de Filtrado de Proyectos ---
   const filterButtons = document.querySelectorAll(".filter-btn");

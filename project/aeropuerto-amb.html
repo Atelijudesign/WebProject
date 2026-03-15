@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
     <title>Aeropuerto AMB | Andrés Gallo P.</title>
     <meta
       name="description"
@@ -10,12 +11,14 @@
     />
 
     <link rel="icon" href="../assets/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -96,7 +99,16 @@
               >
             </div>
           </div>
-          <div class="-mr-2 flex md:hidden">
+          <div class="flex items-center gap-1">
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors"
+              aria-label="Cambiar tema"
+            >
+              <i class="fa-solid fa-sun text-xl hidden dark:block"></i>
+              <i class="fa-solid fa-moon text-xl block dark:hidden"></i>
+            </button>
+            <div class="-mr-2 flex md:hidden">
             <button
               type="button"
               id="mobile-menu-button"
@@ -107,6 +119,7 @@
               <span class="sr-only">Abrir menú principal</span>
               <i class="fas fa-bars text-xl"></i>
             </button>
+            </div>
           </div>
         </div>
       </div>
@@ -160,7 +173,7 @@
     >
       <div class="absolute inset-0 z-0">
         <img
-          src="/assets/img/amb_00.PNG"
+          src="../assets/img/amb_00.PNG"
           alt="Aeropuerto AMB"
           class="w-full h-full object-cover"
         />
@@ -236,30 +249,38 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div class="glass-card rounded-xl overflow-hidden h-48 group">
                 <img
-                  src="/assets/img/amb_01.jpg"
+                  src="../assets/img/amb_01.jpg"
                   alt="Aeropuerto Construcción"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="glass-card rounded-xl overflow-hidden h-48 group">
                 <img
-                  src="/assets/img/amb_02.jpg"
+                  src="../assets/img/amb_02.jpg"
                   alt="Terminal Aérea"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="glass-card rounded-xl overflow-hidden h-48 group">
                 <img
-                  src="/assets/img/amb_pl1.png"
+                  src="../assets/img/amb_pl1.png"
                   alt="Estructura de Acero"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="glass-card rounded-xl overflow-hidden h-48 group">
                 <img
-                  src="/assets/img/amb_pl1.png"
+                  src="../assets/img/amb_pl1.png"
                   alt="Estructura de Acero"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
