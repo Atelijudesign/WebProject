@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python -c \":*)",
       "Bash(python -c \"from PIL import Image, ImageDraw, ImageFont; print\\(''Pillow OK''\\)\")",
-      "Bash(pip install Pillow -q)"
+      "Bash(pip install Pillow -q)",
+      "Bash(python3 -c \":*)"
     ]
   }
 }

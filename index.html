@@ -1,1593 +1,1248 @@
-<!doctype html>
-<html lang="es" class="scroll-smooth dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self';" />
 
-    <title>Andrés Gallo P. | BIM Developer & Structural Engineer</title>
-    <meta
-      name="description"
-      content="Expert in BIM Automation (Revit API, pyRevit, C#) and Structural Engineering. Explore my portfolio of tools, plugins, and international projects."
-    />
-    <meta
-      name="keywords"
-      content="BIM Developer, Revit API, pyRevit, C#, Structural Engineer, Diseñador BIM, Tekla, Navisworks, Andrés Gallo, Portafolio, Chile"
-    />
+  <title>Andrés Gallo P. | BIM Developer & Structural Engineer</title>
+  <meta name="description" content="Diseñador BIM Senior con 15+ años en minería, aeropuertos y hospitales. Automatización estructural con Python, Dynamo y C#." />
+  <meta name="keywords" content="BIM Developer, Revit API, pyRevit, C#, Structural Engineer, Diseñador BIM, Tekla, Navisworks, Andrés Gallo, Portafolio, Chile" />
 
-    <meta
-      property="og:title"
-      content="Andrés Gallo P. | BIM Developer & Structural Engineer"
-    />
-    <meta
-      property="og:description"
-      content="Bridging the gap between Structural Engineering and Software Development to automate complex workflows."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://atelijudesign.com/" />
-    <meta property="og:image" content="https://atelijudesign.com/assets/img/og-preview.jpg" />
+  <meta property="og:title" content="Andrés Gallo P. | BIM Developer & Structural Engineer" />
+  <meta property="og:description" content="Diseñador BIM Senior con 15+ años en minería, aeropuertos y hospitales. Automatización estructural con Python, Dynamo y C#." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://atelijudesign.com/" />
+  <meta property="og:image" content="https://atelijudesign.com/assets/img/og-preview.jpg" />
 
-    <link rel="icon" href="assets/favicon.ico" sizes="any" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    /></noscript>
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Andrés Gallo P.",
-        "url": "https://atelijudesign.com",
-        "jobTitle": "BIM Developer & Structural Engineer",
-        "sameAs": [
-          "https://www.linkedin.com/in/andresgallop/",
-          "https://github.com/Atelijudesign"
-        ]
-      }
-    </script>
-  </head>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Andrés Gallo P.",
+      "url": "https://atelijudesign.com",
+      "jobTitle": "BIM Developer & Structural Engineer",
+      "sameAs": [
+        "https://www.linkedin.com/in/andresgallop/",
+        "https://github.com/Atelijudesign"
+      ]
+    }
+  </script>
 
-  <body
-    class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
-  >
-    <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a
-            href="#home"
-            id="logo"
-            class="flex-shrink-0 flex items-center cursor-pointer"
-          >
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-            >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a
-                href="#home"
-                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >INICIO</a
-              >
-              <a
-                href="#about"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >SOBRE MÍ</a
-              >
-              <a
-                href="#curriculum"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >EXPERIENCIA</a
-              >
-              <a
-                href="#portfolio"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >PORTAFOLIO</a
-              >
-              <a
-                href="blog/index.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >BLOG</a
-              >
-              <a
-                href="#contact"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >CONTACTO</a
-              >
-              <a
-                href="tool/index.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-1">
-            <button
-              id="theme-toggle"
-              class="p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors"
-              aria-label="Cambiar tema"
-            >
-              <i class="fa-solid fa-sun text-xl hidden dark:block"></i>
-              <i class="fa-solid fa-moon text-xl block dark:hidden"></i>
-            </button>
-            <div class="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Abrir menú principal</span>
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            </div>
-          </div>
-        </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --bg:        #080c14;
+      --bg2:       #0d1420;
+      --bg3:       #111928;
+      --border:    rgba(255,255,255,0.07);
+      --accent:    #3b82f6;
+      --accent2:   #60a5fa;
+      --green:     #22c55e;
+      --orange:    #f59e0b;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --muted2:    #94a3b8;
+      --card-bg:   rgba(255,255,255,0.03);
+      --card-hover:rgba(255,255,255,0.06);
+      --font-head: 'Syne', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+      --radius:    12px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== NOISE OVERLAY ===== */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+    section { padding: 6rem 0; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      color: var(--muted2);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: var(--muted2);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; color: #fff !important; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.5rem; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(8,12,20,0.97);
+      padding: 1.5rem;
+      gap: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ===== HERO ===== */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: -200px;
+      width: 700px; height: 700px; z-index: 0;
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 750px; }
+
+    /* Availability badge */
+    .availability-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: var(--green);
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: 0.03em;
+    }
+    .dot-pulse {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    .availability-badge a {
+      color: var(--green);
+      font-weight: 700;
+      border-bottom: 1px solid rgba(34,197,94,0.4);
+      transition: border-color var(--transition);
+    }
+    .availability-badge a:hover { border-color: var(--green); }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .accent { color: var(--accent); }
+    .hero-title .line-break { display: block; }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--muted2);
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      color: var(--text);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    /* Stats */
+    .hero-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat { display: flex; flex-direction: column; gap: 2px; }
+    .stat-value {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+    .stat-value .accent { color: var(--accent); }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      max-width: 140px;
+    }
+
+    /* ===== ABOUT ===== */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { color: var(--muted2); margin-bottom: 1.2rem; }
+    .about-text strong { color: var(--text); }
+    .projects-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    .proj-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      transition: background var(--transition);
+    }
+    .proj-item:hover { background: var(--card-hover); }
+    .proj-item .flag { font-size: 1.2rem; flex-shrink: 0; }
+    .proj-item .proj-name { color: var(--text); font-weight: 500; }
+    .proj-item .proj-detail { color: var(--muted); font-size: 0.8rem; font-family: var(--font-mono); }
+
+    .skills-section { margin-top: 2rem; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      transition: all var(--transition);
+    }
+    .skill-tag:hover, .skill-tag.highlight { border-color: var(--accent); color: var(--accent); background: rgba(59,130,246,0.08); }
+
+    /* ===== AUTOMATION ===== */
+    #automation { background: var(--bg); }
+    .auto-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .auto-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .auto-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .auto-card:hover { background: var(--card-hover); border-color: rgba(59,130,246,0.3); transform: translateY(-3px); }
+    .auto-card:hover::before { opacity: 1; }
+    .auto-tech {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      padding: 3px 8px;
+      background: rgba(59,130,246,0.1);
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .auto-card h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .auto-card p { color: var(--muted2); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem; }
+    .auto-result {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--orange);
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.2);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .auto-link {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      display: inline-flex; align-items: center; gap: 4px;
+      transition: gap var(--transition);
+    }
+    .auto-link:hover { gap: 8px; }
+
+    /* ===== SERVICES ===== */
+    #services { background: var(--bg2); }
+    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card:hover { background: var(--card-hover); border-color: rgba(59,130,246,0.25); transform: translateY(-2px); }
+    .service-card.highlight {
+      border-color: rgba(59,130,246,0.4);
+      background: rgba(59,130,246,0.05);
+    }
+    .service-card.highlight:hover { border-color: rgba(59,130,246,0.6); background: rgba(59,130,246,0.08); }
+    .service-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .service-card h3 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .service-card p { color: var(--muted2); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.5rem; }
+    .btn-service {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      border-bottom: 1px solid rgba(59,130,246,0.3);
+      padding-bottom: 2px;
+      transition: all var(--transition);
+    }
+    .btn-service:hover { border-color: var(--accent); gap: 10px; }
+
+    /* ===== TOOLS PREVIEW ===== */
+    #tools-preview { background: var(--bg3); }
+    .tools-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+    .tool-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all var(--transition);
+    }
+    .tool-card:hover { background: var(--card-hover); border-color: rgba(59,130,246,0.3); transform: translateY(-2px); }
+    .tool-card.featured { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.04); }
+    .tool-thumb {
+      width: 48px; height: 48px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .tool-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .tool-card p { color: var(--muted2); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.25rem; }
+    .btn-tool {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      transition: gap var(--transition);
+    }
+    .btn-tool:hover { gap: 10px; }
+
+    /* ===== EXPERIENCE ===== */
+    #curriculum { background: var(--bg2); }
+    .exp-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: flex; gap: 1.25rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 19px; top: 38px; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-dot {
+      width: 38px; height: 38px; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      position: relative; z-index: 1;
+    }
+    .timeline-dot.active { border-color: var(--accent); background: rgba(59,130,246,0.1); }
+    .timeline-body { flex: 1; }
+    .timeline-company {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .timeline-role { font-family: var(--font-head); font-weight: 700; font-size: 1rem; margin: 2px 0 4px; }
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-desc { color: var(--muted2); font-size: 0.88rem; line-height: 1.6; }
+
+    .certs-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: background var(--transition);
+    }
+    .cert-card:hover { background: var(--card-hover); }
+    .cert-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .cert-name { font-weight: 600; font-size: 0.92rem; }
+    .cert-org { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); }
+
+    /* ===== PORTFOLIO ===== */
+    #portfolio { background: var(--bg); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .portfolio-card:hover { transform: translateY(-4px); border-color: rgba(59,130,246,0.3); }
+    .portfolio-img {
+      width: 100%; aspect-ratio: 16/10;
+      object-fit: cover;
+      background: var(--bg3);
+      display: block;
+    }
+    .portfolio-body { padding: 1.25rem; }
+    .portfolio-category {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .portfolio-body h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .portfolio-year { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); }
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 0.75rem 0; }
+    .portfolio-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 2px 7px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      color: var(--accent2);
+      border-radius: 4px;
+    }
+    .portfolio-link {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted2);
+      display: inline-flex; align-items: center; gap: 4px;
+      transition: color var(--transition);
+    }
+    .portfolio-link:hover { color: var(--accent); }
+    .confidential-overlay {
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 16/10;
+      background: repeating-linear-gradient(45deg, var(--bg3) 0, var(--bg3) 10px, var(--bg2) 10px, var(--bg2) 20px);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--bg2); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .contact-item:hover { background: var(--card-hover); border-color: rgba(59,130,246,0.3); }
+    .contact-item-icon { font-size: 1.25rem; flex-shrink: 0; }
+    .contact-item-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .contact-item-value { color: var(--text); font-size: 0.9rem; }
+    .contact-item-value a { color: var(--accent2); }
+    .contact-cta {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.03));
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: var(--radius);
+    }
+    .contact-cta h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .contact-cta p { color: var(--muted2); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .btn-cta-large {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-cta-large:hover { background: var(--accent2); transform: translateY(-1px); }
+    .contact-downloads { display: flex; gap: 1rem; margin-top: 1rem; }
+    .btn-download {
+      flex: 1;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted2);
+      transition: all var(--transition);
+    }
+    .btn-download:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: var(--font-head); font-weight: 700; font-size: 0.9rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
+    .footer-tagline { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid, .exp-layout, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .auto-grid, .services-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .nav-links:not(.open) { display: none; }
+      .nav-toggle { display: block; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .contact-downloads { flex-direction: column; }
+    }
+
+    /* ===== FADE IN ANIMATION ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">Andrés Gallo <span>BIM</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Inicio</a>
+        <a href="#about">Sobre Mí</a>
+        <a href="#automation">Automatización</a>
+        <a href="#services">Servicios</a>
+        <a href="#portfolio">Portafolio</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="tool/index.html">Tools</a>
+        <a href="#contact" class="nav-cta">Contacto →</a>
       </div>
-      <div
-        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-        id="mobile-menu"
-      >
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="#home"
-            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Inicio</a
-          >
-          <a
-            href="#about"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Sobre Mí</a
-          >
-          <a
-            href="#curriculum"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Experiencia</a
-          >
-          <a
-            href="#portfolio"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Portafolio</a
-          >
-          <a
-            href="blog/index.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Blog</a
-          >
-          <a
-            href="#contact"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Contacto</a
-          >
-          <a
-            href="tool/index.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
-          >
-        </div>
-      </div>
-    </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section
-      id="home"
-      class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden"
-    >
-      <div
-        class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-20"
-      >
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#3b82f6"
-                stroke-width="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
-      >
-        <div
-          class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-sm font-semibold tracking-wide"
-        >
-          DISPONIBLE PARA PROYECTOS
+  <!-- ===== HERO ===== -->
+  <section id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="availability-badge">
+          <span class="dot-pulse"></span>
+          Disponible para proyectos ·
+          <a href="mailto:andresgallo@pm.me">Escríbeme hoy →</a>
         </div>
-        <h1
-          class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6"
-        >
-          Andrés Gallo P.
+
+        <p class="hero-eyebrow">// BIM Developer &amp; Proyectista Estructural</p>
+
+        <h1 class="hero-title">
+          Diseñador BIM Senior
+          <span class="line-break">que también <span class="accent">programa.</span></span>
         </h1>
-        <h2
-          class="text-2xl md:text-3xl font-semibold text-gray-600 dark:text-gray-400 mb-8"
-        >
-          Diseñador BIM - Proyectista Estructural
-        </h2>
-        <p
-          class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-400 mb-10"
-        >
-          Más de 15 años construyendo sueños y optimizando la ingeniería
-          estructural mediante metodologías BIM avanzadas. Especialista en
-          Revit, Tekla y Navisworks.
+
+        <p class="hero-desc">
+          <strong>15+ años</strong> en proyectos reales de minería, aeropuertos y hospitales.
+          El diferencial: automatizo en <strong>Python, Dynamo y C#</strong>
+          lo que otros hacen a mano. Especialista en Revit, Tekla y Navisworks.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a
-            href="Andres_Gallo_CV.pdf"
-            download="Andres_Gallo_CV.pdf"
-            class="btn-glow bg-bim-blue text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-blue-500/30 hero-button inline-flex items-center justify-center"
-          >
-            <i class="fa-solid fa-file-arrow-down mr-2"></i> Descargar CV
-          </a>
-          <a
-            href="Andres_Gallo_Portfolio.pdf"
-            class="btn-glow bg-bim-blue text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-blue-500/30 hero-button inline-flex items-center justify-center"
-          >
-            <i class="fa-solid fa-folder-open mr-2"></i> Descargar Portafolio
-          </a>
-        </div>
-        <div
-          id="stats-container"
-          class="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-gray-800 pt-8"
-        >
-          <div>
-            <div
-              class="stat-number text-3xl font-bold text-gray-900 dark:text-white"
-              data-target="15"
-            >
-              +0
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
-              Años de Experiencia
-            </div>
-          </div>
-          <div>
-            <div
-              class="stat-number text-3xl font-bold text-gray-900 dark:text-white"
-              data-target="320"
-            >
-              +0k
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
-              m² Modelados (Aeropuertos,Hospitales,Centros Comerciales, etc)
-            </div>
-          </div>
-          <div>
-            <div
-              class="stat-number text-3xl font-bold text-gray-900 dark:text-white"
-              data-target="100"
-            >
-              0%
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
-              Compromiso BIM
-            </div>
-          </div>
-          <div>
-            <div class="text-3xl font-bold text-gray-900 dark:text-white">
-              CL - INT
-            </div>
-            <div class="text-sm text-gray-600 dark:text-gray-500 mt-1">
-              Proyectos Internacionales
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About Section -->
-    <section
-      id="about"
-      class="py-20 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
-          <div class="mb-10 lg:mb-0">
-            <h3 class="text-bim-blue font-bold uppercase tracking-wide mb-2">
-              Sobre Mí
-            </h3>
-            <h2
-              class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6"
-            >
-              Proyectista Estructural | Experto en Diseño BIM y Fabricación de
-              acero y hormigón.
-            </h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              Con más de 15 años de experiencia como Diseñador BIM especializado
-              en ingeniería estructural, he proporcionado constantemente mis
-              habilidades a grandes organizaciones como Black & Veatch, Arcadis,
-              AFRY entre otras.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              Mi trayectoria profesional abarca una amplia gama de proyectos,
-              desde innovadores proyectos mineros hasta complejas iniciativas en
-              hospitales, aeropuertos, pulpa y papel e infraestructura civil.
-            </p>
-            <p class="text-gray-300 font-medium mb-4">
-              He contribuido significativamente a proyectos emblemáticos tanto
-              nacionales como internacionales, entre los que destacan:
-            </p>
-            <div
-              class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
-            >
-              <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-              <div class="p-4">
-                <p class="text-gray-300 text-sm leading-relaxed">
-                  <span
-                    class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
-                  >
-                    <img
-                      src="https://flagcdn.com/24x18/cl.png"
-                      alt="Bandera de Chile"
-                      class="mr-2 h-3 w-auto shadow-sm"
-                      loading="lazy"
-                      width="24"
-                      height="18"
-                    />
-                    Ingenieria de detalle EPC - Arqueros (Chile)
-                  </span>
-                  Proyecto de 30 t.
-                </p>
-              </div>
-            </div>
-            <div class="space-y-4 mb-8">
-              <div
-                class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
-              >
-                <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-                <div class="p-4">
-                  <p class="text-gray-300 text-sm leading-relaxed">
-                    <span
-                      class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
-                    >
-                      <img
-                        src="https://flagcdn.com/24x18/mx.png"
-                        alt="Bandera de México"
-                        class="mr-2 h-3 w-auto shadow-sm"
-                        loading="lazy"
-                        width="24"
-                        height="18"
-                      />
-                      Máquina Papelera MP05 (ABSORMEX, México)
-                    </span>
-                    Ingeniería de detalles para 8000 m²
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
-              >
-                <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-                <div class="p-4">
-                  <p class="text-gray-300 text-sm leading-relaxed">
-                    <span
-                      class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
-                    >
-                      <img
-                        src="https://flagcdn.com/24x18/cl.png"
-                        alt="Bandera de Chile"
-                        class="mr-2 h-3 w-auto shadow-sm"
-                        loading="lazy"
-                        width="24"
-                        height="18"
-                      />
-                      Ampliación del Aeropuerto Internacional Arturo Merino
-                      Benítez (Chile)
-                    </span>
-                    Proyecto de 320,000 m²
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex items-stretch glass-card rounded-lg overflow-hidden transition-all duration-300 group hover:border-gray-500 fade-in-up"
-              >
-                <div class="w-1.5 bg-bim-blue flex-shrink-0"></div>
-                <div class="p-4">
-                  <p class="text-gray-300 text-sm leading-relaxed">
-                    <span
-                      class="text-bim-blue font-bold text-base flex items-center mb-1 group-hover:text-blue-400 transition-colors"
-                    >
-                      <img
-                        src="https://flagcdn.com/24x18/cl.png"
-                        alt="Bandera de Chile"
-                        class="mr-2 h-3 w-auto shadow-sm"
-                        loading="lazy"
-                        width="24"
-                        height="18"
-                      />
-                      Nuevo Complejo Fronterizo Los Libertadores (Chile)
-                    </span>
-                    Proyecto de 35,000 m²
-                  </p>
-                </div>
-              </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">⚡ Hablemos de tu proyecto</a>
+          <a href="Andres_Gallo_CV.pdf" class="btn-secondary" download>⬇ Descargar CV</a>
+          <a href="Andres_Gallo_Portfolio.pdf" class="btn-secondary" download>⬇ Portafolio PDF</a>
+        </div>
+
+        <div class="hero-stats" id="statsSection">
+          <div class="stat">
+            <div class="stat-value"><span id="counter-years">0</span><span class="accent">+</span></div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><span id="counter-m2">0</span><span class="accent">k</span></div>
+            <div class="stat-label">m² modelados</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><span id="counter-bim">0</span><span class="accent">%</span></div>
+            <div class="stat-label">Compromiso BIM</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">CL<span class="accent">·</span>INT</div>
+            <div class="stat-label">Proyectos internacionales</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE MÍ ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <p class="section-label">// Sobre Mí</p>
+          <h2 class="section-title">Proyectista Estructural &amp; Experto BIM</h2>
+          <p>Con más de <strong>15 años de experiencia</strong> como Diseñador BIM especializado en ingeniería estructural, he trabajado en grandes organizaciones como <strong>Black &amp; Veatch, Arcadis, GHD y AFRY</strong>.</p>
+          <p>Mi trayectoria abarca proyectos mineros, hospitales, aeropuertos, plantas de pulpa y papel e infraestructura civil — tanto nacionales como internacionales.</p>
+          <p>Lo que me diferencia: además de diseñar, <strong>programo las herramientas</strong> que hacen ese diseño más rápido y preciso.</p>
+
+          <div class="skills-section">
+            <p class="section-label">// Stack técnico</p>
+            <div class="skills-grid">
+              <span class="skill-tag highlight">Revit</span>
+              <span class="skill-tag highlight">Tekla</span>
+              <span class="skill-tag highlight">Python</span>
+              <span class="skill-tag highlight">Dynamo</span>
+              <span class="skill-tag">Navisworks</span>
+              <span class="skill-tag">ACC / BIM 360</span>
+              <span class="skill-tag">AutoCAD</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">AutoLISP</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">HTML / CSS / JS</span>
+              <span class="skill-tag">Civil 3D</span>
             </div>
           </div>
-          <div>
-            <h3
-              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-l-4 border-bim-blue pl-4"
-            >
-              Habilidades Clave
-            </h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-bim-blue mb-3">
-                  <i class="fa-solid fa-users-gear"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white text-sm">
-                  Trabajo Colaborativo
-                </h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">ACC</p>
+        </div>
+
+        <div class="fade-up" style="transition-delay:0.15s">
+          <p class="section-label">// Proyectos emblemáticos</p>
+          <div class="projects-list">
+            <div class="proj-item">
+              <span class="flag">🇨🇱</span>
+              <div>
+                <div class="proj-name">Aeropuerto AMB — Terminal 2</div>
+                <div class="proj-detail">320,000 m² · Revit · Coordinación BIM</div>
               </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-bim-blue mb-3">
-                  <i class="fa-solid fa-ruler-combined"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white text-sm">
-                  Ingeniería de Detalle
-                </h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">
-                  Estructural
-                </p>
+            </div>
+            <div class="proj-item">
+              <span class="flag">🇨🇱</span>
+              <div>
+                <div class="proj-name">Hospital Marga Marga</div>
+                <div class="proj-detail">75,000 m² · Hormigón · Alta complejidad</div>
               </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-bim-blue mb-3">
-                  <i class="fa-solid fa-diagram-project"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white text-sm">
-                  Diseño Conexiones
-                </h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500 mt-1">
-                  Acero / Hormigón
-                </p>
+            </div>
+            <div class="proj-item">
+              <span class="flag">🇲🇽</span>
+              <div>
+                <div class="proj-name">Máquina Papelera MP05 — ABSORMEX</div>
+                <div class="proj-detail">8,000 m² · Revit · BIM 360</div>
               </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-blue-500 mb-3">
-                  <i class="fa-solid fa-cube"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white">Revit</h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500">Expert</p>
+            </div>
+            <div class="proj-item">
+              <span class="flag">🇨🇱</span>
+              <div>
+                <div class="proj-name">Paso Fronterizo Los Libertadores</div>
+                <div class="proj-detail">35,000 m² · Tekla · Alta montaña 3,200m</div>
               </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-blue-400 mb-3">
-                  <i class="fa-solid fa-building"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white">Tekla</h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500">
-                  Structures
-                </p>
-              </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-green-500 mb-3">
-                  <i class="fa-solid fa-eye"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white">
-                  Navisworks
-                </h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500">
-                  Coordination
-                </p>
-              </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-red-500 mb-3">
-                  <i class="fa-solid fa-drafting-compass"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white">AutoCAD</h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500">
-                  2D Drafting
-                </p>
-              </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-yellow-500 mb-3">
-                  <i class="fa-brands fa-python"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white">Python</h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500">
-                  Automation
-                </p>
-              </div>
-              <div
-                class="skill-card glass-card p-4 rounded-lg flex flex-col items-center justify-center text-center transition-all duration-300 fade-in-up"
-              >
-                <div class="text-4xl text-orange-500 mb-3">
-                  <i class="fa-brands fa-html5"></i>
-                </div>
-                <h4 class="font-bold text-gray-900 dark:text-white">Web Dev</h4>
-                <p class="text-xs text-gray-600 dark:text-gray-500">
-                  HTML/CSS/Git
-                </p>
+            </div>
+            <div class="proj-item">
+              <span class="flag">🇨🇱</span>
+              <div>
+                <div class="proj-name">Proyecto Arqueros — Chancador Primario</div>
+                <div class="proj-detail">Minería · Revit · ACC · GHD / Arcadis</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Services Section -->
-    <section
-      id="services"
-      class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2
-            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
-          >
-            Servicios Especializados
-          </h2>
-          <div class="h-1.5 w-24 bg-bim-blue mx-auto mt-4 rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- ===== AUTOMATIZACIÓN ===== -->
+  <section id="automation">
+    <div class="container">
+      <p class="section-label fade-up">// Diferencial competitivo</p>
+      <h2 class="section-title fade-up">Automatización que genera<br>resultados reales</h2>
+      <p class="section-subtitle fade-up">15 años en obra me enseñaron dónde se pierde el tiempo. Por eso programo las soluciones.</p>
+
+      <div class="auto-grid">
+
+        <div class="auto-card fade-up">
+          <span class="auto-tech">Python · pyRevit</span>
+          <h3>Extracción automática de cubicaciones</h3>
+          <p>Script que genera reportes de acero y hormigón directamente desde el modelo Revit, eliminando el trabajo manual de tablas y cálculos repetitivos.</p>
+          <span class="auto-result">⏱ Ahorro estimado: ~3 horas por entrega</span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div
-            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
-          >
-            <i class="fa-solid fa-city text-3xl text-bim-blue mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              Diseño Arquitectónico
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">
-              Modelos 3D detallados incluyendo elementos como muros, ventanas y
-              puertas.
-            </p>
-          </div>
-          <div
-            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
-          >
-            <i
-              class="fa-solid fa-network-wired text-3xl text-bim-blue mb-4"
-            ></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              Diseño Estructural
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">
-              Desarrollo de columnas, vigas, losas y conexiones complejas en
-              acero y hormigón.
-            </p>
-          </div>
-          <div
-            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
-          >
-            <i
-              class="fa-solid fa-cubes-stacked text-3xl text-bim-blue mb-4"
-            ></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              Desarrollo de Familias
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">
-              Creación de contenido BIM personalizado adaptado a las necesidades
-              del proyecto.
-            </p>
-          </div>
-          <div
-            class="p-6 glass-card rounded-lg hover:border-bim-blue transition-colors fade-in-up"
-          >
-            <i
-              class="fa-solid fa-file-contract text-3xl text-bim-blue mb-4"
-            ></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              Documentación
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">
-              Generación de planos 2D y 3D precisos derivados directamente del
-              modelo BIM.
-            </p>
-          </div>
+
+        <div class="auto-card fade-up" style="transition-delay:0.1s">
+          <span class="auto-tech">Dynamo · BIM 360</span>
+          <h3>Numeración inteligente de elementos</h3>
+          <p>Automatización de marcas y numeración de perfiles estructurales siguiendo estándares de proyecto sin intervención manual.</p>
+          <span class="auto-result">⏱ Ahorro estimado: ~2 horas por modelo</span>
         </div>
+
+        <div class="auto-card fade-up" style="transition-delay:0.2s">
+          <span class="auto-tech">SQL · HTML · JS</span>
+          <h3>Catálogo ICHA Digital</h3>
+          <p>Base de datos de perfiles estructurales chilenos transformada en herramienta web interactiva con cubicador, filtros y exportación.</p>
+          <a href="tool/catalogo-icha.html" class="auto-link">Ver herramienta →</a>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Curriculum Section -->
-    <section
-      id="curriculum"
-      class="py-24 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
-          <h2
-            class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
-          >
-            Experiencia y Formación
-          </h2>
-          <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
-          <p class="text-gray-400 mt-6 max-w-2xl mx-auto text-lg">
-            Mi trayectoria profesional y académica.
-          </p>
-        </div>
-        <div class="lg:grid lg:grid-cols-2 lg:gap-8">
-          <div class="mb-12 lg:mb-0">
-            <div class="flex items-center mb-6">
-              <i class="fa-solid fa-briefcase text-bim-blue text-xl mr-3"></i>
-              <h3 class="text-xl font-bold text-white">
-                Experiencia Profesional
-              </h3>
-            </div>
-            <div class="space-y-4" id="experience-accordion">
-              <div
-                class="accordion-item active glass-card rounded-lg fade-in-up"
-              >
-                <button class="w-full text-left p-5 cursor-pointer">
-                  <div class="flex justify-between items-center">
-                    <div>
-                      <h4
-                        class="job-title text-lg font-bold text-bim-blue transition-colors"
-                      >
-                        Proyectista/Diseñador BIM
-                      </h4>
-                      <p class="text-bim-blue text-sm font-medium mt-1">
-                        BIOSMI
-                      </p>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-gray-400 text-xs block"
-                        >Ene 2026 - Presente</span
-                      ><i
-                        class="fa-solid fa-chevron-down arrow-icon text-bim-blue mt-2 transition-transform duration-300 transform rotate-180"
-                      ></i>
-                    </div>
-                  </div>
-                </button>
-                <div class="accordion-content" style="max-height: 500px">
-                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                    <p class="text-gray-300 text-sm font-semibold mb-2">
-                      P1820 – MLC – Integración Segunda Etapa Lavado SX:
-                    </p>
-                    <ul class="space-y-2">
-                      <li class="flex items-start text-sm text-gray-400">
-                        <i
-                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
-                        ></i
-                        >Diseño BIM de las especialidades de estructuras.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item glass-card rounded-lg fade-in-up">
-                <button class="w-full text-left p-5 cursor-pointer">
-                  <div class="flex justify-between items-center">
-                    <div>
-                      <h4
-                        class="job-title text-lg font-bold text-white transition-colors"
-                      >
-                        Proyectista Estructural
-                      </h4>
-                      <p class="text-gray-500 text-sm font-medium mt-1">GHD</p>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-gray-400 text-xs block"
-                        >Dic 2024 - May 2025</span
-                      ><i
-                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
-                      ></i>
-                    </div>
-                  </div>
-                </button>
-                <div class="accordion-content">
-                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                    <p class="text-gray-300 text-sm font-semibold mb-2">
-                      Proyecto Arqueros:
-                    </p>
-                    <ul class="space-y-2">
-                      <li class="flex items-start text-sm text-gray-400">
-                        <i
-                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
-                        ></i
-                        >Diseño de estructura del chancador primario.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+  <!-- ===== SERVICIOS ===== -->
+  <section id="services">
+    <div class="container">
+      <p class="section-label fade-up">// Servicios</p>
+      <h2 class="section-title fade-up">Soluciones para los sectores<br>más exigentes</h2>
+      <p class="section-subtitle fade-up">Trabajo en minería, infraestructura, salud e industria — donde la precisión no es opcional.</p>
 
-              <div class="accordion-item glass-card rounded-lg fade-in-up">
-                <button class="w-full text-left p-5 cursor-pointer">
-                  <div class="flex justify-between items-center">
-                    <div>
-                      <h4
-                        class="job-title text-lg font-bold text-white transition-colors"
-                      >
-                        Proyectista Estructural
-                      </h4>
-                      <p class="text-gray-500 text-sm font-medium mt-1">
-                        ARCADIS
-                      </p>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-gray-400 text-xs block"
-                        >Jun 2024 - Nov 2024</span
-                      ><i
-                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
-                      ></i>
-                    </div>
-                  </div>
-                </button>
-                <div class="accordion-content">
-                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                    <p class="text-gray-300 text-sm font-semibold mb-2">
-                      Proyecto Arqueros:
-                    </p>
-                    <ul class="space-y-2">
-                      <li class="flex items-start text-sm text-gray-400">
-                        <i
-                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
-                        ></i
-                        >Diseño de estructura del chancador primario.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item glass-card rounded-lg fade-in-up">
-                <button class="w-full text-left p-5 cursor-pointer">
-                  <div class="flex justify-between items-center">
-                    <div>
-                      <h4
-                        class="job-title text-lg font-bold text-white transition-colors"
-                      >
-                        Diseñador BIM Senior
-                      </h4>
-                      <p class="text-gray-500 text-sm font-medium mt-1">
-                        AFRY Chile
-                      </p>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-gray-400 text-xs block"
-                        >Dic 2022 - May 2024</span
-                      ><i
-                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
-                      ></i>
-                    </div>
-                  </div>
-                </button>
-                <div class="accordion-content">
-                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                    <p class="text-gray-300 text-sm font-semibold mb-2">
-                      Proyectos MP5 (Softys) y CMPC Laja:
-                    </p>
-                    <ul class="space-y-2">
-                      <li class="flex items-start text-sm text-gray-400">
-                        <i
-                          class="fa-solid fa-caret-right text-bim-blue mt-1 mr-2"
-                        ></i
-                        >Diseño BIM de especialidades de estructura y
-                        arquitectura.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item glass-card rounded-lg fade-in-up">
-                <button class="w-full text-left p-5 cursor-pointer">
-                  <div class="flex justify-between items-center">
-                    <div>
-                      <h4
-                        class="job-title text-lg font-bold text-white transition-colors"
-                      >
-                        Práctica Profesional
-                      </h4>
-                      <p class="text-gray-500 text-sm font-medium mt-1">
-                        Ilustre Municipalidad de Lampa
-                      </p>
-                    </div>
-                    <div class="text-right">
-                      <span class="text-gray-400 text-xs block">2006</span
-                      ><i
-                        class="fa-solid fa-chevron-down arrow-icon text-gray-500 mt-2 transition-transform duration-300"
-                      ></i>
-                    </div>
-                  </div>
-                </button>
-                <div class="accordion-content">
-                  <div class="px-5 pb-5 border-t border-gray-700 pt-4">
-                    <p class="text-gray-400 text-sm">
-                      Desarrollo de labores de dibujo técnico y apoyo en
-                      proyectos municipales.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="mb-10">
-              <div class="flex items-center mb-6">
-                <i
-                  class="fa-solid fa-graduation-cap text-bim-blue text-xl mr-3"
-                ></i>
-                <h3 class="text-xl font-bold text-white">
-                  Formación Académica
-                </h3>
-              </div>
-              <div class="space-y-4">
-                <div
-                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
-                >
-                  <div class="flex justify-between">
-                    <div>
-                      <h4
-                        class="text-lg font-bold text-gray-900 dark:text-white"
-                      >
-                        Dibujante Técnico
-                      </h4>
-                      <p class="text-bim-blue text-sm mt-1">
-                        Liceo Politécnico Galvarino N°2
-                      </p>
-                    </div>
-                    <span class="text-gray-600 dark:text-gray-400 text-sm"
-                      >2003 - 2005</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="flex items-center mb-6">
-                <i
-                  class="fa-solid fa-certificate text-bim-blue text-xl mr-3"
-                ></i>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-                  <!--Certificaciones-->
-                  Certificaciones
-                </h3>
-              </div>
-              <div class="space-y-4">
-                <div
-                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
-                >
-                  <div class="flex justify-between">
-                    <div>
-                      <h4 class="text-gray-900 dark:text-white font-bold">
-                        Diseño BIM con Revit Structures
-                      </h4>
-                      <p class="text-bim-blue text-xs mt-1">
-                        Certificación Profesional
-                      </p>
-                    </div>
-                    <span class="text-gray-600 dark:text-gray-400 text-sm"
-                      >2024</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
-                >
-                  <div class="flex justify-between">
-                    <div>
-                      <h4 class="text-gray-900 dark:text-white font-bold">
-                        Experto en Revit (Colaboración)
-                      </h4>
-                      <p class="text-bim-blue text-xs mt-1">
-                        Autodesk / Training Center
-                      </p>
-                    </div>
-                    <span class="text-gray-600 dark:text-gray-400 text-sm"
-                      >2023</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="glass-card rounded-lg p-5 hover:border-gray-500 transition-colors fade-in-up"
-                >
-                  <div class="flex justify-between">
-                    <div>
-                      <h4 class="text-gray-900 dark:text-white font-bold">
-                        Tekla Structures
-                      </h4>
-                      <p class="text-bim-blue text-xs mt-1">
-                        <a
-                          href="https://konstruedu.com/certificate/view/7da96496-76c2-11f0-aa26-026f7b22eb81"
-                          target="_blank"
-                          >KONSTRUEDU</a
-                        >
-                      </p>
-                    </div>
-                    <span class="text-gray-600 dark:text-gray-400 text-sm"
-                      >2022</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="services-grid">
+
+        <div class="service-card fade-up">
+          <span class="service-icon">⛏️</span>
+          <h3>Minería e Industrial</h3>
+          <p>Modelado BIM de chancadores, plantas de proceso y estructuras industriales complejas. Experiencia directa en proyectos con Arcadis, GHD y AFRY.</p>
+          <a href="#contact" class="btn-service">Solicitar cotización →</a>
         </div>
+
+        <div class="service-card highlight fade-up" style="transition-delay:0.1s">
+          <span class="service-badge">⚡ Diferencial</span>
+          <span class="service-icon">🤖</span>
+          <h3>Automatización BIM</h3>
+          <p>Scripts en Python (pyRevit), Dynamo y AutoLISP que eliminan tareas repetitivas y reducen errores. Desarrollo a medida para tu flujo de trabajo específico.</p>
+          <a href="#contact" class="btn-service">Solicitar automatización →</a>
+        </div>
+
+        <div class="service-card fade-up" style="transition-delay:0.15s">
+          <span class="service-icon">🏥</span>
+          <h3>Infraestructura y Salud</h3>
+          <p>Coordinación BIM interdisciplinaria para hospitales, aeropuertos y edificios públicos de alta complejidad. Experiencia comprobada en proyectos de 75.000 a 320.000 m².</p>
+          <a href="#contact" class="btn-service">Solicitar cotización →</a>
+        </div>
+
+        <div class="service-card fade-up" style="transition-delay:0.2s">
+          <span class="service-icon">📐</span>
+          <h3>Detallamiento y Cubicaciones</h3>
+          <p>Planos de fabricación, cubicaciones precisas y reportes de perfiles de acero y hormigón. Norma chilena NCh y catálogo ICHA. Exportación directa a Excel y PDF.</p>
+          <a href="#contact" class="btn-service">Solicitar cotización →</a>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PORTFOLIO SECTION -->
-    <section
-      id="portfolio"
-      class="py-20 bg-white dark:bg-bim-dark transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
-          >
-            Proyectos Destacados
-          </h2>
-          <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
-          <p class="text-gray-400 mt-4">
-            Una selección de mis trabajos más recientes.
-          </p>
+  <!-- ===== TOOLS PREVIEW ===== -->
+  <section id="tools-preview">
+    <div class="container">
+      <p class="section-label fade-up">// Herramientas propias</p>
+      <h2 class="section-title fade-up">No solo diseño — también creo<br>las herramientas</h2>
+      <p class="section-subtitle fade-up">Recursos gratuitos para proyectistas estructurales, construidos con experiencia real de obra.</p>
+
+      <div class="tools-grid">
+
+        <div class="tool-card featured fade-up">
+          <div class="tool-thumb">📦</div>
+          <h3>Catálogo ICHA Digital</h3>
+          <p>Buscador interactivo de perfiles de acero estructural con propiedades mecánicas completas, cubicador por proyecto, comparador de perfiles y exportación a Excel y PDF. Norma chilena.</p>
+          <a href="tool/catalogo-icha.html" class="btn-tool">Usar herramienta →</a>
         </div>
 
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-bim-blue text-white border border-bim-blue"
-            data-filter="all"
-          >
-            Todos
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-            data-filter="revit"
-          >
-            Revit
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-            data-filter="tekla"
-          >
-            Tekla
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-            data-filter="navisworks"
-          >
-            Navisworks
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-            data-filter="civil-3d"
-          >
-            Civil 3D
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-            data-filter="autocad"
-          >
-            AutoCAD
-          </button>
-          <button
-            class="filter-btn px-6 py-2 rounded-full font-bold transition-all duration-300 bg-gray-800 text-gray-300 border border-gray-700 hover:border-bim-blue hover:text-white"
-            data-filter="acc"
-          >
-            ACC
-          </button>
+        <div class="tool-card fade-up" style="transition-delay:0.1s">
+          <div class="tool-thumb">📝</div>
+          <h3>Blog Técnico BIM</h3>
+          <p>Artículos sobre automatización, flujos de trabajo BIM y herramientas para proyectistas estructurales en Chile.</p>
+          <a href="blog/index.html" class="btn-tool">Leer el blog →</a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Aeropuerto AMB -->
-          <!-- Aeropuerto AMB -->
-          <div
-            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up"
-            data-software="revit"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="assets/img/amb_00.PNG"
-                alt="Aeropuerto AMB"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
-              >
-                Infraestructura
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <h3
-                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
-                >
-                  Aeropuerto AMB
-                </h3>
-                <span
-                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
-                  >2018</span
-                >
-              </div>
-
-              <p class="text-gray-400 text-sm mb-4">
-                Ampliación del Aeropuerto Internacional Arturo Merino Benítez.
-              </p>
-
-              <div class="mb-4">
-                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
-                  Tecnologías:
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >Revit</span
-                  >
-                </div>
-              </div>
-
-              <p
-                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
-              >
-                Diseño complejo de Terminal 2, Espigones y estacionamientos
-                cubriendo 320,000 m². Coordinación interdisciplinaria y gestión
-                de modelos BIM.
-              </p>
-
-              <a
-                href="project/aeropuerto-amb.html"
-                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
-              >
-                Ver detalles
-                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Máquina Papelera MP05 -->
-          <div
-            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-            data-software="revit"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="assets/img/mp5_01.png"
-                alt="Máquina Papelera MP05"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
-              >
-                Industrial
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <h3
-                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
-                >
-                  Máquina Papelera MP05
-                </h3>
-                <span
-                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
-                  >2023</span
-                >
-              </div>
-
-              <p class="text-gray-400 text-sm mb-4">
-                Ingeniería de detalles para ABSORMEX en México.
-              </p>
-
-              <div class="mb-4">
-                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
-                  Tecnologías:
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >Revit</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >BIM 360</span
-                  >
-                </div>
-              </div>
-
-              <p
-                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
-              >
-                Estructuras masivas para áreas de conversión, materia prima y
-                zonas de descarga (8000 m²).
-              </p>
-
-              <a
-                href="project/maquina-papelera.html"
-                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
-              >
-                Ver detalles
-                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Hospital Marga Marga -->
-          <div
-            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-            data-software="revit navisworks"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="assets/img/hmm_00.png"
-                alt="Hospital Marga Marga"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
-              >
-                Salud
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <h3
-                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
-                >
-                  Hospital Marga Marga
-                </h3>
-                <span
-                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
-                  >2019</span
-                >
-              </div>
-
-              <p class="text-gray-400 text-sm mb-4">
-                Complejo hospitalario de 75,000 m² en Villa Alemana.
-              </p>
-
-              <div class="mb-4">
-                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
-                  Tecnologías:
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >Revit</span
-                  >
-                </div>
-              </div>
-
-              <p
-                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
-              >
-                Diseño BIM completo de hormigón y coordinación
-                interdisciplinaria avanzada para recinto de alta complejidad.
-              </p>
-
-              <a
-                href="project/hospital-marga-marga.html"
-                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
-              >
-                Ver detalles
-                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Paso Los Libertadores -->
-          <div
-            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-            data-software="tekla"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="assets/img/pfll_00.JPG"
-                alt="Paso Los Libertadores"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
-              >
-                Civil
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <h3
-                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
-                >
-                  Paso fronterizo Los Libertadores
-                </h3>
-                <span
-                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
-                  >2015</span
-                >
-              </div>
-
-              <p class="text-gray-400 text-sm mb-4">
-                Nuevo complejo fronterizo de alta montaña.
-              </p>
-
-              <div class="mb-4">
-                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
-                  Tecnologías:
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >Tekla</span
-                  >
-                </div>
-              </div>
-
-              <p
-                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
-              >
-                Diseño de las estructuras principales del nuevo complejo,
-                ubicado a más de 3,200 metros de altura.
-              </p>
-
-              <a
-                href="project/paso-los-libertadores.html"
-                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
-              >
-                Ver detalles
-                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Proyecto Arqueros -->
-          <div
-            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-            data-software="revit acc"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="assets/img/arq_00.png"
-                alt="Proyecto Arqueros"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700"
-              >
-                Minería
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <h3
-                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
-                >
-                  Proyecto Arqueros
-                </h3>
-                <span
-                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
-                  >2024</span
-                >
-              </div>
-
-              <p class="text-gray-400 text-sm mb-4">
-                Desarrollo minero para producción de concentrados.
-              </p>
-
-              <div class="mb-4">
-                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
-                  Tecnologías:
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >Revit</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >ACC</span
-                  >
-                </div>
-              </div>
-
-              <p
-                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
-              >
-                Diseño estructural del chancador primario y estructuras anexas
-                críticas.
-              </p>
-
-              <a
-                href="project/proyecto-arqueros.html"
-                class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors"
-              >
-                Ver detalles
-                <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Proyecto Confidencial (Anteriormente Desaladora Sto. Domingo) -->
-          <div
-            class="project-card bg-white dark:bg-bim-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-bim-blue transition-all duration-300 group fade-in-up shadow-lg dark:shadow-none"
-            data-software="revit acc"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <div
-                class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-[2px]"
-              >
-                <span
-                  class="text-white font-black text-2xl tracking-widest uppercase border-4 border-white px-4 py-2 rotate-[-15deg] shadow-2xl"
-                >
-                  Confidencial
-                </span>
-              </div>
-              <img
-                src="assets/img/desal_00.png"
-                alt="Proyecto Confidencial"
-                class="w-full h-full object-cover blur-md grayscale transition-transform duration-500 group-hover:scale-110"
-                width="800"
-                height="600"
-                loading="lazy"
-                decoding="async"
-              />
-              <div
-                class="absolute top-4 right-4 bg-gray-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-gray-700 z-20"
-              >
-                Hidráulica
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-4">
-                <h3
-                  class="text-xl font-bold text-gray-900 dark:text-white uppercase leading-tight"
-                >
-                  Proyecto Confidencial
-                </h3>
-                <span
-                  class="text-xs font-bold text-gray-900 dark:text-white border border-gray-600 rounded-full px-2 py-1"
-                  >2025</span
-                >
-              </div>
-
-              <p class="text-gray-400 text-sm mb-4">
-                Proyecto estratégico de infraestructura.
-              </p>
-
-              <div class="mb-4">
-                <p class="text-gray-900 dark:text-white text-sm font-bold mb-2">
-                  Tecnologías:
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >Revit</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full font-medium"
-                    >ACC</span
-                  >
-                </div>
-              </div>
-
-              <p
-                class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3"
-              >
-                Diseño estructural y coordinación BIM para planta de procesos
-                industriales bajo acuerdo de confidencialidad.
-              </p>
-
-              <div
-                class="inline-flex items-center text-gray-500 font-bold cursor-not-allowed opacity-50"
-              >
-                Detalles Restringidos
-                <i class="fa-solid fa-lock ml-2 text-sm"></i>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section
-      id="contact"
-      class="py-20 bg-gradient-to-b from-white to-gray-100 dark:from-bim-dark dark:to-black transition-colors duration-300"
-    >
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
-          >
-            Hablemos de tu próximo proyecto
-          </h2>
-          <div class="h-1.5 w-24 bg-bim-blue mx-auto rounded-full"></div>
-          <p class="text-gray-600 dark:text-gray-400 mt-6 max-w-2xl mx-auto">
-            ¿Buscas optimizar tus procesos de diseño estructural o necesitas un
-            experto en BIM? Estoy disponible para nuevas oportunidades.
-          </p>
-        </div>
+  <!-- ===== EXPERIENCIA ===== -->
+  <section id="curriculum">
+    <div class="container">
+      <p class="section-label fade-up">// Trayectoria</p>
+      <h2 class="section-title fade-up">Experiencia y Formación</h2>
 
-        <div class="max-w-xl mx-auto">
-          <!-- Social Links & Info -->
-          <div class="space-y-8">
-            <div
-              class="glass-card p-8 rounded-2xl border border-gray-200 dark:border-gray-800"
-            >
-              <h3
-                class="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center"
-              >
-                Información de Contacto
-              </h3>
-              <div class="space-y-6">
-                <a
-                  href="mailto:andresgallo@pm.me"
-                  class="flex items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-bim-blue/10 transition-colors group"
-                >
-                  <div
-                    class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-bim-blue mr-4 group-hover:scale-110 transition-transform"
-                  >
-                    <i class="fa-regular fa-envelope text-xl"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      Email
-                    </p>
-                    <p class="text-gray-900 dark:text-white font-medium">
-                      andresgallo@pm.me
-                    </p>
-                  </div>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/andresgallop/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-bim-blue/10 transition-colors group"
-                >
-                  <div
-                    class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-400 mr-4 group-hover:scale-110 transition-transform"
-                  >
-                    <i class="fa-brands fa-linkedin-in text-xl"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      LinkedIn
-                    </p>
-                    <p class="text-gray-900 dark:text-white font-medium">
-                      /in/andresgallop
-                    </p>
-                  </div>
-                </a>
-                <a
-                  href="https://github.com/Atelijudesign"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 hover:bg-bim-blue/10 transition-colors group"
-                >
-                  <div
-                    class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-900 dark:text-white mr-4 group-hover:scale-110 transition-transform"
-                  >
-                    <i class="fa-brands fa-github text-xl"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
-                      GitHub
-                    </p>
-                    <p class="text-900 dark:text-white font-medium">
-                      Atelijudesign
-                    </p>
-                  </div>
-                </a>
+      <div class="exp-layout">
+
+        <div class="fade-up">
+          <p class="section-label">Experiencia profesional</p>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot active">🏗️</div>
+              <div class="timeline-body">
+                <div class="timeline-company">BIOSMI</div>
+                <div class="timeline-role">Proyectista / Diseñador BIM</div>
+                <div class="timeline-period">Ene 2026 — Presente</div>
+                <div class="timeline-desc">P1820 – MLC – Integración Segunda Etapa Lavado SX. Diseño BIM de especialidades de estructuras.</div>
               </div>
             </div>
 
-            <div class="text-center">
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
-                También puedes visitar mi portafolio externo:
-              </p>
-              <a
-                href="https://www.canva.com/design/DAF48WRhjNI/rPsDP_yJ4e1jWNUWTBATUw/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center text-bim-blue font-bold text-lg hover:text-blue-400 transition-colors group"
-              >
-                Ver Portafolio Digital
-                <i
-                  class="fa-solid fa-external-link-alt ml-2 text-sm group-hover:translate-x-1 transition-transform"
-                ></i>
-              </a>
+            <div class="timeline-item">
+              <div class="timeline-dot">⛏️</div>
+              <div class="timeline-body">
+                <div class="timeline-company">GHD</div>
+                <div class="timeline-role">Proyectista Estructural</div>
+                <div class="timeline-period">Dic 2024 — May 2025</div>
+                <div class="timeline-desc">Proyecto Arqueros. Diseño de estructura del chancador primario.</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot">⛏️</div>
+              <div class="timeline-body">
+                <div class="timeline-company">ARCADIS</div>
+                <div class="timeline-role">Proyectista Estructural</div>
+                <div class="timeline-period">Jun 2024 — Nov 2024</div>
+                <div class="timeline-desc">Proyecto Arqueros. Diseño de estructura del chancador primario.</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot">🏭</div>
+              <div class="timeline-body">
+                <div class="timeline-company">AFRY Chile</div>
+                <div class="timeline-role">Diseñador BIM Senior</div>
+                <div class="timeline-period">Dic 2022 — May 2024</div>
+                <div class="timeline-desc">Proyectos MP5 (Softys) y CMPC Laja. Diseño BIM de especialidades de estructura y arquitectura.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="fade-up" style="transition-delay:0.15s">
+          <p class="section-label">Certificaciones</p>
+          <div class="certs-grid">
+            <div class="cert-card">
+              <div class="cert-icon">🏅</div>
+              <div>
+                <div class="cert-name">Diseño BIM con Revit Structures</div>
+                <div class="cert-org">Certificación Profesional · 2024</div>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">🏅</div>
+              <div>
+                <div class="cert-name">Experto en Revit (Colaboración)</div>
+                <div class="cert-org">Autodesk / Training Center · 2023</div>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-icon">🏅</div>
+              <div>
+                <div class="cert-name">Tekla Structures</div>
+                <div class="cert-org"><a href="https://konstruedu.com/certificate/view/7da96496-76c2-11f0-aa26-026f7b22eb81" style="color:var(--accent2)">KONSTRUEDU</a> · 2022</div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <p class="section-label">Formación académica</p>
+          <div class="certs-grid">
+            <div class="cert-card">
+              <div class="cert-icon">🎓</div>
+              <div>
+                <div class="cert-name">Dibujante Técnico</div>
+                <div class="cert-org">Liceo Politécnico Galvarino N°2 · 2003–2005</div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer
-      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">
-          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
-        </p>
-        <p class="text-gray-600 text-xs mt-2">
-          Diseñado con pasión por la ingeniería y la tecnología.
-        </p>
+  <!-- ===== PORTAFOLIO ===== -->
+  <section id="portfolio">
+    <div class="container">
+      <p class="section-label fade-up">// Proyectos destacados</p>
+      <h2 class="section-title fade-up">Una selección de mis trabajos<br>más recientes</h2>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card fade-up">
+          <img src="assets/img/amb_00.PNG" alt="Aeropuerto AMB" class="portfolio-img" loading="lazy" decoding="async" />
+          <div class="portfolio-body">
+            <div class="portfolio-category">Infraestructura</div>
+            <h3>Aeropuerto AMB</h3>
+            <div class="portfolio-year">2018 · 320,000 m²</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Revit</span>
+            </div>
+            <p style="color:var(--muted2);font-size:0.85rem;margin-bottom:0.75rem;">Terminal 2, Espigones y estacionamientos. Coordinación interdisciplinaria completa.</p>
+            <a href="project/aeropuerto-amb.html" class="portfolio-link">Ver detalles →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-up" style="transition-delay:0.08s">
+          <img src="assets/img/mp5_01.png" alt="Máquina Papelera MP05" class="portfolio-img" loading="lazy" decoding="async" />
+          <div class="portfolio-body">
+            <div class="portfolio-category">Industrial</div>
+            <h3>Máquina Papelera MP05</h3>
+            <div class="portfolio-year">2023 · 8,000 m²</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Revit</span>
+              <span class="portfolio-tag">BIM 360</span>
+            </div>
+            <p style="color:var(--muted2);font-size:0.85rem;margin-bottom:0.75rem;">Ingeniería de detalles para ABSORMEX en México. Estructuras masivas de conversión.</p>
+            <a href="project/maquina-papelera.html" class="portfolio-link">Ver detalles →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-up" style="transition-delay:0.16s">
+          <img src="assets/img/hmm_00.png" alt="Hospital Marga Marga" class="portfolio-img" loading="lazy" decoding="async" />
+          <div class="portfolio-body">
+            <div class="portfolio-category">Salud</div>
+            <h3>Hospital Marga Marga</h3>
+            <div class="portfolio-year">2019 · 75,000 m²</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Revit</span>
+            </div>
+            <p style="color:var(--muted2);font-size:0.85rem;margin-bottom:0.75rem;">Diseño BIM completo de hormigón. Coordinación interdisciplinaria avanzada.</p>
+            <a href="project/hospital-marga-marga.html" class="portfolio-link">Ver detalles →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-up" style="transition-delay:0.08s">
+          <img src="assets/img/pfll_00.JPG" alt="Paso Los Libertadores" class="portfolio-img" loading="lazy" decoding="async" />
+          <div class="portfolio-body">
+            <div class="portfolio-category">Civil</div>
+            <h3>Paso Fronterizo Los Libertadores</h3>
+            <div class="portfolio-year">2015 · 35,000 m²</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Tekla</span>
+            </div>
+            <p style="color:var(--muted2);font-size:0.85rem;margin-bottom:0.75rem;">Estructuras principales del complejo fronterizo a 3,200 m de altitud.</p>
+            <a href="project/paso-los-libertadores.html" class="portfolio-link">Ver detalles →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-up" style="transition-delay:0.16s">
+          <img src="assets/img/arq_00.png" alt="Proyecto Arqueros" class="portfolio-img" loading="lazy" decoding="async" />
+          <div class="portfolio-body">
+            <div class="portfolio-category">Minería</div>
+            <h3>Proyecto Arqueros</h3>
+            <div class="portfolio-year">2024</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Revit</span>
+              <span class="portfolio-tag">ACC</span>
+            </div>
+            <p style="color:var(--muted2);font-size:0.85rem;margin-bottom:0.75rem;">Diseño estructural del chancador primario y estructuras anexas críticas.</p>
+            <a href="project/proyecto-arqueros.html" class="portfolio-link">Ver detalles →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card fade-up" style="transition-delay:0.24s">
+          <div class="confidential-overlay">🔒 Confidencial</div>
+          <div class="portfolio-body">
+            <div class="portfolio-category">Hidráulica</div>
+            <h3>Proyecto Confidencial</h3>
+            <div class="portfolio-year">2025</div>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Revit</span>
+              <span class="portfolio-tag">ACC</span>
+            </div>
+            <p style="color:var(--muted2);font-size:0.85rem;margin-bottom:0.75rem;">Diseño estructural y coordinación BIM bajo acuerdo de confidencialidad.</p>
+            <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--muted)">Detalles restringidos</span>
+          </div>
+        </div>
+
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- Back to Top Button -->
-    <button
-      id="back-to-top"
-      class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
-      aria-label="Volver al inicio"
-    >
-      <i
-        class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
-      ></i>
-    </button>
+  <!-- ===== CONTACTO ===== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
 
-    <!-- Scripts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "bim-blue": "#3b82f6",
-              "bim-dark": "#0b1220",
-              "bim-card": "#111827",
-              "bim-border": "#1f2937",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <script src="js/scripts.js" defer></script>
-  </body>
+        <div class="fade-up">
+          <p class="section-label">// Contacto</p>
+          <h2 class="section-title">Hablemos de tu<br>próximo proyecto</h2>
+          <p style="color:var(--muted2);margin-bottom:2rem;">¿Buscas optimizar tus procesos de diseño estructural o necesitas un experto BIM? Estoy disponible para nuevas oportunidades en Chile y el exterior.</p>
+
+          <div class="contact-info">
+            <a href="mailto:andresgallo@pm.me" class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">andresgallo@pm.me</div>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/andresgallop/" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-item-icon">💼</div>
+              <div>
+                <div class="contact-item-label">LinkedIn</div>
+                <div class="contact-item-value">/in/andresgallop</div>
+              </div>
+            </a>
+            <a href="https://github.com/Atelijudesign" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-item-icon">💻</div>
+              <div>
+                <div class="contact-item-label">GitHub</div>
+                <div class="contact-item-value">Atelijudesign</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="fade-up" style="transition-delay:0.15s">
+          <div class="contact-cta">
+            <div class="availability-badge" style="margin-bottom:1.25rem;">
+              <span class="dot-pulse"></span>
+              Disponible ahora
+            </div>
+            <h3>¿Tienes un proyecto en mente?</h3>
+            <p>Escríbeme directamente y te respondo en menos de 24 horas.</p>
+            <a href="mailto:andresgallo@pm.me" class="btn-cta-large">
+              ✉️ Enviar mensaje
+            </a>
+          </div>
+
+          <div class="contact-downloads">
+            <a href="Andres_Gallo_CV.pdf" class="btn-download" download>
+              ⬇ Descargar CV
+            </a>
+            <a href="Andres_Gallo_Portfolio.pdf" class="btn-download" download>
+              ⬇ Portafolio PDF
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Andrés Gallo <span>P.</span></div>
+        <div class="footer-copy">© 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="footer-tagline">// Diseñado con ingeniería y código</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    /* --- MOBILE MENU --- */
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.getElementById('navLinks').addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        document.getElementById('navLinks').classList.remove('open');
+      }
+    });
+
+    /* --- COUNTER ANIMATION --- */
+    function animateCounter(el, target, duration) {
+      duration = duration || 2000;
+      var start = 0;
+      var step = target / (duration / 16);
+      var timer = setInterval(function() {
+        start += step;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.textContent = Math.floor(start);
+      }, 16);
+    }
+
+    var statsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounter(document.getElementById('counter-years'), 15);
+          animateCounter(document.getElementById('counter-m2'), 500);
+          animateCounter(document.getElementById('counter-bim'), 100);
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    statsObserver.observe(document.getElementById('statsSection'));
+
+    /* --- FADE UP ANIMATION --- */
+    var fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
+
+    /* --- ACTIVE NAV LINK --- */
+    var navSections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-links a');
+    var navObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(a) { a.classList.remove('active'); });
+          var active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    navSections.forEach(function(s) { navObserver.observe(s); });
+  </script>
+
+</body>
 </html>
