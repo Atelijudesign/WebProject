@@ -28,7 +28,7 @@
     <meta property="og:locale" content="es_CL" />
 
     <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
 
     <link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
@@ -43,6 +43,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -55,7 +58,7 @@
               "bim-card": "#111827",
               "bim-border": "#1f2937",
             },
-            fontFamily: { sans: ["Inter", "sans-serif"] },
+            fontFamily: { sans: ["Inter", "sans-serif"], head: ["Space Grotesk", "sans-serif"], mono: ["Fira Code", "monospace"] },
           },
         },
       };
@@ -130,7 +133,8 @@
         border: 1px solid rgba(59, 130, 246, 0.2);
       }
     </style>
-  </head>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
   <body
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white min-h-screen"
   >
@@ -155,37 +159,37 @@
               <a
                 href="../index.html#home"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >INICIO</a
+                >Inicio</a
               >
               <a
                 href="../index.html#about"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >SOBRE MÍ</a
+                >Sobre Mí</a
               >
               <a
                 href="../index.html#curriculum"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >EXPERIENCIA</a
+                >Experiencia</a
               >
               <a
                 href="../index.html#portfolio"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >PORTAFOLIO</a
+                >Portafolio</a
               >
               <a
                 href="../blog/index.html"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >BLOG</a
+                >Blog</a
               >
               <a
                 href="../index.html#contact"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >CONTACTO</a
+                >Contacto</a
               >
               <a
                 href="index.html"
                 class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
-                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>TOOLS</a
+                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a
               >
             </div>
           </div>

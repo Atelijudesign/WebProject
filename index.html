@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self';" />
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io;" />
 
   <title>Andrés Gallo P. | BIM Developer & Structural Engineer</title>
   <meta name="description" content="Diseñador BIM Senior con 15+ años en minería, aeropuertos y hospitales. Automatización estructural con Python, Dynamo y C#." />
@@ -650,6 +650,58 @@
       .contact-downloads { flex-direction: column; }
     }
 
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .form-input, .form-textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.65rem 0.9rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      width: 100%;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      margin-top: 0.25rem;
+    }
+    .form-submit:hover { background: var(--accent2); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-msg {
+      display: none;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      margin-top: 0.5rem;
+    }
+    .form-msg.success { display: block; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #4ade80; }
+    .form-msg.error { display: block; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #f87171; }
     /* ===== FADE IN ANIMATION ===== */
     .fade-up {
       opacity: 0;
@@ -658,6 +710,7 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -1119,8 +1172,26 @@
               Disponible ahora
             </div>
             <h3>¿Tienes un proyecto en mente?</h3>
-            <p>Escríbeme directamente y te respondo en menos de 24 horas.</p>
-            <a href="mailto:andresgallo@pm.me" class="btn-cta-large">✉️ Enviar mensaje</a>
+            <p style="color:var(--muted2);font-size:0.9rem;margin-bottom:1.25rem;">Completa el formulario y te respondo en menos de 24 horas.</p>
+
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="fname" class="form-label">Nombre</label>
+                <input id="fname" name="name" type="text" class="form-input" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="femail" class="form-label">Email</label>
+                <input id="femail" name="email" type="email" class="form-input" placeholder="tu@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="fmsg" class="form-label">Mensaje</label>
+                <textarea id="fmsg" name="message" class="form-textarea" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+              </div>
+              <button type="submit" class="form-submit" id="formBtn">
+                <span id="formBtnText">Enviar mensaje</span>
+              </button>
+              <div class="form-msg" id="formMsg"></div>
+            </form>
           </div>
 
           <div class="contact-downloads">
@@ -1189,6 +1260,42 @@
         }
       }, { threshold: 0.4 }).observe(s);
     });
+
+    /* CONTACT FORM — Formspree AJAX */
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = document.getElementById('formBtn');
+        var btnText = document.getElementById('formBtnText');
+        var msg = document.getElementById('formMsg');
+        btn.disabled = true;
+        btnText.textContent = 'Enviando...';
+        msg.className = 'form-msg';
+        fetch('https://formspree.io/f/mojkoayd', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        })
+        .then(function(res) {
+          if (res.ok) {
+            msg.textContent = '✓ Mensaje enviado. Te respondo pronto.';
+            msg.className = 'form-msg success';
+            contactForm.reset();
+          } else {
+            return res.json().then(function(data) { throw data; });
+          }
+        })
+        .catch(function() {
+          msg.textContent = '✗ Error al enviar. Escríbeme a andresgallo@pm.me';
+          msg.className = 'form-msg error';
+        })
+        .finally(function() {
+          btn.disabled = false;
+          btnText.textContent = 'Enviar mensaje';
+        });
+      });
+    }
   </script>
 
 </body>

@@ -18,6 +18,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
     <script>
@@ -31,7 +34,7 @@
               "bim-card": "#111827",
               "bim-border": "#1f2937",
             },
-            fontFamily: { sans: ["Inter", "sans-serif"] },
+            fontFamily: { sans: ["Inter", "sans-serif"], head: ["Space Grotesk", "sans-serif"], mono: ["Fira Code", "monospace"] },
           },
         },
       };
@@ -68,7 +71,8 @@
         filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
       }
     </style>
-  </head>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
   <body
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased"
   >
