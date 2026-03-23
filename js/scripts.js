@@ -1,20 +1,4 @@
-// --- Dark Mode: aplica preferencia guardada antes del render ---
-(function () {
-  if (localStorage.getItem("theme") === "light") {
-    document.documentElement.classList.remove("dark");
-  }
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Dark Mode Toggle ---
-  const themeToggle = document.getElementById("theme-toggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
-
   // --- Animaciones de Entrada y Contador ---
   const animatedElements = document.querySelectorAll(
     ".fade-in-up, #stats-container",
