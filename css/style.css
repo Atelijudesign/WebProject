@@ -1315,6 +1315,7 @@
       transform: translateY(0);
     }
 
+/* ─── GLOBAL TYPOGRAPHY OVERRIDE ─── */    body { font-family: "Inter", sans-serif !important; }    h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }    code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
     /* ─── GLASS COMPONENTS — used by blog/, project/ pages ─── */
     .glass-nav {
       background: rgba(255, 255, 255, 0.9);
