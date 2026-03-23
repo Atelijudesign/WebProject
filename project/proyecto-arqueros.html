@@ -27,6 +27,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Typography overrides — after Tailwind CDN */
+      body { font-family: "Inter", sans-serif !important; }
+      h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
+      code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
+      #logo span { font-family: "Space Grotesk", sans-serif !important; font-size: 1.05rem !important; font-weight: 800 !important; letter-spacing: -0.01em; }
+      #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
+    </style>
     <script>
       tailwind.config = {
         darkMode: "class",
