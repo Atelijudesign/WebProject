@@ -937,16 +937,19 @@
 
     .portfolio-link {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted2);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      transition: color var(--transition);
+      gap: 6px;
+      letter-spacing: 0.03em;
+      transition: color var(--transition), gap var(--transition);
     }
 
     .portfolio-link:hover {
-      color: var(--accent);
+      color: var(--accent2);
+      gap: 10px;
     }
 
     .confidential-overlay {
