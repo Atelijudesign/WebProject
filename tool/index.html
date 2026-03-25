@@ -26,6 +26,14 @@
       content="https://atelijudesign.com/tool/index.html"
     />
     <meta property="og:locale" content="es_CL" />
+    <meta property="og:image" content="https://atelijudesign.com/assets/img/og-preview.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Herramientas BIM para Ingenieros Estructurales | Andrés Gallo P." />
+    <meta name="twitter:description" content="Calculadoras de acero, catálogos digitales y utilidades para proyectistas estructurales." />
+    <meta name="twitter:image" content="https://atelijudesign.com/assets/img/og-preview.jpg" />
+
+    <link rel="canonical" href="https://atelijudesign.com/tool/index.html" />
 
     <meta http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
@@ -172,9 +180,14 @@
                 >Sobre Mí</a
               >
               <a
-                href="../#curriculum"
+                href="../#automation"
                 class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Experiencia</a
+                >Automatización</a
+              >
+              <a
+                href="../#services"
+                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+                >Servicios</a
               >
               <a
                 href="../#portfolio"
@@ -231,9 +244,14 @@
             >Sobre Mí</a
           >
           <a
-            href="../#curriculum"
+            href="../#automation"
             class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Experiencia</a
+            >Automatización</a
+          >
+          <a
+            href="../#services"
+            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+            >Servicios</a
           >
           <a
             href="../#portfolio"
@@ -452,6 +470,45 @@
         </div>
       </div>
     </section>
+
+    <!-- Lead Capture -->
+    <section id="tools-newsletter" class="py-14 border-t border-gray-800">
+      <div class="max-w-lg mx-auto px-4 text-center">
+        <p class="text-xs font-mono text-bim-blue tracking-widest uppercase mb-2">// Newsletter</p>
+        <h2 class="text-2xl font-bold text-white mb-2">Recibe nuevas herramientas BIM antes que nadie</h2>
+        <p class="text-gray-400 text-sm mb-6">Sin spam. Solo utilidades reales para proyectistas estructurales.</p>
+        <form id="tools-newsletter-form" action="https://formspree.io/f/mojkoayd" method="POST"
+          class="flex flex-col sm:flex-row gap-3 justify-center">
+          <input type="hidden" name="_subject" value="Nueva suscripción desde Tools" />
+          <input type="email" name="email" placeholder="tu@email.com" required
+            class="flex-1 px-4 py-2.5 rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-bim-blue text-sm" />
+          <button type="submit"
+            class="whitespace-nowrap px-6 py-2.5 bg-bim-blue hover:bg-blue-500 text-white font-semibold rounded-lg text-sm transition-colors">
+            Suscribirme gratis →
+          </button>
+        </form>
+        <p id="tools-newsletter-ok" class="hidden mt-4 text-emerald-400 text-sm font-medium">
+          ¡Listo! Te avisaremos cuando haya nuevas herramientas.
+        </p>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var form = document.getElementById('tools-newsletter-form');
+        var ok = document.getElementById('tools-newsletter-ok');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          }).then(function (r) {
+            if (r.ok) { form.classList.add('hidden'); ok.classList.remove('hidden'); }
+          });
+        });
+      })();
+    </script>
 
     <!-- Footer -->
     <footer class="py-8 border-t border-gray-800">

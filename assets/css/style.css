@@ -406,6 +406,17 @@
       align-items: start;
     }
 
+    .about-photo-wrap { margin-bottom: 1.5rem; }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      display: block;
+    }
+
     .about-text p {
       color: var(--muted2);
       margin-bottom: 1.2rem;
@@ -1241,7 +1252,8 @@
     }
 
     .form-input,
-    .form-textarea {
+    .form-textarea,
+    select.form-input {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: 6px;
@@ -1260,8 +1272,22 @@
     }
 
     .form-input:focus,
-    .form-textarea:focus {
+    .form-textarea:focus,
+    select.form-input:focus {
       border-color: var(--accent);
+    }
+
+    select.form-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      cursor: pointer;
+    }
+
+    select.form-input option {
+      background: #0d1420;
+      color: var(--text);
     }
 
     .form-textarea {
