@@ -475,7 +475,7 @@
     <section id="tools-newsletter" class="py-14 border-t border-gray-800">
       <div class="max-w-lg mx-auto px-4 text-center">
         <p class="text-xs font-mono text-bim-blue tracking-widest uppercase mb-2">// Newsletter</p>
-        <h2 class="text-2xl font-bold text-white mb-2">Recibe nuevas herramientas BIM antes que nadie</h2>
+        <h2 class="text-2xl font-bold text-white mb-2 whitespace-nowrap">Recibe cada nueva herramienta BIM en tu correo</h2>
         <p class="text-gray-400 text-sm mb-6">Sin spam. Solo utilidades reales para proyectistas estructurales.</p>
         <form id="tools-newsletter-form" action="https://formspree.io/f/mojkoayd" method="POST"
           class="flex flex-col sm:flex-row gap-3 justify-center">
@@ -487,27 +487,41 @@
             Suscribirme gratis →
           </button>
         </form>
-        <p id="tools-newsletter-ok" class="hidden mt-4 text-emerald-400 text-sm font-medium">
-          ¡Listo! Te avisaremos cuando haya nuevas herramientas.
-        </p>
+        <p id="newsletter-msg" style="display:none; margin-top: 0.75rem; font-size: 0.9rem;"></p>
       </div>
     </section>
     <script>
-      (function () {
-        var form = document.getElementById('tools-newsletter-form');
-        var ok = document.getElementById('tools-newsletter-ok');
-        if (!form) return;
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { Accept: 'application/json' }
-          }).then(function (r) {
-            if (r.ok) { form.classList.add('hidden'); ok.classList.remove('hidden'); }
-          });
+      document.getElementById('tools-newsletter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var msg = document.getElementById('newsletter-msg');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+        fetch('https://formspree.io/f/mojkoayd', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(this)
+        })
+        .then(function (res) {
+          if (res.ok) {
+            msg.textContent = '✓ ¡Suscrito! Te avisamos cuando haya nuevas herramientas.';
+            msg.style.display = 'block';
+            msg.style.color = '#4ade80';
+            document.getElementById('tools-newsletter-form').reset();
+          } else {
+            throw new Error();
+          }
+        })
+        .catch(function () {
+          msg.textContent = '✗ Error al enviar. Escríbenos a andresgallo@pm.me';
+          msg.style.display = 'block';
+          msg.style.color = '#f87171';
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Suscribirme gratis →';
         });
-      })();
+      });
     </script>
 
     <!-- Footer -->
