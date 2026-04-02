@@ -26,17 +26,19 @@
        ═══════════════════════════════════════ -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="../index.html" class="logo" id="logo">
-        <div class="logo-icon">AG</div>
-        <span>Andrés Gallo</span>
-      </a>
-      <nav class="nav-links">
-        <a href="../index.html" class="nav-link" id="nav-home">Inicio</a>
-        <a href="#dashboard" class="nav-link active" id="nav-dashboard">Dashboard</a>
-        <a href="#timeline" class="nav-link" id="nav-timeline">Trayectoria</a>
-        <a href="#projects" class="nav-link" id="nav-projects">Proyectos</a>
-        <a href="#stats" class="nav-link" id="nav-stats">Estadísticas</a>
+      <a href="../index.html" class="nav-logo">Andrés Gallo <span>BIM</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../index.html" class="nav-link">Inicio</a>
+        <a href="../index.html#about" class="nav-link">Sobre Mí</a>
+        <a href="../index.html#automation" class="nav-link">Automatización</a>
+        <a href="../index.html#services" class="nav-link">Servicios</a>
+        <a href="../index.html#portfolio" class="nav-link">Portafolio</a>
+        <a href="./" class="nav-link active">Proyectos</a>
+        <a href="../blog/blog.html" class="nav-link">Blog</a>
+        <a href="../tool/index.html" class="nav-link">Tools</a>
+        <a href="../index.html#contact" class="nav-link nav-cta">Contacto →</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
     </div>
   </header>
 
@@ -67,12 +69,7 @@
           <div class="kpi-label">Años Experiencia</div>
           <div class="kpi-sub">desde 2006 a 2025</div>
         </div>
-        <div class="kpi-card" id="kpi-employers">
-          <span class="kpi-icon">🏢</span>
-          <div class="kpi-value" data-count="11">0</div>
-          <div class="kpi-label">Empleadores</div>
-          <div class="kpi-sub">nacionales e internacionales</div>
-        </div>
+
         <div class="kpi-card" id="kpi-countries">
           <span class="kpi-icon">🌎</span>
           <div class="kpi-value" data-count="3">0</div>
@@ -90,6 +87,20 @@
           <div class="kpi-value" data-count="1">0</div>
           <div class="kpi-label">En Curso</div>
           <div class="kpi-sub">proyecto activo actualmente</div>
+        </div>
+
+        <!-- Nuevos KPIs Volumétricos (v1.12) -->
+        <div class="kpi-card" id="kpi-concrete">
+          <span class="kpi-icon">🧱</span>
+          <div class="kpi-value">0</div>
+          <div class="kpi-label">Total Hormigón</div>
+          <div class="kpi-sub">m³ acumulados</div>
+        </div>
+        <div class="kpi-card" id="kpi-steel">
+          <span class="kpi-icon">🏗️</span>
+          <div class="kpi-value">0</div>
+          <div class="kpi-label">Total Acero</div>
+          <div class="kpi-sub">Ton. estructurales</div>
         </div>
       </div>
     </div>
@@ -182,7 +193,6 @@
               <th>Cliente</th>
               <th>Tipo</th>
               <th>Material</th>
-              <th>Período</th>
               <th>Estado</th>
             </tr>
           </thead>

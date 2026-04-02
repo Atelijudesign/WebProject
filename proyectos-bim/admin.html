@@ -6,9 +6,14 @@
   <title>Admin — Proyectos BIM</title>
   <meta name="robots" content="noindex, nofollow">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;" />
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;" />
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.11/runtime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
 </head>
 <body>
 
@@ -82,18 +87,58 @@
           <div class="admin-stat-value" id="stat-companies">0</div>
           <div class="admin-stat-label">Empresas</div>
         </div>
+        <div class="admin-stat" style="border-left: 2px solid var(--accent);">
+          <div class="admin-stat-value" id="stat-concrete">0</div>
+          <div class="admin-stat-label">Hormigón (m³)</div>
+        </div>
+        <div class="admin-stat" style="border-left: 2px solid var(--accent);">
+          <div class="admin-stat-value" id="stat-steel">0</div>
+          <div class="admin-stat-label">Acero (Ton.)</div>
+        </div>
       </div>
 
-      <!-- Toolbar -->
-      <div class="admin-toolbar">
-        <div class="admin-search">
-          <input type="text" placeholder="Buscar proyectos..." id="admin-search-input"
-                 oninput="renderAdminTable(this.value)" autocomplete="off">
+      <!-- Filters container -->
+      <div class="admin-filters-container">
+        <!-- Toolbar -->
+        <div class="admin-toolbar">
+          <div class="admin-search">
+            <input type="text" placeholder="Buscar proyectos..." id="admin-search-input"
+                   oninput="applyAdminFilters()" autocomplete="off">
+          </div>
+          <div style="display:flex;gap:0.75rem;align-items:center;">
+            <span id="admin-results-count" style="font-size: 0.85rem; color: var(--text-muted); margin-right: 0.5rem; white-space:nowrap;"></span>
+            <button class="btn btn-secondary" title="Exportar a Excel" onclick="exportExcel()">📊 Excel</button>
+            <button class="btn btn-secondary" title="Exportar a PDF" onclick="exportPDF()">📄 PDF</button>
+            <button class="btn btn-primary" onclick="openNewProject()">➕ Nuevo Proyecto</button>
+            <a href="index.html" class="btn btn-secondary" target="_blank">👁️ Ver</a>
+          </div>
         </div>
-        <div style="display:flex;gap:0.75rem;">
-          <button class="btn btn-primary" onclick="openNewProject()">➕ Nuevo Proyecto</button>
-          <a href="index.html" class="btn btn-secondary" target="_blank">👁️ Ver sitio público</a>
+        
+        <!-- Advanced Filters -->
+        <div class="admin-advanced-filters">
+          <select class="form-select btn-sm" id="filter-empresa" onchange="applyAdminFilters()">
+            <option value="">Todas las Empresas</option>
+          </select>
+          <select class="form-select btn-sm" id="filter-cliente" onchange="applyAdminFilters()">
+            <option value="">Todos los Clientes</option>
+          </select>
+          <select class="form-select btn-sm" id="filter-tipo" onchange="applyAdminFilters()">
+            <option value="">Todos los Tipos</option>
+          </select>
+          <select class="form-select btn-sm" id="filter-estado" onchange="applyAdminFilters()">
+            <option value="">Todos los Estados</option>
+            <option value="Completado">Completado</option>
+            <option value="En Curso">En Curso</option>
+          </select>
+          <button class="btn btn-clear btn-sm" onclick="clearAdminFilters()">Limpiar</button>
         </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; margin-bottom: 1rem; align-items:center; background: rgba(59, 130, 246, 0.05); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.1);">
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">
+          <i style="color:var(--accent-primary);" class="fa-solid fa-arrows-up-down"></i> Puedes arrastrar las filas usando el ícono (≡) para reordenar los proyectos.
+        </span>
+        <button id="btn-save-order" class="btn btn-primary btn-sm" style="display:none; gap: 0.5rem; animation: fadeIn 0.3s;" onclick="saveNewOrder()">💾 Guardar Nuevo Orden</button>
       </div>
 
       <!-- Table -->
@@ -101,12 +146,14 @@
         <table class="admin-table">
           <thead>
             <tr>
+              <th style="width: 40px; text-align: center;"></th>
               <th>ID</th>
               <th>Nombre</th>
               <th>Empresa</th>
               <th>Cliente</th>
               <th>Tipo</th>
-              <th>Período</th>
+              <th>Hormigón (m³)</th>
+              <th>Acero (Ton.)</th>
               <th>Estado</th>
               <th>Acciones</th>
             </tr>
@@ -155,29 +202,26 @@
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="f-client">Cliente</label>
-              <input class="form-input" id="f-client" placeholder="Cliente final">
+              <input class="form-input" id="f-client" placeholder="Cliente final" list="list-clients">
             </div>
             <div class="form-group">
               <label class="form-label" for="f-company">Empresa *</label>
-              <input class="form-input" id="f-company" placeholder="Empresa empleadora" required>
+              <input class="form-input" id="f-company" placeholder="Empresa empleadora" required list="list-companies">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="f-country">País</label>
-              <input class="form-input" id="f-country" placeholder="Chile" value="Chile">
+              <input class="form-input" id="f-country" placeholder="Chile" value="Chile" list="list-countries">
             </div>
             <div class="form-group">
               <label class="form-label" for="f-city">Ciudad</label>
-              <input class="form-input" id="f-city" placeholder="Santiago">
+              <input class="form-input" id="f-city" placeholder="Santiago" list="list-cities">
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="f-period">Período</label>
-            <input class="form-input" id="f-period" placeholder="Mar 2024–Dic 2025">
-          </div>
+
 
           <div class="form-row">
             <div class="form-group">
@@ -192,23 +236,41 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="f-type">Tipo de Proyecto</label>
-              <input class="form-input" id="f-type" placeholder="Industrial / Manufactura">
+              <label class="form-label" for="f-type">Sector / Industria</label>
+              <input class="form-input" id="f-type" placeholder="Industrial / Manufactura" list="list-types">
             </div>
             <div class="form-group">
+              <label class="form-label" for="f-phase">Etapa de Ingeniería</label>
+              <input class="form-input" id="f-phase" placeholder="Ingeniería de Detalles" list="list-phases">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
               <label class="form-label" for="f-material">Material</label>
-              <input class="form-input" id="f-material" placeholder="Acero + Hormigón">
+              <input class="form-input" id="f-material" placeholder="Acero + Hormigón" list="list-materials">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-concrete">Volumen m³ Hormigón Total</label>
+              <input class="form-input" id="f-concrete" type="number" step="0.1" placeholder="Ej: 450.5">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-steel">Toneladas Acero Estructural Total</label>
+              <input class="form-input" id="f-steel" type="number" step="0.1" placeholder="Ej: 120.3">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="f-role">Rol</label>
-              <input class="form-input" id="f-role" placeholder="Proyectista Estructural" value="Proyectista Estructural">
+              <input class="form-input" id="f-role" placeholder="Proyectista Estructural" value="Proyectista Estructural" list="list-roles">
             </div>
             <div class="form-group">
               <label class="form-label" for="f-software">Software</label>
-              <input class="form-input" id="f-software" placeholder="Revit Structure, Navisworks">
+              <input class="form-input" id="f-software" placeholder="Revit Structure, Navisworks" list="list-softwares">
             </div>
           </div>
 
@@ -219,10 +281,23 @@
 
           <div class="form-group">
             <label class="form-label" for="f-activities">Actividades Clave</label>
-            <textarea class="form-textarea" id="f-activities" placeholder="Modelado BIM, planos detalle, coordinación especialidades"></textarea>
+            <input class="form-input" id="f-activities" placeholder="Modelado BIM, planos detalle, coordinación especialidades" list="list-activities">
           </div>
 
         </div>
+        
+        <!-- Datalists for Autocomplete -->
+        <datalist id="list-clients"></datalist>
+        <datalist id="list-companies"></datalist>
+        <datalist id="list-countries"></datalist>
+        <datalist id="list-cities"></datalist>
+        <datalist id="list-types"></datalist>
+        <datalist id="list-phases"></datalist>
+        <datalist id="list-materials"></datalist>
+        <datalist id="list-roles"></datalist>
+        <datalist id="list-softwares"></datalist>
+        <datalist id="list-activities"></datalist>
+
         <div class="admin-modal-footer">
           <button type="button" class="btn btn-secondary" onclick="closeFormModal()">Cancelar</button>
           <button type="submit" class="btn btn-primary" id="save-btn">Guardar</button>
@@ -250,6 +325,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Version Badge for Debugging (v1.7) -->
+  <div id="version-badge" style="position:fixed; bottom:10px; right:10px; background:rgba(15, 23, 42, 0.9); color:#3b82f6; padding:4px 10px; border-radius:12px; font-size:11px; z-index:9999; border:1px solid #3b82f6; pointer-events:none; box-shadow:0 0 15px rgba(59,130,246,0.3)">v1.7 Bulletproof Active</div>
 
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

@@ -13,18 +13,18 @@ let PROJECTS = [];
 
 // ── Timeline Data (static, from dashboard) ──
 const TIMELINE = [
-  { company:"I. Mun. de Lampa", period:"Ene–May 2006", country:"Chile", projects:1, role:"Dibujante Técnico (Práctica)" },
-  { company:"FUSI", period:"2010–2011", country:"Chile", projects:1, role:"Proyectista Estructural" },
-  { company:"JQ Proyectos", period:"2012–2013", country:"Chile", projects:3, role:"Proyectista Estructural" },
-  { company:"TYPSA", period:"2014–2015", country:"Chile", projects:10, role:"Proyectista Estructural" },
-  { company:"Sirve", period:"2015–2017", country:"Chile", projects:4, role:"Proyectista Estructural" },
-  { company:"CJV Construction", period:"2018–2019", country:"Chile", projects:7, role:"Proyectista Estructural" },
-  { company:"Sincal", period:"2021–2022", country:"Chile", projects:9, role:"Proyectista Estructural" },
-  { company:"AFRY", period:"2022–2024", country:"Chile / AR / MX", projects:6, role:"Proyectista Estructural" },
-  { company:"Arcadis", period:"2024", country:"Chile", projects:1, role:"Proyectista Estructural" },
-  { company:"Black & Veatch", period:"2024–2025", country:"Chile", projects:1, role:"Proyectista Estructural" },
+  { company:"BIOSMI", period:"2026", country:"Chile", projects:2, role:"Proyectista Estructural" },
   { company:"GHD", period:"2024–2025", country:"Chile", projects:0, role:"Proyectista Estructural" },
-  { company:"BIOS MI", period:"2025", country:"Chile", projects:2, role:"Proyectista Estructural" }
+  { company:"Black & Veatch", period:"2025", country:"Chile", projects:1, role:"Proyectista Estructural" },
+  { company:"Arcadis", period:"2024", country:"Chile", projects:1, role:"Proyectista Estructural" },
+  { company:"AFRY", period:"2022–2024", country:"Chile / AR / MX", projects:6, role:"Proyectista Estructural" },
+  { company:"Sincal", period:"2021–2022", country:"Chile", projects:9, role:"Proyectista Estructural" },
+  { company:"CJV Construction", period:"2018–2019", country:"Chile", projects:7, role:"Proyectista Estructural" },
+  { company:"Sirve", period:"2015–2017", country:"Chile", projects:4, role:"Proyectista Estructural" },
+  { company:"TYPSA", period:"2014–2015", country:"Chile", projects:10, role:"Proyectista Estructural" },
+  { company:"JQ Proyectos", period:"2012–2013", country:"Chile", projects:3, role:"Proyectista Estructural" },
+  { company:"FUSI", period:"2010–2011", country:"Chile", projects:1, role:"Proyectista Estructural" },
+  { company:"I. Municipalidad de Lampa", period:"Ene–May 2006", country:"Chile", projects:1, role:"Dibujante Técnico (Práctica)" }
 ];
 
 // ── Active Filters State ──
@@ -84,7 +84,10 @@ async function loadFromSupabase() {
       yearStart: row.year_start,
       yearEnd: row.year_end,
       type: row.project_type,
+      phase: row.phase,
       material: row.material,
+      concrete_volume: row.concrete_volume,
+      steel_weight: row.steel_weight,
       role: row.role,
       software: row.software,
       status: row.status,
@@ -236,23 +239,32 @@ function countBy(field) {
 
 function filterProjects() {
   return PROJECTS.filter(p => {
+    const pCompany = (p.company || '').trim().toLowerCase();
+    const pClient = (p.client || '').trim().toLowerCase();
+    const pType = (p.type || '').trim().split('/')[0].toLowerCase();
+    const pMaterial = (p.material || '').trim().toLowerCase();
+    const pSoftware = (p.software || '').trim().toLowerCase();
+    const pStatus = (p.status || '').trim().toLowerCase();
+    const pCountry = (p.country || '').trim().toLowerCase();
+
     if (state.search) {
       const q = state.search.toLowerCase();
-      const searchable = [p.id, p.name, p.client, p.company, p.city, p.type, p.material, p.software, p.desc, p.activities].join(' ').toLowerCase();
+      const searchable = [p.id, p.name, pClient, pCompany, p.city, p.type, pMaterial, pSoftware, p.desc, p.activities].join(' ').toLowerCase();
       if (!searchable.includes(q)) return false;
     }
-    if (state.companies.length && !state.companies.includes(p.company)) return false;
-    if (state.types.length) {
-      const category = p.type.split('/')[0].trim();
-      if (!state.types.includes(category)) return false;
-    }
-    if (state.materials.length && !state.materials.includes(p.material)) return false;
-    if (state.software.length) {
-      const soft = p.software.split(',').map(s => s.trim());
-      if (!state.software.some(s => soft.includes(s))) return false;
-    }
-    if (state.countries.length && !state.countries.includes(p.country)) return false;
-    if (state.statuses.length && !state.statuses.includes(p.status)) return false;
+
+    if (state.companies.length && !state.companies.some(c => c.trim().toLowerCase() === pCompany)) return false;
+
+    if (state.types.length && !state.types.some(t => t.trim().toLowerCase() === pType)) return false;
+
+    if (state.materials.length && !state.materials.some(m => m.trim().toLowerCase() === pMaterial)) return false;
+
+    if (state.software.length && !state.software.some(s => pSoftware.includes(s.trim().toLowerCase()))) return false;
+
+    if (state.countries.length && !state.countries.some(c => c.trim().toLowerCase() === pCountry)) return false;
+
+    if (state.statuses.length && !state.statuses.some(s => s.trim().toLowerCase() === pStatus)) return false;
+
     return true;
   });
 }
@@ -271,38 +283,102 @@ function animateCounter(el, target, suffix = '') {
   }, 16);
 }
 
-function initKPIs() {
-  // Update KPI values based on actual data
-  const kpiProjects = document.querySelector('#kpi-projects .kpi-value');
-  if (kpiProjects) kpiProjects.dataset.count = PROJECTS.length;
+function updateKPIs(dataArray = PROJECTS) {
+  const target = dataArray || [];
   
-  const kpiActive = document.querySelector('#kpi-active .kpi-value');
-  if (kpiActive) kpiActive.dataset.count = PROJECTS.filter(p => p.status === 'En Curso').length;
-
-  const counters = document.querySelectorAll('[data-count]');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        animateCounter(el, el.dataset.count, el.dataset.suffix || '');
-        observer.unobserve(el);
+  // Total Proyectos
+  const kpiProjects = document.querySelector('#kpi-projects .kpi-value');
+  if (kpiProjects) {
+    animateCounter(kpiProjects, target.length, kpiProjects.dataset.suffix || '');
+  }
+  
+  // Años de Experiencia (Calculamos el rango real de años en la data filtrada)
+  const kpiYears = document.querySelector('#kpi-years .kpi-value');
+  if (kpiYears) {
+    const years = new Set();
+    target.forEach(p => {
+      const start = parseInt(p.yearStart);
+      const end = parseInt(p.yearEnd);
+      if (!isNaN(start) && !isNaN(end)) {
+        for (let y = start; y <= end; y++) years.add(y);
       }
     });
-  }, { threshold: 0.5 });
-  counters.forEach(c => observer.observe(c));
+    animateCounter(kpiYears, years.size, kpiYears.dataset.suffix || '+');
+  }
+
+  // Países (Únicos en la data filtrada)
+  const kpiCountries = document.querySelector('#kpi-countries .kpi-value');
+  if (kpiCountries) {
+    const unique = new Set(target.map(p => String(p.country || '').trim().toLowerCase()).filter(v => !!v)).size;
+    animateCounter(kpiCountries, unique, kpiCountries.dataset.suffix || '');
+  }
+
+  // Sectores (Categoría principal del campo 'type')
+  const kpiSectors = document.querySelector('#kpi-sectors .kpi-value');
+  if (kpiSectors) {
+    const sectors = new Set(target.map(p => String(p.type || '').split('/')[0].trim().toLowerCase()).filter(v => !!v)).size;
+    animateCounter(kpiSectors, sectors, kpiSectors.dataset.suffix || '+');
+  }
+
+  // En Curso (Estado activo)
+  const kpiActive = document.querySelector('#kpi-active .kpi-value');
+  if (kpiActive) {
+    const count = target.filter(p => {
+      const s = String(p.status || '').trim().toLowerCase();
+      return s.includes('curso') || s.includes('progreso');
+    }).length;
+    animateCounter(kpiActive, count, kpiActive.dataset.suffix || '');
+  }
+
+  // TOTAL HORMIGÓN (Suma del dataset filtrado)
+  const kpiConcrete = document.getElementById('kpi-concrete');
+  if (kpiConcrete) {
+    const total = target.reduce((sum, p) => sum + (parseFloat(p.concrete_volume) || 0), 0);
+    const valueEl = kpiConcrete.querySelector('.kpi-value');
+    animateCounter(valueEl, total, ' m³');
+  }
+
+  // TOTAL ACERO (Suma del dataset filtrado)
+  const kpiSteel = document.getElementById('kpi-steel');
+  if (kpiSteel) {
+    const total = target.reduce((sum, p) => sum + (parseFloat(p.steel_weight) || 0), 0);
+    const valueEl = kpiSteel.querySelector('.kpi-value');
+    animateCounter(valueEl, total, ' Ton.');
+  }
+}
+
+function initKPIs() {
+  console.log("%c[PORTFOLIO LOGIC] v1.8 Final Dashboard Sync Active", "color: #10b981; font-weight: bold;");
+  updateKPIs(PROJECTS);
 }
 
 function renderTimeline() {
   const container = document.getElementById('timeline-inner');
   if (!container) return;
-  container.innerHTML = '<div class="timeline-line"></div>' + TIMELINE.map(t => `
-    <div class="timeline-item" data-company="${t.company}">
-      <div class="timeline-count">${t.projects} proy.</div>
+
+  // Auto-sort TIMELINE by the newest year found in "period"
+  const extractMaxYear = (periodStr) => {
+    const years = periodStr.match(/\d{4}/g);
+    return years ? Math.max(...years.map(Number)) : 0;
+  };
+  TIMELINE.sort((a, b) => extractMaxYear(b.period) - extractMaxYear(a.period));
+
+  container.innerHTML = '<div class="timeline-line"></div>' + TIMELINE.map(t => {
+    const lowerCompany = t.company.trim().toLowerCase();
+    const matchedProjects = PROJECTS.filter(p => p.company.trim().toLowerCase() === lowerCompany);
+    const displayCount = matchedProjects.length;
+    // Use the actual company name from PROJECTS to ensure filter matching
+    const actualCompany = matchedProjects.length > 0 ? matchedProjects[0].company : t.company;
+
+    return `
+    <div class="timeline-item" data-company="${actualCompany}">
+      <div class="timeline-count">${displayCount} proy.</div>
       <div class="timeline-company">${t.company}</div>
       <div class="timeline-dot"></div>
-      <div class="timeline-period">${t.period}</div>
     </div>
-  `).join('');
+    `;
+  }).join('');
+
   container.querySelectorAll('.timeline-item').forEach(item => {
     item.addEventListener('click', () => toggleFilter('companies', item.dataset.company));
   });
@@ -333,8 +409,14 @@ function renderChipGroup(containerId, items, activeArr, stateKey) {
 }
 
 function toggleFilter(key, value) {
-  const idx = state[key].indexOf(value);
-  if (idx >= 0) state[key].splice(idx, 1); else state[key].push(value);
+  if (key === 'companies') {
+    // Exclusive selection: clicking a new company replaces the previous one
+    const idx = state[key].indexOf(value);
+    state[key] = idx >= 0 ? [] : [value];
+  } else {
+    const idx = state[key].indexOf(value);
+    if (idx >= 0) state[key].splice(idx, 1); else state[key].push(value);
+  }
   applyFilters();
 }
 
@@ -383,9 +465,12 @@ function renderCards(projects) {
       <div class="card-meta">
         <span class="meta-tag"><span class="icon">${getSectorIcon(p.type)}</span> ${p.type}</span>
         <span class="meta-tag"><span class="icon">🔧</span> ${p.material}</span>
+        <span class="meta-tag" title="${p.software}"><span class="icon">💻</span> ${p.software}</span>
         <span class="meta-tag"><span class="icon">📍</span> ${p.city}</span>
+        ${p.concrete_volume > 0 ? `<span class="meta-tag scale-tag"><span class="icon">🧱</span> ${p.concrete_volume} m³</span>` : ''}
+        ${p.steel_weight > 0 ? `<span class="meta-tag scale-tag"><span class="icon">🏗️</span> ${p.steel_weight} Ton.</span>` : ''}
       </div>
-      <div class="card-footer"><span class="card-company">${p.company}</span><span class="card-period">${p.period}</span></div>
+      <div class="card-footer"><span class="card-company">${p.company}</span></div>
     </div>`;
   }).join('');
 }
@@ -400,7 +485,7 @@ function renderTable(projects) {
   tbody.innerHTML = projects.map(p => `
     <tr onclick="openModal('${p.id}')">
       <td class="cell-id">${p.id}</td><td class="cell-name">${p.name}</td><td class="cell-company">${p.company}</td>
-      <td>${p.client}</td><td>${p.type}</td><td>${p.material}</td><td>${p.period}</td>
+      <td>${p.client}</td><td>${p.type}</td><td>${p.material}</td>
       <td><span class="card-status ${p.status==='Completado'?'completado':'en-curso'}" style="display:inline-block">${p.status}</span></td>
     </tr>`).join('');
 }
@@ -410,8 +495,18 @@ function applyFilters() {
   renderCards(filtered);
   renderTable(filtered);
   renderFilters();
+  updateTimelineActive();
+  updateKPIs(filtered); // Dynamic sync for dashboard cards
   const countEl = document.getElementById('results-count');
   if (countEl) countEl.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${PROJECTS.length}</strong> proyectos`;
+}
+
+function updateTimelineActive() {
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    const itemCo = (item.dataset.company || '').trim().toLowerCase();
+    const isActive = state.companies.some(c => (c || '').trim().toLowerCase() === itemCo);
+    item.classList.toggle('active', isActive);
+  });
 }
 
 function openModal(id) {
@@ -424,10 +519,12 @@ function openModal(id) {
     <div class="detail-item"><div class="detail-label">Empresa</div><div class="detail-value">${p.company}</div></div>
     <div class="detail-item"><div class="detail-label">País</div><div class="detail-value">${p.country}</div></div>
     <div class="detail-item"><div class="detail-label">Ciudad</div><div class="detail-value">${p.city}</div></div>
-    <div class="detail-item"><div class="detail-label">Período</div><div class="detail-value">${p.period}</div></div>
     <div class="detail-item"><div class="detail-label">Estado</div><div class="detail-value"><span class="card-status ${p.status==='Completado'?'completado':'en-curso'}" style="display:inline-block">${p.status}</span></div></div>
-    <div class="detail-item"><div class="detail-label">Tipo de Proyecto</div><div class="detail-value">${p.type}</div></div>
-    <div class="detail-item"><div class="detail-label">Material</div><div class="detail-value">${p.material}</div></div>
+    <div class="detail-item"><div class="detail-label">Sector / Industria</div><div class="detail-value">${p.type || '–'}</div></div>
+    <div class="detail-item"><div class="detail-label">Etapa Ingeniería</div><div class="detail-value">${p.phase || '–'}</div></div>
+    <div class="detail-item"><div class="detail-label">Material</div><div class="detail-value">${p.material || '–'}</div></div>
+    ${p.concrete_volume ? `<div class="detail-item"><div class="detail-label">Volumen Hormigón</div><div class="detail-value">${p.concrete_volume} m³</div></div>` : ''}
+    ${p.steel_weight ? `<div class="detail-item"><div class="detail-label">Acero Estructural</div><div class="detail-value">${p.steel_weight} Ton.</div></div>` : ''}
     <div class="detail-item"><div class="detail-label">Rol</div><div class="detail-value">${p.role}</div></div>
     <div class="detail-item"><div class="detail-label">Software</div><div class="detail-value">${p.software}</div></div>`;
   document.getElementById('modal-description').textContent = p.desc;
@@ -493,4 +590,20 @@ function renderDonut(containerId, data) {
 }
 
 // ── Init on DOM ready ──
-document.addEventListener('DOMContentLoaded', initApp);
+// ── DOM loaded initialization ──
+document.addEventListener('DOMContentLoaded', () => {
+  initApp();
+
+  // Mobile Navigation Toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    // Close nav when clicking a link
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') navLinks.classList.remove('open');
+    });
+  }
+});
