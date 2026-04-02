@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Escaleras Online | Diseño Estructural</title>
+    <meta
+      name="description"
+      content="Herramienta gratuita para calcular y verificar dimensiones de escaleras estructurales considerando diferentes tipos de apoyos (Parrilla y Concreto)."
+    />
+    <meta name="keywords" content="calculadora escaleras, diseño escaleras, contrahuellas, huellas, comodidad de escalera, seguridad escalera" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calculadora de Escaleras Online | Diseño Estructural" />
+    <meta property="og:description" content="Calcula huellas, contrahuellas y verifica las reglas de comodidad y seguridad para escaleras estructurales." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atelijudesign.com/tool/calculo-escaleras.html" />
+    <meta property="og:locale" content="es_CL" />
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Typography overrides — after Tailwind CDN */
+      body { font-family: "Inter", sans-serif !important; }
+      h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
+      code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
+      #logo span { font-family: "Space Grotesk", sans-serif !important; font-size: 1.05rem !important; font-weight: 800 !important; letter-spacing: -0.01em; }
+      #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: { sans: ["Inter", "sans-serif"], head: ["Space Grotesk", "sans-serif"], mono: ["Fira Code", "monospace"] },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-card:hover { border-color: rgba(255, 255, 255, 0.1); }
+      .glass-card {
+        background: rgba(17, 24, 39, 0.7);
+        border: 1px solid rgba(55, 65, 81, 0.5);
+        backdrop-filter: blur(12px);
+      }
+      .glass-nav { background: rgba(11, 18, 32, 0.85); backdrop-filter: blur(16px); }
+      .result-value {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+      }
+      .result-value:hover { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.15); }
+      .input-field {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(55, 65, 81, 0.6);
+        transition: all 0.2s ease;
+      }
+      .input-field:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        outline: none;
+      }
+      .svg-diagram { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.2)); }
+      .svg-diagram path {
+        stroke-dasharray: 1000; stroke-dashoffset: 1000;
+        animation: drawLine 1.5s ease-out forwards;
+      }
+      @keyframes drawLine { to { stroke-dashoffset: 0; } }
+      .fade-in { animation: fadeIn 0.4s ease-out; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .form-section { display: none; }
+      .form-section.active { display: block; animation: fadeIn 0.4s ease-out forwards; }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="../" id="logo" class="flex-shrink-0 flex items-center cursor-pointer">
+            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+            <span class="font-bold text-xl text-gray-900 dark:text-white">Andrés Gallo P<span class="text-bim-blue">.BIM</span></span>
+          </a>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+              <a href="../#home" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Inicio</a>
+              <a href="../#about" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Sobre Mí</a>
+              <a href="../#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Experiencia</a>
+              <a href="../#portfolio" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Portafolio</a>
+              <a href="../blog/blog.html" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Blog</a>
+              <a href="../#contact" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Contacto</a>
+              <a href="index.html" class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-8 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <div class="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-sm font-semibold tracking-wide">
+            <i class="fa-solid fa-toolbox mr-1"></i> HERRAMIENTAS PARA DISEÑO ESTRUCTURAL
+          </div>
+          <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+            <span>Cálculo y Comodidad de </span>
+            <span class="text-bim-blue">Escaleras</span>
+          </h1>
+          <p class="max-w-2xl mx-auto text-gray-400 text-lg">
+            Calcula con precisión huellas, contrahuellas, ángulo e inclinación según los niveles estructurales de acero o concreto, verificando al instante las reglas de comodidad y seguridad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- App System -->
+    <section class="pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+        <!-- Dynamic Diagram SVG -->
+        <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center min-h-[300px]">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2 self-start">
+            <i class="fa-solid fa-vector-square mr-2"></i><span>Esquema (Dinámico)</span>
+          </h3>
+          <div id="svg-container" class="w-full max-w-4xl svg-diagram overflow-visible mx-auto">
+            <!-- SVG injected by JS -->
+          </div>
+          <div id="diagram-title" class="mt-2 text-center text-sm font-semibold text-bim-blue opacity-80 uppercase tracking-wide">Parrilla a Parrilla</div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1.2fr] gap-6">
+          
+          <!-- Parameters -->
+          <div class="glass-card rounded-xl p-6 relative">
+            <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-5">
+              <i class="fa-solid fa-sliders mr-2"></i><span>Parámetros de Diseño</span>
+            </h3>
+
+            <!-- Stair Type Selection -->
+            <div class="mb-6">
+              <label class="block text-xs font-semibold text-gray-400 mb-2">Tipo de Conexión en Escalera</label>
+              <select id="tipoEscalera" class="input-field w-full px-3 py-3 rounded-lg text-white font-medium">
+                <option value="tipo1">Parrilla a Parrilla</option>
+                <option value="tipo2">Concreto a Concreto / T.S.P.</option>
+                <option value="tipo3">Parrilla a Concreto con Pedestal</option>
+              </select>
+            </div>
+
+            <!-- Formularios Dinámicos -->
+            <!-- TIPO 1: Parrilla a Parrilla -->
+            <div id="form-tipo1" class="form-section active">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">T.A. Superior (m)</label>
+                  <input type="number" id="t1-ta1" value="3876.36" step="0.001" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">Espesor Parrilla (mm)</label>
+                  <input type="number" id="t1-esp1" value="32" step="1" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">T.A. Inferior (m)</label>
+                  <input type="number" id="t1-ta2" value="3874.02" step="0.001" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">Espesor Parrilla (mm)</label>
+                  <input type="number" id="t1-esp2" value="32" step="1" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TIPO 2: Concreto a Concreto -->
+            <div id="form-tipo2" class="form-section">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">T.C. o T.S.P. Sup (m)</label>
+                  <input type="number" id="t2-tc-sup" value="3876.392" step="0.001" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">T.C. o T.S.P. Inf (m)</label>
+                  <input type="number" id="t2-tc-inf" value="3874.052" step="0.001" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div class="col-span-2">
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">1era Contrahuella Distinta (mm)</label>
+                  <input type="number" id="t2-hc1" value="180" step="1" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- TIPO 3: Parrilla a Concreto -->
+            <div id="form-tipo3" class="form-section">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">T.A. Superior (m)</label>
+                  <input type="number" id="t3-ta" value="3876.36" step="0.001" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">Espesor Parrilla (mm)</label>
+                  <input type="number" id="t3-esp" value="32" step="1" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">T.C. Inferior (m)</label>
+                  <input type="number" id="t3-tc" value="3874.052" step="0.001" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">Altura Hormigón (mm)</label>
+                  <input type="number" id="t3-h-hormigon" value="180" step="1" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+                <div class="col-span-2">
+                  <label class="block text-xs font-semibold text-gray-400 mb-2">1era Contrahuella Diferente (mm)</label>
+                  <input type="number" id="t3-hc1" value="180" step="1" class="input-field w-full px-3 py-2 rounded-lg text-white font-bold text-center" onchange="runCalc()" />
+                </div>
+              </div>
+            </div>
+
+            <div class="my-6 border-t border-gray-700/50"></div>
+
+            <!-- Target Values (Comunes) -->
+            <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4"><i class="fa-solid fa-bullseye mr-2"></i>Objetivos</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 mb-2">Contrahuella Obj. (mm)</label>
+                <input type="number" id="contrahuella-obj" value="180" step="1" class="input-field w-full px-3 py-2 rounded-lg text-bim-blue font-bold text-center" onchange="runCalc()" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 mb-2">Huella (mm)</label>
+                <input type="number" id="huella-obj" value="250" step="1" class="input-field w-full px-3 py-2 rounded-lg text-bim-blue font-bold text-center" onchange="runCalc()" />
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Results -->
+          <div class="glass-card rounded-xl p-6">
+            <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-5">
+              <i class="fa-solid fa-calculator mr-2"></i><span>Dimensiones Resultantes</span>
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="result-value rounded-xl p-4">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-xs font-medium">Contrah. Real</span>
+                  <span class="text-[10px] text-gray-600">mm</span>
+                </div>
+                <span class="text-2xl font-extrabold text-bim-blue" id="res-contrahuella">—</span>
+              </div>
+              
+              <div class="result-value rounded-xl p-4">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-xs font-medium">Nº Peldaños</span>
+                  <span class="text-[10px] text-gray-600">un.</span>
+                </div>
+                <span class="text-2xl font-extrabold text-white" id="res-peldanos">—</span>
+              </div>
+
+              <div class="result-value rounded-xl p-4">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-xs font-medium">Altura Total</span>
+                  <span class="text-[10px] text-gray-600">mm</span>
+                </div>
+                <span class="text-2xl font-extrabold text-white" id="res-altura">—</span>
+              </div>
+              
+              <div class="result-value rounded-xl p-4">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-xs font-medium">Ángulo</span>
+                  <span class="text-[10px] text-gray-600">°</span>
+                </div>
+                <span class="text-2xl font-extrabold text-white" id="res-angulo">—</span>
+              </div>
+              
+              <div class="result-value rounded-xl p-4 col-span-2">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-gray-400 text-xs font-medium">Luz / Longitud Media en Planta</span>
+                  <span class="text-[10px] text-gray-600">mm</span>
+                </div>
+                <span class="text-2xl font-extrabold text-white" id="res-longitud">—</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-700/50">
+              <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4"><i class="fa-solid fa-clipboard-check mr-2"></i>Verificaciones</h4>
+              
+              <div class="space-y-3">
+                <div id="caja-comodidad" class="flex justify-between items-center bg-gray-800/50 border border-gray-700 p-3 rounded-lg transition-colors">
+                  <div>
+                    <h5 class="text-sm font-semibold text-gray-200">Comodidad</h5>
+                    <p class="text-[10px] font-mono text-gray-500 mt-1">610 < 2CH + H < 650</p>
+                  </div>
+                  <div class="text-right">
+                    <span id="valor-comodidad" class="block text-lg font-bold text-white">—</span>
+                    <span id="badge-comodidad" class="text-[10px] font-bold px-2 py-[2px] rounded-full bg-gray-600 text-gray-300">Pendiente</span>
+                  </div>
+                </div>
+
+                <div id="caja-seguridad" class="flex justify-between items-center bg-gray-800/50 border border-gray-700 p-3 rounded-lg transition-colors">
+                  <div>
+                    <h5 class="text-sm font-semibold text-gray-200">Seguridad</h5>
+                    <p class="text-[10px] font-mono text-gray-500 mt-1">CH + H < 460</p>
+                  </div>
+                  <div class="text-right">
+                    <span id="valor-seguridad" class="block text-lg font-bold text-white">—</span>
+                    <span id="badge-seguridad" class="text-[10px] font-bold px-2 py-[2px] rounded-full bg-gray-600 text-gray-300">Pendiente</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Script Logic -->
+    <script>
+      const tipoSelect = document.getElementById("tipoEscalera");
+      const forms = document.querySelectorAll(".form-section");
+
+      function drawAutoDiagram(tipo, s) {
+        const container = document.getElementById('svg-container');
+        const title = document.getElementById('diagram-title');
+        
+        container.innerHTML = '';
+        const W = 800, H = 350;
+        const xStart = 200, yStart = 80;
+        const xEnd = 600, yEnd = 260;
+        const stepCount = Math.max(1, s.numPeldanos);
+        const stairRisingsCount = tipo === 'tipo1' ? stepCount : Math.max(1, stepCount - 1);
+        const stepW = (xEnd - xStart) / stairRisingsCount;
+        const stepH = (yEnd - yStart) / stairRisingsCount;
+        const cW = 22, cH = 36, cF = 5; // Perfil C UPN: ancho alas, alto total, espesor ala/alma
+        
+        const ptCallout = (x, y, label="P.T.", dx=-30, dy=-30) => `
+            <circle cx="${x}" cy="${y}" r="2.5" fill="${vColor}"/>
+            <line x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}" stroke="${tColor}" stroke-width="1"/>
+            <line x1="${x+dx}" y1="${y+dy}" x2="${x+dx+(dx>0?20:-20)}" y2="${y+dy}" stroke="${tColor}" stroke-width="1"/>
+            <text x="${x+dx+(dx>0?10:-10)}" y="${y+dy-4}" fill="${vColor}" font-size="11px" font-family="monospace" text-anchor="middle">${label}</text>
+        `;
+
+        const lColor = "#3b82f6";
+        const sColor = "#6b7280";
+        const tColor = "#9ca3af";
+        const vColor = "#eff6ff";
+        
+        // Generar escaleras (Perfil Completo)
+        let stairsSvg = "";
+        let topOff = 6;  // Stringer top 6px ARRIBA de la pitch line
+        let botOff = 22; // Stringer bottom 22px ABAJO de la pitch line (total D=28)
+        
+        if (tipo === 'tipo1' || tipo === 'tipo2' || tipo === 'tipo3') {
+            let sl = stepH / stepW;
+            
+            // 1. DIBUJAR EL LIMÓN — la pitch line (roja) pasa ENTRE las dos líneas del stringer
+            
+            // Profundidad del canal horizontal (más pequeña que la diagonal)
+            let hChD = 14; // profundidad vertical del canal horizontal de apoyo
+            let hBotY_s = yStart - topOff + hChD; // bottom del canal horizontal superior
+            let hBotY_e = yEnd - topOff + hChD;   // bottom del canal horizontal inferior
+            
+            // Dos líneas diagonales paralelas que envuelven la pitch line
+            stairsSvg += `<line x1="${xStart}" y1="${yStart - topOff}" x2="${xEnd}" y2="${yEnd - topOff}" stroke="${lColor}" stroke-width="1.5"/>`;
+            stairsSvg += `<line x1="${xStart}" y1="${yStart + botOff}" x2="${xEnd}" y2="${yEnd + botOff}" stroke="${lColor}" stroke-width="1.5"/>`;
+            
+            // 2. GENERAR CADA PELDAÑO (CAJAS RECTANGULARES SIMPLES COMO EN EL CAD)
+            let tW = stepW;
+            let tH = 6;
+            for(let i=1; i<stairRisingsCount; i++) {
+                let currX = xStart + i*stepW;
+                let currY = yStart + i*stepH;
+                let rectX = currX - tW;
+                stairsSvg += `<rect x="${rectX}" y="${currY}" width="${tW}" height="${tH}" fill="none" stroke="${lColor}" stroke-width="1.5"/>`;
+            }
+            
+            // 3. EXTENSIONES HORIZONTALES CON UNIÓN "RODILLA" (KNEE JOINT)
+            // La línea TOP es continua (horizontal → diagonal sin corte)
+            // La línea BOTTOM tiene un escalón vertical (knee) porque el canal horizontal es menos profundo
+            
+            if (tipo === 'tipo1' || tipo === 'tipo3') {
+                // --- UNIÓN SUPERIOR (P.T. TOP) ---
+                // Top: línea horizontal que se conecta directamente con la diagonal (continua)
+                stairsSvg += `<line x1="${xStart-100}" y1="${yStart - topOff}" x2="${xStart}" y2="${yStart - topOff}" stroke="${lColor}" stroke-width="1.5"/>`;
+                // Bottom horizontal (más alto que el diagonal)
+                stairsSvg += `<line x1="${xStart-100}" y1="${hBotY_s}" x2="${xStart}" y2="${hBotY_s}" stroke="${lColor}" stroke-width="1.5"/>`;
+                // Vertical "rodilla" — baja de bottom horizontal a bottom diagonal
+                stairsSvg += `<line x1="${xStart}" y1="${hBotY_s}" x2="${xStart}" y2="${yStart + botOff}" stroke="${lColor}" stroke-width="1.5"/>`;
+                // End-cap izquierda
+                stairsSvg += `<line x1="${xStart-100}" y1="${yStart - topOff}" x2="${xStart-100}" y2="${hBotY_s}" stroke="${lColor}" stroke-width="1.5"/>`;
+            }
+            if (tipo === 'tipo1') {
+                // --- UNIÓN INFERIOR (P.T. BOTTOM) ---
+                // Top: línea horizontal que se conecta directamente con la diagonal (continua)
+                stairsSvg += `<line x1="${xEnd}" y1="${yEnd - topOff}" x2="${xEnd+100}" y2="${yEnd - topOff}" stroke="${lColor}" stroke-width="1.5"/>`;
+                // Bottom horizontal (más alto que el diagonal)
+                stairsSvg += `<line x1="${xEnd}" y1="${hBotY_e}" x2="${xEnd+100}" y2="${hBotY_e}" stroke="${lColor}" stroke-width="1.5"/>`;
+                // Vertical "rodilla" — sube de bottom diagonal a bottom horizontal
+                stairsSvg += `<line x1="${xEnd}" y1="${yEnd + botOff}" x2="${xEnd}" y2="${hBotY_e}" stroke="${lColor}" stroke-width="1.5"/>`;
+                // End-cap derecha
+                stairsSvg += `<line x1="${xEnd+100}" y1="${yEnd - topOff}" x2="${xEnd+100}" y2="${hBotY_e}" stroke="${lColor}" stroke-width="1.5"/>`;
+            }
+        } else {
+            let p = `M ${xStart} ${yStart}`;
+            let cx = xStart, cy = yStart;
+            for(let i=0; i<stairRisingsCount; i++) {
+              cy += stepH; p += ` L ${cx} ${cy}`;
+              cx += stepW; p += ` L ${cx} ${cy}`;
+            }
+            stairsSvg += `<path d="${p}" fill="none" stroke="${lColor}" stroke-width="2"/>`;
+            let cExt = Math.max(stepW, 20);
+            stairsSvg += `<line x1="${xStart-cExt}" y1="${yStart+stepH+15}" x2="${xEnd+cExt}" y2="${yEnd+stepH+15}" stroke="${lColor}" stroke-width="2"/>`;
+        }
+
+
+        
+        const txt = (x, y, text, col=tColor, size="11px", anchor="middle") => `<text x="${x}" y="${y}" fill="${col}" font-size="${size}" font-family="monospace" text-anchor="${anchor}">${text}</text>`;
+        const line = (x1, y1, x2, y2, c="#4b5563", style="") => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="2" ${style}/>`;
+        const dimLineH = (x1, x2, y, text) => `
+            ${line(x1, y-5, x1, y+5, tColor, 'stroke-width="1"')} ${line(x2, y-5, x2, y+5, tColor, 'stroke-width="1"')}
+            ${line(x1, y, x2, y, tColor, 'stroke-width="1"')}
+            ${txt((x1+x2)/2, y-8, text, vColor)}
+        `;
+        const dimLineV = (x, y1, y2, text) => `
+            ${line(x-5, y1, x+5, y1, tColor, 'stroke-width="1"')} ${line(x-5, y2, x+5, y2, tColor, 'stroke-width="1"')}
+            ${line(x, y1, x, y2, tColor, 'stroke-width="1"')}
+            <text x="${x-8}" y="${(y1+y2)/2}" fill="${vColor}" font-size="11px" font-family="monospace" text-anchor="middle" transform="rotate(-90 ${x-8} ${(y1+y2)/2})">${text}</text>
+        `;
+        const elMarker = (x, y, elStr, labelStr, dirX=-1) => {
+            const hLineY = y - 45;
+            const lx = x + (150 * dirX);
+            const tX = x + (8 * dirX);
+            const tAnchor = dirX === -1 ? "end" : "start";
+            return `
+            <!-- Floor line -->
+            <line x1="${x-15}" y1="${y}" x2="${x+15}" y2="${y}" stroke="${vColor}" stroke-width="1"/>
+            <!-- Triangle (Left Empty, Right Filled) -->
+            <polygon points="${x},${y} ${x-8},${y-14} ${x},${y-14}" fill="none" stroke="${vColor}" stroke-width="1"/>
+            <polygon points="${x},${y} ${x+8},${y-14} ${x},${y-14}" fill="${vColor}" stroke="${vColor}" stroke-width="1"/>
+            <line x1="${x-8}" y1="${y-14}" x2="${x+8}" y2="${y-14}" stroke="${vColor}" stroke-width="1"/>
+            <!-- Flag base -->
+            <line x1="${x}" y1="${y-14}" x2="${x}" y2="${hLineY}" stroke="${vColor}" stroke-width="1"/>
+            <line x1="${x}" y1="${hLineY}" x2="${lx}" y2="${hLineY}" stroke="${vColor}" stroke-width="1"/>
+            <!-- Text lines -->
+            <text x="${tX}" y="${hLineY - 6}" fill="${vColor}" font-size="11px" font-family="monospace" text-anchor="${tAnchor}">EL. ${parseFloat(elStr) > 0 ? '+' : ''}${elStr.replace('.', ',')}</text>
+            <text x="${tX}" y="${hLineY + 12}" fill="${vColor}" font-size="11px" font-family="monospace" text-anchor="${tAnchor}">${labelStr}</text>
+            `;
+        };
+
+        let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="fade-in">
+            <defs>
+                <pattern id="hatch-acero" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="5" stroke="#3b82f6" stroke-width="0.8" opacity="0.45"/>
+                </pattern>
+            </defs>`;
+        
+        if (tipo === 'tipo1') {
+            title.textContent = "Parrilla a Parrilla";
+            
+            // Parrilla Superior — descansa SOBRE el borde superior del canal horizontal
+            let grSurface = yStart - topOff; // grating bottom = canal top
+            let grTop = grSurface - 6;       // grating top (surface de pisada)
+            let grTopSvg = `<line x1="${xStart-100}" y1="${grTop}" x2="${xStart}" y2="${grTop}" stroke="${sColor}" stroke-width="1.5"/>` +
+                        `<line x1="${xStart-100}" y1="${grSurface}" x2="${xStart}" y2="${grSurface}" stroke="${sColor}" stroke-width="1.5"/>`;
+            for (let gx = xStart-100; gx < xStart; gx+=7) {
+                grTopSvg += `<line x1="${gx+3}" y1="${grTop}" x2="${gx+3}" y2="${grSurface}" stroke="${sColor}" stroke-width="1"/>`;
+            }
+            svg += grTopSvg;
+            // Parrilla Inferior — descansa SOBRE el borde superior del canal horizontal inferior
+            let grSurfaceB = yEnd - topOff;
+            let grTopB = grSurfaceB - 6;
+            let grBotSvg = `<line x1="${xEnd}" y1="${grTopB}" x2="${xEnd+100}" y2="${grTopB}" stroke="${sColor}" stroke-width="1.5"/>` +
+                        `<line x1="${xEnd}" y1="${grSurfaceB}" x2="${xEnd+100}" y2="${grSurfaceB}" stroke="${sColor}" stroke-width="1.5"/>`;
+            for (let gx = xEnd; gx < xEnd+100; gx+=7) grBotSvg += `<line x1="${gx+3}" y1="${grTopB}" x2="${gx+3}" y2="${grSurfaceB}" stroke="${sColor}" stroke-width="1"/>`;
+            svg += grBotSvg;
+            
+            svg += line(xStart, yStart, xEnd, yEnd, "#ef4444", 'stroke-dasharray="8,5" opacity="0.8" stroke-width="1.2"');
+            svg += stairsSvg;
+            
+            svg += dimLineH(xStart, xEnd, yStart-40, `${stepCount} ESP. @ ${s.huella.toFixed(1)} = ${s.longitudMedia.toFixed(1)}`);
+            svg += dimLineV(xEnd+65, yStart, yEnd, `${stepCount} ESP. @ ${(s.alturaTotal/stepCount).toFixed(1)} = ${s.alturaTotal.toFixed(1)}`);
+            
+            svg += ptCallout(xStart, yStart, "P.T.", 30, -20);
+            svg += ptCallout(xEnd, yEnd, "P.T.", -40, -20);
+
+            svg += elMarker(xStart-100, grTop, s.ta1.toFixed(3), "T.G.", -1);
+            svg += elMarker(xEnd+100, grTopB, s.ta2.toFixed(3), "T.G.", 1);
+        } 
+        else if (tipo === 'tipo2') {
+            title.textContent = "Concreto a Concreto / T.S.P";
+            // Cálculo del corte diagonal del limón para recortar
+            let py_px = (yEnd - yStart) / -(xEnd - xStart);
+            let cutX_y = xStart + (1/py_px)*4;
+
+            // Superficie T.S.P. Superior — líneas de losa recortadas
+            svg += line(60, yStart, xStart, yStart, sColor);
+            svg += line(60, yStart+4, cutX_y, yStart+4, sColor);
+            // Superficie T.S.P. Inferior — líneas de losa sin parrilla
+            svg += line(xEnd, yEnd, xEnd+100, yEnd, sColor);
+            svg += line(xEnd, yEnd+4, xEnd+100, yEnd+4, sColor);
+
+            svg += line(xStart, yStart, xEnd, yEnd, "#ef4444", 'stroke-dasharray="8,5" opacity="0.8" stroke-width="1.2"');
+            svg += stairsSvg;
+
+            const hRisings = Math.max(1, stepCount - 1);
+            svg += dimLineH(xStart, xEnd, yStart-40, `${hRisings} ESP. @ ${s.huella.toFixed(1)} = ${s.longitudMedia.toFixed(1)}`);
+            svg += dimLineV(xEnd+65, yStart, yEnd, `${hRisings} ESP. @ ${s.contrahuella.toFixed(1)} = ${s.alturaTotal.toFixed(1)}`);
+
+            svg += ptCallout(xStart, yStart, "P.T.", 30, -20);
+            svg += ptCallout(xEnd, yEnd, "P.T.", -40, -20);
+
+            svg += elMarker(xStart-100, yStart, s.tcSup.toFixed(3), "T.S.P.", -1);
+            svg += elMarker(xEnd+100, yEnd, s.tcInf.toFixed(3), "T.S.P.", 1);
+        }
+        else if (tipo === 'tipo3') {
+            title.textContent = "Parrilla a Concreto con Pedestal";
+            // Parrilla Superior (tipo3) — descansa SOBRE el perfil superior
+            let grSurface3 = yStart - topOff;
+            let grTop3 = grSurface3 - 6;
+            let grT3 = `<line x1="${xStart-100}" y1="${grTop3}" x2="${xStart}" y2="${grTop3}" stroke="${sColor}" stroke-width="1.5"/>` +
+                       `<line x1="${xStart-100}" y1="${grSurface3}" x2="${xStart}" y2="${grSurface3}" stroke="${sColor}" stroke-width="1.5"/>`;
+            for (let gx = xStart-100; gx < xStart; gx+=7) {
+                grT3 += `<line x1="${gx+3}" y1="${grTop3}" x2="${gx+3}" y2="${grSurface3}" stroke="${sColor}" stroke-width="1"/>`;
+            }
+            svg += grT3;
+            
+            let pedH = Math.min((s.hHormigon/s.alturaTotal)*200, 50);
+            svg += `<rect x="${xEnd-20}" y="${yEnd}" width="40" height="${pedH}" fill="#4b5563" stroke="#9ca3af" stroke-width="1"/>`; // Pedestal
+            svg += `<rect x="${xEnd-80}" y="${yEnd+pedH}" width="160" height="15" fill="${sColor}" opacity="0.6"/>`; // Losa
+            
+            svg += line(xStart, yStart, xEnd, yEnd, "#ef4444", 'stroke-dasharray="8,5" opacity="0.8" stroke-width="1.2"');
+            svg += stairsSvg;
+            
+            const hRisings = Math.max(1, stepCount - 1);
+            svg += dimLineH(xStart, xEnd, yStart-40, `${hRisings} ESP. @ ${s.huella.toFixed(1)} = ${s.longitudMedia.toFixed(1)}`);
+            svg += dimLineV(xEnd+65, yStart+(s.hc1 > 0 ? (s.hc1/s.alturaTotal)*200 : stepH), yEnd, `${hRisings} ESP. @ ${s.contrahuella.toFixed(1)} = ${(hRisings*s.contrahuella).toFixed(1)}`);
+            svg += dimLineV(xEnd+105, yStart, yEnd+pedH, `${s.alturaTotal.toFixed(1)}`);
+            
+            svg += ptCallout(xStart, yStart, "P.T.", 30, -20);
+            
+            svg += elMarker(xStart-100, grTop3, s.ta1.toFixed(3), "T.G.", -1);
+            svg += elMarker(xEnd+130, yEnd+pedH, s.ta2.toFixed(3), "T.C. o N.T.", 1);
+        }
+        
+        svg += `</svg>`;
+        container.innerHTML = svg;
+      }
+
+      tipoSelect.addEventListener("change", (e) => {
+        forms.forEach(f => f.classList.remove("active"));
+        document.getElementById(`form-${e.target.value}`).classList.add("active");
+        runCalc();
+      });
+
+      function runCalc() {
+        const tipo = tipoSelect.value;
+        const targetContrahuella = parseFloat(document.getElementById('contrahuella-obj').value) || 180;
+        const huella = parseFloat(document.getElementById('huella-obj').value) || 250;
+        
+        let alturaTotal = 0; let numeroPeldanos = 0; let contrahuellaCalculada = 0; let angulo = 0; let longitudMedia = 0;
+
+        try {
+          if (tipo === 'tipo1') {
+            const ta1 = parseFloat(document.getElementById('t1-ta1').value) || 0;
+            const esp1 = parseFloat(document.getElementById('t1-esp1').value) || 0;
+            const ta2 = parseFloat(document.getElementById('t1-ta2').value) || 0;
+            const esp2 = parseFloat(document.getElementById('t1-esp2').value) || 0;
+
+            alturaTotal = ((ta1 + (esp1 * 0.001)) - (ta2 + (esp2 * 0.001))) * 1000;
+            numeroPeldanos = Math.round(alturaTotal / targetContrahuella);
+            contrahuellaCalculada = numeroPeldanos > 0 ? alturaTotal / numeroPeldanos : 0;
+            longitudMedia = huella * numeroPeldanos;
+            
+          } else if (tipo === 'tipo2') {
+            const tcSup = parseFloat(document.getElementById('t2-tc-sup').value) || 0;
+            const tcInf = parseFloat(document.getElementById('t2-tc-inf').value) || 0;
+            const hc1 = parseFloat(document.getElementById('t2-hc1').value) || 0;
+
+            alturaTotal = (tcSup - tcInf) * 1000;
+            numeroPeldanos = Math.round(alturaTotal / targetContrahuella);
+            const alturaRestante = alturaTotal - hc1;
+            const peldanosRestantes = numeroPeldanos - 1;
+            
+            contrahuellaCalculada = peldanosRestantes > 0 ? alturaRestante / peldanosRestantes : 0;
+            longitudMedia = huella * peldanosRestantes;
+
+          } else if (tipo === 'tipo3') {
+            const ta = parseFloat(document.getElementById('t3-ta').value) || 0;
+            const esp = parseFloat(document.getElementById('t3-esp').value) || 0;
+            const tc = parseFloat(document.getElementById('t3-tc').value) || 0;
+            const hHormigon = parseFloat(document.getElementById('t3-h-hormigon').value) || 0;
+            const hc1 = parseFloat(document.getElementById('t3-hc1').value) || 0;
+
+            alturaTotal = ((ta + (esp * 0.001)) - tc) * 1000;
+            numeroPeldanos = Math.round((alturaTotal - hHormigon) / targetContrahuella);
+            const alturaRestante = alturaTotal - hHormigon - hc1;
+            const peldanosRestantes = numeroPeldanos - 1;
+
+            contrahuellaCalculada = peldanosRestantes > 0 ? alturaRestante / peldanosRestantes : 0;
+            longitudMedia = huella * peldanosRestantes; 
+          }
+
+          if (isNaN(alturaTotal) || isNaN(contrahuellaCalculada)) return;
+
+          angulo = huella > 0 ? (Math.atan(contrahuellaCalculada / huella) * (180 / Math.PI)) : 0;
+
+          document.getElementById('res-altura').textContent = Math.abs(alturaTotal).toFixed(0);
+          document.getElementById('res-peldanos').textContent = numeroPeldanos;
+          document.getElementById('res-contrahuella').textContent = Math.abs(contrahuellaCalculada).toFixed(1);
+          document.getElementById('res-angulo').textContent = angulo.toFixed(1);
+          document.getElementById('res-longitud').textContent = Math.abs(longitudMedia).toFixed(0);
+
+          // Checks
+          const chVal = Math.abs(contrahuellaCalculada);
+          const comod = (2 * chVal) + huella;
+          const segur = chVal + huella;
+
+          document.getElementById('valor-comodidad').textContent = comod.toFixed(1);
+          const bgComod = document.getElementById('caja-comodidad');
+          const bdgComod = document.getElementById('badge-comodidad');
+          if (comod > 610 && comod < 650) {
+            bgComod.className = "flex justify-between items-center bg-emerald-900/20 border border-emerald-800 p-3 rounded-lg transition-colors";
+            bdgComod.className = "text-[10px] font-bold px-2 py-[2px] rounded-full bg-emerald-800/50 text-emerald-400";
+            bdgComod.textContent = "Excelente";
+          } else {
+            bgComod.className = "flex justify-between items-center bg-rose-900/20 border border-rose-800 p-3 rounded-lg transition-colors";
+            bdgComod.className = "text-[10px] font-bold px-2 py-[2px] rounded-full bg-rose-800/50 text-rose-400";
+            bdgComod.textContent = "Alerta";
+          }
+
+          document.getElementById('valor-seguridad').textContent = segur.toFixed(1);
+          const bgSegur = document.getElementById('caja-seguridad');
+          const bdgSegur = document.getElementById('badge-seguridad');
+          if (segur <= 460) {
+            bgSegur.className = "flex justify-between items-center bg-emerald-900/20 border border-emerald-800 p-3 rounded-lg transition-colors";
+            bdgSegur.className = "text-[10px] font-bold px-2 py-[2px] rounded-full bg-emerald-800/50 text-emerald-400";
+            bdgSegur.textContent = "Seguro";
+          } else {
+            bgSegur.className = "flex justify-between items-center bg-rose-900/20 border border-rose-800 p-3 rounded-lg transition-colors";
+            bdgSegur.className = "text-[10px] font-bold px-2 py-[2px] rounded-full bg-rose-800/50 text-rose-400";
+            bdgSegur.textContent = "Inseguro";
+          }
+          
+          const state = {
+            ta1: parseFloat(document.getElementById(tipo==='tipo1'?'t1-ta1':'t3-ta')?.value) || 0,
+            ta2: parseFloat(document.getElementById(tipo==='tipo1'?'t1-ta2':'t3-tc')?.value) || 0,
+            tcSup: parseFloat(document.getElementById('t2-tc-sup')?.value) || 0,
+            tcInf: parseFloat(document.getElementById('t2-tc-inf')?.value) || 0,
+            hHormigon: parseFloat(document.getElementById('t3-h-hormigon')?.value) || 0,
+            hc1: parseFloat(document.getElementById(tipo==='tipo2'?'t2-hc1':'t3-hc1')?.value) || 0,
+            huella: huella,
+            contrahuella: contrahuellaCalculada,
+            alturaTotal: Math.abs(alturaTotal),
+            numPeldanos: numeroPeldanos,
+            longitudMedia: longitudMedia
+          };
+          drawAutoDiagram(tipo, state);
+
+        } catch (e) { console.error(e); }
+      }
+
+      // Initial Calc
+      setTimeout(runCalc, 100);
+    </script>
+  </body>
+</html>

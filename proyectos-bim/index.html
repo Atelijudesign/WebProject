@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos BIM — Andrés Gallo Parra | Base de Datos de Proyectos Estructurales</title>
+  <meta name="description" content="Base de datos interactiva de 46 proyectos BIM de ingeniería estructural. Trayectoria profesional 2006–2025 en Chile, México y Argentina.">
+  <meta name="author" content="Andrés Gallo Parra">
+  <meta name="keywords" content="BIM, Revit, Tekla, ingeniería estructural, proyectos, portafolio, Chile">
+  <meta property="og:title" content="Proyectos BIM — Andrés Gallo Parra">
+  <meta property="og:description" content="46 proyectos BIM de ingeniería estructural | +15 años de experiencia">
+  <meta property="og:type" content="website">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="bg-mesh"></div>
+  <div class="bg-noise"></div>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" id="logo">
+        <div class="logo-icon">AG</div>
+        <span>Andrés Gallo</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link" id="nav-home">Inicio</a>
+        <a href="#dashboard" class="nav-link active" id="nav-dashboard">Dashboard</a>
+        <a href="#timeline" class="nav-link" id="nav-timeline">Trayectoria</a>
+        <a href="#projects" class="nav-link" id="nav-projects">Proyectos</a>
+        <a href="#stats" class="nav-link" id="nav-stats">Estadísticas</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       HERO / DASHBOARD KPIs
+       ═══════════════════════════════════════ -->
+  <section class="hero" id="dashboard">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          Diseñador Estructural BIM
+        </div>
+        <h1>Base de Datos de <span class="gradient-text">Proyectos BIM</span></h1>
+        <p class="hero-subtitle">Trayectoria profesional de Andrés Gallo Parra — 46 proyectos de ingeniería estructural realizados entre 2006 y 2025</p>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card" id="kpi-projects">
+          <span class="kpi-icon">📋</span>
+          <div class="kpi-value" data-count="46">0</div>
+          <div class="kpi-label">Proyectos</div>
+          <div class="kpi-sub">en base de datos</div>
+        </div>
+        <div class="kpi-card" id="kpi-years">
+          <span class="kpi-icon">📅</span>
+          <div class="kpi-value" data-count="15" data-suffix="+">0</div>
+          <div class="kpi-label">Años Experiencia</div>
+          <div class="kpi-sub">desde 2006 a 2025</div>
+        </div>
+        <div class="kpi-card" id="kpi-employers">
+          <span class="kpi-icon">🏢</span>
+          <div class="kpi-value" data-count="11">0</div>
+          <div class="kpi-label">Empleadores</div>
+          <div class="kpi-sub">nacionales e internacionales</div>
+        </div>
+        <div class="kpi-card" id="kpi-countries">
+          <span class="kpi-icon">🌎</span>
+          <div class="kpi-value" data-count="3">0</div>
+          <div class="kpi-label">Países</div>
+          <div class="kpi-sub">Chile · México · Argentina</div>
+        </div>
+        <div class="kpi-card" id="kpi-sectors">
+          <span class="kpi-icon">🏗️</span>
+          <div class="kpi-value" data-count="7" data-suffix="+">0</div>
+          <div class="kpi-label">Sectores</div>
+          <div class="kpi-sub">minería, salud, aviación…</div>
+        </div>
+        <div class="kpi-card" id="kpi-active">
+          <span class="kpi-icon">🔄</span>
+          <div class="kpi-value" data-count="1">0</div>
+          <div class="kpi-label">En Curso</div>
+          <div class="kpi-sub">proyecto activo actualmente</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TIMELINE
+       ═══════════════════════════════════════ -->
+  <section class="section" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="icon">📐</span> Trayectoria Profesional</h2>
+        <p class="section-desc">Línea de tiempo por empresa — haz click en una empresa para filtrar sus proyectos</p>
+      </div>
+      <div class="timeline-track">
+        <div class="timeline-inner" id="timeline-inner"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FILTERS + PROJECTS
+       ═══════════════════════════════════════ -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="icon">🗂️</span> Explorar Proyectos</h2>
+        <p class="section-desc">Filtra, busca y explora los 46 proyectos BIM registrados</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-bar" id="filters-bar">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="search-input"
+                 placeholder="Buscar por nombre, cliente, empresa, material, software…"
+                 autocomplete="off">
+        </div>
+
+        <div class="filter-groups">
+          <div class="filter-group">
+            <span class="filter-label">Empresa</span>
+            <div class="filter-chips" id="filter-company"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Sector</span>
+            <div class="filter-chips" id="filter-type"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Material</span>
+            <div class="filter-chips" id="filter-material"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Software</span>
+            <div class="filter-chips" id="filter-software"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">País</span>
+            <div class="filter-chips" id="filter-country"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Estado</span>
+            <div class="filter-chips" id="filter-status"></div>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <span class="results-count" id="results-count">Mostrando <strong>46</strong> de <strong>46</strong> proyectos</span>
+          <div style="display:flex; align-items:center; gap: 0.75rem;">
+            <div class="view-toggle">
+              <button class="view-btn active" data-view="grid" id="btn-view-grid" title="Vista de tarjetas">☷</button>
+              <button class="view-btn" data-view="table" id="btn-view-table" title="Vista de tabla">☰</button>
+            </div>
+            <button class="btn-clear" id="btn-clear">✕ Limpiar filtros</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid View -->
+      <div class="projects-grid active" id="projects-grid"></div>
+
+      <!-- Table View -->
+      <div class="projects-table-wrapper" id="projects-table-wrapper">
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre del Proyecto</th>
+              <th>Empresa</th>
+              <th>Cliente</th>
+              <th>Tipo</th>
+              <th>Material</th>
+              <th>Período</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="projects-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       STATISTICS
+       ═══════════════════════════════════════ -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="icon">📊</span> Estadísticas</h2>
+        <p class="section-desc">Distribución de proyectos por empresa, sector y año</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="chart-card">
+          <div class="chart-title"><span class="icon">🏢</span> Proyectos por Empresa</div>
+          <div class="bar-chart" id="chart-company"></div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title"><span class="icon">🏗️</span> Proyectos por Sector</div>
+          <div id="chart-sector"></div>
+        </div>
+
+        <div class="chart-card" style="grid-column: 1 / -1;">
+          <div class="chart-title"><span class="icon">📅</span> Actividad por Año</div>
+          <div class="bar-chart" id="chart-year"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MODAL
+       ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+        <span class="modal-id" id="modal-id"></span>
+        <h3 class="modal-title" id="modal-title"></h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-detail-grid" id="modal-detail-grid"></div>
+
+        <div class="modal-section-title">Descripción</div>
+        <div class="modal-description" id="modal-description"></div>
+
+        <div class="modal-section-title">Actividades Clave</div>
+        <div class="modal-activities" id="modal-activities"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        <a href="https://atelijudesign.com" target="_blank" rel="noopener">atelijudesign.com</a> · Andrés Gallo Parra · Base de Datos de Proyectos BIM
+      </p>
+      <p class="footer-contact">
+        andresgallo@pm.me · +56 9 4060 0861
+      </p>
+      <p style="margin-top:0.5rem;"><a href="admin.html" style="font-size:0.65rem;color:var(--text-muted);opacity:0.3;text-decoration:none;">⚙</a></p>
+    </div>
+  </footer>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
