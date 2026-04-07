@@ -147,6 +147,53 @@ open index.html
 npx serve .
 ```
 
+## ✅ QA Rápido (Fase P2)
+
+Para validar consistencia visual/textual antes de publicar:
+
+```bash
+python _p2_quality_check.py
+```
+
+Este chequeo valida:
+
+- Patrones de texto roto (mojibake) en todos los `.html`
+- Navegación base uniforme en todas las entradas de `blog/`
+- Tokens de nav e icono principal (`fa-layer-group`) presentes en el blog
+- Enlaces internos y anchors básicos que resuelven correctamente
+
+## ⚠️ Scripts de limpieza global
+
+Los scripts `_deep_text_clean.py` y `_final_global_clean.py` realizan reemplazos masivos por bytes.
+Usarlos solo con respaldo previo y revisión posterior, para evitar cambios no deseados en contenido válido.
+
+## 🚢 Release Checklist (Pre-Deploy)
+
+Antes de publicar en producción:
+
+1. Ejecutar QA automático:
+
+   ```bash
+   python _p2_quality_check.py
+   ```
+
+2. Verificar en navegador (desktop + móvil) que en `blog/`, `tool/` y `project/` se mantenga:
+   - Logo con icono `fa-layer-group`
+   - Menú hamburguesa funcional
+   - Enlaces principales del nav (`Inicio`, `Blog`, `Herramientas`, `Contacto`)
+
+3. Confirmar rutas de nuevas páginas/herramientas:
+   - Entradas nuevas listadas en `blog/blog.html`
+   - Herramientas nuevas listadas en `tool/index.html`
+   - Links cruzados funcionando (`blog` ↔ `tool` ↔ `project`)
+
+4. Hacer revisión rápida de texto:
+   - Sin símbolos extraños de codificación (mojibake)
+   - Sin cambios involuntarios en iconos o labels del menú
+   - Sin enlaces internos rotos ni anchors faltantes
+
+5. Validación final visual en el dominio de staging/hosting antes de marcar release.
+
 ---
 
 ## 🎯 Design System

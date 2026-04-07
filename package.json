@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "Portfolio BIM Developer & Structural Engineer - Andrés Gallo P.",
   "scripts": {
-    "tw:build": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind-output.css --minify",
-    "tw:watch": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind-output.css --watch"
+    "tw:build": "tailwindcss -i ./css/tailwind-input.css -o ./assets/css/tailwind.css --minify",
+    "tw:watch": "tailwindcss -i ./css/tailwind-input.css -o ./assets/css/tailwind.css --watch"
   },
-  "keywords": ["bim", "revit", "structural-engineering", "portfolio"],
+  "keywords": [
+    "bim",
+    "revit",
+    "structural-engineering",
+    "portfolio"
+  ],
   "author": "Andrés Gallo P.",
   "license": "MIT",
   "devDependencies": {
+    "puppeteer": "^24.40.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.0"
   }
 }

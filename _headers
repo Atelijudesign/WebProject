@@ -5,6 +5,4 @@
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   X-XSS-Protection: 1; mode=block
 
-/tool/ifc-viewer.html
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: require-corp
+*/

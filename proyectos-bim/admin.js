@@ -1,20 +1,18 @@
 /* =====================================================
-   ADMIN PANEL — Logic
+   ADMIN PANEL �” Logic
    Auth + CRUD via Supabase
    ===================================================== */
-
-// ── Supabase Config ── (same as app.js)
+// �”��”� Supabase Config �”��”� (same as app.js)
 const SUPABASE_URL = 'https://lhorekdbwnrrjtgzipgs.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_kfHl7UUtWD4REHOuiWdpqA_wdHWdl62';
-
 let supabaseClient = null;
 let currentUser = null;
 let projects = [];
 let currentFilteredProjects = [];
 let editingId = null; // UUID of project being edited
 let sortableInstance = null;
-
-// ── Init ──
+let lastFocusedElement = null;
+// �”��”� Init �”��”�
 document.addEventListener('DOMContentLoaded', () => {
   console.log("%c[ADMIN LOGIC] v1.7 BULLETPROOF ACTIVE", "color: #3b82f6; font-weight: bold; font-size: 14px;");
   const badge = document.getElementById('version-badge');
@@ -26,12 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   checkAuth();
-});
 
+  // Keyboard close support for modal overlays
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const confirmOverlay = document.getElementById('confirm-overlay');
+    const formOverlay = document.getElementById('form-overlay');
+    if (confirmOverlay?.classList.contains('active')) {
+      cancelDelete();
+      return;
+    }
+    if (formOverlay?.classList.contains('active')) {
+      closeFormModal();
+    }
+  });
+});
 // ═══════════════════════════════════════
 // AUTH
 // ═══════════════════════════════════════
-
 async function checkAuth() {
   const { data: { session } } = await supabaseClient.auth.getSession();
   if (session) {
@@ -41,76 +51,63 @@ async function checkAuth() {
     showLogin();
   }
 }
-
 function showLogin() {
   document.getElementById('login-screen').classList.remove('hidden');
   document.getElementById('admin-screen').classList.add('hidden');
 }
-
 function showAdmin() {
   document.getElementById('login-screen').classList.add('hidden');
   document.getElementById('admin-screen').classList.remove('hidden');
   document.getElementById('user-email').textContent = currentUser.email;
   loadProjects();
 }
-
 async function handleLogin(e) {
   e.preventDefault();
   const email = document.getElementById('login-email').value.trim();
   const password = document.getElementById('login-password').value;
   const errorEl = document.getElementById('login-error');
   const btn = document.getElementById('login-btn');
-
   errorEl.textContent = '';
   btn.disabled = true;
   btn.textContent = 'Ingresando...';
-
   const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-
   if (error) {
     errorEl.textContent = 'Credenciales incorrectas';
     btn.disabled = false;
     btn.textContent = 'Ingresar';
     return;
   }
-
   currentUser = data.user;
   btn.textContent = 'Ingresar';
   btn.disabled = false;
   showAdmin();
-  showToast('✓ Sesión iniciada', 'success');
+  showToast('�“ Sesión iniciada', 'success');
 }
-
 async function handleLogout() {
   await supabaseClient.auth.signOut();
   currentUser = null;
   showLogin();
   showToast('Sesión cerrada', 'info');
 }
-
 // ═══════════════════════════════════════
-// CRUD — READ
+// CRUD �” READ
 // ═══════════════════════════════════════
-
 async function loadProjects() {
   const { data, error } = await supabaseClient
     .from('proyectos')
     .select('*')
     .order('project_id', { ascending: false });
-
   if (error) {
     showToast('Error al cargar proyectos', 'error');
     console.error(error);
     return;
   }
-
   projects = data;
   currentFilteredProjects = [...projects]; // Init active set
   populateDatalists();
   populateFiltersSelects();
   applyAdminFilters(); // This already calls updateStats(filtered)
 }
-
 function populateDatalists() {
   const fields = {
     client: 'list-clients',
@@ -124,19 +121,17 @@ function populateDatalists() {
     activities: 'list-activities',
     phase: 'list-phases'
   };
-
   for (const [key, listId] of Object.entries(fields)) {
     const listEl = document.getElementById(listId);
     if (!listEl) continue;
     
     // Multiple comma-separated software entries might exist, but datalist handles full strings well too.
     // However, splitting software by comma could be too complex, let's keep it simple.
-    const uniqueValues = [...new Set(projects.map(p => p[key]).filter(v => v && v !== '–'))].sort();
+    const uniqueValues = [...new Set(projects.map(p => p[key]).filter(v => v && v !== '�“'))].sort();
     
     listEl.innerHTML = uniqueValues.map(v => `<option value="${v}">`).join('');
   }
 }
-
 function updateStats(data) {
   // STRICT DATA SOURCE: Avoid falling back to global currentFilteredProjects 
   // to prevent "stuck" stats when selecting a new filter.
@@ -155,49 +150,41 @@ function updateStats(data) {
     const s = (p.status || '').trim().toLowerCase();
     return s.includes('curso') || s.includes('progreso');
   }).length;
-
   const statCompleted = document.getElementById('stat-completed');
   if (statCompleted) statCompleted.textContent = completedCount;
-
   const statActive = document.getElementById('stat-active');
   if (statActive) statActive.textContent = activeCount;
   
   const companies = new Set(target.map(p => (p.company || '').trim().toLowerCase()).filter(v => !!v));
   const statCompanies = document.getElementById('stat-companies');
   if (statCompanies) statCompanies.textContent = companies.size;
-
   // NUEVOS TOTALES (m³ y Ton.)
   const totalConcrete = target.reduce((sum, p) => sum + (parseFloat(p.concrete_volume) || 0), 0);
   const totalSteel = target.reduce((sum, p) => sum + (parseFloat(p.steel_weight) || 0), 0);
   
   const statConcrete = document.getElementById('stat-concrete');
   if (statConcrete) statConcrete.textContent = totalConcrete.toLocaleString();
-
   const statSteel = document.getElementById('stat-steel');
   if (statSteel) statSteel.textContent = totalSteel.toLocaleString();
 }
-
 function populateFiltersSelects() {
   const populate = (id, field) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const unique = [...new Set(projects.map(p => p[field]).filter(v => !!v && v !== '–'))].sort();
+    const unique = [...new Set(projects.map(p => p[field]).filter(v => !!v && v !== '�“'))].sort();
     const firstOption = el.options[0].outerHTML;
     el.innerHTML = firstOption + unique.map(v => `<option value="${v}">${v}</option>`).join('');
   };
-
   populate('filter-empresa', 'company');
   populate('filter-cliente', 'client');
   populate('filter-tipo', 'project_type');
 }
-
 function applyAdminFilters() {
   const searchQ = document.getElementById('admin-search-input').value.toLowerCase();
   const selEmp = document.getElementById('filter-empresa').value;
   const selCli = document.getElementById('filter-cliente').value;
   const selTipo = document.getElementById('filter-tipo').value;
   const selEst = document.getElementById('filter-estado').value;
-
   const filtered = projects.filter(p => {
     // Bulletproof guards to prevent crashes if Supabase has null/missing data
     const pId = String(p.project_id || '');
@@ -217,15 +204,12 @@ function applyAdminFilters() {
     const matchCli = !selCli || pClient === String(selCli).trim().toLowerCase();
     const matchTipo = !selTipo || pType === String(selTipo).trim().toLowerCase();
     const matchEst = !selEst || pStatus === String(selEst).trim().toLowerCase();
-
     return matchesSearch && matchEmp && matchCli && matchTipo && matchEst;
   });
-
   // Sync state & UI
   currentFilteredProjects = [...filtered];
   renderAdminTable(currentFilteredProjects);
 }
-
 function clearAdminFilters() {
   document.getElementById('admin-search-input').value = '';
   document.getElementById('filter-empresa').value = '';
@@ -234,26 +218,21 @@ function clearAdminFilters() {
   document.getElementById('filter-estado').value = '';
   applyAdminFilters();
 }
-
 function renderAdminTable(dataArray = projects) {
   const tbody = document.getElementById('admin-tbody');
   const filtered = dataArray;
-
   // Actualizar estadísticas cada vez que se renderiza la tabla
   updateStats(filtered);
-
   // Actualizar contador de resultados en la toolbar
   const countEl = document.getElementById('admin-results-count');
   if (countEl) {
     countEl.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${projects.length}</strong>`;
   }
-
   if (filtered.length === 0) {
     tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:2rem;color:var(--text-muted);">Sin resultados</td></tr>';
     if (sortableInstance) sortableInstance.destroy();
     return;
   }
-
   tbody.innerHTML = filtered.map(p => `
     <tr data-id="${p.id}">
       <td class="drag-handle" title="Arrastrar para reordenar">
@@ -262,19 +241,18 @@ function renderAdminTable(dataArray = projects) {
       <td class="cell-id">${p.project_id}</td>
       <td class="cell-name" title="${p.name}">${p.name}</td>
       <td>${p.company}</td>
-      <td>${p.client || '–'}</td>
+      <td>${p.client || '�“'}</td>
       <td>${p.project_type || ''}</td>
-      <td>${p.concrete_volume || '–'}</td>
-      <td>${p.steel_weight || '–'}</td>
+      <td>${p.concrete_volume || '�“'}</td>
+      <td>${p.steel_weight || '�“'}</td>
       <td><span class="status-badge ${p.status === 'Completado' ? 'completado' : 'en-curso'}">${p.status}</span></td>
       <td class="cell-actions">
-        <button class="btn btn-secondary btn-sm" onclick="editProject('${p.id}')" title="Editar">✏️</button>
-        <button class="btn btn-secondary btn-sm" onclick="duplicateProject('${p.id}')" title="Duplicar">📄</button>
-        <button class="btn btn-danger btn-sm" onclick="confirmDelete('${p.id}', '${p.project_id}')" title="Eliminar">🗑️</button>
+        <button class="btn btn-secondary btn-sm" onclick="editProject('${p.id}')" title="Editar" aria-label="Editar proyecto ${p.project_id}">✏️</button>
+        <button class="btn btn-secondary btn-sm" onclick="duplicateProject('${p.id}')" title="Duplicar" aria-label="Duplicar proyecto ${p.project_id}">�“�</button>
+        <button class="btn btn-danger btn-sm" onclick="confirmDelete('${p.id}', '${p.project_id}')" title="Eliminar" aria-label="Eliminar proyecto ${p.project_id}">��”‘️</button>
       </td>
     </tr>
   `).join('');
-
   if (sortableInstance) sortableInstance.destroy();
   
   // Only enable drag drop if not filtered (we want to reorder the entire dataset)
@@ -290,23 +268,19 @@ function renderAdminTable(dataArray = projects) {
     });
   }
 }
-
 // ═══════════════════════════════════════
-// REORDER — DRAG & DROP & AUTO-SEQUENCE
+// REORDER �” DRAG & DROP & AUTO-SEQUENCE
 // ═══════════════════════════════════════
-
 async function autoResequenceIds() {
   const n = projects.length;
   const tempUpdates = [];
   const finalUpdates = [];
-
   projects.forEach((proj, index) => {
     tempUpdates.push({ ...proj, project_id: `TEMP-${proj.id.substring(0, 8)}` });
     const newNum = n - index;
     const finalIdStr = `P-${String(newNum).padStart(3, '0')}`;
     finalUpdates.push({ ...proj, project_id: finalIdStr });
   });
-
   try {
     const { error: err1 } = await supabaseClient.from('proyectos').upsert(tempUpdates);
     if (err1) throw err1;
@@ -317,8 +291,6 @@ async function autoResequenceIds() {
     console.error('Error auto-resequencing', error);
   }
 }
-
-
 async function saveNewOrder() {
   const btn = document.getElementById('btn-save-order');
   const tbody = document.getElementById('admin-tbody');
@@ -328,10 +300,8 @@ async function saveNewOrder() {
     showToast('No puedes reordenar mientras hay filtros activos', 'error');
     return;
   }
-
   btn.disabled = true;
   btn.innerHTML = '⏳ Guardando...';
-
   // Build the new order based on UUIDs in DOM
   const orderedIds = rows.map(r => r.getAttribute('data-id'));
   
@@ -343,7 +313,6 @@ async function saveNewOrder() {
   
   const tempUpdates = [];
   const finalUpdates = [];
-
   orderedIds.forEach((uuid, index) => {
     const proj = projects.find(p => p.id === uuid);
     if (!proj) return;
@@ -356,17 +325,14 @@ async function saveNewOrder() {
     const finalIdStr = `P-${String(newNum).padStart(3, '0')}`;
     finalUpdates.push({ ...proj, project_id: finalIdStr });
   });
-
   try {
     // 1. Send all temp updates
     const { error: err1 } = await supabaseClient.from('proyectos').upsert(tempUpdates);
     if (err1) throw err1;
-
     // 2. Send all final updates
     const { error: err2 } = await supabaseClient.from('proyectos').upsert(finalUpdates);
     if (err2) throw err2;
-
-    showToast('✅ Orden guardado exitosamente', 'success');
+    showToast('�… Orden guardado exitosamente', 'success');
     btn.style.display = 'none';
     
     // Reload projects to get the clean fresh state from DB
@@ -376,14 +342,12 @@ async function saveNewOrder() {
     showToast('Error al guardar el nuevo orden', 'error');
   } finally {
     btn.disabled = false;
-    btn.innerHTML = '💾 Guardar Nuevo Orden';
+    btn.innerHTML = '�’� Guardar Nuevo Orden';
   }
 }
-
 // ═══════════════════════════════════════
-// CRUD — CREATE / UPDATE
+// CRUD �” CREATE / UPDATE
 // ═══════════════════════════════════════
-
 function openNewProject() {
   editingId = null;
   document.getElementById('form-modal-title').textContent = '➕ Nuevo Proyecto';
@@ -393,14 +357,11 @@ function openNewProject() {
   document.getElementById('f-project-id').value = `P-${String(maxId + 1).padStart(3, '0')}`;
   openFormModal();
 }
-
 function editProject(uuid) {
   const p = projects.find(x => x.id === uuid);
   if (!p) return;
-
   editingId = uuid;
   document.getElementById('form-modal-title').textContent = '✏️ Editar Proyecto';
-
   document.getElementById('f-project-id').value = p.project_id;
   document.getElementById('f-name').value = p.name;
   document.getElementById('f-client').value = p.client || '';
@@ -419,22 +380,17 @@ function editProject(uuid) {
   document.getElementById('f-status').value = p.status || 'Completado';
   document.getElementById('f-description').value = p.description || '';
   document.getElementById('f-activities').value = p.activities || '';
-
   openFormModal();
 }
-
 function duplicateProject(uuid) {
   const p = projects.find(x => x.id === uuid);
   if (!p) return;
-
   // We act exactly like a "New Project" but pre-filled
   editingId = null;
-  document.getElementById('form-modal-title').textContent = '📄 Duplicar Proyecto';
-
+  document.getElementById('form-modal-title').textContent = '�“� Duplicar Proyecto';
   // Calculate next available ID
   const maxId = Math.max(...projects.map(prod => parseInt(prod.project_id.replace('P-', '')) || 0));
   document.getElementById('f-project-id').value = `P-${String(maxId + 1).padStart(3, '0')}`;
-
   document.getElementById('f-name').value = p.name + ' (Copia)';
   document.getElementById('f-client').value = p.client || '';
   document.getElementById('f-company').value = p.company;
@@ -452,20 +408,17 @@ function duplicateProject(uuid) {
   document.getElementById('f-status').value = p.status || 'Completado';
   document.getElementById('f-description').value = p.description || '';
   document.getElementById('f-activities').value = p.activities || '';
-
   openFormModal();
 }
-
 async function handleSave(e) {
   e.preventDefault();
   const btn = document.getElementById('save-btn');
   btn.disabled = true;
   btn.textContent = 'Guardando...';
-
   const record = {
     project_id: document.getElementById('f-project-id').value.trim(),
     name: document.getElementById('f-name').value.trim(),
-    client: document.getElementById('f-client').value.trim() || '–',
+    client: document.getElementById('f-client').value.trim() || '�“',
     company: document.getElementById('f-company').value.trim(),
     country: document.getElementById('f-country').value.trim(),
     city: document.getElementById('f-city').value.trim(),
@@ -482,7 +435,6 @@ async function handleSave(e) {
     description: document.getElementById('f-description').value.trim(),
     activities: document.getElementById('f-activities').value.trim()
   };
-
   // Validation
   if (!record.project_id || !record.name || !record.company) {
     showToast('ID, Nombre y Empresa son obligatorios', 'error');
@@ -490,7 +442,6 @@ async function handleSave(e) {
     btn.textContent = 'Guardar';
     return;
   }
-
   let error;
   if (editingId) {
     // UPDATE
@@ -499,47 +450,42 @@ async function handleSave(e) {
     // INSERT
     ({ error } = await supabaseClient.from('proyectos').insert(record));
   }
-
   btn.disabled = false;
   btn.textContent = 'Guardar';
-
   if (error) {
     console.error(error);
     showToast(`Error: ${error.message}`, 'error');
     return;
   }
-
-  showToast(editingId ? '✓ Proyecto actualizado' : '✓ Proyecto creado', 'success');
+  showToast(editingId ? '�“ Proyecto actualizado' : '�“ Proyecto creado', 'success');
   closeFormModal();
   loadProjects();
 }
-
 // ═══════════════════════════════════════
-// CRUD — DELETE
+// CRUD �” DELETE
 // ═══════════════════════════════════════
-
 let deletingId = null;
-
 function confirmDelete(uuid, projectId) {
+  lastFocusedElement = document.activeElement;
   deletingId = uuid;
   document.getElementById('delete-project-id').textContent = projectId;
-  document.getElementById('confirm-overlay').classList.add('active');
+  const overlay = document.getElementById('confirm-overlay');
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.getElementById('confirm-cancel-btn')?.focus();
 }
-
 async function handleDelete() {
   if (!deletingId) return;
-
   const { error } = await supabaseClient.from('proyectos').delete().eq('id', deletingId);
-
-  document.getElementById('confirm-overlay').classList.remove('active');
-
+  const overlay = document.getElementById('confirm-overlay');
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
   if (error) {
     showToast('Error al eliminar', 'error');
     console.error(error);
     return;
   }
-
-  showToast('✓ Proyecto eliminado. Reordenando IDs...', 'info');
+  showToast('�“ Proyecto eliminado. Reordenando IDs...', 'info');
   deletingId = null;
   
   // Reload to get the list without the deleted item
@@ -548,26 +494,35 @@ async function handleDelete() {
   // Automatically close the numbering gap
   await autoResequenceIds();
 }
-
 function cancelDelete() {
   deletingId = null;
-  document.getElementById('confirm-overlay').classList.remove('active');
+  const overlay = document.getElementById('confirm-overlay');
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus();
+  }
 }
-
 // ═══════════════════════════════════════
 // UI HELPERS
 // ═══════════════════════════════════════
-
 function openFormModal() {
-  document.getElementById('form-overlay').classList.add('active');
+  lastFocusedElement = document.activeElement;
+  const overlay = document.getElementById('form-overlay');
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  document.getElementById('f-project-id')?.focus();
 }
-
 function closeFormModal() {
-  document.getElementById('form-overlay').classList.remove('active');
+  const overlay = document.getElementById('form-overlay');
+  overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus();
+  }
 }
-
 function clearForm() {
   document.querySelectorAll('#project-form input, #project-form textarea, #project-form select').forEach(el => {
     if (el.type === 'select-one') {
@@ -577,28 +532,22 @@ function clearForm() {
     }
   });
 }
-
-// ── Toast ──
+// �”��”� Toast �”��”�
 function showToast(message, type = 'info') {
   const container = document.getElementById('toast-container');
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
-
-  const icons = { success: '✅', error: '❌', info: 'ℹ️' };
+  const icons = { success: '�…', error: '❌', info: 'ℹ️' };
   toast.innerHTML = `<span class="toast-icon">${icons[type] || ''}</span> ${message}`;
-
   container.appendChild(toast);
-
   setTimeout(() => {
     toast.style.animation = 'toastOut 0.3s ease-in forwards';
     setTimeout(() => toast.remove(), 300);
   }, 3500);
 }
-
 // ═══════════════════════════════════════
 // EXPORTING
 // ═══════════════════════════════════════
-
 function getExportData() {
   return currentFilteredProjects.map(p => ({
     "ID": p.project_id,
@@ -607,14 +556,13 @@ function getExportData() {
     "Cliente": p.client || '',
     "Industria": p.project_type || '',
     "Fase": p.phase || '',
-    "Hormigón (m³)": p.concrete_volume || '–',
-    "Acero (Ton.)": p.steel_weight || '–',
+    "Hormigón (m³)": p.concrete_volume || '�“',
+    "Acero (Ton.)": p.steel_weight || '�“',
     "Material": p.material || '',
     "Software": p.software || '',
     "Estado": p.status
   }));
 }
-
 async function exportExcel() {
   if (typeof window.ExcelJS === 'undefined') {
     showToast('Esperando librería de Excel...', 'error');
@@ -622,22 +570,16 @@ async function exportExcel() {
   }
   
   showToast('Generando Excel premium...', 'info');
-
   const data = getExportData();
   if (data.length === 0) return showToast('No hay datos para exportar', 'error');
-
   const workbook = new ExcelJS.Workbook();
   workbook.creator = 'Proyectos BIM Admin';
   const sheet = workbook.addWorksheet('Proyectos');
-
   // Remueve las grillas para dar aspecto de reporte limpio
   sheet.views = [{ showGridLines: false }];
-
   const headers = Object.keys(data[0]);
-
   // Se dejan listas las columnas base para widths
   sheet.columns = headers.map(h => ({ key: h, width: 20 }));
-
   // Fila 1: Título Principal
   sheet.mergeCells('A1:L1');
   const title = sheet.getCell('A1');
@@ -645,16 +587,14 @@ async function exportExcel() {
   title.font = { size: 14, bold: true, color: { argb: 'FF0F172A' }, name: 'Segoe UI' };
   title.alignment = { vertical: 'middle', horizontal: 'left' };
   sheet.getRow(1).height = 30;
-
   // Fila 2: Firma Profesional y Fecha (Estilo ICHA)
   sheet.mergeCells('A2:L2');
   const subtitle = sheet.getCell('A2');
-  subtitle.value = `Andrés Gallo P. — BIM Developer — Generado: ${new Date().toLocaleDateString()}`;
+  subtitle.value = `Andrés Gallo P. �” BIM Developer �” Generado: ${new Date().toLocaleDateString()}`;
   subtitle.font = { size: 9, italic: true, color: { argb: 'FF64748B' }, name: 'Segoe UI' };
   subtitle.alignment = { vertical: 'middle', horizontal: 'left' };
   subtitle.border = { bottom: { style: 'medium', color: { argb: 'FF3B82F6' } } };
   sheet.getRow(2).height = 25;
-
   // Fila 3: Cabeceras de Tabla
   const headerRow = sheet.getRow(3);
   headers.forEach((h, i) => {
@@ -665,7 +605,6 @@ async function exportExcel() {
     cell.alignment = { vertical: 'middle', horizontal: 'center' };
   });
   headerRow.height = 30;
-
   // Llenado de Datos
   data.forEach((item, index) => {
     const row = sheet.getRow(4 + index);
@@ -673,7 +612,6 @@ async function exportExcel() {
     headers.forEach((h, i) => {
       row.getCell(i + 1).value = item[h];
     });
-
     const isEven = index % 2 === 0;
     row.eachCell((cell, colNumber) => {
       cell.fill = {
@@ -704,13 +642,11 @@ async function exportExcel() {
       }
     });
   });
-
   // Autofiltrado elegante en la fila de títulos
   sheet.autoFilter = {
     from: 'A3',
     to: 'L3',
   };
-
   // Ajuste inteligente de columnas
   sheet.columns.forEach((column) => {
     let maxLength = 0;
@@ -723,7 +659,6 @@ async function exportExcel() {
     // Añadimos +6 de margen para que respire, con máximo ancho 55
     column.width = Math.min(Math.max(maxLength + 4, 15), 55);
   });
-
   const buffer = await workbook.xlsx.writeBuffer();
   
   const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
@@ -737,9 +672,8 @@ async function exportExcel() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
   
-  showToast('✓ Descarga Excel Premium completada', 'success');
+  showToast('�“ Descarga Excel Premium completada', 'success');
 }
-
 function exportPDF() {
   if (typeof window.jspdf === 'undefined') {
     showToast('Esperando librerías de PDF...', 'error');
@@ -752,15 +686,13 @@ function exportPDF() {
   
   const data = getExportData();
   if (data.length === 0) return showToast('No hay datos para exportar', 'error');
-
   const headers = Object.keys(data[0]);
   const rows = data.map(obj => Object.values(obj));
-
   // Diseño Cabecera de Página Completa
   doc.setFillColor(15, 23, 42); // Web Dark Slate
   doc.rect(0, 0, 300, 32, 'F');
   
-  // Título Principal (Texto Blanco) — Estilo ICHA
+  // Título Principal (Texto Blanco) �” Estilo ICHA
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(18);
   doc.setFont("helvetica", "bold");
@@ -770,11 +702,10 @@ function exportPDF() {
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(148, 163, 184); 
-  doc.text(`Andrés Gallo P. — BIM Developer`, 14, 25);
+  doc.text(`Andrés Gallo P. �” BIM Developer`, 14, 25);
   
   // Fecha a la derecha (x = 280 aprox para landscape)
   doc.text(`${new Date().toLocaleDateString()}`, 265, 25);
-
   doc.autoTable({
     startY: 38,
     head: [headers],
@@ -812,7 +743,6 @@ function exportPDF() {
        }
     }
   });
-
   doc.save(`Proyectos_BIM_${new Date().toISOString().split('T')[0]}.pdf`);
-  showToast('✓ Descarga PDF completada', 'success');
+  showToast('�“ Descarga PDF completada', 'success');
 }

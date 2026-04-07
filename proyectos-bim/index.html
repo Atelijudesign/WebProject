@@ -1,275 +1,484 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyectos BIM — Andrés Gallo Parra | Base de Datos de Proyectos Estructurales</title>
-  <meta name="description" content="Base de datos interactiva de 46 proyectos BIM de ingeniería estructural. Trayectoria profesional 2006–2025 en Chile, México y Argentina.">
-  <meta name="author" content="Andrés Gallo Parra">
-  <meta name="keywords" content="BIM, Revit, Tekla, ingeniería estructural, proyectos, portafolio, Chile">
-  <meta property="og:title" content="Proyectos BIM — Andrés Gallo Parra">
-  <meta property="og:description" content="46 proyectos BIM de ingeniería estructural | +15 años de experiencia">
-  <meta property="og:type" content="website">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;" />
-  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos BIM — Andrés Gallo Parra | Base de Datos de Proyectos Estructurales</title>
+    <meta name="description"
+          content="Base de datos interactiva de 46 proyectos BIM de ingeniería estructural. Trayectoria profesional 2006–2025 en Chile, México y Argentina.">
+    <meta name="author" content="Andrés Gallo Parra">
+    <meta name="keywords" content="BIM, Revit, Tekla, ingeniería estructural, proyectos, portafolio, Chile">
+    <meta property="og:title" content="Proyectos BIM — Andrés Gallo Parra">
+    <meta property="og:description" content="46 proyectos BIM de ingeniería estructural | +15 años de experiencia">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atelijudesign.com/proyectos-bim/index.html">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:image" content="https://atelijudesign.com/assets/img/og-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Proyectos BIM — Andrés Gallo Parra">
+    <meta name="twitter:description" content="Base de datos interactiva de proyectos BIM de ingeniería estructural.">
+    <meta name="twitter:image" content="https://atelijudesign.com/assets/img/og-preview.jpg">
+    <link rel="canonical" href="https://atelijudesign.com/proyectos-bim/index.html">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co;"/>
+    <link rel="icon" href="../assets/favicon.ico" sizes="any">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      
+      /* Skip link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #38bdf8;
+        color: #0a0e17;
+        padding: 8px;
+        z-index: 100;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
 </head>
-<body>
+<body class="projects-bim-page">
+<!-- Skip Navigation Link -->
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- Background Effects -->
-  <div class="bg-mesh"></div>
-  <div class="bg-noise"></div>
+<!-- Background Effects -->
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-noise" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════════════════════
-       HEADER
-       ═══════════════════════════════════════ -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="../index.html" class="nav-logo">Andrés Gallo <span>BIM</span></a>
-      <nav class="nav-links" id="navLinks">
-        <a href="../index.html" class="nav-link">Inicio</a>
-        <a href="../index.html#about" class="nav-link">Sobre Mí</a>
-        <a href="../index.html#automation" class="nav-link">Automatización</a>
-        <a href="../index.html#services" class="nav-link">Servicios</a>
-        <a href="../index.html#portfolio" class="nav-link">Portafolio</a>
-        <a href="./" class="nav-link active">Proyectos</a>
-        <a href="../blog/blog.html" class="nav-link">Blog</a>
-        <a href="../tool/index.html" class="nav-link">Tools</a>
-        <a href="../index.html#contact" class="nav-link nav-cta">Contacto →</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
+<!-- Site Navigation -->
+<header role="banner">
+  <nav aria-label="Navegación principal"
+    class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a
+          href="../index.html#home"
+          id="logo"
+          class="flex-shrink-0 flex items-center cursor-pointer"
+          aria-label="Ir al inicio - Andrés Gallo P."
+        >
+          <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2" aria-hidden="true"></i>
+          <span class="font-bold text-xl text-gray-900 dark:text-white"
+            >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+          >
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu" role="menubar">
+            <a
+              href="../index.html#home"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              >Inicio</a
+            >
+            <a
+              href="../index.html#about"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              role="menuitem"
+              >Sobre Mí</a
+            >
+            <a
+              href="../index.html#automation"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              >Automatización</a
+            >
+            <a
+              href="../index.html#services"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              >Servicios</a
+            >
+            <a
+              href="../index.html#portfolio"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              >Portafolio</a
+            >
+            <a
+              href="../proyectos-bim/"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              aria-current="page"
+              >Proyectos</a
+            >
+            <a
+              href="../blog/blog.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              >Blog</a
+            >
+            <a
+              href="../tool/index.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              role="menuitem"
+              >Herramientas</a
+            >
+            <a
+              href="../index.html#contact"
+              class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              role="menuitem"
+              >Contacto →</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="-mr-2 flex md:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Abrir menú de navegación"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+          </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </header>
+    <div
+      class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+      id="mobile-menu"
+      role="menu"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="../index.html#home"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Inicio</a
+        >
+        <a
+          href="../index.html#about"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
+          role="menuitem"
+          >Sobre Mí</a
+        >
+        <a
+          href="../index.html#automation"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Automatización</a
+        >
+        <a
+          href="../index.html#services"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Servicios</a
+        >
+        <a
+          href="../index.html#portfolio"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Portafolio</a
+        >
+        <a
+          href="../proyectos-bim/"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          aria-current="page"
+          >Proyectos</a
+        >
+        <a
+          href="../blog/blog.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Blog</a
+        >
+        <a
+          href="../tool/index.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Herramientas</a
+        >
+        <a
+          href="../index.html#contact"
+          class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
+          role="menuitem"
+          >Contacto →</a
+        >
+      </div>
+    </div>
+  </nav>
+</header>
 
-  <!-- ═══════════════════════════════════════
+<!-- Main Content -->
+<main id="main-content" role="main">
+<!-- ═══════════════════════════════════════
        HERO / DASHBOARD KPIs
        ═══════════════════════════════════════ -->
-  <section class="hero" id="dashboard">
+<section class="hero pt-16" id="dashboard" aria-labelledby="dashboard-heading">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          Diseñador Estructural BIM
-        </div>
-        <h1>Base de Datos de <span class="gradient-text">Proyectos BIM</span></h1>
-        <p class="hero-subtitle">Trayectoria profesional de Andrés Gallo Parra — 46 proyectos de ingeniería estructural realizados entre 2006 y 2025</p>
-      </div>
-
-      <div class="kpi-grid">
-        <div class="kpi-card" id="kpi-projects">
-          <span class="kpi-icon">📋</span>
-          <div class="kpi-value" data-count="46">0</div>
-          <div class="kpi-label">Proyectos</div>
-          <div class="kpi-sub">en base de datos</div>
-        </div>
-        <div class="kpi-card" id="kpi-years">
-          <span class="kpi-icon">📅</span>
-          <div class="kpi-value" data-count="15" data-suffix="+">0</div>
-          <div class="kpi-label">Años Experiencia</div>
-          <div class="kpi-sub">desde 2006 a 2025</div>
-        </div>
-
-        <div class="kpi-card" id="kpi-countries">
-          <span class="kpi-icon">🌎</span>
-          <div class="kpi-value" data-count="3">0</div>
-          <div class="kpi-label">Países</div>
-          <div class="kpi-sub">Chile · México · Argentina</div>
-        </div>
-        <div class="kpi-card" id="kpi-sectors">
-          <span class="kpi-icon">🏗️</span>
-          <div class="kpi-value" data-count="7" data-suffix="+">0</div>
-          <div class="kpi-label">Sectores</div>
-          <div class="kpi-sub">minería, salud, aviación…</div>
-        </div>
-        <div class="kpi-card" id="kpi-active">
-          <span class="kpi-icon">🔄</span>
-          <div class="kpi-value" data-count="1">0</div>
-          <div class="kpi-label">En Curso</div>
-          <div class="kpi-sub">proyecto activo actualmente</div>
-        </div>
-
-        <!-- Nuevos KPIs Volumétricos (v1.12) -->
-        <div class="kpi-card" id="kpi-concrete">
-          <span class="kpi-icon">🧱</span>
-          <div class="kpi-value">0</div>
-          <div class="kpi-label">Total Hormigón</div>
-          <div class="kpi-sub">m³ acumulados</div>
-        </div>
-        <div class="kpi-card" id="kpi-steel">
-          <span class="kpi-icon">🏗️</span>
-          <div class="kpi-value">0</div>
-          <div class="kpi-label">Total Acero</div>
-          <div class="kpi-sub">Ton. estructurales</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       TIMELINE
-       ═══════════════════════════════════════ -->
-  <section class="section" id="timeline">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title"><span class="icon">📐</span> Trayectoria Profesional</h2>
-        <p class="section-desc">Línea de tiempo por empresa — haz click en una empresa para filtrar sus proyectos</p>
-      </div>
-      <div class="timeline-track">
-        <div class="timeline-inner" id="timeline-inner"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       FILTERS + PROJECTS
-       ═══════════════════════════════════════ -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title"><span class="icon">🗂️</span> Explorar Proyectos</h2>
-        <p class="section-desc">Filtra, busca y explora los 46 proyectos BIM registrados</p>
-      </div>
-
-      <!-- Filters -->
-      <div class="filters-bar" id="filters-bar">
-        <div class="search-wrapper">
-          <span class="search-icon">🔍</span>
-          <input type="text" class="search-input" id="search-input"
-                 placeholder="Buscar por nombre, cliente, empresa, material, software…"
-                 autocomplete="off">
-        </div>
-
-        <div class="filter-groups">
-          <div class="filter-group">
-            <span class="filter-label">Empresa</span>
-            <div class="filter-chips" id="filter-company"></div>
-          </div>
-          <div class="filter-group">
-            <span class="filter-label">Sector</span>
-            <div class="filter-chips" id="filter-type"></div>
-          </div>
-          <div class="filter-group">
-            <span class="filter-label">Material</span>
-            <div class="filter-chips" id="filter-material"></div>
-          </div>
-          <div class="filter-group">
-            <span class="filter-label">Software</span>
-            <div class="filter-chips" id="filter-software"></div>
-          </div>
-          <div class="filter-group">
-            <span class="filter-label">País</span>
-            <div class="filter-chips" id="filter-country"></div>
-          </div>
-          <div class="filter-group">
-            <span class="filter-label">Estado</span>
-            <div class="filter-chips" id="filter-status"></div>
-          </div>
-        </div>
-
-        <div class="filter-actions">
-          <span class="results-count" id="results-count">Mostrando <strong>46</strong> de <strong>46</strong> proyectos</span>
-          <div style="display:flex; align-items:center; gap: 0.75rem;">
-            <div class="view-toggle">
-              <button class="view-btn active" data-view="grid" id="btn-view-grid" title="Vista de tarjetas">☷</button>
-              <button class="view-btn" data-view="table" id="btn-view-table" title="Vista de tabla">☰</button>
+        <header class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse" aria-hidden="true"></span>
+                <span class="badge-text">Diseñador Estructural BIM</span>
             </div>
-            <button class="btn-clear" id="btn-clear">✕ Limpiar filtros</button>
-          </div>
+            <h1 id="dashboard-heading">Base de Datos de <span class="gradient-text">Proyectos BIM</span></h1>
+            <p class="hero-subtitle">Trayectoria profesional de Andrés Gallo Parra — 46 proyectos de ingeniería
+                estructural realizados entre 2006 y 2025</p>
+        </header>
+        <div class="kpi-grid" role="list" aria-label="Indicadores clave de rendimiento">
+            <div class="kpi-card" id="kpi-projects" role="listitem">
+                <span class="kpi-icon" aria-hidden="true">📊</span>
+                <div class="kpi-value" data-count="46" aria-label="46 proyectos">0</div>
+                <div class="kpi-label">Proyectos</div>
+                <div class="kpi-sub">en base de datos</div>
+            </div>
+
+            <!-- Nuevos KPIs Volumétricos (v1.12) -->
+            <div class="kpi-card" id="kpi-steel" role="listitem">
+                <span class="kpi-icon" aria-hidden="true">🔩</span>
+                <div class="kpi-value" aria-label="Total acero proyectado en toneladas">0</div>
+                <div class="kpi-label">Acero Proyectado</div>
+                <div class="kpi-sub">Total Acero Ton.</div>
+            </div>
+            <div class="kpi-card" id="kpi-concrete" role="listitem">
+                <span class="kpi-icon" aria-hidden="true">🧱</span>
+                <div class="kpi-value" aria-label="Total hormigón proyectado en metros cúbicos">0</div>
+                <div class="kpi-label">Total Hormigón</div>
+                <div class="kpi-sub">m³ acumulados</div>
+            </div>
+            <div class="kpi-card" id="kpi-years" role="listitem">
+                <span class="kpi-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></span>
+                <div class="kpi-value" data-count="17" data-suffix="+" aria-label="17+ años de experiencia">0</div>
+                <div class="kpi-label">Años Experiencia</div>
+                <div class="kpi-sub">desde 2006 a 2025</div>
+            </div>
+            <div class="kpi-card" id="kpi-countries" role="listitem">
+                <span class="kpi-icon" aria-hidden="true">🌎</span>
+                <div class="kpi-value" data-count="3" aria-label="3 países">0</div>
+                <div class="kpi-label">Países</div>
+                <div class="kpi-sub">Chile · México · Argentina</div>
+            </div>
+            <div class="kpi-card" id="kpi-sectors" role="listitem">
+                <span class="kpi-icon" aria-hidden="true">🏗️</span>
+                <div class="kpi-value" data-count="7" data-suffix="+" aria-label="7+ sectores">0</div>
+                <div class="kpi-label">Sectores</div>
+                <div class="kpi-sub">minería, salud, aviación…</div>
+            </div>
+            <div class="kpi-card" id="kpi-active" role="listitem">
+                <span class="kpi-icon" aria-hidden="true">⚡</span>
+                <div class="kpi-value" data-count="1" aria-label="1 proyecto en curso">0</div>
+                <div class="kpi-label">En Curso</div>
+                <div class="kpi-sub">proyecto activo actualmente</div>
+            </div>
+
+
         </div>
-      </div>
-
-      <!-- Grid View -->
-      <div class="projects-grid active" id="projects-grid"></div>
-
-      <!-- Table View -->
-      <div class="projects-table-wrapper" id="projects-table-wrapper">
-        <table class="projects-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre del Proyecto</th>
-              <th>Empresa</th>
-              <th>Cliente</th>
-              <th>Tipo</th>
-              <th>Material</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody id="projects-tbody"></tbody>
-        </table>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- ═══════════════════════════════════════
-       STATISTICS
-       ═══════════════════════════════════════ -->
-  <section class="section" id="stats">
+<!-- -----------------------------------------------------------------------
+     TIMELINE
+     ----------------------------------------------------------------------- -->
+<section class="section" id="timeline" aria-labelledby="timeline-heading">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title"><span class="icon">📊</span> Estadísticas</h2>
-        <p class="section-desc">Distribución de proyectos por empresa, sector y año</p>
-      </div>
-
-      <div class="stats-grid">
-        <div class="chart-card">
-          <div class="chart-title"><span class="icon">🏢</span> Proyectos por Empresa</div>
-          <div class="bar-chart" id="chart-company"></div>
+        <header class="section-header">
+            <h2 id="timeline-heading" class="section-title"><span class="icon" aria-hidden="true">📊</span> Trayectoria Profesional</h2>
+            <p class="section-desc">Línea de tiempo por empresa — haz click en una empresa para filtrar sus
+                proyectos</p>
+        </header>
+        <div class="timeline-track" role="region" aria-label="Línea de tiempo interactiva">
+            <div class="timeline-inner" id="timeline-inner"></div>
         </div>
-
-        <div class="chart-card">
-          <div class="chart-title"><span class="icon">🏗️</span> Proyectos por Sector</div>
-          <div id="chart-sector"></div>
-        </div>
-
-        <div class="chart-card" style="grid-column: 1 / -1;">
-          <div class="chart-title"><span class="icon">📅</span> Actividad por Año</div>
-          <div class="bar-chart" id="chart-year"></div>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- ═══════════════════════════════════════
-       MODAL
-       ═══════════════════════════════════════ -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal">
-      <div class="modal-header">
-        <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
-        <span class="modal-id" id="modal-id"></span>
-        <h3 class="modal-title" id="modal-title"></h3>
-      </div>
-      <div class="modal-body">
-        <div class="modal-detail-grid" id="modal-detail-grid"></div>
-
-        <div class="modal-section-title">Descripción</div>
-        <div class="modal-description" id="modal-description"></div>
-
-        <div class="modal-section-title">Actividades Clave</div>
-        <div class="modal-activities" id="modal-activities"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════ -->
-  <footer class="site-footer">
+<!-- -----------------------------------------------------------------------
+     FILTERS + PROJECTS
+     ----------------------------------------------------------------------- -->
+<section class="section" id="projects" aria-labelledby="projects-heading">
     <div class="container">
-      <p class="footer-text">
-        <a href="https://atelijudesign.com" target="_blank" rel="noopener">atelijudesign.com</a> · Andrés Gallo Parra · Base de Datos de Proyectos BIM
-      </p>
-      <p class="footer-contact">
-        andresgallo@pm.me · +56 9 4060 0861
-      </p>
-      <p style="margin-top:0.5rem;"><a href="admin.html" style="font-size:0.65rem;color:var(--text-muted);opacity:0.3;text-decoration:none;">⚙</a></p>
+        <header class="section-header">
+            <h2 id="projects-heading" class="section-title"><span class="icon" aria-hidden="true">📊</span> Explorar Proyectos</h2>
+            <p class="section-desc">Filtra, busca y explora los 46 proyectos BIM registrados</p>
+        </header>
+        <!-- Filters -->
+        <aside class="filters-bar" id="filters-bar" aria-label="Filtros de proyectos">
+            <div class="search-wrapper">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <label for="search-input" class="sr-only">Buscar proyectos</label>
+                <input type="text" class="search-input" id="search-input"
+                       placeholder="Buscar por nombre, cliente, empresa, material, software…"
+                       autocomplete="off"
+                       aria-describedby="search-help">
+                <span id="search-help" class="sr-only">Escribe para filtrar proyectos por nombre, cliente, empresa, material o software</span>
+            </div>
+            <div class="filter-groups">
+                <div class="filter-group">
+                    <span class="filter-label" id="filter-company-label">Empresa</span>
+                    <div class="filter-chips" id="filter-company" role="group" aria-labelledby="filter-company-label"></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label" id="filter-type-label">Sector</span>
+                    <div class="filter-chips" id="filter-type" role="group" aria-labelledby="filter-type-label"></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label" id="filter-material-label">Material</span>
+                    <div class="filter-chips" id="filter-material" role="group" aria-labelledby="filter-material-label"></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label" id="filter-software-label">Software</span>
+                    <div class="filter-chips" id="filter-software" role="group" aria-labelledby="filter-software-label"></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label" id="filter-country-label">País</span>
+                    <div class="filter-chips" id="filter-country" role="group" aria-labelledby="filter-country-label"></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label" id="filter-status-label">Estado</span>
+                    <div class="filter-chips" id="filter-status" role="group" aria-labelledby="filter-status-label"></div>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <span class="results-count" id="results-count" aria-live="polite">Mostrando <strong>46</strong> de <strong>46</strong> proyectos</span>
+                <div style="display:flex; align-items:center; gap: 0.75rem;">
+                    <div class="view-toggle" role="group" aria-label="Seleccionar vista de proyectos">
+                        <button class="view-btn active" data-view="grid" id="btn-view-grid" title="Vista de tarjetas" aria-pressed="true" aria-label="Vista de tarjetas">
+                            <span aria-hidden="true">▦</span>
+                        </button>
+                        <button class="view-btn" data-view="table" id="btn-view-table" title="Vista de tabla" aria-pressed="false" aria-label="Vista de tabla">
+                            <span aria-hidden="true">☰</span>
+                        </button>
+                    </div>
+                    <button class="btn-clear" id="btn-clear" aria-label="Limpiar todos los filtros aplicados">✕ Limpiar filtros</button>
+                </div>
+            </div>
+        </aside>
+        <!-- Grid View -->
+        <div class="projects-grid active" id="projects-grid" role="region" aria-label="Lista de proyectos en vista de cuadrícula"></div>
+        <!-- Table View -->
+        <div class="projects-table-wrapper" id="projects-table-wrapper" role="region" aria-label="Lista de proyectos en vista de tabla" tabindex="0">
+            <table class="projects-table" aria-label="Tabla de proyectos BIM">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre del Proyecto</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Material</th>
+                    <th scope="col">Estado</th>
+                </tr>
+                </thead>
+                <tbody id="projects-tbody"></tbody>
+            </table>
+        </div>
     </div>
-  </footer>
+</section>
 
-  <!-- Supabase SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="app.js"></script>
+<!-- -----------------------------------------------------------------------
+     STATISTICS
+     ----------------------------------------------------------------------- -->
+<section class="section" id="stats" aria-labelledby="stats-heading">
+    <div class="container">
+        <header class="section-header">
+            <h2 id="stats-heading" class="section-title"><span class="icon" aria-hidden="true">📊</span> Estadísticas</h2>
+            <p class="section-desc">Distribución de proyectos por empresa, sector y año</p>
+        </header>
+        <div class="stats-grid">
+            <article class="chart-card">
+                <div class="chart-title"><span class="icon" aria-hidden="true">🌎</span> Proyectos por Empresa</div>
+                <div class="bar-chart" id="chart-company" role="img" aria-label="Gráfico de barras: proyectos por empresa"></div>
+            </article>
+            <article class="chart-card">
+                <div class="chart-title"><span class="icon" aria-hidden="true">🏗️</span> Proyectos por Sector</div>
+                <div id="chart-sector" role="img" aria-label="Gráfico: proyectos por sector"></div>
+            </article>
+            <article class="chart-card" style="grid-column: 1 / -1;">
+                <div class="chart-title"><span class="icon" aria-hidden="true">📊</span> Actividad por Año</div>
+                <div class="bar-chart" id="chart-year" role="img" aria-label="Gráfico de barras: actividad por año"></div>
+            </article>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- ═══════════════════════════════════════
+     PROJECT DETAIL MODAL
+     ═══════════════════════════════════════ -->
+<aside class="modal-overlay" id="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" role="document">
+        <header class="modal-header">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar modal">✕</button>
+            <span class="modal-id" id="modal-id"></span>
+            <h3 id="modal-title" class="modal-title"></h3>
+        </header>
+        <div class="modal-body">
+            <div class="modal-detail-grid" id="modal-detail-grid"></div>
+            <section>
+                <h4 class="modal-section-title">Descripción</h4>
+                <div class="modal-description" id="modal-description"></div>
+            </section>
+            <section>
+                <h4 class="modal-section-title">Actividades Clave</h4>
+                <div class="modal-activities" id="modal-activities"></div>
+            </section>
+        </div>
+    </div>
+</aside>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-inner">
+            <a href="../index.html" class="footer-logo">Andrés Gallo <span>P.</span></a>
+            <div class="footer-copy">© <time datetime="2026">2026</time> Andrés Gallo P. Todos los derechos reservados.</div>
+            <div class="footer-tagline">
+                // Diseñado con ingeniería y código
+                <a href="admin.html" class="footer-admin-link" title="Panel de Administración" aria-label="Acceder al panel de administración">
+                    <span aria-hidden="true">⚙</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+<!-- Back to Top Button -->
+<button
+        id="back-to-top"
+        class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
+        aria-label="Volver al inicio"
+>
+    <i
+            class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
+            aria-hidden="true"
+    ></i>
+</button>
+<script src="../js/main.js" defer></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ const TRANSLATIONS = {
       "Como proyectistas, a veces necesitamos verificar datos rápidos sin abrir el software pesado. Calcula peso, área y superficie en tiempo real de 12 tipos de perfiles estructurales.",
 
     // Hero - Catalog
-    cat_hero_tag: "CATÁLOGO ICHA — NORMA CHILENA",
+    cat_hero_tag: "CATÁLOGO ICHA �” NORMA CHILENA",
     cat_hero_title_prefix: "Catálogo de",
     cat_hero_title_suffix: "Perfiles ICHA",
     cat_hero_desc:
@@ -91,11 +91,11 @@ const TRANSLATIONS = {
     // Reference
     ref_title: "Referencia",
     ref_density: "Densidad del acero:",
-    ref_formula: "Peso = Área × 0.00785 × 100",
+    ref_formula: "Peso = Área ��” 0.00785 ��” 100",
 
     // Footer
     footer_text:
-      "© 2026 Andrés Gallo P. — Herramientas para Proyectistas Estructurales",
+      "© 2026 Andrés Gallo P. �” Herramientas para Proyectistas Estructurales",
 
     // Excel & JS specifics
     msg_invalid_qty: "Cantidad y Largo deben ser mayores a 0",
@@ -105,10 +105,10 @@ const TRANSLATIONS = {
 
     // Excel Headers
     excel_title: "LISTADO DE PERFILES DE ACERO",
-    excel_title_catalog: "CATÁLOGO ICHA — RESUMEN DE PERFILES",
+    excel_title_catalog: "CATÁLOGO ICHA �” RESUMEN DE PERFILES",
     pdf_title: "LISTADO DE PERFILES DE ACERO",
-    pdf_title_catalog: "CATÁLOGO ICHA — RESUMEN DE PERFILES",
-    excel_class_title: "CLASIFICACIÓN POR NOMINAL WEIGHT",
+    pdf_title_catalog: "CATÁLOGO ICHA �” RESUMEN DE PERFILES",
+    excel_class_title: "CLASIFICACI�“N POR NOMINAL WEIGHT",
     excel_conns: "Conexiones Acero",
     excel_total_final: "TOTAL ACERO (con conexiones)",
 
@@ -149,7 +149,7 @@ const TRANSLATIONS = {
     msg_no_results: "No se encontraron perfiles",
     msg_select_series_first:
       "Selecciona una serie y luego un perfil para ver sus propiedades",
-    msg_profiles_available: "perfiles disponibles — busca o selecciona uno",
+    msg_profiles_available: "perfiles disponibles �” busca o selecciona uno",
     search_placeholder_prefix: "Buscar en",
     msg_select_profile: "Selecciona un perfil primero",
     msg_confirm_clear: "¿Estás seguro de borrar toda la lista?",
@@ -174,7 +174,7 @@ const TRANSLATIONS = {
       "As designers, sometimes we need to verify quick data without opening heavy software. Calculate weight, section area, and surface area in real-time for 12 structural profile types.",
 
     // Hero - Catalog
-    cat_hero_tag: "ICHA CATALOG — CHILEAN STANDARD",
+    cat_hero_tag: "ICHA CATALOG �” CHILEAN STANDARD",
     cat_hero_title_prefix: "Catalog of",
     cat_hero_title_suffix: "ICHA Profiles",
     cat_hero_desc:
@@ -250,10 +250,10 @@ const TRANSLATIONS = {
     // Reference
     ref_title: "Reference",
     ref_density: "Steel Density:",
-    ref_formula: "Weight = Area × 0.00785 × 100",
+    ref_formula: "Weight = Area ��” 0.00785 ��” 100",
 
     // Footer
-    footer_text: "© 2026 Andrés Gallo P. — Tools for Structural Designers",
+    footer_text: "© 2026 Andrés Gallo P. �” Tools for Structural Designers",
 
     // Excel & JS specifics
     msg_invalid_qty: "Quantity and Length must be greater than 0",
@@ -263,9 +263,9 @@ const TRANSLATIONS = {
 
     // Excel Headers
     excel_title: "STEEL PROFILES LIST",
-    excel_title_catalog: "ICHA CATALOG — PROFILES SUMMARY",
+    excel_title_catalog: "ICHA CATALOG �” PROFILES SUMMARY",
     pdf_title: "STEEL PROFILES LIST",
-    pdf_title_catalog: "ICHA CATALOG — PROFILES SUMMARY",
+    pdf_title_catalog: "ICHA CATALOG �” PROFILES SUMMARY",
     excel_class_title: "CLASSIFICATION BY NOMINAL WEIGHT",
     excel_conns: "Steel Connections",
     excel_total_final: "TOTAL STEEL (w/ connections)",
@@ -307,7 +307,7 @@ const TRANSLATIONS = {
     msg_no_results: "No profiles found",
     msg_select_series_first:
       "Select a series avoiding a profile to view properties",
-    msg_profiles_available: "profiles available — search or select one",
+    msg_profiles_available: "profiles available �” search or select one",
     search_placeholder_prefix: "Search in",
     msg_select_profile: "Select a profile first",
     msg_confirm_clear: "Are you sure you want to clear the entire list?",

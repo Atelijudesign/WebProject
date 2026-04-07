@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
     <title>Roadmap: De Proyectista a BIM Developer (2026) | pyRevit & C#</title>
     <meta
       name="description"
       content="Guía completa para transformar tu carrera de construcción a desarrollo de software. Aprende Python, pyRevit, C# y Revit API paso a paso."
     />
-
-    <!-- Open Graph -->
+<!-- Open Graph -->
     <meta
       property="og:title"
       content="Roadmap: De Proyectista a BIM Developer"
@@ -21,24 +20,23 @@
     />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="es_CL" />
-
-    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://atelijudesign.com/blog/bim-dev-roadmap.html" />
+<link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-
-    <link
+<link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <style>
-      /* Typography overrides — after Tailwind CDN */
+      /* Typography overrides �” after Tailwind CSS */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
@@ -46,27 +44,7 @@
       #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "bim-blue": "#2563eb",
-              "bim-dark": "#0f172a",
-              "bim-card": "#111827",
-              "bim-border": "#1f2937",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              head: ["Space Grotesk", "sans-serif"],
-              mono: ["Fira Code", "monospace"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
+<style>
       .text-gradient-roadmap {
         background-clip: text;
         -webkit-background-clip: text;
@@ -132,120 +110,140 @@
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
   >
     <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+      <nav
+    class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a
+          href="../index.html#home"
+          id="logo"
+          class="flex-shrink-0 flex items-center cursor-pointer"
+        >
+          <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+          <span class="font-bold text-xl text-gray-900 dark:text-white"
+            >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+          >
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+            <a
+              href="../index.html#home"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Inicio</a
+            >
+            <a
+              href="../index.html#about"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Sobre Mí</a
+            >
+            <a
+              href="../index.html#automation"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Automatización</a
+            >
+            <a
+              href="../index.html#services"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Servicios</a
+            >
+            <a
+              href="../index.html#portfolio"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Portafolio</a
+            >
+            <a
+              href="../proyectos-bim/"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Proyectos</a
+            >
+            <a
+              href="../blog/blog.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Blog</a
+            >
+            <a
+              href="../tool/index.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Herramientas</a
+            >
+            <a
+              href="../index.html#contact"
+              class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Contacto �’</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="-mr-2 flex md:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+      id="mobile-menu"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="../"
-            id="logo"
-            class="flex-shrink-0 flex items-center"
-          >
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-            >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a
-                href="../#home"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Inicio</a
-              >
-              <a
-                href="../#about"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Sobre Mí</a
-              >
-              <a
-                href="../#curriculum"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Experiencia</a
-              >
-              <a
-                href="../#portfolio"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Portafolio</a
-              >
-              <a
-                href="blog.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Blog</a
-              >
-              <a
-                href="../#contact"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Contacto</a
-              >
-              <a
-                href="../tool/index.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Abrir menú principal</span>
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            </div>
-          </div>
-        </div>
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="../index.html#home"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Inicio</a
+        >
+        <a
+          href="../index.html#about"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
+          >Sobre Mí</a
+        >
+        <a
+          href="../index.html#automation"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Automatización</a
+        >
+        <a
+          href="../index.html#services"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Servicios</a
+        >
+        <a
+          href="../index.html#portfolio"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Portafolio</a
+        >
+        <a
+          href="../proyectos-bim/"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Proyectos</a
+        >
+        <a
+          href="../blog/blog.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Blog</a
+        >
+        <a
+          href="../tool/index.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Herramientas</a
+        >
+        <a
+          href="../index.html#contact"
+          class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
+          >Contacto �’</a
+        >
       </div>
-      <div
-        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-        id="mobile-menu"
-      >
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="../#home"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Inicio</a
-          >
-          <a
-            href="../#about"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Sobre Mí</a
-          >
-          <a
-            href="../#curriculum"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Experiencia</a
-          >
-          <a
-            href="../#portfolio"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Portafolio</a
-          >
-          <a
-            href="blog.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Blog</a
-          >
-          <a
-            href="../#contact"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Contacto</a
-          >
-          <a
-            href="../tool/index.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
-          >
-        </div>
-      </div>
-    </nav>
-
-    <!-- Article Hero -->
+    </div>
+  </nav>
+<!-- Article Hero -->
     <section
       class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden"
     >
@@ -267,8 +265,7 @@
           <span class="text-gray-400">›</span>
           <span class="text-gray-500 text-sm">Roadmap</span>
         </div>
-
-        <div class="flex items-center gap-3 mb-4">
+<div class="flex items-center gap-3 mb-4">
           <span
             class="bg-orange-600/20 text-orange-400 text-xs font-bold px-3 py-1 rounded-full border border-orange-600/30"
           >
@@ -280,8 +277,7 @@
             <i class="fa-solid fa-code mr-1"></i> pyRevit + C#
           </span>
         </div>
-
-        <h1
+<h1
           class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-6 leading-tight"
         >
           De <span class="text-gradient-roadmap">Profesional de Obra</span> a
@@ -296,8 +292,7 @@
           híbrido: Python/pyRevit para victorias rápidas + C#/.NET para potencia
           industrial.
         </p>
-
-        <div
+<div
           class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400"
         >
           <span><i class="fa-regular fa-calendar mr-1"></i> 17 Feb 2026</span>
@@ -310,8 +305,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Article Content -->
+<!-- Article Content -->
     <main class="max-w-6xl mx-auto px-4 py-12 space-y-16">
       <!-- Quick Stats Grid -->
       <section
@@ -330,7 +324,7 @@
         <div
           class="p-6 glass-card rounded-xl border-l-4 border-cyan-500 hover:border-cyan-400 transition-all"
         >
-          <div class="text-2xl mb-2">🤖</div>
+          <div class="text-2xl mb-2">��“</div>
           <h3 class="font-bold text-gray-900 dark:text-white">El Aliado</h3>
           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
             Uso intensivo de IA (Gemini/Claude) como tutor personal y generador
@@ -340,16 +334,15 @@
         <div
           class="p-6 glass-card rounded-xl border-l-4 border-indigo-500 hover:border-indigo-400 transition-all"
         >
-          <div class="text-2xl mb-2">💻</div>
+          <div class="text-2xl mb-2">�’�</div>
           <h3 class="font-bold text-gray-900 dark:text-white">El Stack</h3>
           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Python/pyRevit (inicio rápido) → C# .NET, Revit API 2025, Visual
+            Python/pyRevit (inicio rápido) �’ C# .NET, Revit API 2025, Visual
             Studio, WPF, Git.
           </p>
         </div>
       </section>
-
-      <!-- The Advantage + Learning Curve Chart -->
+<!-- The Advantage + Learning Curve Chart -->
       <section
         class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch roadmap-fade-in"
       >
@@ -357,7 +350,7 @@
           <h2
             class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
           >
-            <span class="text-2xl">🏗️</span> La Ventaja del Profesional de Obra
+            <span class="text-2xl">��”️</span> La Ventaja del Profesional de Obra
           </h2>
           <p
             class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-5"
@@ -387,8 +380,7 @@
             >
           </div>
         </div>
-
-        <!-- Strategy Chart -->
+<!-- Strategy Chart -->
         <div class="glass-card p-6 rounded-2xl">
           <h3
             class="text-sm font-bold text-gray-500 mb-3 uppercase text-center tracking-wider"
@@ -401,8 +393,7 @@
           </div>
         </div>
       </section>
-
-      <!-- Battle Plan: Interactive Quarters -->
+<!-- Battle Plan: Interactive Quarters -->
       <section class="roadmap-fade-in">
         <div
           class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4"
@@ -450,16 +441,14 @@
             </button>
           </div>
         </div>
-
-        <div
+<div
           id="quarter-content"
           class="glass-card rounded-2xl overflow-hidden"
         >
           <!-- JavaScript populates this -->
         </div>
       </section>
-
-      <!-- AI Integration -->
+<!-- AI Integration -->
       <section class="roadmap-fade-in">
         <div class="text-center mb-10">
           <span class="text-bim-blue font-bold tracking-wider text-xs uppercase"
@@ -473,12 +462,11 @@
             pedirle a la IA que escriba el código repetitivo.
           </p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <!-- Prompt Structure Guide -->
           <div class="glass-card p-8 rounded-2xl roadmap-fade-in">
             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
-              📝 La Estructura del Prompt Perfecto
+              �“� La Estructura del Prompt Perfecto
             </h3>
             <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300">
               <div
@@ -508,21 +496,19 @@
               </div>
             </div>
           </div>
-
-          <!-- Practical Prompts -->
+<!-- Practical Prompts -->
           <div
             class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 roadmap-fade-in"
           >
             <h3
               class="text-xl font-bold text-white mb-2 flex items-center gap-2"
             >
-              <span class="text-2xl">🤖</span> Prompts Reales para el Día a Día
+              <span class="text-2xl">��“</span> Prompts Reales para el Día a Día
             </h3>
             <p class="text-gray-400 text-sm mb-6">
               Dos ejemplos concretos que se pueden usar desde la primera semana:
             </p>
-
-            <div class="space-y-4">
+<div class="space-y-4">
               <div
                 class="bg-gray-800/80 p-5 rounded-xl border border-gray-700 hover:border-orange-600/50 transition-colors"
               >
@@ -559,8 +545,7 @@
             </div>
           </div>
         </div>
-
-        <!-- AI Usage Evolution Chart -->
+<!-- AI Usage Evolution Chart -->
         <div class="glass-card p-6 rounded-2xl mt-8 roadmap-fade-in">
           <h3
             class="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center"
@@ -577,8 +562,7 @@
           </div>
         </div>
       </section>
-
-      <!-- Career & Portfolio + Effort Distribution -->
+<!-- Career & Portfolio + Effort Distribution -->
       <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 roadmap-fade-in">
         <!-- Career -->
         <div class="glass-card p-6 rounded-2xl border-l-4 border-orange-500">
@@ -605,7 +589,7 @@
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-2xl mt-0.5">💼</span>
+              <span class="text-2xl mt-0.5">�’�</span>
               <div>
                 <strong class="text-sm text-gray-900 dark:text-white block mb-1"
                   >Un Nicho Único</strong
@@ -620,7 +604,7 @@
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-2xl mt-0.5">📹</span>
+              <span class="text-2xl mt-0.5">�“�</span>
               <div>
                 <strong class="text-sm text-gray-900 dark:text-white block mb-1"
                   >El Portafolio Visual</strong
@@ -636,8 +620,7 @@
             </li>
           </ul>
         </div>
-
-        <!-- Effort Distribution -->
+<!-- Effort Distribution -->
         <div class="lg:col-span-2 glass-card p-6 rounded-2xl">
           <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
             Distribución del Esfuerzo
@@ -680,8 +663,7 @@
           </div>
         </div>
       </section>
-
-      <!-- Share Buttons -->
+<!-- Share Buttons -->
       <section class="pt-10 text-center">
         <p
           class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4"
@@ -762,8 +744,7 @@
           </button>
         </div>
       </section>
-
-      <!-- Back to Blog -->
+<!-- Back to Blog -->
       <section class="text-center pt-8">
         <a
           href="blog.html"
@@ -776,25 +757,15 @@
         </a>
       </section>
     </main>
-
-    <!-- Footer -->
-    <footer
-      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">
-          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
-        </p>
-        <p class="text-gray-600 text-xs mt-2">
-          Diseñado con pasión por la ingeniería y la tecnología.
-          <br /><span class="text-gray-600"
-            >Revit® es una marca registrada de Autodesk, Inc.</span
-          >
-        </p>
+<!-- Footer -->
+    <footer class="bg-bim-dark py-8 border-t border-gray-800 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm font-bold text-white" style="font-family: 'Space Grotesk', sans-serif;">Andrés Gallo <span class="text-bim-blue">P.</span></div>
+        <div class="text-xs text-gray-500 font-mono text-center">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="text-xs text-gray-600 font-mono">// Diseñado con ingeniería y código</div>
       </div>
     </footer>
-
-    <!-- Back to Top -->
+<!-- Back to Top -->
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
@@ -804,470 +775,7 @@
         class="fa-solid fa-arrow-up text-lg group-hover:-translate-y-0.5 transition-transform"
       ></i>
     </button>
-
-    <script>
-      // ==================== QUARTER DATA ====================
-      const quarters = {
-        1: {
-          title: "T1: Victoria Rápida con pyRevit",
-          subtitle: "Mes 1 – 3",
-          color: "blue",
-          icon: "fa-solid fa-rocket",
-          focus: "Python & Lógica Básica",
-          description:
-            "No se toca C# todavía. Se aprovecha la velocidad de pyRevit para obtener resultados inmediatos. La meta es automatizar tareas repetitivas desde el primer mes.",
-          modules: [
-            {
-              title: "Entorno & Python Básico",
-              icon: "fa-solid fa-terminal",
-              detail:
-                "Instalar pyRevit y VS Code. Variables, Listas, Loops (iterar vigas), Condicionales (if largo mayor a 5m).",
-            },
-            {
-              title: "Revit API 'Lite'",
-              icon: "fa-solid fa-magnifying-glass",
-              detail:
-                "Entender qué es un Element, un Parameter y una Category. Usar RevitLookup para inspeccionar objetos del modelo.",
-            },
-            {
-              title: "Primer Script",
-              icon: "fa-solid fa-play",
-              detail:
-                "Crear un botón en pyRevit que cuente cuántas vigas hay seleccionadas o que liste todos los niveles del proyecto.",
-            },
-            {
-              title: "Proyecto Hito",
-              icon: "fa-solid fa-trophy",
-              detail:
-                "'Renombrador Automático': selecciona elementos y los renombra con un prefijo + correlativo. La primera herramienta real.",
-            },
-          ],
-        },
-        2: {
-          title: "T2: Profundizando la API",
-          subtitle: "Mes 4 – 6",
-          color: "indigo",
-          icon: "fa-solid fa-layer-group",
-          focus: "Conceptos API & Datos Masivos",
-          description:
-            "Se sigue con Python, pero se empieza a pensar como el motor de Revit. Geometría, manipulación de datos en masa y comunicación con Excel.",
-          modules: [
-            {
-              title: "FilteredElementCollector",
-              icon: "fa-solid fa-filter",
-              detail:
-                "El corazón de la API. Aprender a buscar rápidamente en el modelo (encontrar todos los muros del Tipo X, vigas del Nivel 2, etc.).",
-            },
-            {
-              title: "Transacciones & Modificación",
-              icon: "fa-solid fa-pen-to-square",
-              detail:
-                "Crear, borrar, mover y rotar elementos dentro de una Transacción. Manejo de errores con Try/Except.",
-            },
-            {
-              title: "Excel ↔ Revit",
-              icon: "fa-solid fa-file-excel",
-              detail:
-                "Usar librerías de Python para leer un Excel y volcar datos a parámetros de Revit (y viceversa). Automatización de reportes.",
-            },
-            {
-              title: "Proyecto Hito",
-              icon: "fa-solid fa-trophy",
-              detail:
-                "'Creador de Planos': lee un archivo Excel con lista de planos (nombre, escala, vista) y los crea en Revit automáticamente.",
-            },
-          ],
-        },
-        3: {
-          title: "T3: El Salto Profesional",
-          subtitle: "Mes 7 – 9",
-          color: "purple",
-          icon: "fa-solid fa-code",
-          focus: "C# & Interfaces Visuales",
-          description:
-            "Python es genial para prototipos, pero C# es el estándar industrial. Se traduce lo aprendido a C# y se crean interfaces profesionales con WPF.",
-          modules: [
-            {
-              title: "Intro a C# & Visual Studio",
-              icon: "fa-brands fa-microsoft",
-              detail:
-                "Tipado estático (int, string, double). La sintaxis cambia, la lógica es la misma. Implementar IExternalCommand.",
-            },
-            {
-              title: "WPF (Windows Presentation)",
-              icon: "fa-solid fa-window-maximize",
-              detail:
-                "Crear interfaces profesionales con XAML: botones, dropdowns, barras de progreso. La herramienta deja de 'verse fea'.",
-            },
-            {
-              title: "Migración Python → C#",
-              icon: "fa-solid fa-arrows-rotate",
-              detail:
-                "Se toma el mejor script de Python y se reescribe como un Plugin compilado (.dll). Se nota el salto en velocidad.",
-            },
-            {
-              title: "Proyecto Hito",
-              icon: "fa-solid fa-trophy",
-              detail:
-                "'Quality Checker': una ventana WPF que audita el modelo (vigas sin material, muros duplicados) y muestra un reporte visual.",
-            },
-          ],
-        },
-        4: {
-          title: "T4: Portafolio & Despliegue",
-          subtitle: "Mes 10 – 12",
-          color: "orange",
-          icon: "fa-solid fa-rocket",
-          focus: "Distribución & Marca Personal",
-          description:
-            "Ya se sabe programar. Ahora toca empaquetar las herramientas, subirlas a GitHub y construir una marca personal que abra puertas laborales.",
-          modules: [
-            {
-              title: "Git & GitHub",
-              icon: "fa-brands fa-github",
-              detail:
-                "Control de versiones. El código en la nube. Aprender Commit, Push, Branch. Cada repositorio es una carta de presentación.",
-            },
-            {
-              title: "Instaladores (.msi)",
-              icon: "fa-solid fa-box-open",
-              detail:
-                "Usar herramientas como InnoSetup o WiX para que el plugin se instale con doble clic. Distribución profesional.",
-            },
-            {
-              title: "Marca Personal",
-              icon: "fa-solid fa-user-tie",
-              detail:
-                "Limpiar el perfil de LinkedIn. Subir videos de las herramientas en acción. Postular a trabajos remotos de nicho BIM.",
-            },
-            {
-              title: "Proyecto Final",
-              icon: "fa-solid fa-trophy",
-              detail:
-                "'Suite BIM': un Tab completo en la Ribbon de Revit con las 5 mejores herramientas, con iconos propios e instalador profesional.",
-            },
-          ],
-        },
-      };
-
-      // ==================== RENDER ====================
-      function renderContent(qId) {
-        const data = quarters[qId];
-        const contentDiv = document.getElementById("quarter-content");
-
-        const colorMap = {
-          blue: {
-            bg: "from-blue-900/20 to-blue-800/10",
-            border: "border-blue-600/30",
-            text: "text-blue-400",
-            badge: "bg-blue-900/40 text-blue-300",
-          },
-          indigo: {
-            bg: "from-indigo-900/20 to-indigo-800/10",
-            border: "border-indigo-600/30",
-            text: "text-indigo-400",
-            badge: "bg-indigo-900/40 text-indigo-300",
-          },
-          purple: {
-            bg: "from-purple-900/20 to-purple-800/10",
-            border: "border-purple-600/30",
-            text: "text-purple-400",
-            badge: "bg-purple-900/40 text-purple-300",
-          },
-          orange: {
-            bg: "from-orange-900/20 to-orange-800/10",
-            border: "border-orange-600/30",
-            text: "text-orange-400",
-            badge: "bg-orange-900/40 text-orange-300",
-          },
-        };
-        const c = colorMap[data.color];
-
-        contentDiv.innerHTML = `
-          <div class="grid grid-cols-1 lg:grid-cols-3">
-            <!-- Left panel -->
-            <div class="p-8 lg:col-span-1 bg-gradient-to-br ${c.bg} border-b lg:border-b-0 lg:border-r border-gray-700">
-              <span class="text-xs font-bold uppercase tracking-widest text-gray-500">
-                <i class="${data.icon} mr-1"></i> ${data.subtitle}
-              </span>
-              <h3 class="text-2xl font-bold text-white mt-3 mb-4">${data.title}</h3>
-              <div class="mb-6 p-4 rounded-xl border ${c.border} bg-gray-800/50">
-                <p class="text-sm ${c.text} leading-relaxed">${data.description}</p>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-xs text-gray-500 font-semibold">Enfoque:</span>
-                <span class="${c.badge} text-xs font-bold px-3 py-1 rounded-full">${data.focus}</span>
-              </div>
-            </div>
-
-            <!-- Right panel: Modules -->
-            <div class="p-8 lg:col-span-2">
-              <h4 class="font-bold text-gray-400 mb-6 flex items-center gap-2 text-sm uppercase tracking-wider">
-                <i class="fa-solid fa-cubes"></i> Módulos de Trabajo
-              </h4>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                ${data.modules
-                  .map(
-                    (mod, i) => `
-                  <div class="module-card p-5 rounded-xl border border-gray-700 bg-gray-800/30 hover:bg-gray-800/60">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center">
-                        <i class="${mod.icon} ${c.text} text-sm"></i>
-                      </div>
-                      <h5 class="font-bold text-white text-sm">${mod.title}</h5>
-                    </div>
-                    <p class="text-xs text-gray-400 leading-relaxed pl-11">${mod.detail}</p>
-                  </div>`,
-                  )
-                  .join("")}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      function switchQuarter(qId) {
-        document.querySelectorAll(".quarter-btn").forEach((btn, i) => {
-          btn.classList.toggle("active", i + 1 === qId);
-        });
-        renderContent(qId);
-      }
-
-      // ==================== HELPER ====================
-      function splitLabel(str, maxLen = 16) {
-        if (str.length <= maxLen) return str;
-        const words = str.split(" ");
-        const lines = [];
-        let currentLine = words[0];
-        for (let i = 1; i < words.length; i++) {
-          if ((currentLine + " " + words[i]).length <= maxLen) {
-            currentLine += " " + words[i];
-          } else {
-            lines.push(currentLine);
-            currentLine = words[i];
-          }
-        }
-        lines.push(currentLine);
-        return lines;
-      }
-
-      const commonOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          tooltip: {
-            backgroundColor: "rgba(15, 23, 42, 0.9)",
-            titleColor: "#f8fafc",
-            bodyColor: "#cbd5e1",
-            padding: 10,
-            callbacks: {
-              title: function (tooltipItems) {
-                const item = tooltipItems[0];
-                let label = item.chart.data.labels[item.dataIndex];
-                if (Array.isArray(label)) {
-                  return label.join(" ");
-                } else {
-                  return label;
-                }
-              },
-            },
-          },
-          legend: {
-            labels: {
-              usePointStyle: true,
-              color: "#94a3b8",
-              font: { family: "Inter, sans-serif", size: 12 },
-            },
-          },
-        },
-      };
-
-      // ==================== CHARTS ====================
-      document.addEventListener("DOMContentLoaded", () => {
-        renderContent(1);
-
-        // Chart 1: Learning Curve (Python vs C#)
-        const ctx = document.getElementById("strategyChart").getContext("2d");
-        new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: ["Mes 1", "Mes 3", "Mes 6", "Mes 9", "Mes 12"],
-            datasets: [
-              {
-                label: "Python / pyRevit (Velocidad)",
-                data: [100, 90, 60, 30, 20],
-                borderColor: "#f97316",
-                backgroundColor: "rgba(249, 115, 22, 0.08)",
-                fill: true,
-                tension: 0.4,
-                borderWidth: 2,
-                pointBackgroundColor: "#f97316",
-              },
-              {
-                label: "C# / .NET (Potencia)",
-                data: [0, 10, 40, 70, 80],
-                borderColor: "#3b82f6",
-                backgroundColor: "rgba(59, 130, 246, 0.08)",
-                fill: true,
-                tension: 0.4,
-                borderWidth: 2,
-                pointBackgroundColor: "#3b82f6",
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: "bottom",
-                labels: { color: "#9ca3af", font: { size: 11 } },
-              },
-              tooltip: { mode: "index", intersect: false },
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                max: 100,
-                title: {
-                  display: true,
-                  text: "% de Tiempo",
-                  color: "#6b7280",
-                },
-                ticks: { color: "#6b7280" },
-                grid: { color: "#1f2937" },
-              },
-              x: {
-                ticks: { color: "#6b7280" },
-                grid: { color: "#1f2937" },
-              },
-            },
-          },
-        });
-
-        // Chart 2: AI Usage Evolution (Stacked Bar)
-        const ctxAi = document.getElementById("aiUsageChart").getContext("2d");
-        new Chart(ctxAi, {
-          type: "bar",
-          data: {
-            labels: [
-              splitLabel("Meses 1-3 (Conceptos)"),
-              splitLabel("Meses 4-8 (Boilerplate)"),
-              splitLabel("Meses 9-12 (Optimización)"),
-            ],
-            datasets: [
-              {
-                label: 'Preguntar "Explícame qué es..."',
-                data: [80, 20, 5],
-                backgroundColor: "#3b82f6",
-              },
-              {
-                label: 'Pedir "Escribe el código base..."',
-                data: [10, 60, 40],
-                backgroundColor: "#06b6d4",
-              },
-              {
-                label: 'Pedir "Refactoriza/Arregla esto..."',
-                data: [10, 20, 55],
-                backgroundColor: "#8b5cf6",
-              },
-            ],
-          },
-          options: {
-            ...commonOptions,
-            scales: {
-              x: {
-                stacked: true,
-                grid: { display: false },
-                ticks: { color: "#94a3b8" },
-              },
-              y: {
-                stacked: true,
-                beginAtZero: true,
-                grid: { color: "#1e293b" },
-                max: 100,
-                ticks: { color: "#94a3b8" },
-              },
-            },
-          },
-        });
-
-        // Chart 3: Time Allocation (Line)
-        const ctxTime = document
-          .getElementById("timeAllocationChart")
-          .getContext("2d");
-        new Chart(ctxTime, {
-          type: "line",
-          data: {
-            labels: ["Mes 1", "Mes 3", "Mes 6", "Mes 9", "Mes 12"],
-            datasets: [
-              {
-                label: "Estudio Teoría",
-                data: [80, 60, 30, 20, 10],
-                borderColor: "#60a5fa",
-                backgroundColor: "rgba(96, 165, 250, 0.5)",
-                fill: true,
-                tension: 0.3,
-              },
-              {
-                label: "Escribir Código",
-                data: [20, 40, 70, 80, 90],
-                borderColor: "#22d3ee",
-                backgroundColor: "rgba(34, 211, 238, 0.5)",
-                fill: true,
-                tension: 0.3,
-              },
-            ],
-          },
-          options: {
-            ...commonOptions,
-            plugins: {
-              ...commonOptions.plugins,
-              legend: { labels: { color: "#94a3b8", font: { size: 11 } } },
-            },
-            scales: {
-              y: {
-                stacked: false,
-                beginAtZero: true,
-                max: 100,
-                grid: { color: "#334155" },
-                ticks: { color: "#94a3b8" },
-              },
-              x: {
-                grid: { color: "#334155" },
-                ticks: { color: "#94a3b8" },
-              },
-            },
-          },
-        });
-      });
-
-      // ==================== MOBILE MENU ====================
-      document
-        .getElementById("mobile-menu-button")
-        .addEventListener("click", function () {
-          const menu = document.getElementById("mobile-menu");
-          menu.classList.toggle("hidden");
-          this.setAttribute(
-            "aria-expanded",
-            menu.classList.contains("hidden") ? "false" : "true",
-          );
-        });
-
-      // ==================== BACK TO TOP ====================
-      const backToTopBtn = document.getElementById("back-to-top");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 500) {
-          backToTopBtn.classList.remove("opacity-0", "invisible");
-          backToTopBtn.classList.add("opacity-100", "visible");
-        } else {
-          backToTopBtn.classList.remove("opacity-100", "visible");
-          backToTopBtn.classList.add("opacity-0", "invisible");
-        }
-      });
-      backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
-  </body>
+<script src="../js/bim-dev-roadmap.js"></script>
+  <script src="../js/main.js" defer></script>
+</body>
 </html>

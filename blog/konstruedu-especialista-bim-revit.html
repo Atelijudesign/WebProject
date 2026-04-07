@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
     <title>Especialista Modelador BIM Konstruedu: ¿Vale la pena? Mi análisis honesto</title>
     <meta
       name="description"
       content="Análisis detallado de la Especialización en Modelado de Proyectos BIM con Revit de Konstruedu: 14 cursos, 127 horas, estructuras, arquitectura y MEP. ¿Es el camino correcto para un proyectista serio?"
     />
-
-    <!-- Open Graph -->
+<!-- Open Graph -->
     <meta property="og:title" content="Especialista BIM Konstruedu: ¿Vale la pena?" />
     <meta
       property="og:description"
@@ -18,22 +17,21 @@
     />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="es_CL" />
-
-    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://atelijudesign.com/blog/konstruedu-especialista-bim-revit.html" />
+<link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-
-    <link
+<link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <style>
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
@@ -41,27 +39,7 @@
       #logo span { font-family: "Space Grotesk", sans-serif !important; font-size: 1.05rem !important; font-weight: 800 !important; letter-spacing: -0.01em; }
       #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
     </style>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "bim-blue": "#3b82f6",
-              "bim-dark": "#0b1220",
-              "bim-card": "#111827",
-              "bim-border": "#1f2937",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              head: ["Space Grotesk", "sans-serif"],
-              mono: ["Fira Code", "monospace"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
+<style>
       .text-gradient-article {
         background-clip: text;
         -webkit-background-clip: text;
@@ -88,7 +66,7 @@
       .progress-bar {
         height: 3px;
         background: linear-gradient(90deg, #3b82f6, #06b6d4);
-        width: 0%;
+        width: 0;
         position: fixed;
         top: 0;
         left: 0;
@@ -103,56 +81,141 @@
   >
     <!-- Reading Progress Bar -->
     <div id="progress" class="progress-bar"></div>
-
-    <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="../" id="logo" class="flex-shrink-0 flex items-center">
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+<!-- Navigation -->
+      <nav
+    class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a
+          href="../index.html#home"
+          id="logo"
+          class="flex-shrink-0 flex items-center cursor-pointer"
+        >
+          <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+          <span class="font-bold text-xl text-gray-900 dark:text-white"
+            >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+          >
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+            <a
+              href="../index.html#home"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Inicio</a
             >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a href="../#home" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Inicio</a>
-              <a href="../#about" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Sobre Mí</a>
-              <a href="../#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Experiencia</a>
-              <a href="../#portfolio" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Portafolio</a>
-              <a href="blog.html" class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors">Blog</a>
-              <a href="../#contact" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Contacto</a>
-              <a href="../tool/index.html" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a>
-            </div>
+            <a
+              href="../index.html#about"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Sobre Mí</a
+            >
+            <a
+              href="../index.html#automation"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Automatización</a
+            >
+            <a
+              href="../index.html#services"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Servicios</a
+            >
+            <a
+              href="../index.html#portfolio"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Portafolio</a
+            >
+            <a
+              href="../proyectos-bim/"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Proyectos</a
+            >
+            <a
+              href="../blog/blog.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Blog</a
+            >
+            <a
+              href="../tool/index.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Herramientas</a
+            >
+            <a
+              href="../index.html#contact"
+              class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Contacto �’</a
+            >
           </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-              <button type="button" id="mobile-menu-button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Abrir menú principal</span>
-                <i class="fas fa-bars text-xl"></i>
-              </button>
-            </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="-mr-2 flex md:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
           </div>
         </div>
       </div>
-      <div class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700" id="mobile-menu">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="../#home" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Inicio</a>
-          <a href="../#about" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Sobre Mí</a>
-          <a href="../#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Experiencia</a>
-          <a href="../#portfolio" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Portafolio</a>
-          <a href="blog.html" class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Blog</a>
-          <a href="../#contact" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Contacto</a>
-          <a href="../tool/index.html" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a>
-        </div>
+    </div>
+    <div
+      class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+      id="mobile-menu"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="../index.html#home"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Inicio</a
+        >
+        <a
+          href="../index.html#about"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
+          >Sobre Mí</a
+        >
+        <a
+          href="../index.html#automation"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Automatización</a
+        >
+        <a
+          href="../index.html#services"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Servicios</a
+        >
+        <a
+          href="../index.html#portfolio"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Portafolio</a
+        >
+        <a
+          href="../proyectos-bim/"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Proyectos</a
+        >
+        <a
+          href="../blog/blog.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Blog</a
+        >
+        <a
+          href="../tool/index.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Herramientas</a
+        >
+        <a
+          href="../index.html#contact"
+          class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
+          >Contacto �’</a
+        >
       </div>
-    </nav>
-
-    <!-- Article Hero -->
+    </div>
+  </nav>
+<!-- Article Hero -->
     <section class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden">
       <div class="absolute inset-0 opacity-5">
         <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full blur-3xl"></div>
@@ -165,17 +228,15 @@
             <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Blog
           </a>
         </div>
-
-        <div class="flex items-center justify-center gap-3 mb-4 flex-wrap">
+<div class="flex items-center justify-center gap-3 mb-4 flex-wrap">
           <span class="bg-emerald-600/90 text-white text-xs font-bold px-3 py-1 rounded-full">
             <i class="fa-solid fa-graduation-cap mr-1"></i> Formación BIM
           </span>
           <span class="text-gray-400 text-sm"><i class="fa-regular fa-calendar mr-1"></i> 24 Mar 2026</span>
           <span class="text-gray-400 text-sm"><i class="fa-regular fa-clock mr-1"></i> 9 min lectura</span>
         </div>
-
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight">
-          <span class="text-emerald-400 text-5xl">🎓</span> Especialista BIM Konstruedu:<br>
+<h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight">
+          <span class="text-emerald-400 text-5xl">�“</span> Especialista BIM Konstruedu:<br>
           <span class="text-gradient-article">¿Vale la Pena?</span>
         </h1>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -183,12 +244,10 @@
         </p>
       </div>
     </section>
-
-    <!-- Article Content -->
+<!-- Article Content -->
     <section class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose-article">
-
-        <!-- Imagen portada -->
+<!-- Imagen portada -->
         <div class="mb-10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
           <img
             src="../assets/img/blog/konstruedu/portada.png"
@@ -198,24 +257,22 @@
             decoding="async"
           />
         </div>
-
-        <!-- Contexto -->
+<!-- Contexto -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-circle-info text-bim-blue mr-2"></i> Por qué escribo esto
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Con <strong class="text-gray-900 dark:text-white">15 años en obra</strong> modelando con Revit, Tekla y Navisworks en proyectos de minería, aeropuertos y hospitales, llego a un punto donde la certificación formal importa tanto como la experiencia práctica. No por ego —sino porque el mercado lo exige.
+            Con <strong class="text-gray-900 dark:text-white">15 años en obra</strong> modelando con Revit, Tekla y Navisworks en proyectos de minería, aeropuertos y hospitales, llego a un punto donde la certificación formal importa tanto como la experiencia práctica. No por ego �”sino porque el mercado lo exige.
           </p>
           <p class="text-gray-600 dark:text-gray-400">
             Cuando encontré la <a href="https://konstruedu.com/es/especializacion/modelado-de-proyectos-bim-con-revit-31290" target="_blank" rel="noopener noreferrer" class="text-bim-blue hover:text-blue-400 underline transition-colors">Especialización en Modelado de Proyectos BIM con Revit</a> de Konstruedu, lo primero que hice fue analizarla con ojo crítico: ¿es contenido que ya sé? ¿o hay valor real para un profesional senior?
           </p>
           <p class="text-gray-600 dark:text-gray-400 mb-0">
-            Esta es mi revisión honesta —sin publicidad, sin afiliados. Solo mi perspectiva de proyectista que vive del modelado BIM.
+            Esta es mi revisión honesta �”sin publicidad, sin afiliados. Solo mi perspectiva de proyectista que vive del modelado BIM.
           </p>
         </div>
-
-        <!-- Ficha técnica -->
+<!-- Ficha técnica -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-6">
             <i class="fa-solid fa-table-list text-cyan-400 mr-2"></i> Ficha de la Especialización
@@ -229,7 +286,7 @@
             <div class="bg-gray-800/40 rounded-xl p-5 border border-gray-700/50">
               <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Cursos incluidos</div>
               <div class="text-2xl font-extrabold text-white">14 cursos</div>
-              <div class="text-sm text-gray-400 mt-1">Introductorio → Avanzado</div>
+              <div class="text-sm text-gray-400 mt-1">Introductorio �’ Avanzado</div>
             </div>
             <div class="bg-gray-800/40 rounded-xl p-5 border border-gray-700/50">
               <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Software requerido</div>
@@ -242,8 +299,7 @@
               <div class="text-sm text-gray-400 mt-1">12 meses de acceso · Pago único</div>
             </div>
           </div>
-
-          <!-- Valoración personal -->
+<!-- Valoración personal -->
           <div class="mt-6 bg-blue-900/20 rounded-xl p-5 border border-blue-800/30">
             <div class="flex items-center gap-2 mb-2">
               <span class="text-xs font-bold text-bim-blue uppercase tracking-wider">Mi valoración general</span>
@@ -261,8 +317,7 @@
             </p>
           </div>
         </div>
-
-        <!-- Qué incluye -->
+<!-- ¿Quéé incluye -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-list-check text-emerald-400 mr-2"></i> ¿Qué cubre realmente el programa?
@@ -270,11 +325,9 @@
           <p class="text-gray-600 dark:text-gray-400 mb-6">
             La especialización está estructurada en <strong class="text-gray-900 dark:text-white">14 cursos</strong> que abarcan las tres grandes disciplinas del modelado BIM con Revit. No es un único curso extendido: es un recorrido completo que parte desde los fundamentos de la metodología BIM hasta el detallado avanzado.
           </p>
-
-          <!-- Grid completo de 14 cursos -->
+<!-- Grid completo de 14 cursos -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-            <!-- Curso 1 -->
+<!-- Curso 1 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_e70c0a5dad7b982157334e0ec986d95b_98643.png" alt="Introducción a la metodología BIM" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -282,8 +335,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Introducción a la metodología BIM</div>
               </div>
             </div>
-
-            <!-- Curso 2 -->
+<!-- Curso 2 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_cf104fe4a332cc350d22eaac2b7d1a49_92984.png" alt="Fundamentos del modelado BIM" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -291,8 +343,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Fundamentos del modelado BIM</div>
               </div>
             </div>
-
-            <!-- Curso 3 -->
+<!-- Curso 3 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_5897222154c4d74dd89a6dcea802f2d5_16793.jpg" alt="Modelado BIM con Revit Estructuras 2024" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -300,8 +351,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Modelado BIM con Revit Estructuras 2024</div>
               </div>
             </div>
-
-            <!-- Curso 4 -->
+<!-- Curso 4 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_423b6af67b173d1b0565a998f89e1a9e_86962.jpg" alt="Gestión BIM de proyectos de estructuras con Revit" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -309,8 +359,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Gestión BIM: Parámetros y cuantificación de estructuras</div>
               </div>
             </div>
-
-            <!-- Curso 5 -->
+<!-- Curso 5 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_084138b40a6b00f787460e5857e58e12_6155.png" alt="Modelado BIM con Revit Arquitectura 2024" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -318,8 +367,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Modelado BIM con Revit Arquitectura 2024</div>
               </div>
             </div>
-
-            <!-- Curso 6 -->
+<!-- Curso 6 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_f892fe0c77028de514238ca7f5509d96_50054.jpg" alt="Modelado BIM con Revit MEP Sanitarias y Mecánicas" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -327,8 +375,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Revit MEP: Sanitarias y Mecánicas</div>
               </div>
             </div>
-
-            <!-- Curso 7 -->
+<!-- Curso 7 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_e79db7240edb41d73b7d6c5a03755517_58539.jpg" alt="Modelado BIM con Revit MEP Eléctricas" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -336,8 +383,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Modelado BIM con Revit MEP: Eléctricas</div>
               </div>
             </div>
-
-            <!-- Curso 8 -->
+<!-- Curso 8 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_744648f1d94a865a93ea198fdc4512f8_55640.png" alt="Mediciones de estructuras con Revit" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -345,8 +391,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Mediciones de estructuras con Revit</div>
               </div>
             </div>
-
-            <!-- Curso 9 -->
+<!-- Curso 9 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_3060a963079630aa00c57b80ce0d4af7_76874.png" alt="Creación de planos estructurales y documentación BIM con Revit" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -354,8 +399,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Planos estructurales y documentación BIM con Revit</div>
               </div>
             </div>
-
-            <!-- Curso 10 -->
+<!-- Curso 10 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_29c2594dd3f14557e61379bb38559668_32496.jpg" alt="Creación de planos arquitectónicos y documentación BIM con Revit" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -363,8 +407,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Planos arquitectónicos y documentación BIM con Revit</div>
               </div>
             </div>
-
-            <!-- Curso 11 -->
+<!-- Curso 11 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_75a906396e6ee6d135387a0b73c3d595_50751.jpg" alt="Modelado de acero de refuerzo con REVIT avanzado" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -372,8 +415,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Modelado de acero de refuerzo con Revit (avanzado)</div>
               </div>
             </div>
-
-            <!-- Curso 12 -->
+<!-- Curso 12 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_14a8dc1741c635e7356f8f706b4fecaa_75576.jpg" alt="Modelado BIM de estructuras metálicas con Revit" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -381,8 +423,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Modelado BIM de estructuras metálicas con Revit</div>
               </div>
             </div>
-
-            <!-- Curso 13 -->
+<!-- Curso 13 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="https://leadgods-com.s3.amazonaws.com/imagenes/publications/12087/mediun/leadgods_4b21731dc5e265a3a02662c9f8f4461e_2880.jpg" alt="Revit Familias Paramétricas" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -390,8 +431,7 @@
                 <div class="text-sm font-semibold text-white leading-snug">Revit Familias Paramétricas</div>
               </div>
             </div>
-
-            <!-- Curso 14 -->
+<!-- Curso 14 -->
             <div class="course-card flex gap-3 bg-gray-800/40 rounded-xl overflow-hidden border border-gray-700/50">
               <img src="../assets/img/blog/konstruedu/bim-management.jpg" alt="BIM Management" class="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div class="py-3 pr-3 flex flex-col justify-center">
@@ -399,23 +439,20 @@
                 <div class="text-sm font-semibold text-white leading-snug">BIM Management y Gestión de Proyectos</div>
               </div>
             </div>
-
-          </div>
+</div>
         </div>
-
-        <!-- Mi perspectiva como profesional -->
+<!-- Mi perspectiva como profesional -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-user-tie text-purple-400 mr-2"></i> Mi perspectiva como profesional senior
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Seré directo: <strong class="text-gray-900 dark:text-white">los primeros módulos no me van a enseñar nada nuevo.</strong> Si llevas años trabajando con Revit en proyectos reales de ingeniería, los cursos introductorios son terreno conocido. Eso no es una crítica —es lo esperable en cualquier especialización que apunta a un público amplio.
+            Seré directo: <strong class="text-gray-900 dark:text-white">los primeros módulos no me van a enseñar nada nuevo.</strong> Si llevas años trabajando con Revit en proyectos reales de ingeniería, los cursos introductorios son terreno conocido. Eso no es una crítica �”es lo esperable en cualquier especialización que apunta a un público amplio.
           </p>
           <p class="text-gray-600 dark:text-gray-400">
             El valor real para mí está en tres áreas específicas:
           </p>
-
-          <div class="space-y-4 mt-2">
+<div class="space-y-4 mt-2">
             <div class="flex items-start gap-3">
               <span class="text-emerald-400 mt-1"><i class="fa-solid fa-check-circle"></i></span>
               <div>
@@ -438,8 +475,7 @@
               </div>
             </div>
           </div>
-
-          <!-- Callout honesto -->
+<!-- Callout honesto -->
           <div class="bg-yellow-900/20 rounded-xl p-6 border border-yellow-800/30 mt-6">
             <h4 class="font-bold text-yellow-400 text-sm mb-2">
               <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lo que no te dirán en la página de ventas:
@@ -449,8 +485,7 @@
             </p>
           </div>
         </div>
-
-        <!-- Para quién es -->
+<!-- Para quién es -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-6">
             <i class="fa-solid fa-users text-bim-blue mr-2"></i> ¿Para quién es esta especialización?
@@ -476,20 +511,18 @@
             </div>
           </div>
         </div>
-
-        <!-- Proceso de certificación -->
+<!-- Proceso de certificación -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-medal text-yellow-400 mr-2"></i> El proceso de certificación
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
-            Lo que diferencia a Konstruedu de un curso de plataforma genérica es el <strong class="text-gray-900 dark:text-white">proyecto integrador de certificación</strong>. No basta con ver los videos: debes entregar un proyecto que demuestre las competencias de todos los cursos, y el equipo docente lo revisa y aprueba —o te da feedback para mejorar.
+            Lo que diferencia a Konstruedu de un curso de plataforma genérica es el <strong class="text-gray-900 dark:text-white">proyecto integrador de certificación</strong>. No basta con ver los videos: debes entregar un proyecto que demuestre las competencias de todos los cursos, y el equipo docente lo revisa y aprueba �”o te da feedback para mejorar.
           </p>
           <p class="text-gray-600 dark:text-gray-400 mb-0">
-            Este sistema iterativo (entrega → revisión → corrección) es lo más parecido a la dinámica de trabajo real en un proyecto BIM. Que un instructor revise tu modelo y te diga por qué está mal o bien es un diferenciador real frente a los MOOCs masivos.
+            Este sistema iterativo (entrega �’ revisión �’ corrección) es lo más parecido a la dinámica de trabajo real en un proyecto BIM. Que un instructor revise tu modelo y te diga por qué está mal o bien es un diferenciador real frente a los MOOCs masivos.
           </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div class="text-center bg-gray-800/40 rounded-xl p-4 border border-gray-700/50">
               <div class="text-3xl font-extrabold text-bim-blue">24/7</div>
               <div class="text-sm text-gray-400 mt-1">Acceso a contenidos</div>
@@ -504,21 +537,19 @@
             </div>
           </div>
         </div>
-
-        <!-- Veredicto final -->
+<!-- Veredicto final -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
-            <i class="fa-solid fa-scale-balanced text-orange-400 mr-2"></i> Veredicto: sí, vale la pena — con matices
+            <i class="fa-solid fa-scale-balanced text-orange-400 mr-2"></i> Veredicto: sí, vale la pena �” con matices
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
             A <strong class="text-gray-900 dark:text-white">USD $117 por 127 horas de formación</strong>, más acceso a tutorías y certificación internacional, la ecuación económica es clara: no existe en el mercado hispanohablante una oferta comparable en esa relación costo-contenido.
           </p>
           <p class="text-gray-600 dark:text-gray-400 mb-0">
-            Para un proyectista que busca escalar de CAD a BIM, o consolidar su formación multidisciplinar, esta especialización es un camino sólido. Para un profesional senior como yo, el valor está en la certificación formal y en los módulos de disciplinas secundarias —no en los fundamentos, que ya están internalizados desde hace años.
+            Para un proyectista que busca escalar de CAD a BIM, o consolidar su formación multidisciplinar, esta especialización es un camino sólido. Para un profesional senior como yo, el valor está en la certificación formal y en los módulos de disciplinas secundarias �”no en los fundamentos, que ya están internalizados desde hace años.
           </p>
         </div>
-
-        <!-- CTA -->
+<!-- CTA -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-emerald-800/40 border-l-4 border-l-emerald-500 mb-10 text-center">
           <h3 class="text-xl font-extrabold text-gray-900 dark:text-white mb-3">
             ¿Quieres revisar el programa completo?
@@ -537,8 +568,7 @@
             <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
           </a>
         </div>
-
-        <!-- Conclusiones clave -->
+<!-- Conclusiones clave -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 border-l-4 border-l-bim-blue">
           <h3 class="text-xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i> Conclusiones Clave
@@ -546,26 +576,25 @@
           <ul class="space-y-3 mb-0">
             <li class="flex items-start text-gray-600 dark:text-gray-400">
               <span class="text-bim-blue mr-2 mt-1"><i class="fa-solid fa-check-circle"></i></span>
-              <span><strong class="text-gray-900 dark:text-white">127 horas reales</strong> cubriendo estructuras, arquitectura y MEP — el programa más completo de Konstruedu en Revit.</span>
+              <span><strong class="text-gray-900 dark:text-white">127 horas reales</strong> cubriendo estructuras, arquitectura y MEP �” el programa más completo de Konstruedu en Revit.</span>
             </li>
             <li class="flex items-start text-gray-600 dark:text-gray-400">
               <span class="text-bim-blue mr-2 mt-1"><i class="fa-solid fa-check-circle"></i></span>
-              <span><strong class="text-gray-900 dark:text-white">Certificación con proyecto integrador</strong> revisado por instructores — no solo badges automáticos.</span>
+              <span><strong class="text-gray-900 dark:text-white">Certificación con proyecto integrador</strong> revisado por instructores �” no solo badges automáticos.</span>
             </li>
             <li class="flex items-start text-gray-600 dark:text-gray-400">
               <span class="text-bim-blue mr-2 mt-1"><i class="fa-solid fa-check-circle"></i></span>
-              <span><strong class="text-gray-900 dark:text-white">USD $117 por acceso completo</strong> — la mejor relación costo/contenido BIM en español que he encontrado.</span>
+              <span><strong class="text-gray-900 dark:text-white">USD $117 por acceso completo</strong> �” la mejor relación costo/contenido BIM en español que he encontrado.</span>
             </li>
             <li class="flex items-start text-gray-600 dark:text-gray-400">
               <span class="text-bim-blue mr-2 mt-1"><i class="fa-solid fa-check-circle"></i></span>
-              <span><strong class="text-gray-900 dark:text-white">Aplícalo en paralelo</strong> con un proyecto real. La especialización sola no construye experiencia — la práctica constante sí.</span>
+              <span><strong class="text-gray-900 dark:text-white">Aplícalo en paralelo</strong> con un proyecto real. La especialización sola no construye experiencia �” la práctica constante sí.</span>
             </li>
           </ul>
         </div>
       </div>
     </section>
-
-    <!-- Share Buttons -->
+<!-- Share Buttons -->
     <section class="py-10 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <p class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
@@ -591,36 +620,33 @@
         </div>
       </div>
     </section>
-
-    <!-- Back to Blog -->
+<!-- Back to Blog -->
     <section class="py-12 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
         <a href="blog.html" class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg">
           <i class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i>
           Volver al Blog
         </a>
-        <a href="../#contact" class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm">
+        <a href="../index.html#contact" class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm">
           <i class="fa-solid fa-envelope mr-1"></i> ¿Preguntas? Contáctame
         </a>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</p>
-        <p class="text-gray-600 text-xs mt-2">Diseñado con pasión por la ingeniería y la tecnología.</p>
+<!-- Footer -->
+    <footer class="bg-bim-dark py-8 border-t border-gray-800 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm font-bold text-white" style="font-family: 'Space Grotesk', sans-serif;">Andrés Gallo <span class="text-bim-blue">P.</span></div>
+        <div class="text-xs text-gray-500 font-mono text-center">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="text-xs text-gray-600 font-mono">// Diseñado con ingeniería y código</div>
       </div>
     </footer>
-
-    <!-- Back to Top Button -->
+<!-- Back to Top Button -->
     <button id="back-to-top"
       class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
       aria-label="Volver al inicio">
       <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
     </button>
-
-    <script src="../js/scripts.js"></script>
+<script src="../js/main.js" defer></script>
     <script>
       window.addEventListener("scroll", () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;

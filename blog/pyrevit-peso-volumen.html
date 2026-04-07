@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
     <title>Cubicación Automática en Revit con pyRevit y Python | Andrés Gallo P.</title>
     <meta
       name="description"
@@ -13,17 +13,17 @@
     <meta property="og:description" content="Plugin pyRevit que detecta materiales, clasifica perfiles de acero por Nominal Weight y reporta pesos y volúmenes estructurales al instante." />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="es_CL" />
-
-    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://atelijudesign.com/blog/pyrevit-peso-volumen.html" />
+<link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <style>
-      /* Typography overrides — after Tailwind CDN */
+      /* Typography overrides �” after Tailwind CSS */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
@@ -31,27 +31,7 @@
       #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "bim-blue": "#3b82f6",
-              "bim-dark": "#0b1220",
-              "bim-card": "#111827",
-              "bim-border": "#1f2937",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              head: ["Space Grotesk", "sans-serif"],
-              mono: ["Fira Code", "monospace"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
+<style>
       .text-gradient-article {
         background-clip: text;
         -webkit-background-clip: text;
@@ -63,8 +43,7 @@
         height: 300px; margin-left: auto; margin-right: auto;
       }
       @media (min-width: 768px) { .chart-container { height: 360px; } }
-
-      .step-number {
+.step-number {
         width: 2.5rem; height: 2.5rem; min-width: 2.5rem;
         display: flex; align-items: center; justify-content: center;
         border-radius: 50%; font-weight: 800; font-size: 0.875rem;
@@ -72,8 +51,7 @@
       .stat-card { transition: transform 0.2s ease; }
       .stat-card:hover { transform: translateY(-4px); }
       .prose-article p { margin-bottom: 1.25rem; line-height: 1.8; }
-
-      /* Callout boxes */
+/* Callout boxes */
       .callout {
         border-left: 3px solid #3b82f6;
         background: rgba(59,130,246,0.07);
@@ -91,8 +69,7 @@
       .callout.callout-orange .callout-label { color: #fbbf24; }
       .callout.callout-green  .callout-label { color: #4ade80; }
       .callout p { margin: 0; }
-
-      /* Folder tree */
+/* Folder tree */
       .folder-tree {
         background: #111827;
         border: 1px solid #1f2937;
@@ -107,8 +84,7 @@
       .folder-tree .ft-folder { color: #60a5fa; }
       .folder-tree .ft-file   { color: #e2e8f0; }
       .folder-tree .ft-comment{ color: #4b5563; font-style: italic; }
-
-      /* Code block */
+/* Code block */
       .code-block { background: #111827; border: 1px solid #1f2937; border-radius: 0.75rem; overflow: hidden; }
       .code-header {
         display: flex; align-items: center; justify-content: space-between;
@@ -130,8 +106,7 @@
         line-height: 1.75; color: #86efac; /* green-300 */
         white-space: pre;
       }
-
-      /* Result box */
+/* Result box */
       .result-box {
         background: rgba(34,197,94,0.05);
         border: 1px solid rgba(34,197,94,0.2);
@@ -149,8 +124,7 @@
         overflow-x: auto;
       }
       .result-box pre strong { color: #4ade80; }
-
-      /* Steps connector */
+/* Steps connector */
       .steps-list { display: flex; flex-direction: column; gap: 0; }
       .step-item { display: flex; gap: 1.25rem; padding-bottom: 1.75rem; position: relative; }
       .step-item:not(:last-child)::before {
@@ -168,8 +142,7 @@
       .step-body { flex: 1; padding-top: 8px; }
       .step-title { font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; }
       .step-desc { color: #94a3b8; font-size: 0.9rem; line-height: 1.7; }
-
-      /* Inline code */
+/* Inline code */
       .ic {
         font-family: "Fira Code", monospace; font-size: 0.82em;
         color: #93c5fd; background: rgba(59,130,246,0.1);
@@ -178,50 +151,141 @@
     </style>
   </head>
   <body class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="../" id="logo" class="flex-shrink-0 flex items-center">
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white">Andrés Gallo P<span class="text-bim-blue">.BIM</span></span>
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a href="../#home" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Inicio</a>
-              <a href="../#about" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Sobre Mí</a>
-              <a href="../#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Experiencia</a>
-              <a href="../#portfolio" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Portafolio</a>
-              <a href="blog.html" class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors">Blog</a>
-              <a href="../#contact" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors">Contacto</a>
-              <a href="../tool/index.html" class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a>
-            </div>
+<!-- Navigation -->
+      <nav
+    class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a
+          href="../index.html#home"
+          id="logo"
+          class="flex-shrink-0 flex items-center cursor-pointer"
+        >
+          <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+          <span class="font-bold text-xl text-gray-900 dark:text-white"
+            >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+          >
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+            <a
+              href="../index.html#home"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Inicio</a
+            >
+            <a
+              href="../index.html#about"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Sobre Mí</a
+            >
+            <a
+              href="../index.html#automation"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Automatización</a
+            >
+            <a
+              href="../index.html#services"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Servicios</a
+            >
+            <a
+              href="../index.html#portfolio"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Portafolio</a
+            >
+            <a
+              href="../proyectos-bim/"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Proyectos</a
+            >
+            <a
+              href="../blog/blog.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Blog</a
+            >
+            <a
+              href="../tool/index.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Herramientas</a
+            >
+            <a
+              href="../index.html#contact"
+              class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Contacto �’</a
+            >
           </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-              <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Abrir menú principal</span>
-                <i class="fas fa-bars text-xl"></i>
-              </button>
-            </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="-mr-2 flex md:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
           </div>
         </div>
       </div>
-      <div class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700" id="mobile-menu">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="../#home" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Inicio</a>
-          <a href="../#about" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Sobre Mí</a>
-          <a href="../#curriculum" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Experiencia</a>
-          <a href="../#portfolio" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Portafolio</a>
-          <a href="blog.html" class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Blog</a>
-          <a href="../#contact" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold">Contacto</a>
-          <a href="../tool/index.html" class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a>
-        </div>
+    </div>
+    <div
+      class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+      id="mobile-menu"
+    >
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="../index.html#home"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Inicio</a
+        >
+        <a
+          href="../index.html#about"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
+          >Sobre Mí</a
+        >
+        <a
+          href="../index.html#automation"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Automatización</a
+        >
+        <a
+          href="../index.html#services"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Servicios</a
+        >
+        <a
+          href="../index.html#portfolio"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Portafolio</a
+        >
+        <a
+          href="../proyectos-bim/"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Proyectos</a
+        >
+        <a
+          href="../blog/blog.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Blog</a
+        >
+        <a
+          href="../tool/index.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Herramientas</a
+        >
+        <a
+          href="../index.html#contact"
+          class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
+          >Contacto �’</a
+        >
       </div>
-    </nav>
-
-    <!-- Article Hero -->
+    </div>
+  </nav>
+<!-- Article Hero -->
     <section class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden">
       <div class="absolute inset-0 opacity-5">
         <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full blur-3xl"></div>
@@ -244,20 +308,18 @@
           <span class="text-gray-400 text-sm"><i class="fa-regular fa-clock mr-1"></i> 12 min lectura</span>
         </div>
         <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight">
-          <span class="text-5xl">🏗️</span> Cubicación Automática en Revit con
+          <span class="text-5xl">��”️</span> Cubicación Automática en Revit con
           <span class="text-gradient-article">pyRevit y Python</span>
         </h1>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Calcular cubicaciones en Revit siempre fue un proceso que me molestó. Exportabas a Excel, filtrabas a mano, y si el modelo cambiaba — cosa que siempre pasa — volvías a empezar. En este artículo te muestro cómo construí un script que resuelve eso en 10 segundos.
+          Calcular cubicaciones en Revit siempre fue un proceso que me molestó. Exportabas a Excel, filtrabas a mano, y si el modelo cambiaba �” cosa que siempre pasa �” volvías a empezar. En este artículo te muestro cómo construí un script que resuelve eso en 10 segundos.
         </p>
       </div>
     </section>
-
-    <!-- Article Content -->
+<!-- Article Content -->
     <section class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose-article">
-
-        <!-- Stats Banner -->
+<!-- Stats Banner -->
         <div class="grid grid-cols-3 gap-4 mb-10">
           <div class="stat-card glass-card rounded-2xl p-6 border border-gray-200 dark:border-gray-700 text-center">
             <p class="text-4xl font-extrabold text-red-400 mb-1">2 h</p>
@@ -268,12 +330,11 @@
             <p class="text-xs text-gray-500 uppercase tracking-wider font-medium">Con el plugin</p>
           </div>
           <div class="stat-card glass-card rounded-2xl p-6 border border-gray-200 dark:border-gray-700 text-center">
-            <p class="text-4xl font-extrabold text-bim-blue mb-1">720×</p>
+            <p class="text-4xl font-extrabold text-bim-blue mb-1">720x</p>
             <p class="text-xs text-gray-500 uppercase tracking-wider font-medium">Más rápido</p>
           </div>
         </div>
-
-        <!-- El Problema -->
+<!-- El Problema -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-triangle-exclamation text-red-400 mr-2"></i>
@@ -283,58 +344,54 @@
             El flujo clásico de cubicación en cualquier oficina de proyectos se ve más o menos así: abres una vista en Revit, exportas una planilla de cantidades, la abres en Excel, filtras por tipo de material, calculas los pesos con fórmulas que alguien hizo hace tres años y nadie sabe si son correctas, y al final generas un reporte.
           </p>
           <p class="text-gray-600 dark:text-gray-400">
-            El problema no es que sea lento — aunque lo es. El problema es que <strong class="text-gray-900 dark:text-white">el modelo y la planilla se desconectan desde el momento en que exportas</strong>. Cualquier cambio en el modelo requiere repetir todo el proceso desde cero.
+            El problema no es que sea lento �” aunque lo es. El problema es que <strong class="text-gray-900 dark:text-white">el modelo y la planilla se desconectan desde el momento en que exportas</strong>. Cualquier cambio en el modelo requiere repetir todo el proceso desde cero.
           </p>
           <div class="callout callout-orange">
             <div class="callout-label">⚠️ El costo real</div>
-            <p class="text-gray-400 text-sm">En un proyecto de mediana envergadura, un ciclo completo de cubicación manual puede tomar entre 2 y 4 horas. Si el modelo cambia dos veces a la semana — lo cual es normal — estás gastando casi un día completo en extraer datos que ya existen en el modelo. <strong class="text-gray-200">La solución no es trabajar más rápido. Es no hacer ese trabajo en absoluto.</strong></p>
+            <p class="text-gray-400 text-sm">En un proyecto de mediana envergadura, un ciclo completo de cubicación manual puede tomar entre 2 y 4 horas. Si el modelo cambia dos veces a la semana �” lo cual es normal �” estás gastando casi un día completo en extraer datos que ya existen en el modelo. <strong class="text-gray-200">La solución no es trabajar más rápido. Es no hacer ese trabajo en absoluto.</strong></p>
           </div>
         </div>
-
-        <!-- Qué hace el script -->
+        <!-- ¿Qué hace el script -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-wand-magic-sparkles text-green-400 mr-2"></i>
-            Qué Hace el Script
+            ¿Qué Hace el Script
           </h3>
           <p class="text-gray-600 dark:text-gray-400">
             El script extrae directamente desde el modelo Revit, a través de su API, toda la información necesaria para generar una cubicación completa de acero y hormigón. Sin exportar nada, sin abrir Excel, sin fórmulas manuales.
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
-            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Detecta el material automáticamente</strong> — lee la propiedad de material de cada elemento estructural y determina si es acero u hormigón.</span></li>
-            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Extrae el volumen real</strong> — usa el parámetro de volumen calculado por Revit, no una estimación.</span></li>
-            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Calcula el peso con densidad real</strong> — aplica 7.850 kg/m³ para acero y 2.400 kg/m³ para hormigón por defecto, con valores configurables.</span></li>
-            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Clasifica el acero por Nominal Weight</strong> — Liviana, Media, Pesada y Extrapesada según el peso lineal del perfil.</span></li>
-            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Agrega factor de conexiones</strong> — un porcentaje configurable que se suma al peso total de acero.</span></li>
-            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Muestra el reporte en consola</strong> — tablas interactivas en pyRevit, sin abrir ningún archivo externo.</span></li>
+            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Detecta el material automáticamente</strong> �” lee la propiedad de material de cada elemento estructural y determina si es acero u hormigón.</span></li>
+            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Extrae el volumen real</strong> �” usa el parámetro de volumen calculado por Revit, no una estimación.</span></li>
+            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Calcula el peso con densidad real</strong> �” aplica 7.850 kg/m³ para acero y 2.400 kg/m³ para hormigón por defecto, con valores configurables.</span></li>
+            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Clasifica el acero por Nominal Weight</strong> �” Liviana, Media, Pesada y Extrapesada según el peso lineal del perfil.</span></li>
+            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Agrega factor de conexiones</strong> �” un porcentaje configurable que se suma al peso total de acero.</span></li>
+            <li class="flex items-start gap-2"><span class="text-bim-blue mt-1"><i class="fa-solid fa-check"></i></span><span><strong class="text-gray-200">Muestra el reporte en consola</strong> �” tablas interactivas en pyRevit, sin abrir ningún archivo externo.</span></li>
           </ul>
         </div>
-
-        <!-- Prerrequisitos -->
+<!-- Prerrequisitos -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-list-check text-bim-blue mr-2"></i>
             Prerrequisitos
           </h3>
           <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm mb-4">
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-1"><i class="fa-solid fa-circle-dot"></i></span><span><strong class="text-gray-200">Revit 2022 o superior</strong> — el script fue probado en 2024 y 2025.</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-1"><i class="fa-solid fa-circle-dot"></i></span><span><strong class="text-gray-200">pyRevit 4.8+</strong> — descárgalo desde <span class="ic">github.com/eirannejad/pyRevit</span>.</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-400 mt-1"><i class="fa-solid fa-circle-dot"></i></span><span><strong class="text-gray-200">Un modelo estructural activo</strong> — con elementos de categoría Framing o Columns con materiales asignados.</span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-1"><i class="fa-solid fa-circle-dot"></i></span><span><strong class="text-gray-200">Revit 2022 o superior</strong> �” el script fue probado en 2024 y 2025.</span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-1"><i class="fa-solid fa-circle-dot"></i></span><span><strong class="text-gray-200">pyRevit 4.8+</strong> �” descárgalo desde <span class="ic">github.com/eirannejad/pyRevit</span>.</span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-400 mt-1"><i class="fa-solid fa-circle-dot"></i></span><span><strong class="text-gray-200">Un modelo estructural activo</strong> �” con elementos de categoría Framing o Columns con materiales asignados.</span></li>
           </ul>
           <div class="callout">
-            <div class="callout-label">💡 Nota</div>
+            <div class="callout-label">�’� Nota</div>
             <p class="text-gray-400 text-sm">No necesitas saber Python para usar este script. El tutorial te explica dónde poner cada archivo. Si quieres entender cómo funciona el código, las secciones de explicación son para ti.</p>
           </div>
         </div>
-
-        <!-- Paso a Paso -->
+<!-- Paso a Paso -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-6">
             <i class="fa-solid fa-list-ol text-bim-blue mr-2"></i>
             Paso a Paso
           </h3>
-
-          <div class="steps-list">
+<div class="steps-list">
             <!-- Step 1 -->
             <div class="step-item">
               <div class="step-num">1</div>
@@ -344,17 +401,15 @@
               </div>
             </div>
           </div>
-
-          <div class="folder-tree mb-6">
-            <span class="ft-folder">AG_Tools.extension/</span>      <span class="ft-comment">← tu extensión principal</span><br>
-            &nbsp;&nbsp;<span class="ft-folder">Cubicación.tab/</span>      <span class="ft-comment">← pestaña en el ribbon de Revit</span><br>
+<div class="folder-tree mb-6">
+            <span class="ft-folder">AG_Tools.extension/</span>      <span class="ft-comment">�“� tu extensión principal</span><br>
+            &nbsp;&nbsp;<span class="ft-folder">Cubicación.tab/</span>      <span class="ft-comment">�“� pestaña en el ribbon de Revit</span><br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-folder">Reportes.panel/</span>  <span class="ft-comment">← panel de botones</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-folder">Cubicacion.pushbutton/</span> <span class="ft-comment">← el botón</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-file">script.py</span>   <span class="ft-comment">← tu código va aquí</span><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-file">icon.png</span>    <span class="ft-comment">← ícono 32×32 px (opcional)</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-folder">Cubicacion.pushbutton/</span> <span class="ft-comment">�“� el botón</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-file">script.py</span>   <span class="ft-comment">�“� tu código va aquí</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ft-file">icon.png</span>    <span class="ft-comment">�“� ícono 32x32 px (opcional)</span>
           </div>
-
-          <div class="steps-list">
+<div class="steps-list">
             <!-- Step 2 -->
             <div class="step-item">
               <div class="step-num">2</div>
@@ -365,8 +420,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Script Completo -->
+<!-- Script Completo -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-40 h-40 bg-blue-600/10 rounded-full blur-2xl"></div>
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-2 relative z-10">
@@ -380,13 +434,11 @@
               <button class="code-copy" onclick="copiarBloque(this)">Copiar</button>
             </div>
             <pre id="codigo-principal"># -*- coding: utf-8 -*-
-# Cubicación Automática — Andrés Gallo P.
+# Cubicación Automática �” Andrés Gallo P.
 # atelijudesign.com
-
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
-
 from Autodesk.Revit.DB import (
     FilteredElementCollector,
     BuiltInCategory,
@@ -394,13 +446,12 @@ from Autodesk.Revit.DB import (
     UnitUtils,
     UnitTypeId
 )
-from pyrevit import revit, DB, forms, script
 
-# ─── CONFIGURACIÓN ──────────────────────────────────────────────
+from pyrevit import revit, DB, forms, script
+#  //  //  //  CONFIGURACI�“N  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
 DENSIDAD_ACERO    = 7850   # kg/m³
 DENSIDAD_HORMIGON = 2400   # kg/m³
-FACTOR_CONEXIONES = 0.05   # 5% por defecto — ajústalo según proyecto
-
+FACTOR_CONEXIONES = 0.05   # 5% por defecto �” ajústalo según proyecto
 # Clasificación Nominal Weight (kg/m)
 CLASES_NW = [
     (0,   20,  "Liviana"),
@@ -409,24 +460,22 @@ CLASES_NW = [
     (80,  9999, "Extrapesada"),
 ]
 
-# ─── FUNCIONES AUXILIARES ────────────────────────────────────────
+#  //  //  //  FUNCIONES AUXILIARES  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
 def m3_a_kg(volumen_m3, densidad):
     """Convierte volumen en m³ a kilogramos."""
     return volumen_m3 * densidad
-
 def clasificar_nw(peso_lineal_kg_m):
     """Clasifica un perfil por Nominal Weight según su peso lineal."""
     for min_nw, max_nw, nombre in CLASES_NW:
         if min_nw <= peso_lineal_kg_m < max_nw:
             return nombre
     return "Sin clasificar"
-
 def obtener_volumen_m3(elemento):
     """Extrae el volumen del elemento en m³ desde la API de Revit."""
     try:
         param = elemento.get_Parameter(BuiltInParameter.HOST_VOLUME_COMPUTED)
         if param and param.HasValue:
-            # Revit almacena en pies³ — convertimos a m³
+            # Revit almacena en pies³ �” convertimos a m³
             return UnitUtils.ConvertFromInternalUnits(
                 param.AsDouble(),
                 UnitTypeId.CubicMeters
@@ -434,7 +483,6 @@ def obtener_volumen_m3(elemento):
     except:
         pass
     return 0.0
-
 def obtener_nombre_material(elemento):
     """Obtiene el nombre del material estructural del elemento."""
     try:
@@ -447,20 +495,16 @@ def obtener_nombre_material(elemento):
     except:
         pass
     return ""
-
 def es_acero(nombre_material):
     """Determina si el material es acero por palabras clave."""
     keywords = ["ACERO", "STEEL", "A36", "A572", "A992", "ER70", "METAL"]
     return any(k in nombre_material for k in keywords)
-
 def es_hormigon(nombre_material):
     """Determina si el material es hormigón por palabras clave."""
-    keywords = ["HORMIGON", "HORMIGÓN", "CONCRETE", "HA", "H20", "H25", "H30"]
+    keywords = ["HORMIGON", "HORMIG�“N", "CONCRETE", "HA", "H20", "H25", "H30"]
     return any(k in nombre_material for k in keywords)
-
-# ─── RECOLECCIÓN DE ELEMENTOS ────────────────────────────────────
+#  //  //  //  RECOLECCI�“N DE ELEMENTOS  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
 doc = revit.doc
-
 categorias = [
     BuiltInCategory.OST_StructuralFraming,    # vigas, diagonales
     BuiltInCategory.OST_StructuralColumns,    # columnas
@@ -473,20 +517,16 @@ for cat in categorias:
         .OfCategory(cat)\
         .WhereElementIsNotElementType()
     elementos.extend(list(collector))
-
-# ─── PROCESAMIENTO ───────────────────────────────────────────────
+#  //  //  //  PROCESAMIENTO  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
 resultado_acero   = {}   # {clase_nw: [pesos]}
 total_hormigon_m3 = 0.0
 elementos_sin_mat = 0
-
 for elem in elementos:
     volumen = obtener_volumen_m3(elem)
     if volumen <= 0:
         continue
-
-    nombre_mat = obtener_nombre_material(elem)
-
-    if es_acero(nombre_mat):
+nombre_mat = obtener_nombre_material(elem)
+if es_acero(nombre_mat):
         # Peso lineal para clasificación NW
         try:
             param_largo = elem.get_Parameter(BuiltInParameter.STRUCTURAL_FRAME_CUT_LENGTH)
@@ -495,41 +535,32 @@ for elem in elementos:
             ) if param_largo and param_largo.HasValue else 1.0
         except:
             largo_m = 1.0
-
-        peso_total_kg = m3_a_kg(volumen, DENSIDAD_ACERO)
+peso_total_kg = m3_a_kg(volumen, DENSIDAD_ACERO)
         peso_lineal   = peso_total_kg / largo_m if largo_m > 0 else 0
         clase_nw      = clasificar_nw(peso_lineal)
-
-        if clase_nw not in resultado_acero:
+if clase_nw not in resultado_acero:
             resultado_acero[clase_nw] = []
         resultado_acero[clase_nw].append(peso_total_kg)
-
-    elif es_hormigon(nombre_mat):
+elif es_hormigon(nombre_mat):
         total_hormigon_m3 += volumen
-
-    else:
+else:
         elementos_sin_mat += 1
-
-# ─── CÁLCULO DE TOTALES ──────────────────────────────────────────
+# ═══ CÁLCULO DE TOTALES ══════════════════════════════════════════
 total_acero_kg   = sum(sum(p) for p in resultado_acero.values())
 total_con_conx   = total_acero_kg * (1 + FACTOR_CONEXIONES)
 total_hormigon_kg = m3_a_kg(total_hormigon_m3, DENSIDAD_HORMIGON)
-
-# ─── GENERACIÓN DEL REPORTE ──────────────────────────────────────
+#  //  //  //  GENERACI�“N DEL REPORTE  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
 output = script.get_output()
 output.close_others()
-output.set_title("Cubicación Estructural — {}".format(doc.Title))
-
-output.print_md("# 📊 Reporte de Cubicación Estructural")
+output.set_title("Cubicación Estructural �” {}".format(doc.Title))
+output.print_md("# �“� Reporte de Cubicación Estructural")
 output.print_md("**Proyecto:** {}".format(doc.Title))
 output.print_md("**Elementos procesados:** {}".format(len(elementos)))
 if elementos_sin_mat > 0:
     output.print_md("⚠️ **Elementos sin material asignado:** {}".format(elementos_sin_mat))
-
 # Tabla acero por clase NW
 output.print_md("---")
-output.print_md("## 🔩 Acero Estructural")
-
+output.print_md("## �”� Acero Estructural")
 tabla_acero = [["Clase NW", "N° Elementos", "Peso (kg)", "Peso (ton)"]]
 for clase in ["Liviana", "Media", "Pesada", "Extrapesada"]:
     if clase in resultado_acero:
@@ -541,7 +572,6 @@ for clase in ["Liviana", "Media", "Pesada", "Extrapesada"]:
             "{:,.1f}".format(total),
             "{:,.2f}".format(total / 1000)
         ])
-
 output.print_table(
     table_data=tabla_acero[1:],
     title="Clasificación por Nominal Weight",
@@ -552,22 +582,19 @@ output.print_md("**Subtotal acero:** {:,.1f} kg  ({:,.2f} ton)".format(
     total_acero_kg, total_acero_kg / 1000))
 output.print_md("**Factor conexiones ({:.0f}%):** + {:,.1f} kg".format(
     FACTOR_CONEXIONES * 100, total_acero_kg * FACTOR_CONEXIONES))
-output.print_md("### ✅ Total acero c/conexiones: {:,.1f} kg  ({:,.2f} ton)".format(
+output.print_md("### �… Total acero c/conexiones: {:,.1f} kg  ({:,.2f} ton)".format(
     total_con_conx, total_con_conx / 1000))
-
 # Tabla hormigón
 output.print_md("---")
-output.print_md("## 🏗️ Hormigón Estructural")
+output.print_md("## ��”️ Hormigón Estructural")
 output.print_md("**Volumen total:** {:,.2f} m³".format(total_hormigon_m3))
 output.print_md("**Peso total:** {:,.1f} kg  ({:,.2f} ton)".format(
     total_hormigon_kg, total_hormigon_kg / 1000))
-
 output.print_md("---")
 output.print_md("*Generado con pyRevit · atelijudesign.com*")</pre>
           </div>
         </div>
-
-        <!-- Configuración -->
+<!-- Configuración -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <div class="steps-list">
             <div class="step-item">
@@ -583,20 +610,19 @@ output.print_md("*Generado con pyRevit · atelijudesign.com*")</pre>
               <span class="code-lang">Python · Configuración</span>
               <button class="code-copy" onclick="copiarBloque(this)">Copiar</button>
             </div>
-            <pre># ─── CONFIGURACIÓN ──────────────────────────────
-DENSIDAD_ACERO    = 7850   # kg/m³ — no cambiar
-DENSIDAD_HORMIGON = 2400   # kg/m³ — ajusta si tu especificación difiere
+            <pre>#  //  //  //  CONFIGURACI�“N  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
+DENSIDAD_ACERO    = 7850   # kg/m³ �” no cambiar
+DENSIDAD_HORMIGON = 2400   # kg/m³ �” ajusta si tu especificación difiere
 FACTOR_CONEXIONES = 0.05   # 5% estándar
                            # 0.08 = 8% para proyectos industriales
                            # 0.12 = 12% para estructuras complejas</pre>
           </div>
-
-          <div class="steps-list mt-6">
+<div class="steps-list mt-6">
             <div class="step-item">
               <div class="step-num">4</div>
               <div class="step-body">
                 <div class="step-title">Agrega tu extensión a pyRevit</div>
-                <div class="step-desc">Abre Revit → pestaña pyRevit → Settings → Custom Extensions. Agrega la ruta a tu carpeta <span class="ic">AG_Tools.extension</span>. Luego haz clic en Reload.</div>
+                <div class="step-desc">Abre Revit �’ pestaña pyRevit �’ Settings �’ Custom Extensions. Agrega la ruta a tu carpeta <span class="ic">AG_Tools.extension</span>. Luego haz clic en Reload.</div>
               </div>
             </div>
             <div class="step-item">
@@ -608,8 +634,7 @@ FACTOR_CONEXIONES = 0.05   # 5% estándar
             </div>
           </div>
         </div>
-
-        <!-- Resultado esperado -->
+<!-- Resultado esperado -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-terminal text-green-400 mr-2"></i>
@@ -619,54 +644,45 @@ FACTOR_CONEXIONES = 0.05   # 5% estándar
           <div class="result-box">
             <h4>// Output consola pyRevit</h4>
             <pre>
-📊 Reporte de Cubicación Estructural
+�“� Reporte de Cubicación Estructural
 Proyecto: Proyecto_Arqueros_Rev3
 Elementos procesados: 847
-
-─────────────────────────────────────────────
-🔩 Acero Estructural — Clasificación por NW
-─────────────────────────────────────────────
+ //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
+�”� Acero Estructural �” Clasificación por NW
+ //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
 Clase NW        N° Elementos   Peso (kg)    Peso (ton)
 Liviana              124         8.420,3        8,42
 Media                298        42.180,7       42,18
 Pesada               201        89.340,2       89,34
 Extrapesada           48        38.920,1       38,92
-
 <strong>Subtotal acero:          178.861,3 kg  (178,86 ton)</strong>
 Factor conexiones (5%):  +  8.943,1 kg
-<strong>✅ Total c/conexiones:   187.804,4 kg  (187,80 ton)</strong>
-
-─────────────────────────────────────────────
-🏗️ Hormigón Estructural
-─────────────────────────────────────────────
+<strong>�… Total c/conexiones:   187.804,4 kg  (187,80 ton)</strong>
+ //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  // 
+��”️ Hormigón Estructural
+ //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //
 Volumen total:    1.240,50 m³
 <strong>Peso total:     2.977.200 kg  (2.977,20 ton)</strong></pre>
           </div>
         </div>
-
-        <!-- Cómo funciona el código -->
+<!-- Cómo funciona el código -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-6">
             <i class="fa-solid fa-gears text-bim-blue mr-2"></i>
             Cómo Funciona el Código
           </h3>
-
-          <h4 class="font-bold text-gray-200 mb-2">Detección de material</h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">La función <span class="ic">obtener_nombre_material()</span> lee el parámetro <span class="ic">STRUCTURAL_MATERIAL_PARAM</span> de cada elemento, obtiene el ID del material asignado y consulta su nombre en el documento. Las funciones <span class="ic">es_acero()</span> y <span class="ic">es_hormigon()</span> buscan palabras clave en ese nombre — por eso es importante que tus materiales en Revit tengan nombres descriptivos.</p>
-
-          <h4 class="font-bold text-gray-200 mb-2 mt-6">Extracción del volumen</h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">Revit calcula el volumen real de cada elemento estructural y lo almacena en el parámetro <span class="ic">HOST_VOLUME_COMPUTED</span>. La API lo entrega en pies cúbicos — la conversión a m³ la hace <span class="ic">UnitUtils.ConvertFromInternalUnits()</span>. Este valor ya considera la geometría exacta del perfil, no una aproximación.</p>
-
-          <div class="callout callout-green mt-4">
-            <div class="callout-label">✅ Por qué esto es más preciso que Excel</div>
-            <p class="text-gray-400 text-sm">El volumen calculado por Revit considera los cortes, uniones y modificaciones de geometría que aplicaste al modelo. Una tabla de Excel con fórmulas de largo × área de sección no hace eso. <strong class="text-gray-200">La diferencia puede ser de hasta 3–5% en estructuras con muchas uniones</strong>.</p>
+<h4 class="font-bold text-gray-200 mb-2">Detección de material</h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">La función <span class="ic">obtener_nombre_material()</span> lee el parámetro <span class="ic">STRUCTURAL_MATERIAL_PARAM</span> de cada elemento, obtiene el ID del material asignado y consulta su nombre en el documento. Las funciones <span class="ic">es_acero()</span> y <span class="ic">es_hormigon()</span> buscan palabras clave en ese nombre �” por eso es importante que tus materiales en Revit tengan nombres descriptivos.</p>
+<h4 class="font-bold text-gray-200 mb-2 mt-6">Extracción del volumen</h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Revit calcula el volumen real de cada elemento estructural y lo almacena en el parámetro <span class="ic">HOST_VOLUME_COMPUTED</span>. La API lo entrega en pies cúbicos �” la conversión a m³ la hace <span class="ic">UnitUtils.ConvertFromInternalUnits()</span>. Este valor ya considera la geometría exacta del perfil, no una aproximación.</p>
+<div class="callout callout-green mt-4">
+            <div class="callout-label">�’� Por qué esto es más preciso que Excel</div>
+            <p class="text-gray-400 text-sm">El volumen calculado por Revit considera los cortes, uniones y modificaciones de geometría que aplicaste al modelo. Una tabla de Excel con fórmulas de largo ��” área de sección no hace eso. <strong class="text-gray-200">La diferencia puede ser de hasta 3,5% en estructuras con muchas uniones</strong>.</p>
           </div>
-
-          <h4 class="font-bold text-gray-200 mb-2 mt-6">Clasificación Nominal Weight</h4>
+<h4 class="font-bold text-gray-200 mb-2 mt-6">Clasificación Nominal Weight</h4>
           <p class="text-gray-600 dark:text-gray-400 text-sm">El script calcula el peso lineal de cada elemento dividiendo el peso total por el largo de corte estructural. Con ese valor clasifica el perfil en una de las cuatro categorías estándar. Esto es útil para separar las cotizaciones por tipo de perfil, que en Chile generalmente tienen precios distintos por categoría NW.</p>
         </div>
-
-        <!-- Comparativa de Tiempo -->
+<!-- Comparativa de Tiempo -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-chart-bar text-cyan-400 mr-2"></i>
@@ -692,20 +708,18 @@ Volumen total:    1.240,50 m³
               <ul class="text-gray-400 text-xs space-y-1 mb-0">
                 <li>• Presionar el botón en Revit</li>
                 <li>• Revisar tablas en la consola</li>
-                <li>• Listo ✓</li>
+                <li>• Listo �“</li>
               </ul>
             </div>
           </div>
         </div>
-
-        <!-- Troubleshooting -->
+<!-- Troubleshooting -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-6">
             <i class="fa-solid fa-bug text-orange-400 mr-2"></i>
             Troubleshooting
           </h3>
-
-          <div class="space-y-5">
+<div class="space-y-5">
             <div>
               <h4 class="font-bold text-gray-200 mb-1 text-sm">El botón no aparece en el ribbon</h4>
               <p class="text-gray-500 text-sm mb-0">Verifica que el nombre de tu carpeta termine exactamente en <span class="ic">.extension</span>, <span class="ic">.tab</span>, <span class="ic">.panel</span> y <span class="ic">.pushbutton</span>. Un espacio de más o una mayúscula incorrecta hace que pyRevit no lo reconozca. Luego haz Reload.</p>
@@ -720,8 +734,7 @@ Volumen total:    1.240,50 m³
             </div>
           </div>
         </div>
-
-        <!-- Por qué importa + Conclusiones -->
+<!-- Por qué importa + Conclusiones -->
         <div class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 border-l-4 border-l-bim-blue">
           <h3 class="text-xl font-extrabold text-gray-900 dark:text-white mb-4">
             <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i>
@@ -746,11 +759,9 @@ Volumen total:    1.240,50 m³
             </li>
           </ul>
         </div>
-
-      </div>
+</div>
     </section>
-
-    <!-- Share Buttons -->
+<!-- Share Buttons -->
     <section class="py-10 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <p class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
@@ -775,34 +786,31 @@ Volumen total:    1.240,50 m³
         </div>
       </div>
     </section>
-
-    <!-- Back to Blog -->
+<!-- Back to Blog -->
     <section class="py-12 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
         <a href="blog.html" class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg">
           <i class="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i>
           Volver al Blog
         </a>
-        <a href="../#contact" class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm">
+        <a href="../index.html#contact" class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm">
           <i class="fa-solid fa-envelope mr-1"></i> ¿Preguntas? Contáctame
         </a>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</p>
-        <p class="text-gray-600 text-xs mt-2">Diseñado con pasión por la ingeniería y la tecnología.</p>
+<!-- Footer -->
+    <footer class="bg-bim-dark py-8 border-t border-gray-800 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm font-bold text-white" style="font-family: 'Space Grotesk', sans-serif;">Andrés Gallo <span class="text-bim-blue">P.</span></div>
+        <div class="text-xs text-gray-500 font-mono text-center">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="text-xs text-gray-600 font-mono">// Diseñado con ingeniería y código</div>
       </div>
     </footer>
-
-    <!-- Back to Top -->
+<!-- Back to Top -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110" aria-label="Volver al inicio">
       <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"></i>
     </button>
-
-    <script src="../js/scripts.js"></script>
+<script src="../js/main.js" defer></script>
     <script>
       // Bar Chart
       document.addEventListener("DOMContentLoaded", function () {
@@ -849,12 +857,11 @@ Volumen total:    1.240,50 m³
           },
         });
       });
-
-      // Copy code block
+// Copy code block
       function copiarBloque(btn) {
         const pre = btn.closest('.code-block').querySelector('pre');
         navigator.clipboard.writeText(pre.innerText.trim()).then(() => {
-          btn.textContent = '✓ Copiado';
+          btn.textContent = '�“ Copiado';
           setTimeout(() => btn.textContent = 'Copiar', 2000);
         });
       }

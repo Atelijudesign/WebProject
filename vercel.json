@@ -9,13 +9,6 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" }
       ]
-    },
-    {
-      "source": "/tool/ifc-viewer.html",
-      "headers": [
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" }
-      ]
     }
   ]
 }

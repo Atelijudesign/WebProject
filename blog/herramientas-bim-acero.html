@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
     <title>
       Herramientas Web para Acero Estructural: Calculadora y Catálogo ICHA
     </title>
@@ -11,8 +11,7 @@
       name="description"
       content="Descubre nuevas herramientas web gratuitas para proyectistas: Calculadora de peso de perfiles y Catálogo ICHA digital interactivo."
     />
-
-    <!-- Open Graph -->
+<!-- Open Graph -->
     <meta
       property="og:title"
       content="Herramientas Web para Acero Estructural"
@@ -23,51 +22,30 @@
     />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="es_CL" />
-
-    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://atelijudesign.com/blog/herramientas-bim-acero.html" />
+<link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-
-    <link
+<link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <style>
-      /* Typography overrides — after Tailwind CDN */
+      /* Typography overrides �” after Tailwind CSS */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
       #logo span { font-family: "Space Grotesk", sans-serif !important; font-size: 1.05rem !important; font-weight: 800 !important; letter-spacing: -0.01em; }
       #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
     </style>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "bim-blue": "#3b82f6",
-              "bim-dark": "#0b1220",
-              "bim-card": "#111827",
-              "bim-border": "#1f2937",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              head: ["Space Grotesk", "sans-serif"],
-              mono: ["Fira Code", "monospace"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
+<style>
       .text-gradient-article {
         background-clip: text;
         -webkit-background-clip: text;
@@ -106,7 +84,7 @@
       .progress-bar {
         height: 3px;
         background: linear-gradient(90deg, #06b6d4, #3b82f6);
-        width: 0%;
+        width: 0;
         position: fixed;
         top: 0;
         left: 0;
@@ -120,122 +98,141 @@
   >
     <!-- Reading Progress Bar -->
     <div id="progress" class="progress-bar"></div>
-
-    <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+<!-- Navigation -->
+      <nav
+    class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a
+          href="../index.html#home"
+          id="logo"
+          class="flex-shrink-0 flex items-center cursor-pointer"
+        >
+          <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
+          <span class="font-bold text-xl text-gray-900 dark:text-white"
+            >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
+          >
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
+            <a
+              href="../index.html#home"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Inicio</a
+            >
+            <a
+              href="../index.html#about"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Sobre Mí</a
+            >
+            <a
+              href="../index.html#automation"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Automatización</a
+            >
+            <a
+              href="../index.html#services"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Servicios</a
+            >
+            <a
+              href="../index.html#portfolio"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Portafolio</a
+            >
+            <a
+              href="../proyectos-bim/"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Proyectos</a
+            >
+            <a
+              href="../blog/blog.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Blog</a
+            >
+            <a
+              href="../tool/index.html"
+              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
+              >Herramientas</a
+            >
+            <a
+              href="../index.html#contact"
+              class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
+              >Contacto �’</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="-mr-2 flex md:hidden">
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Abrir menú principal</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
+      id="mobile-menu"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a href="../"
-            id="logo"
-            class="flex-shrink-0 flex items-center"
-          >
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-            >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a
-                href="../#home"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Inicio</a
-              >
-              <a
-                href="../#about"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Sobre Mí</a
-              >
-              <a
-                href="../#curriculum"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Experiencia</a
-              >
-              <a
-                href="../#portfolio"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Portafolio</a
-              >
-              <a
-                href="blog.html"
-                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Blog</a
-              >
-              <a
-                href="../#contact"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Contacto</a
-              >
-              <a
-                href="../tool/index.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Abrir menú principal</span>
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            </div>
-          </div>
-        </div>
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a
+          href="../index.html#home"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Inicio</a
+        >
+        <a
+          href="../index.html#about"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
+          >Sobre Mí</a
+        >
+        <a
+          href="../index.html#automation"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Automatización</a
+        >
+        <a
+          href="../index.html#services"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Servicios</a
+        >
+        <a
+          href="../index.html#portfolio"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Portafolio</a
+        >
+        <a
+          href="../proyectos-bim/"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Proyectos</a
+        >
+        <a
+          href="../blog/blog.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Blog</a
+        >
+        <a
+          href="../tool/index.html"
+          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
+          >Herramientas</a
+        >
+        <a
+          href="../index.html#contact"
+          class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
+          >Contacto �’</a
+        >
       </div>
-      <div
-        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-        id="mobile-menu"
-      >
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="../#home"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Inicio</a
-          >
-          <a
-            href="../#about"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Sobre Mí</a
-          >
-          <a
-            href="../#curriculum"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Experiencia</a
-          >
-          <a
-            href="../#portfolio"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Portafolio</a
-          >
-          <a
-            href="blog.html"
-            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Blog</a
-          >
-          <a
-            href="../#contact"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Contacto</a
-          >
-          <a
-            href="../tool/index.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Herramientas</a
-          >
-        </div>
-      </div>
-    </nav>
-
-    <!-- Article Hero -->
+    </div>
+  </nav>
+<!-- Article Hero -->
     <section
       class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden"
     >
@@ -257,8 +254,7 @@
             <i class="fa-solid fa-arrow-left mr-1"></i> Volver al Blog
           </a>
         </div>
-
-        <div class="flex items-center justify-center gap-3 mb-4">
+<div class="flex items-center justify-center gap-3 mb-4">
           <span
             class="bg-cyan-600/90 text-white text-xs font-bold px-3 py-1 rounded-full"
           >
@@ -271,8 +267,7 @@
             ><i class="fa-regular fa-clock mr-1"></i> 6 min lectura</span
           >
         </div>
-
-        <h1
+<h1
           class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight"
         >
           <span class="text-cyan-400 text-5xl">🛠️</span> Herramientas Web para
@@ -284,8 +279,7 @@
         </p>
       </div>
     </section>
-
-    <!-- Article Content -->
+<!-- Article Content -->
     <section
       class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
     >
@@ -320,8 +314,7 @@
             cada una.
           </p>
         </div>
-
-        <!-- Tool 1: Calculadora de Perfiles -->
+<!-- Tool 1: Calculadora de Perfiles -->
         <div
           class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
         >
@@ -340,8 +333,7 @@
             estáticas: simplemente seleccionas el tipo de sección, ingresas las
             dimensiones, y obtienes los resultados al instante.
           </p>
-
-          <!-- Profile types grid -->
+<!-- Profile types grid -->
           <h4 class="text-lg font-bold text-gray-900 dark:text-white mt-6 mb-4">
             <i class="fa-solid fa-shapes text-cyan-400 mr-2"></i> Tipos de
             Perfiles Soportados
@@ -382,8 +374,7 @@
               <span class="text-xs font-bold text-gray-300">Pipe / RB</span>
             </div>
           </div>
-
-          <!-- Features -->
+<!-- Features -->
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <div class="feature-icon bg-blue-900/30 text-bim-blue">
@@ -423,14 +414,13 @@
                 >
                 <p class="text-gray-500 dark:text-gray-400 text-sm mb-0 mt-1">
                   Genera la designación del perfil según convención chilena (ej:
-                  H 20 × 27.13, CJ 10 × 15.42, PIPE Ø152.4 × 7.11).
+                  H20x27,13, CJ10x15,42, PIPE Ø152,4x7,11).
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Tool 2: Catálogo ICHA -->
+<!-- Tool 2: Catálogo ICHA -->
         <div
           class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
         >
@@ -451,8 +441,7 @@
             <strong class="text-bim-blue">buscar, consultar y comparar</strong>
             perfiles de forma rápida.
           </p>
-
-          <!-- Series grid -->
+<!-- Series grid -->
           <h4 class="text-lg font-bold text-gray-900 dark:text-white mt-6 mb-4">
             <i class="fa-solid fa-layer-group text-emerald-400 mr-2"></i>
             Series Disponibles
@@ -518,11 +507,10 @@
             <div
               class="bg-gray-800/50 rounded-lg p-2 text-center border border-gray-700"
             >
-              <span class="text-xs font-bold text-bim-blue">CAJÓN</span>
+              <span class="text-xs font-bold text-bim-blue">CAJ�“N</span>
             </div>
           </div>
-
-          <!-- Features -->
+<!-- Features -->
           <div class="space-y-4">
             <div class="flex items-start gap-4">
               <div class="feature-icon bg-emerald-900/30 text-emerald-400">
@@ -569,8 +557,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Shared Features -->
+<!-- Shared Features -->
         <div
           class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 mb-10"
         >
@@ -589,8 +576,7 @@
             >
             y exportar todo a Excel:
           </p>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             <div
               class="tool-card bg-gray-800/50 p-5 rounded-xl border border-gray-700"
             >
@@ -667,8 +653,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Tech Stack callout -->
+<!-- Tech Stack callout -->
         <div
           class="bg-blue-900/20 rounded-xl p-6 border border-blue-800/30 mb-10"
         >
@@ -687,8 +672,7 @@
             las series y propiedades mecánicas extraídas del documento oficial.
           </p>
         </div>
-
-        <!-- CTA: Try the tools -->
+<!-- CTA: Try the tools -->
         <div
           class="glass-card rounded-2xl p-8 md:p-10 border border-gray-200 dark:border-gray-700 border-l-4 border-l-bim-blue"
         >
@@ -723,8 +707,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Share Buttons -->
+<!-- Share Buttons -->
     <section
       class="py-10 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300"
     >
@@ -809,8 +792,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Back to Blog -->
+<!-- Back to Blog -->
     <section
       class="py-12 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
     >
@@ -825,29 +807,22 @@
           Volver al Blog
         </a>
         <a
-          href="../#contact"
+          href="../index.html#contact"
           class="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm"
         >
           <i class="fa-solid fa-envelope mr-1"></i> ¿Preguntas? Contáctame
         </a>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer
-      class="bg-white dark:bg-bim-dark py-8 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">
-          &copy; 2026 Andrés Gallo P. Todos los derechos reservados.
-        </p>
-        <p class="text-gray-600 text-xs mt-2">
-          Diseñado con pasión por la ingeniería y la tecnología.
-        </p>
+<!-- Footer -->
+    <footer class="bg-bim-dark py-8 border-t border-gray-800 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm font-bold text-white" style="font-family: 'Space Grotesk', sans-serif;">Andrés Gallo <span class="text-bim-blue">P.</span></div>
+        <div class="text-xs text-gray-500 font-mono text-center">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="text-xs text-gray-600 font-mono">// Diseñado con ingeniería y código</div>
       </div>
     </footer>
-
-    <!-- Back to Top Button -->
+<!-- Back to Top Button -->
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
@@ -857,8 +832,7 @@
         class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
       ></i>
     </button>
-
-    <script src="../js/scripts.js"></script>
+<script src="../js/main.js" defer></script>
     <script>
       // Scroll Progress Bar
       window.addEventListener("scroll", () => {
