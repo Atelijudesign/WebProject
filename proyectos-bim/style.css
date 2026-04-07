@@ -246,9 +246,9 @@
 .projects-bim-page .timeline-inner {
   position: relative;
   display: flex;
-  gap: 0.5rem; /* More spacing between items */
+  gap: 0.5rem;
   min-width: max-content;
-  padding: 3rem 1.5rem 2rem; /* More vertical space */
+  padding: 3.5rem 1.5rem 3rem;
 }
 
 .projects-bim-page .timeline-line {
@@ -264,7 +264,7 @@
 
 .projects-bim-page .timeline-item {
   position: relative;
-  min-width: 200px; /* Wider for better readability */
+  min-width: 170px;
   text-align: center;
   cursor: pointer;
   padding: 0 0.5rem;
@@ -276,8 +276,8 @@
 }
 
 .projects-bim-page .timeline-dot {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 999px;
   background: var(--pb-accent);
   border: 3px solid var(--pb-bg-primary);
@@ -300,27 +300,34 @@
   white-space: nowrap;
 }
 
-.projects-bim-page .timeline-company {
-  bottom: calc(50% + 28px);
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-.projects-bim-page .timeline-period {
-  top: calc(50% + 28px);
-  color: var(--pb-text-muted);
-  font-size: 0.75rem;
-}
-
+/* Badge de proyectos - ARRIBA del punto */
 .projects-bim-page .timeline-count {
-  bottom: calc(50% + 48px);
-  font-size: 0.7rem;
-  padding: 0.15rem 0.5rem;
+  top: calc(50% - 44px);
+  font-size: 0.68rem;
+  padding: 0.1rem 0.45rem;
   color: var(--pb-success);
   border: 1px solid rgba(52, 211, 153, 0.25);
   background: rgba(52, 211, 153, 0.1);
   border-radius: 999px;
   font-weight: 600;
+}
+
+/* Nombre de empresa - DEBAJO del punto */
+.projects-bim-page .timeline-company {
+  top: calc(50% + 24px);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pb-accent);
+}
+
+/* Año - DEBAJO del nombre */
+.projects-bim-page .timeline-period {
+  top: calc(50% + 42px);
+  color: var(--pb-text-muted);
+  font-size: 0.7rem;
+  font-weight: 400;
 }
 
 /* ===== FILTERS BAR - BETTER LAYOUT ===== */
