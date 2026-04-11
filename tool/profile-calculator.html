@@ -6,11 +6,11 @@
     <title>Calculadora de Perfiles de Acero | Peso y Propiedades</title>
     <meta
       name="description"
-      content="Herramienta gratuita para calcular peso (kg/m), área y superficie de perfiles de acero (H, I, Canales, Ángulos). Ideal para cubicaciones estructurales rápida."
+      content="Herramienta gratuita para calcular peso (kg/m), área y superficie de perfiles de acero (H, I, Canales, Ãngulos). Ideal para cubicaciones estructurales rÃ¡pida."
     />
     <meta
       name="keywords"
-      content="calculadora acero, peso perfiles, ICHA, cubicación acero, peso por metro, perfiles estructurales, estimación materiales"
+      content="calculadora acero, peso perfiles, ICHA, cubicaciÃ³n acero, peso por metro, perfiles estructurales, estimaciÃ³n materiales"
     />
 
     <!-- Open Graph -->
@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Typography overrides �” after Tailwind CDN */
+      /* Typography overrides ââ after Tailwind CDN */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
@@ -76,10 +76,7 @@
         border: 1px solid rgba(55, 65, 81, 0.5);
         backdrop-filter: blur(12px);
       }
-      .glass-nav {
-        background: rgba(11, 18, 32, 0.85);
-        backdrop-filter: blur(16px);
-      }
+      
       .profile-btn {
         transition: all 0.3s ease;
       }
@@ -167,120 +164,24 @@
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white"
   >
     <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a
-            href="../"
-            id="logo"
-            class="flex-shrink-0 flex items-center cursor-pointer"
-          >
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-            >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a
-                href="../#home"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Inicio</a
-              >
-              <a
-                href="../#about"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Sobre Mí</a
-              >
-              <a
-                href="../#curriculum"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Experiencia</a
-              >
-              <a
-                href="../#portfolio"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Portafolio</a
-              >
-              <a
-                href="../blog/blog.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Blog</a
-              >
-              <a
-                href="../#contact"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Contacto</a
-              >
-              <a
-                href="index.html"
-                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
-                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Abrir menú principal</span>
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            </div>
-          </div>
-        </div>
+      <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html#home" class="nav-logo" style="gap: 0;">Andrés Gallo <span>P.BIM</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#home">Inicio</a>
+        <a href="../index.html#about">Sobre Mí</a>
+        <a href="../index.html#automation">Automatización</a>
+        <a href="../index.html#services">Servicios</a>
+        <a href="../index.html#portfolio">Portafolio</a>
+        <a href="../proyectos-bim/">Proyectos</a>
+        <a href="../blog/blog.html">Blog</a>
+        <a href="../tool/index.html">Herramientas</a>
+        <a href="../index.html#contact" class="nav-cta">Contacto →</a>
       </div>
-      <!-- Mobile Menu -->
-      <div
-        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-        id="mobile-menu"
-      >
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="../#home"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Inicio</a
-          >
-          <a
-            href="../#about"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Sobre Mí</a
-          >
-          <a
-            href="../#curriculum"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Experiencia</a
-          >
-          <a
-            href="../#portfolio"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Portafolio</a
-          >
-          <a
-            href="../blog/blog.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Blog</a
-          >
-          <a
-            href="../#contact"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Contacto</a
-          >
-          <a
-            href="index.html"
-            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Tools</a
-          >
-        </div>
-      </div>
-    </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+  </nav>
 
     <!-- Hero Section -->
     <section class="pt-24 pb-8 relative overflow-hidden">
@@ -327,7 +228,7 @@
             class="max-w-2xl mx-auto text-gray-400 text-lg"
             data-i18n="calc_hero_desc"
           >
-            Como proyectistas, a veces necesitamos verificar datos rápidos sin
+            Como proyectistas, a veces necesitamos verificar datos rÃ¡pidos sin
             abrir el software pesado. Calcula peso, área y superficie en tiempo
             real de 12 tipos de perfiles estructurales en tiempo real.
           </p>
@@ -368,7 +269,7 @@
               class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"
             >
               <i class="fa-solid fa-vector-square mr-2"></i
-              ><span data-i18n="sect_cross_section">Sección Transversal</span>
+              ><span data-i18n="sect_cross_section">SecciÃ³n Transversal</span>
             </h3>
             <div
               id="svg-container"
@@ -380,7 +281,7 @@
               <span
                 class="text-2xl font-extrabold text-white"
                 id="designation-text"
-                >�”</span
+                >ââ</span
               >
             </div>
           </div>
@@ -412,7 +313,7 @@
                   <span
                     class="text-gray-400 text-sm font-medium"
                     data-i18n="res_area"
-                    >Área de Sección</span
+                    >Ãrea de SecciÃ³n</span
                   >
                   <span class="text-xs text-gray-500">cm²</span>
                 </div>
@@ -440,7 +341,7 @@
               <div class="result-value rounded-xl p-5">
                 <div class="flex items-center justify-between mb-1">
                   <span class="text-gray-400 text-sm font-medium"
-                    >Área de Cobertura</span
+                    >Ãrea de Cobertura</span
                   >
                   <span class="text-xs text-gray-500">m²/m</span>
                 </div>
@@ -457,30 +358,30 @@
                 >
                   <i class="fa-solid fa-ruler-combined mr-1"></i
                   ><span data-i18n="sect_properties"
-                    >Propiedades Mecánicas</span
+                    >Propiedades MecÃ¡nicas</span
                   >
                 </p>
                 <div class="grid grid-cols-2 gap-3">
                   <div class="result-value rounded-xl p-4">
                     <div class="flex items-center justify-between mb-1">
                       <span class="text-gray-400 text-xs font-medium">Ix</span>
-                      <span class="text-[10px] text-gray-600">cm⁴</span>
+                      <span class="text-[10px] text-gray-600">cmâ´</span>
                     </div>
                     <span
                       class="text-xl font-extrabold text-white"
                       id="result-ix"
-                      >�”</span
+                      >ââ</span
                     >
                   </div>
                   <div class="result-value rounded-xl p-4">
                     <div class="flex items-center justify-between mb-1">
                       <span class="text-gray-400 text-xs font-medium">Iy</span>
-                      <span class="text-[10px] text-gray-600">cm⁴</span>
+                      <span class="text-[10px] text-gray-600">cmâ´</span>
                     </div>
                     <span
                       class="text-xl font-extrabold text-white"
                       id="result-iy"
-                      >�”</span
+                      >ââ</span
                     >
                   </div>
                   <div class="result-value rounded-xl p-4">
@@ -491,7 +392,7 @@
                     <span
                       class="text-xl font-extrabold text-bim-blue"
                       id="result-wx"
-                      >�”</span
+                      >ââ</span
                     >
                   </div>
                   <div class="result-value rounded-xl p-4">
@@ -502,7 +403,7 @@
                     <span
                       class="text-xl font-extrabold text-bim-blue"
                       id="result-wy"
-                      >�”</span
+                      >ââ</span
                     >
                   </div>
                 </div>
@@ -590,10 +491,10 @@
               </p>
               <p class="text-xs text-gray-400">
                 <span data-i18n="ref_density">Densidad del acero:</span>
-                <span class="text-white font-bold">7,850 kg/m³</span>
+                <span class="text-white font-bold">7,850 kg/mÂ³</span>
               </p>
               <p class="text-xs text-gray-400 mt-1" data-i18n="ref_formula">
-                Peso = Área ��” 0.00785 ��” 100
+                Peso = Ãrea Ãââ 0.00785 Ãââ 100
               </p>
             </div>
           </div>
@@ -693,7 +594,7 @@
                     <td
                       class="py-4 px-4 text-right transform translate-x-3 text-gray-500"
                     >
-                      �”
+                      ââ
                     </td>
                     <td
                       class="py-4 px-4 text-right text-bim-blue text-lg"
@@ -719,7 +620,7 @@
               <h3
                 class="text-sm font-bold text-gray-500 uppercase tracking-wider"
               >
-                <i class="fa-solid fa-weight-hanging mr-2"></i>Clasificación por
+                <i class="fa-solid fa-weight-hanging mr-2"></i>ClasificaciÃ³n por
                 Nominal Weight
               </h3>
               <div class="flex items-center gap-2">
@@ -753,7 +654,7 @@
                       class="py-3 px-4 font-semibold text-left"
                       data-i18n="cls_desc"
                     >
-                      Descripción
+                      DescripciÃ³n
                     </th>
                     <th
                       class="py-3 px-4 font-semibold text-right w-24"
@@ -870,15 +771,16 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800 mt-12">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm" data-i18n="footer_text">
-          &copy; 2026 Andrés Gallo P. �” Herramientas para Proyectistas
-          Estructurales
-        </p>
+      <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Andrés Gallo <span>P.BIM</span></div>
+        <div class="footer-copy">© 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="footer-tagline">// Diseñado con ingeniería y código</div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
     <!-- Scripts -->
     <script src="i18n.js"></script>
@@ -901,8 +803,8 @@
               (v.b * v.t + v.b * v.t + (v.h - v.t - v.t) * v.s) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.b - v.s + (2 * v.b - v.s) + 2 * v.h) / 1000;
-            const desig = `H ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
-            // Mechanical properties (mm⁴ �’ cm⁴: /10000)
+            const desig = `H ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
+            // Mechanical properties (mmâ´ ââ cmâ´: /10000)
             const hw = v.h - 2 * v.t;
             const Ix = (v.b * v.h ** 3 - (v.b - v.s) * hw ** 3) / 12 / 10000;
             const Iy = (2 * v.t * v.b ** 3 + hw * v.s ** 3) / 12 / 10000;
@@ -932,7 +834,7 @@
               (v.b1 * v.t1 + v.b2 * v.t2 + (v.h - v.t1 - v.t2) * v.s) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.b1 - v.s + (2 * v.b2 - v.s) + 2 * v.h) / 1000;
-            const desig = `HE ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
+            const desig = `HE ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
             const hw = v.h - v.t1 - v.t2;
             const A = v.b1 * v.t1 + v.b2 * v.t2 + hw * v.s;
             const ybar =
@@ -984,7 +886,7 @@
             const area = (v.b * v.t + (v.h - v.t) * v.s) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 2 * v.b) / 1000;
-            const desig = `T ${(v.h * 0.1).toFixed(1)} ��” ${weight.toFixed(2)}`;
+            const desig = `T ${(v.h * 0.1).toFixed(1)} Ãââ ${weight.toFixed(2)}`;
             const A = v.b * v.t + (v.h - v.t) * v.s;
             const ybar =
               (v.b * v.t * (v.h - v.t / 2) +
@@ -1020,7 +922,7 @@
             const area = ((v.h + 2 * v.b + 2 * v.c - 6.5752 * v.t) * v.t) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 4 * v.b + 4 * v.c - 4 * v.t) / 1000;
-            const desig = `CA ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
+            const desig = `CA ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
             const hw = v.h - 2 * v.t;
             const Ix =
               ((2 * v.b * v.t ** 3) / 12 +
@@ -1062,7 +964,7 @@
             const area = ((v.h + 2 * v.b - 3.2876 * v.t) * v.t) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 4 * v.b - 2 * v.t) / 1000;
-            const desig = `C ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
+            const desig = `C ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
             const hw = v.h - 2 * v.t;
             const Ix =
               ((2 * v.b * v.t ** 3) / 12 +
@@ -1101,7 +1003,7 @@
             const area = ((v.b1 + v.b2 + v.h - 3.2876 * v.t) * v.t) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 2 * v.b1 + 2 * v.b2 - 2 * v.t) / 1000;
-            const desig = `CE ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
+            const desig = `CE ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
             const hw = v.h - 2 * v.t;
             const Ix =
               ((v.b1 * v.t ** 3) / 12 +
@@ -1137,7 +1039,7 @@
           name: "XL Profile",
           label: "XL",
           icon: "fa-solid fa-xmark",
-          subtitle: "Doble Ángulo",
+          subtitle: "Doble Ãngulo",
           inputs: [
             { id: "h", label: "h (ala mayor)", unit: "mm", default: 200 },
             { id: "b", label: "b (ala menor)", unit: "mm", default: 150 },
@@ -1147,8 +1049,8 @@
             const area = ((v.h + v.b - 1.6438 * v.t) * v.t * 2) / 100;
             const weight = area * 0.00785 * 100;
             const cover = ((2 * v.h + 2 * v.b - v.t) * 2) / 1000;
-            const desig = `XL ${((v.h + v.b) * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
-            // Double angle: 2��” single angle Ix about centroid
+            const desig = `XL ${((v.h + v.b) * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
+            // Double angle: 2Ãââ single angle Ix about centroid
             const A1 = (v.h + v.b - 1.6438 * v.t) * v.t;
             const ybar1 =
               (v.h * v.t * (v.h / 2) + (v.b - v.t) * v.t * (v.t / 2)) / A1;
@@ -1184,7 +1086,7 @@
             const area = ((v.h + v.b - 1.6438 * v.t) * v.t) / 100;
             const weight = area * 0.00785 * 100;
             const cover = (2 * v.h + 2 * v.b - v.t) / 1000;
-            const desig = `L ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
+            const desig = `L ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
             const A_L = (v.h + v.b - 1.6438 * v.t) * v.t;
             const ybar =
               (v.h * v.t * (v.h / 2) + (v.b - v.t) * v.t * (v.t / 2)) / A_L;
@@ -1225,7 +1127,7 @@
             const area = (v.h * v.b * v.t) / 1000;
             const weight = (v.h * v.b * v.t * 0.000785) / 100;
             const cover = (2 * v.b + 2 * v.t) / 1000;
-            const desig = `PL ${v.h}��”${v.b}��”${v.t}`;
+            const desig = `PL ${v.h}Ãââ${v.b}Ãââ${v.t}`;
             // Plate bending about centroidal axes
             const Ix = (v.b * v.t ** 3) / 12 / 10000;
             const Iy = (v.t * v.b ** 3) / 12 / 10000;
@@ -1242,7 +1144,7 @@
           label: "PIPE",
           icon: "fa-solid fa-circle-notch",
           inputs: [
-            { id: "dia", label: "Diámetro Ext.", unit: "mm", default: 152.4 },
+            { id: "dia", label: "DiÃ¡metro Ext.", unit: "mm", default: 152.4 },
             { id: "thick", label: "Espesor", unit: "mm", default: 7.11 },
           ],
           calc(v) {
@@ -1251,7 +1153,7 @@
             const area = (3.14 * (ro * ro - ri * ri)) / 100;
             const weight = (area * 1000 * 0.00786) / 10;
             const cover = (3.14 * v.dia) / 1000;
-            const desig = `PIPE Ø${v.dia} ��” ${v.thick}`;
+            const desig = `PIPE Ã${v.dia} Ãââ ${v.thick}`;
             const Ix = (Math.PI * (ro ** 4 - ri ** 4)) / 4 / 10000;
             const Iy = Ix;
             const Wx = Ix / (ro / 10);
@@ -1276,7 +1178,7 @@
             const area = ((v.h * 2 + 2 * v.b - 6.5752 * v.t) * v.t) / 100;
             const weight = area * 0.00785 * 100;
             const cover = ((2 * v.h + 4 * v.b - 2 * v.t) * 2) / 1000;
-            const desig = `CJ ${(v.h * 0.1).toFixed(0)} ��” ${weight.toFixed(2)}`;
+            const desig = `CJ ${(v.h * 0.1).toFixed(0)} Ãââ ${weight.toFixed(2)}`;
             const hw = v.h - 2 * v.t,
               bw = v.b - 2 * v.t;
             const Ix = (v.b * v.h ** 3 - bw * hw ** 3) / 12 / 10000;
@@ -1293,12 +1195,12 @@
           name: "Round Bar",
           label: "RB",
           icon: "fa-solid fa-circle",
-          inputs: [{ id: "dia", label: "Diámetro", unit: "mm", default: 40 }],
+          inputs: [{ id: "dia", label: "DiÃ¡metro", unit: "mm", default: 40 }],
           calc(v) {
             const area = v.dia * v.dia * 0.00785;
             const weight = (v.dia * v.dia * 1000 * 0.000616) / 100;
             const cover = (2 * 3.14 * (v.dia / 2)) / 1000;
-            const desig = `ARMADURA Ø${v.dia}`;
+            const desig = `ARMADURA Ã${v.dia}`;
             const r = v.dia / 2;
             const Ix = (Math.PI * r ** 4) / 4 / 10000;
             const Iy = Ix;
@@ -1359,7 +1261,7 @@
           y + H / 2,
           x + B2 / 2,
           y + H / 2,
-          unequal ? `b₂=${b2}` : `b=${b}`,
+          unequal ? `bâ=${b2}` : `b=${b}`,
           18,
         );
         // s label next to the web, not overlapping b
@@ -1370,11 +1272,11 @@
             y - H / 2,
             x + B1 / 2,
             y - H / 2,
-            `b₁=${b1}`,
+            `bâ=${b1}`,
             -14,
           );
-          dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t₁=${t1}</text>`;
-          dims += `<text x="${x + B2 / 2 + 6}" y="${y + H / 2 - T2 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t₂=${t2}</text>`;
+          dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">tâ=${t1}</text>`;
+          dims += `<text x="${x + B2 / 2 + 6}" y="${y + H / 2 - T2 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">tâ=${t2}</text>`;
         } else {
           dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${t1}</text>`;
         }
@@ -1448,8 +1350,8 @@
         const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
         let dims = dimLine(x + 4, top, x + 4, top + H, `h=${v.h}`, 14);
         if (unequal) {
-          dims += dimLine(x - B, top, x, top, `b₁=${v.b1}`, -14);
-          dims += dimLine(x - B, top + H, x, top + H, `b₂=${v.b2}`, 16);
+          dims += dimLine(x - B, top, x, top, `bâ=${v.b1}`, -14);
+          dims += dimLine(x - B, top + H, x, top + H, `bâ=${v.b2}`, 16);
         } else {
           dims += dimLine(x - B, top + H, x, top + H, `b=${v.b}`, 16);
         }
@@ -1515,7 +1417,7 @@
                        <circle cx="${CX}" cy="${CY}" r="${r}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2"/>
                        <path d="M${CX - R},${CY} A${R},${R} 0 0,1 ${CX + R},${CY}" fill="rgba(59,130,246,0.12)"/>
                        <path d="M${CX - r},${CY} A${r},${r} 0 0,1 ${CX + r},${CY}" fill="rgba(11,18,32,0.9)"/>`;
-        let dims = dimLine(CX, CY, CX + R, CY, `Ø=${v.dia}`, -14);
+        let dims = dimLine(CX, CY, CX + R, CY, `Ã=${v.dia}`, -14);
         dims += `<text x="${CX}" y="${CY + R + 16}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="middle">e=${v.thick}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
       }
@@ -1542,7 +1444,7 @@
         const R = (v.dia * sc) / 2;
         const shape = `<circle cx="${CX}" cy="${CY}" r="${R}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
                        <line x1="${CX}" y1="${CY}" x2="${CX + R}" y2="${CY}" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>`;
-        let dims = `<text x="${CX + R / 2}" y="${CY - 8}" fill="#60a5fa" font-size="11" font-family="Inter" font-weight="700" text-anchor="middle">Ø=${v.dia}</text>`;
+        let dims = `<text x="${CX + R / 2}" y="${CY - 8}" fill="#60a5fa" font-size="11" font-family="Inter" font-weight="700" text-anchor="middle">Ã=${v.dia}</text>`;
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
       }
 
@@ -1593,7 +1495,7 @@
           "afterend",
           `<div id="input-error" class="hidden mt-3 p-3 rounded-lg bg-red-900/30 border border-red-500/50 text-red-400 text-sm font-medium flex items-center gap-2">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <span data-i18n="err_invalid_profile">Solo se permiten números positivos.</span>
+                <span data-i18n="err_invalid_profile">Solo se permiten nÃºmeros positivos.</span>
             </div>`,
         );
         container.querySelectorAll("input").forEach((inp) => {
@@ -1630,14 +1532,14 @@
 
         if (v._hasError) {
           if (errorEl) errorEl.classList.remove("hidden");
-          document.getElementById("result-area").textContent = "�”";
-          document.getElementById("result-weight").textContent = "�”";
-          document.getElementById("result-cover").textContent = "�”";
-          document.getElementById("designation-text").textContent = "�”";
-          document.getElementById("result-ix").textContent = "�”";
-          document.getElementById("result-iy").textContent = "�”";
-          document.getElementById("result-wx").textContent = "�”";
-          document.getElementById("result-wy").textContent = "�”";
+          document.getElementById("result-area").textContent = "ââ";
+          document.getElementById("result-weight").textContent = "ââ";
+          document.getElementById("result-cover").textContent = "ââ";
+          document.getElementById("designation-text").textContent = "ââ";
+          document.getElementById("result-ix").textContent = "ââ";
+          document.getElementById("result-iy").textContent = "ââ";
+          document.getElementById("result-wx").textContent = "ââ";
+          document.getElementById("result-wy").textContent = "ââ";
           return;
         }
 
@@ -1655,29 +1557,29 @@
           // Mechanical Properties
           document.getElementById("result-ix").textContent = r.Ix
             ? r.Ix.toFixed(2)
-            : "�”";
+            : "ââ";
           document.getElementById("result-iy").textContent = r.Iy
             ? r.Iy.toFixed(2)
-            : "�”";
+            : "ââ";
           document.getElementById("result-wx").textContent = r.Wx
             ? r.Wx.toFixed(2)
-            : "�”";
+            : "ââ";
           document.getElementById("result-wy").textContent = r.Wy
             ? r.Wy.toFixed(2)
-            : "�”";
+            : "ââ";
 
           document.getElementById("svg-container").innerHTML = p.svg(v);
         } catch (e) {
           console.error(e);
-          document.getElementById("result-area").textContent = "�”";
-          document.getElementById("result-weight").textContent = "�”";
-          document.getElementById("result-cover").textContent = "�”";
+          document.getElementById("result-area").textContent = "ââ";
+          document.getElementById("result-weight").textContent = "ââ";
+          document.getElementById("result-cover").textContent = "ââ";
           document.getElementById("designation-text").textContent = "Error";
           // Error handling could be improved with i18n but "Error" is universal enough or use t('err_calc') if added
-          document.getElementById("result-ix").textContent = "�”";
-          document.getElementById("result-iy").textContent = "�”";
-          document.getElementById("result-wx").textContent = "�”";
-          document.getElementById("result-wy").textContent = "�”";
+          document.getElementById("result-ix").textContent = "ââ";
+          document.getElementById("result-iy").textContent = "ââ";
+          document.getElementById("result-wx").textContent = "ââ";
+          document.getElementById("result-wy").textContent = "ââ";
         }
       }
 
@@ -1695,7 +1597,7 @@
 
         const qty = parseInt(qtyInput.value) || 1;
         const len = parseFloat(lenInput.value) || 0;
-        const mark = markInput.value.trim() || "�”";
+        const mark = markInput.value.trim() || "ââ";
 
         if (qty < 1 || len <= 0) {
           alert(t("msg_invalid_qty"));
@@ -1742,7 +1644,7 @@
       }
 
       function clearProfileList() {
-        if (confirm("¿Estás seguro de borrar toda la lista?")) {
+        if (confirm("Â¿EstÃ¡s seguro de borrar toda la lista?")) {
           profileList = [];
           renderProfileList();
           localStorage.removeItem("bim-profile-calc-list");
@@ -1845,13 +1747,13 @@
         const B = comparatorList[1] || null;
 
         hA.textContent = A.name;
-        hB.textContent = B ? B.name : "�”";
+        hB.textContent = B ? B.name : "ââ";
 
         const props = [
           { id: "weight", label: t("res_weight"), unit: "kg/m" },
           { id: "area", label: t("res_area"), unit: "cm²" },
-          { id: "ix", label: "Ix", unit: "cm⁴" },
-          { id: "iy", label: "Iy", unit: "cm⁴" },
+          { id: "ix", label: "Ix", unit: "cmâ´" },
+          { id: "iy", label: "Iy", unit: "cmâ´" },
           { id: "wx", label: "Wx", unit: "cm³" },
           { id: "wy", label: "Wy", unit: "cm³" },
         ];
@@ -1861,7 +1763,7 @@
             const vA = A[p.id];
             const vB = B ? B[p.id] : 0;
 
-            let diffStr = "�”";
+            let diffStr = "ââ";
 
             if (B) {
               const diff = vB - vA;
@@ -1886,7 +1788,7 @@
             <tr class="border-b border-gray-800 hover:bg-gray-800/20">
               <td class="py-3 px-4 text-gray-400">${p.label} <span class="text-xs text-gray-600 ml-1">${p.unit}</span></td>
               <td class="py-3 px-4 text-center font-mono text-white">${vA.toFixed(2)}</td>
-              <td class="py-3 px-4 text-center font-mono text-white">${B ? vB.toFixed(2) : "�”"}</td>
+              <td class="py-3 px-4 text-center font-mono text-white">${B ? vB.toFixed(2) : "ââ"}</td>
               <td class="py-3 px-4 text-right font-mono">${diffStr}</td>
             </tr>
           `;
@@ -1983,10 +1885,10 @@
       function renderClassification(list) {
         // Categories
         let cats = {
-          light: { label: "Estructura metálica liviana <= 30 kg/m", val: 0 },
-          medium: { label: "Estructura metálica mediana 30-60 kg/m", val: 0 },
-          heavy: { label: "Estructura metálica pesada 60-90 kg/m", val: 0 },
-          extra: { label: "Estructura metálica extrapesada > 90 kg/m", val: 0 },
+          light: { label: "Estructura metÃ¡lica liviana <= 30 kg/m", val: 0 },
+          medium: { label: "Estructura metÃ¡lica mediana 30-60 kg/m", val: 0 },
+          heavy: { label: "Estructura metÃ¡lica pesada 60-90 kg/m", val: 0 },
+          extra: { label: "Estructura metÃ¡lica extrapesada > 90 kg/m", val: 0 },
         };
 
         // Accumulate
@@ -2033,7 +1935,7 @@
         const totalTon = totalFinal / 1000;
         document.getElementById("classification-total").innerHTML =
           `${totalFinal.toFixed(2)} <span class="text-xs text-gray-500 font-medium">kg</span> <span class="text-xs text-gray-400 ml-2">(${totalTon.toFixed(2)} t)</span>`;
-        // �”��”� Render Donut Chart �”��”�
+        // ââââ Render Donut Chart ââââ
         renderDonutChart(cats, connections);
       }
 
@@ -2130,7 +2032,7 @@
 
         doc.setFontSize(10);
         doc.setFont("helvetica", "normal");
-        doc.text("Andrés Gallo P. �” BIM Developer", 15, 33);
+        doc.text("Andrés Gallo P. ââ BIM Developer", 15, 33);
         doc.text(new Date().toLocaleDateString(), 180, 33);
 
         // Summary Table
@@ -2214,7 +2116,7 @@
           doc.setFontSize(8);
           doc.setTextColor(150);
           doc.text(
-            `Página ${i} de ${pageCount}`,
+            `PÃ¡gina ${i} de ${pageCount}`,
             180,
             doc.internal.pageSize.height - 10,
           );
@@ -2227,7 +2129,7 @@
         if (profileList.length === 0) return;
         const n = profileList.length;
 
-        // �”��”� Style palette �”��”�
+        // ââââ Style palette ââââ
         const bd = {
           top: { style: "thin", color: { rgb: "BDD7EE" } },
           bottom: { style: "thin", color: { rgb: "BDD7EE" } },
@@ -2303,7 +2205,7 @@
           },
         };
 
-        // �”��”� Build data (AOA) �”��”�
+        // ââââ Build data (AOA) ââââ
         const a = [];
         a.push([t("excel_title").toUpperCase(), "", "", "", "", ""]);
         a.push(["", "", "", "", "", ""]);
@@ -2360,7 +2262,7 @@
         a.push([t("excel_total_final"), "kg", tf]);
         a.push(["", "ton", tf / 1000]);
 
-        // �”��”� Create worksheet �”��”�
+        // ââââ Create worksheet ââââ
         const ws = XLSX.utils.aoa_to_sheet(a);
         ws["!cols"] = [
           { wch: 45 },
@@ -2378,7 +2280,7 @@
         ws["!rows"][0] = { hpx: 32 };
         ws["!rows"][6 + n] = { hpx: 32 };
 
-        // �”��”� Style helper �”��”�
+        // ââââ Style helper ââââ
         function sc(r, c, s) {
           const addr = XLSX.utils.encode_cell({ r, c });
           if (!ws[addr]) ws[addr] = { v: "", t: "s" };
@@ -2429,7 +2331,7 @@
         sc(16 + n, 1, S.tc);
         sc(16 + n, 2, S.tr);
 
-        // �”��”� Download �”��”�
+        // ââââ Download ââââ
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Perfiles de Acero");
         XLSX.writeFile(wb, "perfiles_acero.xlsx");

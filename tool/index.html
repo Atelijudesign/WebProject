@@ -8,7 +8,7 @@
     </title>
     <meta
       name="description"
-      content="Colección de herramientas web gratuitas para ingeniería estructural y BIM. Calculadoras de acero, catálogos digitales y scripts de automatización."
+      content="Colección de herramientas web gratuitas para ingeniería estructural y BIM. Calculadoras de acero, catálogos digitales y scripts de automatizaciÃ³n."
     />
 
     <!-- Open Graph -->
@@ -53,7 +53,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Typography overrides �” after Tailwind CDN */
+      /* Typography overrides ââ after Tailwind CDN */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
@@ -82,10 +82,7 @@
         border: 1px solid rgba(55, 65, 81, 0.5);
         backdrop-filter: blur(12px);
       }
-      .glass-nav {
-        background: rgba(11, 18, 32, 0.85);
-        backdrop-filter: blur(16px);
-      }
+      
       .tool-card {
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
@@ -152,140 +149,24 @@
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white min-h-screen"
   >
     <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a
-            href="../"
-            id="logo"
-            class="flex-shrink-0 flex items-center cursor-pointer"
-          >
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-            >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a
-                href="../#home"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Inicio</a
-              >
-              <a
-                href="../#about"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
-                >Sobre Mí</a
-              >
-              <a
-                href="../#automation"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Automatización</a
-              >
-              <a
-                href="../#services"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Servicios</a
-              >
-              <a
-                href="../#portfolio"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Portafolio</a
-              >
-              <a
-                href="../proyectos-bim/index.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Proyectos</a
-              >
-              <a
-                href="../blog/blog.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Blog</a
-              >
-              <a
-                href="index.html"
-                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Tools</a
-              >
-              <a
-                href="../#contact"
-                class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
-                >Contacto �’</a
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Abrir menú principal</span>
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            </div>
-          </div>
-        </div>
+      <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html#home" class="nav-logo" style="gap: 0;">Andrés Gallo <span>P.BIM</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#home">Inicio</a>
+        <a href="../index.html#about">Sobre Mí</a>
+        <a href="../index.html#automation">Automatización</a>
+        <a href="../index.html#services">Servicios</a>
+        <a href="../index.html#portfolio">Portafolio</a>
+        <a href="../proyectos-bim/">Proyectos</a>
+        <a href="../blog/blog.html">Blog</a>
+        <a href="../tool/index.html">Herramientas</a>
+        <a href="../index.html#contact" class="nav-cta">Contacto →</a>
       </div>
-      <!-- Mobile Menu -->
-      <div
-        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-        id="mobile-menu"
-      >
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="../#home"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Inicio</a
-          >
-          <a
-            href="../#about"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
-            >Sobre Mí</a
-          >
-          <a
-            href="../#automation"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Automatización</a
-          >
-          <a
-            href="../#services"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Servicios</a
-          >
-          <a
-            href="../#portfolio"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Portafolio</a
-          >
-          <a
-            href="../proyectos-bim/index.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Proyectos</a
-          >
-          <a
-            href="../blog/blog.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Blog</a
-          >
-          <a
-            href="index.html"
-            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Tools</a
-          >
-          <a
-            href="../#contact"
-            class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
-            >Contacto �’</a
-          >
-        </div>
-      </div>
-    </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+  </nav>
 
     <!-- Hero Section -->
     <section class="pt-28 pb-12 relative overflow-hidden">
@@ -328,7 +209,7 @@
           class="fade-in-up max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed"
           style="animation-delay: 0.2s"
         >
-          Utilidades de ingeniería para cálculo, diseño y gestión de perfiles de
+          Utilidades de ingeniería para cÃ¡lculo, diseño y gestión de perfiles de
           acero estructural. Selecciona una herramienta para comenzar.
         </p>
       </div>
@@ -361,7 +242,7 @@
             </h2>
             <p class="text-gray-400 text-sm leading-relaxed mb-5">
               Calcula peso, área de sección y perímetro de cobertura para
-              perfiles de acero personalizados. Define dimensiones y obtén
+              perfiles de acero personalizados. Define dimensiones y obtÃ©n
               resultados instantáneos.
             </p>
             <div class="flex flex-wrap gap-2">
@@ -375,7 +256,7 @@
               >
               <span
                 class="tag text-[11px] text-bim-blue px-2.5 py-1 rounded-full font-medium"
-                ><i class="fa-solid fa-l mr-1"></i> Ángulos</span
+                ><i class="fa-solid fa-l mr-1"></i> Ãngulos</span
               >
               <span
                 class="tag text-[11px] text-bim-blue px-2.5 py-1 rounded-full font-medium"
@@ -456,7 +337,7 @@
             <p class="text-gray-400 text-sm leading-relaxed mb-5">
               Calcula la separación máxima y cantidad mínima de acortadores para
               perfiles de doble ángulo (Perfil XL) laminados. Verifica criterios
-              de diseño estructural instantáneamente.
+              de diseño estructural instantÃ¡neamente.
             </p>
             <div class="flex flex-wrap gap-2">
               <span
@@ -469,7 +350,7 @@
               >
               <span
                 class="tag text-[11px] text-bim-blue px-2.5 py-1 rounded-full font-medium"
-                ><i class="fa-solid fa-calculator mr-1"></i> Diseño</span
+                ><i class="fa-solid fa-calculator mr-1"></i> DiseÃ±o</span
               >
               <span
                 class="tag text-[11px] text-bim-blue px-2.5 py-1 rounded-full font-medium"
@@ -486,13 +367,12 @@
           >
             <div class="flex items-start justify-between mb-6">
               <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600/20 to-purple-800/20 border border-purple-700/30 flex items-center justify-center">
-                <i class="fa-solid fa-layer-group tool-icon text-2xl text-gray-300"></i>
-              </div>
+                </div>
               <i class="fa-solid fa-arrow-right tool-arrow text-gray-500 text-lg mt-2"></i>
             </div>
             <h2 class="text-xl font-bold text-white mb-2">Calculadora de Escaleras</h2>
             <p class="text-gray-400 text-sm leading-relaxed mb-5">
-              Calcula escaleras estructurales entre distintos apoyos (Parrilla y Concreto) verificando instantáneamente la comodidad y seguridad para los usuarios.
+              Calcula escaleras estructurales entre distintos apoyos (Parrilla y Concreto) verificando instantÃ¡neamente la comodidad y seguridad para los usuarios.
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="tag text-[11px] text-purple-400 px-2.5 py-1 rounded-full font-medium border-purple-500/20 bg-purple-500/10"><i class="fa-solid fa-ruler mr-1"></i> Contrahuella</span>
@@ -511,12 +391,12 @@
         <p class="text-gray-400 text-sm mb-6">Sin spam. Solo utilidades reales para proyectistas estructurales.</p>
         <form id="tools-newsletter-form" action="https://formspree.io/f/mojkoayd" method="POST"
           class="flex flex-col sm:flex-row gap-3 justify-center">
-          <input type="hidden" name="_subject" value="Nueva suscripción desde Tools" />
+          <input type="hidden" name="_subject" value="Nueva suscripciÃ³n desde Tools" />
           <input type="email" name="email" placeholder="tu@email.com" required
             class="flex-1 px-4 py-2.5 rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-bim-blue text-sm" />
           <button type="submit"
             class="whitespace-nowrap px-6 py-2.5 bg-bim-blue hover:bg-blue-500 text-white font-semibold rounded-lg text-sm transition-colors">
-            Suscribirme gratis �’
+            Suscribirme gratis ââ
           </button>
         </form>
         <p id="newsletter-msg" style="display:none; margin-top: 0.75rem; font-size: 0.9rem;"></p>
@@ -536,7 +416,7 @@
         })
         .then(function (res) {
           if (res.ok) {
-            msg.textContent = '�“ ¡Suscrito! Te avisamos cuando haya nuevas herramientas.';
+            msg.textContent = 'ââ Â¡Suscrito! Te avisamos cuando haya nuevas herramientas.';
             msg.style.display = 'block';
             msg.style.color = '#4ade80';
             document.getElementById('tools-newsletter-form').reset();
@@ -545,26 +425,27 @@
           }
         })
         .catch(function () {
-          msg.textContent = '��” Error al enviar. Escríbenos a andresgallo@pm.me';
+          msg.textContent = 'âââ Error al enviar. EscrÃ­benos a andresgallo@pm.me';
           msg.style.display = 'block';
           msg.style.color = '#f87171';
         })
         .finally(function () {
           btn.disabled = false;
-          btn.textContent = 'Suscribirme gratis �’';
+          btn.textContent = 'Suscribirme gratis ââ';
         });
       });
     </script>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm">
-          &copy; 2026 Andrés Gallo P. �” Herramientas para Proyectistas
-          Estructurales
-        </p>
+      <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Andrés Gallo <span>P.BIM</span></div>
+        <div class="footer-copy">© 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="footer-tagline">// Diseñado con ingeniería y código</div>
       </div>
-    </footer>
+    </div>
+  </footer>
     <script src="../js/scripts.js"></script>
   </body>
 </html>

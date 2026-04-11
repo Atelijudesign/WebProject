@@ -9,7 +9,7 @@
 
   <title>Andrés Gallo P. | BIM Developer & Structural Engineer</title>
   <meta name="description"
-    content="Diseñador BIM Senior con 15+ años en minería, aeropuertos y hospitales. Automatización estructural con Python, Dynamo y C#." />
+    content="Andrés Gallo P. — Diseñador BIM Senior con 15+ años de experiencia en minería, aeropuertos y hospitales. Especialista en Revit, Tekla y automatización con Python/Dynamo." />
   <meta name="keywords"
     content="BIM Developer, Revit API, pyRevit, C#, Structural Engineer, Diseñador BIM, Tekla, Navisworks, Andrés Gallo, Portafolio, Chile" />
 
@@ -66,7 +66,7 @@
   <!-- NAVBAR -->
   <nav>
     <div class="nav-inner">
-      <a href="#home" class="nav-logo">Andrés Gallo <span>BIM</span></a>
+      <a href="#home" class="nav-logo">Andrés Gallo <span>P.BIM</span></a>
       <div class="nav-links" id="navLinks">
         <a href="#home">Inicio</a>
         <a href="#about">Sobre Mí</a>
@@ -75,10 +75,10 @@
         <a href="#portfolio">Portafolio</a>
         <a href="proyectos-bim/">Proyectos</a>
         <a href="blog/blog.html">Blog</a>
-        <a href="tool/index.html">Tools</a>
+        <a href="tool/index.html">Herramientas</a>
         <a href="#contact" class="nav-cta">Contacto →</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
     </div>
   </nav>
 
@@ -98,7 +98,7 @@
         <p class="hero-eyebrow">// BIM Developer &amp; Proyectista Estructural</p>
 
         <h1 class="hero-title">
-          Diseñador BIM Senior
+          Diseñador BIM <span class="accent">Senior</span>
           <span class="line-break">que también <span class="accent">programa.</span></span>
         </h1>
 
@@ -143,7 +143,7 @@
       <div class="about-grid">
         <div class="about-text fade-up">
           <div class="about-photo-wrap">
-            <img src="assets/img/profile.jpg" class="profile-photo" alt="Andrés Gallo P. — BIM Developer &amp; Structural Engineer" width="120" height="120" />
+            <img src="assets/img/profile.webp" class="profile-photo" alt="Andrés Gallo P. — BIM Developer &amp; Structural Engineer" width="120" height="120" />
           </div>
           <p class="section-label">// Sobre Mí</p>
           <h2 class="section-title">Diseñador Estructural &amp; Experto BIM</h2>
@@ -177,35 +177,35 @@
           <p class="section-label">// Proyectos emblemáticos</p>
           <div class="projects-list">
             <div class="proj-item">
-              <img src="assets/img/flags/cl.png" width="24" height="18" alt="Chile" class="flag" />
+              <img src="assets/img/flags/cl.webp" width="24" height="18" alt="Chile" class="flag" />
               <div>
                 <div class="proj-name">Aeropuerto AMB — Terminal 2</div>
                 <div class="proj-detail">320,000 m² · Revit · Coordinación BIM</div>
               </div>
             </div>
             <div class="proj-item">
-              <img src="assets/img/flags/cl.png" width="24" height="18" alt="Chile" class="flag" />
+              <img src="assets/img/flags/cl.webp" width="24" height="18" alt="Chile" class="flag" />
               <div>
                 <div class="proj-name">Hospital Marga Marga</div>
                 <div class="proj-detail">75,000 m² · Hormigón · Alta complejidad</div>
               </div>
             </div>
             <div class="proj-item">
-              <img src="assets/img/flags/mx.png" width="24" height="18" alt="México" class="flag" />
+              <img src="assets/img/flags/mx.webp" width="24" height="18" alt="México" class="flag" />
               <div>
                 <div class="proj-name">Máquina Papelera MP05 — ABSORMEX</div>
                 <div class="proj-detail">8,000 m² · Revit · BIM 360</div>
               </div>
             </div>
             <div class="proj-item">
-              <img src="assets/img/flags/cl.png" width="24" height="18" alt="Chile" class="flag" />
+              <img src="assets/img/flags/cl.webp" width="24" height="18" alt="Chile" class="flag" />
               <div>
                 <div class="proj-name">Paso Fronterizo Los Libertadores</div>
                 <div class="proj-detail">35,000 m² · Tekla · Alta montaña 3,200m</div>
               </div>
             </div>
             <div class="proj-item">
-              <img src="assets/img/flags/cl.png" width="24" height="18" alt="Chile" class="flag" />
+              <img src="assets/img/flags/cl.webp" width="24" height="18" alt="Chile" class="flag" />
               <div>
                 <div class="proj-name">Proyecto Arqueros — Chancador Primario</div>
                 <div class="proj-detail">Minería · Revit · ACC · GHD / Arcadis</div>
@@ -263,7 +263,9 @@
 
       <div class="services-grid">
         <div class="service-card fade-up">
-          <span class="service-icon">⛏️</span>
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-industry"></i>
+          </div>
           <h3>Minería e Industrial</h3>
           <p>Modelado BIM de chancadores, plantas de proceso y estructuras industriales complejas. Experiencia directa
             en proyectos con Arcadis, GHD y AFRY.</p>
@@ -271,7 +273,9 @@
         </div>
 
         <div class="service-card fade-up" style="transition-delay:0.1s">
-          <span class="service-icon">🤖</span>
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-robot"></i>
+          </div>
           <h3>Automatización BIM</h3>
           <p>Scripts en Python (pyRevit), Dynamo y AutoLISP que eliminan tareas repetitivas y reducen errores.
             Desarrollo a medida para tu flujo de trabajo específico.</p>
@@ -279,7 +283,9 @@
         </div>
 
         <div class="service-card fade-up" style="transition-delay:0.15s">
-          <span class="service-icon">🏥</span>
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-hospital-user"></i>
+          </div>
           <h3>Infraestructura y Salud</h3>
           <p>Coordinación BIM interdisciplinaria para hospitales, aeropuertos y edificios públicos de alta complejidad.
             Experiencia comprobada en proyectos de 75.000 a 320.000 m².</p>
@@ -287,7 +293,9 @@
         </div>
 
         <div class="service-card fade-up" style="transition-delay:0.2s">
-          <span class="service-icon">📐</span>
+          <div class="service-icon" aria-hidden="true">
+            <i class="fa-solid fa-ruler-combined"></i>
+          </div>
           <h3>Detallamiento y Cubicaciones</h3>
           <p>Planos de fabricación, cubicaciones precisas y reportes de perfiles de acero y hormigón. Norma chilena NCh
             y catálogo ICHA. Exportación directa a Excel y PDF.</p>
@@ -307,7 +315,9 @@
 
       <div class="tools-grid">
         <div class="tool-card featured fade-up">
-          <div class="tool-thumb">📦</div>
+          <div class="tool-thumb" aria-hidden="true">
+            <i class="fa-solid fa-box-archive"></i>
+          </div>
           <h3>Catálogo ICHA Digital</h3>
           <p>Buscador interactivo de perfiles de acero estructural con propiedades mecánicas completas, cubicador por
             proyecto, comparador de perfiles y exportación a Excel y PDF. Norma chilena.</p>
@@ -315,7 +325,9 @@
         </div>
 
         <div class="tool-card fade-up" style="transition-delay:0.1s">
-          <div class="tool-thumb">📝</div>
+          <div class="tool-thumb" aria-hidden="true">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
           <h3>Blog Técnico BIM</h3>
           <p>Artículos sobre automatización, flujos de trabajo BIM y herramientas para proyectistas estructurales en
             Chile.</p>
@@ -336,7 +348,9 @@
           <p class="section-label">Experiencia profesional</p>
           <div class="timeline">
             <div class="timeline-item">
-              <div class="timeline-dot active">🏗️</div>
+              <div class="timeline-dot active" aria-hidden="true">
+                <i class="fa-solid fa-building"></i>
+              </div>
               <div class="timeline-body">
                 <div class="timeline-company">BIOSMI</div>
                 <div class="timeline-role">Proyectista / Diseñador BIM</div>
@@ -355,7 +369,9 @@
               </div>
             </div>
             <div class="timeline-item">
-              <div class="timeline-dot">⛏️</div>
+              <div class="timeline-dot" aria-hidden="true">
+                <i class="fa-solid fa-mountain"></i>
+              </div>
               <div class="timeline-body">
                 <div class="timeline-company">ARCADIS</div>
                 <div class="timeline-role">Proyectista Estructural</div>
@@ -364,7 +380,9 @@
               </div>
             </div>
             <div class="timeline-item">
-              <div class="timeline-dot">🏭</div>
+              <div class="timeline-dot" aria-hidden="true">
+                <i class="fa-solid fa-industry"></i>
+              </div>
               <div class="timeline-body">
                 <div class="timeline-company">AFRY Chile</div>
                 <div class="timeline-role">Diseñador BIM Senior</div>
@@ -397,14 +415,14 @@
             </a>
             <a href="https://www.bmlearnhub.com/certificates/b0lzlbdyom" target="_blank" rel="noopener noreferrer"
               class="cert-card" style="text-decoration: none; color: inherit;">
-              <div class="cert-icon">🏅</div>
+              <div class="cert-icon" aria-hidden="true"><i class="fa-solid fa-medal"></i></div>
               <div>
                 <div class="cert-name">Experto en Revit (Colaboración)</div>
                 <div class="cert-org">BMlearning · 2022</div>
               </div>
             </a> <a href="https://www.udemy.com/certificate/UC-3a15bef1-d846-47df-925d-b8220f02b1eb/" target="_blank" rel="noopener noreferrer"
               class="cert-card" style="text-decoration: none; color: inherit;">
-              <div class="cert-icon">🏅</div>
+              <div class="cert-icon" aria-hidden="true"><i class="fa-solid fa-medal"></i></div>
               <div>
                 <div class="cert-name">Advance Steel</div>
                 <div class="cert-org">Udemy · 2025</div>
@@ -416,7 +434,7 @@
           <p class="section-label">Formación académica</p>
           <div class="certs-grid">
             <div class="cert-card">
-              <div class="cert-icon">🎓</div>
+              <div class="cert-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
               <div>
                 <div class="cert-name">Dibujante Técnico</div>
                 <div class="cert-org">Liceo Politécnico Galvarino N°2 · 2003–2005</div>
@@ -435,20 +453,20 @@
       <p class="section-subtitle fade-up" style="text-align: center; margin: 0 auto 3rem;">Una selección de mis trabajos
         más recientes.</p>
 
-      <div class="portfolio-filters fade-up">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="Revit">Revit</button>
-        <button class="filter-btn" data-filter="Tekla">Tekla</button>
-        <button class="filter-btn" data-filter="Navisworks">Navisworks</button>
-        <button class="filter-btn" data-filter="Civil 3D">Civil 3D</button>
-        <button class="filter-btn" data-filter="AutoCAD">AutoCAD</button>
-        <button class="filter-btn" data-filter="Advance Steel">Advance Steel</button>
-        <button class="filter-btn" data-filter="ACC">ACC</button>
+      <div class="portfolio-filters fade-up" role="tablist" aria-label="Filtrar proyectos por tecnología">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+        <button class="filter-btn" data-filter="Revit" role="tab" aria-selected="false">Revit</button>
+        <button class="filter-btn" data-filter="Tekla" role="tab" aria-selected="false">Tekla</button>
+        <button class="filter-btn" data-filter="Navisworks" role="tab" aria-selected="false">Navisworks</button>
+        <button class="filter-btn" data-filter="Civil 3D" role="tab" aria-selected="false">Civil 3D</button>
+        <button class="filter-btn" data-filter="AutoCAD" role="tab" aria-selected="false">AutoCAD</button>
+        <button class="filter-btn" data-filter="Advance Steel" role="tab" aria-selected="false">Advance Steel</button>
+        <button class="filter-btn" data-filter="ACC" role="tab" aria-selected="false">ACC</button>
       </div>
 
       <div class="portfolio-grid">
         <div class="portfolio-card fade-up">
-          <img src="assets/img/phelc_portada.png" alt="Proyecto Hidroeléctrico Los Cóndores" class="portfolio-img"
+          <img src="assets/img/phelc_portada.webp" alt="Proyecto Hidroeléctrico Los Cóndores" class="portfolio-img"
             loading="lazy" decoding="async" width="800" height="500" />
           <div class="portfolio-body">
             <div class="portfolio-category">Energía</div>
@@ -463,7 +481,7 @@
         </div>
 
         <div class="portfolio-card fade-up" style="transition-delay:0.08s">
-          <img src="assets/img/amb_00.PNG" alt="Aeropuerto AMB" class="portfolio-img" loading="lazy" decoding="async" width="800" height="500" />
+          <img src="assets/img/amb_00.webp" alt="Aeropuerto AMB" class="portfolio-img" loading="lazy" decoding="async" width="800" height="500" />
           <div class="portfolio-body">
             <div class="portfolio-category">Infraestructura</div>
             <h3>Aeropuerto AMB</h3>
@@ -476,7 +494,7 @@
         </div>
 
         <div class="portfolio-card fade-up" style="transition-delay:0.08s">
-          <img src="assets/img/mp5_01.png" alt="Máquina Papelera MP05" class="portfolio-img" loading="lazy"
+          <img src="assets/img/mp5_01.webp" alt="Máquina Papelera MP05" class="portfolio-img" loading="lazy"
             decoding="async" width="800" height="500" />
           <div class="portfolio-body">
             <div class="portfolio-category">Industrial</div>
@@ -490,7 +508,7 @@
         </div>
 
         <div class="portfolio-card fade-up" style="transition-delay:0.16s">
-          <img src="assets/img/hmm_portada.png" alt="Hospital Marga Marga" class="portfolio-img" loading="lazy"
+          <img src="assets/img/hmm_portada.webp" alt="Hospital Marga Marga" class="portfolio-img" loading="lazy"
             decoding="async" width="800" height="500" />
           <div class="portfolio-body">
             <div class="portfolio-category">Salud</div>
@@ -504,7 +522,7 @@
         </div>
 
         <div class="portfolio-card fade-up" style="transition-delay:0.08s">
-          <img src="assets/img/pfll_00.JPG" alt="Paso Los Libertadores" class="portfolio-img" loading="lazy"
+          <img src="assets/img/pfll_00.webp" alt="Paso Los Libertadores" class="portfolio-img" loading="lazy"
             decoding="async" width="800" height="500" />
           <div class="portfolio-body">
             <div class="portfolio-category">Civil</div>
@@ -518,7 +536,7 @@
         </div>
 
         <div class="portfolio-card fade-up" style="transition-delay:0.16s">
-          <img src="assets/img/arq_00.png" alt="Proyecto Arqueros" class="portfolio-img" loading="lazy"
+          <img src="assets/img/arq_00.webp" alt="Proyecto Arqueros" class="portfolio-img" loading="lazy"
             decoding="async" width="800" height="500" />
           <div class="portfolio-body">
             <div class="portfolio-category">Minería</div>
@@ -597,12 +615,12 @@
 
             <form id="contactForm" class="contact-form" novalidate>
               <div class="form-group">
-                <label for="fname" class="form-label">Nombre</label>
-                <input id="fname" name="name" type="text" class="form-input" placeholder="Tu nombre" required />
+                <label for="fname" class="form-label">Nombre <span aria-hidden="true">*</span></label>
+                <input id="fname" name="name" type="text" class="form-input" placeholder="Tu nombre" required aria-required="true" />
               </div>
               <div class="form-group">
-                <label for="femail" class="form-label">Email</label>
-                <input id="femail" name="email" type="email" class="form-input" placeholder="tu@email.com" required />
+                <label for="femail" class="form-label">Email <span aria-hidden="true">*</span></label>
+                <input id="femail" name="email" type="email" class="form-input" placeholder="tu@email.com" required aria-required="true" />
               </div>
               <div class="form-group">
                 <label for="fsubject" class="form-label">Asunto</label>
@@ -614,9 +632,9 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="fmsg" class="form-label">Mensaje</label>
+                <label for="fmsg" class="form-label">Mensaje <span aria-hidden="true">*</span></label>
                 <textarea id="fmsg" name="message" class="form-textarea" placeholder="Cuéntame sobre tu proyecto..."
-                  required></textarea>
+                  required aria-required="true"></textarea>
               </div>
               <button type="submit" class="form-submit" id="formBtn">
                 <span id="formBtnText">Enviar mensaje</span>
@@ -638,7 +656,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-logo">Andrés Gallo <span>P.</span></div>
+        <div class="footer-logo">Andrés Gallo <span>P.BIM</span></div>
         <div class="footer-copy">© 2026 Andrés Gallo P. Todos los derechos reservados.</div>
         <div class="footer-tagline">// Diseñado con ingeniería y código</div>
       </div>
@@ -647,11 +665,18 @@
 
   <script>
     /* MOBILE NAV */
-    document.getElementById('navToggle').addEventListener('click', function () {
-      document.getElementById('navLinks').classList.toggle('open');
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+    
+    navToggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
     });
-    document.getElementById('navLinks').addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') this.classList.remove('open');
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        this.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
     });
 
     /* COUNTERS */
@@ -741,8 +766,12 @@
     var portfolioCards = document.querySelectorAll('.portfolio-card');
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        filterBtns.forEach(function (b) { 
+          b.classList.remove('active'); 
+          b.setAttribute('aria-selected', 'false');
+        });
         this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
         var filterVal = this.getAttribute('data-filter');
         portfolioCards.forEach(function (card) {
           if (filterVal === 'all') {

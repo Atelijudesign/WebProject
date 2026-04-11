@@ -1,8 +1,3 @@
-// ICHA Profile Catalog Data
-// Auto-generated from ICHA_PROFILES.xlsx
-// Total series: 13
-// Total profiles: 710
-
 const ICHA_CATALOG = {
   "L": {
     "name": "Ángulo Alas Iguales",
@@ -9605,4 +9600,4 @@ const ICHA_CATALOG = {
       }
     ]
   }
-}
+};

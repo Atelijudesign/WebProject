@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdn.tailwindcss.com cdnjs.cloudflare.com cdn.jsdelivr.net blob:; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com data:; img-src 'self' data: https:; worker-src blob:; connect-src 'self';" />
     <title>Blog BIM Developer | Revit API, Python & C# | Andrés Gallo P.</title>
     <meta
       name="description"
@@ -18,33 +18,57 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:image" content="https://atelijudesign.com/assets/img/og-preview.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Blog BIM Developer | Andrés Gallo P." />
     <meta name="twitter:description" content="Aprende a programar plugins para Revit y automatizar tareas de ingeniería con Python y C#." />
     <meta name="twitter:image" content="https://atelijudesign.com/assets/img/og-preview.jpg" />
-<link rel="canonical" href="https://atelijudesign.com/blog/blog.html" />
-<link rel="icon" href="../assets/favicon.ico" sizes="any" />
+
+    <link rel="canonical" href="https://atelijudesign.com/blog/blog.html" />
+
+    <link rel="icon" href="../assets/favicon.ico" sizes="any" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-<link
+
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../assets/css/tailwind.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Typography overrides �” after Tailwind CSS */
+      /* Typography overrides — after Tailwind CDN */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
       #logo span { font-family: "Space Grotesk", sans-serif !important; font-size: 1.05rem !important; font-weight: 800 !important; letter-spacing: -0.01em; }
       #desktop-menu a, #mobile-menu a { font-family: "Fira Code", monospace !important; font-size: 0.78rem !important; font-weight: 400 !important; letter-spacing: 0.05em; text-transform: none !important; }
     </style>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "bim-blue": "#3b82f6",
+              "bim-dark": "#0b1220",
+              "bim-card": "#111827",
+              "bim-border": "#1f2937",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              head: ["Space Grotesk", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
     <style>
       .blog-card {
         transition:
@@ -63,6 +87,9 @@
         background-color: #3b82f6;
         color: white;
         border-color: #3b82f6;
+      }
+      .blog-card.hidden-card {
+        display: none;
       }
       .text-gradient-blog {
         background-clip: text;
@@ -92,140 +119,26 @@
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300"
   >
     <!-- Navigation -->
-      <nav
-    class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a
-          href="../index.html#home"
-          id="logo"
-          class="flex-shrink-0 flex items-center cursor-pointer"
-        >
-          <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-          <span class="font-bold text-xl text-gray-900 dark:text-white"
-            >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-          >
-        </a>
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-            <a
-              href="../index.html#home"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Inicio</a
-            >
-            <a
-              href="../index.html#about"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
-              >Sobre Mí</a
-            >
-            <a
-              href="../index.html#automation"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Automatización</a
-            >
-            <a
-              href="../index.html#services"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Servicios</a
-            >
-            <a
-              href="../index.html#portfolio"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Portafolio</a
-            >
-            <a
-              href="../proyectos-bim/"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Proyectos</a
-            >
-            <a
-              href="../blog/blog.html"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Blog</a
-            >
-            <a
-              href="../tool/index.html"
-              class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-              >Herramientas</a
-            >
-            <a
-              href="../index.html#contact"
-              class="bg-bim-blue hover:bg-blue-500 text-white px-4 py-2 rounded-md text-base font-bold transition-colors whitespace-nowrap"
-              >Contacto �’</a
-            >
-          </div>
-        </div>
-        <div class="flex items-center gap-1">
-          <div class="-mr-2 flex md:hidden">
-          <button
-            type="button"
-            id="mobile-menu-button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-            aria-controls="mobile-menu"
-            aria-expanded="false"
-          >
-            <span class="sr-only">Abrir menú principal</span>
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-          </div>
-        </div>
+      <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html#home" class="nav-logo" style="gap: 0;">Andrés Gallo <span>P.BIM</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#home">Inicio</a>
+        <a href="../index.html#about">Sobre Mí</a>
+        <a href="../index.html#automation">Automatización</a>
+        <a href="../index.html#services">Servicios</a>
+        <a href="../index.html#portfolio">Portafolio</a>
+        <a href="../proyectos-bim/">Proyectos</a>
+        <a href="../blog/blog.html">Blog</a>
+        <a href="../tool/index.html">Herramientas</a>
+        <a href="../index.html#contact" class="nav-cta">Contacto →</a>
       </div>
-    </div>
-    <div
-      class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-      id="mobile-menu"
-    >
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a
-          href="../index.html#home"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Inicio</a
-        >
-        <a
-          href="../index.html#about"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold whitespace-nowrap"
-          >Sobre Mí</a
-        >
-        <a
-          href="../index.html#automation"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Automatización</a
-        >
-        <a
-          href="../index.html#services"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Servicios</a
-        >
-        <a
-          href="../index.html#portfolio"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Portafolio</a
-        >
-        <a
-          href="../proyectos-bim/"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Proyectos</a
-        >
-        <a
-          href="../blog/blog.html"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Blog</a
-        >
-        <a
-          href="../tool/index.html"
-          class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-          >Herramientas</a
-        >
-        <a
-          href="../index.html#contact"
-          class="bg-bim-blue text-white block px-3 py-2 rounded-md text-base font-bold"
-          >Contacto �’</a
-        >
-      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
     </div>
   </nav>
-<!-- Hero Section -->
+
+    <!-- Hero Section -->
     <section
       class="pt-28 pb-16 px-4 bg-white dark:bg-bim-dark transition-colors duration-300 relative overflow-hidden"
     >
@@ -258,24 +171,23 @@
           lo que un Proyectista Estructural necesita para automatizar su
           trabajo.
         </p>
-<!-- Search Bar -->
+
+        <!-- Search Bar -->
         <div class="max-w-xl mx-auto relative">
           <i
             class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
           ></i>
-          <label for="searchInput" class="sr-only">Buscar artículos</label>
           <input
             type="text"
             id="searchInput"
-            name="search"
-            aria-label="Buscar artículos"
             placeholder="Buscar artículos..."
             class="search-input w-full pl-12 pr-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-bim-blue transition-all"
           />
         </div>
       </div>
     </section>
-<!-- Filters + Posts -->
+
+    <!-- Filters + Posts -->
     <section
       class="py-12 bg-gray-100 dark:bg-gray-900/30 transition-colors duration-300 min-h-[60vh]"
     >
@@ -286,7 +198,7 @@
             class="category-pill active px-5 py-2 rounded-full font-bold text-sm border border-gray-300 dark:border-gray-600 bg-bim-blue text-white"
             data-category="all"
           >
-            <i class="fa-solid fa-layer-group mr-1 text-xs"></i> Todos
+            Todos
           </button>
           <button
             class="category-pill px-5 py-2 rounded-full font-bold text-sm border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-bim-blue hover:text-bim-blue"
@@ -343,7 +255,8 @@
             <i class="fa-solid fa-graduation-cap mr-1 text-xs"></i> Formación
           </button>
         </div>
-<!-- Blog Grid -->
+
+        <!-- Blog Grid -->
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           id="blogGrid"
@@ -359,7 +272,7 @@
             >
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center">
-                  <span class="text-6xl">�“</span>
+                  <span class="text-6xl">🎓</span>
                   <p class="text-white font-bold text-lg mt-2">Konstruedu</p>
                   <p class="text-emerald-300 text-sm">127h · 14 cursos</p>
                 </div>
@@ -377,7 +290,7 @@
               <div class="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
                 <span><i class="fa-regular fa-calendar mr-1"></i> 24 Mar 2026</span>
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span class="reading-time"><i class="fa-regular fa-clock mr-1"></i> 6 min lectura</span>
+                <span class="reading-time"><i class="fa-regular fa-clock mr-1"></i> 9 min lectura</span>
               </div>
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight">
                 Especialista BIM Konstruedu: ¿Vale la pena? Mi análisis honesto
@@ -401,7 +314,8 @@
               </div>
             </div>
           </article>
-<!-- Blog Card 0: Plugin pyRevit Pesos y Volúmenes -->
+
+          <!-- Blog Card 0: Plugin pyRevit Pesos y Volúmenes -->
           <article
             class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue group animate-fade-in"
             data-category="pyrevit"
@@ -412,8 +326,8 @@
             >
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center">
-                  <span class="text-6xl">��“️</span>
-                  <p class="text-white font-bold text-lg mt-2">2h �’ 10s</p>
+                  <span class="text-6xl">⚖️</span>
+                  <p class="text-white font-bold text-lg mt-2">2h → 10s</p>
                   <p class="text-orange-300 text-sm">Pesos &amp; Volúmenes</p>
                 </div>
               </div>
@@ -440,7 +354,57 @@
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                 <span class="reading-time"
-                  ><i class="fa-regular fa-clock mr-1"></i> 11 min lectura</span>
+                  ><i class="fa-regular fa-clock mr-1"></i> 7 min lectura</span
+                >
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight"
+              >
+                De 2 Horas a 10 Segundos: Plugin de Pesos y Volúmenes Estructurales
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3"
+              >
+                Cómo automaticé el cálculo de pesos y volúmenes en modelos de Revit
+                con un plugin pyRevit que detecta materiales, clasifica perfiles de
+                acero y genera reportes al instante.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Revit API</span
+                  >
+                </div>
+                <a
+                  href="pyrevit-peso-volumen.html"
+                  class="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link"
+                >
+                  Leer más
+                  <i
+                    class="fa-solid fa-arrow-right ml-2 text-xs group-hover/link:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 5: Herramientas BIM Acero -->
+          <article
+            class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue group animate-fade-in"
+            data-category="herramientas"
+            data-title="herramientas bim acero calculadora perfiles catalogo icha web tools excel"
+          >
+            <div
+              class="relative h-48 bg-gradient-to-br from-cyan-900 via-blue-800 to-slate-800 overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="text-6xl">🛠️</span>
                   <p class="text-white font-bold text-lg mt-2">BIM Tools</p>
                   <p class="text-cyan-300 text-sm">Acero Estructural</p>
                 </div>
@@ -468,7 +432,62 @@
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                 <span class="reading-time"
-                  ><i class="fa-regular fa-clock mr-1"></i> 4 min lectura</span>
+                  ><i class="fa-regular fa-clock mr-1"></i> 6 min lectura</span
+                >
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight"
+              >
+                Herramientas Web para Acero Estructural: Calculadora + Catálogo
+                ICHA
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3"
+              >
+                Calculadora de perfiles personalizados y catálogo digital ICHA
+                con búsqueda interactiva, diagramas SVG y exportación a Excel
+                profesional.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >ICHA</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Acero</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Web Tools</span
+                  >
+                </div>
+                <a
+                  href="herramientas-bim-acero.html"
+                  class="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link"
+                >
+                  Leer más
+                  <i
+                    class="fa-solid fa-arrow-right ml-2 text-xs group-hover/link:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 1: pyRevit Accelerator -->
+          <article
+            class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue group animate-fade-in"
+            data-category="pyrevit"
+            data-title="pyrevit accelerator camino rapido crear apps revit python"
+          >
+            <div
+              class="relative h-48 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="text-6xl">⚡</span>
                   <p class="text-white font-bold text-lg mt-2">pyRevit</p>
                   <p class="text-blue-300 text-sm">Accelerator</p>
                 </div>
@@ -496,7 +515,57 @@
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                 <span class="reading-time"
-                  ><i class="fa-regular fa-clock mr-1"></i> 4 min lectura</span>
+                  ><i class="fa-regular fa-clock mr-1"></i> 8 min lectura</span
+                >
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight"
+              >
+                pyRevit Accelerator: El Camino Rápido para Crear Apps en Revit
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3"
+              >
+                Descubre por qué pyRevit es la forma más rápida de crear
+                herramientas para Revit. Anatomía de una app, el proceso de 7
+                pasos, y la comparativa definitiva con C#.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Revit API</span
+                  >
+                </div>
+                <a
+                  href="pyrevit-accelerator.html"
+                  class="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link"
+                >
+                  Leer más
+                  <i
+                    class="fa-solid fa-arrow-right ml-2 text-xs group-hover/link:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 2: BIM Developer Roadmap (Merged) -->
+          <article
+            class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue group animate-fade-in"
+            data-category="roadmap"
+            data-title="roadmap profesional obra bim software developer pyrevit csharp revit api automatizacion construccion"
+          >
+            <div
+              class="relative h-48 bg-gradient-to-br from-orange-900 via-blue-800 to-indigo-900 overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="text-6xl">🏗️</span>
                   <p class="text-white font-bold text-lg mt-2">Roadmap</p>
                   <p class="text-orange-300 text-sm">pyRevit + C#</p>
                 </div>
@@ -518,7 +587,62 @@
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                 <span class="reading-time"
-                  ><i class="fa-regular fa-clock mr-1"></i> 4 min lectura</span>
+                  ><i class="fa-regular fa-clock mr-1"></i> 15 min lectura</span
+                >
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight"
+              >
+                De Profesional de Obra a BIM Software Developer en 12 Meses
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3"
+              >
+                Guía completa para que cualquier profesional de la construcción
+                pueda transicionar al desarrollo BIM. Enfoque híbrido:
+                Python/pyRevit para victorias rápidas + C#/.NET para potencia
+                industrial.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >pyRevit</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >C#</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Roadmap</span
+                  >
+                </div>
+                <a
+                  href="bim-dev-roadmap.html"
+                  class="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link"
+                >
+                  Leer más
+                  <i
+                    class="fa-solid fa-arrow-right ml-2 text-xs group-hover/link:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 3: Revit Structure Futuro -->
+          <article
+            class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue group animate-fade-in"
+            data-category="revit-structure"
+            data-title="revit structure futuro roadmap brecha diseño detallado fabricacion tekla advance steel acero"
+          >
+            <div
+              class="relative h-48 bg-gradient-to-br from-blue-900 via-indigo-800 to-slate-800 overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="text-6xl">🔗</span>
                   <p class="text-white font-bold text-lg mt-2">
                     Revit Structure
                   </p>
@@ -548,7 +672,58 @@
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                 <span class="reading-time"
-                  ><i class="fa-regular fa-clock mr-1"></i> 3 min lectura</span>
+                  ><i class="fa-regular fa-clock mr-1"></i> 8 min lectura</span
+                >
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight"
+              >
+                ¿El Fin de la Brecha entre Diseño y Detallado? El Futuro de
+                Revit Structure
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3"
+              >
+                Análisis del roadmap de Autodesk: conexiones de acero
+                automáticas, modelo analítico autónomo y la convergencia entre
+                Revit, Tekla y Advance Steel.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Revit</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Acero</span
+                  >
+                </div>
+                <a
+                  href="revit-structure-futuro.html"
+                  class="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link"
+                >
+                  Leer más
+                  <i
+                    class="fa-solid fa-arrow-right ml-2 text-xs group-hover/link:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Blog Card 4: Revit Support Clinic -->
+          <article
+            class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue group animate-fade-in"
+            data-category="soporte"
+            data-title="revit support clinic acero conexiones troubleshooting errores autodesk university"
+          >
+            <div
+              class="relative h-48 bg-gradient-to-br from-red-900 via-orange-900 to-slate-900 overflow-hidden"
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <span class="text-6xl">🚑</span>
                   <p class="text-white font-bold text-lg mt-2">Revit Support</p>
                   <p class="text-red-300 text-sm">Clinic 2025</p>
                 </div>
@@ -576,7 +751,55 @@
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
                 <span class="reading-time"
-                  ><i class="fa-regular fa-clock mr-1"></i> 3 min lectura</span>
+                  ><i class="fa-regular fa-clock mr-1"></i> 10 min lectura</span
+                >
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight"
+              >
+                Secretos de Soporte: Lo que aprendimos en AU 2025 sobre Acero
+              </h3>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3"
+              >
+                Troubleshooting avanzado de conexiones de acero, por qué fallan
+                las familias y cómo arreglar el modelo analítico desconectado.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Soporte</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                    >Acero</span
+                  >
+                </div>
+                <a
+                  href="revit-support-clinic.html"
+                  class="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link"
+                >
+                  Leer más
+                  <i
+                    class="fa-solid fa-arrow-right ml-2 text-xs group-hover/link:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Placeholder Card: Coming Soon 1 -->
+          <div
+            class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 border-dashed opacity-60"
+            data-category="csharp"
+            data-title="primer plugin csharp revit api"
+          >
+            <div
+              class="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+            >
+              <div class="text-center">
+                <span class="text-5xl opacity-40">🏗️</span>
                 <p class="text-gray-400 font-medium text-sm mt-2">
                   Próximamente
                 </p>
@@ -589,7 +812,7 @@
                   Próximamente</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span><i class="fa-regular fa-clock mr-1"></i> �” min</span>
+                <span><i class="fa-regular fa-clock mr-1"></i> — min</span>
               </div>
               <h3
                 class="text-lg font-bold text-gray-500 dark:text-gray-500 mb-3 leading-tight"
@@ -616,7 +839,8 @@
               </div>
             </div>
           </div>
-<!-- Placeholder Card: Coming Soon 2 -->
+
+          <!-- Placeholder Card: Coming Soon 2 -->
           <div
             class="blog-card glass-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 border-dashed opacity-60"
             data-category="automatizacion"
@@ -626,7 +850,7 @@
               class="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
             >
               <div class="text-center">
-                <span class="text-5xl opacity-40">�”�</span>
+                <span class="text-5xl opacity-40">🔍</span>
                 <p class="text-gray-400 font-medium text-sm mt-2">
                   Próximamente
                 </p>
@@ -639,7 +863,7 @@
                   Próximamente</span
                 >
                 <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-                <span><i class="fa-regular fa-clock mr-1"></i> �” min</span>
+                <span><i class="fa-regular fa-clock mr-1"></i> — min</span>
               </div>
               <h3
                 class="text-lg font-bold text-gray-500 dark:text-gray-500 mb-3 leading-tight"
@@ -663,7 +887,8 @@
             </div>
           </div>
         </div>
-<!-- Empty state -->
+
+        <!-- Empty state -->
         <div id="emptyState" class="hidden text-center py-20">
           <i
             class="fa-solid fa-magnifying-glass text-5xl text-gray-400 mb-4"
@@ -675,7 +900,8 @@
             No se encontraron artículos que coincidan con tu búsqueda.
           </p>
         </div>
-<!-- Post count -->
+
+        <!-- Post count -->
         <div class="text-center mt-12">
           <p class="text-gray-500 dark:text-gray-500 text-sm" id="postCount">
             Mostrando
@@ -685,7 +911,8 @@
         </div>
       </div>
     </section>
-<!-- Newsletter / CTA Section -->
+
+    <!-- Newsletter / CTA Section -->
     <section
       class="py-16 bg-white dark:bg-bim-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
     >
@@ -708,7 +935,7 @@
               plugins se publicarán regularmente.
             </p>
             <a
-              href="../index.html#contact"
+              href="../#contact"
               class="inline-flex items-center bg-bim-blue hover:bg-blue-400 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 active:scale-95"
             >
               <i class="fa-solid fa-envelope mr-2"></i> Contáctame
@@ -717,13 +944,14 @@
         </div>
       </div>
     </section>
-<!-- Back to Portfolio -->
+
+    <!-- Back to Portfolio -->
     <section
       class="py-12 bg-gray-100 dark:bg-gray-900/30 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
     >
       <div class="max-w-4xl mx-auto px-4 text-center">
         <a
-          href="../index.html#home"
+          href="../#home"
           class="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
         >
           <i
@@ -733,15 +961,19 @@
         </a>
       </div>
     </section>
-<!-- Footer -->
-    <footer class="bg-bim-dark py-8 border-t border-gray-800 transition-colors duration-300">
-      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-sm font-bold text-white" style="font-family: 'Space Grotesk', sans-serif;">Andrés Gallo <span class="text-bim-blue">P.</span></div>
-        <div class="text-xs text-gray-500 font-mono text-center">&copy; 2026 Andrés Gallo P. Todos los derechos reservados.</div>
-        <div class="text-xs text-gray-600 font-mono">// Diseñado con ingeniería y código</div>
+
+      <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Andrés Gallo <span>P.BIM</span></div>
+        <div class="footer-copy">© 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="footer-tagline">// Diseñado con ingeniería y código</div>
       </div>
-    </footer>
-<!-- Back to Top Button -->
+    </div>
+  </footer>
+
+    <!-- Back to Top Button -->
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 bg-bim-blue hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible z-50 flex items-center justify-center focus:outline-none group transform hover:scale-110"
@@ -751,7 +983,101 @@
         class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform duration-300"
       ></i>
     </button>
-<script src="../js/main.js" defer></script>
-    <script src="../js/blog.js" defer></script>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+      // --- Blog Filter Logic ---
+      const categoryPills = document.querySelectorAll(".category-pill");
+      const blogCards = document.querySelectorAll(".blog-card");
+      const searchInput = document.getElementById("searchInput");
+      const emptyState = document.getElementById("emptyState");
+      const visibleCountEl = document.getElementById("visibleCount");
+
+      let activeCategory = "all";
+
+      function filterPosts() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        blogCards.forEach((card) => {
+          const cardCategory = card.dataset.category;
+
+          // Content-aware search
+          const title =
+            card.querySelector("h3")?.textContent.toLowerCase() || "";
+          const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+          const meta = card.dataset.title || ""; // Keep data-title as fallback/keyword store
+
+          const matchesCategory =
+            activeCategory === "all" || cardCategory === activeCategory;
+
+          const matchesSearch =
+            !searchTerm ||
+            title.includes(searchTerm) ||
+            desc.includes(searchTerm) ||
+            meta.includes(searchTerm);
+
+          if (matchesCategory && matchesSearch) {
+            card.classList.remove("hidden-card");
+            visibleCount++;
+          } else {
+            card.classList.add("hidden-card");
+          }
+        });
+
+        visibleCountEl.textContent = visibleCount;
+        emptyState.classList.toggle("hidden", visibleCount > 0);
+        document
+          .getElementById("blogGrid")
+          .classList.toggle("hidden", visibleCount === 0);
+      }
+
+      categoryPills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          categoryPills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          activeCategory = pill.dataset.category;
+          filterPosts();
+        });
+      });
+
+      searchInput.addEventListener("input", filterPosts);
+
+      // --- Dynamic Reading Time ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const blogCards = document.querySelectorAll(".blog-card");
+
+        blogCards.forEach(async (card) => {
+          // Find the link to the article
+          const link = card.querySelector("a[href]");
+          if (!link) return;
+
+          const url = link.href;
+          const timeElement = card.querySelector(".reading-time");
+
+          if (timeElement && url) {
+            try {
+              // Fetch article content
+              const response = await fetch(url);
+              if (!response.ok) return;
+
+              const text = await response.text();
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(text, "text/html");
+
+              // Get content from .prose-article
+              const content = doc.querySelector(".prose-article");
+              if (content) {
+                const words = content.textContent.trim().split(/\s+/).length;
+                const readingTime = Math.ceil(words / 200); // 200 wpm
+                timeElement.innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${readingTime} min lectura`;
+              }
+            } catch (error) {
+              console.error("Error calculating reading time:", error);
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>

@@ -81,7 +81,7 @@
   }
 
   /* ========================================
-     LOGO CLICK �’ SCROLL TO TOP
+     LOGO CLICK �’ SCROLL TO TOP
      ======================================== */
   var logo = document.getElementById("logo");
   if (logo) {
@@ -175,7 +175,7 @@
   });
 
   /* ========================================
-     CONTACT FORM �” Formspree AJAX
+     CONTACT FORM �” Formspree AJAX
      ======================================== */
   var contactForm = document.getElementById("contactForm");
   if (contactForm) {
@@ -195,7 +195,7 @@
       })
         .then(function (res) {
           if (res.ok) {
-            msg.textContent = "�“ Mensaje enviado. Te respondo pronto.";
+            msg.textContent = "�“ Mensaje enviado. Te respondo pronto.";
             msg.className = "form-msg success";
             msg.setAttribute("role", "alert");
             contactForm.reset();
@@ -206,7 +206,7 @@
           }
         })
         .catch(function () {
-          msg.textContent = "��” Error al enviar. Escríbeme a andresgallo@pm.me";
+          msg.textContent = "��” Error al enviar. Escríbeme a andresgallo@pm.me";
           msg.className = "form-msg error";
           msg.setAttribute("role", "alert");
         })
@@ -367,6 +367,18 @@
       currentIndex = index;
       imgElement.src = images[currentIndex].src;
       imgElement.alt = images[currentIndex].alt || "";
+      
+      // Copy rotation class if present on image, its container, or its wrapper
+      var currentImg = images[currentIndex];
+      var isRotated = currentImg.classList.contains("rotate-180") || 
+                     (currentImg.parentElement && currentImg.parentElement.classList.contains("rotate-180")) ||
+                     (currentImg.parentElement && currentImg.parentElement.parentElement && currentImg.parentElement.parentElement.classList.contains("rotate-180"));
+      
+      if (isRotated) {
+        imgElement.classList.add("rotate-180");
+      } else {
+        imgElement.classList.remove("rotate-180");
+      }
     }
 
     function openLightbox(index) {

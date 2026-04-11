@@ -7,6 +7,7 @@ module.exports = {
     "./project/**/*.html",
     "./tool/*.html",
     "./js/**/*.js",
+    "./proyectos-bim/**/*.{html,js}"
   ],
   theme: {
     extend: {

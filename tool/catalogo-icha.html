@@ -20,7 +20,7 @@
     />
     <meta
       property="og:description"
-      content="Accede a todas las propiedades mecánicas de perfiles ICHA. Búsqueda inteligente y exportación a Excel."
+      content="Accede a todas las propiedades mecánicas de perfiles ICHA. BÃºsqueda inteligente y exportaciÃ³n a Excel."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Typography overrides �” after Tailwind CDN */
+      /* Typography overrides ââ after Tailwind CDN */
       body { font-family: "Inter", sans-serif !important; }
       h1, h2, h3, h4, h5, h6 { font-family: "Space Grotesk", sans-serif !important; }
       code, pre, kbd, samp { font-family: "Fira Code", monospace !important; }
@@ -73,10 +73,7 @@
         border: 1px solid rgba(55, 65, 81, 0.5);
         backdrop-filter: blur(12px);
       }
-      .glass-nav {
-        background: rgba(11, 18, 32, 0.85);
-        backdrop-filter: blur(16px);
-      }
+      
       .profile-btn {
         transition: all 0.3s ease;
       }
@@ -179,120 +176,24 @@
     class="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans antialiased selection:bg-blue-500 selection:text-white"
   >
     <!-- Navigation -->
-    <nav
-      class="fixed w-full z-50 glass-nav border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <a
-            href="../"
-            id="logo"
-            class="flex-shrink-0 flex items-center cursor-pointer"
-          >
-            <i class="fa-solid fa-layer-group text-bim-blue text-2xl mr-2"></i>
-            <span class="font-bold text-xl text-gray-900 dark:text-white"
-              >Andrés Gallo P<span class="text-bim-blue">.BIM</span></span
-            >
-          </a>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8" id="desktop-menu">
-              <a
-                href="../#home"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Inicio</a
-              >
-              <a
-                href="../#about"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Sobre Mí</a
-              >
-              <a
-                href="../#curriculum"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Experiencia</a
-              >
-              <a
-                href="../#portfolio"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Portafolio</a
-              >
-              <a
-                href="../blog/blog.html"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Blog</a
-              >
-              <a
-                href="../#contact"
-                class="text-gray-700 dark:text-white hover:text-bim-blue px-3 py-2 rounded-md text-base font-bold transition-colors"
-                >Contacto</a
-              >
-              <a
-                href="index.html"
-                class="text-bim-blue hover:text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors"
-                ><i class="fa-solid fa-toolbox text-sm mr-1"></i>Tools</a
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-1">
-            <div class="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Abrir menú principal</span>
-              <i class="fas fa-bars text-xl"></i>
-            </button>
-            </div>
-          </div>
-        </div>
+      <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html#home" class="nav-logo" style="gap: 0;">Andrés Gallo <span>P.BIM</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#home">Inicio</a>
+        <a href="../index.html#about">Sobre Mí</a>
+        <a href="../index.html#automation">Automatización</a>
+        <a href="../index.html#services">Servicios</a>
+        <a href="../index.html#portfolio">Portafolio</a>
+        <a href="../proyectos-bim/">Proyectos</a>
+        <a href="../blog/blog.html">Blog</a>
+        <a href="../tool/index.html">Herramientas</a>
+        <a href="../index.html#contact" class="nav-cta">Contacto →</a>
       </div>
-      <!-- Mobile Menu -->
-      <div
-        class="md:hidden hidden bg-white dark:bg-bim-dark border-b border-gray-200 dark:border-gray-700"
-        id="mobile-menu"
-      >
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="../#home"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Inicio</a
-          >
-          <a
-            href="../#about"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Sobre Mí</a
-          >
-          <a
-            href="../#curriculum"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Experiencia</a
-          >
-          <a
-            href="../#portfolio"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Portafolio</a
-          >
-          <a
-            href="../blog/blog.html"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Blog</a
-          >
-          <a
-            href="../#contact"
-            class="text-gray-700 dark:text-white hover:text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Contacto</a
-          >
-          <a
-            href="index.html"
-            class="text-bim-blue block px-3 py-2 rounded-md text-base font-bold"
-            >Tools</a
-          >
-        </div>
-      </div>
-    </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+  </nav>
 
     <!-- Hero Section -->
     <section class="pt-24 pb-8 relative overflow-hidden">
@@ -324,7 +225,7 @@
             class="inline-block px-3 py-1 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-bold mb-4 tracking-wider uppercase fade-in-up"
             data-i18n="cat_hero_tag"
           >
-            CATÁLOGO ICHA �” NORMA CHILENA
+            CATÃLOGO ICHA ââ NORMA CHILENA
           </div>
           <h1
             class="text-4xl md:text-6xl font-black mb-6 leading-tight fade-in-up delay-100"
@@ -338,7 +239,7 @@
             class="text-lg text-gray-400 max-w-2xl mx-auto mb-10 fade-in-up delay-200"
             data-i18n="cat_hero_desc"
           >
-            Selecciona perfiles del catálogo ICHA con todas sus propiedades
+            Selecciona perfiles del catÃ¡logo ICHA con todas sus propiedades
             mecánicas precargadas. Arma tu lista de materiales y exporta a
             Excel.
           </p>
@@ -378,7 +279,7 @@
               class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 self-start"
               data-i18n="sect_cross_section"
             >
-              Sección Transversal
+              SecciÃ³n Transversal
             </h3>
 
             <!-- 2D Container -->
@@ -398,7 +299,7 @@
               <span
                 class="text-2xl font-extrabold text-white"
                 id="designation-text"
-                >�”</span
+                >ââ</span
               >
             </div>
           </div>
@@ -420,49 +321,49 @@
                 <div>
                   <label
                     class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
-                    >Ix Mín (cm⁴)</label
+                    >Ix MÃ­n (cmâ´)</label
                   >
                   <input
                     type="number"
                     id="filter-ix"
                     class="input-field w-full text-sm bg-gray-800/50"
-                    placeholder="Mín. Ix"
+                    placeholder="MÃ­n. Ix"
                   />
                 </div>
                 <div>
                   <label
                     class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
-                    >Peso Mín (kg/m)</label
+                    >Peso MÃ­n (kg/m)</label
                   >
                   <input
                     type="number"
                     id="filter-weight-min"
                     class="input-field w-full text-sm bg-gray-800/50"
-                    placeholder="Mín. Peso"
+                    placeholder="MÃ­n. Peso"
                   />
                 </div>
                 <div>
                   <label
                     class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
-                    >Peso Máx (kg/m)</label
+                    >Peso MÃ¡x (kg/m)</label
                   >
                   <input
                     type="number"
                     id="filter-weight"
                     class="input-field w-full text-sm bg-gray-800/50"
-                    placeholder="Máx. Peso"
+                    placeholder="MÃ¡x. Peso"
                   />
                 </div>
                 <div>
                   <label
                     class="text-[10px] text-gray-500 uppercase font-black mb-1 block"
-                    >Altura Máx (mm)</label
+                    >Altura MÃ¡x (mm)</label
                   >
                   <input
                     type="number"
                     id="filter-h"
                     class="input-field w-full text-sm bg-gray-800/50"
-                    placeholder="Máx. Altura"
+                    placeholder="MÃ¡x. Altura"
                   />
                 </div>
               </div>
@@ -508,7 +409,7 @@
                     class="text-2xl font-black text-white whitespace-nowrap"
                     id="selected-profile-name"
                   >
-                    �”
+                    ââ
                   </h3>
                   <div class="text-right">
                     <p
@@ -531,7 +432,7 @@
                       class="text-xs text-gray-500 uppercase font-bold"
                       data-i18n="res_area"
                     >
-                      Área
+                      Ãrea
                     </p>
                     <p class="text-sm font-bold text-white">
                       <span id="selected-area">0.0</span> cm²
@@ -622,7 +523,7 @@
               class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4"
               data-i18n="sect_properties"
             >
-              <i class="fa-solid fa-table-list mr-2"></i>Propiedades Mecánicas
+              <i class="fa-solid fa-table-list mr-2"></i>Propiedades MecÃ¡nicas
             </h3>
             <div id="properties-grid" class="prop-grid">
               <div
@@ -733,7 +634,7 @@
                     <td
                       class="py-4 px-4 text-right transform translate-x-3 text-gray-500"
                     >
-                      �”
+                      ââ
                     </td>
                     <td
                       class="py-4 px-4 text-right text-bim-blue text-lg"
@@ -761,7 +662,7 @@
               >
                 <i class="fa-solid fa-weight-hanging mr-2"></i
                 ><span data-i18n="sect_classification"
-                  >Clasificación por Nominal Weight</span
+                  >ClasificaciÃ³n por Nominal Weight</span
                 >
               </h3>
               <div class="flex items-center gap-2">
@@ -798,7 +699,7 @@
                       class="py-3 px-4 font-semibold text-left"
                       data-i18n="cls_desc"
                     >
-                      Descripción
+                      DescripciÃ³n
                     </th>
                     <th
                       class="py-3 px-4 font-semibold text-right w-24"
@@ -886,25 +787,25 @@
                       class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
                       id="comp-name-0"
                     >
-                      �”
+                      ââ
                     </th>
                     <th
                       class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
                       id="comp-name-1"
                     >
-                      �”
+                      ââ
                     </th>
                     <th
                       class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
                       id="comp-name-2"
                     >
-                      �”
+                      ââ
                     </th>
                     <th
                       class="py-3 px-4 font-semibold text-center w-1/5 text-bim-blue"
                       id="comp-name-3"
                     >
-                      �”
+                      ââ
                     </th>
                   </tr>
                 </thead>
@@ -921,15 +822,16 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800 mt-12">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-gray-500 text-sm" data-i18n="footer_text">
-          &copy; 2026 Andrés Gallo P. �” Herramientas para Proyectistas
-          Estructurales
-        </p>
+      <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Andrés Gallo <span>P.BIM</span></div>
+        <div class="footer-copy">© 2026 Andrés Gallo P. Todos los derechos reservados.</div>
+        <div class="footer-tagline">// Diseñado con ingeniería y código</div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
     <script src="icha_data.js"></script>
     <script src="i18n.js"></script>
@@ -954,10 +856,10 @@
         e_mm: { i18n: "prop_e", unit: "mm", icon: "fa-ruler" },
         t_mm: { i18n: "prop_t", unit: "mm", icon: "fa-ruler" },
         C_mm: { i18n: "prop_c", unit: "mm", icon: "fa-ruler" },
-        Ix_cm4: { i18n: "prop_ix", unit: "cm⁴", icon: "fa-rotate" },
+        Ix_cm4: { i18n: "prop_ix", unit: "cmâ´", icon: "fa-rotate" },
         Wx_cm3: { i18n: "prop_wx", unit: "cm³", icon: "fa-cube" },
         ix_cm: { i18n: "prop_ix_rad", unit: "cm", icon: "fa-circle-dot" },
-        Iy_cm4: { i18n: "prop_iy", unit: "cm⁴", icon: "fa-rotate" },
+        Iy_cm4: { i18n: "prop_iy", unit: "cmâ´", icon: "fa-rotate" },
         Wy_cm3: { i18n: "prop_wy", unit: "cm³", icon: "fa-cube" },
         iy_cm: { i18n: "prop_iy_rad", unit: "cm", icon: "fa-circle-dot" },
         xy_cm: { i18n: "prop_xy", unit: "cm", icon: "fa-crosshairs" },
@@ -1066,7 +968,7 @@
                data-index="${profiles.indexOf(p)}" data-filtered-index="${i}">
             <div class="flex flex-col">
               <span class="font-semibold text-white whitespace-nowrap">${p.designation}</span>
-              ${p.Ix_cm4 ? `<span class="text-[10px] text-bim-blue">Ix: ${p.Ix_cm4} cm⁴</span>` : ""}
+              ${p.Ix_cm4 ? `<span class="text-[10px] text-bim-blue">Ix: ${p.Ix_cm4} cmâ´</span>` : ""}
             </div>
             <span class="text-xs text-gray-500 font-medium">${p.weight} kg/m</span>
           </div>`,
@@ -1184,7 +1086,7 @@
       }
 
       function formatNumber(n) {
-        if (n === null || n === undefined) return "�”";
+        if (n === null || n === undefined) return "ââ";
         if (Math.abs(n) >= 10000) return n.toLocaleString("es-CL");
         if (Number.isInteger(n)) return n.toString();
         return n.toFixed(n < 10 ? 2 : 1);
@@ -1452,7 +1354,7 @@
         return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
       }
 
-      // Box (Cajón) shape
+      // Box (CajÃ³n) shape
       function buildICHABoxSvg(h, b, e) {
         const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
         const H = h * sc,
@@ -1535,7 +1437,7 @@
 
       function addToList() {
         if (!selectedProfile) return;
-        const mark = document.getElementById("list-mark").value || "�”";
+        const mark = document.getElementById("list-mark").value || "ââ";
         const len = parseFloat(document.getElementById("list-len").value) || 6;
         const qty = parseInt(document.getElementById("list-qty").value) || 1;
 
@@ -1659,7 +1561,7 @@
         document.getElementById("classification-total").innerHTML =
           `${grandTotal.toFixed(2)} <span class="text-xs text-gray-500">kg</span>`;
 
-        // �”��”� Render Donut Chart �”��”�
+        // ââââ Render Donut Chart ââââ
         renderDonutChart(categories, catWeights, connection);
       }
 
@@ -1670,7 +1572,7 @@
         if (!ctx) return;
         if (donutChart) donutChart.destroy();
         const labels = categories
-          .map((c) => c.name.split("≤")[0].trim()) // Hacky adaptation, or just use t(chart_light) etc directly
+          .map((c) => c.name.split("â¤")[0].trim()) // Hacky adaptation, or just use t(chart_light) etc directly
           .concat([t("chart_conns")]);
         const data = [...catWeights, connection];
         const total = data.reduce((a, b) => a + b, 0);
@@ -1814,7 +1716,7 @@
             el.classList.remove("text-gray-600");
             el.classList.add("text-bim-blue");
           } else {
-            el.textContent = "�”";
+            el.textContent = "ââ";
             el.classList.remove("text-bim-blue");
             el.classList.add("text-gray-600");
           }
@@ -1823,8 +1725,8 @@
         const props = [
           { id: "weight", label: t("res_weight"), unit: "kg/m" },
           { id: "area", label: t("res_area"), unit: "cm²" },
-          { id: "ix", label: "Ix", unit: "cm⁴" },
-          { id: "iy", label: "Iy", unit: "cm⁴" },
+          { id: "ix", label: "Ix", unit: "cmâ´" },
+          { id: "iy", label: "Iy", unit: "cmâ´" },
           { id: "wx", label: "Wx", unit: "cm³" },
           { id: "wy", label: "Wy", unit: "cm³" },
         ];
@@ -1836,7 +1738,7 @@
             for (let i = 0; i < 4; i++) {
               const val = comparatorList[i] ? comparatorList[i][p.id] : null;
               rowHtml += `<td class="py-3 px-4 text-center font-mono ${val !== null ? "text-white" : "text-gray-700"}">
-                ${val !== null ? val.toFixed(2) : "�”"}
+                ${val !== null ? val.toFixed(2) : "ââ"}
               </td>`;
             }
             return `<tr class="border-b border-gray-800/50 hover:bg-gray-800/20">${rowHtml}</tr>`;
@@ -1898,7 +1800,7 @@
 
         doc.setFontSize(10);
         doc.setFont("helvetica", "normal");
-        doc.text("Andrés Gallo P. �” BIM Developer", 15, 33);
+        doc.text("Andrés Gallo P. ââ BIM Developer", 15, 33);
         doc.text(new Date().toLocaleDateString(), 180, 33);
 
         // Profiles Table
@@ -1916,11 +1818,11 @@
         const body = profileList.map((p) => [
           p.designation,
           p.unitWeight.toFixed(2),
-          p.A_cm2 ? p.A_cm2.toFixed(2) : "�”",
-          p.Ix_cm4 ? p.Ix_cm4.toFixed(2) : "�”",
-          p.Iy_cm4 ? p.Iy_cm4.toFixed(2) : "�”",
-          p.Wx_cm3 ? p.Wx_cm3.toFixed(2) : "�”",
-          p.Wy_cm3 ? p.Wy_cm3.toFixed(2) : "�”",
+          p.A_cm2 ? p.A_cm2.toFixed(2) : "ââ",
+          p.Ix_cm4 ? p.Ix_cm4.toFixed(2) : "ââ",
+          p.Iy_cm4 ? p.Iy_cm4.toFixed(2) : "ââ",
+          p.Wx_cm3 ? p.Wx_cm3.toFixed(2) : "ââ",
+          p.Wy_cm3 ? p.Wy_cm3.toFixed(2) : "ââ",
         ]);
 
         doc.autoTable({
@@ -1981,7 +1883,7 @@
           doc.setFontSize(8);
           doc.setTextColor(150);
           doc.text(
-            `Página ${i} de ${pageCount}`,
+            `PÃ¡gina ${i} de ${pageCount}`,
             180,
             doc.internal.pageSize.height - 10,
           );
@@ -1994,7 +1896,7 @@
         if (profileList.length === 0) return;
         const n = profileList.length;
 
-        // �”��”� Style palette �”��”�
+        // ââââ Style palette ââââ
         const bd = {
           top: { style: "thin", color: { rgb: "BDD7EE" } },
           bottom: { style: "thin", color: { rgb: "BDD7EE" } },
@@ -2070,7 +1972,7 @@
           },
         };
 
-        // �”��”� Build data (AOA) �”��”�
+        // ââââ Build data (AOA) ââââ
         const a = [];
         a.push([t("excel_title_catalog"), "", "", "", "", ""]);
         a.push(["", "", "", "", "", ""]);
@@ -2130,14 +2032,14 @@
         const cn = tb * (connPct / 100),
           tf = tb + cn;
         categories.forEach((cat, i) => {
-          a.push([cat.name.split("≤")[0].trim(), "kg", catWeights[i]]); // Simplified category name
+          a.push([cat.name.split("â¤")[0].trim(), "kg", catWeights[i]]); // Simplified category name
         });
         a.push([`${t("excel_conns")} (+${connPct}%)`, "kg", cn]);
         a.push([""]);
         a.push([t("excel_total_final"), "kg", tf]);
         a.push(["", "ton", tf / 1000]);
 
-        // �”��”� Create worksheet �”��”�
+        // ââââ Create worksheet ââââ
         const ws = XLSX.utils.aoa_to_sheet(a);
         ws["!cols"] = [
           { wch: 45 },
@@ -2155,7 +2057,7 @@
         ws["!rows"][0] = { hpx: 32 };
         ws["!rows"][6 + n] = { hpx: 32 };
 
-        // �”��”� Style helper �”��”�
+        // ââââ Style helper ââââ
         function sc(r, c, s) {
           const addr = XLSX.utils.encode_cell({ r, c });
           if (!ws[addr]) ws[addr] = { v: "", t: "s" };
@@ -2206,7 +2108,7 @@
         sc(16 + n, 1, S.tc);
         sc(16 + n, 2, S.tr);
 
-        // �”��”� Download �”��”�
+        // ââââ Download ââââ
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "Catálogo ICHA");
         XLSX.writeFile(
