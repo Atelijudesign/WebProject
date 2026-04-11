@@ -226,38 +226,11 @@
             </div>
             <div class="filter-actions">
                 <span class="results-count" id="results-count" aria-live="polite">Mostrando <strong>46</strong> de <strong>46</strong> proyectos</span>
-                <div style="display:flex; align-items:center; gap: 0.75rem;">
-                    <div class="view-toggle" role="group" aria-label="Seleccionar vista de proyectos">
-                        <button class="view-btn active" data-view="grid" id="btn-view-grid" title="Vista de tarjetas" aria-pressed="true" aria-label="Vista de tarjetas">
-                            <span aria-hidden="true">▦</span>
-                        </button>
-                        <button class="view-btn" data-view="table" id="btn-view-table" title="Vista de tabla" aria-pressed="false" aria-label="Vista de tabla">
-                            <span aria-hidden="true">☰</span>
-                        </button>
-                    </div>
-                    <button class="btn-clear" id="btn-clear" aria-label="Limpiar todos los filtros aplicados">✕ Limpiar filtros</button>
-                </div>
+                <button class="btn-clear" id="btn-clear" aria-label="Limpiar todos los filtros aplicados">✕ Limpiar filtros</button>
             </div>
         </aside>
         <!-- Grid View -->
         <div class="projects-grid active" id="projects-grid" role="region" aria-label="Lista de proyectos en vista de cuadrícula"></div>
-        <!-- Table View -->
-        <div class="projects-table-wrapper" id="projects-table-wrapper" role="region" aria-label="Lista de proyectos en vista de tabla" tabindex="0">
-            <table class="projects-table" aria-label="Tabla de proyectos BIM">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre del Proyecto</th>
-                    <th scope="col">Empresa</th>
-                    <th scope="col">Cliente</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Material</th>
-                    <th scope="col">Estado</th>
-                </tr>
-                </thead>
-                <tbody id="projects-tbody"></tbody>
-            </table>
-        </div>
     </div>
 </section>
 
@@ -268,18 +241,14 @@
     <div class="container">
         <header class="section-header">
             <h2 id="stats-heading" class="section-title"><span class="icon" aria-hidden="true">📊</span> Estadísticas</h2>
-            <p class="section-desc">Distribución de proyectos por empresa, sector y año</p>
+            <p class="section-desc">Distribución de proyectos por sector y año</p>
         </header>
         <div class="stats-grid">
-            <article class="chart-card">
-                <div class="chart-title"><span class="icon" aria-hidden="true">🌎</span> Proyectos por Empresa</div>
-                <div class="bar-chart" id="chart-company" role="img" aria-label="Gráfico de barras: proyectos por empresa"></div>
-            </article>
             <article class="chart-card">
                 <div class="chart-title"><span class="icon" aria-hidden="true">🏗️</span> Proyectos por Sector</div>
                 <div id="chart-sector" role="img" aria-label="Gráfico: proyectos por sector"></div>
             </article>
-            <article class="chart-card" style="grid-column: 1 / -1;">
+            <article class="chart-card">
                 <div class="chart-title"><span class="icon" aria-hidden="true">📊</span> Actividad por Año</div>
                 <div class="bar-chart" id="chart-year" role="img" aria-label="Gráfico de barras: actividad por año"></div>
             </article>

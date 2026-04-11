@@ -527,28 +527,6 @@
   background: rgba(56, 189, 248, 0.05);
 }
 
-.projects-bim-page .view-toggle {
-  display: inline-flex;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.projects-bim-page .view-btn {
-  padding: 0.45rem 0.85rem;
-  border-radius: 0;
-  border: none;
-  border-right: 1px solid var(--pb-border-soft);
-}
-
-.projects-bim-page .view-btn:last-child {
-  border-right: none;
-}
-
-.projects-bim-page .view-btn.active {
-  background: rgba(56, 189, 248, 0.15);
-  color: var(--pb-accent);
-  font-weight: 600;
-}
 
 /* ===== PROJECTS GRID - BETTER CARD LAYOUT ===== */
 .projects-bim-page .projects-grid {
@@ -667,37 +645,6 @@
   font-size: 0.76rem;
 }
 
-/* ===== TABLE VIEW ===== */
-.projects-bim-page .projects-table-wrapper {
-  overflow-x: auto;
-  margin-bottom: 2rem;
-}
-
-.projects-bim-page .projects-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-}
-
-.projects-bim-page .projects-table th,
-.projects-bim-page .projects-table td {
-  border-bottom: 1px solid var(--pb-border-soft);
-  padding: 0.85rem 1rem;
-  text-align: left;
-}
-
-.projects-bim-page .projects-table th {
-  color: var(--pb-text-muted);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  background: rgba(17, 24, 39, 0.3);
-}
-
-.projects-bim-page .projects-table tr:hover td {
-  background: rgba(56, 189, 248, 0.03);
-}
 
 /* ===== STATS GRID - CHARTS ===== */
 .projects-bim-page .stats-grid {

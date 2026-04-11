@@ -478,25 +478,10 @@ function renderCards(projects) {
   }).join('');
 }
 
-function renderTable(projects) {
-  const tbody = document.getElementById('projects-tbody');
-  if (!tbody) return;
-  if (projects.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:3rem;color:var(--text-muted);">No se encontraron proyectos</td></tr>`;
-    return;
-  }
-  tbody.innerHTML = projects.map(p => `
-    <tr onclick="openModal('${p.id}')">
-      <td class="cell-id">${p.id}</td><td class="cell-name">${p.name}</td><td class="cell-company">${p.company}</td>
-      <td>${p.client}</td><td>${p.type}</td><td>${p.material}</td>
-      <td><span class="card-status ${p.status==='Completado'?'completado':'en-curso'}" style="display:inline-block">${p.status}</span></td>
-    </tr>`).join('');
-}
 
 function applyFilters() {
   const filtered = filterProjects();
   renderCards(filtered);
-  renderTable(filtered);
   renderFilters();
   updateTimelineActive();
   updateKPIs(filtered); // Dynamic sync for dashboard cards
@@ -553,24 +538,8 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-function setView(view) {
-  state.view = view;
-  document.querySelectorAll('.view-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.view === view));
-  const gridEl = document.getElementById('projects-grid');
-  const tableEl = document.getElementById('projects-table-wrapper');
-  if (view === 'grid') { gridEl.classList.add('active'); tableEl.classList.remove('active'); }
-  else { gridEl.classList.remove('active'); tableEl.classList.add('active'); }
-}
 
 function renderCharts() {
-  const companyData = countBy('company');
-  const maxCount = Math.max(...companyData.map(([,v]) => v));
-  const barChart = document.getElementById('chart-company');
-  if (barChart) {
-    barChart.innerHTML = companyData.map(([label, count], i) => `
-      <div class="bar-row"><div class="bar-label" title="${label}">${label}</div>
-      <div class="bar-track"><div class="bar-fill color-${(i%7)+1}" style="width:${(count/maxCount*100)}%">${count}</div></div></div>`).join('');
-  }
   renderDonut('chart-sector', getSectorCategories());
   const yearData = {};
   PROJECTS.forEach(p => { for (let y = p.yearStart; y <= p.yearEnd; y++) { if (!yearData[y]) yearData[y]=0; yearData[y]++; } });
