@@ -99,59 +99,62 @@
        ═══════════════════════════════════════ -->
 <section class="hero pt-16" id="dashboard" aria-labelledby="dashboard-heading">
     <div class="container">
-        <header class="hero-content" style="text-align: center; margin: 0 auto 3rem; max-width: 900px;">
-            <div class="hero-badge" style="display: inline-flex; justify-content: center;">
+        <header class="hero-content">
+            <div class="hero-badge">
                 <span class="pulse" aria-hidden="true"></span>
                 <span class="badge-text">Diseñador Estructural BIM</span>
             </div>
-            <h1 id="dashboard-heading" style="text-align: center; display: block; width: 100%;">Base de Datos de <span class="gradient-text">Proyectos BIM</span></h1>
-            <p class="hero-subtitle" style="text-align: center; margin: 1rem auto 0;">Trayectoria profesional de Andrés Gallo Parra — 46 proyectos de ingeniería
-                estructural realizados entre 2006 y 2025</p>
+            <h1>Base de Datos de <span class="gradient-text">Proyectos BIM</span></h1>
+            <p class="hero-subtitle">Trayectoria profesional de Andrés Gallo Parra — 46 proyectos de ingeniería estructural realizados entre 2006 y 2025</p>
         </header>
         <div class="kpi-grid" role="list" aria-label="Indicadores clave de rendimiento">
             <div class="kpi-card" id="kpi-projects" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">🏗️</span>
+                <i class="fa-solid fa-building-columns kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" data-count="46" aria-label="46 proyectos">0</div>
                 <div class="kpi-label">Proyectos</div>
                 <div class="kpi-sub">en base de datos</div>
             </div>
 
-            <!-- Nuevos KPIs Volumétricos (v1.12) -->
             <div class="kpi-card" id="kpi-steel" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">🔩</span>
+                <i class="fa-solid fa-bridge kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" aria-label="Total acero proyectado en toneladas">0</div>
                 <div class="kpi-label">Acero Proyectado</div>
                 <div class="kpi-sub">Total Acero Ton.</div>
             </div>
+
             <div class="kpi-card" id="kpi-concrete" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">🧱</span>
+                <i class="fa-solid fa-fill-drip kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" aria-label="Total hormigón proyectado en metros cúbicos">0</div>
                 <div class="kpi-label">Total Hormigón</div>
                 <div class="kpi-sub">m³ acumulados</div>
             </div>
+
             <div class="kpi-card" id="kpi-years" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">⏱️</span>
+                <i class="fa-solid fa-hourglass-half kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" data-count="17" data-suffix="+" aria-label="17+ años de experiencia">0</div>
                 <div class="kpi-label">Años Experiencia</div>
-                <div class="kpi-sub">desde 2006 a 2025</div>
+                <div class="kpi-sub">Trayectoria Profesional</div>
             </div>
+
             <div class="kpi-card" id="kpi-countries" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">🌎</span>
+                <i class="fa-solid fa-earth-americas kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" data-count="3" aria-label="3 países">0</div>
                 <div class="kpi-label">Países</div>
                 <div class="kpi-sub">Chile · México · Argentina</div>
             </div>
+
             <div class="kpi-card" id="kpi-sectors" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">🏗️</span>
+                <i class="fa-solid fa-industry kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" data-count="7" data-suffix="+" aria-label="7+ sectores">0</div>
                 <div class="kpi-label">Sectores</div>
-                <div class="kpi-sub">minería, salud, aviación…</div>
+                <div class="kpi-sub">Minería, Salud, Energía...</div>
             </div>
+
             <div class="kpi-card" id="kpi-active" role="listitem">
-                <span class="kpi-icon" aria-hidden="true">⚡</span>
+                <i class="fa-solid fa-helmet-safety kpi-icon" aria-hidden="true"></i>
                 <div class="kpi-value" data-count="1" aria-label="1 proyecto en curso">0</div>
                 <div class="kpi-label">En Curso</div>
-                <div class="kpi-sub">proyecto activo actualmente</div>
+                <div class="kpi-sub">Proyecto activo</div>
             </div>
 
 
@@ -296,15 +299,21 @@
             <h3 id="modal-title" class="modal-title"></h3>
         </header>
         <div class="modal-body">
-            <div class="modal-detail-grid" id="modal-detail-grid"></div>
-            <section>
-                <h4 class="modal-section-title">Descripción</h4>
-                <div class="modal-description" id="modal-description"></div>
-            </section>
-            <section>
-                <h4 class="modal-section-title">Actividades Clave</h4>
-                <div class="modal-activities" id="modal-activities"></div>
-            </section>
+            <div class="modal-bento-layout">
+                <aside class="modal-panel-left">
+                    <div class="modal-detail-grid" id="modal-detail-grid"></div>
+                </aside>
+                <main class="modal-panel-right">
+                    <section class="modal-section">
+                        <h4 class="modal-section-title">Descripción</h4>
+                        <div class="modal-description" id="modal-description"></div>
+                    </section>
+                    <section class="modal-section">
+                        <h4 class="modal-section-title">Actividades Clave</h4>
+                        <div class="modal-activities" id="modal-activities"></div>
+                    </section>
+                </main>
+            </div>
         </div>
     </div>
 </aside>

@@ -433,19 +433,19 @@ function clearFilters() {
 }
 
 function getSectorIcon(type) {
-  if (!type) return '📋';
+  if (!type) return 'fa-solid fa-clipboard-list';
   const t = type.toLowerCase();
-  if (t.includes('minería') || t.includes('cobre')) return '⛏️';
-  if (t.includes('salud') || t.includes('hospital')) return '🏥';
-  if (t.includes('aviación') || t.includes('aeropuerto')) return '✈️';
-  if (t.includes('metro')) return '🚇';
-  if (t.includes('energía') || t.includes('hidroeléctrica')) return '⚡';
-  if (t.includes('industrial') || t.includes('manufactura') || t.includes('celulosa') || t.includes('alimentos')) return '🏭';
-  if (t.includes('pasarela') || t.includes('vial') || t.includes('fronterizo')) return '🌉';
-  if (t.includes('desalinización') || t.includes('desaladora')) return '💧';
-  if (t.includes('comercial') || t.includes('entretenimiento')) return '🏢';
-  if (t.includes('municipal')) return '🏛️';
-  return '📋';
+  if (t.includes('minería') || t.includes('cobre')) return 'fa-solid fa-pickaxe';
+  if (t.includes('salud') || t.includes('hospital')) return 'fa-solid fa-hospital';
+  if (t.includes('aviación') || t.includes('aeropuerto')) return 'fa-solid fa-plane-departure';
+  if (t.includes('metro')) return 'fa-solid fa-train-subway';
+  if (t.includes('energía') || t.includes('hidroeléctrica')) return 'fa-solid fa-bolt';
+  if (t.includes('industrial') || t.includes('manufactura') || t.includes('celulosa') || t.includes('alimentos')) return 'fa-solid fa-industry';
+  if (t.includes('pasarela') || t.includes('vial') || t.includes('fronterizo')) return 'fa-solid fa-bridge';
+  if (t.includes('desalinización') || t.includes('desaladora')) return 'fa-solid fa-droplet';
+  if (t.includes('comercial') || t.includes('entretenimiento')) return 'fa-solid fa-building';
+  if (t.includes('municipal')) return 'fa-solid fa-building-columns';
+  return 'fa-solid fa-clipboard-list';
 }
 
 function renderCards(projects) {
@@ -459,18 +459,21 @@ function renderCards(projects) {
     const statusClass = p.status === 'Completado' ? 'completado' : 'en-curso';
     return `
     <div class="project-card" data-id="${p.id}" style="animation-delay:${i*0.04}s" onclick="openModal('${p.id}')">
-      <div class="card-header"><span class="card-id">${p.id}</span><span class="card-status ${statusClass}">${p.status}</span></div>
+      <div class="card-header">
+        <span class="card-id">${p.id}</span>
+        <span class="card-status ${statusClass}">${p.status === 'Completado' ? '<i class="fa-solid fa-check-circle mr-1"></i> Completado' : '<i class="fa-solid fa-clock-rotate-left mr-1"></i> En Curso'}</span>
+      </div>
       <div class="card-title">${p.name}</div>
       <div class="card-description">${p.desc}</div>
       <div class="card-meta">
-        <span class="meta-tag"><span class="icon">${getSectorIcon(p.type)}</span> ${p.type}</span>
-        <span class="meta-tag"><span class="icon">🔧</span> ${p.material}</span>
-        <span class="meta-tag" title="${p.software}"><span class="icon">💻</span> ${p.software}</span>
-        <span class="meta-tag"><span class="icon">📍</span> ${p.city}</span>
-        ${p.concrete_volume > 0 ? `<span class="meta-tag scale-tag"><span class="icon">🧱</span> ${p.concrete_volume} m³</span>` : ''}
-        ${p.steel_weight > 0 ? `<span class="meta-tag scale-tag"><span class="icon">🏗️</span> ${p.steel_weight} Ton.</span>` : ''}
+        <span class="meta-tag"><i class="${getSectorIcon(p.type)} icon"></i> ${p.type}</span>
+        <span class="meta-tag"><i class="fa-solid fa-microchip icon"></i> ${p.material}</span>
+        <span class="meta-tag" title="${p.software}"><i class="fa-solid fa-laptop-code icon"></i> ${p.software}</span>
+        <span class="meta-tag"><i class="fa-solid fa-location-dot icon"></i> ${p.city}</span>
+        ${p.concrete_volume > 0 ? `<span class="meta-tag scale-tag"><i class="fa-solid fa-fill-drip icon"></i> ${p.concrete_volume} m³</span>` : ''}
+        ${p.steel_weight > 0 ? `<span class="meta-tag scale-tag"><i class="fa-solid fa-bridge icon"></i> ${p.steel_weight} Ton.</span>` : ''}
       </div>
-      <div class="card-footer"><span class="card-company">${p.company}</span></div>
+      <div class="card-footer"><span class="card-company"><i class="fa-solid fa-building mr-1"></i> ${p.company}</span></div>
     </div>`;
   }).join('');
 }
@@ -514,19 +517,31 @@ function openModal(id) {
   if (!p) return;
   document.getElementById('modal-id').textContent = p.id;
   document.getElementById('modal-title').textContent = p.name;
-  document.getElementById('modal-detail-grid').innerHTML = `
-    <div class="detail-item"><div class="detail-label">Cliente</div><div class="detail-value">${p.client}</div></div>
-    <div class="detail-item"><div class="detail-label">Empresa</div><div class="detail-value">${p.company}</div></div>
-    <div class="detail-item"><div class="detail-label">País</div><div class="detail-value">${p.country}</div></div>
-    <div class="detail-item"><div class="detail-label">Ciudad</div><div class="detail-value">${p.city}</div></div>
-    <div class="detail-item"><div class="detail-label">Estado</div><div class="detail-value"><span class="card-status ${p.status==='Completado'?'completado':'en-curso'}" style="display:inline-block">${p.status}</span></div></div>
-    <div class="detail-item"><div class="detail-label">Sector / Industria</div><div class="detail-value">${p.type || '–'}</div></div>
-    <div class="detail-item"><div class="detail-label">Etapa Ingeniería</div><div class="detail-value">${p.phase || '–'}</div></div>
-    <div class="detail-item"><div class="detail-label">Material</div><div class="detail-value">${p.material || '–'}</div></div>
-    ${p.concrete_volume ? `<div class="detail-item"><div class="detail-label">Volumen Hormigón</div><div class="detail-value">${p.concrete_volume} m³</div></div>` : ''}
-    ${p.steel_weight ? `<div class="detail-item"><div class="detail-label">Acero Estructural</div><div class="detail-value">${p.steel_weight} Ton.</div></div>` : ''}
-    <div class="detail-item"><div class="detail-label">Rol</div><div class="detail-value">${p.role}</div></div>
-    <div class="detail-item"><div class="detail-label">Software</div><div class="detail-value">${p.software}</div></div>`;
+  
+  const details = [
+    { label: 'Cliente', value: p.client, icon: 'fa-user-tie' },
+    { label: 'Empresa', value: p.company, icon: 'fa-building' },
+    { label: 'País', value: p.country, icon: 'fa-globe' },
+    { label: 'Ciudad', value: p.city, icon: 'fa-map-location-dot' },
+    { label: 'Estado', value: `<span class="card-status ${p.status==='Completado'?'completado':'en-curso'}" style="display:inline-block">${p.status}</span>`, icon: 'fa-info-circle' },
+    { label: 'Sector / Industria', value: p.type || '–', icon: 'fa-industry' },
+    { label: 'Etapa Ingeniería', value: p.phase || '–', icon: 'fa-compass-drafting' },
+    { label: 'Material', value: p.material || '–', icon: 'fa-layer-group' },
+    { label: 'Volumen Hormigón', value: p.concrete_volume ? `${p.concrete_volume} m³` : null, icon: 'fa-fill-drip' },
+    { label: 'Acero Estructural', value: p.steel_weight ? `${p.steel_weight} Ton.` : null, icon: 'fa-bridge' },
+    { label: 'Rol', value: p.role, icon: 'fa-id-card' },
+    { label: 'Software', value: p.software, icon: 'fa-laptop-code' }
+  ].filter(d => d.value !== null);
+
+  document.getElementById('modal-detail-grid').innerHTML = details.map(d => `
+    <div class="detail-item">
+      <div class="detail-icon"><i class="fa-solid ${d.icon}"></i></div>
+      <div class="detail-content">
+        <div class="detail-label">${d.label}</div>
+        <div class="detail-value">${d.value}</div>
+      </div>
+    </div>`).join('');
+
   document.getElementById('modal-description').textContent = p.desc;
   document.getElementById('modal-activities').innerHTML = p.activities.split(/[;,]/).map(a=>a.trim()).filter(Boolean).map(a=>`<span class="activity-tag">${a}</span>`).join('');
   document.getElementById('modal-overlay').classList.add('active');
@@ -573,8 +588,18 @@ function renderDonut(containerId, data) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const total = data.reduce((s,[,v])=>s+v,0);
-  const colors = ['#38bdf8','#818cf8','#34d399','#fb923c','#f472b6','#a78bfa','#fbbf24','#f87171','#2dd4bf','#e879f9'];
-  const size=160, cx=size/2, cy=size/2, r=55, strokeWidth=24;
+  // High-end consistent palette
+  const colors = [
+    '#38bdf8', // BIM Blue
+    '#818cf8', // Indigo
+    '#34d399', // Emerald
+    '#fb923c', // Orange
+    '#f472b6', // Pink
+    '#a78bfa', // Purple
+    '#fbbf24', // Amber
+    '#f87171'  // Red
+  ];
+  const size=220, cx=size/2, cy=size/2, r=70, strokeWidth=28;
   const circumference = 2*Math.PI*r;
   let cumulative = 0;
   const segments = data.map(([label,count],i) => {
@@ -583,10 +608,19 @@ function renderDonut(containerId, data) {
   });
   const svgPaths = segments.map(s => {
     const dashLen=s.frac*circumference, dashGap=circumference-dashLen, dashOffset=-(s.offset*circumference);
-    return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${s.color}" stroke-width="${strokeWidth}" stroke-dasharray="${dashLen} ${dashGap}" stroke-dashoffset="${dashOffset}" style="transition:stroke-dasharray 1s ease,stroke-dashoffset 1s ease;"/>`;
+    return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${s.color}" stroke-width="${strokeWidth}" stroke-dasharray="${dashLen} ${dashGap}" stroke-dashoffset="${dashOffset}" style="transition:stroke-dasharray 1s ease,stroke-dashoffset 1s ease;" stroke-linecap="butt"/>`;
   }).join('');
-  const legend = segments.map(s=>`<div class="legend-item"><span class="legend-dot" style="background:${s.color}"></span><span>${s.label}</span><span class="legend-count">${s.count}</span></div>`).join('');
-  container.innerHTML = `<div class="donut-container"><svg class="donut-svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="transform:rotate(-90deg)">${svgPaths}</svg><div class="donut-legend">${legend}</div></div>`;
+  const legend = segments.map(s=>`
+    <div class="legend-item">
+      <span class="legend-dot" style="background:${s.color}; box-shadow: 0 0 10px ${s.color}66;"></span>
+      <span>${s.label}</span>
+      <span class="legend-count">${s.count}</span>
+    </div>`).join('');
+  container.innerHTML = `
+    <div class="donut-container" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+      <svg class="donut-svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="transform:rotate(-90deg); filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));">${svgPaths}</svg>
+      <div class="donut-legend" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; flex: 1;">${legend}</div>
+    </div>`;
 }
 
 // ── Init on DOM ready ──
