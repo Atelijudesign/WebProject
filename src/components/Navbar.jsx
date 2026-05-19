@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { navLinks } from "../constants";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -14,61 +16,81 @@ export default function Navbar() {
   }, []);
 
   const handleNavClick = (e, link) => {
-    if (link.external) return; // Let browser handle full navigation
-    e.preventDefault();
+    if (link.external) return;
+    
     setIsOpen(false);
-    const el = document.querySelector(link.href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    // Si es un enlace de anclaje (#seccion)
+    if (link.href.startsWith("#")) {
+      if (location.pathname !== "/") {
+        // Si no estamos en la Home, navegamos a la Home + anclaje
+        // El navegador por defecto no hace scroll suave al cambiar de página
+        // pero cargará la Home en esa sección.
+        return; 
+      } else {
+        // Si ya estamos en la Home, scroll suave manual
+        e.preventDefault();
+        const id = link.href.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    }
   };
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="nav-logo"
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
+            setIsOpen(false);
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
           Andrés Gallo <span>P.BIM</span>
-        </a>
+        </Link>
 
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
           {navLinks.map((link) => {
-            if (link.external) {
+            const isExternal = link.external;
+            const isInternalPage = link.href.startsWith("/");
+            const isAnchor = link.href.startsWith("#");
+
+            if (isExternal) {
               return (
                 <a
                   key={link.id}
-                  href={`/${link.href}`}
+                  href={link.href}
                   className={link.cta ? "nav-cta" : ""}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {link.title}
                 </a>
               );
             }
-            if (link.href.startsWith("/")) {
-              return (
-                <Link
-                  key={link.id}
-                  to={link.href}
-                  className={link.cta ? "nav-cta" : ""}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.title}
-                </Link>
-              );
-            }
+
             return (
-              <a
+              <Link
                 key={link.id}
-                href={`/${link.href}`}
-                className={link.cta ? "nav-cta" : ""}
+                to={isAnchor ? `/${link.href}` : link.href}
+                className={link.cta ? "nav-cta active" : ""}
                 onClick={(e) => handleNavClick(e, link)}
               >
                 {link.title}
-              </a>
+              </Link>
             );
           })}
         </div>

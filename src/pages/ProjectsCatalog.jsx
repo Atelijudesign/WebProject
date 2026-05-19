@@ -63,7 +63,26 @@ export default function ProjectsCatalog() {
         </div>
 
         {loading ? (
-          <div className="text-center text-bim-blue py-12 text-xl font-bold">Cargando base de datos...</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 projects-grid">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="project-card bg-slate-900/50 border border-slate-700/50 rounded-2xl p-6 flex flex-col animate-pulse">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="h-6 w-16 bg-slate-800 rounded-lg"></div>
+                  <div className="h-6 w-20 bg-slate-800 rounded-lg"></div>
+                </div>
+                <div className="h-6 w-3/4 bg-slate-800 rounded-lg mb-4"></div>
+                <div className="h-16 w-full bg-slate-800 rounded-lg mb-6 flex-grow"></div>
+                <div className="flex gap-2 mb-4 mt-auto border-b border-slate-700/50 pb-4">
+                  <div className="h-5 w-20 bg-slate-800 rounded-lg"></div>
+                  <div className="h-5 w-24 bg-slate-800 rounded-lg"></div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="h-4 w-24 bg-slate-800 rounded-lg"></div>
+                  <div className="h-8 w-24 bg-slate-800 rounded-lg"></div>
+                </div>
+              </div>
+            ))}
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 projects-grid">
             {filteredProjects.map((p) => (

@@ -5,6 +5,13 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   root: './',
+  resolve: {
+    alias: {
+      stream: 'stream-browserify',
+      path: 'path-browserify',
+      events: 'events',
+    },
+  },
   build: {
     outDir: 'dist',
     rollupOptions: {
