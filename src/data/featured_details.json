@@ -1,0 +1,269 @@
+{
+  "los-condores": {
+    "slug": "los-condores",
+    "description_paragraphs": [
+      "A 360 kilómetros al sur de la capital, Santiago, a una hora de camino de Talca y cerca ya del paso del Pehuenche, frontera andina entre Chile y Argentina, las obras de la central avanzan sin pausa. La mayoría de los trabajos no se ven, ocultos en las entrañas de la cordillera. Cuando estén terminados, el único rastro de que allí está enterrada una de las mayores centrales hidroeléctricas del país será una puerta de entrada.",
+      "Bajo la tierra se construyen los 12 kilómetros del túnel de aducción, el agujero que llevará el agua de la laguna del Maule hasta las turbinas. También allí, en una gruta artificial de 40 metros de altura, está ubicada la caverna de máquinas, y se salvan los 470 metros de desnivel del túnel de presión blindado.",
+      "El objetivo es pedirle prestado su poder al agua sin alterar su entorno. Equilibrar la demanda eléctrica con las necesidades de riego del valle del Maule sin que la paz de los Andes se vea interrumpida. Iluminar Chile sin molestar al cóndor, que ya estaba allí antes de que los hombres decidiesen agujerear la tierra."
+    ],
+    "gallery_images": [
+      "assets/img/phelc_portada.webp",
+      "assets/img/phelc_01.webp",
+      "assets/img/phelc_02.webp",
+      "assets/img/phelc_03.webp",
+      "assets/img/phelc_04.webp",
+      "assets/img/phelc_05.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2014"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Maule, Chile"
+      },
+      {
+        "icon": "fa-solid fa-bolt",
+        "label": "Capacidad",
+        "value": "150 MW aprox."
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Energía"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit"
+    ]
+  },
+  "aeropuerto-amb": {
+    "slug": "aeropuerto-amb",
+    "description_paragraphs": [
+      "Este proyecto consistió en la ampliación significativa del                 Aeropuerto Internacional Arturo Merino Benítez en Santiago de                 Chile. El alcance incluyó el modelado complejo de la nueva                 Terminal 2, los espigones de embarque y los edificios de                 estacionamientos, cubriendo una superficie total de más de                 320,000 m².",
+      "Como parte del equipo de ingeniería, mi rol se centró en la                 coordinación interdisciplinaria y la gestión de modelos BIM para                 asegurar la integración precisa de las estructuras de acero y                 hormigón con las instalaciones MEP y los sistemas                 arquitectónicos."
+    ],
+    "gallery_images": [
+      "assets/img/amb_00.webp",
+      "assets/img/amb_01.webp",
+      "assets/img/amb_02.webp",
+      "assets/img/amb_pl1.webp",
+      "assets/img/amb_pl1.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2018"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Santiago, Chile"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "320,000 m²"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Navisworks",
+      "AutoCAD"
+    ]
+  },
+  "maquina-papelera": {
+    "slug": "maquina-papelera",
+    "description_paragraphs": [
+      "Desarrollado para ABSORMEX en México, este proyecto industrial                 abarcó la ingeniería de detalles para una nueva línea de                 producción de papel. El alcance incluyó el modelado de                 estructuras masivas para las áreas de conversión, almacenamiento                 de materia prima y zonas de descarga, cubriendo un área                 aproximada de 8,000 m².",
+      "La complejidad del proyecto requirió una coordinación precisa                 entre la estructura metálica y la maquinaria pesada. Se utilizó                 BIM 360 para la gestión documental y la colaboración en la nube,                 asegurando que todos los stakeholders tuvieran acceso a la                 información más actualizada."
+    ],
+    "gallery_images": [
+      "assets/img/mp5_Portada.webp",
+      "assets/img/mp5_01.webp",
+      "assets/img/mp5_02.webp",
+      "assets/img/mp5_03.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2023"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "México"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "8,000 m²"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "BIM 360"
+    ]
+  },
+  "hospital-marga-marga": {
+    "slug": "hospital-marga-marga",
+    "description_paragraphs": [
+      "El Hospital Marga Marga es un moderno complejo hospitalario de                 75,000 m² ubicado en Villa Alemana. El proyecto requirió un                 modelado BIM exhaustivo de todas las estructuras de hormigón                 armado, así como una coordinación interdisciplinaria avanzada                 para integrar los sistemas médicos y las instalaciones                 generales.",
+      "El desafío principal radicó en la alta densidad de instalaciones                 y la necesidad de cumplir con estrictos estándares de                 infraestructura hospitalaria. El uso de Navisworks para la                 detección de interferencias fue crucial para asegurar la                 constructibilidad del diseño."
+    ],
+    "gallery_images": [
+      "assets/img/hmm_portada.webp",
+      "assets/img/hmm_01.webp",
+      "assets/img/hmm_02.webp",
+      "assets/img/hmm_03.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2019"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Villa Alemana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "75,000 m²"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Salud"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Navisworks"
+    ]
+  },
+  "paso-los-libertadores": {
+    "slug": "paso-los-libertadores",
+    "description_paragraphs": [
+      "Ubicado a más de 3,200 metros de altura en la frontera entre                 Chile y Argentina, el nuevo Complejo Fronterizo Los Libertadores                 presentó desafíos únicos de ingeniería y logística. El proyecto                 consistió en el modelado de las estructuras principales capaces                 de soportar condiciones climáticas extremas y cargas de nieve                 significativas.",
+      "Se utilizó Tekla Structures para el detallamiento preciso de las                 estructuras de acero y hormigón, asegurando un montaje eficiente                 en un entorno de difícil acceso. La coordinación con Revit y                 Navisworks permitió integrar las instalaciones y garantizar la                 operatividad del complejo."
+    ],
+    "gallery_images": [
+      "assets/img/pfll_00.webp",
+      "assets/img/pfll_01.webp",
+      "assets/img/pfll_02.webp",
+      "assets/img/pfll_03.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2015"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Los Andes, Chile"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "35,000 m²"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      }
+    ],
+    "technologies": [
+      "Tekla",
+      "Revit"
+    ]
+  },
+  "proyecto-arqueros": {
+    "slug": "proyecto-arqueros",
+    "description_paragraphs": [
+      "El Proyecto Arqueros es un desarrollo minero enfocado en la                 producción de concentrados. El alcance del modelado BIM incluyó                 el chancador primario y diversas estructuras anexas críticas                 para el proceso productivo.",
+      "La precisión en el modelado estructural fue fundamental para                 asegurar la correcta integración de los equipos mecánicos de                 gran tonelaje. Se utilizó Revit para el modelado detallado y                 Navisworks para la coordinación y revisión de constructibilidad."
+    ],
+    "gallery_images": [
+      "assets/img/par_portada.png",
+      "assets/img/par_001.png",
+      "assets/img/par_002.png",
+      "assets/img/par_003.png",
+      "assets/img/par_004.png",
+      "assets/img/par_005.png"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2024"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Navisworks"
+    ]
+  },
+  "desaladora-sto-domingo": {
+    "slug": "desaladora-sto-domingo",
+    "description_paragraphs": [
+      "Este proyecto estratégico ubicado en la región de Atacama tiene                 como objetivo asegurar el suministro hídrico mediante la                 desalinización de agua de mar. El alcance del modelado incluyó                 componentes críticos como la sentina de captación, la sala                 eléctrica principal y la planta de ósmosis inversa.",
+      "Se utilizaron herramientas avanzadas como Revit y Civil 3D para                 integrar el diseño de las estructuras de hormigón armado con las                 complejas redes de tuberías y equipamiento mecánico, asegurando                 una coordinación perfecta entre las disciplinas civil,                 estructural y mecánica."
+    ],
+    "gallery_images": [
+      "assets/img/desal_00.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2025"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Hidráulica"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Civil 3D"
+    ]
+  }
+}

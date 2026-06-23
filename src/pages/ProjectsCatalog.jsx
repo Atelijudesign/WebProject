@@ -1,34 +1,38 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import projectsData from "../data/proyectos.json";
 
 export default function ProjectsCatalog() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const SUPABASE_URL = "https://lhorekdbwnrrjtgzipgs.supabase.co";
-  const SUPABASE_KEY = "sb_publishable_kfHl7UUtWD4REHOuiWdpqA_wdHWdl62";
-
   useEffect(() => {
     async function loadProjects() {
       try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/proyectos?select=*&order=project_id.desc`, {
-          headers: {
-            apikey: SUPABASE_KEY,
-            Authorization: `Bearer ${SUPABASE_KEY}`
+        let data = null;
+        if (window.location.hostname === 'localhost') {
+          try {
+            const res = await fetch('http://localhost:3001/api/projects');
+            if (res.ok) {
+              const json = await res.json();
+              data = json.value;
+            }
+          } catch (e) {
+            console.warn("Local API server not running, using static JSON", e);
           }
-        });
-        
-        if (!res.ok) throw new Error("Supabase Fetch Failed");
-        const data = await res.json();
-        setProjects(data);
+        }
+
+        if (!data) {
+          data = projectsData.value;
+        }
+
+        // Sort by project_id desc
+        const sortedData = [...data].sort((a, b) => b.project_id.localeCompare(a.project_id));
+        setProjects(sortedData);
       } catch (e) {
         console.error(e);
-        // Fallback data if Supabase fails
-        setProjects([
-          { project_id: "P-046", name: "Proyecto Atrio Sur", company: "BIOS MI", project_type: "Edificación / Comercial", material: "Acero Estructural", status: "Completado", description: "Fabricación de estructuras metálicas para Atrio Sur." },
-          { project_id: "P-045", name: "Proyecto Desaladora Santo Domingo", company: "BIOS MI", project_type: "Industrial", material: "Acero + Hormigón", status: "En Curso", description: "Ingeniería de detalles estanques GRP planta desaladora." }
-        ]);
+        setProjects(projectsData.value || []);
       } finally {
         setLoading(false);
       }

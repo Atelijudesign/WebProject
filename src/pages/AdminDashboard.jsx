@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { supabase } from '../lib/supabase';
+import projectsData from '../data/proyectos.json';
 import ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
@@ -45,7 +45,9 @@ function SortableRow({ project, onEdit, onDuplicate, onDelete }) {
         <i className="fa-solid fa-grip-vertical"></i>≡
       </td>
       <td className="cell-id">{project.project_id}</td>
-      <td className="cell-name" title={project.name}>{project.name}</td>
+      <td className="cell-name" title={project.name}>
+        {project.name}
+      </td>
       <td>{project.company}</td>
       <td>{project.client || '–'}</td>
       <td>{project.project_type || ''}</td>
@@ -132,9 +134,6 @@ export default function AdminDashboard() {
   // -- INIT
   useEffect(() => {
     checkAuth();
-    supabase.auth.onAuthStateChange((_event, curSession) => {
-      setSession(curSession);
-    });
     
     // Keyboard Escape for Modals
     const handleKeyDown = (e) => {
@@ -161,8 +160,14 @@ export default function AdminDashboard() {
 
   // -- AUTH LOGIC
   const checkAuth = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    setSession(session);
+    const saved = localStorage.getItem('ateliju_session');
+    if (saved) {
+      try {
+        setSession(JSON.parse(saved));
+      } catch (e) {
+        localStorage.removeItem('ateliju_session');
+      }
+    }
     setLoadingCheck(false);
   };
 
@@ -170,37 +175,52 @@ export default function AdminDashboard() {
     e.preventDefault();
     setLoginError('');
     setIsLoggingIn(true);
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) {
-      setLoginError('Credenciales incorrectas');
-    } else {
-      setSession(data.session);
+    
+    if (email === 'admin@atelijudesign.com' && password === 'admin123') {
+      const mockSession = { user: { email }, access_token: 'local-token' };
+      localStorage.setItem('ateliju_session', JSON.stringify(mockSession));
+      setSession(mockSession);
       showToast('✓ Sesión iniciada', 'success');
+    } else {
+      setLoginError('Credenciales incorrectas');
     }
     setIsLoggingIn(false);
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    localStorage.removeItem('ateliju_session');
     setSession(null);
     showToast('Sesión cerrada', 'info');
   };
 
   // -- DB LOAD
   const loadProjects = async () => {
-    const { data, error } = await supabase
-      .from('proyectos')
-      .select('*')
-      .order('project_id', { ascending: false });
+    try {
+      let data = null;
+      if (window.location.hostname === 'localhost') {
+        try {
+          const res = await fetch('http://localhost:3001/api/projects');
+          if (res.ok) {
+            const json = await res.json();
+            data = json.value;
+          }
+        } catch (e) {
+          console.warn("Local API server not running, using static JSON", e);
+        }
+      }
       
-    if (error) {
+      if (!data) {
+        data = projectsData.value;
+      }
+      
+      // Sort by project_id descending
+      const sortedData = [...data].sort((a, b) => b.project_id.localeCompare(a.project_id));
+      setProjects(sortedData);
+      setHasUnsavedOrder(false); // Reset on load
+    } catch (error) {
       showToast(`Error al cargar: ${error.message}`, 'error');
       console.error(error);
-      return;
     }
-    
-    setProjects(data);
-    setHasUnsavedOrder(false); // Reset on load
   };
 
   // -- FILTERING
@@ -256,7 +276,6 @@ export default function AdminDashboard() {
   };
 
   const saveNewOrder = async () => {
-    // Similar sequence logic to admin.js
     if (filteredProjects.length !== projects.length) {
       showToast('No puedes reordenar mientras hay filtros activos', 'error');
       return;
@@ -264,49 +283,59 @@ export default function AdminDashboard() {
     
     setIsSavingOrder(true);
     const n = projects.length;
-    const tempUpdates = [];
-    const finalUpdates = [];
-    
-    projects.forEach((proj, index) => {
-      tempUpdates.push({ ...proj, project_id: `TEMP-${proj.id.substring(0, 8)}` });
+    const finalUpdates = projects.map((proj, index) => {
       const newNum = n - index;
       const finalIdStr = `P-${String(newNum).padStart(3, '0')}`;
-      finalUpdates.push({ ...proj, project_id: finalIdStr });
+      return { ...proj, project_id: finalIdStr };
     });
 
-    try {
-      const { error: err1 } = await supabase.from('proyectos').upsert(tempUpdates);
-      if (err1) throw err1;
-      const { error: err2 } = await supabase.from('proyectos').upsert(finalUpdates);
-      if (err2) throw err2;
-      
-      showToast('✓ Orden guardado exitosamente', 'success');
-      setHasUnsavedOrder(false);
-      await loadProjects();
-    } catch (error) {
-      console.error(error);
-      showToast('Error al guardar el nuevo orden', 'error');
-    } finally {
+    if (window.location.hostname === 'localhost') {
+      try {
+        const res = await fetch('http://localhost:3001/api/projects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ value: finalUpdates })
+        });
+        if (!res.ok) throw new Error("Failed to save new order");
+        
+        showToast('✓ Orden guardado exitosamente', 'success');
+        setHasUnsavedOrder(false);
+        await loadProjects();
+      } catch (error) {
+        console.error(error);
+        showToast('Error al guardar el nuevo orden', 'error');
+      } finally {
+        setIsSavingOrder(false);
+      }
+    } else {
+      showToast('No se puede reordenar en producción (sitio estático)', 'error');
       setIsSavingOrder(false);
     }
   };
 
   const autoResequenceIds = async (currentArray) => {
     const n = currentArray.length;
-    const tempUpdates = [];
-    const finalUpdates = [];
-    currentArray.forEach((proj, index) => {
-      tempUpdates.push({ ...proj, project_id: `TEMP-${proj.id.substring(0, 8)}` });
+    const finalUpdates = currentArray.map((proj, index) => {
       const newNum = n - index;
       const finalIdStr = `P-${String(newNum).padStart(3, '0')}`;
-      finalUpdates.push({ ...proj, project_id: finalIdStr });
+      return { ...proj, project_id: finalIdStr };
     });
-    try {
-      await supabase.from('proyectos').upsert(tempUpdates);
-      await supabase.from('proyectos').upsert(finalUpdates);
-      await loadProjects();
-    } catch (error) {
-      console.error('Error auto-resequencing', error);
+
+    if (window.location.hostname === 'localhost') {
+      try {
+        const res = await fetch('http://localhost:3001/api/projects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ value: finalUpdates })
+        });
+        if (!res.ok) throw new Error("Failed to auto-resequence IDs");
+        await loadProjects();
+      } catch (error) {
+        console.error('Error auto-resequencing', error);
+        showToast('Error al reordenar IDs en el servidor', 'error');
+      }
+    } else {
+      showToast('No se pueden guardar cambios en producción (sitio estático)', 'error');
     }
   };
 
@@ -318,7 +347,9 @@ export default function AdminDashboard() {
       project_id: `P-${String(maxId + 1).padStart(3, '0')}`,
       status: 'Completado',
       country: 'Chile',
-      role: 'Proyectista Estructural'
+      role: 'Proyectista Estructural',
+      featured: false,
+      image_url: ''
     });
     setIsFormOpen(true);
   };
@@ -371,7 +402,9 @@ export default function AdminDashboard() {
       software: (formData.software || '').trim(),
       status: formData.status || 'Completado',
       description: (formData.description || '').trim(),
-      activities: (formData.activities || '').trim()
+      activities: (formData.activities || '').trim(),
+      featured: !!formData.featured,
+      image_url: (formData.image_url || '').trim() || null
     };
 
     if (!record.project_id || !record.name || !record.company) {
@@ -380,24 +413,41 @@ export default function AdminDashboard() {
       return;
     }
 
-    let error;
+    let updatedProjects;
     if (editingId) {
-      ({ error } = await supabase.from('proyectos').update(record).eq('id', editingId));
+      updatedProjects = projects.map(p => p.id === editingId ? { ...p, ...record, updated_at: new Date().toISOString() } : p);
     } else {
-      ({ error } = await supabase.from('proyectos').insert(record));
+      const newProject = {
+        ...record,
+        id: crypto.randomUUID(),
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      };
+      updatedProjects = [newProject, ...projects];
     }
 
-    setIsSavingRecord(false);
-
-    if (error) {
-      console.error(error);
-      showToast(`Error: ${error.message}`, 'error');
-      return;
+    if (window.location.hostname === 'localhost') {
+      try {
+        const res = await fetch('http://localhost:3001/api/projects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ value: updatedProjects })
+        });
+        if (!res.ok) throw new Error("Failed to save to local API");
+        
+        setIsSavingRecord(false);
+        showToast(editingId ? '✓ Proyecto actualizado' : '✓ Proyecto creado', 'success');
+        closeFormModal();
+        await loadProjects();
+      } catch (err) {
+        setIsSavingRecord(false);
+        console.error(err);
+        showToast(`Error al guardar localmente: ${err.message}`, 'error');
+      }
+    } else {
+      setIsSavingRecord(false);
+      showToast('No se pueden guardar cambios en producción (sitio estático)', 'error');
     }
-
-    showToast(editingId ? '✓ Proyecto actualizado' : '✓ Proyecto creado', 'success');
-    closeFormModal();
-    loadProjects();
   };
 
   const startDelete = (uuid, projectId) => {
@@ -414,20 +464,13 @@ export default function AdminDashboard() {
 
   const handleDelete = async () => {
     if (!deletingId) return;
-    const { error } = await supabase.from('proyectos').delete().eq('id', deletingId);
+    const remaining = projects.filter(p => p.id !== deletingId);
     
     setIsConfirmOpen(false);
-    
-    if (error) {
-      showToast('Error al eliminar', 'error');
-      console.error(error);
-      return;
-    }
-    
     showToast('✓ Proyecto eliminado. Reordenando IDs...', 'info');
     
     // Auto resequence immediately after delete
-    const remaining = projects.filter(p => p.id !== deletingId);
+    const targetUuid = deletingId;
     setDeletingId(null);
     await autoResequenceIds(remaining);
   };
@@ -767,39 +810,39 @@ export default function AdminDashboard() {
         </div>
 
         {/* Dynamic Table */}
-        <div className="admin-table-wrap">
-          <table className="admin-table w-full">
-            <thead>
-              <tr>
-                <th style={{width: '40px', textAlign: 'center'}}></th>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Empresa</th>
-                <th>Cliente</th>
-                <th>Tipo</th>
-                <th>Hormigón (m³)</th>
-                <th>Acero (Ton.)</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredProjects.length === 0 ? (
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <div className="admin-table-wrap">
+            <table className="admin-table w-full">
+              <thead>
                 <tr>
-                  <td colSpan="10" className="text-center py-8 text-slate-500">Sin resultados</td>
+                  <th style={{width: '40px', textAlign: 'center'}}></th>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Empresa</th>
+                  <th>Cliente</th>
+                  <th>Tipo</th>
+                  <th>Hormigón (m³)</th>
+                  <th>Acero (Ton.)</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
                 </tr>
-              ) : (
-                <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+              </thead>
+              <tbody>
+                {filteredProjects.length === 0 ? (
+                  <tr>
+                    <td colSpan="10" className="text-center py-8 text-slate-500">Sin resultados</td>
+                  </tr>
+                ) : (
                   <SortableContext items={filteredProjects.map(p => p.id)} strategy={verticalListSortingStrategy}>
                     {filteredProjects.map(p => (
                       <SortableRow key={p.id} project={p} onEdit={editProject} onDuplicate={duplicateProject} onDelete={startDelete} />
                     ))}
                   </SortableContext>
-                </DndContext>
-              )}
-            </tbody>
-          </table>
-        </div>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </DndContext>
       </div>
 
       {/* OVERLAY MAPS (Modals) */}
@@ -816,7 +859,7 @@ export default function AdminDashboard() {
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">ID del Proyecto *</label>
-                  <input className="form-input" required value={formData.project_id || ''} onChange={e=>setFormData({...formData, project_id: e.target.value})} />
+                  <input className="form-input" required value={formData.project_id || ''} onFocus={(e) => e.target.select()} onChange={e=>setFormData({...formData, project_id: e.target.value})} />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Estado *</label>
@@ -898,9 +941,20 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Software</label>
-                <input className="form-input" value={formData.software || ''} onChange={e=>setFormData({...formData, software: e.target.value})} />
+              <div className="form-row">
+                <div className="form-group">
+                  <label className="form-label">Imagen de Portada</label>
+                  <input 
+                    className="form-input" 
+                    placeholder="assets/img/amb_00.webp" 
+                    value={formData.image_url || ''} 
+                    onChange={e => setFormData({ ...formData, image_url: e.target.value })} 
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Software</label>
+                  <input className="form-input" value={formData.software || ''} onChange={e=>setFormData({...formData, software: e.target.value})} />
+                </div>
               </div>
 
               <div className="form-group">

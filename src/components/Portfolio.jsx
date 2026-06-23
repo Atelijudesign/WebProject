@@ -1,8 +1,9 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { portfolioFilters, portfolioProjects } from "../constants";
 import SectionWrapper from "../hoc/SectionWrapper";
+import projectsData from "../data/proyectos.json";
 
 function PortfolioCard({ project, index }) {
   return (
@@ -64,15 +65,58 @@ function PortfolioCard({ project, index }) {
 
 function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("Todos");
+  const [dbFeatured, setDbFeatured] = useState([]);
+
+  useEffect(() => {
+    async function loadDbFeatured() {
+      try {
+        let data = null;
+        if (window.location.hostname === 'localhost') {
+          try {
+            const res = await fetch('http://localhost:3001/api/projects');
+            if (res.ok) {
+              const json = await res.json();
+              data = json.value;
+            }
+          } catch (e) {
+            console.warn("Local API server not running, using static JSON", e);
+          }
+        }
+
+        if (!data) {
+          data = projectsData.value;
+        }
+
+        // Filter and map database projects marked as featured
+        const featuredList = (data || [])
+          .filter(p => p.featured === true)
+          .map(p => ({
+            image: p.image_url || "assets/img/amb_00.webp",
+            category: p.project_type || "Estructural",
+            title: p.name,
+            year: String(p.year_end || p.year_start || p.period || ""),
+            tags: p.software ? p.software.split(',').map(s => s.trim()) : ["Revit"],
+            description: p.description || "",
+            link: `/project/${p.project_id}`
+          }));
+
+        setDbFeatured(featuredList);
+      } catch (err) {
+        console.error("Error loading featured projects from DB:", err);
+      }
+    }
+    loadDbFeatured();
+  }, []);
 
   // Sort by year descending
   const sortedProjects = useMemo(() => {
-    return [...portfolioProjects].sort((a, b) => {
+    const combined = [...portfolioProjects, ...dbFeatured];
+    return combined.sort((a, b) => {
       const yearA = parseInt(a.year) || 0;
       const yearB = parseInt(b.year) || 0;
       return yearB - yearA;
     });
-  }, []);
+  }, [dbFeatured]);
 
   const filtered = useMemo(() => {
     if (activeFilter === "Todos") return sortedProjects;

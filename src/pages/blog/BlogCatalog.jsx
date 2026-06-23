@@ -20,47 +20,51 @@ export default function BlogCatalog() {
   });
 
   return (
-    <div className="bg-gray-50 dark:bg-bim-dark min-h-screen pt-28 pb-12 transition-colors duration-300">
+    <div className="bg-bim-dark min-h-screen pt-28 pb-12 text-slate-100 relative">
+      {/* Mesh and Noise Background Effects to match Projects Catalog */}
+      <div className="bg-mesh" aria-hidden="true" />
+      <div className="bg-noise" aria-hidden="true" />
+
       {/* Hero Section */}
-      <section className="px-4 relative overflow-hidden mb-12">
+      <section className="px-4 relative overflow-hidden mb-12 z-10">
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-10 w-72 h-72 bg-bim-blue rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-block mb-4 p-2 bg-blue-900/20 rounded-lg border border-blue-800/30">
+          <div className="inline-block mb-4 p-2 bg-blue-900/20 rounded-lg border border-bim-blue/20">
             <span className="text-bim-blue font-bold text-sm">
               <i className="fa-solid fa-blog mr-1"></i> Blog BIM Developer
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-white tracking-tight font-grotesk">
             Ideas, Código y{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-br from-bim-blue via-purple-500 to-cyan-400">
               Automatización
             </span>
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
             Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo
             lo que un Proyectista Estructural necesita para automatizar su trabajo.
           </p>
 
           {/* Search Bar */}
           <div className="max-w-xl mx-auto relative">
-            <i className="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <i className="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
             <input
               type="text"
               placeholder="Buscar artículos..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-bim-blue transition-all shadow-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-900/60 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-bim-blue focus:ring-1 focus:ring-bim-blue transition-all shadow-sm"
             />
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {BLOG_CATEGORIES.map((cat) => (
@@ -70,7 +74,7 @@ export default function BlogCatalog() {
               className={`px-5 py-2 rounded-full font-bold text-sm border transition-all duration-300 ${
                 activeCategory === cat.id
                   ? "border-bim-blue bg-bim-blue text-white shadow-md shadow-blue-500/20"
-                  : "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-bim-blue hover:text-bim-blue"
+                  : "border-slate-700 bg-slate-900/50 text-slate-300 hover:border-bim-blue hover:text-bim-blue hover:bg-slate-800/50"
               }`}
             >
               {cat.icon && <i className={`${cat.icon} mr-1 text-xs`}></i>}
@@ -84,7 +88,7 @@ export default function BlogCatalog() {
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="flex flex-col bg-white dark:bg-bim-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-bim-blue hover:shadow-[0_20px_40px_rgba(59,130,246,0.15)] hover:-translate-y-1 transition-all duration-300 group"
+              className="flex flex-col bg-slate-900/50 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-bim-blue/50 hover:shadow-[0_20px_40px_rgba(59,130,246,0.15)] hover:-translate-y-1 transition-all duration-300 group"
             >
               <div
                 className={`relative h-48 bg-gradient-to-br ${post.thumbnail.gradient} overflow-hidden`}
@@ -120,30 +124,30 @@ export default function BlogCatalog() {
               </div>
 
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
                   <span>
                     <i className="fa-regular fa-calendar mr-1"></i> {post.date}
                   </span>
-                  <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                  <span className="w-1 h-1 bg-slate-600 rounded-full"></span>
                   <span>
                     <i className="fa-regular fa-clock mr-1"></i>{" "}
                     {post.readingTime}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight font-grotesk">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight font-grotesk">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-5 line-clamp-3 flex-1">
+                <p className="text-slate-400 text-sm mb-5 line-clamp-3 flex-1">
                   {post.description}
                 </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-800">
                   <div className="flex gap-2 flex-wrap">
                     {post.categories.slice(0, 3).map((cat) => (
                       <span
                         key={cat}
-                        className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-md font-medium"
+                        className="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded-md font-medium"
                       >
                         {cat}
                       </span>
@@ -163,26 +167,26 @@ export default function BlogCatalog() {
 
           {/* Placeholder: Coming Soon C# */}
           {activeCategory === "all" || activeCategory === "csharp" ? (
-            <div className="flex flex-col bg-white/50 dark:bg-bim-card/50 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 border-dashed opacity-60">
-              <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+            <div className="flex flex-col bg-slate-900/20 rounded-2xl overflow-hidden border border-slate-700/30 border-dashed opacity-60">
+              <div className="relative h-48 bg-slate-900/30 flex items-center justify-center">
                 <div className="text-center">
                   <span className="text-5xl opacity-40">🏗️</span>
-                  <p className="text-gray-500 dark:text-gray-400 font-medium text-sm mt-2">
+                  <p className="text-slate-400 font-medium text-sm mt-2">
                     Próximamente
                   </p>
                 </div>
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                <div className="flex items-center gap-3 text-xs text-slate-500 mb-3">
                   <span>
                     <i className="fa-regular fa-calendar mr-1"></i>{" "}
                     --
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-gray-600 dark:text-gray-500 mb-3 leading-tight font-grotesk">
+                <h3 className="text-lg font-bold text-slate-400 mb-3 leading-tight font-grotesk">
                   Tu Primer Plugin en C# para Revit: Guía Paso a Paso
                 </h3>
-                <p className="text-gray-500 dark:text-gray-600 text-sm mb-5 line-clamp-2">
+                <p className="text-slate-500 text-sm mb-5 line-clamp-2">
                   Configura Visual Studio, crea tu primer ExternalCommand y muestra
                   un TaskDialog.
                 </p>
