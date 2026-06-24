@@ -1,9 +1,8 @@
 {
   "value": [
-
     {
       "id": "badc849a-c515-46a4-828d-66cd878b4d7e",
-      "project_id": "P-043",
+      "project_id": "P-042",
       "name": "Integración Segunda Etapa Lavado SX",
       "client": "Minera las Cenizas",
       "company": "BIOSMI",
@@ -25,7 +24,6 @@
       "concrete_volume": null,
       "steel_weight": 8
     },
-
     {
       "id": "dcaeb37e-5179-4599-9557-7422b8a19bb3",
       "project_id": "P-041",
