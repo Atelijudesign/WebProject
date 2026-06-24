@@ -19,6 +19,7 @@ import PyRevitAccelerator from "./pages/blog/PyRevitAccelerator";
 import RevitStructureFuturo from "./pages/blog/RevitStructureFuturo";
 import RevitSupportClinic from "./pages/blog/RevitSupportClinic";
 import KonstrueduRevit from "./pages/blog/KonstrueduRevit";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function App() {
   return (
@@ -55,6 +56,7 @@ export default function App() {
               </Routes>
             </main>
             <Footer />
+            <ScrollToTopButton />
           </div>
         } />
       </Routes>

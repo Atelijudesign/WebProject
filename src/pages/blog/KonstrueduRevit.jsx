@@ -49,7 +49,7 @@ export default function KonstrueduRevit() {
 {/* Imagen portada */}
  <div className="mb-10 rounded-2xl overflow-hidden border border-slate-800/60">
  <img
- src="../assets/img/blog/konstruedu/portada.png"
+ src="../assets/img/blog/konstruedu/portada.webp"
  alt="Especialización Modelado de Proyectos BIM con Revit - Konstruedu"
  className="w-full object-cover"
  loading="lazy"
