@@ -108,10 +108,10 @@ export default function Hero() {
               <a href="#contact" className="btn-primary" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
                 ⚡ Hablemos de tu proyecto
               </a>
-              <a href="Andres_Gallo_CV.pdf" className="btn-secondary" download>
+              <a href="/Andres_Gallo_CV.pdf" className="btn-secondary" download>
                 ⬇ Descargar CV
               </a>
-              <a href="Andres_Gallo_Portfolio.pdf" className="btn-secondary" download>
+              <a href="/Andres_Gallo_Portfolio.pdf" className="btn-secondary" download>
                 ⬇ Portafolio PDF
               </a>
             </motion.div>

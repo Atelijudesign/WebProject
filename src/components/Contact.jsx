@@ -198,11 +198,11 @@ function Contact() {
           </div>
 
           <div className="contact-downloads">
-            <a href="Andres_Gallo_CV.pdf" className="btn-download" download>
+            <a href="/Andres_Gallo_CV.pdf" className="btn-download" download>
               ⬇ Descargar CV
             </a>
             <a
-              href="Andres_Gallo_Portfolio.pdf"
+              href="/Andres_Gallo_Portfolio.pdf"
               className="btn-download"
               download
             >
