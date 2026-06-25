@@ -17,33 +17,26 @@ export default function Navbar() {
 
   const handleNavClick = (e, link) => {
     if (link.external) return;
-    
     setIsOpen(false);
 
-    // Si es un enlace de anclaje (#seccion)
     if (link.href.startsWith("#")) {
       if (location.pathname !== "/") {
-        // Si no estamos en la Home, navegamos a la Home + anclaje
-        // El navegador por defecto no hace scroll suave al cambiar de página
-        // pero cargará la Home en esa sección.
-        return; 
-      } else {
-        // Si ya estamos en la Home, scroll suave manual
+        // Desde otra página: forzar navegación completa a la Home con el ancla
         e.preventDefault();
-        const id = link.href.replace("#", "");
-        const element = document.getElementById(id);
-        if (element) {
-          const offset = 80;
-          const bodyRect = document.body.getBoundingClientRect().top;
-          const elementRect = element.getBoundingClientRect().top;
-          const elementPosition = elementRect - bodyRect;
-          const offsetPosition = elementPosition - offset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }
+        window.location.href = `/${link.href}`;
+        return;
+      }
+      // Misma página (Home): scroll suave manual con offset del Navbar
+      e.preventDefault();
+      const id = link.href.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       }
     }
   };

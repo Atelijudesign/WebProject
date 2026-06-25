@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import ExcelJS from "exceljs";
 import { ICHA_CATALOG } from "../data/icha_data";
 
@@ -45,15 +46,21 @@ export default function BucklingShorteners() {
     const IuXL = 2 * (IvL + AL * Math.pow(1.414 * (xL + d / 20), 2));
     const iuXL = Math.sqrt(IuXL / AXL);
 
+    // Guard: evitar división por cero si iuXL es 0 o no finito
+    if (!iuXL || !isFinite(iuXL)) {
+      return { AL, xL, ivL, IvL, IuXL, iuXL: 0, lmax: 0, nmin: 0, paramB: activeB, paramE: activeE, paramD: d, paramL: L };
+    }
+
     // Buckling Shorteners
     const lmax = (0.75 * ivL * L) / iuXL;
 
     const innerTerm = 1 + Math.ceil((L - 1200) / lmax);
     let nmin = innerTerm;
-    if (nmin % 2 === 0) nmin += 1;
-    if (nmin < 2) nmin = 2; // From Excel logic check
+    if (nmin < 2) nmin = 2;         // 1º asegurar mínimo
+    if (nmin % 2 === 0) nmin += 1;  // 2º asegurar impar
 
     return { AL, xL, ivL, IvL, IuXL, iuXL, lmax, nmin, paramB: activeB, paramE: activeE, paramD: d, paramL: L };
+
   }, [currentProfile, d, L, activeB, activeE, activeR]);
 
   const profileName = currentProfile ? currentProfile.designation : `Manual ${activeB}x${activeB}x${activeE}`;
@@ -180,6 +187,11 @@ export default function BucklingShorteners() {
 
   return (
     <div className="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans min-h-screen pt-24 pb-12 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 mb-6">
+        <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <i className="fa-solid fa-arrow-left"></i> Volver a Herramientas
+        </Link>
+      </div>
       <div className="max-w-7xl mx-auto px-4">
         <header className="text-center mb-10">
           <div className="inline-block mb-4 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-bim-blue text-xs font-bold tracking-widest uppercase">

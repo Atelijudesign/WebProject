@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
-import { jsPDF } from "jspdf";
-import "jspdf-autotable";
 import * as XLSX from "xlsx-js-style";
 import { ICHA_CATALOG } from "../data/icha_data.js";
 import { TRANSLATIONS } from "../data/i18n.js";
@@ -10,12 +8,13 @@ import { TRANSLATIONS } from "../data/i18n.js";
 // ==================== PROPERTY LABELS ====================
 const PROP_LABELS = {
   "weight": { i18n: "prop_weight", unit: "kg/m", icon: "fa-weight-hanging" },
-  "A_cm²": { i18n: "prop_area", unit: "cm²", icon: "fa-vector-square" },
+  "gramil_mm": { i18n: "prop_g", unit: "mm", icon: "fa-circle-dot" },
   "H_mm": { i18n: "prop_h", unit: "mm", icon: "fa-arrows-up-down" },
   "B_mm": { i18n: "prop_b", unit: "mm", icon: "fa-arrows-left-right" },
   "e_mm": { i18n: "prop_e", unit: "mm", icon: "fa-ruler" },
   "t_mm": { i18n: "prop_t", unit: "mm", icon: "fa-ruler" },
   "C_mm": { i18n: "prop_c", unit: "mm", icon: "fa-ruler" },
+  "A_cm²": { i18n: "prop_area", unit: "cm²", icon: "fa-vector-square" },
   "Ix_cm⁴": { i18n: "prop_ix", unit: "cm⁴", icon: "fa-rotate" },
   "Wx_cm³": { i18n: "prop_wx", unit: "cm³", icon: "fa-cube" },
   "ix_cm": { i18n: "prop_ix_rad", unit: "cm", icon: "fa-circle-dot" },
@@ -46,55 +45,13 @@ function dimLine(x1, y1, x2, y2, label, offset = 0, color = "#60a5fa") {
 }
 
 function getProfileDimensions(p, series) {
-  let h = 0, b = 0, e = 0, t = 0, c = 0;
-  e = p.e_mm || 0;
-  t = p.t_mm || 0;
-  c = p.C_mm || 0;
-  b = p.B_mm || 0;
-
-  if (series === "L") {
-    h = p.B_mm || 0;
-    b = p.B_mm || 0;
-  } else if (series === "L_desig") {
-    const m = p.base ? p.base.match(/L\s+([\d,.]+)\*([\d,.]+)/) : null;
-    if (m) {
-      h = parseFloat(m[1].replace(",", ".")) * 10;
-      b = parseFloat(m[2].replace(",", ".")) * 10;
-    }
-  } else if (series === "TL") {
-    const m = p.designation.match(/TL\s+([\d,.]+)/);
-    if (m) {
-      h = parseFloat(m[1].replace(",", ".")) * 10;
-    }
-  } else if (series === "XL") {
-    const m = p.designation.match(/XL\s+([\d,.]+)/);
-    if (m) {
-      h = parseFloat(m[1].replace(",", ".")) * 10;
-      b = h;
-    }
-  } else if (series === "C" || series === "IC") {
-    const m = p.designation.match(/(?:C|IC)\s+([\d,.]+)/);
-    if (m) {
-      h = parseFloat(m[1].replace(",", ".")) * 10;
-    }
-  } else if (series === "CA" || series === "ICA") {
-    const m = p.designation.match(/(?:CA|ICA)\s+([\d,.]+)/);
-    if (m) {
-      h = parseFloat(m[1].replace(",", ".")) * 10;
-    }
-  } else if (series === "CAJON") {
-    const m = p.designation.match(/(\d+)\*(\d+)/);
-    if (m) {
-      h = parseFloat(m[1]) * 10;
-      b = parseFloat(m[2]) * 10;
-    }
-  } else if (["IN", "IP", "HN", "PH"].includes(series)) {
-    const m = p.designation.match(/(?:IN|IP|HN|PH)\s+([\d,.]+)/);
-    if (m) {
-      h = parseFloat(m[1].replace(",", ".")) * 10;
-    }
-  }
-  return { h, b, e, t, c };
+  return {
+    h: p.H_mm || 0,
+    b: p.B_mm || 0,
+    e: p.e_mm || 0,
+    t: p.t_mm || 0,
+    c: p.C_mm || 0
+  };
 }
 
 function buildProfileSvg(p, series) {
@@ -110,7 +67,21 @@ function buildProfileSvg(p, series) {
     dims += dimLine(x - B / 2, y + H / 2, x + B / 2, y + H / 2, `b=${b}`, 18);
     dims += `<text x="${x + S / 2 + 6}" y="${y + 4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${t}</text>`;
     dims += `<text x="${x + B / 2 + 6}" y="${y - H / 2 + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${x - G / 2}" y1="${y - H / 2}" x2="${x - G / 2}" y2="${y + H / 2}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${x + G / 2}" y1="${y - H / 2}" x2="${x + G / 2}" y2="${y + H / 2}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${x - G / 2}" cy="${y - H / 2 + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${x + G / 2}" cy="${y - H / 2 + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${x - G / 2}" cy="${y + H / 2 - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${x + G / 2}" cy="${y + H / 2 - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${x}" y="${y - H / 2 - 8}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600" text-anchor="middle">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "L" || series === "L_desig") {
@@ -123,7 +94,18 @@ function buildProfileSvg(p, series) {
     let dims = dimLine(x, top, x, top + H, `h=${h}`, -20);
     dims += dimLine(x, top + H, x + B, top + H, `b=${b}`, 16);
     dims += `<text x="${x + T + 6}" y="${top + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${x + G}" y1="${top}" x2="${x + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${x}" y1="${top + H - G}" x2="${x + B}" y2="${top + H - G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${x + G}" cy="${top + H - G}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${x + G + 6}" y="${top + H - G - 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "TL") {
@@ -142,24 +124,64 @@ function buildProfileSvg(p, series) {
     let dims = dimLine(leftL_right - BW, top, leftL_right - BW, top + H, `h=${h}`, -20);
     dims += dimLine(leftL_right - BW, top + H, rightL_left + BW, top + H, `b=${b}`, 16);
     dims += `<text x="${leftL_right - T - 6}" y="${top + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">e=${e}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${leftL_right - BW}" y1="${top + H - G}" x2="${rightL_left + BW}" y2="${top + H - G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${leftL_right - G}" y1="${top}" x2="${leftL_right - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${rightL_left + G}" y1="${top}" x2="${rightL_left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${leftL_right - G}" cy="${top + H - G}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${rightL_left + G}" cy="${top + H - G}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${rightL_left + G + 6}" y="${top + H - G - 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "XL") {
-    const maxD = Math.max(h, b);
-    const sc = ((SZ - 2 * PAD) / maxD) * 0.7;
-    const H = h * sc, B = b * sc, T = Math.max(e * sc, 3);
-    const gap = 6;
-    const ax = CX - gap / 2, ay = CY - gap / 2;
-    const aPts = `${ax},${ay} ${ax},${ay - H} ${ax - T},${ay - H} ${ax - T},${ay - T} ${ax - B},${ay - T} ${ax - B},${ay}`;
-    const bx = CX + gap / 2, by = CY + gap / 2;
-    const bPts = `${bx},${by} ${bx},${by + H} ${bx + T},${by + H} ${bx + T},${by + T} ${bx + B},${by + T} ${bx + B},${by}`;
-    const shape = `<polygon points="${aPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
-                    <polygon points="${bPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>`;
-    let dims = dimLine(ax - T, ay - H, ax - T, ay, `h=${h}`, -18);
-    dims += dimLine(ax - B, ay, ax, ay, `b=${b}`, 16);
-    dims += `<text x="${ax + 8}" y="${ay - H + 14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    const gap_mm = 0;
+    const totalMax = Math.max(h, b);
+    const sc = (SZ - 2 * PAD) / totalMax;
+    
+    const H_half = (h / 2) * sc;
+    const B_half = (b / 2) * sc;
+    const T = Math.max(e * sc, 3);
+    
+    const ax = CX, ay = CY;
+    const aPts = `${ax},${ay} ${ax},${ay - H_half} ${ax - T},${ay - H_half} ${ax - T},${ay - T} ${ax - B_half},${ay - T} ${ax - B_half},${ay}`;
+    
+    const bx = CX, by = CY;
+    const bPts = `${bx},${by} ${bx},${by + H_half} ${bx + T},${by + H_half} ${bx + T},${by + T} ${bx + B_half},${by + T} ${bx + B_half},${by}`;
+    
+    const axes = `<line x1="${CX}" y1="${PAD}" x2="${CX}" y2="${SZ - PAD}" stroke="#475569" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5"/>
+                  <line x1="${PAD}" y1="${CY}" x2="${SZ - PAD}" y2="${CY}" stroke="#475569" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5"/>`;
+
+    const shape = `${axes}
+                  <polygon points="${aPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+                  <polygon points="${bPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>`;
+    
+    let dims = dimLine(ax - B_half - 12, ay - H_half, ax - B_half - 12, by + H_half, `h=${h}`, -18);
+    dims += dimLine(ax - B_half, by + H_half + 12, bx + B_half, by + H_half + 12, `b=${b}`, 16);
+    dims += `<text x="${ax - B_half + 6}" y="${ay - H_half + 14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${ax - G}" y1="${ay - H_half}" x2="${ax - G}" y2="${ay}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${ax - B_half}" y1="${ay - G}" x2="${ax}" y2="${ay - G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${bx + G}" y1="${by}" x2="${bx + G}" y2="${by + H_half}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${bx}" y1="${by + G}" x2="${bx + B_half}" y2="${by + G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${ax - G}" cy="${ay - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${ax - T / 2}" cy="${ay - G}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${bx + G}" cy="${by + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${bx + T / 2}" cy="${by + G}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${bx + G + 6}" y="${by + H_half - 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "C") {
@@ -171,14 +193,25 @@ function buildProfileSvg(p, series) {
     let dims = dimLine(x + 4, top, x + 4, top + H, `h=${h}`, 14);
     dims += dimLine(x - B, top + H, x, top + H, `b=${b}`, 16);
     dims += `<text x="${x + 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${x - G}" y1="${top}" x2="${x - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${x - G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${x - G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${x - G - 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600" text-anchor="end">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "IC") {
     const b_wing = b / 2;
     const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
     const H = h * sc, B = b * sc, T = Math.max(e * sc, 3), BW = b_wing * sc;
-    const gap = 4;
+    const gap = 0;
     const leftC_right = CX - gap / 2;
     const rightC_left = CX + gap / 2;
     const top = CY - H / 2;
@@ -187,9 +220,23 @@ function buildProfileSvg(p, series) {
     const shape = `<polygon points="${ptsL}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
                    <polygon points="${ptsR}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
     let dims = dimLine(leftC_right - BW, top, leftC_right - BW, top + H, `h=${h}`, -20);
-    dims += dimLine(leftC_right - BW, top + H, rightC_left + BW, top + H, `b=${b}`, 16);
+    dims += dimLine(leftC_right - BW, top + H + 12, rightC_left + BW, top + H + 12, `b=${b}`, 16);
     dims += `<text x="${leftC_right - T - 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">e=${e}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${leftC_right - G}" y1="${top}" x2="${leftC_right - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${rightC_left + G}" y1="${top}" x2="${rightC_left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${leftC_right - G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${leftC_right - G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${rightC_left + G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${rightC_left + G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${rightC_left + G + 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "CA") {
@@ -202,14 +249,25 @@ function buildProfileSvg(p, series) {
     dims += dimLine(left, top + H, left + B, top + H, `b=${b}`, 16);
     dims += `<text x="${left + B + 6}" y="${top + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">e=${e}</text>`;
     if (C > 0) dims += `<text x="${left + B + 6}" y="${top + H - C / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">c=${c}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${left + G}" y1="${top}" x2="${left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${left + G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${left + G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${left + G + 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "ICA") {
     const b_wing = b / 2;
     const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
     const H = h * sc, B = b * sc, T = Math.max(e * sc, 3), BW = b_wing * sc, C = Math.max(c * sc, 4);
-    const gap = 4;
+    const gap = 0;
     const leftC_right = CX - gap / 2;
     const rightC_left = CX + gap / 2;
     const top = CY - H / 2;
@@ -221,10 +279,24 @@ function buildProfileSvg(p, series) {
                      <polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
                    </g>`;
     let dims = dimLine(leftC_right - BW, top, leftC_right - BW, top + H, `h=${h}`, -20);
-    dims += dimLine(leftC_right - BW, top + H, rightC_left + BW, top + H, `b=${b}`, 16);
+    dims += dimLine(leftC_right - BW, top + H + 12, rightC_left + BW, top + H + 12, `b=${b}`, 16);
     dims += `<text x="${leftC_right - T - 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">e=${e}</text>`;
     if (C > 0) dims += `<text x="${leftC_right - BW - 6}" y="${top + H - C + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">c=${c}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}</svg>`;
+    
+    const g = p.gramil_mm;
+    let gl = "";
+    if (g) {
+      const G = g * sc;
+      gl += `<line x1="${leftC_right - G}" y1="${top}" x2="${leftC_right - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<line x1="${rightC_left + G}" y1="${top}" x2="${rightC_left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
+      gl += `<circle cx="${leftC_right - G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${leftC_right - G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${rightC_left + G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<circle cx="${rightC_left + G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
+      gl += `<text x="${rightC_left + G + 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${g}</text>`;
+    }
+    
+    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[200px]">${shape}${dims}${gl}</svg>`;
   }
 
   if (series === "CAJON") {
@@ -285,7 +357,7 @@ export default function IchaCatalog() {
     for (let p of profiles) {
       const desig = p.designation.toLowerCase().replace(/\s+/g, "");
       const matchesSearch = desig.includes(q);
-      const profileH = p.H_mm || (parseFloat(p.designation.match(/(\d+(\.\d+)?)/)?.[0]) < 100 ? parseFloat(p.designation.match(/(\d+(\.\d+)?)/)?.[0])*10 : parseFloat(p.designation.match(/(\d+(\.\d+)?)/)?.[0])) || 0;
+      const profileH = p.H_mm || 0;
       
       const matchesIx = (p["Ix_cm⁴"] || 0) >= minIxVal;
       const matchesWeight = p.weight >= minWVal && p.weight <= maxWVal;
@@ -299,7 +371,7 @@ export default function IchaCatalog() {
   }, [currentSeries, searchQuery, filterIx, filterMinW, filterMaxW, filterH]);
 
   useEffect(() => {
-    // Initial loaded list 
+    // Initial loaded list
     const saved = localStorage.getItem("bim-catalogo-icha-list");
     if (saved) {
       try {
@@ -309,12 +381,6 @@ export default function IchaCatalog() {
       }
     }
   }, []);
-
-  useEffect(() => {
-    // Save to localstorage
-    localStorage.setItem("bim-catalogo-icha-list", JSON.stringify(profileList));
-    updateChart();
-  }, [profileList, connectionsPct, lang]);
 
   const addToList = () => {
     if (!selectedProfile) return;
@@ -342,14 +408,15 @@ export default function IchaCatalog() {
     setProfileList(updated);
   };
 
-  const getClassificationData = () => {
+  // Datos de clasificación memoizados (solo recalcula cuando cambian datos o idioma)
+  const classData = useMemo(() => {
     const categories = [
       { name: t("cat_light"), min: 0, max: 25 },
       { name: t("cat_medium"), min: 25, max: 50 },
       { name: t("cat_heavy"), min: 50, max: 100 },
       { name: t("cat_extra"), min: 100, max: Infinity },
     ];
-    let catWeights = [0,0,0,0];
+    let catWeights = [0, 0, 0, 0];
 
     profileList.forEach(item => {
       for (let i = 0; i < categories.length; i++) {
@@ -365,19 +432,24 @@ export default function IchaCatalog() {
     const grandTotal = totalWeight + connectionTotal;
 
     return { categories, catWeights, connectionTotal, totalWeight, grandTotal };
-  };
+  }, [profileList, connectionsPct, lang]);
 
-  const updateChart = () => {
+  // Guardar en localStorage cuando cambia la lista
+  useEffect(() => {
+    localStorage.setItem("bim-catalogo-icha-list", JSON.stringify(profileList));
+  }, [profileList]);
+
+  // Actualizar gráfico cuando cambian datos o idioma (separado para evitar resets innecesarios)
+  useEffect(() => {
     if (!canvasRef.current) return;
     const ctx = canvasRef.current.getContext("2d");
     if (chartRef.current) {
       chartRef.current.destroy();
+      chartRef.current = null;
     }
-    
-    const { catWeights, connectionTotal } = getClassificationData();
+
+    const { catWeights, connectionTotal } = classData;
     const sum = catWeights.reduce((a, b) => a + b, 0) + connectionTotal;
-    
-    // Only calculate if there's data
     if (sum === 0) return;
 
     const labels = [
@@ -411,7 +483,14 @@ export default function IchaCatalog() {
         }
       }
     });
-  };
+
+    return () => {
+      if (chartRef.current) {
+        chartRef.current.destroy();
+        chartRef.current = null;
+      }
+    };
+  }, [classData, lang]);
 
   // Export functions (Simplified)
   const handleExportExcel = () => {
@@ -433,10 +512,14 @@ export default function IchaCatalog() {
   };
 
   // View Renderings
-  const classData = getClassificationData();
 
   return (
     <div className="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans min-h-screen pt-24 pb-12 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 mb-6 pt-4">
+        <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm font-bold text-bim-blue bg-bim-blue/10 hover:bg-bim-blue/20 border border-bim-blue/30 hover:border-bim-blue/50 px-4 py-2 rounded-xl transition-all duration-300 shadow-sm hover:shadow-bim-blue/20 group">
+          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
+        </Link>
+      </div>
       
       {/* Hero */}
       <section className="relative overflow-hidden mb-8">
@@ -569,13 +652,19 @@ export default function IchaCatalog() {
                     {Object.keys(PROP_LABELS).map(key => {
                       if(selectedProfile[key] === undefined) return null;
                       const meta = PROP_LABELS[key];
+                      const isHighlighted = ["weight", "H_mm", "B_mm", "e_mm", "t_mm", "gramil_mm"].includes(key);
+                      const bgClass = isHighlighted ? "bg-bim-blue/10 border-bim-blue/50" : "bg-slate-800/50 border-slate-700/50";
+                      const textClass = isHighlighted ? "text-blue-400" : "text-white";
+                      const labelClass = isHighlighted ? "text-blue-300" : "text-gray-400";
+                      const iconClass = isHighlighted ? "text-blue-400" : "text-gray-500";
+                      
                       return (
-                        <div key={key} className="bg-slate-800/50 border border-slate-700/50 rounded-lg p-3">
+                        <div key={key} className={`rounded-lg p-3 border ${bgClass} transition-colors`}>
                            <div className="flex items-center gap-2 mb-1">
-                             <i className={`fa-solid ${meta.icon} text-[10px] text-gray-500`}></i>
-                             <span className="text-xs text-gray-400 font-bold">{t(meta.i18n)}</span>
+                             <i className={`fa-solid ${meta.icon} text-[10px] ${iconClass}`}></i>
+                             <span className={`text-xs font-bold ${labelClass}`}>{t(meta.i18n)}</span>
                            </div>
-                           <span className="text-lg font-bold text-white">{selectedProfile[key].toLocaleString("es-CL")} <span className="text-[10px] font-normal text-slate-500">{meta.unit}</span></span>
+                           <span className={`text-lg font-bold ${textClass}`}>{selectedProfile[key].toLocaleString("es-CL")} <span className="text-[10px] font-normal opacity-70">{meta.unit}</span></span>
                         </div>
                       )
                     })}
@@ -626,7 +715,7 @@ export default function IchaCatalog() {
                         <td className="py-2 text-right">{item.length.toFixed(1)}</td>
                         <td className="py-2 text-right font-bold text-white">{item.totalWeight.toFixed(2)}</td>
                         <td className="py-2 text-center text-red-500">
-                          <button onClick={() => removeFromList(idx)} hover="text-white"><i className="fa-solid fa-xmark"></i></button>
+                          <button onClick={() => removeFromList(idx)} className="hover:text-white transition-colors"><i className="fa-solid fa-xmark"></i></button>
                         </td>
                       </tr>
                     ))}

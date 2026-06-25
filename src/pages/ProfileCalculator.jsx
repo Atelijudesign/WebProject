@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo, useRef } from "react";
+import { Link } from "react-router-dom";
 import ExcelJS from "exceljs";
 import { jsPDF } from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 
 // ==================== SVG BUILDERS ====================
 const SZ = 240, CX = SZ / 2, CY = SZ / 2, PAD = 45;
@@ -29,7 +30,7 @@ function buildHSvg(h, b, s, t1, t2, unequal = false, b1, b2) {
   dims += dimLine(x - B1 / 2, y + H / 2, x + B2 / 2, y + H / 2, unequal ? `b°=${b2}` : `b=${b}`, 18);
   dims += `<text x="${x + S / 2 + 6}" y="${y + 4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${s}</text>`;
   if (unequal) {
-    dims += dimLine(x - B1 / 2, y - H / 2, x + B1 / 2, y - H / 2, `b°=${b1}`, `b1=${b1}`, -14);
+    dims += dimLine(x - B1 / 2, y - H / 2, x + B1 / 2, y - H / 2, `b1=${b1}`, -14);
     dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t1=${t1}</text>`;
     dims += `<text x="${x + B2 / 2 + 6}" y="${y + H / 2 - T2 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t2=${t2}</text>`;
   } else {
@@ -363,8 +364,8 @@ const PROFILES = {
       { id: "t", label: "t (espesor)", unit: "mm", default: 10 },
     ],
     calc(v) {
-      const area = (v.h * v.b * v.t) / 1000;
-      const weight = (v.h * v.b * v.t * 0.000785) / 100;
+      const area = (v.b * v.t) / 100;
+      const weight = (v.b * v.t * 0.00785);
       const cover = (2 * v.b + 2 * v.t) / 1000;
       const desig = `PL ${v.h} × ${v.b} × ${v.t}`;
       const Ix = (v.b * Math.pow(v.t, 3)) / 12 / 10000;
@@ -458,6 +459,15 @@ export default function ProfileCalculator() {
     }
   }, [currentProfile]);
 
+  // Sincronizar el largo predeterminado en metros (quickLen) cuando el perfil es PL
+  useEffect(() => {
+    if (currentProfile === "PL" && inputValues.h !== undefined) {
+      setQuickLen(inputValues.h / 1000);
+    } else if (currentProfile !== "PL") {
+      setQuickLen(6);
+    }
+  }, [currentProfile, inputValues.h]);
+
   const handleInputChange = (id, val) => {
     setInputValues((prev) => ({ ...prev, [id]: parseFloat(val) || 0 }));
   };
@@ -541,7 +551,7 @@ export default function ProfileCalculator() {
     
     tableData.push(["", "", "", "", "TOTAL:", grandTotal.toFixed(2)]);
     
-    doc.autoTable({
+    autoTable(doc, {
       head: [['Marca', 'Cant.', 'Perfil', 'Largo (m)', 'Peso U. (kg/m)', 'Peso Total (kg)']],
       body: tableData,
       startY: 25,
@@ -554,6 +564,11 @@ export default function ProfileCalculator() {
 
   return (
     <div className="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans min-h-screen pt-24 pb-12 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 mb-6">
+        <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <i className="fa-solid fa-arrow-left"></i> Volver a Herramientas
+        </Link>
+      </div>
       {/* Title */}
       <h1 className="text-center text-4xl font-black mb-4 font-grotesk text-white">
         Calculadora de <span className="text-transparent bg-clip-text bg-gradient-to-r from-bim-blue to-indigo-400">Aceros</span>

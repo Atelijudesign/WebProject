@@ -28,9 +28,10 @@ function localDbServerPlugin() {
         }
       });
 
-      process.on('exit', () => {
-        if (serverProcess) serverProcess.kill();
-      });
+      const killChild = () => { if (serverProcess) serverProcess.kill(); };
+      process.on('exit',   killChild);
+      process.on('SIGTERM', () => { killChild(); process.exit(0); });
+      process.on('SIGINT',  () => { killChild(); process.exit(0); });
     },
     closeBundle() {
       if (serverProcess) {

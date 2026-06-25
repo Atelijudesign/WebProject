@@ -145,6 +145,8 @@ export const TRANSLATIONS = {
     prop_X: "X (cg)",
     prop_iu: "i (eje U)",
     prop_iv: "i (eje V)",
+    prop_g: "Gramil (g)",
+
 
     // JS Interaction & Search
     msg_no_results: "No se encontraron perfiles",
@@ -304,6 +306,8 @@ export const TRANSLATIONS = {
     prop_X: "X (cg)",
     prop_iu: "i (axis U)",
     prop_iv: "i (axis V)",
+    prop_g: "Gage (g)",
+
 
     // JS Interaction & Search
     msg_no_results: "No profiles found",

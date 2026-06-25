@@ -19,10 +19,12 @@
       "description": "El Grupo Minero Las Cenizas, en su planta Raimundo Langlois (Franke), ha enfrentado diversos desafíos, entre ellos la escasez de agua.",
       "activities": "Modelado BIM, Cubicaciones, Planos Estructurales",
       "created_at": "2026-04-02T03:19:23.938454+00:00",
-      "updated_at": "2026-04-04T22:37:40.685187+00:00",
+      "updated_at": "2026-06-25T02:27:48.156Z",
       "phase": "Ingeniería de detalles",
       "concrete_volume": null,
-      "steel_weight": 8
+      "steel_weight": 8,
+      "featured": false,
+      "image_url": null
     },
     {
       "id": "dcaeb37e-5179-4599-9557-7422b8a19bb3",
@@ -533,7 +535,7 @@
       "project_id": "P-020",
       "name": "Nuevo Complejo Fronterizo Los Libertadores",
       "client": "MOP Chile",
-      "company": "Sirve",
+      "company": "SIRVE",
       "country": "Chile",
       "city": "Los Andes",
       "period": "May 2015–Sep 2017",
@@ -547,17 +549,19 @@
       "description": "Modelado BIM de estructuras para el nuevo complejo fronterizo Los Libertadores (~35.000 m²).",
       "activities": "Modelado BIM estructura y arquitectura, conexiones Tekla, planos detalle, coordinación especialidades",
       "created_at": "2026-04-02T02:34:44.359625+00:00",
-      "updated_at": "2026-04-02T06:02:02.06845+00:00",
+      "updated_at": "2026-06-24T20:32:23.337Z",
       "phase": "",
       "concrete_volume": 1000,
-      "steel_weight": 35
+      "steel_weight": 35,
+      "featured": false,
+      "image_url": null
     },
     {
       "id": "a7ae0341-3f61-478f-9ada-cb3faa9f82e1",
       "project_id": "P-019",
       "name": "Hospital Marga Marga",
       "client": "Ministerio de Salud",
-      "company": "Sirve",
+      "company": "SIRVE",
       "country": "Chile",
       "city": "Quilpué",
       "period": "May 2015–Sep 2017",
@@ -571,17 +575,19 @@
       "description": "Modelado BIM estructural de hospital público de alta complejidad.",
       "activities": "Modelado BIM estructura y arquitectura, conexiones metálicas, planos detalle, coordinación interdisciplinaria",
       "created_at": "2026-04-02T02:34:44.359625+00:00",
-      "updated_at": "2026-04-02T05:30:02.754145+00:00",
+      "updated_at": "2026-06-24T20:32:34.953Z",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "featured": false,
+      "image_url": null
     },
     {
       "id": "5d6c2216-ee39-4be4-a2ee-6bc49f47604c",
       "project_id": "P-018",
       "name": "Hospital Dr. Gustavo Fricke",
       "client": "Ministerio de Salud",
-      "company": "Sirve",
+      "company": "SIRVE",
       "country": "Chile",
       "city": "Viña del Mar",
       "period": "May 2015–Sep 2017",
@@ -595,17 +601,19 @@
       "description": "Modelado BIM estructural de hospital, coordinación interdisciplinaria de especialidades.",
       "activities": "Modelado BIM, conexiones metálicas, planos detalle, coordinación especialidades",
       "created_at": "2026-04-02T02:34:44.359625+00:00",
-      "updated_at": "2026-04-02T05:30:02.754145+00:00",
+      "updated_at": "2026-06-24T20:32:45.490Z",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "featured": false,
+      "image_url": null
     },
     {
       "id": "ae803782-505c-4fb2-9fa5-2a2918c8ac2f",
       "project_id": "P-017",
       "name": "Hospital Felix Bulnes",
       "client": "Ministerio de Salud",
-      "company": "Sirve",
+      "company": "SIRVE",
       "country": "Chile",
       "city": "Santiago",
       "period": "May 2015–Sep 2017",
@@ -619,10 +627,12 @@
       "description": "Modelado BIM estructural de hospital Felix Bulnes, coordinación multidisciplina.",
       "activities": "Modelado BIM, conexiones metálicas, planos detalle, coordinación especialidades",
       "created_at": "2026-04-02T02:34:44.359625+00:00",
-      "updated_at": "2026-04-02T05:30:02.754145+00:00",
+      "updated_at": "2026-06-24T20:32:55.782Z",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "featured": false,
+      "image_url": null
     },
     {
       "id": "be44f499-513f-4637-b43a-ed48ee962234",

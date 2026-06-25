@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import projectsData from '../data/proyectos.json';
 import ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 import {
   DndContext,
@@ -131,11 +131,13 @@ export default function AdminDashboard() {
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
-  // -- INIT
+  // -- INIT: autenticación solo al montar
   useEffect(() => {
     checkAuth();
-    
-    // Keyboard Escape for Modals
+  }, []);
+
+  // Keyboard Escape para modales (separado para no re-ejecutar checkAuth)
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         if (isConfirmOpen) cancelDelete();
@@ -175,8 +177,11 @@ export default function AdminDashboard() {
     e.preventDefault();
     setLoginError('');
     setIsLoggingIn(true);
-    
-    if (email === 'admin@atelijudesign.com' && password === 'admin123') {
+
+    const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
+    const adminPass  = import.meta.env.VITE_ADMIN_PASS;
+
+    if (email === adminEmail && password === adminPass) {
       const mockSession = { user: { email }, access_token: 'local-token' };
       localStorage.setItem('ateliju_session', JSON.stringify(mockSession));
       setSession(mockSession);
@@ -613,8 +618,7 @@ export default function AdminDashboard() {
     doc.text(`Andrés Gallo P. — BIM Developer`, 14, 25);
     doc.text(`${new Date().toLocaleDateString()}`, 265, 25);
     
-    // Autotable extension is attached to doc obj
-    doc.autoTable({
+    autoTable(doc, {
       startY: 38,
       head: [headers],
       body: rows,
