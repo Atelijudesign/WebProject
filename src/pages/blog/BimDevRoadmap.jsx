@@ -73,37 +73,49 @@ export default function BimDevRoadmap() {
               El Plan de Batalla: 4 Trimestres
             </h3>
             
-            <div className="space-y-6">
-              <div className="p-5 bg-slate-900/40 rounded-xl border border-slate-800/60">
-                <div className="text-xs font-bold text-orange-400 mb-1">Q1 (MESES 1 - 3)</div>
-                <h4 className="font-bold text-white mb-2">Cimientos de Scripting & Revit API</h4>
-                <p className="text-slate-400 text-sm mb-0">
-                  Foco en sintaxis básica de Python. Aprende a usar la consola interactiva de pyRevit y a realizar selecciones y filtros de elementos mediante la API de Revit utilizando <code className="text-orange-400">FilteredElementCollector</code>.
-                </p>
+            <div className="steps-list">
+              <div className="step-item">
+                <div className="step-num text-xs">Q1</div>
+                <div className="step-body w-full">
+                  <div className="text-xs font-bold text-orange-400 mb-1">MESES 1 - 3</div>
+                  <h4 className="step-title">Cimientos de Scripting & Revit API</h4>
+                  <p className="step-desc mb-0">
+                    Foco en sintaxis básica de Python. Aprende a usar la consola interactiva de pyRevit y a realizar selecciones y filtros de elementos mediante la API de Revit utilizando <span className="ic">FilteredElementCollector</span>.
+                  </p>
+                </div>
               </div>
 
-              <div className="p-5 bg-slate-900/40 rounded-xl border border-slate-800/60">
-                <div className="text-xs font-bold text-orange-400 mb-1">Q2 (MESES 4 - 6)</div>
-                <h4 className="font-bold text-white mb-2">Automatización de Tareas de Oficina</h4>
-                <p className="text-slate-400 text-sm mb-0">
-                  Crea tus primeros pushbuttons propios en pyRevit para automatizar reportes de cubicaciones, control de parámetros de planos y revisiones geométricas. Implementación de Git y GitHub para el control de versiones de tu código.
-                </p>
+              <div className="step-item">
+                <div className="step-num text-xs">Q2</div>
+                <div className="step-body w-full">
+                  <div className="text-xs font-bold text-orange-400 mb-1">MESES 4 - 6</div>
+                  <h4 className="step-title">Automatización de Tareas de Oficina</h4>
+                  <p className="step-desc mb-0">
+                    Crea tus primeros pushbuttons propios en pyRevit para automatizar reportes de cubicaciones, control de parámetros de planos y revisiones geométricas. Implementación de Git y GitHub para el control de versiones de tu código.
+                  </p>
+                </div>
               </div>
 
-              <div className="p-5 bg-slate-900/40 rounded-xl border border-slate-800/60">
-                <div className="text-xs font-bold text-orange-400 mb-1">Q3 (MESES 7 - 9)</div>
-                <h4 className="font-bold text-white mb-2">Transición a C# y Desarrollo Industrial</h4>
-                <p className="text-slate-400 text-sm mb-0">
-                  Introduce C# y la suite de .NET. Configura tu entorno en Visual Studio, asimila conceptos de tipado estático, interfaces como <code className="text-orange-400">IExternalCommand</code> y compila tu primer plugin (.addin) nativo de Revit.
-                </p>
+              <div className="step-item">
+                <div className="step-num text-xs">Q3</div>
+                <div className="step-body w-full">
+                  <div className="text-xs font-bold text-orange-400 mb-1">MESES 7 - 9</div>
+                  <h4 className="step-title">Transición a C# y Desarrollo Industrial</h4>
+                  <p className="step-desc mb-0">
+                    Introduce C# y la suite de .NET. Configura tu entorno en Visual Studio, asimila conceptos de tipado estático, interfaces como <span className="ic">IExternalCommand</span> y compila tu primer plugin (.addin) nativo de Revit.
+                  </p>
+                </div>
               </div>
 
-              <div className="p-5 bg-slate-900/40 rounded-xl border border-slate-800/60">
-                <div className="text-xs font-bold text-orange-400 mb-1">Q4 (MESES 10 - 12)</div>
-                <h4 className="font-bold text-white mb-2">Interfaces de Usuario Avanzadas & Cloud</h4>
-                <p className="text-slate-400 text-sm mb-0">
-                  Diseño de interfaces gráficas (UI) ricas y responsivas con WPF y patrón MVVM. Conexión de herramientas a bases de datos o APIs externas para reportes y flujos en la nube (BIM 360 / ACC).
-                </p>
+              <div className="step-item">
+                <div className="step-num text-xs">Q4</div>
+                <div className="step-body w-full">
+                  <div className="text-xs font-bold text-orange-400 mb-1">MESES 10 - 12</div>
+                  <h4 className="step-title">Arquitectura de Software y UI Avanzada</h4>
+                  <p className="step-desc mb-0">
+                    Implementación de interfaces de usuario robustas con WPF y XAML. Patrones de diseño de software (MVVM). Creación de herramientas con instaladores (MSI) listas para ser distribuidas comercialmente en la empresa.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

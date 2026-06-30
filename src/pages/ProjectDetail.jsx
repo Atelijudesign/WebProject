@@ -8,6 +8,7 @@ export default function ProjectDetail() {
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeImageIndex, setActiveImageIndex] = useState(null);
 
   useEffect(() => {
     async function loadProject() {
@@ -63,6 +64,53 @@ export default function ProjectDetail() {
     }
     loadProject();
   }, [id]);
+
+  useEffect(() => {
+    if (activeImageIndex === null || !project || !project.gallery_images) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        setActiveImageIndex((prev) =>
+          prev === 0 ? project.gallery_images.length - 1 : prev - 1
+        );
+      } else if (e.key === "ArrowRight") {
+        setActiveImageIndex((prev) =>
+          prev === project.gallery_images.length - 1 ? 0 : prev + 1
+        );
+      } else if (e.key === "Escape") {
+        setActiveImageIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [activeImageIndex, project]);
+
+  const handlePrev = (e) => {
+    if (e) e.stopPropagation();
+    if (!project || !project.gallery_images) return;
+    setActiveImageIndex((prev) =>
+      prev === 0 ? project.gallery_images.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = (e) => {
+    if (e) e.stopPropagation();
+    if (!project || !project.gallery_images) return;
+    setActiveImageIndex((prev) =>
+      prev === project.gallery_images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handleClose = (e) => {
+    if (e) e.stopPropagation();
+    setActiveImageIndex(null);
+  };
 
   if (loading) return <div className="min-h-screen flex items-center justify-center text-white text-2xl">Cargando datos del proyecto...</div>;
   if (!project) return <div className="min-h-screen flex items-center justify-center text-white text-2xl">Proyecto no encontrado.</div>;
@@ -129,7 +177,7 @@ export default function ProjectDetail() {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 cursor-pointer"
                         loading="lazy"
                         decoding="async"
-                        onClick={() => window.open(`/${img}`, '_blank')}
+                        onClick={() => setActiveImageIndex(idx)}
                       />
                     </div>
                   ))}
@@ -138,10 +186,10 @@ export default function ProjectDetail() {
             )}
             
             <div className="mt-12">
-              <Link to="/proyectos-bim" className="inline-flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-colors font-bold group">
+              <a href="/#portfolio" className="inline-flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-colors font-bold group">
                 <i className="fa-solid fa-arrow-left mr-3 group-hover:-translate-x-1 transition-transform"></i>
-                Volver al Catálogo
-              </Link>
+                Volver a Proyectos Destacados
+              </a>
             </div>
           </div>
 
@@ -229,6 +277,60 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {activeImageIndex !== null && project && project.gallery_images && (
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-md z-[1000] flex flex-col items-center justify-center animate-fade-in"
+          onClick={handleClose}
+        >
+          {/* Close button */}
+          <button 
+            className="absolute top-6 right-6 text-white/70 hover:text-white text-3xl focus:outline-none transition-colors duration-200 z-[1010] cursor-pointer bg-transparent border-0"
+            onClick={handleClose}
+            aria-label="Cerrar modal"
+          >
+            <i className="fa-solid fa-xmark"></i>
+          </button>
+
+          {/* Left Navigation */}
+          <button 
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl p-4 focus:outline-none transition-colors duration-200 z-[1010] cursor-pointer bg-transparent border-0"
+            onClick={handlePrev}
+            aria-label="Imagen anterior"
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </button>
+
+          {/* Centered Image Container */}
+          <div 
+            className="max-w-4xl max-h-[80vh] w-full flex items-center justify-center p-4 select-none"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              key={activeImageIndex}
+              src={`/${project.gallery_images[activeImageIndex]}`} 
+              alt={`Imagen de galería ${activeImageIndex + 1}`}
+              className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl transition-all duration-300 animate-zoom-in"
+            />
+          </div>
+
+          {/* Right Navigation */}
+          <button 
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-4xl p-4 focus:outline-none transition-colors duration-200 z-[1010] cursor-pointer bg-transparent border-0"
+            onClick={handleNext}
+            aria-label="Siguiente imagen"
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
+
+          {/* Page indicator */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-semibold tracking-wider bg-slate-900/60 py-1.5 px-4 rounded-full border border-slate-700/50 backdrop-blur-sm text-sm">
+            {activeImageIndex + 1} / {project.gallery_images.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+

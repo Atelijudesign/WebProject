@@ -184,164 +184,191 @@ export default function PyRevitVolumen() {
  <span className="code-lang">Python · pyRevit</span>
  <button className="code-copy" onClick={(e) => copyBlock(e)}>Copiar</button>
  </div>
- <pre id="codigo-principal"># -*- coding: utf-8 -*-
+ <pre id="codigo-principal">{`# -*- coding: utf-8 -*-
 # Cubicación Automática — Andrés Gallo P.
 # atelijudesign.com
+
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
-from Autodesk.Revit.DB import (
- FilteredElementCollector,
- BuiltInCategory,
- BuiltInParameter,
- UnitUtils,
- UnitTypeId
-)
 
+from Autodesk.Revit.DB import (
+    FilteredElementCollector,
+    BuiltInCategory,
+    BuiltInParameter,
+    UnitUtils,
+    UnitTypeId
+)
 from pyrevit import revit, DB, forms, script
-# // // // CONFIGURACIÓN // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-DENSIDAD_ACERO = 7850 # kg/m³
-DENSIDAD_HORMIGON = 2400 # kg/m³
-FACTOR_CONEXIONES = 0.05 # 5% por defecto — ajústalo según proyecto
+
+# ─── CONFIGURACIÓN ──────────────────────────────────────────────
+DENSIDAD_ACERO    = 7850   # kg/m³
+DENSIDAD_HORMIGON = 2400   # kg/m³
+FACTOR_CONEXIONES = 0.05   # 5% por defecto — ajústalo según proyecto
+
 # Clasificación Nominal Weight (kg/m)
 CLASES_NW = [
- (0, 20, "Liviana"),
- (20, 40, "Media"),
- (40, 80, "Pesada"),
- (80, 9999, "Extrapesada"),
+    (0,   20,  "Liviana"),
+    (20,  40,  "Media"),
+    (40,  80,  "Pesada"),
+    (80,  9999, "Extrapesada"),
 ]
 
-# // // // FUNCIONES AUXILIARES // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+# ─── FUNCIONES AUXILIARES ────────────────────────────────────────
 def m3_a_kg(volumen_m3, densidad):
- """Convierte volumen en m³ a kilogramos."""
- return volumen_m3 * densidad
+    """Convierte volumen en m³ a kilogramos."""
+    return volumen_m3 * densidad
+
 def clasificar_nw(peso_lineal_kg_m):
- """Clasifica un perfil por Nominal Weight según su peso lineal."""
- for min_nw, max_nw, nombre in CLASES_NW:
- if min_nw &lt;= peso_lineal_kg_m &lt; max_nw:
- return nombre
- return "Sin clasificar"
+    """Clasifica un perfil por Nominal Weight según su peso lineal."""
+    for min_nw, max_nw, nombre in CLASES_NW:
+        if min_nw <= peso_lineal_kg_m < max_nw:
+            return nombre
+    return "Sin clasificar"
+
 def obtener_volumen_m3(elemento):
- """Extrae el volumen del elemento en m³ desde la API de Revit."""
- try:
- param = elemento.get_Parameter(BuiltInParameter.HOST_VOLUME_COMPUTED)
- if param and param.HasValue:
- # Revit almacena en pies³ — convertimos a m³
- return UnitUtils.ConvertFromInternalUnits(
- param.AsDouble(),
- UnitTypeId.CubicMeters
- )
- except:
- pass
- return 0.0
+    """Extrae el volumen del elemento en m³ desde la API de Revit."""
+    try:
+        param = elemento.get_Parameter(BuiltInParameter.HOST_VOLUME_COMPUTED)
+        if param and param.HasValue:
+            # Revit almacena en pies³ — convertimos a m³
+            return UnitUtils.ConvertFromInternalUnits(
+                param.AsDouble(),
+                UnitTypeId.CubicMeters
+            )
+    except:
+        pass
+    return 0.0
+
 def obtener_nombre_material(elemento):
- """Obtiene el nombre del material estructural del elemento."""
- try:
- param = elemento.get_Parameter(BuiltInParameter.STRUCTURAL_MATERIAL_PARAM)
- if param and param.HasValue:
- mat_id = param.AsElementId()
- material = elemento.Document.GetElement(mat_id)
- if material:
- return material.Name.upper()
- except:
- pass
- return ""
+    """Obtiene el nombre del material estructural del elemento."""
+    try:
+        param = elemento.get_Parameter(BuiltInParameter.STRUCTURAL_MATERIAL_PARAM)
+        if param and param.HasValue:
+            mat_id = param.AsElementId()
+            material = elemento.Document.GetElement(mat_id)
+            if material:
+                return material.Name.upper()
+    except:
+        pass
+    return ""
+
 def es_acero(nombre_material):
- """Determina si el material es acero por palabras clave."""
- keywords = ["ACERO", "STEEL", "A36", "A572", "A992", "ER70", "METAL"]
- return any(k in nombre_material for k in keywords)
+    """Determina si el material es acero por palabras clave."""
+    keywords = ["ACERO", "STEEL", "A36", "A572", "A992", "ER70", "METAL"]
+    return any(k in nombre_material for k in keywords)
+
 def es_hormigon(nombre_material):
- """Determina si el material es HORMIGÓN por palabras clave."""
- keywords = ["HORMIGON", "HORMIGÓN", "CONCRETE", "HA", "H20", "H25", "H30"]
- return any(k in nombre_material for k in keywords)
-# // // // RECOLECCIÓN DE ELEMENTOS // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+    """Determina si el material es hormigón por palabras clave."""
+    keywords = ["HORMIGON", "HORMIGÓN", "CONCRETE", "HA", "H20", "H25", "H30"]
+    return any(k in nombre_material for k in keywords)
+
+# ─── RECOLECCIÓN DE ELEMENTOS ────────────────────────────────────
 doc = revit.doc
+
 categorias = [
- BuiltInCategory.OST_StructuralFraming, # vigas, diagonales
- BuiltInCategory.OST_StructuralColumns, # columnas
- BuiltInCategory.OST_StructuralFoundation # fundaciones
+    BuiltInCategory.OST_StructuralFraming,    # vigas, diagonales
+    BuiltInCategory.OST_StructuralColumns,    # columnas
+    BuiltInCategory.OST_StructuralFoundation  # fundaciones
 ]
 
 elementos = []
 for cat in categorias:
- collector = FilteredElementCollector(doc)\
- .OfCategory(cat)\
- .WhereElementIsNotElementType()
- elementos.extend(list(collector))
-# // // // PROCESAMIENTO // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-resultado_acero = &#123;&#125; # &#123;clase_nw: [pesos]&#125;
+    collector = FilteredElementCollector(doc)\\
+        .OfCategory(cat)\\
+        .WhereElementIsNotElementType()
+    elementos.extend(list(collector))
+
+# ─── PROCESAMIENTO ───────────────────────────────────────────────
+resultado_acero   = {}   # {clase_nw: [pesos]}
 total_hormigon_m3 = 0.0
 elementos_sin_mat = 0
+
 for elem in elementos:
- volumen = obtener_volumen_m3(elem)
- if volumen &lt;= 0:
- continue
-nombre_mat = obtener_nombre_material(elem)
-if es_acero(nombre_mat):
- # Peso lineal para clasificación NW
- try:
- param_largo = elem.get_Parameter(BuiltInParameter.STRUCTURAL_FRAME_CUT_LENGTH)
- largo_m = UnitUtils.ConvertFromInternalUnits(
- param_largo.AsDouble(), UnitTypeId.Meters
- ) if param_largo and param_largo.HasValue else 1.0
- except:
- largo_m = 1.0
-peso_total_kg = m3_a_kg(volumen, DENSIDAD_ACERO)
- peso_lineal = peso_total_kg / largo_m if largo_m &gt; 0 else 0
- clase_nw = clasificar_nw(peso_lineal)
-if clase_nw not in resultado_acero:
- resultado_acero[clase_nw] = []
- resultado_acero[clase_nw].append(peso_total_kg)
-elif es_hormigon(nombre_mat):
- total_hormigon_m3 += volumen
-else:
- elementos_sin_mat += 1
-# === CÁLCULO DE TOTALES ===total_acero_kg = sum(sum(p) for p in resultado_acero.values())
-total_con_conx = total_acero_kg * (1 + FACTOR_CONEXIONES)
+    volumen = obtener_volumen_m3(elem)
+    if volumen <= 0:
+        continue
+
+    nombre_mat = obtener_nombre_material(elem)
+
+    if es_acero(nombre_mat):
+        # Peso lineal para clasificación NW
+        try:
+            param_largo = elem.get_Parameter(BuiltInParameter.STRUCTURAL_FRAME_CUT_LENGTH)
+            largo_m = UnitUtils.ConvertFromInternalUnits(
+                param_largo.AsDouble(), UnitTypeId.Meters
+            ) if param_largo and param_largo.HasValue else 1.0
+        except:
+            largo_m = 1.0
+
+        peso_total_kg = m3_a_kg(volumen, DENSIDAD_ACERO)
+        peso_lineal   = peso_total_kg / largo_m if largo_m > 0 else 0
+        clase_nw      = clasificar_nw(peso_lineal)
+
+        if clase_nw not in resultado_acero:
+            resultado_acero[clase_nw] = []
+        resultado_acero[clase_nw].append(peso_total_kg)
+
+    elif es_hormigon(nombre_mat):
+        total_hormigon_m3 += volumen
+
+    else:
+        elementos_sin_mat += 1
+
+# ─── CÁLCULO DE TOTALES ──────────────────────────────────────────
+total_acero_kg   = sum(sum(p) for p in resultado_acero.values())
+total_con_conx   = total_acero_kg * (1 + FACTOR_CONEXIONES)
 total_hormigon_kg = m3_a_kg(total_hormigon_m3, DENSIDAD_HORMIGON)
-# // // // GENERACIÓN DEL REPORTE // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
+# ─── GENERACIÓN DEL REPORTE ──────────────────────────────────────
 output = script.get_output()
 output.close_others()
-output.set_title("Cubicación Estructural — &#123;&#125;".format(doc.Title))
-output.print_md("# → ? Reporte de Cubicación Estructural")
-output.print_md("**Proyecto:** &#123;&#125;".format(doc.Title))
-output.print_md("**Elementos procesados:** &#123;&#125;".format(len(elementos)))
-if elementos_sin_mat &gt; 0:
- output.print_md("💡 **Elementos sin material asignado:** &#123;&#125;".format(elementos_sin_mat))
+output.set_title("Cubicación Estructural — {}".format(doc.Title))
+
+output.print_md("# 📊 Reporte de Cubicación Estructural")
+output.print_md("**Proyecto:** {}".format(doc.Title))
+output.print_md("**Elementos procesados:** {}".format(len(elementos)))
+if elementos_sin_mat > 0:
+    output.print_md("⚠️ **Elementos sin material asignado:** {}".format(elementos_sin_mat))
+
 # Tabla acero por clase NW
 output.print_md("---")
-output.print_md("## 🏗️ Acero Estructural")
+output.print_md("## 🔩 Acero Estructural")
+
 tabla_acero = [["Clase NW", "N° Elementos", "Peso (kg)", "Peso (ton)"]]
 for clase in ["Liviana", "Media", "Pesada", "Extrapesada"]:
- if clase in resultado_acero:
- pesos = resultado_acero[clase]
- total = sum(pesos)
- tabla_acero.append([
- clase,
- str(len(pesos)),
- "&#123;:,.1f&#125;".format(total),
- "&#123;:,.2f&#125;".format(total / 1000)
- ])
+    if clase in resultado_acero:
+        pesos = resultado_acero[clase]
+        total = sum(pesos)
+        tabla_acero.append([
+            clase,
+            str(len(pesos)),
+            "{:,.1f}".format(total),
+            "{:,.2f}".format(total / 1000)
+        ])
+
 output.print_table(
- table_data=tabla_acero[1:],
- title="Clasificación por Nominal Weight",
- columns=tabla_acero[0]
+    table_data=tabla_acero[1:],
+    title="Clasificación por Nominal Weight",
+    columns=tabla_acero[0]
 )
 
-output.print_md("**Subtotal acero:** &#123;:,.1f&#125; kg (&#123;:,.2f&#125; ton)".format(
- total_acero_kg, total_acero_kg / 1000))
-output.print_md("**Factor conexiones (&#123;:.0f&#125;%):** + &#123;:,.1f&#125; kg".format(
- FACTOR_CONEXIONES * 100, total_acero_kg * FACTOR_CONEXIONES))
-output.print_md("### — Total acero c/conexiones: &#123;:,.1f&#125; kg (&#123;:,.2f&#125; ton)".format(
- total_con_conx, total_con_conx / 1000))
-# Tabla HORMIGÓN
+output.print_md("**Subtotal acero:** {:,.1f} kg  ({:,.2f} ton)".format(
+    total_acero_kg, total_acero_kg / 1000))
+output.print_md("**Factor conexiones ({:.0f}%):** + {:,.1f} kg".format(
+    FACTOR_CONEXIONES * 100, total_acero_kg * FACTOR_CONEXIONES))
+output.print_md("### ✅ Total acero c/conexiones: {:,.1f} kg  ({:,.2f} ton)".format(
+    total_con_conx, total_con_conx / 1000))
+
+# Tabla hormigón
 output.print_md("---")
-output.print_md("## ⚖️ HORMIGÓN Estructural")
-output.print_md("**Volumen total:** &#123;:,.2f&#125; m³".format(total_hormigon_m3))
-output.print_md("**Peso total:** &#123;:,.1f&#125; kg (&#123;:,.2f&#125; ton)".format(
- total_hormigon_kg, total_hormigon_kg / 1000))
+output.print_md("## 🏗️ Hormigón Estructural")
+output.print_md("**Volumen total:** {:,.2f} m³".format(total_hormigon_m3))
+output.print_md("**Peso total:** {:,.1f} kg  ({:,.2f} ton)".format(
+    total_hormigon_kg, total_hormigon_kg / 1000))
+
 output.print_md("---")
-output.print_md("*Generado con pyRevit · atelijudesign.com*")</pre>
+output.print_md("*Generado con pyRevit · atelijudesign.com*")`}</pre>
  </div>
  </div>
 {/* CONFIGURACIÓN */}
@@ -349,25 +376,27 @@ output.print_md("*Generado con pyRevit · atelijudesign.com*")</pre>
  <div className="steps-list">
  <div className="step-item">
  <div className="step-num">3</div>
- <div className="step-body">
+ <div className="step-body w-full">
  <div className="step-title">Configura los valores de tu proyecto</div>
- <div className="step-desc mb-4">Al inicio del script hay una sección de CONFIGURACIÓN. Ajusta el porcentaje de conexiones según las especificaciones de tu proyecto. El 5% es un valor estándar conservador.</div>
+ <div className="step-desc mb-4">Al inicio del script hay una sección de configuración. Ajusta el porcentaje de conexiones según las especificaciones de tu proyecto. El 5% es un valor estándar conservador.</div>
  </div>
  </div>
  </div>
- <div className="code-block">
+ 
+ <div className="code-block w-full">
  <div className="code-header">
- <span className="code-lang">Python · CONFIGURACIÓN</span>
+ <span className="code-lang">Python · Configuración</span>
  <button className="code-copy" onClick={(e) => copyBlock(e)}>Copiar</button>
  </div>
- <pre># // // // CONFIGURACIÓN // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-DENSIDAD_ACERO = 7850 # kg/m³ — no cambiar
-DENSIDAD_HORMIGON = 2400 # kg/m³ — ajusta si tu especificación difiere
-FACTOR_CONEXIONES = 0.05 # 5% estándar
- # 0.08 = 8% para proyectos industriales
- # 0.12 = 12% para estructuras complejas</pre>
+ <pre className="text-green-300">
+ <span className="text-emerald-500"># ─── CONFIGURACIÓN ──────────────────────────────────────────────</span>{"\n"}
+ DENSIDAD_ACERO    = 7850   <span className="text-emerald-500"># kg/m³ — no cambiar</span>{"\n"}
+ DENSIDAD_HORMIGON = 2400   <span className="text-emerald-500"># kg/m³ — ajusta si tu especificación difiere</span>{"\n"}
+ FACTOR_CONEXIONES = 0.05   <span className="text-emerald-500">{`# 5% estándar\n                           # 0.08 = 8% para proyectos industriales\n                           # 0.12 = 12% para estructuras complejas`}</span>
+ </pre>
  </div>
-<div className="steps-list mt-6">
+
+ <div className="steps-list mt-6">
  <div className="step-item">
  <div className="step-num">4</div>
  <div className="step-body">
@@ -375,6 +404,7 @@ FACTOR_CONEXIONES = 0.05 # 5% estándar
  <div className="step-desc">Abre Revit → pestaña pyRevit → Settings → Custom Extensions. Agrega la ruta a tu carpeta <span className="ic">AG_Tools.extension</span>. Luego haz clic en Reload.</div>
  </div>
  </div>
+
  <div className="step-item">
  <div className="step-num">5</div>
  <div className="step-body">

@@ -81,7 +81,7 @@ export default function Hero() {
               initial="hidden"
               animate="show"
             >
-              Diseñador BIM <span className="accent">Senior</span>
+              Diseñador BIM <span className="accent">Estructural</span>
               <span className="line-break">
                 que también <span className="accent">programa.</span>
               </span>

@@ -1,0 +1,13 @@
+dustriales
+                           # 0.12 = 12% para estructuras complejas</pre>
+          </div>
+
+          <div class="steps-list mt-6">
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <div class="step-title">Agrega tu extensión a pyRevit</div>
+                <div class="step-desc">Abre Revit → pestaña pyRevit → Settings → Custom Extensions. Agrega la ruta a tu carpeta <span class="ic">AG_Tools.extension</span>. Luego haz clic en Reload.</div>
+              </div>
+            </div>
+            <div cla

@@ -182,21 +182,21 @@ export default function PyRevitAccelerator() {
             <p className="text-slate-400 mb-5 relative z-10 text-sm">
               Copia y pega este prompt estructurado en tu IA favorita para obtener un código pyRevit inicial listo para usar:
             </p>
-            <div className="code-block relative z-10">
+            <div className="code-block w-full relative z-10">
               <div className="code-header">
-                <span className="code-lang">Prompt IA · Estructurado</span>
+                <span className="code-lang text-orange-400">Prompt IA · Estructurado</span>
                 <button className="code-copy" onClick={(e) => copyBlock(e)}>Copiar</button>
               </div>
-              <pre id="codigo-prompt">Actúa como un experto en pyRevit y la API de Revit con IronPython. Necesito un script.py que haga lo siguiente:
+              <pre id="codigo-prompt" className="text-blue-200">Actúa como un experto en pyRevit y la API de Revit con IronPython. Necesito un script.py que haga lo siguiente:
 
-TAREA: [Describe tu tarea aquí, por ejemplo: Seleccionar todas las zapatas del modelo y escribir su volumen en el parámetro 'Comentarios']
+<span className="text-orange-300 font-bold">TAREA:</span> [Describe tu tarea aquí, por ejemplo: Seleccionar todas las zapatas del modelo y escribir su volumen en el parámetro 'Comentarios']
 
-CONTEXTO:
+<span className="text-orange-300 font-bold">CONTEXTO:</span>
 - Uso Revit 2024/2025
 - pyRevit 4.8+ instalado
 - El script será un pushbutton
 
-REQUISITOS:
+<span className="text-orange-300 font-bold">REQUISITOS:</span>
 - Importar los módulos necesarios (clr, Autodesk.Revit.DB, etc.)
 - Usar Transaction de Revit según corresponda
 - Incluir manejo de errores básico (try/except)
