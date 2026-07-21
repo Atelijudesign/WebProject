@@ -1,26 +1,48 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import ProjectsCatalog from "./pages/ProjectsCatalog";
-import ProjectDetail from "./pages/ProjectDetail";
-import ExportModel from "./pages/ExportModel";
-import ToolsCatalog from "./pages/ToolsCatalog";
-import IchaCatalog from "./pages/IchaCatalog";
-import StaircaseCalculator from "./pages/StaircaseCalculator";
-import AdminDashboard from "./pages/AdminDashboard";
-import ProfileCalculator from "./pages/ProfileCalculator";
-import BucklingShorteners from "./pages/BucklingShorteners";
-import BlogCatalog from "./pages/blog/BlogCatalog";
-import PyRevitVolumen from "./pages/blog/PyRevitVolumen";
-import BimDevRoadmap from "./pages/blog/BimDevRoadmap";
-import HerramientasBimAcero from "./pages/blog/HerramientasBimAcero";
-import PyRevitAccelerator from "./pages/blog/PyRevitAccelerator";
-import RevitStructureFuturo from "./pages/blog/RevitStructureFuturo";
-import RevitSupportClinic from "./pages/blog/RevitSupportClinic";
-import KonstrueduRevit from "./pages/blog/KonstrueduRevit";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+
+// Lightweight pages — loaded eagerly (small bundle impact)
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+
+// Heavy pages — lazy-loaded so their deps (Three.js, ExcelJS, jsPDF,
+// Chart.js, xlsx, dnd-kit, web-ifc) stay out of the initial bundle
+const ProjectsCatalog     = lazy(() => import("./pages/ProjectsCatalog"));
+const ProjectDetail       = lazy(() => import("./pages/ProjectDetail"));
+const ExportModel         = lazy(() => import("./pages/ExportModel"));
+const ToolsCatalog        = lazy(() => import("./pages/ToolsCatalog"));
+const IchaCatalog         = lazy(() => import("./pages/IchaCatalog"));
+const StaircaseCalculator = lazy(() => import("./pages/StaircaseCalculator"));
+const AdminDashboard      = lazy(() => import("./pages/AdminDashboard"));
+const ProfileCalculator   = lazy(() => import("./pages/ProfileCalculator"));
+const BucklingShorteners  = lazy(() => import("./pages/BucklingShorteners"));
+
+// Blog pages — lazy-loaded (content-heavy, visited on demand)
+const BlogCatalog           = lazy(() => import("./pages/blog/BlogCatalog"));
+const PyRevitVolumen        = lazy(() => import("./pages/blog/PyRevitVolumen"));
+const BimDevRoadmap         = lazy(() => import("./pages/blog/BimDevRoadmap"));
+const HerramientasBimAcero  = lazy(() => import("./pages/blog/HerramientasBimAcero"));
+const PyRevitAccelerator    = lazy(() => import("./pages/blog/PyRevitAccelerator"));
+const RevitStructureFuturo  = lazy(() => import("./pages/blog/RevitStructureFuturo"));
+const RevitSupportClinic    = lazy(() => import("./pages/blog/RevitSupportClinic"));
+const KonstrueduRevit       = lazy(() => import("./pages/blog/KonstrueduRevit"));
+
+// Shared loading fallback for lazy routes
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-10 h-10 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
+        <p className="text-sm text-slate-400 font-mono tracking-wider">
+          Cargando...
+        </p>
+      </div>
+    </div>
+  );
+}
 
 // Layout compartido con Navbar, Footer y ScrollToTop
 function PublicLayout() {
@@ -28,7 +50,9 @@ function PublicLayout() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
       <ScrollToTopButton />
@@ -41,7 +65,11 @@ export default function App() {
     <Router>
       <Routes>
         {/* Admin Route — sin Navbar/Footer */}
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin" element={
+          <Suspense fallback={<PageLoader />}>
+            <AdminDashboard />
+          </Suspense>
+        } />
 
         {/* Public Routes con Navbar y Footer */}
         <Route element={<PublicLayout />}>
@@ -72,3 +100,4 @@ export default function App() {
     </Router>
   );
 }
+

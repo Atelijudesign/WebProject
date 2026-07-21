@@ -1,8 +1,10 @@
-import { Suspense, useRef, useEffect, useState } from "react";
+import { Suspense, lazy, useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { textVariant, fadeIn } from "../utils/motion";
 import { heroStats } from "../constants";
-import BuildingScene from "./canvas/BuildingScene";
+
+// Lazy-load the 3D scene so Three.js/R3F/Drei stay out of the main bundle
+const BuildingScene = lazy(() => import("./canvas/BuildingScene"));
 
 function AnimatedCounter({ target, suffix, duration = 2000 }) {
   const [count, setCount] = useState(0);

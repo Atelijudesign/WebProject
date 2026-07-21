@@ -1588,3 +1588,17 @@
         color: #93c5fd; background: rgba(59,130,246,0.1);
         padding: 1px 6px; border-radius: 4px;
       }
+
+      /* Glass Card & Glass Container styling */
+      .glass-card {
+        background: rgba(15, 23, 42, 0.92) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border: 1px solid rgba(71, 85, 105, 0.7) !important;
+        box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.6) !important;
+      }
+
+      .glass-card.border-bim-blue {
+        border-color: rgba(59, 130, 246, 0.8) !important;
+        box-shadow: 0 0 24px rgba(59, 130, 246, 0.25), 0 12px 36px -8px rgba(0, 0, 0, 0.6) !important;
+      }
