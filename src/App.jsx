@@ -16,7 +16,8 @@ const ExportModel         = lazy(() => import("./pages/ExportModel"));
 const ToolsCatalog        = lazy(() => import("./pages/ToolsCatalog"));
 const IchaCatalog         = lazy(() => import("./pages/IchaCatalog"));
 const StaircaseCalculator = lazy(() => import("./pages/StaircaseCalculator"));
-const AdminDashboard      = lazy(() => import("./pages/AdminDashboard"));
+const isDev = import.meta.env.DEV;
+const AdminDashboard = isDev ? lazy(() => import("./pages/AdminDashboard")) : null;
 const ProfileCalculator   = lazy(() => import("./pages/ProfileCalculator"));
 const BucklingShorteners  = lazy(() => import("./pages/BucklingShorteners"));
 
@@ -64,12 +65,14 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Admin Route — sin Navbar/Footer */}
-        <Route path="/admin" element={
-          <Suspense fallback={<PageLoader />}>
-            <AdminDashboard />
-          </Suspense>
-        } />
+        {/* Admin Route — solo disponible en desarrollo local */}
+        {isDev && AdminDashboard && (
+          <Route path="/admin" element={
+            <Suspense fallback={<PageLoader />}>
+              <AdminDashboard />
+            </Suspense>
+          } />
+        )}
 
         {/* Public Routes con Navbar y Footer */}
         <Route element={<PublicLayout />}>
