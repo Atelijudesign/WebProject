@@ -899,12 +899,12 @@ Peso total:     2.977.200 kg  (2.977,20 ton)`}</pre>
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
             Volver al Blog
           </Link>
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className="inline-flex items-center text-slate-400 hover:text-bim-blue font-medium transition-colors text-sm"
           >
             <i className="fa-solid fa-envelope mr-2" /> ¿Preguntas? Contáctame
-          </a>
+          </Link>
         </div>
       </section>
     </div>

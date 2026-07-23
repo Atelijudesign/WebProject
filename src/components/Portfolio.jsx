@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 import { portfolioFilters, portfolioProjects } from "../constants";
@@ -44,9 +45,9 @@ function PortfolioCard({ project, index }) {
         </div>
         <p className="portfolio-desc">{project.description}</p>
         {project.link ? (
-          <a href={project.link} className="portfolio-link">
+          <Link to={project.link} className="portfolio-link">
             Ver detalles <i className="fa-solid fa-arrow-right"></i>
-          </a>
+          </Link>
         ) : (
           <span
             style={{

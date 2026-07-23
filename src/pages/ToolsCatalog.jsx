@@ -6,6 +6,16 @@ export default function ToolsCatalog() {
     <div className="bg-gray-50 dark:bg-bim-dark min-h-screen pt-24 pb-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* Top navigation */}
+        <div className="mb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-white bg-slate-900/60 hover:bg-slate-800 border border-slate-700/50 px-4 py-2 rounded-xl transition-all duration-300 shadow-sm group"
+          >
+            <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver al Inicio
+          </Link>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-blue-900/30 border border-bim-blue/30 text-bim-blue text-xs font-bold mb-4 tracking-wider uppercase">
@@ -117,6 +127,7 @@ export default function ToolsCatalog() {
               </div>
             </div>
           </Link>
+
 
           {/* Coming Soon Card */}
           <div className="group block h-full select-none">

@@ -417,9 +417,12 @@ export default function ProfileCalculator() {
 
   return (
     <div className="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans min-h-screen pt-24 pb-12 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 mb-6">
-        <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
-          <i className="fa-solid fa-arrow-left"></i> Volver a Herramientas
+      <div className="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between flex-wrap gap-3">
+        <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 hover:border-emerald-500/50 px-4 py-2 rounded-xl transition-all duration-300 shadow-sm group">
+          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
+        </Link>
+        <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-white bg-slate-900/60 hover:bg-slate-800 border border-slate-700/50 px-4 py-2 rounded-xl transition-all duration-300 shadow-sm">
+          <i className="fa-solid fa-house"></i> Volver al Inicio
         </Link>
       </div>
       {/* Title */}
@@ -608,6 +611,16 @@ export default function ProfileCalculator() {
           </div>
         )}
 
+      </div>
+
+      {/* Footer Navigation */}
+      <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 flex items-center justify-between flex-wrap gap-4">
+        <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors group">
+          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
+        </Link>
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <i className="fa-solid fa-house"></i> Volver al Inicio
+        </Link>
       </div>
     </div>
   );

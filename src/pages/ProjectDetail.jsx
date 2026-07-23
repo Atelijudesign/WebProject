@@ -186,10 +186,10 @@ export default function ProjectDetail() {
             )}
             
             <div className="mt-12">
-              <a href="/#portfolio" className="inline-flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-colors font-bold group">
+              <Link to="/#portfolio" className="inline-flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl transition-colors font-bold group">
                 <i className="fa-solid fa-arrow-left mr-3 group-hover:-translate-x-1 transition-transform"></i>
                 Volver a Proyectos Destacados
-              </a>
+              </Link>
             </div>
           </div>
 

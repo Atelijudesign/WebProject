@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# React Router SPA routing (redirect all non-file/dir requests to index.html)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+
 # Redirect /index.html to /
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]

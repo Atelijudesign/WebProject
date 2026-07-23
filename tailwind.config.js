@@ -20,6 +20,8 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        head: ["Space Grotesk", "sans-serif"],
+        mono: ["Fira Code", "monospace"],
       },
     },
   },
