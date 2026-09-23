@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "pageFormat": "a4",
+  "template": "ats",
+  "personal": {
+    "name": "Valentina Rojas Méndez",
+    "title": "Coordinadora BIM Estructural",
+    "email": "valentina.rojas@example.com",
+    "phone": "+56 9 5555 0142",
+    "location": "Santiago, Chile",
+    "linkedin": "https://example.com/perfil-valentina-rojas"
+  },
+  "target_job": {
+    "title": "Coordinadora BIM Estructural",
+    "description": "Se requiere Coordinadora BIM Estructural con dominio obligatorio de Revit Structures, Navisworks Manage, Autodesk Construction Cloud y Coordinación BIM. Debe contar con experiencia en Modelado BIM de estructuras de hormigón armado y acero estructural, Clash Detection, elaboración de BEP y gestión de información bajo ISO 19650. Se valora conocimiento de Dynamo, pyRevit, AutoCAD, Tekla Structures, NCh433, NCh2369, AISC y ACI. Responsable de coordinar especialidades, supervisar modelos, controlar entregables y liderar reuniones de coordinación multidisciplinaria. Inglés intermedio deseable."
+  },
+  "summary": {
+    "text": "Coordinadora BIM Estructural con experiencia en modelado, coordinación multidisciplinaria y gestión de información para proyectos industriales y de edificación. Especialista en Revit Structures, Navisworks Manage, Autodesk Construction Cloud e ISO 19650, con resultados verificables en reducción de interferencias, automatización de controles y cumplimiento de entregables."
+  },
+  "experience": [
+    {
+      "company": "Andes Digital Engineering SpA",
+      "position": "Coordinadora BIM Estructural",
+      "start_date": "2023-03",
+      "end_date": "Actualidad",
+      "current": true,
+      "location": "Santiago, Chile",
+      "description": "Lideré la coordinación BIM de 14 proyectos industriales, integrando modelos estructurales, arquitectura y MEP en Navisworks Manage. Reduje en 38% las interferencias críticas antes de construcción mediante Clash Detection y reuniones ICE semanales. Implementé flujos de revisión en Autodesk Construction Cloud, logrando 96% de entregables aprobados en primera revisión."
+    },
+    {
+      "company": "Estructuras del Pacífico Ltda.",
+      "position": "Modeladora BIM Estructural Senior",
+      "start_date": "2020-01",
+      "end_date": "2023-02",
+      "location": "Valparaíso, Chile",
+      "description": "Modelé más de 85.000 m2 de estructuras de hormigón armado y acero estructural en Revit Structures. Automaticé 12 controles de calidad con Dynamo y pyRevit, reduciendo 22 horas mensuales de revisión manual. Coordiné planos, cubicaciones y modelos conforme a NCh433, NCh2369, ACI y AISC."
+    },
+    {
+      "company": "BIM Norte Consultores",
+      "position": "Proyectista Estructural BIM",
+      "start_date": "2017-06",
+      "end_date": "2019-12",
+      "location": "Antofagasta, Chile",
+      "description": "Desarrollé modelos y planos estructurales para 9 instalaciones mineras utilizando Revit, AutoCAD y Tekla Structures. Coordiné la emisión de 420 planos con trazabilidad documental y disminuí 30% las observaciones por inconsistencias entre vistas, detalles y cubicaciones."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Ingeniería en Construcción",
+      "institution": "Instituto Profesional Metropolitano"
+    },
+    {
+      "degree": "Diplomado en Coordinación BIM",
+      "institution": "Academia Digital de Construcción"
+    }
+  ],
+  "skills": [
+    { "name": "Revit Structures", "level": 5, "category": "Software BIM" },
+    { "name": "Navisworks Manage", "level": 5, "category": "Coordinación" },
+    { "name": "Autodesk Construction Cloud", "level": 4, "category": "CDE" },
+    { "name": "Coordinación BIM", "level": 5, "category": "Metodología" },
+    { "name": "Modelado BIM", "level": 5, "category": "Metodología" },
+    { "name": "Clash Detection", "level": 5, "category": "Coordinación" },
+    { "name": "ISO 19650", "level": 4, "category": "Normativa" },
+    { "name": "Dynamo", "level": 4, "category": "Automatización" },
+    { "name": "pyRevit", "level": 3, "category": "Automatización" },
+    { "name": "Tekla Structures", "level": 3, "category": "Software BIM" },
+    { "name": "AutoCAD", "level": 5, "category": "CAD" },
+    { "name": "NCh433", "level": 4, "category": "Normativa" },
+    { "name": "NCh2369", "level": 4, "category": "Normativa" },
+    { "name": "AISC", "level": 4, "category": "Normativa" },
+    { "name": "ACI", "level": 4, "category": "Normativa" },
+    { "name": "Hormigón Armado", "level": 5, "category": "Disciplina" },
+    { "name": "Acero Estructural", "level": 5, "category": "Disciplina" }
+  ],
+  "languages": [
+    { "name": "Español", "level": "Nativo" },
+    { "name": "Inglés", "level": "B2 Intermedio alto" }
+  ],
+  "projects": [
+    {
+      "name": "Centro Logístico Cordillera",
+      "date": "2025",
+      "description": "Coordinación BIM estructural de 42.000 m2, federación de modelos y gestión de 680 incidencias en Autodesk Construction Cloud."
+    }
+  ]
+}

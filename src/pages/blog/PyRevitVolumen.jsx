@@ -1,11 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
 import CodeBlock from "../../components/CodeBlock";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
 
 export default function PyRevitVolumen() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [copied, setCopied] = useState(false);
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -71,25 +76,7 @@ export default function PyRevitVolumen() {
     return () => chart.destroy();
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const copyBlock = (e) => {
-    const pre = e.target.closest(".code-block").querySelector("pre");
-    if (pre) {
-      navigator.clipboard.writeText(pre.innerText.trim()).then(() => {
-        const btn = e.target;
-        btn.textContent = "✓ Copiado";
-        setTimeout(() => (btn.textContent = "Copiar"), 2000);
-      });
-    }
-  };
-
-  const shareUrl = encodeURIComponent(window.location.href);
+  const shareUrl = getShareUrl("/blog/pyrevit-peso-volumen");
   const shareTitle = encodeURIComponent(
     "De 2 Horas a 10 Segundos: Plugin de Pesos y Volúmenes Estructurales"
   );
@@ -282,6 +269,11 @@ output.print_md("*Generado con pyRevit · atelijudesign.com*")`;
 
   return (
     <div className="bg-bim-dark min-h-screen transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "From 2 Hours to 10 Seconds: Structural Weight and Volume pyRevit Plugin" : "De 2 Horas a 10 Segundos: Plugin de Pesos y Volúmenes Estructurales"}
+        description={isEn ? "How I automated weight and volume quantification in Revit models with a pyRevit plugin that detects materials, classifies steel profiles, and generates instant reports." : "Plugin pyRevit para cálculo automático de pesos y volúmenes de acero y hormigón estructural en Revit."}
+        path="/blog/pyrevit-peso-volumen"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 z-50 transition-all duration-100"
@@ -300,7 +292,7 @@ output.print_md("*Generado con pyRevit · atelijudesign.com*")`;
               to="/blog"
               className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
             >
-              <i className="fa-solid fa-arrow-left mr-1" /> Volver al Blog
+              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
             </Link>
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -314,17 +306,21 @@ output.print_md("*Generado con pyRevit · atelijudesign.com*")`;
               <i className="fa-regular fa-calendar mr-1" /> 22 Mar 2026
             </span>
             <span className="text-gray-400 text-sm">
-              <i className="fa-regular fa-clock mr-1" /> 12 min lectura
+              <i className="fa-regular fa-clock mr-1" /> {isEn ? "12 min read" : "12 min lectura"}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight leading-tight">
-            <span className="text-5xl">🏗️</span> Cubicación Automática en Revit con{" "}
-            <span className="text-gradient-article">pyRevit y Python</span>
+            {isEn ? "From 2 Hours to 10 Seconds: Structural Weight and Volume pyRevit Plugin" : (
+              <><span className="text-5xl">🏗️</span> Cubicación Automática en Revit con{" "}
+            <span className="text-gradient-article">pyRevit y Python</span></>
+            )}
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Calcular cubicaciones en Revit siempre fue un proceso que me molestó. Exportabas a Excel,
+            {isEn ? "How I automated weight and volume quantification in Revit models with a pyRevit plugin that detects materials, classifies steel profiles, and generates instant reports." : (
+              <>Calcular cubicaciones en Revit siempre fue un proceso que me molestó. Exportabas a Excel,
             filtrabas a mano, y si el modelo cambiaba — cosa que siempre pasa — volvías a empezar. En este
-            artículo te muestro cómo construí un script que resuelve eso en 10 segundos.
+            artículo te muestro cómo construí un script que resuelve eso en 10 segundos.</>
+            )}
           </p>
         </div>
       </section>
@@ -456,6 +452,20 @@ output.print_md("*Generado con pyRevit · atelijudesign.com*")`;
               <i className="fa-solid fa-list-check text-bim-blue mr-2" />
               Prerrequisitos
             </h3>
+
+            {/* FIGURA 1: PYREVIT PESO VOLUMEN UI */}
+            <figure className="my-6 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+              <img
+                src={asset("/assets/img/blog/news/pyrevit_peso_volumen_plugin.png")}
+                alt="Panel de cubicación instantánea de pesos y volúmenes con pyRevit"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+                <i className="fa-solid fa-camera mr-1 text-orange-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Interfaz interactiva del plugin pyRevit mostrando el resumen de cubicación estructural instantánea (toneladas de acero, volumen m³ de hormigón y exportación en 10s a Excel).
+              </figcaption>
+            </figure>
+
             <ul className="space-y-2 text-slate-400 text-sm mb-4">
               <li className="flex items-start gap-2">
                 <span className="text-orange-400 mt-1">
@@ -781,9 +791,7 @@ Peso total:     2.977.200 kg  (2.977,20 ton)`}</pre>
           {/* Conclusiones Clave */}
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-800/60 border-l-4 border-l-bim-blue">
             <h3 className="text-xl font-extrabold text-white mb-4">
-              <i className="fa-solid fa-lightbulb text-yellow-400 mr-2" />
-              Conclusiones Clave
-            </h3>
+              <i className="fa-solid fa-lightbulb text-yellow-400 mr-2" />{isEn ? "Key Conclusions" : "Conclusiones Clave"}</h3>
             <ul className="space-y-3 mb-0">
               <li className="flex items-start text-slate-400">
                 <span className="text-bim-blue mr-2 mt-1">
@@ -829,65 +837,59 @@ Peso total:     2.977.200 kg  (2.977,20 ton)`}</pre>
               </li>
             </ul>
           </div>
-        </div>
-      </section>
+          {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+          <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60 mb-10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <i className="fa-solid fa-link text-orange-400" />
+              Fuentes Oficiales y Referencias de la API
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href="https://www.revitapidocs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-orange-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-orange-950/60 text-orange-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-code" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-orange-300 transition-colors flex items-center justify-between">
+                    <span>Revit API Docs Online</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    FilteredElementCollector & Material Takeoff
+                  </div>
+                </div>
+              </a>
 
-      {/* Share Buttons Section */}
-      <section className="py-10 bg-[#070d18] border-t border-slate-800/60">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 font-mono">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" /> Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-facebook-f" /> Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-slate-500/20 transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <a
-              href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF4500] hover:bg-[#cc3700] text-white text-sm font-bold shadow-lg hover:shadow-orange-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-reddit-alien" /> Reddit
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" /> ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
+              <a
+                href="https://github.com/pyrevitlabs/pyRevit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-green-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-green-950/60 text-green-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-brands fa-github" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-green-300 transition-colors flex items-center justify-between">
+                    <span>pyRevit Labs GitHub</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    pyRevit Core & Forms Module
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ─── SHARE BUTTONS ─── */}
+      <ShareArticle url={shareUrl} title={shareTitle} />
 
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
@@ -897,7 +899,7 @@ Peso total:     2.977.200 kg  (2.977,20 ton)`}</pre>
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
           <Link
             to="/#contact"

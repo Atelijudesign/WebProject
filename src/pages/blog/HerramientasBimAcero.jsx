@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
 
 export default function HerramientasBimAcero() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,18 +22,16 @@ export default function HerramientasBimAcero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const shareUrl = encodeURIComponent(window.location.href);
-  const shareTitle = encodeURIComponent("Herramientas Web para Acero Estructural: Calculadora + Catálogo ICHA");
+  const shareUrl = getShareUrl("/blog/herramientas-bim-acero");
+  const shareTitle = encodeURIComponent(isEn ? "Web Tools for Structural Steel: Custom Calculator + ICHA Catalog" : "Herramientas Web para Acero Estructural: Calculadora + Catálogo ICHA");
 
   return (
     <div className="bg-bim-dark min-h-screen transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "Web Tools for Structural Steel: Custom Calculator + ICHA Catalog" : "Herramientas Web para Acero Estructural: Calculadora + Catálogo ICHA"}
+        description={isEn ? "Parametric steel profile calculator and official ICHA digital catalog featuring interactive search, 2D SVG diagrams, and professional Excel takeoff export." : "Herramientas BIM online para acero estructural: calculadora de perfiles, catálogo ICHA y guía de diseño."}
+        path="/blog/herramientas-bim-acero"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 z-50 transition-all duration-100"
@@ -47,7 +50,7 @@ export default function HerramientasBimAcero() {
               to="/blog"
               className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
             >
-              <i className="fa-solid fa-arrow-left mr-1" /> Volver al Blog
+              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
             </Link>
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -58,18 +61,22 @@ export default function HerramientasBimAcero() {
               <i className="fa-regular fa-calendar mr-1" /> 19 Feb 2026
             </span>
             <span className="text-gray-400 text-sm">
-              <i className="fa-regular fa-clock mr-1" /> 6 min lectura
+              <i className="fa-regular fa-clock mr-1" /> {isEn ? "6 min read" : "6 min lectura"}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight leading-tight">
-            <span className="text-cyan-400 text-5xl">🛠️</span> Herramientas Web para{" "}
+            {isEn ? "Web Tools for Structural Steel: Custom Calculator + ICHA Catalog" : (
+              <><span className="text-cyan-400 text-5xl">🛠️</span> Herramientas Web para{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
               Acero Estructural
-            </span>
+            </span></>
+            )}
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Calculadora de perfiles y catálogo digital ICHA: todo lo que un proyectista estructural necesita,
-            directo en el navegador.
+            {isEn ? "Parametric steel profile calculator and official ICHA digital catalog featuring interactive search, 2D SVG diagrams, and professional Excel takeoff export." : (
+              <>Calculadora de perfiles y catálogo digital ICHA: todo lo que un proyectista estructural necesita,
+            directo en el navegador.</>
+            )}
           </p>
         </div>
       </section>
@@ -94,6 +101,19 @@ export default function HerramientasBimAcero() {
               secciones personalizadas y un <strong className="text-bim-blue">Catálogo Digital ICHA</strong> con
               todos los datos del Instituto Chileno del Acero. Veamos qué hace cada una.
             </p>
+
+            {/* FIGURA 1: HERRAMIENTAS ICHA UI */}
+            <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+              <img
+                src={asset("/assets/img/blog/news/herramientas_bim_acero_icha.png")}
+                alt="Panel de herramientas web para acero estructural y catálogo digital ICHA"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+                <i className="fa-solid fa-camera mr-1 text-cyan-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Suite web de cálculo y cubicación de perfiles ICHA con visualizador de secciones 2D acotadas y exportación estructurada a Microsoft Excel.
+              </figcaption>
+            </figure>
           </div>
 
           {/* Tool 1: Calculadora de Perfiles */}
@@ -329,6 +349,81 @@ export default function HerramientasBimAcero() {
             </p>
           </div>
 
+          {/* CTA Box to Live Tools */}
+          <div className="rounded-2xl p-8 md:p-10 border border-bim-blue/40 mb-10 bg-gradient-to-br from-blue-950/50 via-slate-900/70 to-cyan-950/40 text-center shadow-2xl">
+            <span className="text-5xl mb-4 block">🏗️</span>
+            <h2 className="text-2xl font-extrabold text-white mb-3">Prueba el Catálogo ICHA Digital Gratis</h2>
+            <p className="text-slate-400 mb-6 max-w-xl mx-auto text-sm">
+              Explora las series oficiales (HN, IN, IP, C, CA, Tubulares), consulta propiedades mecánicas y genera cubicaciones con exportación a Excel y PDF.
+            </p>
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              <Link
+                to="/herramientas/icha"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-bim-blue hover:bg-blue-500 text-white font-bold text-sm shadow-lg hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
+              >
+                <i className="fa-solid fa-cube" />
+                <span>Abrir Catálogo ICHA</span>
+                <i className="fa-solid fa-arrow-right text-xs" />
+              </Link>
+              <Link
+                to="/herramientas/perfiles"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition-all hover:-translate-y-0.5"
+              >
+                <i className="fa-solid fa-calculator text-cyan-400" />
+                <span>Calculadora de Perfiles</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+          <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60 mb-10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <i className="fa-solid fa-link text-cyan-400" />
+              Fuentes Oficiales y Normativa Chilena
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href="https://www.icha.cl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-book" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+                    <span>Instituto Chileno del Acero (ICHA)</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    Catálogo Oficial de Perfiles de Acero Estructural
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="https://www.inn.cl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-emerald-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-emerald-950/60 text-emerald-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-shield-halved" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center justify-between">
+                    <span>Norma Chilena NCh427 / INN</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    Estructuras de Acero — Cálculo y Disposiciones de Diseño
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
           {/* CTA: Pruébalas Ahora */}
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-800/80 border-l-4 border-l-bim-blue mb-10 shadow-2xl">
             <h3 className="text-xl font-extrabold text-white mb-4 flex items-center gap-2">
@@ -359,62 +454,8 @@ export default function HerramientasBimAcero() {
         </div>
       </section>
 
-      {/* Share Buttons Section */}
-      <section className="py-10 bg-[#070d18] border-t border-slate-800/60">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 font-mono">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" /> Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-facebook-f" /> Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-slate-500/20 transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <a
-              href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF4500] hover:bg-[#cc3700] text-white text-sm font-bold shadow-lg hover:shadow-orange-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-reddit-alien" /> Reddit
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" /> ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* ─── SHARE BUTTONS ─── */}
+      <ShareArticle url={shareUrl} title={shareTitle} />
 
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
@@ -424,7 +465,7 @@ export default function HerramientasBimAcero() {
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
           <Link
             to="/#contact"

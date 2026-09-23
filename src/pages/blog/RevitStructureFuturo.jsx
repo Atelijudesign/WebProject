@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
 
 export default function RevitStructureFuturo() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,20 +25,18 @@ export default function RevitStructureFuturo() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const shareUrl = encodeURIComponent(window.location.href);
+  const shareUrl = getShareUrl("/blog/revit-structure-futuro");
   const shareTitle = encodeURIComponent(
     "El Futuro de Revit Structure: Roadmap y Tendencias 2025"
   );
 
   return (
     <div className="bg-bim-dark min-h-screen transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "Closing the Gap Between Design and Detailing: The Future of Revit Structure" : "El Futuro de Revit Structure: Roadmap y Tendencias 2025"}
+        description={isEn ? "Analysis of Autodesk's structural roadmap: automated steel connections, autonomous analytical models, and the convergence of Revit, Tekla, and Advance Steel." : "Análisis profundo del roadmap de Revit Structure, tendencias de automatización BIM y nueva funcionalidad de modelado estructural."}
+        path="/blog/revit-structure-futuro"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 z-50 transition-all duration-100"
@@ -53,7 +56,7 @@ export default function RevitStructureFuturo() {
               to="/blog"
               className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
             >
-              <i className="fa-solid fa-arrow-left mr-1" /> Volver al Blog
+              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
             </Link>
           </div>
 
@@ -65,17 +68,21 @@ export default function RevitStructureFuturo() {
               <i className="fa-regular fa-calendar mr-1" /> 17 Feb 2026
             </span>
             <span className="text-gray-400 text-sm">
-              <i className="fa-regular fa-clock mr-1" /> 8 min lectura
+              <i className="fa-regular fa-clock mr-1" /> {isEn ? "8 min read" : "8 min lectura"}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight leading-tight">
-            <span className="text-indigo-400 text-5xl">🔗</span> ¿El Fin de la{" "}
-            <span className="text-gradient-article">Brecha BIM</span>?
+            {isEn ? "Closing the Gap Between Design and Detailing: The Future of Revit Structure" : (
+              <><span className="text-indigo-400 text-5xl">🔗</span> ¿El Fin de la{" "}
+            <span className="text-gradient-article">Brecha BIM</span>?</>
+            )}
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Analizando el futuro de Revit Structure: del diseño conceptual al
-            detallado de fabricación, sin salir del entorno BIM.
+            {isEn ? "Analysis of Autodesk's structural roadmap: automated steel connections, autonomous analytical models, and the convergence of Revit, Tekla, and Advance Steel." : (
+              <>Analizando el futuro de Revit Structure: del diseño conceptual al
+            detallado de fabricación, sin salir del entorno BIM.</>
+            )}
           </p>
         </div>
       </section>
@@ -99,18 +106,31 @@ export default function RevitStructureFuturo() {
               <strong className="text-bim-blue">Advance Steel</strong>.
             </p>
             <p className="text-gray-400 mb-0">
-              Sin embargo, el último{" "}
+              Sin embargo, los recientes comunicados y el{" "}
               <a
-                href="https://autodeskblog.wpengine.com/aec/roadmap/revit-structure-roadmap/"
+                href="https://help.autodesk.com/view/RVT/2027/ENU/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-bim-blue hover:text-blue-400 underline transition-colors"
               >
-                Roadmap de Autodesk
+                Roadmap Oficial de Autodesk
               </a>{" "}
-              sugiere que esta barrera está a punto de caer. Analicemos qué
+              sugieren que esta barrera está a punto de caer. Analicemos qué
               significa esto para los proyectistas estructurales.
             </p>
+
+            {/* FIGURA 1: REVIT STRUCTURE FUTURE ROADMAP */}
+            <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+              <img
+                src={asset("/assets/img/blog/news/revit_structure_future_roadmap.png")}
+                alt="Roadmap y futuro de Autodesk Revit Structure y convergencia con Tekla y Advance Steel"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+                <i className="fa-solid fa-camera mr-1 text-cyan-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Visión tecnológica de Autodesk Revit Structure hacia conexiones de acero autónomas, modelo analítico integrado e interoperabilidad fluida con plataformas de detallamiento.
+              </figcaption>
+            </figure>
           </div>
 
           {/* Hito 1: Fabrication-Ready */}
@@ -327,67 +347,60 @@ export default function RevitStructureFuturo() {
               </li>
             </ul>
           </div>
-        </div>
-      </section>
 
-      {/* ─── SHARE BUTTONS ─── */}
-      <section className="py-10 bg-[#070d18] border-t border-slate-800/60">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" />
-            Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/30 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-facebook-f" /> Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-gray-500/30 transition-all hover:-translate-y-0.5 border border-gray-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <a
-              href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF4500] hover:bg-[#cc3700] text-white text-sm font-bold shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-reddit-alien" /> Reddit
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-700 hover:bg-gray-600 text-white text-sm font-bold shadow-lg hover:shadow-gray-500/30 transition-all hover:-translate-y-0.5"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" />{" "}
-                  ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
+          {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+          <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60 mb-10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <i className="fa-solid fa-link text-cyan-400" />
+              Fuentes Oficiales y Referencias de Desarrollo
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href="https://help.autodesk.com/view/RVT/2027/ENU/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-book-open" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+                    <span>Autodesk Help Revit</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    Documentación y Novedades de Revit Estructural
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="https://www.tekla.com/products/tekla-structures"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-indigo-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-indigo-950/60 text-indigo-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-cube" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors flex items-center justify-between">
+                    <span>Trimble Tekla Structures</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    LOD 400 y Detallado de Acero Estructural Pesado
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ─── SHARE BUTTONS ─── */}{/* ─── SHARE BUTTONS ─── */}
+      <ShareArticle url={shareUrl} title={shareTitle} />
 
       {/* ─── ARTICLE NAVIGATION FOOTER ─── */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
@@ -397,7 +410,7 @@ export default function RevitStructureFuturo() {
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
           <Link
             to="/#contact"

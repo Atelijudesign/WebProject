@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Dr. Andrés Gallo P. — CV Académico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent: #1a2332;
+    --accent-soft: #1a233214;
+    --text: #1a1a1a;
+    --muted: #555;
+    --rule: #d4d4d4;
+    --bg: #ffffff;
+  }
+
+  html, body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+
+  .sans { font-family: 'Inter', system-ui, sans-serif; }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 22mm 22mm 20mm;
+  }
+
+  .header {
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 14pt;
+    margin-bottom: 18pt;
+  }
+  .header-name {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    margin-bottom: 2pt;
+  }
+  .header-title {
+    font-size: 11pt;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 8pt;
+  }
+  .header-contacts {
+    font-size: 9pt;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2pt 14pt;
+  }
+  .header-contacts span { display: inline-block; }
+  .header-contacts a { color: var(--accent); text-decoration: none; }
+
+  .section { margin-bottom: 16pt; page-break-inside: avoid; }
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3pt;
+    margin-bottom: 8pt;
+  }
+
+  .entry { margin-bottom: 9pt; page-break-inside: avoid; }
+  .entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .entry-title em { font-style: italic; }
+  .entry-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--muted);
+    margin: 1pt 0 3pt;
+  }
+  .entry-meta .venue { color: var(--accent); font-weight: 500; font-style: normal; }
+  .entry-desc {
+    font-size: 10pt;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .entry-desc ul { margin: 4pt 0 0 18pt; }
+  .entry-desc li { margin-bottom: 2pt; }
+
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4pt 8pt;
+    font-size: 9.5pt;
+  }
+  .skill-cat {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--accent);
+    margin-right: 4pt;
+  }
+
+  .lang-row {
+    font-size: 9.5pt;
+    line-height: 1.8;
+  }
+
+  .summary {
+    font-size: 10pt;
+    line-height: 1.65;
+    color: var(--text);
+    text-align: justify;
+    hyphens: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <div class="header-name">Dr. Andrés Gallo Parra</div>
+    <div class="header-title">Ingeniero Civil Estructural · Doctor en Ingeniería Sísmica</div>
+    <div class="header-contacts">
+      <span>a.gallo@atelijudesign.cl</span>
+      <span>+56 9 8765 4321</span>
+      <span>Santiago, Chile</span>
+      <span><a href="https://atelijudesign.cl">atelijudesign.cl</a></span>
+      <span><a href="https://linkedin.com/in/andresgallo">LinkedIn</a></span>
+      <span><a href="https://github.com/andresgallo">GitHub</a></span>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-title">Perfil</div>
+    <p class="summary">Doctor en Ingeniería Sísmica con 12+ años de experiencia proyectando y revisando estructuras metálicas y de hormigón armado en Chile y Latinoamérica. Especialista en modelamiento BIM con Revit Structure, análisis no lineal en SAP2000 y Perform3D, y automatización con pyRevit + Python. He liderado equipos de hasta 8 ingenieros en proyectos de data centers, torres de gran altura y plantas industriales críticas, con foco en diseño performance-based y cumplimiento de AISC 341, NCh433 y ACI 318.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Formación académica</div>
+    <div class="entry">
+      <div class="entry-title">Doctorado en Ingeniería Sísmica · Ingeniería Estructural</div>
+      <div class="entry-meta">
+        <span class="venue">Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas</span>
+        · 2018 – 2022 · Tesis: "Performance-based seismic design of Chilean high-rise buildings"
+      </div>
+      <div class="entry-desc">Investigación en diseño sísmico por desempeño con disipadores de energía histeréticos. Publicaciones en Q1 (JCR).</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Magíster en Ingeniería Estructural</div>
+      <div class="entry-meta">
+        <span class="venue">Universidad de Chile</span>
+        · 2014 – 2016
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Ingeniería Civil</div>
+      <div class="entry-meta">
+        <span class="venue">Universidad de Chile</span>
+        · 2008 – 2013 · Distinción máxima
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Publicaciones</div>
+    <div class="entry">
+      <div class="entry-title">Seismic performance of composite steel moment frames with reduced beam sections</div>
+      <div class="entry-meta">
+        <span class="venue">Journal of Constructional Steel Research, Vol. 198</span>
+        · 2023 · DOI: 10.1016/j.jcsr.2023.01.004
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">BIM-based design automation for structural steel connections using pyRevit</div>
+      <div class="entry-meta">
+        <span class="venue">Engineering Structures, Vol. 256</span>
+        · 2022 · DOI: 10.1016/j.engstruct.2022.113982
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Performance-based seismic design of Chilean high-rise buildings with buckling-restrained braces</div>
+      <div class="entry-meta">
+        <span class="venue">17th World Conference on Earthquake Engineering (17WCEE)</span>
+        · Sendai, Japón · 2021
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Comparación normativa NCh433 vs ASCE 7-16 para edificios de acero en Chile</div>
+      <div class="entry-meta">
+        <span class="venue">Revista de Ingeniería Sísmica, SMIS</span>
+        · 2020
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Experiencia profesional</div>
+    <div class="entry">
+      <div class="entry-title">Líder de Estructuras · <span style="font-weight:400; font-style:italic;">Atelijudesign</span></div>
+      <div class="entry-meta">
+        Mar 2020 – Presente · Santiago, Chile
+      </div>
+      <div class="entry-desc">
+        <ul>
+          <li>Lidero equipo de 8 ingenieros en proyectos de data centers CODELCO, torres residenciales y plantas industriales críticas (mining).</li>
+          <li>Implementé pipeline de automatización pyRevit + Python que redujo 60% el tiempo de cubicación de acero.</li>
+          <li>Desarrollé templates BIM corporativos (ISO 19650) usados por 12 proyectos simultáneos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Ingeniero Estructural Senior · <span style="font-weight:400; font-style:italic;">BBA Ingenieros Consultores</span></div>
+      <div class="entry-meta">
+        Ene 2017 – Feb 2020 · Santiago, Chile
+      </div>
+      <div class="entry-desc">
+        <ul>
+          <li>Diseño sísmico performance-based de 4 torres residenciales sobre 25 pisos (Santiago y Concepción).</li>
+          <li>Revisor independiente de 30+ proyectos de acero para mandantes industriales (mining, energía).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Ingeniero de Proyectos · <span style="font-weight:400; font-style:italic;">IDIEM – U. de Chile</span></div>
+      <div class="entry-meta">
+        Mar 2014 – Dic 2016 · Santiago, Chile
+      </div>
+      <div class="entry-desc">
+        <ul>
+          <li>Ensayos de laboratorio y modelación numérica de conexiones steel y reinforced concrete.</li>
+          <li>Asistencia técnica en peritajes de estructuras dañadas post-terremoto (Illapel 2015).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Proyectos de investigación / desarrollo</div>
+    <div class="entry">
+      <div class="entry-title">Torre Costanera Tower 2 <span class="entry-meta" style="display:inline;">(2024)</span></div>
+      <div class="entry-meta">
+        <span class="venue">Atelijudesign · BIM, Perform3D, Revit</span>
+      </div>
+      <div class="entry-desc">Diseño sísmico de torre mixta 300m. 45 pisos. Disipadores BRB en núcleo.</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Data Center CODELCO Calama <span class="entry-meta" style="display:inline;">(2023)</span></div>
+      <div class="entry-meta">
+        <span class="venue">Atelijudesign · Revit, SAP2000, Python</span>
+      </div>
+      <div class="entry-desc">Estructura metálica 4.500 m² para facility Tier IV. Automatización de conexiones con pyRevit.</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Rehabilitación Puente Cau Cau <span class="entry-meta" style="display:inline;">(2022)</span></div>
+      <div class="entry-meta">
+        <span class="venue">BBA Ingenieros · SAP2000, OpenSees</span>
+      </div>
+      <div class="entry-desc">Modelación no lineal del puente basculante para evaluación post-falla operativa.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Certificaciones y distinciones</div>
+    <div class="entry">
+      <div class="entry-title">Professional Engineer (PE) <span style="font-weight:400; font-style:italic;">· AISC</span></div>
+      <div class="entry-meta">2022 · ID: AISC-PE-22-0451</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Diplomado en Diseño Sísmico Avanzado <span style="font-weight:400; font-style:italic;">· Universidad de Chile</span></div>
+      <div class="entry-meta">2019</div>
+    </div>
+    <div class="entry">
+      <div class="entry-title">Revisor Par AISC 360/341 <span style="font-weight:400; font-style:italic;">· AISC</span></div>
+      <div class="entry-meta">2021</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Habilidades técnicas</div>
+    <div class="skill-row">
+      <div>
+        <span class="skill-cat">BIM:</span>
+        Revit Structure · Tekla Structures · Navisworks · Archicad
+      </div>
+      <div>
+        <span class="skill-cat">Análisis:</span>
+        SAP2000 · ETABS · Perform3D · OpenSees · Robot
+      </div>
+      <div>
+        <span class="skill-cat">Programación:</span>
+        Python · pyRevit · Dynamo · C# (Revit API) · Grasshopper
+      </div>
+      <div>
+        <span class="skill-cat">Normativa:</span>
+        AISC 360 · AISC 341 · NCh433 · ACI 318 · ASCE 7-16
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Idiomas</div>
+    <div class="lang-row">
+      Español <em>(Nativo)</em> · Inglés <em>(C1 Avanzado)</em> · Portugués <em>(B2 Intermedio-alto)</em>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

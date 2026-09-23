@@ -1,5 +1,29 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.atelijudesign.com"
+        }
+      ],
+      "destination": "https://atelijudesign.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
@@ -9,6 +33,12 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|favicon|robots\\.txt|sitemap\\.xml|manifest|sw\\.js|registerSW\\.js).*)",
+      "destination": "/index.html"
     }
   ]
 }

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>{{ cv.personal.name }} — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: {{ cv.accent_color }};
+    --sidebar-bg: {{ cv.accent_color }};
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --sidebar-w: 220px;
+  }
+  html, body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+  }
+
+  /* ── LEFT SIDEBAR ─────────────────────────────────────────── */
+  .sidebar {
+    background: var(--sidebar-bg);
+    color: #fff;
+    padding: 32px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .sidebar-name { font-size: 13pt; font-weight: 700; text-align: center; line-height: 1.2; }
+  .sidebar-title { font-size: 8.5pt; text-align: center; opacity: 0.8; margin-top: 3px; }
+
+  .sidebar-section-title {
+    font-size: 7pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; opacity: 0.6;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 4px; margin-bottom: 8px;
+  }
+
+  .contact-row { display: flex; align-items: flex-start; gap: 6px; font-size: 7.5pt; margin-bottom: 5px; opacity: 0.9; }
+  .contact-icon { opacity: 0.7; flex-shrink: 0; margin-top: 1px; }
+
+  /* Skills sidebar */
+  .skill-item { margin-bottom: 7px; }
+  .skill-label { font-size: 8pt; font-weight: 500; margin-bottom: 2px; }
+  .skill-bar { height: 3px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+  .skill-fill { height: 100%; background: rgba(255,255,255,0.85); border-radius: 2px; }
+
+  /* Lang */
+  .lang-row { display: flex; justify-content: space-between; font-size: 8pt; margin-bottom: 5px; }
+  .lang-badge {
+    font-size: 7pt; font-weight: 600;
+    background: rgba(255,255,255,0.2); padding: 1px 6px; border-radius: 10px;
+  }
+
+  /* ── MAIN CONTENT ─────────────────────────────────────────── */
+  .main { padding: 32px 28px; display: flex; flex-direction: column; gap: 20px; }
+
+  .section-title {
+    font-size: 9pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px; margin-bottom: 10px;
+  }
+
+  .entry { margin-bottom: 12px; }
+  .entry-header { display: flex; justify-content: space-between; flex-wrap: wrap; }
+  .entry-title { font-weight: 600; font-size: 9.5pt; }
+  .entry-date  { font-size: 8pt; color: var(--muted); }
+  .entry-sub   { font-size: 8.5pt; color: var(--accent); font-weight: 500; margin-bottom: 3px; }
+  .entry-desc  { font-size: 8.5pt; line-height: 1.6; }
+  .entry-desc ul { margin-left: 14px; }
+
+  .cert-item { margin-bottom: 7px; }
+  .cert-name { font-weight: 600; font-size: 8.5pt; }
+  .cert-sub  { font-size: 8pt; color: var(--muted); }
+
+  @media print {
+    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ LEFT SIDEBAR ══════════════════════════════════════════ -->
+  <aside class="sidebar">
+
+    <!-- Identidad profesional sin fotografía personal -->
+    <div class="sidebar-name">{{ cv.personal.name }}</div>
+    <div class="sidebar-title">{{ cv.personal.title }}</div>
+
+    <!-- Contact -->
+    <section>
+      <div class="sidebar-section-title">Contacto</div>
+      {% if cv.personal.email %}
+      <div class="contact-row"><span class="contact-icon">✉</span><span>{{ cv.personal.email }}</span></div>
+      {% endif %}
+      {% if cv.personal.phone %}
+      <div class="contact-row"><span class="contact-icon">☎</span><span>{{ cv.personal.phone }}</span></div>
+      {% endif %}
+      {% if cv.personal.location %}
+      <div class="contact-row"><span class="contact-icon">📍</span><span>{{ cv.personal.location }}</span></div>
+      {% endif %}
+      {% if cv.personal.linkedin %}
+      <div class="contact-row"><span class="contact-icon">🔗</span><span>{{ cv.personal.linkedin }}</span></div>
+      {% endif %}
+      {% if cv.personal.github %}
+      <div class="contact-row"><span class="contact-icon">⌨</span><span>{{ cv.personal.github }}</span></div>
+      {% endif %}
+      {% if cv.personal.website %}
+      <div class="contact-row"><span class="contact-icon">🌐</span><span>{{ cv.personal.website }}</span></div>
+      {% endif %}
+    </section>
+
+    <!-- Skills -->
+    {% if cv.skills %}
+    <section>
+      <div class="sidebar-section-title">Habilidades</div>
+      {% for sk in cv.skills %}
+      <div class="skill-item">
+        <div class="skill-label">{{ sk.name }}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{ (sk.level / 5 * 100) | int }}%"></div></div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <!-- Languages -->
+    {% if cv.languages %}
+    <section>
+      <div class="sidebar-section-title">Idiomas</div>
+      {% for lang in cv.languages %}
+      <div class="lang-row">
+        <span>{{ lang.name }}</span>
+        <span class="lang-badge">{{ lang.level }}</span>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <!-- Certifications sidebar -->
+    {% if cv.certifications %}
+    <section>
+      <div class="sidebar-section-title">Certificaciones</div>
+      {% for cert in cv.certifications %}
+      <div style="margin-bottom:7px;">
+        <div style="font-size:8pt;font-weight:600;">{{ cert.name }}</div>
+        <div style="font-size:7.5pt;opacity:0.75;">{{ cert.issuer }}{% if cert.date %} · {{ cert.date }}{% endif %}</div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+  </aside>
+
+  <!-- ══ MAIN ══════════════════════════════════════════════════ -->
+  <main class="main">
+
+    {% if cv.summary.text %}
+    <section>
+      <div class="section-title">Perfil</div>
+      <p style="font-size:9.5pt;line-height:1.65;">{{ cv.summary.text }}</p>
+    </section>
+    {% endif %}
+
+    {% if cv.experience %}
+    <section>
+      <div class="section-title">Experiencia</div>
+      {% for exp in cv.experience %}
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">{{ exp.position }}</span>
+          <span class="entry-date">{{ exp.start_date }} — {% if exp.is_current %}Presente{% else %}{{ exp.end_date }}{% endif %}</span>
+        </div>
+        <div class="entry-sub">{{ exp.company }}{% if exp.location %} · {{ exp.location }}{% endif %}</div>
+        {% if exp.description %}
+        <div class="entry-desc"><ul>
+          {% for line in exp.description.split('\n') %}{% if line.strip() %}<li>{{ line.strip().lstrip('•-* ') }}</li>{% endif %}{% endfor %}
+        </ul></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if cv.education %}
+    <section>
+      <div class="section-title">Educación</div>
+      {% for edu in cv.education %}
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">{{ edu.degree }}{% if edu.field_of_study %} · {{ edu.field_of_study }}{% endif %}</span>
+          <span class="entry-date">{{ edu.start_date }}{% if edu.end_date %} — {{ edu.end_date }}{% endif %}</span>
+        </div>
+        <div class="entry-sub">{{ edu.institution }}</div>
+        {% if edu.gpa %}<div style="font-size:8pt;color:var(--muted);">GPA: {{ edu.gpa }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if cv.projects %}
+    <section>
+      <div class="section-title">Proyectos</div>
+      {% for proj in cv.projects %}
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">{{ proj.name }}</span>
+          {% if proj.date %}<span class="entry-date">{{ proj.date }}</span>{% endif %}
+        </div>
+        {% if proj.technologies %}<div class="entry-sub">{{ proj.technologies }}</div>{% endif %}
+        <div class="entry-desc">{{ proj.description }}</div>
+        {% if proj.url %}<div style="font-size:7.5pt;color:var(--muted);margin-top:2px;">🔗 {{ proj.url }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if cv.publications %}
+    <section>
+      <div class="section-title">Publicaciones</div>
+      {% for pub in cv.publications %}
+      <div class="entry" style="margin-bottom:8px;">
+        <div class="entry-title" style="font-size:8.5pt;">{{ pub.title }}</div>
+        <div class="entry-sub" style="font-size:8pt;">{{ pub.publisher }}{% if pub.date %} · {{ pub.date }}{% endif %}</div>
+        {% if pub.description %}<div class="entry-desc">{{ pub.description }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+  </main>
+</div>
+</body>
+</html>

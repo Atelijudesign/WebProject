@@ -1,12 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
 import CodeBlock from "../../components/CodeBlock";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
 
 export default function PyRevitAccelerator() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [copied, setCopied] = useState(false);
-  const [promptCopied, setPromptCopied] = useState(false);
   const chartRef = useRef(null);
 
   const samplePythonCode = `# -*- coding: utf-8 -*-
@@ -144,25 +148,16 @@ Dame el script.py completo y listo para usar.`;
     };
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const handleCopyPrompt = () => {
-    navigator.clipboard.writeText(promptText).then(() => {
-      setPromptCopied(true);
-      setTimeout(() => setPromptCopied(false), 2500);
-    });
-  };
-
-  const shareUrl = encodeURIComponent(window.location.href);
-  const shareTitle = encodeURIComponent("pyRevit Accelerator: Automatiza Revit con Python e IA");
+  const shareUrl = getShareUrl("/blog/pyrevit-accelerator");
+  const shareTitle = encodeURIComponent(isEn ? "pyRevit Accelerator: The Fast Track to Building Custom Revit Apps" : "pyRevit Accelerator: Automatiza Revit con Python e IA");
 
   return (
     <div className="bg-bim-dark min-h-screen transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "pyRevit Accelerator: The Fast Track to Building Custom Revit Apps" : "pyRevit Accelerator: Automatiza Revit con Python e IA"}
+        description={isEn ? "Discover why pyRevit is the fastest way to build productivity tools for Revit. App anatomy, the 7-step development framework, and the definitive C# comparison." : "Tutorial completo de pyRevit Accelerator para automatización de Revit con Python, IA y cubicación automática de acero."}
+        path="/blog/pyrevit-accelerator"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-yellow-500 via-green-500 to-blue-500 z-50 transition-all duration-100"
@@ -181,7 +176,7 @@ Dame el script.py completo y listo para usar.`;
               to="/blog"
               className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
             >
-              <i className="fa-solid fa-arrow-left mr-1" /> Volver al Blog
+              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
             </Link>
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -192,17 +187,21 @@ Dame el script.py completo y listo para usar.`;
               <i className="fa-regular fa-calendar mr-1" /> 17 Feb 2026
             </span>
             <span className="text-gray-400 text-sm">
-              <i className="fa-regular fa-clock mr-1" /> 8 min lectura
+              <i className="fa-regular fa-clock mr-1" /> {isEn ? "8 min read" : "8 min lectura"}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight leading-tight">
-            <span className="text-yellow-400 text-5xl">⚡</span> pyRevit{" "}
+            {isEn ? "pyRevit Accelerator: The Fast Track to Building Custom Revit Apps" : (
+              <><span className="text-yellow-400 text-5xl">⚡</span> pyRevit{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-yellow-400">
               Accelerator
-            </span>
+            </span></>
+            )}
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            El camino más rápido para crear herramientas personalizadas dentro de Revit usando Python e IronPython. Sin compilar, sin Visual Studio.
+            {isEn ? "Discover why pyRevit is the fastest way to build productivity tools for Revit. App anatomy, the 7-step development framework, and the definitive C# comparison." : (
+              <>El camino más rápido para crear herramientas personalizadas dentro de Revit usando Python e IronPython. Sin compilar, sin Visual Studio.</>
+            )}
           </p>
         </div>
       </section>
@@ -226,7 +225,7 @@ Dame el script.py completo y listo para usar.`;
               de la interfaz de Revit.
             </p>
             <p className="text-slate-400 mb-0 leading-relaxed">
-              Para un ingeniero estructural que viene del mundo del cálculo y el diseño, este es el camino de menor
+              Para un proyectista estructural o modelador BIM que busca optimizar tiempos de entrega, este es el camino de menor
               resistencia para empezar a automatizar su trabajo en Revit.
             </p>
           </div>
@@ -281,6 +280,19 @@ Dame el script.py completo y listo para usar.`;
                 </div>
               </div>
             </div>
+
+            {/* FIGURA 1: PYREVIT ARCHITECTURE DIAGRAM */}
+            <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+              <img
+                src={asset("/assets/img/blog/news/pyrevit_architecture_diagram.png")}
+                alt="Arquitectura de carpetas y funcionamiento de pyRevit para Autodesk Revit"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+                <i className="fa-solid fa-camera mr-1 text-green-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Arquitectura jerárquica de extensiones pyRevit (.extension ➔ .tab ➔ .panel ➔ .pushbutton) con soporte para IronPython/CPython e interfaces XAML.
+              </figcaption>
+            </figure>
 
             {/* Code Snippet Example */}
             <div className="mt-8">
@@ -463,29 +475,8 @@ Dame el script.py completo y listo para usar.`;
             <p className="text-slate-400 mb-6 relative z-10 leading-relaxed">
               Copia este prompt y pégalo en tu chat con Gemini, Claude o ChatGPT para generar tu primer script de pyRevit:
             </p>
-            <div className="bg-[#0b1324] rounded-xl p-6 border border-slate-800 relative z-10">
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-xs text-slate-400 font-medium uppercase tracking-wider font-mono">
-                  Prompt Inicial
-                </span>
-                <button
-                  onClick={handleCopyPrompt}
-                  className="inline-flex items-center gap-1.5 bg-bim-blue hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-lg transition-all"
-                >
-                  {promptCopied ? (
-                    <>
-                      <i className="fa-solid fa-check text-emerald-300" /> ¡Copiado!
-                    </>
-                  ) : (
-                    <>
-                      <i className="fa-regular fa-copy" /> Copiar prompt
-                    </>
-                  )}
-                </button>
-              </div>
-              <pre className="text-green-300 text-sm leading-relaxed whitespace-pre-wrap font-mono bg-transparent p-0 border-0">
-                {promptText}
-              </pre>
+            <div className="relative z-10">
+              <CodeBlock code={promptText} filename="prompt_inicial.py" language="PROMPT" />
             </div>
           </div>
 
@@ -493,7 +484,7 @@ Dame el script.py completo y listo para usar.`;
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-800/80 border-l-4 border-l-bim-blue mb-10 shadow-2xl">
             <h3 className="text-xl font-extrabold text-white mb-4 flex items-center gap-3">
               <i className="fa-solid fa-lightbulb text-yellow-400" />
-              <span>Conclusiones Clave</span>
+              <span>{isEn ? "Key Conclusions" : "Conclusiones Clave"}</span>
             </h3>
             <ul className="space-y-3 mb-0">
               <li className="flex items-start text-slate-400">
@@ -531,65 +522,59 @@ Dame el script.py completo y listo para usar.`;
             </ul>
           </div>
 
-        </div>
-      </section>
+          {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+          <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60 mb-10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <i className="fa-solid fa-link text-green-400" />
+              Fuentes Oficiales y Recursos de pyRevit
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href="https://github.com/pyrevitlabs/pyRevit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-green-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-green-950/60 text-green-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-brands fa-github" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-green-300 transition-colors flex items-center justify-between">
+                    <span>pyRevit GitHub Repository</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    pyrevitlabs/pyRevit (Ehsan Iran-Nejad)
+                  </div>
+                </div>
+              </a>
 
-      {/* Share Buttons Section */}
-      <section className="py-10 bg-[#070d18] border-t border-slate-800/60">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 font-mono">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" /> Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-facebook-f" /> Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-slate-500/20 transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <a
-              href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF4500] hover:bg-[#cc3700] text-white text-sm font-bold shadow-lg hover:shadow-orange-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-reddit-alien" /> Reddit
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" /> ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
+              <a
+                href="https://pyrevitlabs.notion.site/pyRevit-Documentation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-blue-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-blue-950/60 text-blue-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-book" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-blue-300 transition-colors flex items-center justify-between">
+                    <span>pyRevit Official Docs</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    pyRevit Developer Documentation & CLI
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ─── SHARE BUTTONS ─── */}
+      <ShareArticle url={shareUrl} title={shareTitle} />
 
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
@@ -599,7 +584,7 @@ Dame el script.py completo y listo para usar.`;
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
           <Link
             to="/#contact"

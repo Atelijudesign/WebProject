@@ -1,6 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
 
 /* ───────── Quarter data ───────── */
 const quarters = {
@@ -175,9 +179,10 @@ const colorMap = {
 
 /* ───────── Component ───────── */
 export default function BimDevRoadmap() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeQuarter, setActiveQuarter] = useState(1);
-  const [copied, setCopied] = useState(false);
   const [copiedPrompt, setCopiedPrompt] = useState(null);
 
   // Chart refs
@@ -400,13 +405,6 @@ export default function BimDevRoadmap() {
     };
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
   const copyPromptText = (text, id) => {
     navigator.clipboard.writeText(text).then(() => {
       setCopiedPrompt(id);
@@ -414,7 +412,7 @@ export default function BimDevRoadmap() {
     });
   };
 
-  const shareUrl = encodeURIComponent(window.location.href);
+  const shareUrl = getShareUrl("/blog/bim-dev-roadmap");
   const shareTitle = encodeURIComponent(
     "De Profesional de Obra a BIM Software Developer en 12 Meses"
   );
@@ -424,6 +422,11 @@ export default function BimDevRoadmap() {
 
   return (
     <div className="bg-bim-dark min-h-screen transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "From Site Designer to BIM Software Developer in 12 Months" : "De Profesional de Obra a BIM Software Developer en 12 Meses"}
+        description={isEn ? "Comprehensive guide for AEC professionals transitioning into BIM development. Hybrid approach: Python/pyRevit for rapid wins + C#/.NET for enterprise-grade performance." : "Roadmap completo para transicionar de profesional de construcción a desarrollador BIM en 12 meses con Python, C# y pyRevit."}
+        path="/blog/bim-dev-roadmap"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500 z-50 transition-all duration-100"
@@ -458,7 +461,8 @@ export default function BimDevRoadmap() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-            De{" "}
+            {isEn ? "From Site Designer to BIM Software Developer in 12 Months" : (
+              <>De{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -476,13 +480,16 @@ export default function BimDevRoadmap() {
             >
               BIM Software Developer
             </span>{" "}
-            en 12 Meses
+            en 12 Meses</>
+            )}
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mb-6 leading-relaxed">
-            Una guía paso a paso para que cualquier profesional de la
+            {isEn ? "Comprehensive guide for AEC professionals transitioning into BIM development. Hybrid approach: Python/pyRevit for rapid wins + C#/.NET for enterprise-grade performance." : (
+              <>Una guía paso a paso para que cualquier profesional de la
             construcción pueda transicionar hacia el desarrollo de software BIM.
             Enfoque híbrido: Python/pyRevit para victorias rápidas + C#/.NET
-            para potencia industrial.
+            para potencia industrial.</>
+            )}
           </p>
 
           <div className="flex items-center gap-4 text-sm text-gray-400 flex-wrap">
@@ -491,7 +498,7 @@ export default function BimDevRoadmap() {
             </span>
             <span className="w-1 h-1 bg-gray-400 rounded-full" />
             <span>
-              <i className="fa-regular fa-clock mr-1" /> 15 min lectura
+              <i className="fa-regular fa-clock mr-1" /> {isEn ? "15 min read" : "15 min lectura"}
             </span>
             <span className="w-1 h-1 bg-gray-400 rounded-full" />
             <span>
@@ -532,6 +539,19 @@ export default function BimDevRoadmap() {
         </section>
 
         {/* The Advantage + Learning Curve Chart */}
+        {/* FIGURA 1: BIM DEV ROADMAP INFOGRAPHIC */}
+        <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+          <img
+            src={asset("/assets/img/blog/news/bim_developer_roadmap_infographic.png")}
+            alt="Infografía del Roadmap para convertirse en desarrollador de software BIM en 12 meses"
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+          <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+            <i className="fa-solid fa-camera mr-1 text-orange-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Ruta integral de 12 meses: Fundamentos de Python/pyRevit, API de Revit con C# y .NET 8, interfaces avanzadas WPF e integración con Autodesk Platform Services (APS).
+          </figcaption>
+        </figure>
+
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           <div className="glass-card p-8 rounded-2xl border-l-4 border-orange-500">
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -693,7 +713,7 @@ export default function BimDevRoadmap() {
                   de Revit API experto en C#."
                 </div>
                 <div className="bg-gray-800 p-3 rounded shadow-sm border-l-4 border-blue-500">
-                  <strong>2. Contexto:</strong> "Soy un ingeniero estructural
+                  <strong>2. Contexto:</strong> "Soy un proyectista estructural y modelador BIM
                   aprendiendo. Usa analogías de construcción."
                 </div>
                 <div className="bg-gray-800 p-3 rounded shadow-sm border-l-4 border-amber-500">
@@ -729,7 +749,7 @@ export default function BimDevRoadmap() {
                     <button
                       onClick={() =>
                         copyPromptText(
-                          "Soy Ingeniero Civil / Proyectista Estructural. Explícame el concepto de 'FilteredElementCollector' en Revit API usando una analogía de una obra de construcción o un almacén de materiales.",
+                          "Soy Modelador BIM / Proyectista Estructural. Explícame el concepto de 'FilteredElementCollector' en Revit API usando una analogía de una obra de construcción o un almacén de materiales.",
                           "p1"
                         )
                       }
@@ -747,7 +767,7 @@ export default function BimDevRoadmap() {
                     </button>
                   </div>
                   <p className="font-mono text-xs text-green-400 leading-relaxed">
-                    "Soy Ingeniero Civil / Proyectista Estructural. Explícame el
+                    "Soy Modelador BIM / Proyectista Estructural. Explícame el
                     concepto de 'FilteredElementCollector' en Revit API usando
                     una analogía de una obra de construcción o un almacén de
                     materiales."
@@ -905,62 +925,57 @@ export default function BimDevRoadmap() {
           </div>
         </section>
 
-        {/* ─── SHARE ─── */}
-        <section className="pt-10 text-center">
-          <p className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" />
-            Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
+        {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+        <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60">
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <i className="fa-solid fa-link text-orange-400" />
+            Fuentes Oficiales y Plataformas de Aprendizaje
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
+              href="https://aps.autodesk.com/developer/overview"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
+              className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-orange-500/50 transition-all flex items-start gap-3 group"
             >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
+              <div className="p-2 rounded-lg bg-orange-950/60 text-orange-400 text-sm group-hover:scale-110 transition-transform">
+                <i className="fa-solid fa-cloud" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-bold text-white group-hover:text-orange-300 transition-colors flex items-center justify-between">
+                  <span>Autodesk Platform Services (APS)</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                </div>
+                <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                  Revit Cloud Worksharing & Design Automation API
+                </div>
+              </div>
             </a>
+
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+              href="https://learn.microsoft.com/en-us/dotnet/csharp/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/30 transition-all hover:-translate-y-0.5"
+              className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-blue-500/50 transition-all flex items-start gap-3 group"
             >
-              <i className="fa-brands fa-facebook-f" /> Facebook
+              <div className="p-2 rounded-lg bg-blue-950/60 text-blue-400 text-sm group-hover:scale-110 transition-transform">
+                <i className="fa-brands fa-microsoft" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-bold text-white group-hover:text-blue-300 transition-colors flex items-center justify-between">
+                  <span>Microsoft Learn C# Docs</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                </div>
+                <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                  Ruta oficial de aprendizaje C# y .NET SDK
+                </div>
+              </div>
             </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-gray-500/30 transition-all hover:-translate-y-0.5 border border-gray-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <a
-              href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF4500] hover:bg-[#cc3700] text-white text-sm font-bold shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-reddit-alien" /> Reddit
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-700 hover:bg-gray-600 text-white text-sm font-bold shadow-lg hover:shadow-gray-500/30 transition-all hover:-translate-y-0.5"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" />{" "}
-                  ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
           </div>
-        </section>
+        </div>
+
+        {/* ─── SHARE BUTTONS ─── */}
+        <ShareArticle url={shareUrl} title={shareTitle} />
 
         {/* Back to Blog */}
         <section className="text-center pt-8">
@@ -969,7 +984,7 @@ export default function BimDevRoadmap() {
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
         </section>
       </main>

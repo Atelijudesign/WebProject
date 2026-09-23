@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Preview LaTeX</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Consolas', 'Menlo', 'Courier New', monospace;
+    background: #1a1d24; color: #d4d4d4;
+    font-size: 12.5px; line-height: 1.5;
+  }
+  .toolbar {
+    position: sticky; top: 0;
+    background: #11141a; color: #8ba4bf;
+    padding: 10px 16px;
+    border-bottom: 1px solid #2d3f55;
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 13px;
+  }
+  .toolbar code { color: #4ec9b0; }
+  pre {
+    padding: 18px 20px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  📄 <strong>Vista previa del código LaTeX</strong> — Usa <code>Exportar LaTeX</code> para descargar el <code>.tex</code>.
+  Compílalo con <code>pdflatex archivo.tex</code>.
+</div>
+<pre>\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{textcomp}
+
+\setlist[itemize]{leftmargin=*,nosep,topsep=2pt,parsep=0pt,partopsep=0pt}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{8pt}\par\noindent\textbf{\large #1}\par
+  \vspace{2pt}\noindent\rule{\linewidth}{0.4pt}\par
+  \vspace{4pt}
+}
+\newcommand{\cvdate}[1]{\hfill {\small #1}\par}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{ Andrés Gallo Parra }} \\[4pt]
+  {\large Ingeniero Civil Estructural \textit{--} Doctor en Ingeniería Sísmica } \\[6pt]
+  \href{mailto:a.gallo@atelijudesign.cl}{a.gallo@atelijudesign.cl}\quad
+  +56 9 8765 4321\quad
+  Santiago, Chile\quad
+  \href{ https://atelijudesign.cl }{ atellijudesign.cl }
+  \quad\href{ https://linkedin.com/in/andresgallo }{LinkedIn}
+  \quad\href{ https://github.com/andresgallo }{GitHub}
+\end{center}
+
+\cvsection{Perfil profesional}
+Doctor en Ingeniería Sísmica con 12+ años de experiencia proyectando y revisando
+estructuras metálicas y de hormigón armado en Chile y Latinoamérica...
+
+\cvsection{Experiencia profesional}
+\noindent\textbf{ Líder de Estructuras }\textit{ -- Atelijudesign }
+{\small Santiago, Chile }\\
+{\small Mar 2020 -- Presente }\\
+\begin{itemize}
+  \item Lidero equipo de 8 ingenieros en proyectos de data centers CODELCO...
+  \item Implementé pipeline de automatización pyRevit + Python...
+  \item Desarrollé templates BIM corporativos (ISO 19650)...
+\end{itemize}
+\vspace{4pt}
+
+\noindent\textbf{ Ingeniero Estructural Senior }\textit{ -- BBA Ingenieros Consultores }
+{\small Santiago, Chile }\\
+{\small Ene 2017 -- Feb 2020 }\\
+\begin{itemize}
+  \item Diseño sísmico performance-based de 4 torres residenciales...
+  \item Revisor independiente de 30+ proyectos de acero...
+\end{itemize}
+\vspace{4pt}
+
+\cvsection{Educación}
+\noindent\textbf{ Doctorado en Ingeniería Sísmica } -- Ingeniería Estructural
+{\small \textit{ Universidad de Chile, Facultad de Ciencias Físicas y Matemáticas } }\\
+{\small 2018 -- 2022 }
+\vspace{4pt}
+
+\cvsection{Publicaciones}
+\noindent\textbf{ Seismic performance of composite steel moment frames... }\\
+{\small \textit{ Journal of Constructional Steel Research, Vol. 198 }, 2023 }
+\vspace{4pt}
+
+\cvsection{Habilidades técnicas}
+\noindent\textbf{ BIM :} Revit Structure $\bullet$ Tekla Structures $\bullet$ Navisworks $\bullet$ Archicad \par
+\noindent\textbf{ Análisis :} SAP2000 $\bullet$ ETABS $\bullet$ Perform3D $\bullet$ OpenSees $\bullet$ Robot \par
+\noindent\textbf{ Programación :} Python $\bullet$ pyRevit $\bullet$ Dynamo $\bullet$ C\# (Revit API) $\bullet$ Grasshopper \par
+\noindent\textbf{ Normativa :} AISC 360 $\bullet$ AISC 341 $\bullet$ NCh433 $\bullet$ ACI 318 $\bullet$ ASCE 7-16 \par
+
+\cvsection{Idiomas}
+\noindentEspañol (Nativo) $\bullet$ Inglés (C1 Avanzado) $\bullet$ Portugués (B2 Intermedio-alto)
+
+\end{document}
+</pre>
+</body>
+</html>

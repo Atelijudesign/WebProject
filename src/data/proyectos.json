@@ -1,6 +1,83 @@
 {
   "value": [
     {
+      "id": "7b8f9e23-41c8-4d56-9a10-2e38c9f50a11",
+      "project_id": "P-044",
+      "name": "Normalización Puentes Grúas Fundición Potrerillos (DSAL)",
+      "client": "CODELCO Chile (División Salvador)",
+      "company": "GHD",
+      "country": "Chile",
+      "city": "Potrerillos, Atacama",
+      "period": "Jun 2026–Jul 2026",
+      "year_start": 2026,
+      "year_end": 2026,
+      "project_type": "Minería",
+      "material": "Acero Estructural",
+      "role": "Proyectista / Diseñador Estructural",
+      "software": "AutoCAD, Detallamiento Estructural",
+      "status": "Completado",
+      "description": "Ingeniería estructural para la evaluación de integridad, mapeo de hallazgos y normalización operacional de los Puentes Grúas N° 1 y N° 2 de la Nave de Fundición Potrerillos y Taller de Moldes en Codelco División Salvador. Elaboración de planos estructurales de disposición general, mapeo de grietas, refuerzos de vigas principales, testeras y consolas bajo norma CMAA-70 y estándar corporativo ECF-7.",
+      "activities": "Elaboración de planos de disposición general, detalles de refuerzo estructural, mapeo de discontinuidades en vigas carrilera y testeras",
+      "created_at": "2026-08-31T17:30:00.000Z",
+      "updated_at": "2026-08-31T17:30:00.000Z",
+      "phase": "Ingeniería de Perfil",
+      "concrete_volume": null,
+      "steel_weight": null,
+      "featured": true,
+      "image_url": "assets/img/codelco_dsal_portada.webp",
+      "gallery_images": [
+        "assets/img/codelco_dsal_pl01.webp",
+        "assets/img/codelco_dsal_pl02.webp",
+        "assets/img/codelco_dsal_pl03.webp",
+        "assets/img/codelco_dsal_pl04.webp"
+      ],
+      "project_type_en": "Mining",
+      "material_en": "Structural Steel",
+      "role_en": "Structural Project Designer",
+      "phase_en": "Scoping / Profile Engineering",
+      "status_en": "Completed",
+      "name_en": "Overhead Cranes Normalization Potrerillos Smelter (DSAL)",
+      "description_en": "Structural engineering for structural integrity assessment, defect mapping, and operational normalization of Overhead Cranes No. 1 and No. 2 at Potrerillos Smelter Aisle and Mold Shop in Codelco Salvador Division. Structural general arrangement drawings, crack mapping, box girder reinforcements, end trucks, and bracket details under CMAA-70 and Codelco ECF-7 standards.",
+      "activities_en": "General arrangement drawing development, structural reinforcement detailing, discontinuity mapping on crane runway girders and end trucks"
+    },
+    {
+      "id": "d5ee9d21-b694-4208-84d7-2643a5e1c4db",
+      "project_id": "P-043",
+      "name": "Segundo Acceso Estaciones Tramo Santiago - Batuco (OT181)",
+      "client": "EFE Trenes de Chile",
+      "company": "GHD",
+      "country": "Chile",
+      "city": "Santiago / Batuco",
+      "period": "2025–2026",
+      "year_start": 2026,
+      "year_end": 2026,
+      "project_type": "Infraestructura / Ferroviario",
+      "material": "Hormigón Armado",
+      "role": "Modelador / Proyectista Estructural BIM",
+      "software": "Revit Structure",
+      "status": "Completado",
+      "description": "Ingeniería de detalle de la provisión de obras civiles en faja vía para la implementación del segundo acceso de estaciones del tramo Santiago - Batuco (OT181). Modelado 3D de armaduras de refuerzo y elaboración de planos de enfierradura para construcción en Autodesk Revit 2025.",
+      "activities": "Modelado 3D de armaduras (Rebar), Planos de armaduras para construcción, Cubicaciones y tablas de enfierradura",
+      "created_at": "2026-08-31T14:30:00.000Z",
+      "updated_at": "2026-08-31T14:30:00.000Z",
+      "phase": "Ingeniería de detalles",
+      "concrete_volume": null,
+      "steel_weight": null,
+      "featured": true,
+      "image_url": "assets/img/efe_batuco_portada.webp",
+      "gallery_images": [
+        "assets/img/efe_batuco_01.webp"
+      ],
+      "project_type_en": "Infrastructure / Railway",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Modeler & Detailer",
+      "phase_en": "Detailed Engineering",
+      "status_en": "Completed",
+      "name_en": "Second Access Stations Santiago - Batuco Railway (OT181)",
+      "description_en": "Detailed engineering for right-of-way civil works implementation for second access to passenger stations on the Santiago - Batuco railway line (OT181). 3D reinforcement rebar modeling and construction rebar shop drawings in Autodesk Revit 2025.",
+      "activities_en": "3D rebar modeling, construction rebar detailing drawings, material takeoff and bending schedules"
+    },
+    {
       "id": "badc849a-c515-46a4-828d-66cd878b4d7e",
       "project_id": "P-042",
       "name": "Integración Segunda Etapa Lavado SX",
@@ -24,7 +101,15 @@
       "concrete_volume": null,
       "steel_weight": 8,
       "featured": false,
-      "image_url": null
+      "image_url": null,
+      "project_type_en": "Mining",
+      "material_en": "Structural Steel",
+      "role_en": "Structural Designer",
+      "phase_en": "Detailed Engineering",
+      "status_en": "Completed",
+      "name_en": "SX Washing Second Stage Integration (P1820)",
+      "description_en": "Structural BIM design and industrial detailing for the integration of the second stage SX solvent extraction washing process at Minera Los Pelambres (MLC). Structural steel platforms, equipment foundations, and piping supports.",
+      "activities_en": "Structural BIM modeling in Revit, steel framing detailing, industrial equipment pedestal coordination"
     },
     {
       "id": "dcaeb37e-5179-4599-9557-7422b8a19bb3",
@@ -48,7 +133,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "Ingeniería de detalles",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Mining",
+      "material_en": "Structural Steel",
+      "role_en": "Structural Designer",
+      "phase_en": "Detailed Engineering",
+      "status_en": "Completed",
+      "name_en": "Pérez Caldera Tailings Removal Project (PCTR)",
+      "description_en": "Multidisciplinary structural BIM engineering for the removal and environmental remediation of the Pérez Caldera tailings dam (Los Bronces). 3D modeling of deep foundations, retaining structures, pumping stations, and heavy steel structures under AISC and NCh2369 standards.",
+      "activities_en": "BIM structural modeling, heavy steel connection detailing, multidisciplinary coordination in Autodesk Construction Cloud (ACC)"
     },
     {
       "id": "2ee83594-247a-4dce-96c9-dff80ae2743f",
@@ -72,7 +166,16 @@
       "updated_at": "2026-04-02T06:01:32.279785+00:00",
       "phase": "Fase Factibilidad",
       "concrete_volume": 45,
-      "steel_weight": 50
+      "steel_weight": 50,
+      "image_url": null,
+      "project_type_en": "Mining",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "Feasibility Phase",
+      "status_en": "Completed",
+      "name_en": "Arqueros Mining Project — Primary Crusher",
+      "description_en": "Detailed structural engineering for the Arqueros mining project. 3D modeling of the primary crushing facility, massive retaining walls, truck dump slabs, and heavy steel structures.",
+      "activities_en": "Structural modeling of crusher building, heavy industrial connections, retaining wall reinforcement detailing"
     },
     {
       "id": "2a39830a-756e-40d0-b07a-eb4008be3853",
@@ -96,7 +199,16 @@
       "updated_at": "2026-04-02T05:54:24.773695+00:00",
       "phase": "Ingeniería Conceptual",
       "concrete_volume": null,
-      "steel_weight": 1
+      "steel_weight": 1,
+      "image_url": null,
+      "project_type_en": "Industrial / Manufacturing",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "Conceptual Engineering",
+      "status_en": "Completed",
+      "name_en": "Santo Domingo Seawater Desalination Plant",
+      "description_en": "Detailed engineering of civil works for seawater intake sump, electrical rooms, and reverse osmosis building. Integral reinforced concrete modeling and hydraulic/piping multidisciplinary coordination.",
+      "activities_en": "Civil works BIM modeling in Revit and Civil 3D, reinforced concrete detailing, underground duct bank takeoff"
     },
     {
       "id": "0340c5ec-33c8-4910-966e-c30b3efc3040",
@@ -120,7 +232,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "Ingeniería Conceptual",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Industrial / Manufacturing",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "Conceptual Engineering",
+      "status_en": "Completed",
+      "name_en": "Centrifuge Replacement Project (12673268)",
+      "description_en": "Structural adaptation and dynamic foundation verification for industrial centrifuge replacement in a chemical processing plant. Reinforced concrete pedestals and vibration isolation.",
+      "activities_en": "Equipment foundation modeling, anchorage design, structural drawings for fabrication and erection"
     },
     {
       "id": "eea8eb1a-2b27-4d26-8cf1-26c5ba726148",
@@ -144,7 +265,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Industrial / Manufacturing",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "MP05 Tissue Paper Converting Machine — ABSORMEX",
+      "description_en": "Detailed structural and architectural engineering for an 8,000 m² industrial converting plant in Zárate, Argentina. Heavy steel warehouse framing, crane beams, mezzanines, and machine foundations in Revit and BIM 360.",
+      "activities_en": "Integral structural and architectural BIM modeling, crane runway beam detailing, earthwork and concrete takeoffs"
     },
     {
       "id": "398fea14-1585-4ebe-a0e1-2bfe96954599",
@@ -168,7 +298,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Industrial / Manufacturing",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "CMPC Laja Mill — Operational Continuity & Asset Integrity",
+      "description_en": "Structural asset integrity analysis, reinforcement detailing, and operational continuity engineering for pulping and chemical recovery facilities at CMPC Laja mill.",
+      "activities_en": "Existing structures field survey, steel reinforcement drawings, heavy duct bank coordination"
     },
     {
       "id": "fcf7c7b7-43f5-45d5-a37c-1bfa3bc0e194",
@@ -192,7 +331,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Santa Fe Mill — Class 10 Water Reduction Project",
+      "description_en": "Industrial engineering for water consumption reduction and effluent recovery plants in Nacimiento, Biobío. Process buildings, treatment tank foundations, and pipe bridges.",
+      "activities_en": "Industrial structures BIM modeling, rebar schedules, pipe rack detailing in Revit"
     },
     {
       "id": "a21ae978-9a07-49ae-ae2d-766cefd10310",
@@ -216,7 +364,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Softys Zárate Water Treatment & Intake Facilities",
+      "description_en": "Civil and structural engineering for water intake, clarifiers, and filtration facilities for the Softys paper mill in Argentina. Water retaining concrete structures.",
+      "activities_en": "Water-retaining reinforced concrete modeling, pipe penetrations coordination, structural layout drawings"
     },
     {
       "id": "3ab5f8d3-3bcd-4dac-9bfd-9a0f63abafc0",
@@ -240,7 +397,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "La Finca Highway Footbridge",
+      "description_en": "Structural parametric modeling in Tekla Structures for highway pedestrian footbridge: steel box girders, access ramps, towers, and elastomeric bearings.",
+      "activities_en": "3D Tekla modeling, fabrication single-part and assembly drawings, material lists and erection plans"
     },
     {
       "id": "2866357b-b241-4e00-9200-2f5af514afe8",
@@ -264,7 +430,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Paine Highway Footbridge",
+      "description_en": "Complete structural modeling and steel detailing of highway footbridge over Route 5 South, including foundations, central pier, and steel superstructure.",
+      "activities_en": "Structural modeling in Tekla, rebar detailing of footings and columns, fabrication drawings"
     },
     {
       "id": "6b3e0880-5d72-4f89-bb89-33f86b22963f",
@@ -288,7 +463,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "El Retiro Highway Footbridge",
+      "description_en": "Tekla structural detailing for pedestrian footbridge, featuring tubular steel trusses, anti-vandalism mesh screens, and reinforced concrete access ramps.",
+      "activities_en": "Steel truss modeling, connection detailing, bolt lists and cutting patterns"
     },
     {
       "id": "0762aa2b-87ac-4390-8909-fcbff5718fba",
@@ -312,7 +496,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Campamento 4 Highway Footbridge",
+      "description_en": "Detailed engineering and shop drawings for highway pedestrian crossing: concrete abutments, steel span, and safety stairways.",
+      "activities_en": "Tekla Structures 3D modeling, quantity takeoffs, fabrication assembly drawings"
     },
     {
       "id": "9b1382b2-4a16-4886-b573-0542444f8159",
@@ -336,7 +529,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Cerrillos Highway Footbridge",
+      "description_en": "Parametric modeling of steel and concrete footbridge over urban highway. Navisworks model coordination for road clearance validation.",
+      "activities_en": "3D structural modeling, clash detection with urban utilities, shop and erection drawings"
     },
     {
       "id": "552befb8-be84-46a8-9bae-f5e73abb6c68",
@@ -360,7 +562,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Las Miras Norte Highway Footbridge",
+      "description_en": "Structural design and detailing for highway pedestrian bridge: superstructure steel framing, piers, and drilled shaft foundation rebar.",
+      "activities_en": "Superstructure detailing, rebar schedules for foundations, workshop fabrication sheets"
     },
     {
       "id": "535d2b73-4558-4c00-9b18-f4ac894ce1f5",
@@ -384,7 +595,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Pedestrian Footbridges",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Copihue Highway Footbridge",
+      "description_en": "Complete Tekla modeling for highway footbridge in Southern Chile: seismic stops, pot bearings, precast deck slabs, and access ramps.",
+      "activities_en": "3D model detailing, material takeoff reports, assembly and single part drawing generation"
     },
     {
       "id": "c9e386c2-1912-4b57-b3dc-1d5104538ba4",
@@ -408,7 +628,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Aviation",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Longaví Highway Footbridge",
+      "description_en": "Detailed engineering and workshop drawings for pedestrian bridge: steel box girder spans, structural handrails, and lighting supports.",
+      "activities_en": "Tekla steel detailing, bolt schedules, erection sequencing drawings"
     },
     {
       "id": "54927ffa-f57e-4f5c-a6b2-6825cac1a877",
@@ -432,7 +661,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Aviation",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Gaona Highway Footbridge",
+      "description_en": "Structural detailing in Tekla Structures for highway footbridge: pedestrian cage, spiral ramp stairs, and deep foundation rebar.",
+      "activities_en": "Tekla modeling, foundation rebar detailing, full fabrication documentation package"
     },
     {
       "id": "6b1dfd72-e92c-4078-922f-165bfdc7ebba",
@@ -456,7 +694,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Aviation",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "AMB International Airport Expansion — Terminal 2 (T2M)",
+      "description_en": "BIM structural modeling for the 320,000 m² expansion of Santiago International Airport. Main terminal building steel roof trusses, concourses, and seismic expansion joints in Revit Structures.",
+      "activities_en": "3D BIM structural modeling, complex steel connection detailing, interdisciplinary MEP clash detection in Navisworks"
     },
     {
       "id": "5ec4bd85-29a4-43c3-b428-73d150ef33a7",
@@ -480,7 +727,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Aviation",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "AMB Airport Expansion — Pier Concourse T2D",
+      "description_en": "Detailed structural modeling for Pier D passenger boarding gates: spatial tubular steel trusses, boarding bridge anchorages, and baggage handling mezzanines.",
+      "activities_en": "Revit Structures modeling, workshop connection review, construction issue drawing production"
     },
     {
       "id": "246ce5ee-f3b0-4bfd-8f22-e7b5f57b35e4",
@@ -504,7 +760,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Aviation",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "AMB Airport Expansion — Pier Concourse T2F",
+      "description_en": "BIM structural modeling of Pier F: steel framing, high-performance curtain wall supports, and technical service walkways.",
+      "activities_en": "Structural steel detailing, interface coordination with facade engineering, BIM 360 collaboration"
     },
     {
       "id": "4930017d-6b61-4270-af1a-38d77f6f732f",
@@ -528,7 +793,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Aviation",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "AMB Airport — Tower Crane 11 Dismantling Engineering",
+      "description_en": "Temporary works and dismantling structural engineering for Tower Crane 11 located in active terminal area. Structural verification of crane base and lifting frames.",
+      "activities_en": "Temporary works structural modeling, lifting lug detailing, safety sequencing plans"
     },
     {
       "id": "6054617b-ea47-425a-8ebe-4184a1557572",
@@ -554,7 +828,15 @@
       "concrete_volume": 1000,
       "steel_weight": 35,
       "featured": false,
-      "image_url": null
+      "image_url": null,
+      "project_type_en": "Infrastructure / Border Facilities",
+      "material_en": "Structural Steel & Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "AMB Airport — West Multi-Level Parking Garage",
+      "description_en": "Structural modeling of post-tensioned and reinforced concrete multi-level parking garage. Structural joints, ramp reinforcement, and foundation slabs.",
+      "activities_en": "3D concrete modeling in Revit, rebar detailing, quantity takeoffs for concrete and formwork"
     },
     {
       "id": "a7ae0341-3f61-478f-9ada-cb3faa9f82e1",
@@ -580,7 +862,15 @@
       "concrete_volume": null,
       "steel_weight": null,
       "featured": false,
-      "image_url": null
+      "image_url": null,
+      "project_type_en": "Building / Healthcare & Hospitals",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "AMB Airport — South Multi-Level Parking Garage",
+      "description_en": "BIM detailing of South multi-level parking structure: prefabricated precast beams, cast-in-place columns, and foundation grid.",
+      "activities_en": "BIM modeling, precast element connection details, construction drawings"
     },
     {
       "id": "5d6c2216-ee39-4be4-a2ee-6bc49f47604c",
@@ -606,7 +896,15 @@
       "concrete_volume": null,
       "steel_weight": null,
       "featured": false,
-      "image_url": null
+      "image_url": null,
+      "project_type_en": "Building / Healthcare & Hospitals",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Los Libertadores International Border Complex",
+      "description_en": "Detailed structural modeling of the new 35,000 m² high-altitude border control complex at 3,200 m above sea level in the Andes. Heavy snow loads, seismic isolation, and complex steel canopy trusses in Tekla and Revit.",
+      "activities_en": "Tekla and Revit structural modeling, high-altitude snow load connection detailing, clash detection"
     },
     {
       "id": "ae803782-505c-4fb2-9fa5-2a2918c8ac2f",
@@ -632,7 +930,15 @@
       "concrete_volume": null,
       "steel_weight": null,
       "featured": false,
-      "image_url": null
+      "image_url": null,
+      "project_type_en": "Building / Healthcare & Hospitals",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Marga Marga Provincial Hospital",
+      "description_en": "75,000 m² hospital complex with seismic isolation. Integral reinforced concrete modeling, base isolators, shear walls, and intensive care unit floors.",
+      "activities_en": "3D reinforced concrete modeling, base isolator pedestal detailing, MEP clash coordination"
     },
     {
       "id": "be44f499-513f-4637-b43a-ed48ee962234",
@@ -656,7 +962,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Energy / Hydroelectric",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Dr. Gustavo Fricke Hospital — Phase 2",
+      "description_en": "High-complexity hospital engineering: reinforced concrete structures, seismic energy dissipation dampers, heliport, and underground service tunnels.",
+      "activities_en": "Revit structural modeling, seismic damper anchorage detailing, technical drawing packages"
     },
     {
       "id": "ce1b5865-00b1-4401-9ffb-f6a394a22e6d",
@@ -680,7 +995,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Dr. Félix Bulnes Clinical Hospital",
+      "description_en": "Structural modeling of 125,000 m² public hospital: reinforced concrete frames, shear walls, expansion joints, and radiological bunker shielding.",
+      "activities_en": "Structural BIM modeling, rebar clash detection, concrete placement schedule extraction"
     },
     {
       "id": "a5981024-368c-475d-89f1-198ea78bf384",
@@ -704,7 +1028,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 3 — Train Washing Facility (L3-359)",
+      "description_en": "Detailed engineering of civil and structural works for underground automated train washing facility: drainage pits, waterproofed pits, and maintenance platforms.",
+      "activities_en": "Underground concrete modeling, track bed interface detailing, construction drawings"
     },
     {
       "id": "66793343-2333-47cc-8ceb-696bc8294330",
@@ -728,7 +1061,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 3 — North Security Guardhouses (L3-362)",
+      "description_en": "Structural detailing for perimeter security enclosures, reinforced masonry, and steel canopies for Metro depot yards.",
+      "activities_en": "Structural drawings, rebar schedules, steel canopy detailing"
     },
     {
       "id": "f878d845-fe86-444e-91e6-feeac4426ac0",
@@ -752,7 +1094,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 3 — Traction Power Substation (L3-363)",
+      "description_en": "Structural design of underground traction electrical substation: heavy transformer foundations, bus duct penetrations, and blast-resistant walls.",
+      "activities_en": "Heavy equipment pedestal modeling, electromagnetic interference shielding details, rebar schedules"
     },
     {
       "id": "0c936b58-4410-4a8a-a4ba-47b68bcad497",
@@ -776,7 +1127,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 3 — Regenerated Water Reservoir (L3-363)",
+      "description_en": "Waterproof reinforced concrete reservoir for industrial water reuse at Metro maintenance depot: baffles, pump pits, and valve chambers.",
+      "activities_en": "Water-retaining structure detailing, construction joint waterstop detailing, reinforcement drawings"
     },
     {
       "id": "9470cc39-13f7-4f30-bce4-d7d7a8fde190",
@@ -800,7 +1160,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 3 — Compressor Building (L3-368)",
+      "description_en": "Structural engineering for compressed air equipment building: vibration-isolated foundation slabs, acoustic treatment walls, and steel roof framing.",
+      "activities_en": "Vibration foundation detailing, steel roof modeling, structural drawings"
     },
     {
       "id": "6b9e1e0c-ef60-4733-8d6b-c838826166a1",
@@ -824,7 +1193,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 3 — Lubricants Storage Facility (L3-369)",
+      "description_en": "Hazardous materials containment building: spill containment curbs, fireproof coatings, and specialized structural drainage.",
+      "activities_en": "Civil works modeling, chemical-resistant concrete detailing, permit drawings"
     },
     {
       "id": "171ecf49-9efa-4bc1-8c4e-5b91b5259bc0",
@@ -848,7 +1226,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 6 — Hazardous Waste Storage Facility (L6-860)",
+      "description_en": "Hazardous waste storage facility at Metro Cerrillos depot: explosion relief framing, sump basins, and reinforced concrete structure.",
+      "activities_en": "Structural steel detailing, containment pit drawings, safety code compliance review"
     },
     {
       "id": "191e94db-50f5-470e-89de-eb50719f0df8",
@@ -872,7 +1259,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Metro Subways",
+      "material_en": "Reinforced Concrete",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 6 — Compressor Station (L6-868)",
+      "description_en": "Pneumatic equipment facility: reinforced concrete pedestals, acoustic wall supports, and overhead crane monorail beams.",
+      "activities_en": "Monorail beam detailing, equipment anchor bolt plans, construction documentation"
     },
     {
       "id": "ef232223-8764-42c0-9470-ddd0ccfb1239",
@@ -896,7 +1292,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Building / Commercial",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Metro Line 6 — Lubricants Facility (L6-869)",
+      "description_en": "Specialized industrial building for railway lubricant storage and distribution: containment berms, equipment foundations, and ventilation duct supports.",
+      "activities_en": "Structural BIM modeling, containment detailing, reinforcement drawings"
     },
     {
       "id": "c7d23de5-69b4-4c90-ad0f-ac11dbb407b9",
@@ -920,7 +1325,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Building / Commercial",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Los Cóndores Hydroelectric Plant (OH1737)",
+      "description_en": "Major 150 MW run-of-the-river hydroelectric project in the Andes mountains: 12 km headrace tunnel, 40-meter-high underground machine cavern, steel-lined pressure shaft, and surface valve chambers.",
+      "activities_en": "Underground cavern concrete modeling, penstock support detailing, civil works takeoffs"
     },
     {
       "id": "74bfde35-bbfb-45a3-812a-48e1e60968c8",
@@ -944,7 +1358,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Fabrication / Commercial",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "South Atrium Steel Structure (OT-1301)",
+      "description_en": "Detailed shop modeling in Tekla Structures for architectural steel atrium: tapered tubular columns, curved glazed canopy framing, and shop assembly drawings.",
+      "activities_en": "Tekla 3D modeling, CNC cutting file generation, workshop single part and assembly drawings"
     },
     {
       "id": "3fc2f0c5-c2e6-49f3-a61d-73256efa2f49",
@@ -968,7 +1391,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Infrastructure / Roadways",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Costanera Norte Casino Steel Building (OT-1302)",
+      "description_en": "Structural steel fabrication detailing for commercial casino complex: long-span trusses, composite floor framing, and erection sequence planning.",
+      "activities_en": "Tekla Structures modeling, shop drawing production, bolt schedules and erection plans"
     },
     {
       "id": "8fa2b4d7-71df-4fb5-90bc-02952fa090da",
@@ -992,7 +1424,16 @@
       "updated_at": "2026-04-02T05:47:15.388432+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": 20
+      "steel_weight": 20,
+      "image_url": null,
+      "project_type_en": "Building / Industrial",
+      "material_en": "Structural Steel",
+      "role_en": "Structural BIM Designer",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Bridge Plate Girder Fabrication (OT-1303)",
+      "description_en": "Fabrication detailing of welded steel plate girders for heavy highway bridge: flange and web splices, stiffener plates, camber curves, and weld inspection sheets.",
+      "activities_en": "Girder camber calculations, weld detailing, single part fabrication sheets"
     },
     {
       "id": "685b69ee-e0fa-41b5-9fe2-a07b751fe754",
@@ -1016,7 +1457,16 @@
       "updated_at": "2026-04-02T05:30:02.754145+00:00",
       "phase": "",
       "concrete_volume": null,
-      "steel_weight": null
+      "steel_weight": null,
+      "image_url": null,
+      "project_type_en": "Building / Civic & Municipal",
+      "material_en": "–",
+      "role_en": "Technical Drafter (Internship)",
+      "phase_en": "",
+      "status_en": "Completed",
+      "name_en": "Quimetal Industrial Facility Building",
+      "description_en": "Detailed engineering and shop drawings in Tekla Structures for chemical plant industrial warehouse: portal frames, crane runway beams, purlins, and bracing systems.",
+      "activities_en": "Tekla 3D structural modeling, fabrication and erection drawings, material bills"
     }
   ]
 }

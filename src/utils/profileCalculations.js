@@ -226,6 +226,72 @@ export function calcRB(v) {
   return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
 }
 
+/**
+ * Double Angle T-section (Doble Ángulo TL)
+ * @param {{h: number, b: number, t: number}} v
+ */
+export function calcTL(v) {
+  const bw = (v.b || 100) / 2;
+  const A1 = (v.h + bw - 1.6438 * v.t) * v.t;
+  const area = (2 * A1) / 100;
+  const weight = area * STEEL_DENSITY_KG_CM3 * 100;
+  const cover = ((2 * v.h + 2 * bw - v.t) * 2) / 1000;
+  const desig = `TL ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+  const ybar = (v.h * v.t * (v.h / 2) + (bw - v.t) * v.t * (v.t / 2)) / A1;
+  const xbar = (v.h * v.t * (v.t / 2) + (bw - v.t) * v.t * ((bw - v.t) / 2 + v.t)) / A1;
+  const Ix1 = (v.t * Math.pow(v.h, 3)) / 12 + v.h * v.t * Math.pow(v.h / 2 - ybar, 2) + ((bw - v.t) * Math.pow(v.t, 3)) / 12 + (bw - v.t) * v.t * Math.pow(v.t / 2 - ybar, 2);
+  const Ix = (2 * Ix1) / 10000;
+  const Iy1 = (v.h * Math.pow(v.t, 3)) / 12 + v.h * v.t * Math.pow(xbar - v.t / 2, 2) + (v.t * Math.pow(bw - v.t, 3)) / 12 + (bw - v.t) * v.t * Math.pow(((bw - v.t) / 2 + v.t) - xbar, 2);
+  const Iy = (2 * (Iy1 + A1 * Math.pow(xbar, 2))) / 10000;
+  const Wx = Ix / (Math.max(ybar, v.h - ybar) / 10);
+  const Wy = Iy / (bw / 10);
+  return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
+}
+
+/**
+ * Double Channel (Doble Canal IC)
+ * @param {{h: number, b: number, t: number}} v
+ */
+export function calcIC(v) {
+  const bc = (v.b || 100) / 2;
+  const hw = v.h - 2 * v.t;
+  const Ac = (v.h + 2 * bc - 3.2876 * v.t) * v.t;
+  const area = (2 * Ac) / 100;
+  const weight = area * STEEL_DENSITY_KG_CM3 * 100;
+  const cover = ((2 * v.h + 4 * bc - 2 * v.t) * 2) / 1000;
+  const desig = `IC ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+  const ybar = (2 * bc * v.t * (bc / 2) + hw * v.t * (v.t / 2)) / Ac;
+  const Ixc = (2 * bc * Math.pow(v.t, 3)) / 12 + 2 * bc * v.t * Math.pow(v.h / 2 - v.t / 2, 2) + (v.t * Math.pow(hw, 3)) / 12;
+  const Ix = (2 * Ixc) / 10000;
+  const Iyc = (2 * v.t * Math.pow(bc, 3)) / 12 + 2 * bc * v.t * Math.pow(bc / 2 - ybar, 2) + (hw * Math.pow(v.t, 3)) / 12 + hw * v.t * Math.pow(v.t / 2 - ybar, 2);
+  const Iy = (2 * (Iyc + Ac * Math.pow(ybar, 2))) / 10000;
+  const Wx = Ix / (v.h / 2 / 10);
+  const Wy = Iy / (bc / 10);
+  return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
+}
+
+/**
+ * Double Stiffened Channel (Doble Canal Atiesada ICA)
+ * @param {{h: number, b: number, c: number, t: number}} v
+ */
+export function calcICA(v) {
+  const bca = (v.b || 100) / 2;
+  const hw = v.h - 2 * v.t;
+  const Aca = (v.h + 2 * bca + 2 * (v.c || 0) - 6.5752 * v.t) * v.t;
+  const area = (2 * Aca) / 100;
+  const weight = area * STEEL_DENSITY_KG_CM3 * 100;
+  const cover = ((2 * v.h + 4 * bca + 4 * (v.c || 0) - 4 * v.t) * 2) / 1000;
+  const desig = `ICA ${(v.h * 0.1).toFixed(0)} × ${weight.toFixed(2)}`;
+  const ybar = (2 * ((bca * v.t * bca) / 2) + (hw * v.t * v.t) / 2 + 2 * (v.c || 0) * v.t * (bca - v.t / 2)) / Aca;
+  const Ixca = (2 * bca * Math.pow(v.t, 3)) / 12 + 2 * bca * v.t * Math.pow(v.h / 2 - v.t / 2, 2) + (v.t * Math.pow(hw, 3)) / 12 + (2 * (v.c || 0) * Math.pow(v.t, 3)) / 12;
+  const Ix = (2 * Ixca) / 10000;
+  const Iyca = (2 * v.t * Math.pow(bca, 3)) / 12 + 2 * bca * v.t * Math.pow(bca / 2 - ybar, 2) + (hw * Math.pow(v.t, 3)) / 12 + hw * v.t * Math.pow(v.t / 2 - ybar, 2) + (2 * v.t * Math.pow(v.c || 0, 3)) / 12;
+  const Iy = (2 * (Iyca + Aca * Math.pow(ybar, 2))) / 10000;
+  const Wx = Ix / (v.h / 2 / 10);
+  const Wy = Iy / ((bca + (v.c || 0)) / 10);
+  return { area, weight, cover, desig, Ix, Iy, Wx, Wy };
+}
+
 export const PROFILE_CALCULATORS = {
   H: calcH,
   HE: calcHE,
@@ -235,6 +301,9 @@ export const PROFILE_CALCULATORS = {
   CE: calcCE,
   XL: calcXL,
   L: calcL,
+  TL: calcTL,
+  IC: calcIC,
+  ICA: calcICA,
   PL: calcPL,
   PIPE: calcPipe,
   PROF: calcTube,

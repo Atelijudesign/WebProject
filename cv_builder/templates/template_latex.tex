@@ -1,0 +1,149 @@
+% CV Builder Pro — LaTeX output
+% Compilable con pdflatex. Requiere: texlive-latex-base, texlive-latex-recommended.
+% Todas las variables del CV se inyectan escapadas con el filtro `latex_escape`.
+\documentclass[11pt,a4paper]{article}
+
+% ── Paquetes ─────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{textcomp}
+
+% ── Configuración de listas ───────────────────────────────────
+\setlist[itemize]{leftmargin=*,nosep,topsep=2pt,parsep=0pt,partopsep=0pt}
+
+% ── Comandos auxiliares ──────────────────────────────────────
+{% raw %}
+\newcommand{\cvsection}[1]{%
+  \vspace{8pt}\par\noindent\textbf{\large #1}\par
+  \vspace{2pt}\noindent\rule{\linewidth}{0.4pt}\par
+  \vspace{4pt}
+}%
+{% endraw %}
+\newcommand{\cvdate}[1]{\hfill {\small #1}\par}
+
+% ─────────────────────────────────────────────────────────────
+\begin{document}
+
+% ── HEADER ────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE \textbf{ {{ cv.personal.name | latex_escape }} }} \\[4pt]
+  {% if cv.personal.title %}
+  {\large {{ cv.personal.title | latex_escape }} } \\[6pt]
+  {% endif %}
+  {% if cv.personal.email %}
+  \href{mailto:{{ cv.personal.email | latex_escape }} }{ {{- cv.personal.email | latex_escape -}} }\quad
+  {% endif %}
+  {% if cv.personal.phone %}{{ cv.personal.phone | latex_escape }}\quad{% endif %}
+  {% if cv.personal.location %}{{ cv.personal.location | latex_escape }}\quad{% endif %}
+  {% if cv.personal.website %}
+  \href{ {{- cv.personal.website | latex_escape -}} }{ {{- cv.personal.website | latex_escape -}} }
+  {% endif %}
+  {% if cv.personal.linkedin %}
+  \quad\href{ {{- cv.personal.linkedin | latex_escape -}} }{LinkedIn}
+  {% endif %}
+  {% if cv.personal.github %}
+  \quad\href{ {{- cv.personal.github | latex_escape -}} }{GitHub}
+  {% endif %}
+\end{center}
+
+% ── RESUMEN ───────────────────────────────────────────────────
+{% if cv.summary.text %}
+\cvsection{Perfil profesional}
+{{ cv.summary.text | latex_escape }}
+{% endif %}
+
+% ── EXPERIENCIA ──────────────────────────────────────────────
+{% if cv.experience %}
+\cvsection{Experiencia profesional}
+{% for e in cv.experience %}
+\noindent\textbf{ {{- e.position | latex_escape -}} }\textit{ -- {{ e.company | latex_escape }} }
+{\small {{ e.location | latex_escape }} }\\
+{% if e.start_date or e.is_current or e.end_date %}
+{\small {{ e.start_date | latex_escape }}{% if e.is_current %} -- Presente{% elif e.end_date %} -- {{ e.end_date | latex_escape }}{% endif %} }\\
+{% endif %}
+{% if e.description %}
+\begin{itemize}
+{% for line in e.description.split('\n') if line.strip() %}
+  \item {{ line.lstrip('•-* ').strip() | latex_escape }}
+{% endfor %}
+\end{itemize}
+{% endif %}
+\vspace{4pt}
+{% endfor %}
+{% endif %}
+
+% ── EDUCACIÓN ───────────────────────────────────────────────
+{% if cv.education %}
+\cvsection{Educación}
+{% for ed in cv.education %}
+\noindent\textbf{ {{- ed.degree | latex_escape -}} }{% if ed.field_of_study %} -- {{ ed.field_of_study | latex_escape }}{% endif %}
+{\small \textit{ {{- ed.institution | latex_escape -}} } }\\
+{% if ed.start_date or ed.end_date %}
+{\small {{ ed.start_date | latex_escape }}{% if ed.end_date %} -- {{ ed.end_date | latex_escape }}{% endif %} }{% if ed.gpa %} \quad GPA: {{ ed.gpa | latex_escape }}{% endif %}\\
+{% endif %}
+{% if ed.description %}{{ ed.description | latex_escape }}{% endif %}
+\vspace{4pt}
+{% endfor %}
+{% endif %}
+
+% ── PUBLICACIONES ───────────────────────────────────────────
+{% if cv.publications %}
+\cvsection{Publicaciones}
+{% for pub in cv.publications %}
+\noindent\textbf{ {{- pub.title | latex_escape -}} }\\
+{% if pub.publisher or pub.date %}
+{\small \textit{ {{- pub.publisher | latex_escape -}} }{% if pub.publisher and pub.date %}, {% endif %}{{ pub.date | latex_escape }} }\\
+{% endif %}
+{% if pub.url %}\href{ {{- pub.url | latex_escape -}} }{ {{- pub.url | latex_escape -}} }\\{% endif %}
+{% if pub.description %}{{ pub.description | latex_escape }}{% endif %}
+\vspace{4pt}
+{% endfor %}
+{% endif %}
+
+% ── PROYECTOS ───────────────────────────────────────────────
+{% if cv.projects %}
+\cvsection{Proyectos}
+{% for p in cv.projects %}
+\noindent\textbf{ {{- p.name | latex_escape -}} }{% if p.date %} {\small ({{ p.date | latex_escape }})}{% endif %}\\
+{% if p.technologies %}{\small \textit{ {{- p.technologies | latex_escape -}} } }\\{% endif %}
+{% if p.description %}{{ p.description | latex_escape }}\\{% endif %}
+{% if p.url %}\href{ {{- p.url | latex_escape -}} }{ {{- p.url | latex_escape -}} }\\{% endif %}
+\vspace{4pt}
+{% endfor %}
+{% endif %}
+
+% ── CERTIFICACIONES ─────────────────────────────────────────
+{% if cv.certifications %}
+\cvsection{Certificaciones}
+\begin{itemize}
+{% for c in cv.certifications %}
+  \item \textbf{ {{- c.name | latex_escape -}} } -- {{ c.issuer | latex_escape }}{% if c.date %} ({{ c.date | latex_escape }}){% endif %}{% if c.credential_id %} \quad ID: {{ c.credential_id | latex_escape }}{% endif %}{% if c.url %} \quad \href{ {{- c.url | latex_escape -}} }{verificar}{% endif %}
+{% endfor %}
+\end{itemize}
+{% endif %}
+
+% ── HABILIDADES ─────────────────────────────────────────────
+{% if cv.skills %}
+\cvsection{Habilidades técnicas}
+{% set cats = {} %}
+{% for s in cv.skills %}
+  {% set _ = cats.update({s.category or 'General': cats.get(s.category or 'General', []) + [s.name]}) %}
+{% endfor %}
+{% for cat, items in cats.items() %}
+\noindent\textbf{ {{- cat | latex_escape -}} :} {% for n in items %}{{ n | latex_escape }}{% if not loop.last %} $\bullet$ {% endif %}{% endfor %}\par
+{% endfor %}
+{% endif %}
+
+% ── IDIOMAS ─────────────────────────────────────────────────
+{% if cv.languages %}
+\cvsection{Idiomas}
+\noindent{% for l in cv.languages %}{{ l.name | latex_escape }} ({{ l.level | latex_escape }}){% if not loop.last %} $\bullet$ {% endif %}{% endfor %}
+{% endif %}
+
+\end{document}

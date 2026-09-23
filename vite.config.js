@@ -1,12 +1,18 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { fork } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Base pública del sitio: "/" en dev local y Vercel; "/WebProject/" al
+// desplegar en GitHub Pages (sólo el workflow de Pages define VITE_BASE).
+const BASE = process.env.VITE_BASE || "/";
+
 
 // A simple plugin to start the local DB server automatically during development
 function localDbServerPlugin() {
@@ -44,9 +50,11 @@ function localDbServerPlugin() {
 }
 
 export default defineConfig({
+  base: BASE,
   plugins: [
     react(),
     localDbServerPlugin(),
+    process.env.ANALYZE && visualizer({ open: true, filename: 'dist/stats.html', gzipSize: true, brotliSize: true }),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: [
@@ -62,8 +70,8 @@ export default defineConfig({
         theme_color: '#0b1220',
         background_color: '#020617',
         display: 'standalone',
-        start_url: '/',
-        scope: '/',
+        start_url: BASE,
+        scope: BASE,
         categories: ['productivity', 'utilities', 'education'],
         icons: [
           {
@@ -200,6 +208,9 @@ export default defineConfig({
   },
   server: {
     open: true,
+  },
+  test: {
+    environment: 'jsdom',
   },
 });
 

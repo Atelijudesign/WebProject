@@ -1,4 +1,95 @@
 {
+  "P-044": {
+    "slug": "P-044",
+    "description_paragraphs": [
+      "El complejo industrial Potrerillos de Codelco División Salvador, ubicado en Diego de Almagro (Región de Atacama), cuenta en su Nave de Fundición con dos puentes grúa pesados para el traslado de metales fundidos a altas temperaturas.",
+      "El Estudio de Perfil 'Normalización Puentes Grúas Fundición Potrerillos' (API S25F105) desarrollado por GHD tuvo como objetivo evaluar la integridad estructural, realizar el mapeo de hallazgos (grietas, fatiga en soldaduras de vigas principales y testeras) y formular las soluciones de ingeniería para restituir la confiabilidad operacional bajo la norma CMAA-70 y el Estándar Corporativo de Control de Fatalidades ECF-7 de Codelco.",
+      "Como Proyectista y Diseñador Estructural en GHD, desarrollé la serie completa de planos de ingeniería en Rev.B (láminas 4600030447_14-05270-205ES-00001 a 00004), abarcando la disposición general de la Nave de Fundición, el mapeo de reparaciones estructurales, los detalles de refuerzo en vigas cajón principales y las consolas de reductores."
+    ],
+    "gallery_images": [
+      "assets/img/codelco_dsal_pl01.webp",
+      "assets/img/codelco_dsal_pl02.webp",
+      "assets/img/codelco_dsal_pl03.webp",
+      "assets/img/codelco_dsal_pl04.webp"
+    ],
+    "image_url": "assets/img/codelco_dsal_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CODELCO Chile (División Salvador)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Contrato 4600030447 - ODS 14)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2026 · Ingeniería de Perfil"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Potrerillos, Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería / Fundición & Izaje"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado (CMAA-70)"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "CMAA-70",
+      "ECF-7 Codelco"
+    ],
+    "name_en": "Overhead Cranes Normalization Potrerillos Smelter (DSAL)",
+    "description_paragraphs_en": [
+      "The Potrerillos industrial complex of Codelco Salvador Division, located in Diego de Almagro (Atacama Region), operates two heavy overhead bridge cranes in its Smelter Aisle for the transfer of high-temperature molten metals.",
+      "The Scoping Study 'Overhead Cranes Normalization Potrerillos Smelter' (API S25F105) developed by GHD aimed to evaluate structural integrity, perform comprehensive defect mapping (cracks, fatigue in welds of main box girders and end trucks), and formulate engineering solutions to restore operational reliability under CMAA-70 and Codelco ECF-7 Corporate Fatality Prevention Standard.",
+      "As Structural Designer and BIM Detailer at GHD, I developed the complete set of engineering drawings at Rev.B (sheets 4600030447_14-05270-205ES-00001 through 00004), covering the Smelter Aisle general arrangement, structural repair mapping, main box girder reinforcement details, and crane reducer support brackets."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CODELCO Chile (Salvador Division)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Contract 4600030447 - ODS 14)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2026 · Scoping Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Potrerillos, Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining / Smelter & Lifting Equipment"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel (CMAA-70)"
+      }
+    ]
+  },
   "los-condores": {
     "slug": "los-condores",
     "description_paragraphs": [
@@ -39,6 +130,44 @@
     "technologies": [
       "AutoCAD",
       "Revit"
+    ],
+    "name_en": "Los Cóndores Hydroelectric Plant",
+    "description_paragraphs_en": [
+      "360 kilometers south of Santiago, near the Pehuenche Andean mountain pass between Chile and Argentina, works for the hydroelectric plant proceed continuously. Most of the engineering is underground, hidden within the core of the Andes range.",
+      "Underground works include the 12-kilometer headrace tunnel carrying water from Laguna del Maule to the turbines. A 40-meter-high underground machine cavern houses the power units, overcoming a 470-meter hydraulic head along the steel-lined pressure shaft.",
+      "The objective is harnessing water power while preserving the natural ecosystem: balancing electrical grid demand with agricultural irrigation needs in the Maule Valley without disturbing the Andean environment."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Enel Generación Chile"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "TYPSA"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2014 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "San Clemente, Maule Region, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Energy / Hydroelectric (150 MW)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete & Underground Caverns"
+      }
     ]
   },
   "aeropuerto-amb": {
@@ -80,6 +209,44 @@
       "Revit",
       "Navisworks",
       "AutoCAD"
+    ],
+    "name_en": "AMB International Airport Expansion",
+    "description_paragraphs_en": [
+      "The expansion of Arturo Merino Benítez International Airport represents one of the largest public infrastructure developments in Chile, adding 320,000 m² of modern passenger terminal facilities and boarding concourses.",
+      "The project involved massive steel roof trusses, concourses T2D, T2E, and T2F, high-performance facade framing, and multi-level parking garages with intensive multidisciplinary coordination.",
+      "As Structural BIM Modeler at CJV / SINCAL, I developed parametric 3D models in Revit Structures, detailed heavy steel moment and brace connections, and coordinated with airport MEP systems in Navisworks."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Ministry of Public Works (MOP) / Nuevo Pudahuel"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "CJV Construction / SINCAL"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2018 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Pudahuel, Santiago, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Aviation / Transportation (320,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Concrete Framing"
+      }
     ]
   },
   "maquina-papelera": {
@@ -119,6 +286,44 @@
     "technologies": [
       "Revit",
       "BIM 360"
+    ],
+    "name_en": "MP05 Tissue Paper Converting Machine — ABSORMEX",
+    "description_paragraphs_en": [
+      "Detailed structural and architectural engineering for the MP05 tissue paper manufacturing and converting machine at the ABSORMEX industrial complex in Zárate, Argentina, covering an 8,000 m² industrial facility.",
+      "The engineering required deep foundation slabs for vibratory converting equipment, heavy structural steel building columns and trusses, crane runway beams, and elevated pipe and duct racks.",
+      "Developed complete BIM 3D models in Revit Structures, multidisciplinary coordination in BIM 360, and detailed fabrication and erection drawings."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "ABSORMEX / Softys"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Zárate, Buenos Aires, Argentina"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp & Paper (8,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel & Machine Foundations"
+      }
     ]
   },
   "hospital-marga-marga": {
@@ -158,6 +363,44 @@
     "technologies": [
       "Revit",
       "Navisworks"
+    ],
+    "name_en": "Marga Marga Provincial Hospital Complex",
+    "description_paragraphs_en": [
+      "New 75,000 m² provincial hospital complex designed to provide high-complexity medical care in Villa Alemana, Valparaíso Region.",
+      "Featuring state-of-the-art seismic isolation (elastomeric bearings and flat sliders), reinforced concrete shear wall systems, intensive care units, and technical subterranean floors.",
+      "Responsible for complete reinforced concrete 3D BIM modeling, rebar clash detection, seismic isolator pedestal detailing, and advanced architectural/MEP coordination."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Viña del Mar - Quillota Health Service"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "SIRVE S.A."
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2019 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Villa Alemana, Valparaíso, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Healthcare / High Complexity (75,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Seismically Isolated Reinforced Concrete"
+      }
     ]
   },
   "paso-los-libertadores": {
@@ -197,6 +440,44 @@
     "technologies": [
       "Tekla",
       "Revit"
+    ],
+    "name_en": "Los Libertadores International Border Complex",
+    "description_paragraphs_en": [
+      "High-mountain international border control complex situated at 3,200 meters above sea level in the Andes, covering 35,000 m² of passenger and freight control facilities.",
+      "Extreme design criteria including severe snow accumulation, sub-zero thermal gradients, and intense seismicity requiring heavy structural steel portal frames and precast concrete enclosures.",
+      "Developed Tekla Structures models for main passenger terminal trusses, vehicle inspection canopies, and workshop fabrication single part and assembly sheets."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Ministry of Public Works (MOP)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "CJV Construction / SIRVE"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2015 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Paso Los Libertadores, Andes Mountains (3,200m)"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Border Infrastructure (35,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel (Tekla Structures)"
+      }
     ]
   },
   "proyecto-arqueros": {
@@ -233,6 +514,44 @@
     "technologies": [
       "Revit",
       "Navisworks"
+    ],
+    "name_en": "Arqueros Mining Project — Primary Crusher",
+    "description_paragraphs_en": [
+      "Detailed structural engineering for the Arqueros mining project, centered on the primary crushing facility, massive retaining walls, truck dump approach slabs, and auxiliary transfer towers.",
+      "Heavy dynamic loads from primary gyratory crusher and haul truck dumping demanded robust reinforced concrete foundations and heavy structural steel frames conforming to AISC and Chilean mining standards.",
+      "Conducted structural BIM modeling in Revit Structures, connection design for heavy steel framing, and multidisciplinary coordination in Autodesk Construction Cloud."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Minera Arqueros"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "ARCADIS / GHD"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2024 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Coquimbo Region, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining / Crushing & Ore Handling"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Massive Concrete & Heavy Steel Framing"
+      }
     ]
   },
   "desaladora-sto-domingo": {
@@ -242,7 +561,11 @@
       "Se utilizaron herramientas avanzadas como Revit y Civil 3D para                 integrar el diseño de las estructuras de hormigón armado con las                 complejas redes de tuberías y equipamiento mecánico, asegurando                 una coordinación perfecta entre las disciplinas civil,                 estructural y mecánica."
     ],
     "gallery_images": [
-      "assets/img/desal_00.webp"
+      "assets/img/desal_00.webp",
+      "assets/img/desal_00 (1).webp",
+      "assets/img/desal_00 (2).webp",
+      "assets/img/desal_00 (4).webp",
+      "assets/img/desal_00 (5).webp"
     ],
     "specs": [
       {
@@ -264,6 +587,44 @@
     "technologies": [
       "Revit",
       "Civil 3D"
+    ],
+    "name_en": "Santo Domingo Seawater Desalination Plant",
+    "description_paragraphs_en": [
+      "Detailed engineering for civil and marine works of the Santo Domingo reverse osmosis seawater desalination plant, providing industrial water supply.",
+      "Includes the seawater intake sump, heavy brine discharge chambers, electrical distribution substations, and chemical treatment buildings.",
+      "Modeled civil and structural elements in Revit and Civil 3D with special focus on marine exposure durability, waterstops, and pipe penetrations."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Industrial Client"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Santo Domingo, Valparaíso Region, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Hydraulics / Water Treatment & Desalination"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Marine-grade Waterproofed Reinforced Concrete"
+      }
     ]
   }
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { asset } from "../utils/asset";
+import { useState, useEffect, useMemo } from 'react';
 import projectsData from '../data/proyectos.json';
 import ExcelJS from 'exceljs';
 import { jsPDF } from 'jspdf';
@@ -166,7 +167,7 @@ export default function AdminDashboard() {
     if (saved) {
       try {
         setSession(JSON.parse(saved));
-      } catch (e) {
+      } catch {
         localStorage.removeItem('ateliju_session');
       }
     }
@@ -424,7 +425,7 @@ export default function AdminDashboard() {
     } else {
       const newProject = {
         ...record,
-        id: crypto.randomUUID(),
+        id: globalThis.crypto.randomUUID(),
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       };
@@ -475,7 +476,6 @@ export default function AdminDashboard() {
     showToast('✓ Proyecto eliminado. Reordenando IDs...', 'info');
     
     // Auto resequence immediately after delete
-    const targetUuid = deletingId;
     setDeletingId(null);
     await autoResequenceIds(remaining);
   };
@@ -696,7 +696,7 @@ export default function AdminDashboard() {
             </button>
           </form>
           <p className="mt-8 text-xs text-slate-500">
-            <a href="/" className="text-bim-blue no-underline">← Volver a Proyectos</a>
+            <a href={asset("/")} className="text-bim-blue no-underline">← Volver a Proyectos</a>
           </p>
         </div>
       </div>
@@ -704,8 +704,6 @@ export default function AdminDashboard() {
   }
 
   // -- RENDER ADMIN 
-  const isDndEnabled = projects.length === filteredProjects.length;
-
   return (
     <div className="font-sans min-h-screen bg-[#0a0e17] text-slate-200">
       
@@ -723,7 +721,7 @@ export default function AdminDashboard() {
         {/* Header */}
         <header className="admin-header">
           <div className="admin-header-left">
-            <a href="/" className="admin-logo" aria-label="Andrés Gallo P.BIM">
+            <a href={asset("/")} className="admin-logo" aria-label="Andrés Gallo P.BIM">
               <span>Andrés Gallo <span className="brand-accent">P.BIM</span></span>
             </a>
             <span className="admin-badge">Admin</span>
@@ -775,7 +773,7 @@ export default function AdminDashboard() {
               <button className="btn btn-secondary" title="Exportar a Excel" onClick={exportExcel}>📑 Excel</button>
               <button className="btn btn-secondary" title="Exportar a PDF" onClick={exportPDF}>📄 PDF</button>
               <button className="btn btn-primary" onClick={openNewProject}>➕ Nuevo</button>
-              <a href="/" className="btn btn-secondary" target="_blank">👁️ Ver</a>
+              <a href={asset("/")} className="btn btn-secondary" target="_blank">👁️ Ver</a>
             </div>
           </div>
           

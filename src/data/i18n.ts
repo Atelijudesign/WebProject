@@ -1,0 +1,809 @@
+export type Language = "es" | "en";
+
+export interface TranslationDictionary {
+  [key: string]: string;
+}
+
+export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
+  es: {
+    // ─── NAV ───────────────────────────────────────────────
+    nav_home: "Inicio",
+    nav_about: "Sobre Mí",
+    nav_automation: "Automatización",
+    nav_services: "Servicios",
+    nav_portfolio: "Portafolio",
+    nav_projects: "Proyectos",
+    nav_contact: "Contacto →",
+    nav_blog: "BLOG",
+    nav_tools: "Herramientas",
+    nav_calculator: "Calculadora de Perfiles",
+    nav_catalog: "Catálogo ICHA",
+    nav_back_home: "Inicio",
+
+    // ─── HERO ──────────────────────────────────────────────
+    hero_available: "Disponible para proyectos · Escríbeme hoy →",
+    hero_title: "Diseñador BIM Estructural",
+    hero_title_accent: "que también programa.",
+    hero_desc: "<strong>15+ años</strong> en proyectos reales de minería, aeropuertos y hospitales. El diferencial: automatizo en <strong>Dynamo, Python y C#</strong> lo que otros calculan a mano.",
+    hero_cta_contact: "Hablemos de tu proyecto",
+    hero_cta_cv: "CV PDF",
+    hero_cta_portfolio: "Portafolio PDF",
+    hero_3d_label: "MODELO 3D EN TIEMPO REAL",
+    hero_3d_drag: "Arrastra para rotar",
+    hero_loading_3d: "Cargando Modelo 3D...",
+    hero_aisc_desc: "Perfiles de acero del manual AISC v15.0 listos para consultar y cubicar online.",
+    hero_aisc_link: "Ver Catálogo AISC",
+    hero_exp_label: "EXPERIENCIA",
+    hero_exp_value: "15+ Años",
+    hero_exp_desc: "En proyectos de minería, edificaciones complejas e infraestructura.",
+    hero_exp_link: "Ver Mi Trayectoria",
+    hero_tests_ok: "✓ Tests Aprobados",
+
+    // ─── ABOUT ─────────────────────────────────────────────
+    about_tag: "// SOBRE MÍ & TRAYECTORIA",
+    about_title: "Proyectista Estructural BIM",
+    about_bio1: "Con más de <strong>15 años de experiencia</strong> como Proyectista Estructural BIM, he colaborado en proyectos para firmas multinacionales como <strong>Black & Veatch, Arcadis, GHD y AFRY</strong>.",
+    about_bio2: "Mi trayectoria abarca minería masiva, hospitales, aeropuertos, plantas industriales de pulpa e infraestructura civil en Chile, México y mercados internacionales.",
+    about_diff: "El gran diferencial: Además de diseñar, <strong>programo las herramientas (Python, C#, pyRevit)</strong> que aceleran el modelado.",
+    about_featured_tag: "// PROYECTOS DESTACADOS",
+    about_stack_tag: "// STACK TÉCNICO ESPECIALIZADO",
+    about_years_badge: "15+ Años",
+
+    // ─── AUTOMATION ────────────────────────────────────────
+    auto_tag: "// DIFERENCIAL COMPETITIVO & PRODUCTIVIDAD",
+    auto_title: "Automatización que Genera Resultados Reales",
+    auto_desc: "15 años en proyectos me enseñaron dónde se pierde el tiempo. Por eso programo las soluciones que reducen tareas de horas a segundos.",
+
+    // ─── SERVICES ──────────────────────────────────────────
+    svc_tag: "// SERVICIOS DE INGENIERÍA & DESARROLLO",
+    svc_title: "Soluciones para los Sectores Más Exigentes",
+    svc_desc: "Especialista en minería masiva, infraestructura vial, salud e industria donde la precisión del modelo BIM y los planos de fabricación no son opcionales.",
+    svc_quote: "Solicitar cotización",
+
+    // ─── PORTFOLIO ─────────────────────────────────────────
+    portfolio_tag: "// PORTAFOLIO DE INGENIERÍA",
+    portfolio_title: "Proyectos Destacados",
+    portfolio_desc: "Una selección de mis trabajos en minería masiva, hospitales, aeropuertos y estructuras complejas.",
+    portfolio_confidential: "Proyecto Confidencial",
+    portfolio_see_details: "Ver detalles del proyecto",
+    portfolio_nda: "Detalles bajo NDA / Restringidos",
+
+    // ─── EXPERIENCE ────────────────────────────────────────
+    exp_tag: "// TRAYECTORIA PROFESIONAL & CREDENCIALES",
+    exp_title: "Experiencia, Certificaciones y Formación",
+    exp_timeline: "Línea de Tiempo Profesional",
+    exp_certs: "Certificaciones Internacionales",
+    exp_education: "Formación Académica",
+
+    // ─── CONTACT ───────────────────────────────────────────
+    contact_tag: "// CANAL DE CONTACTO DIRECTO",
+    contact_title: "Hablemos de Tu Próximo Proyecto",
+    contact_desc: "¿Buscas optimizar tus procesos de diseño estructural o necesitas un experto BIM? Disponible para proyectos en Chile e internacionales.",
+    contact_info_title: "Información Directa",
+    contact_email_label: "Correo Oficial",
+    contact_available: "Disponible · Respuesta en menos de 24 hrs",
+    contact_form_title: "Formulario de Contacto",
+    contact_label_name: "Nombre Completo *",
+    contact_placeholder_name: "Tu nombre",
+    contact_label_email: "Email Profesional *",
+    contact_placeholder_email: "tu@empresa.com",
+    contact_label_service: "Tipo de Servicio",
+    contact_opt_bim: "Modelado & Detallado BIM",
+    contact_opt_auto: "Automatización (Python / pyRevit / C#)",
+    contact_opt_consult: "Consultoría en Ingeniería Estructural",
+    contact_opt_other: "Otro",
+    contact_label_message: "Detalles del Proyecto *",
+    contact_placeholder_message: "Describe los requerimientos principales de tu proyecto...",
+    contact_btn_send: "Enviar Mensaje Directo",
+    contact_btn_sending: "Enviando...",
+    contact_success: "✓ Mensaje enviado. Te respondo pronto.",
+    contact_error: "✗ Error al enviar. Escríbeme a andresgallo@pm.me",
+    contact_download_cv: "Descargar CV PDF",
+    contact_download_portfolio: "Portafolio PDF",
+
+    // ─── FOOTER ────────────────────────────────────────────
+    footer_rights: "Todos los derechos reservados.",
+    footer_slogan: "// Diseñado con ingeniería y código",
+
+    // ─── KEY METRICS ────────────────────────────────────────
+    metric_exp_label: "Años de Trayectoria",
+    metric_exp_detail: "Especialista en Minería, Salud & Estructuras",
+    metric_profiles_label: "Perfiles Estructurales",
+    metric_profiles_detail: "Manuales AISC v15 & Catálogos ICHA",
+    metric_steel_label: "Toneladas de Acero",
+    metric_steel_detail: "Modeladas y cubicadas sin desfases",
+    metric_time_label: "Ahorro de Tiempo",
+    metric_time_detail: "Mediante scripts en pyRevit, C# y Dynamo",
+
+    // ─── BIM COMPARISON ─────────────────────────────────────
+    bim_tag: "// TRANSFORMACIÓN DIGITAL EN INGENIERÍA",
+    bim_title: "De Planos 2D Dispersos a Modelos BIM Coordinados",
+    bim_desc: "Compara en tiempo real la diferencia crítica entre planos tradicionales propensos a colisiones y la precisión milimétrica de un modelo estructural 3D listo para fabricación.",
+    bim_before_badge: "AutoCAD 2D (Planos Tradicionales)",
+    bim_after_badge: "Revit & Tekla 3D (Coordinación BIM)",
+    bim_before_metric: "Riesgo de colisiones & RFI",
+    bim_after_metric: "0 Clashes & Cubicaciones Exactas",
+    bim_card1_title: "El Problema del CAD 2D",
+    bim_card1_desc: "Las interferencias entre especialidades (Estructuras, Cañerías, HVAC) se descubren tarde en el montaje de obra, generando sobrecostos millonarios.",
+    bim_card2_title: "La Solución BIM + Código",
+    bim_card2_desc: "Modelado paramétrico con detección de interferencias automatizada en Python y pyRevit antes de emitir cualquier plano a taller.",
+    bim_card2_metric1: "✓ -85% Errores en Taller",
+    bim_card2_metric2: "✓ 100% Trazabilidad",
+    bim_card3_title: "Extracción Automática",
+    bim_card3_desc: "Cubicaciones por elemento, peso de acero, perfiles y listados de pernos generados en segundos directamente desde el modelo.",
+
+    // ─── TOOLS PREVIEW ─────────────────────────────────────
+    tools_tag: "// SUITE DE HERRAMIENTAS WEB TÉCNICAS",
+    tools_title: "No solo diseño — también creo las herramientas",
+    tools_desc: "Calculadoras y catálogos online gratuitos para proyectistas estructurales, desarrollados con la precisión de la ingeniería real.",
+    tools_featured_badge: "Destacada",
+    tools_btn_use: "Usar herramienta online",
+    tools_btn_read: "Leer el artículo",
+
+    // Navigation (ICHA/Calculator tools)
+    nav_calculator_long: "Calculadora de Perfiles",
+    nav_catalog_long: "Catálogo ICHA",
+
+    // ─── ICHA CATALOG ──────────────────────────────────────
+    cat_hero_tag: "CATÁLOGO ICHA — NORMA CHILENA",
+    cat_hero_title_prefix: "Catálogo de",
+    cat_hero_title_suffix: "Perfiles ICHA",
+    cat_hero_desc:
+      "Selecciona perfiles del catálogo ICHA con todas sus propiedades mecánicas precargadas. Arma tu lista de materiales y exporta a Excel.",
+
+    // Sections
+    sect_select_type: "Selecciona el tipo de perfil",
+    sect_select_series: "Selecciona la serie",
+    sect_cross_section: "Sección Transversal",
+    sect_dimensions: "Dimensiones",
+    sect_search: "Buscar Perfil",
+    sect_search_profile: "Buscar Perfil",
+    sect_results: "Resultados",
+    sect_properties: "Propiedades Mecánicas",
+    sect_summary: "Resumen de Perfiles Seleccionados",
+    sect_classification: "Clasificación por Nominal Weight",
+    sect_comparator: "Comparador de Perfiles",
+
+    // Actions & Buttons
+    btn_add: "Agregar",
+    btn_vs: "VS",
+    btn_export: "Exportar Excel",
+    btn_copy: "Copiar",
+    btn_save: "Guardar",
+    btn_load: "Cargar",
+    btn_clear: "Limpiar",
+    btn_clear_local: "Limpiar Local",
+
+    // Inputs & Labels
+    lbl_add_list: "Agregar a la Lista",
+    lbl_mark: "Marca",
+    lbl_len: "Largo",
+    lbl_qty: "Cant.",
+    lbl_search_placeholder: "Escribe para buscar... (ej: IN 20)",
+    lbl_connections: "Conexiones:",
+
+    // Results
+    res_area: "Área de Sección",
+    res_weight: "Peso Lineal",
+    res_cover: "Área de Cobertura",
+    res_total_weight: "Peso Total",
+
+    // Table Headers
+    th_mark: "Marca",
+    th_qty: "Cant.",
+    th_profile: "Perfil",
+    th_len: "Largo",
+    th_unit_weight: "Peso Unit.",
+    th_total_weight: "Peso Total",
+    total_label: "TOTAL",
+
+    // Classification
+    cls_desc: "Descripción",
+    cls_unit: "Unidad",
+    cls_qty: "Cantidad",
+    cls_total_steel: "Total Acero (con conexiones):",
+
+    // Comparator
+    cmp_prop: "Propiedad",
+    cmp_profile_a: "Perfil A",
+    cmp_profile_b: "Perfil B",
+    cmp_diff: "Diferencia",
+
+    // Messages
+    msg_saved: "Lista guardada correctamente",
+    msg_loaded: "Lista cargada correctamente",
+    msg_cleared: "Lista borrada",
+    msg_copied: "Tabla copiada al portapapeles",
+    msg_added: "Perfil agregado a la lista",
+    msg_added_comp: "Perfil agregado al comparador",
+    msg_comp_full: "El comparador está lleno (máx 2)",
+    msg_no_data: "No hay datos para exportar",
+
+    // Reference
+    ref_title: "Referencia",
+    ref_density: "Densidad del acero:",
+    ref_formula: "Peso = Área × 0.00785 × 100",
+
+    // Footer (tools)
+    footer_text:
+      "© 2026 Andrés Gallo P. — Herramientas para Proyectistas Estructurales",
+
+    // Excel & JS specifics
+    msg_invalid_qty: "Cantidad y Largo deben ser mayores a 0",
+    btn_added_state: "Agregado",
+    err_invalid_profile: "Perfil inválido o con errores",
+    err_load: "Error al cargar la lista",
+
+    // Excel Headers
+    excel_title: "LISTADO DE PERFILES DE ACERO",
+    excel_title_catalog: "CATÁLOGO ICHA — RESUMEN DE PERFILES",
+    pdf_title: "LISTADO DE PERFILES DE ACERO",
+    pdf_title_catalog: "CATÁLOGO ICHA — RESUMEN DE PERFILES",
+    excel_class_title: "CLASIFICACIÓN POR NOMINAL WEIGHT",
+    excel_conns: "Conexiones Acero",
+    excel_total_final: "TOTAL ACERO (con conexiones)",
+
+    // Categories (Long)
+    cat_light: "Estructura metálica liviana ≤ 30 kg/m",
+    cat_medium: "Estructura metálica mediana 30-60 kg/m",
+    cat_heavy: "Estructura metálica pesada 60-90 kg/m",
+    cat_extra: "Estructura metálica extrapesada > 90 kg/m",
+
+    // Categories (Short for Chart)
+    chart_light: "Liviana ≤30",
+    chart_medium: "Mediana 30-60",
+    chart_heavy: "Pesada 60-90",
+    chart_extra: "Extrapesada >90",
+    chart_conns: "Conexiones",
+
+    // Properties (ICHA)
+    prop_weight: "Peso Lineal",
+    prop_area: "Área Sección",
+    prop_h: "Altura (H)",
+    prop_b: "Ancho (B)",
+    prop_e: "Espesor ala (e)",
+    prop_t: "Espesor alma (t)",
+    prop_c: "Labio (C)",
+    prop_ix: "Ix",
+    prop_wx: "Wx",
+    prop_ix_rad: "ix",
+    prop_iy: "Iy",
+    prop_wy: "Wy",
+    prop_iy_rad: "iy",
+    prop_xy: "x=y",
+    prop_x: "x",
+    prop_y: "y",
+    prop_X: "X (cg)",
+    prop_iu: "i (eje U)",
+    prop_iv: "i (eje V)",
+    prop_g: "Gramil (g)",
+
+    // JS Interaction & Search
+    msg_no_results: "No se encontraron perfiles",
+    msg_select_series_first:
+      "Selecciona una serie y luego un perfil para ver sus propiedades",
+    msg_profiles_available: "perfiles disponibles — busca o selecciona uno",
+    search_placeholder_prefix: "Buscar en",
+    msg_select_profile: "Selecciona un perfil primero",
+    msg_confirm_clear: "¿Estás seguro de borrar toda la lista?",
+
+    diagram_placeholder: "Selecciona un perfil",
+    properties_placeholder:
+      "Selecciona una serie y luego un perfil para ver sus propiedades",
+
+    // ─── GENERAL NAV & BACK ─────────────────────────────────
+    nav_all_projects: "Ver todos los proyectos",
+    back_to_home: "Volver al Inicio",
+    back_to_portfolio: "Volver a Proyectos Destacados",
+
+    // ─── PIPELINE & MARQUEE ─────────────────────────────────
+    pipe_tag: "// PIPELINE DE INTEGRACIÓN Y AUTOMATIZACIÓN EN TIEMPO REAL",
+    pipe_title: "Flujo de Datos Unificado: Del Modelo BIM a la Web",
+    pipe_latency: "⚡ Latencia: 0.08s",
+    pipe_sync: "● Sync Activo",
+    pipe_revit_sub: "Modelos IFC / Geometría",
+    pipe_cad_sub: "Detalles & Conexiones",
+    pipe_dynamo_sub: "Lógica Paramétrica",
+    pipe_engine_role: "Motor de Automatización",
+    pipe_engine_desc: "Scripts Python & pyRevit",
+    pipe_engine_badge: "Extracción & Validación",
+    pipe_webapp_title: "Aplicación Web React",
+    pipe_webapp_sub: "Visor 3D & Cubicador",
+    pipe_db_title: "Base de Datos Estructural",
+    pipe_db_sub: "Perfiles AISC & ICHA",
+    pipe_excel_title: "Listados de Materiales",
+    pipe_excel_sub: "Exportación Excel & PDF",
+    marquee_tag: "// ECOSISTEMA TECNOLÓGICO INTEGRADO",
+    marquee_title: "Dominio Integral: Ingeniería BIM Estructural & Desarrollo de Software",
+
+    // ─── TOOLS CATALOG PAGE ─────────────────────────────────
+    tc_badge: "Productividad y Eficiencia",
+    tc_title_prefix: "Herramientas",
+    tc_title_suffix: "BIM",
+    tc_desc: "Calculadoras de ingeniería y utilidades de automatización diseñadas para optimizar el flujo de trabajo de diseñadores y proyectistas estructurales.",
+    tc_open: "Abrir",
+    tc_online: "Online",
+    tc_tool_icha_title: "Catálogo ICHA Digital",
+    tc_tool_icha_desc: "Buscador interactivo de perfiles de acero estructural chileno (NCh) con propiedades mecánicas completas, cubicador por proyecto y exportación.",
+    tc_tool_aisc_title: "Catálogo AISC v15.0",
+    tc_tool_aisc_desc: "Base de datos normada con 2,100+ perfiles (W, M, S, HP, C, MC, L, WT, HSS, Pipe). Toggle de unidades Imperial / Métrico, diagrama 2D y cubicación.",
+    tc_tool_stairs_title: "Calculador de Escaleras Metálicas",
+    tc_tool_stairs_desc: "Cálculo normativo según Ley de Blondel (b + 2h = 63cm), perfiles Canal C250 para limones, peldaños de rejilla electroforjada y barandas industriales.",
+    tc_tool_profiles_title: "Calculador de Propiedades Geométricas",
+    tc_tool_profiles_desc: "Calcula centroides, inercias (Ix, Iy), radios de giro (rx, ry) y módulos elásticos (Wx, Wy) de secciones compuestas de acero.",
+    tc_tool_buckling_title: "Acortadores de Pandeo Estructural",
+    tc_tool_buckling_desc: "Determinación de longitudes de pandeo efectivo kL/r y factores de longitud efectiva para columnas y arriostramientos según AISC 360-16.",
+    tc_tool_export_title: "Visor & Exportador WebBIM / IFC",
+    tc_tool_export_desc: "Visualización en tiempo real de modelos IFC en el navegador, inspección de propiedades BIM y conversión de formatos abiertos para obra.",
+
+    // ─── PROJECTS CATALOG & DASHBOARD ───────────────────────
+    proj_cat_title: "Base de Datos de Proyectos BIM",
+    proj_cat_desc: "Explora el portafolio estructural detallado con más de 40 proyectos ejecutados a nivel internacional.",
+    proj_search_ph: "Buscar por nombre de proyecto, cliente, ID o palabra clave...",
+    proj_filter_type: "Tipo de Proyecto:",
+    proj_filter_company: "Empresa / Especialista",
+    proj_filter_software: "Software / Herramienta",
+    proj_filter_material: "Material Principal",
+    proj_all_types: "Todos",
+    proj_all_companies: "Todas las empresas",
+    proj_all_softwares: "Todos los software",
+    proj_all_materials: "Todos los materiales",
+    proj_lbl_client: "Cliente:",
+    proj_lbl_role: "Rol:",
+    proj_lbl_phase: "Fase:",
+    proj_lbl_material: "Material:",
+    proj_view_detail: "Ver Ficha Completa →",
+    proj_reset_filters: "Limpiar Filtros",
+    proj_active_filters: "Filtros Activos",
+    proj_no_results: "No se encontraron proyectos con los filtros seleccionados.",
+    dash_total: "Total Proyectos",
+    dash_infra: "Infraestructura & Transporte",
+    dash_companies: "Empresas Consultoras",
+    dash_m2: "m² Totales Ejecutados",
+    dash_type_chart: "Distribución por Tipo de Proyecto",
+    dash_mat_chart: "Materialidad Estructural",
+    dash_soft_chart: "Frecuencia de Software BIM",
+    dash_time_chart: "Línea de Tiempo de Proyectos",
+    dash_toggle_open: "Ocultar Métricas",
+    dash_toggle_closed: "Ver Métricas & Analítica",
+
+    // ─── PROJECT DETAIL PAGE ────────────────────────────────
+    pdet_desc_title: "Descripción del Proyecto",
+    pdet_details_title: "Detalles de Ingeniería",
+    pdet_activities_title: "Actividades ejecutadas:",
+    pdet_gallery_title: "Galería de Imágenes",
+    pdet_back_portfolio: "Volver a Proyectos Destacados",
+    pdet_specs_title: "Ficha Técnica",
+    pdet_lbl_client: "Cliente / Empresa",
+    pdet_lbl_period: "Periodo",
+    pdet_lbl_type: "Tipo de Proyecto",
+    pdet_lbl_material: "Material Principal",
+    pdet_lbl_software: "Software Utilizado",
+    pdet_lbl_role: "Rol en el Proyecto",
+    pdet_lbl_status: "Estado",
+    pdet_lbl_phase: "Fase",
+    pdet_lbl_concrete: "Volumen Hormigón",
+    pdet_lbl_steel: "Peso de Acero",
+    pdet_share_title: "Compartir este proyecto",
+
+    // ─── BLOG CATALOG ───────────────────────────────────────
+    blog_hero_badge: "Blog BIM Developer",
+    blog_hero_title_prefix: "Ideas, Código y",
+    blog_hero_title_accent: "Automatización",
+    blog_hero_desc: "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Proyectista Estructural necesita para automatizar su trabajo.",
+    blog_search_ph: "Buscar artículos por título, tema o software...",
+    blog_all_cats: "Todos los Artículos",
+    blog_read_more: "Leer artículo completo →",
+    blog_min_read: "min de lectura",
+    blog_badge: "Blog BIM Developer",
+    blog_title_prefix: "Ideas, Código y ",
+    blog_title_highlight: "Automatización",
+    blog_subtitle: "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Proyectista Estructural necesita para automatizar su trabajo.",
+    blog_search_placeholder: "Buscar artículos...",
+    blog_new_badge: "Nuevo",
+    blog_all_categories: "Todos",
+    blog_coming_soon: "Próximamente",
+    blog_coming_soon_title: "Tu Primer Plugin en C# para Revit: Guía Paso a Paso",
+    blog_coming_soon_desc: "Configura Visual Studio, crea tu primer ExternalCommand y muestra un TaskDialog.",
+  },
+  en: {
+    // ─── NAV ───────────────────────────────────────────────
+    nav_home: "Home",
+    nav_about: "About Me",
+    nav_automation: "Automation",
+    nav_services: "Services",
+    nav_portfolio: "Portfolio",
+    nav_projects: "Projects",
+    nav_contact: "Contact →",
+    nav_blog: "BLOG",
+    nav_tools: "Tools",
+    nav_calculator: "Profile Calculator",
+    nav_catalog: "ICHA Catalog",
+    nav_back_home: "Home",
+
+    // ─── HERO ──────────────────────────────────────────────
+    hero_available: "Available for projects · Contact me today →",
+    hero_title: "Structural BIM Designer",
+    hero_title_accent: "who also codes.",
+    hero_desc: "<strong>15+ years</strong> in real projects in mining, airports and hospitals. The key difference: I automate in <strong>Dynamo, Python & C#</strong> what others calculate by hand.",
+    hero_cta_contact: "Let's talk about your project",
+    hero_cta_cv: "CV PDF",
+    hero_cta_portfolio: "Portfolio PDF",
+    hero_3d_label: "REAL-TIME 3D MODEL",
+    hero_3d_drag: "Drag to rotate",
+    hero_loading_3d: "Loading 3D Model...",
+    hero_aisc_desc: "Steel profiles from the AISC v15.0 manual, ready to query and quantify online.",
+    hero_aisc_link: "View AISC Catalog",
+    hero_exp_label: "EXPERIENCE",
+    hero_exp_value: "15+ Years",
+    hero_exp_desc: "In mining projects, complex buildings and infrastructure.",
+    hero_exp_link: "View My Career",
+    hero_tests_ok: "✓ Tests Passed",
+
+    // ─── ABOUT ─────────────────────────────────────────────
+    about_tag: "// ABOUT ME & CAREER",
+    about_title: "Structural BIM Designer",
+    about_bio1: "With over <strong>15 years of experience</strong> as a Structural BIM Designer (Proyectista Estructural BIM), I have collaborated on projects for multinationals like <strong>Black & Veatch, Arcadis, GHD and AFRY</strong>.",
+    about_bio2: "My career spans massive mining, hospitals, airports, pulp industrial plants and civil infrastructure in Chile, Mexico and international markets.",
+    about_diff: "The key differentiator: In addition to designing, I <strong>program the tools (Python, C#, pyRevit)</strong> that accelerate modeling.",
+    about_featured_tag: "// FEATURED PROJECTS",
+    about_stack_tag: "// SPECIALIZED TECH STACK",
+    about_years_badge: "15+ Years",
+
+    // ─── AUTOMATION ────────────────────────────────────────
+    auto_tag: "// COMPETITIVE EDGE & PRODUCTIVITY",
+    auto_title: "Automation That Delivers Real Results",
+    auto_desc: "15 years on projects taught me where time is lost. That's why I code solutions that reduce hours of work to seconds.",
+
+    // ─── SERVICES ──────────────────────────────────────────
+    svc_tag: "// ENGINEERING & DEVELOPMENT SERVICES",
+    svc_title: "Solutions for the Most Demanding Sectors",
+    svc_desc: "Specialist in massive mining, road infrastructure, healthcare and industry where BIM model precision and fabrication drawings are non-negotiable.",
+    svc_quote: "Request a quote",
+
+    // ─── PORTFOLIO ─────────────────────────────────────────
+    portfolio_tag: "// ENGINEERING PORTFOLIO",
+    portfolio_title: "Featured Projects",
+    portfolio_desc: "A selection of my work in massive mining, hospitals, airports and complex structures.",
+    portfolio_confidential: "Confidential Project",
+    portfolio_see_details: "View project details",
+    portfolio_nda: "Details under NDA / Restricted",
+
+    // ─── EXPERIENCE ────────────────────────────────────────
+    exp_tag: "// PROFESSIONAL CAREER & CREDENTIALS",
+    exp_title: "Experience, Certifications & Education",
+    exp_timeline: "Professional Timeline",
+    exp_certs: "International Certifications",
+    exp_education: "Academic Background",
+
+    // ─── CONTACT ───────────────────────────────────────────
+    contact_tag: "// DIRECT CONTACT CHANNEL",
+    contact_title: "Let's Talk About Your Next Project",
+    contact_desc: "Looking to optimize your structural design processes or need a BIM expert? Available for projects in Chile and internationally.",
+    contact_info_title: "Direct Information",
+    contact_email_label: "Official Email",
+    contact_available: "Available · Response within 24 hrs",
+    contact_form_title: "Contact Form",
+    contact_label_name: "Full Name *",
+    contact_placeholder_name: "Your name",
+    contact_label_email: "Professional Email *",
+    contact_placeholder_email: "you@company.com",
+    contact_label_service: "Service Type",
+    contact_opt_bim: "BIM Modeling & Detailing",
+    contact_opt_auto: "Automation (Python / pyRevit / C#)",
+    contact_opt_consult: "Structural Engineering Consulting",
+    contact_opt_other: "Other",
+    contact_label_message: "Project Details *",
+    contact_placeholder_message: "Describe your project's main requirements...",
+    contact_btn_send: "Send Direct Message",
+    contact_btn_sending: "Sending...",
+    contact_success: "✓ Message sent. I'll reply soon.",
+    contact_error: "✗ Error sending. Email me at andresgallo@pm.me",
+    contact_download_cv: "Download CV PDF",
+    contact_download_portfolio: "Portfolio PDF",
+
+    // ─── FOOTER ────────────────────────────────────────────
+    footer_rights: "All rights reserved.",
+    footer_slogan: "// Built with engineering and code",
+
+    // ─── KEY METRICS ────────────────────────────────────────
+    metric_exp_label: "Years of Experience",
+    metric_exp_detail: "Specialist in Mining, Healthcare & Structures",
+    metric_profiles_label: "Structural Profiles",
+    metric_profiles_detail: "AISC v15 Manuals & ICHA Catalogs",
+    metric_steel_label: "Tons of Steel",
+    metric_steel_detail: "Modeled and quantified with zero discrepancies",
+    metric_time_label: "Time Saved",
+    metric_time_detail: "Via pyRevit, C# and Dynamo scripts",
+
+    // ─── BIM COMPARISON ─────────────────────────────────────
+    bim_tag: "// DIGITAL TRANSFORMATION IN ENGINEERING",
+    bim_title: "From Disconnected 2D Drawings to Coordinated BIM Models",
+    bim_desc: "Compare in real time the critical difference between collision-prone traditional drawings and the millimeter precision of a 3D structural model ready for fabrication.",
+    bim_before_badge: "AutoCAD 2D (Traditional Drawings)",
+    bim_after_badge: "Revit & Tekla 3D (BIM Coordination)",
+    bim_before_metric: "Risk of collisions & RFIs",
+    bim_after_metric: "0 Clashes & Exact Quantities",
+    bim_card1_title: "The 2D CAD Problem",
+    bim_card1_desc: "Interferences between trades (Structural, Piping, HVAC) are detected late during site assembly, causing expensive delays.",
+    bim_card2_title: "The BIM + Code Solution",
+    bim_card2_desc: "Parametric modeling with automated clash detection in Python and pyRevit before releasing any drawing to fabrication.",
+    bim_card2_metric1: "✓ -85% Shop Errors",
+    bim_card2_metric2: "✓ 100% Traceability",
+    bim_card3_title: "Automatic Takeoff",
+    bim_card3_desc: "Element-by-element quantities, steel weight, profile tables and bolt schedules generated in seconds directly from the model.",
+
+    // ─── TOOLS PREVIEW ─────────────────────────────────────
+    tools_tag: "// ONLINE ENGINEERING SUITE",
+    tools_title: "I don't just design — I build the tools",
+    tools_desc: "Free online calculators and catalogs for structural designers, developed with the precision of real engineering.",
+    tools_featured_badge: "Featured",
+    tools_btn_use: "Use online tool",
+    tools_btn_read: "Read article",
+
+    // Navigation (ICHA/Calculator tools)
+    nav_calculator_long: "Profile Calculator",
+    nav_catalog_long: "ICHA Catalog",
+
+    // ─── ICHA CATALOG ──────────────────────────────────────
+    cat_hero_tag: "ICHA CATALOG — CHILEAN STANDARD",
+    cat_hero_title_prefix: "Catalog of",
+    cat_hero_title_suffix: "ICHA Profiles",
+    cat_hero_desc:
+      "Select profiles from the ICHA catalog with all mechanical properties pre-loaded. Build your bill of materials and export to Excel.",
+
+    // Sections
+    sect_select_type: "Select Profile Type",
+    sect_select_series: "Select Series",
+    sect_cross_section: "Cross Section",
+    sect_dimensions: "Dimensions",
+    sect_search: "Search Profile",
+    sect_search_profile: "Search Profile",
+    sect_results: "Results",
+    sect_properties: "Mechanical Properties",
+    sect_summary: "Selected Profiles Summary",
+    sect_classification: "Classification by Nominal Weight",
+    sect_comparator: "Profile Comparator",
+
+    // Actions & Buttons
+    btn_add: "Add",
+    btn_vs: "VS",
+    btn_export: "Export Excel",
+    btn_copy: "Copy",
+    btn_save: "Save",
+    btn_load: "Load",
+    btn_clear: "Clear",
+    btn_clear_local: "Clear Local",
+
+    // Inputs & Labels
+    lbl_add_list: "Add to List",
+    lbl_mark: "Mark",
+    lbl_len: "Length",
+    lbl_qty: "Qty.",
+    lbl_search_placeholder: "Type to search... (e.g., IN 20)",
+    lbl_connections: "Connections:",
+
+    // Results
+    res_area: "Section Area",
+    res_weight: "Linear Weight",
+    res_cover: "Cover Area",
+    res_total_weight: "Total Weight",
+
+    // Table Headers
+    th_mark: "Mark",
+    th_qty: "Qty.",
+    th_profile: "Profile",
+    th_len: "Length",
+    th_unit_weight: "Unit Wt.",
+    th_total_weight: "Total Wt.",
+    total_label: "TOTAL",
+
+    // Classification
+    cls_desc: "Description",
+    cls_unit: "Unit",
+    cls_qty: "Quantity",
+    cls_total_steel: "Total Steel (w/ connections):",
+
+    // Comparator
+    cmp_prop: "Property",
+    cmp_profile_a: "Profile A",
+    cmp_profile_b: "Profile B",
+    cmp_diff: "Difference",
+
+    // Messages
+    msg_saved: "List saved successfully",
+    msg_loaded: "List loaded successfully",
+    msg_cleared: "List cleared",
+    msg_copied: "Table copied to clipboard",
+    msg_added: "Profile added to list",
+    msg_added_comp: "Profile added to comparator",
+    msg_comp_full: "Comparator is full (max 2)",
+    msg_no_data: "No data to export",
+
+    // Reference
+    ref_title: "Reference",
+    ref_density: "Steel Density:",
+    ref_formula: "Weight = Area × 0.00785 × 100",
+
+    // Footer
+    footer_text: "© 2026 Andrés Gallo P. — Tools for Structural Designers",
+
+    // Excel & JS specifics
+    msg_invalid_qty: "Quantity and Length must be greater than 0",
+    btn_added_state: "Added",
+    err_invalid_profile: "Invalid profile or errors present",
+    err_load: "Error loading list",
+
+    // Excel Headers
+    excel_title: "STEEL PROFILES LIST",
+    excel_title_catalog: "ICHA CATALOG — PROFILES SUMMARY",
+    pdf_title: "STEEL PROFILES LIST",
+    pdf_title_catalog: "ICHA CATALOG — PROFILES SUMMARY",
+    excel_class_title: "CLASSIFICATION BY NOMINAL WEIGHT",
+    excel_conns: "Steel Connections",
+    excel_total_final: "TOTAL STEEL (w/ connections)",
+
+    // Categories (Long)
+    cat_light: "Light Steel Structure ≤ 30 kg/m",
+    cat_medium: "Medium Steel Structure 30-60 kg/m",
+    cat_heavy: "Heavy Steel Structure 60-90 kg/m",
+    cat_extra: "Extra Heavy Steel Structure > 90 kg/m",
+
+    // Categories (Short for Chart)
+    chart_light: "Light ≤30",
+    chart_medium: "Medium 30-60",
+    chart_heavy: "Heavy 60-90",
+    chart_extra: "Ex. Heavy >90",
+    chart_conns: "Connections",
+
+    // Properties (ICHA)
+    prop_weight: "Linear Weight",
+    prop_area: "Section Area",
+    prop_h: "Height (H)",
+    prop_b: "Width (B)",
+    prop_e: "Flange Thick. (e)",
+    prop_t: "Web Thick. (t)",
+    prop_c: "Lip (C)",
+    prop_ix: "Ix",
+    prop_wx: "Wx",
+    prop_ix_rad: "ix",
+    prop_iy: "Iy",
+    prop_wy: "Wy",
+    prop_iy_rad: "iy",
+    prop_xy: "x=y",
+    prop_x: "x",
+    prop_y: "y",
+    prop_X: "X (cg)",
+    prop_iu: "i (axis U)",
+    prop_iv: "i (axis V)",
+    prop_g: "Gage (g)",
+
+    // JS Interaction & Search
+    msg_no_results: "No profiles found",
+    msg_select_series_first:
+      "Select a series and then a profile to view its properties",
+    msg_profiles_available: "profiles available — search or select one",
+    search_placeholder_prefix: "Search in",
+    msg_select_profile: "Select a profile first",
+    msg_confirm_clear: "Are you sure you want to clear the entire list?",
+
+    diagram_placeholder: "Select a profile",
+    properties_placeholder:
+      "Select a series and then a profile to view its properties",
+
+    // ─── GENERAL NAV & BACK ─────────────────────────────────
+    nav_all_projects: "View all projects",
+    back_to_home: "Back to Home",
+    back_to_portfolio: "Back to Featured Projects",
+
+    // ─── PIPELINE & MARQUEE ─────────────────────────────────
+    pipe_tag: "// REAL-TIME INTEGRATION & AUTOMATION PIPELINE",
+    pipe_title: "Unified Data Flow: From BIM Model to Web Application",
+    pipe_latency: "⚡ Latency: 0.08s",
+    pipe_sync: "● Active Sync",
+    pipe_revit_sub: "IFC Models / Geometry",
+    pipe_cad_sub: "Details & Connections",
+    pipe_dynamo_sub: "Parametric Logic",
+    pipe_engine_role: "Automation Engine",
+    pipe_engine_desc: "Python & pyRevit Scripts",
+    pipe_engine_badge: "Extraction & Validation",
+    pipe_webapp_title: "React Web Application",
+    pipe_webapp_sub: "3D Viewer & Takeoff",
+    pipe_db_title: "Structural Database",
+    pipe_db_sub: "AISC & ICHA Profiles",
+    pipe_excel_title: "Material Schedules",
+    pipe_excel_sub: "Excel & PDF Export",
+    marquee_tag: "// INTEGRATED TECH ECOSYSTEM",
+    marquee_title: "Full-Stack Mastery: Structural BIM Engineering & Software Development",
+
+    // ─── TOOLS CATALOG PAGE ─────────────────────────────────
+    tc_badge: "Productivity & Efficiency",
+    tc_title_prefix: "BIM",
+    tc_title_suffix: "Tools",
+    tc_desc: "Engineering calculators and automation utilities designed to streamline workflows for structural designers and modelers.",
+    tc_open: "Open",
+    tc_online: "Online",
+    tc_tool_icha_title: "Digital ICHA Catalog",
+    tc_tool_icha_desc: "Interactive search engine for Chilean structural steel profiles (NCh) with complete mechanical properties, project takeoff, and export.",
+    tc_tool_aisc_title: "AISC v15.0 Catalog",
+    tc_tool_aisc_desc: "Standardized database with 2,100+ steel profiles (W, M, S, HP, C, MC, L, WT, HSS, Pipe). Imperial / Metric unit toggle, 2D diagram, and takeoff.",
+    tc_tool_stairs_title: "Steel Staircase Calculator",
+    tc_tool_stairs_desc: "Code-compliant calculation per Blondel's rule (t + 2r = 63cm), C250 channel stringers, grating treads, and industrial handrails.",
+    tc_tool_profiles_title: "Geometric Properties Calculator",
+    tc_tool_profiles_desc: "Calculates centroids, moments of inertia (Ix, Iy), radii of gyration (rx, ry), and section moduli (Wx, Wy) for custom built-up steel sections.",
+    tc_tool_buckling_title: "Structural Buckling Length Calculator",
+    tc_tool_buckling_desc: "Determine effective buckling lengths kL/r and effective length factors for columns and bracings per AISC 360-16.",
+    tc_tool_export_title: "WebBIM / IFC Viewer & Exporter",
+    tc_tool_export_desc: "Real-time browser-based IFC viewer, BIM property inspection, and open data format conversion for construction sites.",
+
+    // ─── PROJECTS CATALOG & DASHBOARD ───────────────────────
+    proj_cat_title: "BIM Projects Database",
+    proj_cat_desc: "Explore the comprehensive structural portfolio featuring 40+ internationally delivered projects.",
+    proj_search_ph: "Search by project name, client, ID or keyword...",
+    proj_filter_type: "Project Type:",
+    proj_filter_company: "Company / Specialist",
+    proj_filter_software: "Software / Tool",
+    proj_filter_material: "Primary Material",
+    proj_all_types: "All",
+    proj_all_companies: "All companies",
+    proj_all_softwares: "All software",
+    proj_all_materials: "All materials",
+    proj_lbl_client: "Client:",
+    proj_lbl_role: "Role:",
+    proj_lbl_phase: "Phase:",
+    proj_lbl_material: "Material:",
+    proj_view_detail: "View Project Details →",
+    proj_reset_filters: "Reset Filters",
+    proj_active_filters: "Active Filters",
+    proj_no_results: "No projects match the selected filter criteria.",
+    dash_total: "Total Projects",
+    dash_infra: "Infrastructure & Transit",
+    dash_companies: "Consulting Firms",
+    dash_m2: "Total Modeled m²",
+    dash_type_chart: "Distribution by Project Type",
+    dash_mat_chart: "Structural Materiality",
+    dash_soft_chart: "BIM Software Frequency",
+    dash_time_chart: "Project Timeline",
+    dash_toggle_open: "Hide Metrics",
+    dash_toggle_closed: "View Metrics & Analytics",
+
+    // ─── PROJECT DETAIL PAGE ────────────────────────────────
+    pdet_desc_title: "Project Description",
+    pdet_details_title: "Engineering Details",
+    pdet_activities_title: "Executed activities:",
+    pdet_gallery_title: "Image Gallery",
+    pdet_back_portfolio: "Back to Featured Projects",
+    pdet_specs_title: "Technical Sheet",
+    pdet_lbl_client: "Client / Company",
+    pdet_lbl_period: "Period",
+    pdet_lbl_type: "Project Type",
+    pdet_lbl_material: "Primary Material",
+    pdet_lbl_software: "Software Used",
+    pdet_lbl_role: "Role in Project",
+    pdet_lbl_status: "Status",
+    pdet_lbl_phase: "Phase",
+    pdet_lbl_concrete: "Concrete Volume",
+    pdet_lbl_steel: "Steel Weight",
+    pdet_share_title: "Share this project",
+
+    // ─── BLOG CATALOG ───────────────────────────────────────
+    blog_hero_badge: "BIM Developer Blog",
+    blog_hero_title_prefix: "Ideas, Code &",
+    blog_hero_title_accent: "Automation",
+    blog_hero_desc: "Technical articles on BIM development, Revit API, pyRevit, Python, C#, and practical automation for structural designers.",
+    blog_search_ph: "Search articles by title, topic, or software...",
+    blog_all_cats: "All Articles",
+    blog_read_more: "Read full article →",
+    blog_min_read: "min read",
+    blog_badge: "BIM Developer Blog",
+    blog_title_prefix: "Ideas, Code & ",
+    blog_title_highlight: "Automation",
+    blog_subtitle: "Articles on BIM development, Revit API, pyRevit, Python, C# and everything a Structural Designer needs to automate their work.",
+    blog_search_placeholder: "Search articles...",
+    blog_new_badge: "New",
+    blog_all_categories: "All",
+    blog_coming_soon: "Coming Soon",
+    blog_coming_soon_title: "Your First C# Plugin for Revit: Step by Step Guide",
+    blog_coming_soon_desc: "Configure Visual Studio, create your first ExternalCommand and display a TaskDialog.",
+  },
+};

@@ -1,9 +1,12 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
-import * as XLSX from "xlsx-js-style";
+import SEOHead from "../components/SEOHead";
+import { ToolsLeadCapture } from "../components/ToolsLeadCapture";
 import { ICHA_CATALOG } from "../data/icha_data.js";
-import { TRANSLATIONS } from "../data/i18n.js";
+import { useTranslation } from "../context/LanguageContext";
+import { generateTakeoffPdf } from "../utils/pdfExportUtils";
+import { generateTakeoffExcel } from "../utils/excelExportUtils";
 
 // ==================== PROPERTY LABELS ====================
 const PROP_LABELS = {
@@ -44,7 +47,7 @@ function dimLine(x1, y1, x2, y2, label, offset = 0, color = "#60a5fa") {
           <text x="${tx}" y="${ty}" fill="${color}" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">${label}</text>`;
 }
 
-function getProfileDimensions(p, series) {
+function getProfileDimensions(p) {
   return {
     h: p.H_mm || 0,
     b: p.B_mm || 0,
@@ -112,7 +115,7 @@ function buildProfileSvg(p, series) {
     const b_wing = b / 2;
     const maxD = Math.max(h, b);
     const sc = (SZ - 2 * PAD) / maxD;
-    const H = h * sc, B = b * sc, T = Math.max(e * sc, 3), BW = b_wing * sc;
+    const H = h * sc, T = Math.max(e * sc, 3), BW = b_wing * sc;
     const gap = 4;
     const leftL_right = CX - gap / 2;
     const rightL_left = CX + gap / 2;
@@ -141,7 +144,6 @@ function buildProfileSvg(p, series) {
   }
 
   if (series === "XL") {
-    const gap_mm = 0;
     const totalMax = Math.max(h, b);
     const sc = (SZ - 2 * PAD) / totalMax;
     
@@ -210,7 +212,7 @@ function buildProfileSvg(p, series) {
   if (series === "IC") {
     const b_wing = b / 2;
     const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
-    const H = h * sc, B = b * sc, T = Math.max(e * sc, 3), BW = b_wing * sc;
+    const H = h * sc, T = Math.max(e * sc, 3), BW = b_wing * sc;
     const gap = 0;
     const leftC_right = CX - gap / 2;
     const rightC_left = CX + gap / 2;
@@ -266,7 +268,7 @@ function buildProfileSvg(p, series) {
   if (series === "ICA") {
     const b_wing = b / 2;
     const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / b);
-    const H = h * sc, B = b * sc, T = Math.max(e * sc, 3), BW = b_wing * sc, C = Math.max(c * sc, 4);
+    const H = h * sc, T = Math.max(e * sc, 3), BW = b_wing * sc, C = Math.max(c * sc, 4);
     const gap = 0;
     const leftC_right = CX - gap / 2;
     const rightC_left = CX + gap / 2;
@@ -317,8 +319,7 @@ function buildProfileSvg(p, series) {
 }
 
 export default function IchaCatalog() {
-  const [lang, setLang] = useState(localStorage.getItem("bim-lang") || "es");
-  const t = (key) => TRANSLATIONS[lang]?.[key] || key;
+  const { language: lang, t } = useTranslation();
 
   const [currentSeries, setCurrentSeries] = useState(null);
   const [selectedProfile, setSelectedProfile] = useState(null);
@@ -328,8 +329,8 @@ export default function IchaCatalog() {
   // Advanced filters
   const [showFilters, setShowFilters] = useState(false);
   const [filterIx, setFilterIx] = useState("");
-  const [filterMinW, setFilterMinW] = useState("");
-  const [filterMaxW, setFilterMaxW] = useState("");
+  const [filterMinW] = useState("");
+  const [filterMaxW] = useState("");
   const [filterH, setFilterH] = useState("");
 
   // Add Item States
@@ -376,7 +377,7 @@ export default function IchaCatalog() {
     if (saved) {
       try {
         setProfileList(JSON.parse(saved));
-      } catch (e) {
+      } catch {
         console.error("Failed to parse list");
       }
     }
@@ -492,17 +493,79 @@ export default function IchaCatalog() {
     };
   }, [classData, lang]);
 
-  // Export functions (Simplified)
-  const handleExportExcel = () => {
+  // Export functions
+  const handleExportExcel = async () => {
     if(!profileList.length) return alert(t("msg_no_data"));
-    const wb = XLSX.utils.book_new();
-    const ws_data = [
-      [t("th_mark"), t("th_qty"), t("th_profile"), t("th_len"), t("th_unit_weight"), t("th_total_weight")],
-      ...profileList.map(p => [p.mark, p.qty, p.designation, p.length, p.unitWeight, p.totalWeight])
-    ];
-    const ws = XLSX.utils.aoa_to_sheet(ws_data);
-    XLSX.utils.book_append_sheet(wb, ws, "Perfiles");
-    XLSX.writeFile(wb, "catalogo-icha-perfiles.xlsx");
+
+    await generateTakeoffExcel({
+      sheetName: "Cubicación ICHA",
+      title: "Resumen de Cubicación - Catálogo ICHA",
+      subtitle: "Instituto Chileno del Acero · Especificaciones y Perfiles Oficiales",
+      standardTag: "NORMA ICHA OFICIAL",
+      columns: [
+        { header: t("th_mark"), key: "mark", width: 14, align: "center" },
+        { header: t("th_qty"), key: "qty", width: 12, align: "center", numFmt: '#,##0' },
+        { header: t("th_profile"), key: "designation", width: 26, align: "left" },
+        { header: `${t("th_len")} (m)`, key: "length", width: 15, align: "right", numFmt: '#,##0.00' },
+        { header: `${t("th_unit_weight")} (kg/m)`, key: "unitWeight", width: 18, align: "right", numFmt: '#,##0.00' },
+        { header: `${t("th_total_weight")} (kg)`, key: "totalWeight", width: 20, align: "right", numFmt: '#,##0.00' },
+      ],
+      data: profileList.map((p) => ({
+        mark: p.mark,
+        qty: p.qty,
+        designation: p.designation,
+        length: p.length,
+        unitWeight: p.unitWeight,
+        totalWeight: p.totalWeight,
+      })),
+      summary: {
+        subtotal: classData.totalWeight,
+        extraPct: connectionsPct,
+        extraWeight: classData.connectionTotal,
+        grandTotal: classData.grandTotal,
+        tonTotal: classData.grandTotal / 1000,
+        unitLabel: "kg",
+        tonUnitLabel: "Ton",
+      },
+      filename: "cubicacion-catalogo-icha.xlsx",
+    });
+  };
+
+  const handleExportPdf = () => {
+    if(!profileList.length) return alert(t("msg_no_data"));
+
+    generateTakeoffPdf({
+      title: "Resumen de Cubicación - Catálogo ICHA",
+      subtitle: "Instituto Chileno del Acero · Especificaciones y Perfiles Oficiales",
+      standardTag: "NORMA ICHA OFICIAL",
+      headers: [t("th_mark"), t("th_qty"), t("th_profile"), `${t("th_len")} (m)`, `${t("th_unit_weight")} (kg/m)`, `${t("th_total_weight")} (kg)`],
+      rows: profileList.map((p) => [
+        p.mark,
+        p.qty,
+        p.designation,
+        p.length.toFixed(2),
+        p.unitWeight.toFixed(2),
+        p.totalWeight.toFixed(2),
+      ]),
+      summary: {
+        subtotal: classData.totalWeight,
+        extraPct: connectionsPct,
+        extraWeight: classData.connectionTotal,
+        grandTotal: classData.grandTotal,
+        tonTotal: classData.grandTotal / 1000,
+        unitLabel: "kg",
+        tonUnitLabel: "Ton",
+      },
+      columnAlignments: {
+        0: "center",
+        1: "center",
+        2: "left",
+        3: "right",
+        4: "right",
+        5: "right",
+      },
+      filename: "cubicacion-catalogo-icha.pdf",
+    });
   };
 
   const handleClear = () => {
@@ -515,6 +578,26 @@ export default function IchaCatalog() {
 
   return (
     <div className="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans min-h-screen pt-24 pb-12 transition-colors duration-300">
+      <SEOHead
+        title="Catálogo ICHA Digital · Perfiles de Acero y Cubicador Estructural"
+        description="Buscador y visor interactivo de perfiles de acero estructural del Instituto Chileno del Acero (ICHA). Tablas de propiedades mecánicas, cotas 2D, cubicación y exportación Excel/PDF."
+        path="/herramientas/icha"
+        keywords="Catálogo ICHA, perfiles de acero Chile, Instituto Chileno del Acero, cubicador perfiles metálicos, vigas H, canales C, tubulares, propiedades geométricas acero"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Catálogo ICHA Digital y Cubicador de Perfiles",
+          "applicationCategory": "EngineeringApplication",
+          "operatingSystem": "All",
+          "url": "https://atelijudesign.com/herramientas/icha",
+          "description": "Herramienta online para proyectistas e ingenieros con catálogo normado ICHA de perfiles de acero estructural y cubicador automático.",
+          "inLanguage": "es",
+          "author": {
+            "@type": "Person",
+            "name": "Andrés Gallo P."
+          }
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 mb-6 pt-4 flex items-center justify-between flex-wrap gap-3">
         <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm font-bold text-bim-blue bg-bim-blue/10 hover:bg-bim-blue/20 border border-bim-blue/30 hover:border-bim-blue/50 px-4 py-2 rounded-xl transition-all duration-300 shadow-sm hover:shadow-bim-blue/20 group">
           <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
@@ -692,7 +775,8 @@ export default function IchaCatalog() {
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider"><i className="fa-solid fa-list-check mr-2"></i>{t("sect_summary")}</h3>
                 <div className="flex gap-2">
-                  <button onClick={handleExportExcel} className="bg-emerald-600/20 text-emerald-500 border border-emerald-600/50 hover:bg-emerald-600 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all"><i className="fa-solid fa-file-excel mr-1"></i> Excel</button>
+                  <button onClick={handleExportExcel} className="bg-emerald-600/20 text-emerald-500 border border-emerald-600/50 hover:bg-emerald-600 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1"><i className="fa-solid fa-file-excel"></i> Excel</button>
+                  <button onClick={handleExportPdf} className="bg-rose-600/20 text-rose-500 border border-rose-600/50 hover:bg-rose-600 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1"><i className="fa-solid fa-file-pdf"></i> PDF</button>
                   <button onClick={handleClear} className="text-red-400 hover:text-red-300 text-xs font-bold px-2 py-1"><i className="fa-solid fa-trash-can"></i> Limpiar</button>
                 </div>
               </div>
@@ -749,15 +833,18 @@ export default function IchaCatalog() {
             </div>
           </div>
         )}
+
+        {/* Lead Capture & Technical Resources */}
+        <ToolsLeadCapture toolName="Catálogo ICHA y Cubicaciones" className="mt-14" />
       </div>
 
       {/* Footer Navigation */}
       <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 flex items-center justify-between flex-wrap gap-4">
         <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm font-bold text-bim-blue hover:text-blue-400 transition-colors group">
-          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
+          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> {lang === "en" ? "Back to Tools" : "Volver a Herramientas"}
         </Link>
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
-          <i className="fa-solid fa-house"></i> Volver al Inicio
+          <i className="fa-solid fa-house"></i> {lang === "en" ? "Back to Home" : "Volver al Inicio"}
         </Link>
       </div>
     </div>

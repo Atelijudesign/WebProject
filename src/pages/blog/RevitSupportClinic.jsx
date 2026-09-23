@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
 
 export default function RevitSupportClinic() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,18 +22,16 @@ export default function RevitSupportClinic() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const shareUrl = encodeURIComponent(window.location.href);
-  const shareTitle = encodeURIComponent("Secretos de Soporte: Lo que aprendimos en AU 2025 sobre Acero");
+  const shareUrl = getShareUrl("/blog/revit-support-clinic");
+  const shareTitle = encodeURIComponent(isEn ? "Support Clinic Secrets: What We Learned at AU 2025 About Steel" : "Secretos de Soporte: Lo que aprendimos en AU 2025 sobre Acero");
 
   return (
     <div className="bg-bim-dark min-h-screen transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "Support Clinic Secrets: What We Learned at AU 2025 About Steel" : "Secretos de Soporte: Lo que aprendimos en AU 2025 sobre Acero"}
+        description={isEn ? "Advanced troubleshooting for structural steel connections, diagnosing family breakages, and fixing disconnected analytical models in complex projects." : "Resumen de las lecciones clave del AU 2025 sobre Revit Structure, modelado de acero y soporte técnico avanzado."}
+        path="/blog/revit-support-clinic"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 z-50 transition-all duration-100"
@@ -43,7 +46,7 @@ export default function RevitSupportClinic() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
             <Link to="/blog" className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors">
-              <i className="fa-solid fa-arrow-left mr-1"></i> Volver al Blog
+              <i className="fa-solid fa-arrow-left mr-1"></i> {isEn ? "Back to Blog" : "Volver al Blog"}
             </Link>
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -57,15 +60,19 @@ export default function RevitSupportClinic() {
               <i className="fa-regular fa-calendar mr-1"></i> 17 Feb 2026
             </span>
             <span className="text-gray-400 text-sm">
-              <i className="fa-regular fa-clock mr-1"></i> 10 min lectura
+              <i className="fa-regular fa-clock mr-1"></i> {isEn ? "10 min read" : "10 min lectura"}
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight leading-tight">
-            <span className="text-5xl">🚑</span> Secretos de Soporte:<br />
-            <span className="text-gradient-article">Errores Comunes de Acero en Revit</span>
+            {isEn ? "Support Clinic Secrets: What We Learned at AU 2025 About Steel" : (
+              <><span className="text-5xl">🚑</span> Secretos de Soporte:<br />
+            <span className="text-gradient-article">Errores Comunes de Acero en Revit</span></>
+            )}
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Lo que aprendimos en la "Revit Support Clinic" de Autodesk University 2025: troubleshooting avanzado, errores recurrentes y cómo evitar que tu modelo falle.
+            {isEn ? "Advanced troubleshooting for structural steel connections, diagnosing family breakages, and fixing disconnected analytical models in complex projects." : (
+              <>Lo que aprendimos en la "Revit Support Clinic" de Autodesk University 2025: troubleshooting avanzado, errores recurrentes y cómo evitar que tu modelo falle.</>
+            )}
           </p>
         </div>
       </section>
@@ -86,6 +93,19 @@ export default function RevitSupportClinic() {
             <p className="text-slate-400 mb-0">
               Si alguna vez te has frustrado porque no aparece el botón de conexión, o porque la opción "Propagate Connection" ignora deliberadamente la mitad de las vigas del edificio, estás en el lugar indicado. Aquí desglosamos las mejores soluciones.
             </p>
+
+            {/* FIGURA 1: REVIT SUPPORT CLINIC UI */}
+            <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+              <img
+                src={asset("/assets/img/blog/news/revit_support_clinic_troubleshooting.png")}
+                alt="Clínica de soporte técnico y resolución de errores en Autodesk Revit Structure"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+                <i className="fa-solid fa-camera mr-1 text-cyan-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Diagnóstico visual de errores frecuentes en Revit: parámetros de Material Behavior en conexiones metálicas, desconexión del modelo analítico y cuellos de botella en la GPU.
+              </figcaption>
+            </figure>
           </div>
 
           {/* Problema #1 */}
@@ -171,8 +191,7 @@ export default function RevitSupportClinic() {
           {/* Conclusiones clave */}
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-800/60 border-l-4 border-l-bim-blue">
             <h3 className="text-xl font-extrabold text-white mb-4">
-              <i className="fa-solid fa-lightbulb text-yellow-400 mr-2"></i> Conclusiones Clave
-            </h3>
+              <i className="fa-solid fa-lightbulb text-yellow-400 mr-2"></i>{isEn ? "Key Conclusions" : "Conclusiones Clave"}</h3>
             <ul className="space-y-3 mb-0">
               <li className="flex items-start text-slate-400">
                 <span className="text-bim-blue mr-2 mt-1"><i className="fa-solid fa-check-circle"></i></span>
@@ -189,57 +208,59 @@ export default function RevitSupportClinic() {
             </ul>
           </div>
 
-        </div>
-      </section>
+          {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+          <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60 mb-10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <i className="fa-solid fa-link text-cyan-400" />
+              Fuentes Oficiales y Sesiones Autodesk University
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href="https://help.autodesk.com/view/RVT/2027/ENU/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-book-open" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+                    <span>Autodesk Help Revit</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    Guía Oficial de Resolución de Errores Estructurales
+                  </div>
+                </div>
+              </a>
 
-      {/* Share Buttons Section */}
-      <section className="py-10 bg-[#070d18] border-t border-slate-800/60">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 font-mono">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" /> Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-facebook-f" /> Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-slate-500/20 transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" /> ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
+              <a
+                href="https://www.revitapidocs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-amber-500/50 transition-all flex items-start gap-3 group"
+              >
+                <div className="p-2 rounded-lg bg-amber-950/60 text-amber-400 text-sm group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-code" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+                    <span>Revit API Docs</span>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                  </div>
+                  <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                    Referencia de Clases, Métodos y Conexiones Estructurales
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ─── SHARE BUTTONS ─── */}
+      <ShareArticle url={shareUrl} title={shareTitle} />
 
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
@@ -249,7 +270,7 @@ export default function RevitSupportClinic() {
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
           <Link
             to="/#contact"

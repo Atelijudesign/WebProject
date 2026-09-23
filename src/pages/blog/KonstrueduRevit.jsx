@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { asset } from "../../utils/asset";
+import { useState, useEffect } from "react";
+import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
+import SEOHead, { getShareUrl } from "../../components/SEOHead";
+import ShareArticle from "../../components/ShareArticle";
+import { AffiliateBanner } from "../../components/AffiliateBanner";
 
 export default function KonstrueduRevit() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,18 +23,16 @@ export default function KonstrueduRevit() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  const shareUrl = encodeURIComponent(window.location.href);
-  const shareTitle = encodeURIComponent("Especialista Modelador BIM Konstruedu: ¿Vale la pena? Mi análisis honesto");
+  const shareUrl = getShareUrl("/blog/konstruedu-especialista-bim-revit");
+  const shareTitle = encodeURIComponent(isEn ? "Konstruedu BIM Specialist: Is It Worth It? My Honest Review" : "Especialista Modelador BIM Konstruedu: ¿Vale la pena? Mi análisis honesto");
 
   return (
     <div className="bg-bim-dark min-h-screen text-slate-300 font-sans transition-colors duration-300">
+      <SEOHead
+        title={isEn ? "Konstruedu BIM Specialist: Is It Worth It? My Honest Review" : "Especialista Modelador BIM Konstruedu: ¿Vale la pena? Mi análisis honesto"}
+        description={isEn ? "127 hours, 14 courses and international certification. I review Konstruedu's BIM Modeling with Revit specialization from my perspective as a structural designer with 15+ years of experience." : "Análisis detallado y honesto del curso Especialista Modelador BIM de Konstruedu enfocado en Revit Structure."}
+        path="/blog/konstruedu-especialista-bim-revit"
+      />
       {/* Reading Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 z-50 transition-all duration-100"
@@ -48,7 +52,7 @@ export default function KonstrueduRevit() {
               to="/blog"
               className="inline-flex items-center text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
             >
-              <i className="fa-solid fa-arrow-left mr-2" /> Volver al Blog
+              <i className="fa-solid fa-arrow-left mr-2" /> {isEn ? "Back to Blog" : "Volver al Blog"}
             </Link>
           </div>
 
@@ -60,20 +64,24 @@ export default function KonstrueduRevit() {
               <i className="fa-regular fa-calendar mr-1" /> 24 Mar 2026
             </span>
             <span className="text-gray-400 text-sm">
-              <i className="fa-regular fa-clock mr-1" /> 9 min lectura
+              <i className="fa-regular fa-clock mr-1" /> {isEn ? "9 min read" : "9 min lectura"}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight leading-tight font-head">
-            <span className="text-emerald-400 text-5xl">🎓</span> Especialista BIM Konstruedu:
+            {isEn ? "Konstruedu BIM Specialist: Is It Worth It? My Honest Review" : (
+              <><span className="text-emerald-400 text-5xl">🎓</span> Especialista BIM Konstruedu:
             <br />
             <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
               ¿Vale la Pena?
-            </span>
+            </span></>
+            )}
           </h1>
 
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Analizo la especialización de 127 horas en Modelado BIM con Revit: qué incluye, para quién es, y si realmente prepara para el trabajo real en proyectos de ingeniería.
+            {isEn ? "127 hours, 14 courses and international certification. I review Konstruedu's BIM Modeling with Revit specialization from my perspective as a structural designer with 15+ years of experience." : (
+              <>Analizo la especialización de 127 horas en Modelado BIM con Revit: qué incluye, para quién es, y si realmente prepara para el trabajo real en proyectos de ingeniería.</>
+            )}
           </p>
         </div>
       </section>
@@ -84,7 +92,7 @@ export default function KonstrueduRevit() {
           {/* Cover Image */}
           <div className="rounded-2xl overflow-hidden border border-slate-800/60 shadow-2xl">
             <img
-              src="/assets/img/blog/konstruedu/portada.webp"
+              src={asset("/assets/img/blog/konstruedu/portada.webp")}
               alt="Especialización Modelado de Proyectos BIM con Revit - Konstruedu"
               className="w-full object-cover"
               loading="lazy"
@@ -296,7 +304,7 @@ export default function KonstrueduRevit() {
 
               {/* Course 14 */}
               <div className="flex gap-3 bg-slate-900/60 rounded-xl overflow-hidden border border-slate-800/60 hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
-                <img src="/assets/img/blog/konstruedu/bim-management.jpg" alt="BIM Management" className="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
+                <img src={asset("/assets/img/blog/konstruedu/bim-management.jpg")} alt="BIM Management" className="w-24 h-24 object-cover flex-shrink-0" loading="lazy" decoding="async" />
                 <div className="py-3 pr-3 flex flex-col justify-center">
                   <div className="text-xs font-bold text-yellow-400 mb-1">CURSO 14 · Contenido adicional</div>
                   <div className="text-sm font-semibold text-white leading-snug">BIM Management y Gestión de Proyectos</div>
@@ -449,31 +457,19 @@ export default function KonstrueduRevit() {
             </p>
           </div>
 
-          {/* CTA Banner */}
-          <div className="glass-card rounded-2xl p-8 md:p-10 border border-emerald-800/40 border-l-4 border-l-emerald-500 bg-slate-900/50 text-center backdrop-blur-md">
-            <h3 className="text-xl font-extrabold text-white mb-3 font-head">
-              ¿Quieres revisar el programa completo?
-            </h3>
-            <p className="text-slate-400 text-sm mb-6 max-w-xl mx-auto">
-              Visita la página oficial de Konstruedu para ver el temario detallado de los 14 cursos, los instructores y las opciones de pago disponibles.
-            </p>
-            <a
-              href="https://konstruedu.com/es/especializacion/modelado-de-proyectos-bim-con-revit-31290"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg hover:shadow-emerald-500/30 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-solid fa-graduation-cap" />
-              Ver Especialización en Konstruedu
-              <i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-80" />
-            </a>
-          </div>
+          {/* Affiliate Recommended Partner Banner */}
+          <AffiliateBanner
+            type="konstruedu"
+            customTitle="¿Quieres certificar tus competencias en Modelado BIM con Revit?"
+            customSubtitle="Accede al programa oficial de Konstruedu con 14 cursos especializados, certificación por proyecto y temario completo."
+            ctaText="Ver Especialización en Konstruedu"
+            className="my-10"
+          />
 
           {/* Key Conclusions */}
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-800/60 border-l-4 border-l-bim-blue bg-slate-900/50 backdrop-blur-md">
             <h3 className="text-xl font-extrabold text-white mb-4 font-head flex items-center">
-              <i className="fa-solid fa-lightbulb text-yellow-400 mr-3" /> Conclusiones Clave
-            </h3>
+              <i className="fa-solid fa-lightbulb text-yellow-400 mr-3" />{isEn ? "Key Conclusions" : "Conclusiones Clave"}</h3>
             <ul className="space-y-3 mb-0">
               <li className="flex items-start text-slate-300">
                 <span className="text-bim-blue mr-3 mt-1"><i className="fa-solid fa-check-circle" /></span>
@@ -496,54 +492,8 @@ export default function KonstrueduRevit() {
         </div>
       </section>
 
-      {/* Share Buttons Section */}
-      <section className="py-10 bg-[#070d18] border-t border-slate-800/60">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 font-mono">
-            <i className="fa-solid fa-share-nodes mr-2 text-bim-blue" /> Comparte este artículo
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-bold shadow-lg hover:shadow-blue-500/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-linkedin-in" /> LinkedIn
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#0d5bbf] text-white text-sm font-bold shadow-lg hover:shadow-blue-400/20 transition-all hover:-translate-y-0.5"
-            >
-              <i className="fa-brands fa-facebook-f" /> Facebook
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-bold shadow-lg hover:shadow-slate-500/20 transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              <i className="fa-brands fa-x-twitter" /> X
-            </a>
-            <button
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5 border border-slate-700"
-            >
-              {copied ? (
-                <>
-                  <i className="fa-solid fa-check text-emerald-400" /> ¡Copiado!
-                </>
-              ) : (
-                <>
-                  <i className="fa-solid fa-link" /> Copiar Link
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* ─── SHARE BUTTONS ─── */}
+      <ShareArticle url={shareUrl} title={shareTitle} />
 
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
@@ -553,7 +503,7 @@ export default function KonstrueduRevit() {
             className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
           >
             <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            Volver al Blog
+            {isEn ? "Back to Blog" : "Volver al Blog"}
           </Link>
           <Link
             to="/#contact"

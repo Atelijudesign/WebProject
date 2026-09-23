@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 /**
  * High-end CodeBlock Component with VS Code / One Dark Pro aesthetics,
@@ -141,7 +141,11 @@ export default function CodeBlock({ code, language = "python", filename = "scrip
 
           {/* File Tab Badge */}
           <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#131b2e] border border-slate-700/50 text-xs font-mono text-slate-300">
-            <i className="fa-brands fa-python text-emerald-400 text-sm" />
+            {language?.toUpperCase() === "PROMPT" ? (
+              <i className="fa-solid fa-wand-magic-sparkles text-purple-400 text-sm" />
+            ) : (
+              <i className="fa-brands fa-python text-emerald-400 text-sm" />
+            )}
             <span className="font-medium text-slate-200">{filename}</span>
             <span className="text-[10px] text-slate-500 font-sans tracking-wide uppercase px-1.5 py-0.5 rounded bg-slate-800">
               {language}
