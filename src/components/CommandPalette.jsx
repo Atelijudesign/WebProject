@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "../context/LanguageContext";
+import { asset } from "../utils/asset";
 
 const COMMAND_ITEMS = [
   // ─── HERRAMIENTAS TÉCNICAS ───
@@ -356,7 +357,7 @@ export const CommandPalette = () => {
 
     if (item.action === "download-cv") {
       const link = document.createElement("a");
-      link.href = "/Andres_Gallo_CV.pdf";
+      link.href = asset("/Andres_Gallo_CV.pdf");
       link.download = "Andres_Gallo_CV.pdf";
       link.click();
       return;
@@ -364,7 +365,7 @@ export const CommandPalette = () => {
 
     if (item.action === "download-portfolio") {
       const link = document.createElement("a");
-      link.href = "/Andres_Gallo_Portfolio.pdf";
+      link.href = asset("/Andres_Gallo_Portfolio.pdf");
       link.download = "Andres_Gallo_Portfolio.pdf";
       link.click();
       return;
