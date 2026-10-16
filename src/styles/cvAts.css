@@ -128,13 +128,14 @@
 
 .cv-ats-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1.18fr) minmax(420px, 0.82fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(460px, 0.92fr);
   align-items: start;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  padding: 1.25rem;
 }
 
 .cv-ats-workspace {
-  padding: 1.25rem;
+  padding: 0;
   background: rgb(15 23 42 / 0.68);
 }
 .cv-ats-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1rem; }
@@ -238,6 +239,157 @@
 .cv-ats-faq summary { cursor: pointer; color: rgb(203 213 225); font-size: 0.72rem; font-weight: 700; }
 .cv-ats-faq details p { margin-top: 0.45rem; color: rgb(148 163 184); font-size: 0.7rem; line-height: 1.55; }
 .cv-ats-page button:focus-visible, .cv-ats-page input:focus-visible, .cv-ats-page textarea:focus-visible, .cv-ats-page select:focus-visible { outline: 2px solid rgb(34 211 238); outline-offset: 2px; }
+
+/* ==========================================================================
+   CV ATS TOP NAVIGATION BAR (STAGES, ACTIONS & PRIVACY)
+   ========================================================================== */
+
+.cv-ats-top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem 1.25rem;
+  padding: 0.85rem 1.25rem;
+  background: rgb(2 6 23 / 0.88);
+  border-bottom: 1px solid rgb(51 65 85 / 0.75);
+  backdrop-filter: blur(12px);
+}
+
+.cv-ats-stages-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.15rem 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.cv-ats-stage-pill {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgb(51 65 85 / 0.8);
+  border-radius: 0.65rem;
+  background: rgb(15 23 42 / 0.65);
+  color: rgb(148 163 184);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.cv-ats-stage-pill:hover {
+  border-color: rgb(34 211 238 / 0.45);
+  background: rgb(30 41 59 / 0.85);
+  color: rgb(226 232 240);
+  transform: translateY(-1px);
+}
+
+.cv-ats-stage-pill.is-active {
+  border-color: rgb(34 211 238 / 0.85);
+  background: rgb(8 47 73 / 0.85);
+  color: rgb(207 250 254);
+  box-shadow: 0 4px 14px rgb(6 182 212 / 0.15);
+}
+
+.cv-ats-stage-badge {
+  display: grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(71 85 105);
+  background: rgb(15 23 42);
+  color: rgb(148 163 184);
+  font-size: 0.72rem;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+.cv-ats-stage-badge.is-active {
+  border-color: rgb(103 232 249);
+  background: rgb(34 211 238);
+  color: rgb(8 47 73);
+}
+
+.cv-ats-stage-badge.is-complete {
+  border-color: rgb(52 211 153);
+  background: rgb(6 78 59);
+  color: rgb(167 243 208);
+}
+
+.cv-ats-stage-text {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cv-ats-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cv-ats-load-example-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgb(34 211 238 / 0.45);
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.85rem;
+  background: rgb(8 47 73 / 0.55);
+  color: rgb(103 232 249);
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.cv-ats-load-example-btn:hover {
+  border-color: rgb(34 211 238 / 0.85);
+  background: rgb(8 47 73 / 0.95);
+  color: white;
+  box-shadow: 0 4px 12px rgb(6 182 212 / 0.22);
+  transform: translateY(-1px);
+}
+
+.cv-ats-privacy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgb(51 65 85 / 0.75);
+  border-radius: 9999px;
+  padding: 0.38rem 0.8rem;
+  background: rgb(15 23 42 / 0.75);
+  font-size: 0.72rem;
+  color: rgb(148 163 184);
+  white-space: nowrap;
+}
+
+.cv-ats-privacy-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: rgb(52 211 153);
+  box-shadow: 0 0 8px rgb(52 211 153 / 0.7);
+  animation: pulse 2.5s infinite;
+}
+
+.cv-ats-privacy-label {
+  color: rgb(103 232 249);
+  font-weight: 800;
+}
+
+.cv-ats-privacy-note {
+  color: rgb(148 163 184);
+  font-size: 0.7rem;
+}
 
 .cv-ats-sidebar {
   position: static;
@@ -666,13 +818,13 @@
 
 @media (max-width: 1199px) {
   .cv-ats-layout {
-    grid-template-columns: 188px minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
   }
 
   .cv-ats-preview {
-    grid-column: 1 / -1;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -687,7 +839,27 @@
   }
 
   .cv-ats-workspace {
-    padding: 0.75rem;
+    padding: 0;
+  }
+
+  .cv-ats-top-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .cv-ats-top-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .cv-ats-stages-nav {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .cv-ats-quick-actions {
@@ -955,3 +1127,33 @@
   .cv-ats-evidence-list, .cv-ats-quality-issues { grid-template-columns: 1fr; }
   .cv-ats-achievement-builder blockquote, .cv-ats-achievement-builder > button { grid-column: auto; }
 }
+
+/* Skills Manager & 1-Touch Technical Catalog Enhancement */
+.cv-skills-catalog-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  border-radius: 9999px;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cv-skills-catalog-pill:active {
+  transform: scale(0.96);
+}
+
+.cv-skills-chip-card {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  touch-action: manipulation;
+}
+
+.cv-skills-chip-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.35);
+}
+

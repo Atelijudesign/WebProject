@@ -2,79 +2,31 @@ import { asset } from "../utils/asset";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import SEOHead from "../components/SEOHead";
-import projectsData from "../data/proyectos.json";
-import { portfolioProjects } from "../constants";
-import featuredDetails from "../data/featured_details.json";
 import { useTranslation } from "../context/LanguageContext";
+import { useProjectsData } from "../context/ProjectsContext";
 
 export default function ProjectDetail() {
   const { language } = useTranslation();
   const isEn = language === "en";
 
   const { id } = useParams();
+  const { projects, loading: projectsLoading } = useProjectsData();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(null);
 
   useEffect(() => {
-    async function loadProject() {
-      try {
-        let matchedProject = null;
-
-        // 1. Check if ID matches a static slug in featuredDetails
-        const featuredData = featuredDetails[id];
-        if (featuredData) {
-          const staticMatch = portfolioProjects.find(p => p.link && p.link.endsWith(`/${id}`)) || {};
-          matchedProject = {
-            project_id: id,
-            name: staticMatch.title || featuredData.slug.replace('-', ' ').replace(/\b\w/g, c => c.toUpperCase()),
-            name_en: featuredData.name_en || staticMatch.title_en,
-            project_type: staticMatch.category || (featuredData.specs.find(s => s.label === 'Categoría') || {}).value || "Proyecto Estructural",
-            project_type_en: staticMatch.category_en || (featuredData.specs_en?.find(s => s.label === 'Category') || {}).value || "Structural Project",
-            description: staticMatch.description || featuredData.description_paragraphs[0] || "",
-            description_en: staticMatch.description_en || featuredData.description_paragraphs_en?.[0] || "",
-            description_paragraphs: featuredData.description_paragraphs,
-            description_paragraphs_en: featuredData.description_paragraphs_en,
-            gallery_images: featuredData.gallery_images,
-            specs: featuredData.specs,
-            specs_en: featuredData.specs_en,
-            technologies: featuredData.technologies,
-            image_url: featuredData.image_url || staticMatch.image || (featuredData.gallery_images && featuredData.gallery_images[0])
-          };
-        }
-
-        // 2. If not a static project, check the database (JSON/API)
-        if (!matchedProject) {
-          let data = null;
-          if (window.location.hostname === 'localhost') {
-            try {
-              const res = await fetch('http://localhost:3001/api/projects');
-              if (res.ok) {
-                const json = await res.json();
-                data = json.value;
-              }
-            } catch (e) {
-              console.warn("Local API server not running, using static JSON", e);
-            }
-          }
-
-          if (!data) {
-            data = projectsData.value;
-          }
-
-          // Search by project_id (e.g. P-044) or by UUID id
-          matchedProject = data.find(p => p.project_id === id || p.id === id);
-        }
-
-        setProject(matchedProject);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadProject();
-  }, [id]);
+    if (projectsLoading) return;
+    const matched = projects.find((item) => item.project_id === id || item.slug === id || item.id === id) || null;
+    setProject(matched ? {
+      ...matched,
+      description_paragraphs: matched.description_paragraphs?.length ? matched.description_paragraphs : (matched.description ? [matched.description] : null),
+      description_paragraphs_en: matched.description_paragraphs_en?.length ? matched.description_paragraphs_en : (matched.description_en ? [matched.description_en] : null),
+      gallery_images: matched.gallery_images?.length ? matched.gallery_images : (matched.image_url ? [matched.image_url] : []),
+      technologies: matched.technologies?.length ? matched.technologies : (matched.software ? matched.software.split(',').map((value) => value.trim()) : []),
+    } : null);
+    setLoading(false);
+  }, [id, projects, projectsLoading]);
 
   useEffect(() => {
     if (activeImageIndex === null || !project || !project.gallery_images) return;
@@ -165,9 +117,13 @@ export default function ProjectDetail() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bim-dark shadow-inner"></div>
         </div>
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
-          <span className="inline-block py-1 px-4 rounded-full bg-bim-blue/20 border border-bim-blue text-bim-blue text-sm font-bold mb-6 tracking-wider uppercase">
-            {displayType}
-          </span>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            {displayType && displayType.split(",").map(t => t.trim()).filter(Boolean).map(t => (
+              <span key={t} className="inline-block py-1 px-4 rounded-full bg-bim-blue/20 border border-bim-blue text-bim-blue text-sm font-bold tracking-wider uppercase">
+                {t}
+              </span>
+            ))}
+          </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight font-grotesk">
             {displayName}
           </h1>
@@ -299,13 +255,31 @@ export default function ProjectDetail() {
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 font-grotesk">
                     {isEn ? "Materiality" : "Materialidad"}
                   </h4>
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    <span className="px-3 py-1 bg-bim-blue/10 text-bim-blue text-xs rounded-lg font-semibold border border-bim-blue/20">
-                      {isEn && project.material_en ? project.material_en : project.material}
-                    </span>
-                    {project.steel_weight && <span className="px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded-lg font-semibold border border-indigo-500/20">{project.steel_weight} {isEn ? "TON Steel" : "TON Acero"}</span>}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {displayMaterial && displayMaterial.split(",").map(m => m.trim()).filter(Boolean).map(m => (
+                      <span key={m} className="px-3 py-1 bg-emerald-500/15 text-emerald-300 text-xs rounded-lg font-semibold border border-emerald-500/30">
+                        {m}
+                      </span>
+                    ))}
+                    {project.steel_weight && <span className="px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded-lg font-semibold border border-indigo-500/20">{project.steel_weight} {isEn ? "TON Steel" : "TON Acero Estr."}</span>}
+                    {project.rebar_weight && <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-lg font-semibold border border-cyan-500/20">{project.rebar_weight} {isEn ? "TON Rebar" : "TON Armaduras"}</span>}
                     {project.concrete_volume && <span className="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs rounded-lg font-semibold border border-amber-500/20">{project.concrete_volume} {isEn ? "m³ Concrete" : "m³ Hormigón"}</span>}
                   </div>
+
+                  {project.role && (
+                    <>
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 font-grotesk">
+                        {isEn ? "Roles / Discipline" : "Rol(es) / Especialidad"}
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.role.split(",").map(r => r.trim()).filter(Boolean).map(r => (
+                          <span key={r} className="px-3 py-1 bg-purple-500/15 text-purple-300 text-xs rounded-lg font-semibold border border-purple-500/30">
+                            {r}
+                          </span>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </>
               )}
 

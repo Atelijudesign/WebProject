@@ -1,0 +1,1523 @@
+[
+  {
+    "id": "LAB-1",
+    "num": 1,
+    "title": "Entorno y Roles de Smart Plant",
+    "startPage": 11,
+    "endPage": 12,
+    "category": "Configuración y Entorno",
+    "badge": "Sesión & Permisos",
+    "summary": "Identificación del entorno gráfico de Smart Plant 3D, roles de usuario, permisos activos (Active Permission Group) y jerarquía de sistemas.",
+    "detailedObjectives": [
+      "Abrir el programa de Smart Plant 3D en la estación de trabajo.",
+      "Seleccionar la pestaña Plant y conectarse al servidor de base de datos.",
+      "Definir las unidades de trabajo del modelo (Sistema Imperial / Métrico).",
+      "Familiarizarse con la barra de herramientas principal, Active Permission Group y Active System."
+    ],
+    "totalPages": 2,
+    "stepsCount": 4,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Abrir el programa de Smart Plant 3D en la estación de trabajo.",
+        "details": "Abrir el programa de Smart Plant 3D en la estación de trabajo."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccionar la pestaña Plant y conectarse al servidor de base de datos.",
+        "details": "Seleccionar la pestaña Plant y conectarse al servidor de base de datos."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Definir las unidades de trabajo del modelo (Sistema Imperial / Métrico).",
+        "details": "Definir las unidades de trabajo del modelo (Sistema Imperial / Métrico)."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Familiarizarse con la barra de herramientas principal, Active Permission Group y Active System.",
+        "details": "Familiarizarse con la barra de herramientas principal, Active Permission Group y Active System."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_011.webp",
+      "/assets/sp3d_manual_pages/page_012.webp"
+    ]
+  },
+  {
+    "id": "LAB-2",
+    "num": 2,
+    "title": "Cuadrículas - Grillas (Grid Wizard)",
+    "startPage": 13,
+    "endPage": 18,
+    "category": "Sistemas de Grillas",
+    "badge": "Grid Wizard",
+    "summary": "Creación paramétrica de sistemas de grillas ortogonales mediante Grid Wizard para el área U02, definición de elevaciones y espaciamientos.",
+    "detailedObjectives": [
+      "Abrir el espacio de trabajo 'Define Workspace' filtrando por la disciplina Grids.",
+      "Iniciar la tarea 'Grids' desde el menú Tasks.",
+      "Ejecutar el asistente 'Grid Wizard' para el sistema U02_Grids.",
+      "Definir origen de coordenadas (Easting, Northing, Elevation) y orientación de ejes 1-4 y A-D.",
+      "Establecer niveles de elevación EL (+) 0'-0\", EL (+) 18'-0\" y EL (+) 31'-0\"."
+    ],
+    "totalPages": 6,
+    "stepsCount": 2,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione U02 CS en el menú desplegable Reference CS.",
+        "details": "Seleccione U02 CS en el menú desplegable Reference CS. Paso Plano de inicio Copias Espaciad o Nivel de anidación Plano final Tipo 1 0 pies 0 pulgadas 2 20 pies 0 pulg Primario 40 pies 0 pulg Plano de cuadrícula NS Versión P Fecha: 12-05-2021 Página Planos Grid-Y: Con el paso 4 del comando Asistente de cuadrícula, cree los planos de cuadrícula en Y basándose en la siguiente información: Establezca la regla de nombre en alfanumérico y porcentaje para todos los planos de cuadrícula."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione U02 CS en el menú desplegable Reference CS.",
+        "details": "Seleccione U02 CS en el menú desplegable Reference CS. Paso Plano de inicio Copias Espaciado Nivel de anidación Tipo Plano final 1 0 pies 0 pulgadas 1 15 pies 0 pulg 15 pies 0 pulg Primario Plano de cuadrícula EW Versión P Fecha: 12-05-2021 Página 8.1.2"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_013.webp",
+      "/assets/sp3d_manual_pages/page_014.webp",
+      "/assets/sp3d_manual_pages/page_015.webp",
+      "/assets/sp3d_manual_pages/page_016.webp",
+      "/assets/sp3d_manual_pages/page_017.webp",
+      "/assets/sp3d_manual_pages/page_018.webp"
+    ]
+  },
+  {
+    "id": "LAB-3",
+    "num": 3,
+    "title": "Edición de Grillas",
+    "startPage": 19,
+    "endPage": 26,
+    "category": "Sistemas de Grillas",
+    "badge": "Edición Gráfica",
+    "summary": "Procedimiento de selección y modificación de líneas de cuadrícula, cambio de espaciamientos, eliminación y renombrado de planos.",
+    "detailedObjectives": [
+      "Seleccionar planos de cuadrícula individuales directamente desde la vista 3D o el árbol de jerarquía.",
+      "Modificar espaciamientos entre ejes paramétricamente desde la barra SmartStep.",
+      "Insertar nuevas líneas de grilla intermedias con desfases precisos.",
+      "Renombrar etiquetas de ejes para ajustarse a los planos de ingeniería."
+    ],
+    "totalPages": 8,
+    "stepsCount": 17,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula.",
+        "details": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula. 3. Abra o cree un archivo de sesión y defina un filtro “U04 & U04 CS” para su espacio de trabajo. Barra de herramientas de tareas Versión P Fecha: 12-05-2021 Página 4. Vaya al entorno de tareas de cuadrícula. Asegúrese de que Active Permission Group esté configurado como Misc. 5."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas. 6. Con el paso 1 del comando Asistente de Cuadrícula, cree un nuevo sistema de coordenadas con los siguientes parámetros o información y después haga clic en el botón “Siguiente”: 7. Con el paso 2 del comando Asistente de Cuadrícula, cree los planos de elevación con los siguientes parámetros y utilice la posición imperial como regla de nombres: Paso Plano de inicio Copias Espaciado Nivel de anidación Tipo Plano final"
+      },
+      {
+        "stepNumber": 3,
+        "title": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar",
+        "details": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar ”."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de",
+        "details": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de trabajo de Smart 3D deberá parecer el siguiente grafico como resultado al laboratorio de sistemas de coordenadas con ángulo de giro."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de",
+        "details": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de diálogo de la regla presiona la tecla <Contro> y elimine el resaltado de las reglas del sistema de coordenadas con el nombre U04 CS. Seleccione el botón “OK”. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 7,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista. 9.1.2 Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 8,
+        "title": "Seleccione el botón de comando colocar plano de elevación en la barra de herramientas.",
+        "details": "Seleccione el botón de comando colocar plano de elevación en la barra de herramientas."
+      },
+      {
+        "stepNumber": 9,
+        "title": "En la barra de cinta horizontal del plano de elevación, introduzca la siguiente información para",
+        "details": "En la barra de cinta horizontal del plano de elevación, introduzca la siguiente información para realizar la edición de la grilla o cuadricula: Nota: Vaya al comando y abra el icono ó la pagina de propiedades de configuración y realizamos el cambio la regla de nombre a Posición Imperial y después haga clic en Aceptar."
+      },
+      {
+        "stepNumber": 10,
+        "title": "En el paso 6 en la barra de cinta horizontal del plano de elevación, ingrese el valor de",
+        "details": "En el paso 6 en la barra de cinta horizontal del plano de elevación, ingrese el valor de compensación y presione <Enter> para confirmar la transacción. Valor de compensación: 26 pies Versión P Fecha: 12-05-2021 Página Nota: Después de ingresar los parámetros o la información anterior de los ítems, en su vista de trabajo de Smart 3D deberá parecer el siguiente gráfico."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Colocación de planos de grilla ó cuadrícula eje X",
+        "details": "Colocación de planos de grilla ó cuadrícula eje X : Seleccione el botón de comando “planos verticales” en la barra de herramientas de tareas."
+      },
+      {
+        "stepNumber": 12,
+        "title": "En la barra de cinta horizontal del plano de la grilla ó cuadrícula, ingresar los siguientes parámet",
+        "details": "En la barra de cinta horizontal del plano de la grilla ó cuadrícula, ingresar los siguientes parámetros:"
+      },
+      {
+        "stepNumber": 13,
+        "title": "En el paso 9 debemos ingresar el valor de compensación y presione <Enter> para confirmar la",
+        "details": "En el paso 9 debemos ingresar el valor de compensación y presione <Enter> para confirmar la transacción de la edición de la grilla. Valor de compensación: 5 pies Nota: Después de ingresar los parámetros o la información anterior de los ítems 8 y 10, en su vista de trabajo de Smart 3D deberá parecer el siguiente gráfico. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 14,
+        "title": "Colocación de planos de grilla ó cuadrícula eje Y: Seleccione el botón de comando “planos",
+        "details": "Colocación de planos de grilla ó cuadrícula eje Y: Seleccione el botón de comando “planos verticales” en la barra de herramientas de tareas."
+      },
+      {
+        "stepNumber": 15,
+        "title": "En la barra de cinta horizontal del plano de la grilla ó cuadrícula, ingresar los siguientes parámet",
+        "details": "En la barra de cinta horizontal del plano de la grilla ó cuadrícula, ingresar los siguientes parámetros:"
+      },
+      {
+        "stepNumber": 16,
+        "title": "En el paso 12 debemos ingresar el valor de compensación y presione <Enter> para confirmar la",
+        "details": "En el paso 12 debemos ingresar el valor de compensación y presione <Enter> para confirmar la transacción de la edición de la grilla. Valor de compensación: 2 pies Nota: Después de ingresar los parámetros o la información anterior de los ítems 11 y 13, en su vista de trabajo de Smart 3D deberá parecer el siguiente gráfico de resultado al laboratorio de edición de grillas."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_019.webp",
+      "/assets/sp3d_manual_pages/page_020.webp",
+      "/assets/sp3d_manual_pages/page_021.webp",
+      "/assets/sp3d_manual_pages/page_022.webp",
+      "/assets/sp3d_manual_pages/page_023.webp",
+      "/assets/sp3d_manual_pages/page_024.webp",
+      "/assets/sp3d_manual_pages/page_025.webp",
+      "/assets/sp3d_manual_pages/page_026.webp"
+    ]
+  },
+  {
+    "id": "LAB-4",
+    "num": 4,
+    "title": "Sistemas de Coordenadas Normales",
+    "startPage": 27,
+    "endPage": 33,
+    "category": "Sistemas de Grillas",
+    "badge": "Coordinate Systems",
+    "summary": "Configuración del sistema de coordenadas globales y locales (CS), fijación de orígenes y orientación de ejes para plantas de proceso.",
+    "detailedObjectives": [
+      "Crear un nuevo Sistema de Coordenadas (Coordinate System) en la jerarquía del proyecto.",
+      "Asignar el sistema de coordenadas a una unidad de planta específica (Unit U02).",
+      "Definir la orientación de los ejes Norte, Este y Elevación.",
+      "Verificar la posición relativa del origen mediante la herramienta PinPoint."
+    ],
+    "totalPages": 7,
+    "stepsCount": 22,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula.",
+        "details": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula. Versión P Fecha: 12-05-2021 Página 3. Abra o cree un archivo de sesión y defina un filtro “U05 & U05 CS” para su espacio de trabajo. 4. Vaya al entorno de tareas de cuadrícula. Asegúrese de que Active Permission Group esté configurado como Misc. 5."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas. 6. Con el paso 1 del comando Asistente de Cuadrícula, cree un nuevo sistema de coordenadas con los siguientes parámetros o información y después haga clic en el botón “Siguiente”: Versión P Fecha: 12-05-2021 Página 7. Con el paso 2 del comando Asistente de Cuadrícula, cree los planos de elevación con los siguientes parámetros y utilice la posición imperial como regla de nombres: Paso Plano de inicio Copias Espaciado"
+      },
+      {
+        "stepNumber": 3,
+        "title": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar",
+        "details": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar ”. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de tr",
+        "details": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de trabajo de Smart 3D deberá parecer el siguiente grafico como resultado al laboratorio de sistemas de coordenadas Normales."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Vaya y seleccione el plano de grilla o cuadrícula A en el explorador de espacio de trabajo para abri",
+        "details": "Vaya y seleccione el plano de grilla o cuadrícula A en el explorador de espacio de trabajo para abrir la cinta y poder editar el plano de cuadrícula."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Seleccione el icono",
+        "details": "Seleccione el icono de propiedades del plano de cuadrícula, ingrese los siguientes parámetros: Eje de rotación: Y Ángulo de rotación:"
+      },
+      {
+        "stepNumber": 8,
+        "title": "0 Grados",
+        "details": "0 Grados"
+      },
+      {
+        "stepNumber": 9,
+        "title": "Vaya y seleccione el botón “Aplicar” para confirmar la transacción sobre el plano de la cuadrícula A",
+        "details": "Vaya y seleccione el botón “Aplicar” para confirmar la transacción sobre el plano de la cuadrícula A. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 10,
+        "title": "Después seleccionamos el plano de cuadrícula B en el explorador de espacio de trabajo para abrir la",
+        "details": "Después seleccionamos el plano de cuadrícula B en el explorador de espacio de trabajo para abrir la cinta y poder editar el plano de cuadrícula."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Seleccione el icono",
+        "details": "Seleccione el icono de propiedades del plano de cuadrícula, ingrese los siguientes parámetros: Eje de rotación: Y Ángulo de rotación:"
+      },
+      {
+        "stepNumber": 12,
+        "title": "0 Grados",
+        "details": "0 Grados"
+      },
+      {
+        "stepNumber": 13,
+        "title": "Vaya y seleccione el botón “Aplicar” para confirmar la transacción sobre el plano de la cuadrícula B",
+        "details": "Vaya y seleccione el botón “Aplicar” para confirmar la transacción sobre el plano de la cuadrícula B."
+      },
+      {
+        "stepNumber": 14,
+        "title": "Vaya y seleccione el plano de grilla o cuadrícula 1 en el explorador de espacio de trabajo para abri",
+        "details": "Vaya y seleccione el plano de grilla o cuadrícula 1 en el explorador de espacio de trabajo para abrir la cinta y poder editar el plano de cuadrícula."
+      },
+      {
+        "stepNumber": 15,
+        "title": "Seleccione el icono",
+        "details": "Seleccione el icono de propiedades del plano de cuadrícula, ingrese los siguientes parámetros: Eje de rotación: X Ángulo de rotación:"
+      },
+      {
+        "stepNumber": 16,
+        "title": "0 Grados",
+        "details": "0 Grados"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_027.webp",
+      "/assets/sp3d_manual_pages/page_028.webp",
+      "/assets/sp3d_manual_pages/page_029.webp",
+      "/assets/sp3d_manual_pages/page_030.webp",
+      "/assets/sp3d_manual_pages/page_031.webp",
+      "/assets/sp3d_manual_pages/page_032.webp",
+      "/assets/sp3d_manual_pages/page_033.webp"
+    ]
+  },
+  {
+    "id": "LAB-5",
+    "num": 5,
+    "title": "Sistemas de Coordenadas con Ángulo de Giro",
+    "startPage": 34,
+    "endPage": 38,
+    "category": "Sistemas de Grillas",
+    "badge": "Rotación de Grillas",
+    "summary": "Definición y orientación de sistemas de coordenadas rotados respecto al Norte de Planta para naves y módulos desalineados.",
+    "detailedObjectives": [
+      "Establecer un ángulo de rotación azimutal respecto al Norte geográfico / planta.",
+      "Crear grillas que sigan automáticamente la rotación del sistema de coordenadas.",
+      "Validar la orientación de vistas ortogonales (Plan, North Elevation, East Elevation) alineadas al nuevo CS."
+    ],
+    "totalPages": 5,
+    "stepsCount": 7,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula.",
+        "details": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula. 3. Abra o cree un archivo de sesión y defina un filtro “U06 & U06 CS” para su espacio de trabajo. 4. Vaya al entorno de tareas de cuadrícula. Asegúrese de que Active Permission Group esté configurado como Misc. 5."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas. 6. Con el paso 1 del comando Asistente de Cuadrícula, cree un nuevo sistema de coordenadas con los siguientes parámetros o información y después haga clic en el botón “Siguiente”: Versión P Fecha: 12-05-2021 Página 7. Con el paso 2 del comando Asistente de Cuadrícula, cree los planos de elevación con los siguientes parámetros y utilice la posición imperial como regla de nombres: Paso Plano de inicio Copias Espaciado"
+      },
+      {
+        "stepNumber": 3,
+        "title": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar",
+        "details": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar ”."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de tr",
+        "details": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de trabajo de Smart 3D deberá parecer el siguiente grafico como resultado al laboratorio de sistemas de coordenadas con ángulo de giro."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de",
+        "details": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de diálogo de la regla presiona la tecla <Contro> y elimine el resaltado de las reglas del sistema de coordenadas con el nombre U06 CS. Seleccione el botón “OK”"
+      },
+      {
+        "stepNumber": 7,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_034.webp",
+      "/assets/sp3d_manual_pages/page_035.webp",
+      "/assets/sp3d_manual_pages/page_036.webp",
+      "/assets/sp3d_manual_pages/page_037.webp",
+      "/assets/sp3d_manual_pages/page_038.webp"
+    ]
+  },
+  {
+    "id": "LAB-6",
+    "num": 6,
+    "title": "Girar Planos de Cuadrícula (Ángulo y Pendiente)",
+    "startPage": 39,
+    "endPage": 54,
+    "category": "Sistemas de Grillas",
+    "badge": "Slope & Angle",
+    "summary": "Giro de planos de cuadrícula utilizando el Método de Ángulo y el Método de Pendiente (Rise/Run) para techumbres y estructuras inclinadas.",
+    "detailedObjectives": [
+      "Comprender el Método de Ángulo para inclinar planos de cubierta a un grado específico.",
+      "Dominar el Método de Pendiente (Rise/Run, ej. 1:12) estándar en ingeniería de techos.",
+      "Crear planos inclinados que servirán como límites de recorte para tijerales y correas.",
+      "Validar el resultado en las vistas de elevación ortogonales."
+    ],
+    "totalPages": 16,
+    "stepsCount": 29,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula.",
+        "details": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula. 3. Abra o cree un archivo de sesión y defina un filtro “U10 & U10 CS” para su espacio de trabajo. Versión P Fecha: 12-05-2021 Página 4. Vaya al entorno de tareas de cuadrícula. Asegúrese de que Active Permission Group esté configurado como Misc. 5."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas. 6. Con el paso 1 del comando Asistente de Cuadrícula, cree un nuevo sistema de coordenadas con los siguientes parámetros o información y después haga clic en el botón “Siguiente”: Versión P Fecha: 12-05-2021 Página 7. Con el paso 2 del comando Asistente de Cuadrícula, cree los planos de elevación con los siguientes parámetros y establezcamos el nivel de anidamiento en “Primario” para todos los planos de elevación:"
+      },
+      {
+        "stepNumber": 3,
+        "title": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar",
+        "details": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar ”."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de tr",
+        "details": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de trabajo de Smart 3D deberá parecer el grafico como resultado al laboratorio."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Utilice el control Vista común para ver una vista isométrica.",
+        "details": "Utilice el control Vista común para ver una vista isométrica."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de",
+        "details": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de diálogo de la regla presiona la tecla <Contro> y elimine el resaltado de las reglas del sistema de coordenadas con el nombre U10 CS. Seleccione el botón “OK” Versión P Fecha: 12-05-2021 Página 12.1.2 RESULTADO FINAL DE ACTIVIDAD. Versión P Fecha: 12-05-2021 Página 12.1.3 MÉTODO DE ÁNGULO."
+      },
+      {
+        "stepNumber": 8,
+        "title": "Vaya la barra en el explorador del espacio de trabajo y expanda U10 CS sobre el eje N seleccione el",
+        "details": "Vaya la barra en el explorador del espacio de trabajo y expanda U10 CS sobre el eje N seleccione el plano de cuadrícula “1”."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Utilicemos el control vista común para vista Mirando hacia el este “looking east” su vista debe pare",
+        "details": "Utilicemos el control vista común para vista Mirando hacia el este “looking east” su vista debe parecerse al siguiente gráfico."
+      },
+      {
+        "stepNumber": 10,
+        "title": "Seleccione en la opción de propiedades proporcionado en la barra de la cinta, el cuadro de dialogo d",
+        "details": "Seleccione en la opción de propiedades proporcionado en la barra de la cinta, el cuadro de dialogo de propiedades aparecerá en la parte de abajo para ver las opciones de distancias de desplazamiento de rotación – plano de rotación – tipo de desplazamiento. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 11,
+        "title": "A continuación, en la ilustración o imagen nos muestra cuatro (4) opciones de tipos de desplazamient",
+        "details": "A continuación, en la ilustración o imagen nos muestra cuatro (4) opciones de tipos de desplazamiento de rotación: Notas: Sin Compensación “No Offset”: Seleccione esta opción para rotar el plano de la cuadrícula sobre el plano elevación base. Por Referencia “By Reference”: Seleccione esta opción para especificar un plano de elevación para usar como eje de rotación mediante el cuadro de rotación. A Distancia “By Distance”: Seleccione esta opción para especificar la ubicación del eje de rotación en"
+      },
+      {
+        "stepNumber": 12,
+        "title": "Vaya y seleccione la opción “Sin compensación” o “No Offset”, donde esta opción nos rotará el plano ",
+        "details": "Vaya y seleccione la opción “Sin compensación” o “No Offset”, donde esta opción nos rotará el plano de la cuadrícula a lo largo del plano de elevación. Actualmente, el plano de elevación es EL o pies 0.00 pulg. (TOS) e introduzca la información del ángulo de rotación a 85.00 grados. A continuación, vea la imagen y le damos clic en el botón “ Aplicar” . Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 13,
+        "title": "Vaya la barra en el explorador del espacio de trabajo y expanda U10 CS sobre el eje N seleccione el",
+        "details": "Vaya la barra en el explorador del espacio de trabajo y expanda U10 CS sobre el eje N seleccione el plano de cuadrícula “1”. Seleccione la opción “Por Referencia” o “By Reference”, donde esta opción nos rotará el plano de la cuadrícula a lo largo del plano de elevación."
+      },
+      {
+        "stepNumber": 14,
+        "title": "Seleccione el plano de elevación es EL 15 pies 0.00 pulg. (TOS) e ingrese el ángulo de rotación a 85",
+        "details": "Seleccione el plano de elevación es EL 15 pies 0.00 pulg. (TOS) e ingrese el ángulo de rotación a 85.00 grados. A continuación, vea la imagen y le damos clic en el botón “ Aplicar” . Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 15,
+        "title": "Vaya la barra en el explorador del espacio de trabajo y expanda U10 CS sobre el eje N seleccione el",
+        "details": "Vaya la barra en el explorador del espacio de trabajo y expanda U10 CS sobre el eje N seleccione el plano de cuadrícula “1”. Seleccione la opción “Por Distancia” o “By Distance”."
+      },
+      {
+        "stepNumber": 16,
+        "title": "Después de seleccionar la distancia de compensación de rotación como 5 pies 0.00 pulg, ingrese el",
+        "details": "Después de seleccionar la distancia de compensación de rotación como 5 pies 0.00 pulg, ingrese el ángulo de rotación como 85.00 grados. A continuación, vea la imagen y le damos clic en el botón “ Aplicar” . Versión P Fecha: 12-05-2021 Página"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_039.webp",
+      "/assets/sp3d_manual_pages/page_040.webp",
+      "/assets/sp3d_manual_pages/page_041.webp",
+      "/assets/sp3d_manual_pages/page_042.webp",
+      "/assets/sp3d_manual_pages/page_043.webp",
+      "/assets/sp3d_manual_pages/page_044.webp",
+      "/assets/sp3d_manual_pages/page_045.webp",
+      "/assets/sp3d_manual_pages/page_046.webp",
+      "/assets/sp3d_manual_pages/page_047.webp",
+      "/assets/sp3d_manual_pages/page_048.webp",
+      "/assets/sp3d_manual_pages/page_049.webp",
+      "/assets/sp3d_manual_pages/page_050.webp",
+      "/assets/sp3d_manual_pages/page_051.webp",
+      "/assets/sp3d_manual_pages/page_052.webp",
+      "/assets/sp3d_manual_pages/page_053.webp",
+      "/assets/sp3d_manual_pages/page_054.webp"
+    ]
+  },
+  {
+    "id": "LAB-7",
+    "num": 7,
+    "title": "Extensiones de Línea de Cuadrícula",
+    "startPage": 55,
+    "endPage": 63,
+    "category": "Sistemas de Grillas",
+    "badge": "Límites de Grilla",
+    "summary": "Ajuste de las extensiones tridimensionales de las líneas de cuadrícula para abarcar múltiples elevaciones y evitar planos truncados.",
+    "detailedObjectives": [
+      "Identificar líneas de cuadrícula que no intersectan todos los niveles estructurales.",
+      "Ajustar los tiradores gráficos (grips) de extensión en las vistas 3D.",
+      "Fijar cotas numéricas de extensión mínima y máxima para el volumen de trabajo.",
+      "Garantizar que los puntos de intersección estén disponibles en todos los pisos."
+    ],
+    "totalPages": 9,
+    "stepsCount": 19,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula.",
+        "details": "Vaya a la barra de herramientas de tareas y seleccione el icono de cuadrícula. 3. Abra o cree un archivo de sesión y defina un filtro “U11 & U11 CS” para su espacio de trabajo. 4. Vaya al entorno de tareas de cuadrícula. Asegúrese de que Active Permission Group esté configurado como Misc. Versión P Fecha: 12-05-2021 Página 5."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Asistente de Cuadrícula” en la barra de herramientas de tareas. 6. Con el paso 1 del comando Asistente de Cuadrícula, cree un nuevo sistema de coordenadas con los siguientes parámetros o información y después haga clic en el botón “Siguiente”: 7. Con el paso 2 del comando Asistente de Cuadrícula, cree los planos de elevación con los siguientes parámetros y utilice la posición imperial como regla de nombres y el nivel de anidamiento en “Primario” para todos los planos de elevación:"
+      },
+      {
+        "stepNumber": 3,
+        "title": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar",
+        "details": "A continuación, haga clic en el botón “Siguiente” y seleccione el botón “ Finalizar ”. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de tr",
+        "details": "Después de ingresar los parámetros o la información anterior de los ítems 1 al 10, en su vista de trabajo de Smart 3D deberá parecer el grafico como resultado al laboratorio."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a l",
+        "details": "Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Utilice el control Vista común para ver una vista isométrica.",
+        "details": "Utilice el control Vista común para ver una vista isométrica."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de",
+        "details": "Vaya al menú principal y seleccione Vista “View”  Opción de regla “Rulers” para abrir el cuadro de diálogo de la regla presiona la tecla <Contro> y elimine el resaltado de las reglas del sistema de coordenadas con el nombre U10 CS. Seleccione el botón “OK” Versión P Fecha: 12-05-2021 Página 13.1.2 RESULTADO FINAL DE ACTIVIDAD. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 8,
+        "title": "Después de establecer los filtros de localización en todos y vaya al explorador del espacio de traba",
+        "details": "Después de establecer los filtros de localización en todos y vaya al explorador del espacio de trabajo"
+      },
+      {
+        "stepNumber": 9,
+        "title": "seleccione el plano D de E-Axis, haga clic con el botón derecho y seleccione propiedades “Properties",
+        "details": "seleccione el plano D de E-Axis, haga clic con el botón derecho y seleccione propiedades “Properties” como se muestra en la imagen:"
+      },
+      {
+        "stepNumber": 10,
+        "title": "En el cuadro de propiedades desplácese hacia la parte abajo y busque la propiedad del valor iniciar",
+        "details": "En el cuadro de propiedades desplácese hacia la parte abajo y busque la propiedad del valor iniciar extensión “Star Extension” e ingrese la siguiente información -26 pies 0,00 pulg como el nuevo valor y"
+      },
+      {
+        "stepNumber": 11,
+        "title": "seleccione Aplicar.",
+        "details": "seleccione Aplicar. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 12,
+        "title": "Vaya al explorador del espacio de trabajo seleccione el plano 1 de E-Axis, haga clic con el botón",
+        "details": "Vaya al explorador del espacio de trabajo seleccione el plano 1 de E-Axis, haga clic con el botón derecho y seleccione propiedades “Properties”."
+      },
+      {
+        "stepNumber": 13,
+        "title": "En el cuadro de propiedades desplácese hacia la parte abajo y busque la propiedad del valor de",
+        "details": "En el cuadro de propiedades desplácese hacia la parte abajo y busque la propiedad del valor de Extensión Final “End Extension” e ingrese la siguiente información -8 pies 0,00 pulg como el nuevo valor y seleccione Aplicar."
+      },
+      {
+        "stepNumber": 14,
+        "title": "Vaya al explorador del espacio de trabajo seleccione el plano 4 de E-Axis, haga clic con el botón",
+        "details": "Vaya al explorador del espacio de trabajo seleccione el plano 4 de E-Axis, haga clic con el botón derecho y seleccione propiedades “Properties”."
+      },
+      {
+        "stepNumber": 15,
+        "title": "En el cuadro de propiedades desplácese hacia la parte abajo y busque la propiedad del valor de",
+        "details": "En el cuadro de propiedades desplácese hacia la parte abajo y busque la propiedad del valor de Extensión Final “End Extension” e ingrese la siguiente información -8 pies 0,00 pulg como el nuevo valor y seleccione Aplicar. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 16,
+        "title": "Vaya al explorador del espacio de trabajo seleccione el plano 2 y 3 de E-Axis, haga clic con el botó",
+        "details": "Vaya al explorador del espacio de trabajo seleccione el plano 2 y 3 de E-Axis, haga clic con el botón derecho y seleccione propiedades “Properties”."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_055.webp",
+      "/assets/sp3d_manual_pages/page_056.webp",
+      "/assets/sp3d_manual_pages/page_057.webp",
+      "/assets/sp3d_manual_pages/page_058.webp",
+      "/assets/sp3d_manual_pages/page_059.webp",
+      "/assets/sp3d_manual_pages/page_060.webp",
+      "/assets/sp3d_manual_pages/page_061.webp",
+      "/assets/sp3d_manual_pages/page_062.webp",
+      "/assets/sp3d_manual_pages/page_063.webp"
+    ]
+  },
+  {
+    "id": "LAB-8",
+    "num": 8,
+    "title": "Exportación de Grillas",
+    "startPage": 64,
+    "endPage": 68,
+    "category": "Sistemas de Grillas",
+    "badge": "Exportación XML",
+    "summary": "Exportación del sistema de grillas a formato XML estandarizado para federación e intercambio multidisciplinar con Piping y Equipos.",
+    "detailedObjectives": [
+      "Seleccionar el sistema de grillas completo U02_Grids en el árbol de navegación.",
+      "Ejecutar el comando de exportación de datos a formato XML.",
+      "Verificar el esquema de datos exportado para disciplinas mecánicas y eléctricas.",
+      "Importar o sincronizar grillas con otros modelos de planta satélite."
+    ],
+    "totalPages": 5,
+    "stepsCount": 5,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione UC02 CS y U11 CS como se muestra en la imagen a continuación",
+        "details": "Seleccione UC02 CS y U11 CS como se muestra en la imagen a continuación Versión P Fecha: 12-05-2021 Página 4. En su carpeta donde guardo el documento le debe aparecer un archivo llamado U02 CS & U11 CS en formato en excel .XSL abrir la hoja de excel y se muestra la siguiente imagen: 5. Vaya la barra de menú principal y seleccione la opción Archivo “File”  despliegue la opción Importar “Import”  Rejillas “Grids”. 6."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione las cuadrículas para Importar para identificar la ubicación del archivo de importación. P",
+        "details": "Seleccione las cuadrículas para Importar para identificar la ubicación del archivo de importación. Para esta actividad o laboratorio usaremos el archivo “U02 CS & U11 CS.xlsx” que exportamos en los ítems 1 al 4. 7."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Seleccione y haga clic en Importar. Nos indica una advertencia que el nombre del sistema de",
+        "details": "Seleccione y haga clic en Importar. Nos indica una advertencia que el nombre del sistema de coordenadas ya existe como se muestra en la imagen a continuación Versión P Fecha: 12-05-2021 Página A continuación, haga clic en el botón “Acpetar”: 8. Cambie el nombre de “U02 CS” a “U02 CS Copy” y “U11 CS” a “U11 CS Copy”. 9."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Seleccione y haga clic en Importar “Import”. Ver ajuste la vista de trabajo.",
+        "details": "Seleccione y haga clic en Importar “Import”. Ver ajuste la vista de trabajo. 10. Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista. Versión P Fecha: 12-05-2021 Página"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Su vista en el área de trabajo ahora deberá parecer el siguiente resultado al laboratorio.",
+        "details": "Su vista en el área de trabajo ahora deberá parecer el siguiente resultado al laboratorio. 14.2.2 RESULTADO FINAL DE ACTIVIDAD."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_064.webp",
+      "/assets/sp3d_manual_pages/page_065.webp",
+      "/assets/sp3d_manual_pages/page_066.webp",
+      "/assets/sp3d_manual_pages/page_067.webp",
+      "/assets/sp3d_manual_pages/page_068.webp"
+    ]
+  },
+  {
+    "id": "LAB-9",
+    "num": 9,
+    "title": "Miembros Lineales y Puntos Cardinales",
+    "startPage": 80,
+    "endPage": 89,
+    "category": "Modelado Estructural",
+    "badge": "SmartStep & CP",
+    "summary": "Colocación de columnas, vigas y arriostramientos mediante la barra SmartStep Ribbon, selección de secciones W y dominio de los 9 Puntos Cardinales (CP 1-9).",
+    "detailedObjectives": [
+      "Activar la tarea 'Structure' en el espacio de trabajo.",
+      "Dominar la barra SmartStep Ribbon: System, Type, Section, Cardinal Point, Angle, Priority.",
+      "Aplicar la Regla de Oro: Punto Cardinal CP 8 (Top-Center) para vigas de entrepiso (TOS).",
+      "Aplicar Punto Cardinal CP 5 (Centroid) para columnas y diagonales.",
+      "Modelar vigas conectadas entre ejes de grillas mediante selección de puntos de intersección."
+    ],
+    "totalPages": 10,
+    "stepsCount": 9,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione el comando “Sistema de miembros lineales” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Sistema de miembros lineales” en la barra de herramientas de tareas. 6. Con la realización del ítem 5 en la barra de cintas nos muestra el paso del comando inteligente del sistema de miembros lineal. 7. Vaya y establezca los siguientes parámetros o información del miembro activo: Conexión: “Por regla” Sistema: A2 U04 Estructura Columnas Categoría de Tipo: Columna Tipo: Columna Nombre de la sección: W14x43 Cardenal Pt: 5 Angulo: 0,00 deg (grados) Reflect: Off Material: acero de carbono"
+      },
+      {
+        "stepNumber": 2,
+        "title": "En la barra de cinta colocar miembro, los dos pasos inteligentes que indican el final 1 y el final 2",
+        "details": "En la barra de cinta colocar miembro, los dos pasos inteligentes que indican el final 1 y el final 2 de un miembro también indicando si los miembros se colocarán en forma de intervalo “Final 1 – Final 2” (como columnas) o de forma continua “Final 1 – Final 2” -Fin 2 (como vigas)."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Coloque el resto de las columnas como se muestran a continuación en la imagen o figura.",
+        "details": "Coloque el resto de las columnas como se muestran a continuación en la imagen o figura."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Seleccione y establezca los siguientes parámetros o información del miembro activo:",
+        "details": "Seleccione y establezca los siguientes parámetros o información del miembro activo: Conexión: “Por regla” Sistema: A2 U04 Estructura Vigas Categoría de Tipo: Beam Tipo: Beam Nombre de la sección: W16x67 Cardenal Pt: 8 Angulo: 0,00 deg (grados) Reflect: Off Material: acero de carbono Grado: A36"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Seleccione y coloque la viga usando el mouse el eje central de las columnas, luego elija la línea de",
+        "details": "Seleccione y coloque la viga usando el mouse el eje central de las columnas, luego elija la línea de la cuadrícula de intersección para indicar la ubicación de la viga a continuación se muestra la siguiente imagen o figura."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Vaya y coloque el resto de las vigas como se muestra a continuación.",
+        "details": "Vaya y coloque el resto de las vigas como se muestra a continuación."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Mientras todavía este activado el comando de sistema de miembros lineales cambie los controles de la",
+        "details": "Mientras todavía este activado el comando de sistema de miembros lineales cambie los controles de la barra de cinta con la siguiente información. Conexión: “Por regla” Sistema: A2 U04 Estructura Tirantes verticales Categoría de Tipo: Brace Tipo: Vertical Brace Nombre de la sección: L8x4x1/2 Cardenal Pt: 1 Angulo: 180 deg (grados) Reflect: Off Material: acero de carbono Grado: A36"
+      },
+      {
+        "stepNumber": 8,
+        "title": "Seleccione y coloque Tirantes vertical desde el extremo inferior de la primera columna (en conexión ",
+        "details": "Seleccione y coloque Tirantes vertical desde el extremo inferior de la primera columna (en conexión del marco) hasta el extremo este de la primera viga. Ver a continuación la siguiente figura."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Realice el mismo procedimiento de trabajo para el otro lado de la estructura.",
+        "details": "Realice el mismo procedimiento de trabajo para el otro lado de la estructura. 17.1.2 RESULTADO FINAL DE ACTIVIDAD."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_080.webp",
+      "/assets/sp3d_manual_pages/page_081.webp",
+      "/assets/sp3d_manual_pages/page_082.webp",
+      "/assets/sp3d_manual_pages/page_083.webp",
+      "/assets/sp3d_manual_pages/page_084.webp",
+      "/assets/sp3d_manual_pages/page_085.webp",
+      "/assets/sp3d_manual_pages/page_086.webp",
+      "/assets/sp3d_manual_pages/page_087.webp",
+      "/assets/sp3d_manual_pages/page_088.webp",
+      "/assets/sp3d_manual_pages/page_089.webp"
+    ]
+  },
+  {
+    "id": "LAB-10",
+    "num": 10,
+    "title": "Copiar y Pegar Elementos Estructurales",
+    "startPage": 90,
+    "endPage": 102,
+    "category": "Productividad",
+    "badge": "Copy / Paste",
+    "summary": "Técnicas de duplicación masiva, traslación por vector de desplazamiento y réplica de pórticos estructurales completos con referencias relativas.",
+    "detailedObjectives": [
+      "Seleccionar miembros estructurales por ventana de cruce o filtro de selección.",
+      "Definir el punto de referencia origen (From Point) para la copia.",
+      "Fijar el punto de destino (To Point) utilizando referencias a grillas o coordenadas relativas.",
+      "Verificar que las relaciones de conexión se conserven intactas en los elementos replicados."
+    ],
+    "totalPages": 13,
+    "stepsCount": 20,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione el comando “Sistema de miembros lineales” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Sistema de miembros lineales” en la barra de herramientas de tareas. 6. Vaya y establezca los siguientes parámetros o información del miembro activo: Conexión: “Por regla” Sistema: A2 U02 Estructura Columnas Categoría de Tipo: Columna Tipo: Columna Nombre de la sección: W14x53 Cardenal Pt: 5 Angulo: 0,00 deg (grados) Reflect: Off Material: acero de carbono Grado: A36 7. Vaya y coloque el primer extremo de la columna en la intersección de la grilla o cuadrícula en Elevación"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Establezca el filtro de ubicación en un Sistema Miembros “Member Systems” y seleccionemos todos los",
+        "details": "Establezca el filtro de ubicación en un Sistema Miembros “Member Systems” y seleccionemos todos los miembros utilizados el método de valla."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Vaya al menú principal del Software SP3D seleccione Editar Copiar “Copy” o sino también lo puede",
+        "details": "Vaya al menú principal del Software SP3D seleccione Editar Copiar “Copy” o sino también lo puede hacer haciendo clic en el comando Copiar en la barra de herramienta Común. Nota: También lo podemos realizar el comando desde el teclado presionando las teclas CTRL+C para seleccionar el comando copiar."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Después de realizar el ítem 11 seleccione el final de la columna como punto de referencia.",
+        "details": "Después de realizar el ítem 11 seleccione el final de la columna como punto de referencia."
+      },
+      {
+        "stepNumber": 5,
+        "title": "El sistema le pedirá que seleccione un punto de referencia para los objetos que se están copiando.",
+        "details": "El sistema le pedirá que seleccione un punto de referencia para los objetos que se están copiando. Cuando pega objetos en un punto, los objetos copiados se colocan en relación con este punto, pero la posición final del miembro se calcula basándose en las relaciones de posicionamiento que controlan la posición del miembro. Este ejemplo ilustrará esta idea. En este caso, haga clic y seleccione el final de la columna como punto de referencia."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Vaya al menú principal del Software SP3D seleccione Editar Pegar “Paste” o sino también lo puede",
+        "details": "Vaya al menú principal del Software SP3D seleccione Editar Pegar “Paste” o sino también lo puede hacer haciendo clic en el comando Pegar en la barra de herramienta Común o presione las teclas CTRL+V en el teclado."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Aparece el cuadro de diálogo Pegar. El cuadro de diálogo Pegar muestra las relaciones que se pueden",
+        "details": "Aparece el cuadro de diálogo Pegar. El cuadro de diálogo Pegar muestra las relaciones que se pueden establecer entre los objetos que está pegando y los objetos que existen en el modelo. Estas son las relaciones que existían entre los objetos que copió y los objetos de diseño que no estaban en su conjunto de copias. Hay dos categorías de tales relaciones, las requeridas por los objetos que está pegando y las que son opcionales. El padre del sistema es un ejemplo de una relación necesaria. Todos los objetos de diseño deben tener un padre del sistema. Las conexiones de trama son un"
+      },
+      {
+        "stepNumber": 8,
+        "title": "Utilicemos las teclas de flechas para mover la selección en el cuadro de diálogo debemos pegar a la",
+        "details": "Utilicemos las teclas de flechas para mover la selección en el cuadro de diálogo debemos pegar a la entrada de la primera línea de la cuadricula, también puedes realizar clic en el campo descripción para seleccionar la fila. Verá que la línea de cuadricula o grilla ubicada a -5ft (pies) Este y 2ft 1,00in (pies- pulgada) de elevación esta resaltada de color amarillo como se muestra a continuación en ítem 17."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Vaya y seleccione la nueva ubicación o línea de la cuadrícula o grilla de entrada ubicada en el Este",
+        "details": "Vaya y seleccione la nueva ubicación o línea de la cuadrícula o grilla de entrada ubicada en el Este de 20ft (pies) y la elevación de 2ft 1,00in (pies-pulgada) en la vista grafica. Esta línea de cuadrícula o grilla está resaltada de color rojo como se muestra a continuación en la imagen."
+      },
+      {
+        "stepNumber": 10,
+        "title": "Las líneas de entrada de la cuadrícula o grilla asociadas con los planos de la cuadrícula de Norte",
+        "details": "Las líneas de entrada de la cuadrícula o grilla asociadas con los planos de la cuadrícula de Norte permanecerán sin cambios es importante dejarlos como están como se muestra el ejemplo."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Continuamos con la línea de entrada indicada de color amarillo. Seleccione la nueva entrada ubicada",
+        "details": "Continuamos con la línea de entrada indicada de color amarillo. Seleccione la nueva entrada ubicada en un Este de 20ft (pies) y una Elevación de 30ft (pies) esta línea de cuadrícula nos resalta de color rojo como se muestra a continuación en la imagen."
+      },
+      {
+        "stepNumber": 12,
+        "title": "Solamente realizamos esos parámetros mencionados anteriormente y mantenga todas las demás",
+        "details": "Solamente realizamos esos parámetros mencionados anteriormente y mantenga todas las demás entradas predeterminadas."
+      },
+      {
+        "stepNumber": 13,
+        "title": "Después de realizar los procedimientos de copiar y pegar los miembros hacemos clic en el botón",
+        "details": "Después de realizar los procedimientos de copiar y pegar los miembros hacemos clic en el botón “Aceptar” para confirmar la transacción de los elementos. A continuación, en su vista de trabajo debe aparecer la siguiente imagen."
+      },
+      {
+        "stepNumber": 14,
+        "title": "Repetir el mismo paso de pegar para colocar el otro elemento estructural en la ubicación del plano E",
+        "details": "Repetir el mismo paso de pegar para colocar el otro elemento estructural en la ubicación del plano Este a 40ft 0,00in (pies-pulgada). Como se muestra en la imagen."
+      },
+      {
+        "stepNumber": 15,
+        "title": "Colocación de vigas perimetrales:",
+        "details": "Colocación de vigas perimetrales:"
+      },
+      {
+        "stepNumber": 16,
+        "title": "Seleccione el comando de miembros lineales para colocar las",
+        "details": "Seleccione el comando de miembros lineales para colocar las vigas perimetrales como se muestra en la siguiente imagen. Utilizando las siguientes propiedades para la viga perimetral e internas colocadas en los siguientes parámetros. Conexión: “Por regla” Sistema: A2 U02 Estructura Vigas Categoría de Tipo: Beam Tipo: Beam Nombre de la sección: W18x40 Cardenal Pt: 8 Angulo: 0,00 deg (grados) Reflect: Off Material: Acero de carbono Grado: A36"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_090.webp",
+      "/assets/sp3d_manual_pages/page_091.webp",
+      "/assets/sp3d_manual_pages/page_092.webp",
+      "/assets/sp3d_manual_pages/page_093.webp",
+      "/assets/sp3d_manual_pages/page_094.webp",
+      "/assets/sp3d_manual_pages/page_095.webp",
+      "/assets/sp3d_manual_pages/page_096.webp",
+      "/assets/sp3d_manual_pages/page_097.webp",
+      "/assets/sp3d_manual_pages/page_098.webp",
+      "/assets/sp3d_manual_pages/page_099.webp",
+      "/assets/sp3d_manual_pages/page_100.webp",
+      "/assets/sp3d_manual_pages/page_101.webp",
+      "/assets/sp3d_manual_pages/page_102.webp"
+    ]
+  },
+  {
+    "id": "LAB-11",
+    "num": 11,
+    "title": "Comandos de Productividad (Split, Trim, Extend, Align)",
+    "startPage": 103,
+    "endPage": 114,
+    "category": "Productividad",
+    "badge": "Herramientas de Corte",
+    "summary": "Operaciones geométricas de división de miembros (Split), corte contra caras de miembros soportantes (Trim/Extend) y alineación con planos.",
+    "detailedObjectives": [
+      "Usar 'Split Member' para dividir una viga continua en dos miembros independientes en una intersección.",
+      "Aplicar 'Trim / Extend' para recortar vigas secundarias contra las caras exteriores de columnas.",
+      "Utilizar el comando 'Align' para hacer coincidir las caras de perfiles con planos de grilla.",
+      "Validar la continuidad estructural y la correcta transmisión de esfuerzos en los nudos."
+    ],
+    "totalPages": 12,
+    "stepsCount": 20,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione el comando “Sistema de miembros lineales” en la barra de herramientas de tareas.",
+        "details": "Seleccione el comando “Sistema de miembros lineales” en la barra de herramientas de tareas. dando clic izquierdo sostenido para que nos despliegue los parámetros de los miembros lineales y le damos clic el icono crear vigas en reparto “Place Framing Members”. 6. Colocar en la viga de reparto los siguientes parámetros. Modo de ajuste: “Por recuento” Contar: 3 Conexión: “Por regla” Sistema: A2 U02 Estructura Vigas Categoría de Tipo: Beam Tipo: Beam Nombre de la sección: C10x15.3 Cardenal Pt: 8 Angulo:"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Después de ingresar la información en la lista desplegable debe estar con este resultado como se",
+        "details": "Después de ingresar la información en la lista desplegable debe estar con este resultado como se muestra en la siguiente imagen. A continuación, haga clic en el botón “Terminar” “Finish”"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Continúe usando el comando miembros de armazón seleccionado para colocar todo el marco del primer",
+        "details": "Continúe usando el comando miembros de armazón seleccionado para colocar todo el marco del primer piso como se muestra en la siguiente imagen. A continuación, haga clic en el botón “Terminar” “Finish”"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Colocación de vigas intermedias para el marco del segundo piso.",
+        "details": "Colocación de vigas intermedias para el marco del segundo piso."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Para realizar la colocación de las vigas intermedias para el marco del segundo piso que se encuentra",
+        "details": "Para realizar la colocación de las vigas intermedias para el marco del segundo piso que se encuentra en el plano de Elevación 30ft 0,00in (pies-pulgada), debemos utilizar el comando copiar / pegar."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Lo primero que debemos realizar es establecer el filtro de ubicación en sistemas miembros “Member",
+        "details": "Lo primero que debemos realizar es establecer el filtro de ubicación en sistemas miembros “Member Systems”."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Después de establecer el filtro, seleccionamos los catorce (14) miembros utilizados en el método del",
+        "details": "Después de establecer el filtro, seleccionamos los catorce (14) miembros utilizados en el método del marco del primer piso como se muestra en la imagen."
+      },
+      {
+        "stepNumber": 8,
+        "title": "Vaya al menú principal del Software SP3D seleccione Editar Copiar “Copy” o sino también lo puede",
+        "details": "Vaya al menú principal del Software SP3D seleccione Editar Copiar “Copy” o sino también lo puede hacer haciendo clic en el comando Copiar en la barra de herramienta Común."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Seleccione el extremo de una viga (Solo necesitamos un punto en un objeto dentro del conjunto de",
+        "details": "Seleccione el extremo de una viga (Solo necesitamos un punto en un objeto dentro del conjunto de selección) como un punto de referencia."
+      },
+      {
+        "stepNumber": 10,
+        "title": "Vaya al menú principal del Software SP3D seleccione Editar Pegar “Paste” o sino también lo puede",
+        "details": "Vaya al menú principal del Software SP3D seleccione Editar Pegar “Paste” o sino también lo puede hacer haciendo clic en el comando Pegar en la barra de herramienta Común o presione las teclas CTRL+V en el teclado. A continuación, haga clic en el botón “Ok”. 19. Utilice el comando Ajustar de la barra de herramientas principal para ajustar todos los gráficos a la vista, en su área de trabajo se muestra la siguiente imagen."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Colocación de tirantes verticales",
+        "details": "Colocación de tirantes verticales"
+      },
+      {
+        "stepNumber": 12,
+        "title": "Vaya a la barra de herramientas de tareas seleccione el comando de colocar arriostramiento",
+        "details": "Vaya a la barra de herramientas de tareas seleccione el comando de colocar arriostramiento ."
+      },
+      {
+        "stepNumber": 13,
+        "title": "Use la barra de cinta de arriostramiento para establecer los parámetros de los miembros activos de l",
+        "details": "Use la barra de cinta de arriostramiento para establecer los parámetros de los miembros activos de la siguiente manera Tipo de arriostramiento: “Cheurón” Conexión: “Por regla” Sistema: A2 U02 Estructura Tirantes Verticales Categoría de Tipo: Brace “Abrazadera” Tipo: Vertical Braces Nombre de la sección: L4x4x1/4 Cardenal Pt: 5 Angulo: 0,00 deg (grados) Reflejar: Off “Apagado” Material: Acero de carbono Grado: A36"
+      },
+      {
+        "stepNumber": 14,
+        "title": "Vaya seleccione la primera columna para el primer SmartStep.",
+        "details": "Vaya seleccione la primera columna para el primer SmartStep."
+      },
+      {
+        "stepNumber": 15,
+        "title": "Después de seleccionar la primera columna vaya y seleccione la segunda columna para el segundo",
+        "details": "Después de seleccionar la primera columna vaya y seleccione la segunda columna para el segundo SmartStep."
+      },
+      {
+        "stepNumber": 16,
+        "title": "Después de seleccionar el sistema estructural de las columnas, vaya y seleccione la viga “Beam” para",
+        "details": "Después de seleccionar el sistema estructural de las columnas, vaya y seleccione la viga “Beam” para el tercer SmarStep."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_103.webp",
+      "/assets/sp3d_manual_pages/page_104.webp",
+      "/assets/sp3d_manual_pages/page_105.webp",
+      "/assets/sp3d_manual_pages/page_106.webp",
+      "/assets/sp3d_manual_pages/page_107.webp",
+      "/assets/sp3d_manual_pages/page_108.webp",
+      "/assets/sp3d_manual_pages/page_109.webp",
+      "/assets/sp3d_manual_pages/page_110.webp",
+      "/assets/sp3d_manual_pages/page_111.webp",
+      "/assets/sp3d_manual_pages/page_112.webp",
+      "/assets/sp3d_manual_pages/page_113.webp",
+      "/assets/sp3d_manual_pages/page_114.webp"
+    ]
+  },
+  {
+    "id": "LAB-12",
+    "num": 12,
+    "title": "Modificación de Propiedades de Miembros",
+    "startPage": 115,
+    "endPage": 121,
+    "category": "Modelado Estructural",
+    "badge": "Sustitución W",
+    "summary": "Sustitución de perfiles de catálogo en caliente, comportamiento del enrase de ala superior (TOS) con CP 8 y actualización automática de cortes.",
+    "detailedObjectives": [
+      "Seleccionar miembros existentes y abrir el panel de Propiedades (Alt + Enter).",
+      "Cambiar la sección W por una de mayor peralte (ej. W16x36 a W18x50).",
+      "Comprobar cómo el Punto Cardinal CP 8 mantiene fijo el nivel de piso y expande el perfil hacia abajo.",
+      "Verificar la adaptación automática de las vigas secundarias tributarias conectadas."
+    ],
+    "totalPages": 7,
+    "stepsCount": 4,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "seleccione le comando propiedades.",
+        "details": "seleccione le comando propiedades. También puede hacer clic en el botón de propiedades en la parte izquierda de la barra de herramientas común."
+      },
+      {
+        "stepNumber": 2,
+        "title": "En el cuadro de diálogo propiedades prismáticas del sistema miembro tiene las siguientes pestañas:",
+        "details": "En el cuadro de diálogo propiedades prismáticas del sistema miembro tiene las siguientes pestañas: Sistema de miembros “Member System”: la pestaña Sistema miembro muestra las propiedades del sistema miembro, en la parte izquierda muestra las propiedades del nombre y en la parte derecha el valor de las propiedades como se muestra en la siguiente imagen. Relación “Relationship”: la pestaña muestra los objetos relacionados con el objeto cuyas propiedades que se muestra en el cuadro de diálogo indicando el tipo de relación que tiene el objeto, por el ejemplo,"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Cambie a la pestaña “pieza de miembro” y cambie la prioridad de la indefinidad a principal.",
+        "details": "Cambie a la pestaña “pieza de miembro” y cambie la prioridad de la indefinidad a principal. A continuación, haga clic en el botón “Aplicar”"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Vaya y haga clic en “DefaultNameRule” como se muestra en la imagen del Ítem 12. Aparecerá un menú",
+        "details": "Vaya y haga clic en “DefaultNameRule” como se muestra en la imagen del Ítem 12. Aparecerá un menú desplegable, cambie la regla de nombre a “MemberPartTypeNameRule” y después haga clic en el botón en Aplicar. Regla de nombre de tipo de pieza de miembro “Member Part Type Name Rule” - Nombra la parte del miembro usando este método: <tipo de miembro> - <ubicación> - <número de índice> donde <tipo de miembro> es la propiedad de tipo seleccionada, <ubicación> es el ID de ubicación de trabajo compartido global y <número de índice> es un número de índice único que comienza en 0001. Por"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_115.webp",
+      "/assets/sp3d_manual_pages/page_116.webp",
+      "/assets/sp3d_manual_pages/page_117.webp",
+      "/assets/sp3d_manual_pages/page_118.webp",
+      "/assets/sp3d_manual_pages/page_119.webp",
+      "/assets/sp3d_manual_pages/page_120.webp",
+      "/assets/sp3d_manual_pages/page_121.webp"
+    ]
+  },
+  {
+    "id": "LAB-13",
+    "num": 13,
+    "title": "Modelo Integral de Estructuras (Edificio U02/U03)",
+    "startPage": 122,
+    "endPage": 145,
+    "category": "Proyecto Integral",
+    "badge": "Edificio U02 6 Fases",
+    "summary": "Construcción completa del edificio en 6 partes: Columnas base, Estructura del 1er piso EL 18ft, 2do piso EL 31ft, Tirantes V, Tirantes H y Bahía Far East.",
+    "detailedObjectives": [
+      "Parte I: Colocación masiva de columnas W14x90 en intersecciones de grilla desde EL (-) 1'-0\" a EL (+) 31'-0\".",
+      "Parte II: Estructura del primer piso a cota EL (+) 18'-0\" con vigas principales W18x50 y secundarias W14x30.",
+      "Parte III: Estructura del segundo piso y plataforma a EL (+) 31'-0\" con vigas de techo inclinadas.",
+      "Parte IV: Colocación de tirantes y arriostramientos verticales en V invertida (Chevron) con 2L 4x4x3/8.",
+      "Parte V: Tirantes horizontales en el plano de entrepiso para formar diafragma rígido.",
+      "Parte VI: Ampliación de la bahía del lejano oriente (Far East Bay) en ejes adicionales E y F."
+    ],
+    "totalPages": 24,
+    "stepsCount": 46,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya a la parte derecha de la barra de Workspace Explorer y seleccionamos el plano de elevación 0ft",
+        "details": "Vaya a la parte derecha de la barra de Workspace Explorer y seleccionamos el plano de elevación 0ft 0,00in (pies-pulgada) para el primer SmarStep."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Después de seleccionar nuestro primer plano de elevación, en el Workspace Explorer seleccionamos el",
+        "details": "Después de seleccionar nuestro primer plano de elevación, en el Workspace Explorer seleccionamos el plano de elevación 44ft 0,00in (pies-pulgada) para el segundo SmarStep."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Colocamos una cerca alrededor de las intersecciones de la rejilla del piso como se muestra en la",
+        "details": "Colocamos una cerca alrededor de las intersecciones de la rejilla del piso como se muestra en la imagen a continuación."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Haga clic en el botón “Finalizar” para colocar las columnas de intersección a la grilla o cuadrícula",
+        "details": "Haga clic en el botón “Finalizar” para colocar las columnas de intersección a la grilla o cuadrícula."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Cambiar el tamaño y la orientación de la sección de la columna",
+        "details": "Cambiar el tamaño y la orientación de la sección de la columna"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Vaya y seleccione para establecer el filtro de localización en piezas de miembros “Member Parts” com",
+        "details": "Vaya y seleccione para establecer el filtro de localización en piezas de miembros “Member Parts” como se muestra a continuación en la imagen."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Realizar una selección múltiple de las columnas apropiadas y use la barra de cinta SmartStep para",
+        "details": "Realizar una selección múltiple de las columnas apropiadas y use la barra de cinta SmartStep para cambiar el tamaño de la sección y la orientación como se muestra a continuación en la imagen o figura."
+      },
+      {
+        "stepNumber": 8,
+        "title": "Después de seleccionar el filtro Member Parts seleccionamos las siguientes columnas como se muestra",
+        "details": "Después de seleccionar el filtro Member Parts seleccionamos las siguientes columnas como se muestra a continuación en la imagen para realizar la configuración del nombre de sección y el Angulo de rotación de la columna como nos muestra en la imagen anterior del ítem 15. Nombre de la sección: W14x74 Angulo: 90,0 deg (grados)"
+      },
+      {
+        "stepNumber": 9,
+        "title": "Después de seleccionar el filtro Member Parts seleccionamos las siguientes columnas como se muestra",
+        "details": "Después de seleccionar el filtro Member Parts seleccionamos las siguientes columnas como se muestra a continuación en la imagen para realizar la configuración del nombre de sección a la columna como nos muestra en la imagen anterior del ítem 15. Nombre de la sección: W14x82 Angulo: 0,00 deg (grados)"
+      },
+      {
+        "stepNumber": 10,
+        "title": "Después de seleccionar el filtro Member Parts seleccionamos las siguientes columnas como se muestra",
+        "details": "Después de seleccionar el filtro Member Parts seleccionamos las siguientes columnas como se muestra a continuación en la imagen para realizar la configuración del nombre de sección a la columna como nos muestra en la imagen anterior del ítem 15. Nombre de la sección: W14x99 Angulo: 0,00 deg (grados)"
+      },
+      {
+        "stepNumber": 11,
+        "title": "Colocación conexiones divididas a una altura de 34ft 0,00in (pies-pulgada) con el comando",
+        "details": "Colocación conexiones divididas a una altura de 34ft 0,00in (pies-pulgada) con el comando división."
+      },
+      {
+        "stepNumber": 12,
+        "title": "Vaya y seleccione el comando de colocar división o crear corte.",
+        "details": "Vaya y seleccione el comando de colocar división o crear corte."
+      },
+      {
+        "stepNumber": 13,
+        "title": "Asegúrese de que el tipo de ubicación esté establecido en lugar. Por objeto el estado de división se",
+        "details": "Asegúrese de que el tipo de ubicación esté establecido en lugar. Por objeto el estado de división se establece por regla."
+      },
+      {
+        "stepNumber": 14,
+        "title": "Seleccione todas columnas para dividir como se muestra a continuación en la figura.",
+        "details": "Seleccione todas columnas para dividir como se muestra a continuación en la figura."
+      },
+      {
+        "stepNumber": 15,
+        "title": "Vaya seleccione el objeto en el plano de Elevación de 34ft 0,00in (pies-pulgada) en la parte derecha",
+        "details": "Vaya seleccione el objeto en el plano de Elevación de 34ft 0,00in (pies-pulgada) en la parte derecha en la barra de explorador del espacio “Wordspace Explorer”."
+      },
+      {
+        "stepNumber": 16,
+        "title": "Vaya seleccione el botón aceptar.",
+        "details": "Vaya seleccione el botón aceptar."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_122.webp",
+      "/assets/sp3d_manual_pages/page_123.webp",
+      "/assets/sp3d_manual_pages/page_124.webp",
+      "/assets/sp3d_manual_pages/page_125.webp",
+      "/assets/sp3d_manual_pages/page_126.webp",
+      "/assets/sp3d_manual_pages/page_127.webp",
+      "/assets/sp3d_manual_pages/page_128.webp",
+      "/assets/sp3d_manual_pages/page_129.webp",
+      "/assets/sp3d_manual_pages/page_130.webp",
+      "/assets/sp3d_manual_pages/page_131.webp",
+      "/assets/sp3d_manual_pages/page_132.webp",
+      "/assets/sp3d_manual_pages/page_133.webp",
+      "/assets/sp3d_manual_pages/page_134.webp",
+      "/assets/sp3d_manual_pages/page_135.webp",
+      "/assets/sp3d_manual_pages/page_136.webp",
+      "/assets/sp3d_manual_pages/page_137.webp",
+      "/assets/sp3d_manual_pages/page_138.webp",
+      "/assets/sp3d_manual_pages/page_139.webp",
+      "/assets/sp3d_manual_pages/page_140.webp",
+      "/assets/sp3d_manual_pages/page_141.webp",
+      "/assets/sp3d_manual_pages/page_142.webp",
+      "/assets/sp3d_manual_pages/page_143.webp",
+      "/assets/sp3d_manual_pages/page_144.webp",
+      "/assets/sp3d_manual_pages/page_145.webp"
+    ]
+  },
+  {
+    "id": "LAB-14",
+    "num": 14,
+    "title": "Sistema de Miembros Curvos (Curved Members)",
+    "startPage": 146,
+    "endPage": 156,
+    "category": "Modelado Estructural",
+    "badge": "Vigas Curvas",
+    "summary": "Modelado de vigas curvas para soporte de cerchas industriales, arcos de cubierta y riostras verticales de estabilización.",
+    "detailedObjectives": [
+      "Seleccionar el comando 'Place Curved Member' en la barra de herramientas.",
+      "Definir el método de curvatura: por 3 puntos, por radio y ángulo central, o por arco tangente.",
+      "Configurar el punto cardinal de la sección curva para enrasar con la chapa de cubierta.",
+      "Modelar riostras verticales de soporte para absorber el empuje lateral del arco."
+    ],
+    "totalPages": 11,
+    "stepsCount": 23,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione y haga clic en el comando de miembros lineales para colocar la riostra vertical para sopo",
+        "details": "Seleccione y haga clic en el comando de miembros lineales para colocar la riostra vertical para soportar el miembro curvo de la cercha como se muestra en la siguiente imagen. Utilizando las siguientes propiedades para la riostra vertical colocadas en los siguientes parámetros. Sistema: A2 U03 Estructura Vertical Braces Categoría de Tipo: Brace Tipo: Vertical Braces Nombre de la sección: WT8x22.5 Cardenal Pt: 10- Centroid Angulo: -90,0 deg (grados) Reflect: Off Prioridad: Secundario Material: Acero de carbono"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione o utilice las entradas de teclado PinPoint para colocar el extremo End 2. a 4ft 0,00in (p",
+        "details": "Seleccione o utilice las entradas de teclado PinPoint para colocar el extremo End 2. a 4ft 0,00in (pies- pulgada) hacia arriba a lo largo del eje Z, como se muestra a continuación en la siguiente imagen."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Después de ingresar los parámetros o la información anterior, en su vista de trabajo de Smart 3D",
+        "details": "Después de ingresar los parámetros o la información anterior, en su vista de trabajo de Smart 3D deberá parecer el siguiente grafico como resultado al laboratorio sistema de miembro curvo, utilizando el comando Ajustar de la barra de herramientas principal."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Vaya y seleccione en la parte izquierda en su vista de trabajo de Smart 3D el comando de sistemas de",
+        "details": "Vaya y seleccione en la parte izquierda en su vista de trabajo de Smart 3D el comando de sistemas de miembros de curva."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Vaya y seleccione en la parte izquierda en su vista de trabajo de Smart 3D el comando de sistemas de",
+        "details": "Vaya y seleccione en la parte izquierda en su vista de trabajo de Smart 3D el comando de sistemas de miembros de curva."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Coloque el punto 1 al final de la columna ubicada en la intersección del plano norte 40ft 0,00in (pi",
+        "details": "Coloque el punto 1 al final de la columna ubicada en la intersección del plano norte 40ft 0,00in (pies- pulgada) y la elevación 44ft 0,00in (pies-pulgada)."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Seleccionamos el tipo ruta como arco por puntos finales “Arc by End Points”.",
+        "details": "Seleccionamos el tipo ruta como arco por puntos finales “Arc by End Points”."
+      },
+      {
+        "stepNumber": 8,
+        "title": "Coloque el punto 2 al final de la columna ubicada en la otra intersección del plano norte 40ft 0,00i",
+        "details": "Coloque el punto 2 al final de la columna ubicada en la otra intersección del plano norte 40ft 0,00in (pies-pulgada) y la elevación 44ft 0,00in (pies-pulgada)."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Coloque el punto 3 al final del sistema estructural de la riostra vertical que acaba de colocar",
+        "details": "Coloque el punto 3 al final del sistema estructural de la riostra vertical que acaba de colocar anteriormente. Como se muestra a continuación en la siguiente imagen el procedimiento de la ruta de los puntos del arco."
+      },
+      {
+        "stepNumber": 10,
+        "title": "Vaya y pulsa el botón “Finalizar” ruta. El sistema regresa a la barra de cinta SmarStep.",
+        "details": "Vaya y pulsa el botón “Finalizar” ruta. El sistema regresa a la barra de cinta SmarStep."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Establecer los parámetros como.",
+        "details": "Establecer los parámetros como. Sistema: A2 U03 Estructura Vertical Braces Categoría de Tipo: Brace Tipo: Vertical Braces Nombre de la sección: WT8x22.5 Cardenal Pt: 10- Centroid Angulo: 0,00 deg (grados) Reflect: Off Prioridad: Secundario Material: Acero de carbono Grado: A36"
+      },
+      {
+        "stepNumber": 12,
+        "title": "A continuación, presione el botón “Finalizar” para confirmar la transacción.",
+        "details": "A continuación, presione el botón “Finalizar” para confirmar la transacción."
+      },
+      {
+        "stepNumber": 13,
+        "title": "Después de ingresar los parámetros o la información anterior, en su vista de trabajo de Smart 3D",
+        "details": "Después de ingresar los parámetros o la información anterior, en su vista de trabajo de Smart 3D deberá parecer el siguiente grafico como resultado al laboratorio sistema de miembro curvo, utilizando el comando Ajustar de la barra de herramientas principal."
+      },
+      {
+        "stepNumber": 14,
+        "title": "Coloque dos riostras verticales más desde la viga central hasta los cuartos de punto a lo largo del",
+        "details": "Coloque dos riostras verticales más desde la viga central hasta los cuartos de punto a lo largo del miembro curvo. Utilice el divisor SmartSketch (4) para obtener los cuartos de punto correctos. Vea en la siguiente imagen."
+      },
+      {
+        "stepNumber": 15,
+        "title": "Establecer los parámetros como.",
+        "details": "Establecer los parámetros como. Sistema: A2 U03 Estructura Vertical Braces Categoría de Tipo: Brace Tipo: Vertical Braces Nombre de la sección: WT8x22.5 Cardenal Pt: 10- Centroid Angulo: 0,00 deg (grados) Reflect: Off Prioridad: Secundario Material: Acero de carbono Grado: A36"
+      },
+      {
+        "stepNumber": 16,
+        "title": "Después de ingresar los parámetros o la información anterior, en su vista de trabajo de Smart 3D",
+        "details": "Después de ingresar los parámetros o la información anterior, en su vista de trabajo de Smart 3D deberá parecer el siguiente grafico como resultado al laboratorio sistema de miembro curvo, utilizando el comando Ajustar de la barra de herramientas principal."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_146.webp",
+      "/assets/sp3d_manual_pages/page_147.webp",
+      "/assets/sp3d_manual_pages/page_148.webp",
+      "/assets/sp3d_manual_pages/page_149.webp",
+      "/assets/sp3d_manual_pages/page_150.webp",
+      "/assets/sp3d_manual_pages/page_151.webp",
+      "/assets/sp3d_manual_pages/page_152.webp",
+      "/assets/sp3d_manual_pages/page_153.webp",
+      "/assets/sp3d_manual_pages/page_154.webp",
+      "/assets/sp3d_manual_pages/page_155.webp",
+      "/assets/sp3d_manual_pages/page_156.webp"
+    ]
+  },
+  {
+    "id": "LAB-15",
+    "num": 15,
+    "title": "Aspecto Línea Central para Miembros (Centerline Aspect)",
+    "startPage": 157,
+    "endPage": 158,
+    "category": "Visualización & QA",
+    "badge": "Centerline Mode",
+    "summary": "Cambio de aspecto visual a representación por línea central (Centerline) para verificación de nudos de trabajo y análisis analítico.",
+    "detailedObjectives": [
+      "Alternar entre el aspecto 'Physical' (sólido renderizado) y 'Centerline' (modelo de alambre unifilar).",
+      "Inspeccionar visualmente las intersecciones de ejes de miembros en nudos complejos.",
+      "Detectar excentricidades involuntarias entre líneas de acción de cargas axiales.",
+      "Optimizar el rendimiento gráfico del espacio de trabajo en modelos de gran envergadura."
+    ],
+    "totalPages": 2,
+    "stepsCount": 2,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione y haga clic en el comando arriostramiento como se muestra en la siguiente imagen.",
+        "details": "Seleccione y haga clic en el comando arriostramiento como se muestra en la siguiente imagen. Utilizando los siguientes parámetros. Tipo de refuerzo: Cruz “Cross” Conexión: Por regla “By Rule” Sistema: A2 U01 Estructura Horizontal Braces Categoría de Tipo: Brace Tipo: Brace Nombre de la sección: L4x4x1/4 Cardenal Pt: 1-Abajo a la izquierda “Bottom left” Angulo: 180 deg (grados) Offset: 0ft 0,00in (pies-pulgada) Material: Acero de carbono Grado: A36 6."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione las cuatro vigas en el orden que se muestra a continuación y haga clic en Finalizar para",
+        "details": "Seleccione las cuatro vigas en el orden que se muestra a continuación y haga clic en Finalizar para colocar las riostras horizontales. En versiones anteriores, este comando solo funcionaba con columnas como las dos primeras entradas, lo que limitaba al usuario a ubicaciones verticales únicamente. Ahora, el asistente de arriostramiento ahora se puede utilizar en escenarios horizontales utilizando vigas en lugar de columnas. 7. Vaya y seleccione las dos riostras transversales y con el control de vista común, verifique las diferentes"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_157.webp",
+      "/assets/sp3d_manual_pages/page_158.webp"
+    ]
+  },
+  {
+    "id": "LAB-16",
+    "num": 16,
+    "title": "Colocación de Arriostramientos Horizontales",
+    "startPage": 159,
+    "endPage": 163,
+    "category": "Modelado Estructural",
+    "badge": "Diafragma Rígido",
+    "summary": "Inserción de perfiles WT y ángulos en planos horizontales de techumbre y piso para rigidizar la estructura contra cargas de viento y sismo.",
+    "detailedObjectives": [
+      "Identificar vanos críticos que requieren arriostramiento en cruz de San Andrés (X-bracing).",
+      "Modelar perfiles tipo WT (tees estructurales) o L (ángulos) conectados al ala inferior de las vigas maestras.",
+      "Configurar el ángulo de rotación de los perfiles para facilitar el atornillado de placas cartela.",
+      "Verificar las holguras con el paso de cañerías y bandejas eléctricas suspendidas."
+    ],
+    "totalPages": 5,
+    "stepsCount": 4,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Vaya y seleccione el comando colocar división. Establecer la opción colocar en “por objeto” y estado",
+        "details": "Vaya y seleccione el comando colocar división. Establecer la opción colocar en “por objeto” y estado dividir en “Dividir primero”. Seleccione una de las llaves cruzadas y marque para aceptar la selección."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione la riostra de intersección y finalice el comando para colocar la división.",
+        "details": "Seleccione la riostra de intersección y finalice el comando para colocar la división."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Establezca el filtro de localización en conexiones divididas.",
+        "details": "Establezca el filtro de localización en conexiones divididas."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Seleccione la conexión dividida colocada arriba y luego seleccione el comando Colocar conexión de",
+        "details": "Seleccione la conexión dividida colocada arriba y luego seleccione el comando Colocar conexión de ensamblaje. Asegúrese de que la casilla \"Por regla\" esté marcada y la Condición esté configurada como \"Conservar existente\". Configure el sistema en A2U01EstructuralConexiones de montaje. Termina el comando para colocar la conexión del ensamblaje. La conexión instalada funciona bien en este escenario. 24.1.2 RESULTADO FINAL DE ACTIVIDAD. 25.LAB-17: CONEXIONES 25.1 OBJETIVO: Después de este laboratorio usted será capaz de comprender las entidades y relaciones de"
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_159.webp",
+      "/assets/sp3d_manual_pages/page_160.webp",
+      "/assets/sp3d_manual_pages/page_161.webp",
+      "/assets/sp3d_manual_pages/page_162.webp",
+      "/assets/sp3d_manual_pages/page_163.webp"
+    ]
+  },
+  {
+    "id": "LAB-17",
+    "num": 17,
+    "title": "Conexiones de Marco y Desplazamiento de Punto de Trabajo",
+    "startPage": 164,
+    "endPage": 186,
+    "category": "Conexiones",
+    "badge": "Workpoint Offset 6\"",
+    "summary": "Catálogo de Frame Connections, reglas de selección automática vs manual y aplicación de Workpoint Offset (desfase de 6\" / 150mm) en nudos con arriostramientos.",
+    "detailedObjectives": [
+      "Comprender la taxonomía de conexiones de marco: Axis, Surface, Centerline e Intersection.",
+      "Seleccionar conexiones automáticas por regla de catálogo vs selección manual de ingeniería.",
+      "APLICAR LA REGLA CRÍTICA: Desplazamiento del Punto de Trabajo (Workpoint Offset) de 6 pulgadas (150 mm) en la columna.",
+      "Evitar que la cartela del arriostramiento interfiera con la placa de momento y los pernos de la viga principal.",
+      "Revisar el resultado final de actividad en las elevaciones de la estructura U02."
+    ],
+    "totalPages": 23,
+    "stepsCount": 11,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "No admitido “Unsupported”:",
+        "details": "No admitido “Unsupported”: Una conexión de marco no admitido coloca el extremo del miembro admitido en el espacio o en relación con las líneas de la cuadrícula. 25.4 SELECCIÓN DE CONEXIONES DE ESTRUCTURA EXISTENTES EN EL MODELO 1. Puede seleccionar gráficamente las conexiones de marco después de que se hayan creado estableciendo Localizar filtro en Conexiones de marco o Todo y colocando el cursor cerca de los extremos de los sistemas miembros. El controlador gráfico para la selección es un cilindro oculto que se"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Seleccione varias veces las conexiones del marco ubicadas en el extremo de las riostras verticales. ",
+        "details": "Seleccione varias veces las conexiones del marco ubicadas en el extremo de las riostras verticales. A continuación, en la siguiente imagen. 6. Vaya al menú principal y seleccione editar propiedades. 7."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Seleccione en la opción Z Offset ingrese el siguiente parámetro de información 1ft 0,00in (pies-pulg",
+        "details": "Seleccione en la opción Z Offset ingrese el siguiente parámetro de información 1ft 0,00in (pies-pulgada) y presione el botón aplicar y después ok para confirmar la transacción como se muestra a continuación en la siguiente imagen. 8. A continuación, establezca la regla de posición desde la intersección “Position Rule from Intersection to Ratio” hasta la relación para las vigas intermedias en la Estructura U02. Nota: Cuando la Regla de posición se establece en Relación, el sistema mantendrá la ubicación de la"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Vaya y seleccione el menú principal Editar  propiedades.",
+        "details": "Vaya y seleccione el menú principal Editar  propiedades."
+      },
+      {
+        "stepNumber": 5,
+        "title": "En la imagen anterior debemos cambiar la regla de posición de intersección a razón “Position Rule fr",
+        "details": "En la imagen anterior debemos cambiar la regla de posición de intersección a razón “Position Rule from Intersection to ratio”. presione el botón \"Aceptar\" para confirmar la transacción."
+      },
+      {
+        "stepNumber": 6,
+        "title": "A continuación, moverá el plano de cuadrícula o grilla este 0ft 0,00in (pies-pulgada) en la estructu",
+        "details": "A continuación, moverá el plano de cuadrícula o grilla este 0ft 0,00in (pies-pulgada) en la estructura U02."
+      },
+      {
+        "stepNumber": 7,
+        "title": "Establecer el filtro de localización en todos “All” como se muestra a continuación en la siguiente i",
+        "details": "Establecer el filtro de localización en todos “All” como se muestra a continuación en la siguiente imagen."
+      },
+      {
+        "stepNumber": 8,
+        "title": "Vaya al explorador del espacio de trabajo “Workspace Explorer” y seleccione el plano de la cuadrícul",
+        "details": "Vaya al explorador del espacio de trabajo “Workspace Explorer” y seleccione el plano de la cuadrícula o gilla E-Axis A. Como se muestra a continuación en la siguiente imagen."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Vaya y seleccione el menú principal Editar propiedades.",
+        "details": "Vaya y seleccione el menú principal Editar propiedades."
+      },
+      {
+        "stepNumber": 10,
+        "title": "A continuación, para el plano de cuadrícula o grilla E-Axis A debe quedar en la posición -5ft 0,00in",
+        "details": "A continuación, para el plano de cuadrícula o grilla E-Axis A debe quedar en la posición -5ft 0,00in (pies-pulgada) presione el botón \"Aceptar\" para confirmar la transacción."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Verifique que las riostras verticales de chevron y todas las vigas intermedias se muevan",
+        "details": "Verifique que las riostras verticales de chevron y todas las vigas intermedias se muevan apropiadamente. 25.6.1 RESULTADO FINAL DE ACTIVIDAD. SLABS – WALLS – STAIR - LADDERS STRUCTURE TASK IN SMARTPLANT 3D PART 3 VERSIÓN P 26.LAB-18: LOSAS 26.1 OBJETIVO: Después de este laboratorio usted será capaz de comprender las entidades, relaciones de losa, diferentes opciones, también utilizando los métodos más comunes para definir su plano o el límite de la superficie de la losa de unos elementos de contorno en software Smart 3D."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_164.webp",
+      "/assets/sp3d_manual_pages/page_165.webp",
+      "/assets/sp3d_manual_pages/page_166.webp",
+      "/assets/sp3d_manual_pages/page_167.webp",
+      "/assets/sp3d_manual_pages/page_168.webp",
+      "/assets/sp3d_manual_pages/page_169.webp",
+      "/assets/sp3d_manual_pages/page_170.webp",
+      "/assets/sp3d_manual_pages/page_171.webp",
+      "/assets/sp3d_manual_pages/page_172.webp",
+      "/assets/sp3d_manual_pages/page_173.webp",
+      "/assets/sp3d_manual_pages/page_174.webp",
+      "/assets/sp3d_manual_pages/page_175.webp",
+      "/assets/sp3d_manual_pages/page_176.webp",
+      "/assets/sp3d_manual_pages/page_177.webp",
+      "/assets/sp3d_manual_pages/page_178.webp",
+      "/assets/sp3d_manual_pages/page_179.webp",
+      "/assets/sp3d_manual_pages/page_180.webp",
+      "/assets/sp3d_manual_pages/page_181.webp",
+      "/assets/sp3d_manual_pages/page_182.webp",
+      "/assets/sp3d_manual_pages/page_183.webp",
+      "/assets/sp3d_manual_pages/page_184.webp",
+      "/assets/sp3d_manual_pages/page_185.webp",
+      "/assets/sp3d_manual_pages/page_186.webp"
+    ]
+  },
+  {
+    "id": "LAB-18",
+    "num": 18,
+    "title": "Losas de Hormigón Armado (Slabs)",
+    "startPage": 187,
+    "endPage": 201,
+    "category": "Hormigón & Cubiertas",
+    "badge": "Place Slab",
+    "summary": "Modelado de losas de piso y cubiertas de techo: selección de planos de referencia, delimitación de bordes cerrados y resolución de límites ambiguos.",
+    "detailedObjectives": [
+      "Comprender los dos pasos fundamentales: definición del plano de ubicación y definición de límites perimetrales.",
+      "Seleccionar el método 'Coincident with Plane' o 'Offset from Plane' (+4\" sobre TOS).",
+      "Seleccionar vigas de borde para cerrar el circuito perimetral de la losa.",
+      "Resolver 'Límites Ambiguos': hacer clic sobre segmentos resaltados en rojo hasta que se tornen verde/azul.",
+      "Modelar la losa de primer piso (Parte I), segundo piso (Parte II) y cubierta de techo inclinada (Parte III)."
+    ],
+    "totalPages": 15,
+    "stepsCount": 12,
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Seleccione el comando colocar losa para el primer piso.",
+        "details": "Seleccione el comando colocar losa para el primer piso. 7. Con el comando activado de la losa configure los parámetros de las losas de la siguiente manera. Método plano: Coincidente “Coincident” Sistema: A2 U03 Estructura Losas (Slab) Tipo de losa: 4” Elevate slab – composite Composición: 4” slab, 1.5VL22 Posición de la cara: Fondo “Bottom” Prioridad: Primario Referencia de límite: Cara de puerto exterior de un miembro delimitador “Oufer port-face of a bounding Member” 8. Vaya y seleccione en la parte derecha a Workspace Explorer el plano de elevación 18ft 0,00in (pies-"
+      },
+      {
+        "stepNumber": 2,
+        "title": "seleccione los limites como se muestra a continuación en la siguiente imagen y haga clic en el botón",
+        "details": "seleccione los limites como se muestra a continuación en la siguiente imagen y haga clic en el botón “Aceptar”. Nota: No es necesario seleccionar todos los miembros para definir los límites de la losa. Cuando selecciona un miembro, el sistema extenderá su eje hasta que se cruce con un límite vecino. El sistema cambia automáticamente al paso de resolución de ambigüedad si existen límites ambiguos después de hacer clic en el botón \"Aceptar\". Si hay un límite en el conjunto de selección y el sistema no necesita ese límite para resolver la"
+      },
+      {
+        "stepNumber": 3,
+        "title": "A continuación, en este punto, el sistema notará que hay límites ambiguos definidos y múltiples",
+        "details": "A continuación, en este punto, el sistema notará que hay límites ambiguos definidos y múltiples soluciones para crear losas."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Mueva el mouse sobre área delimitada y luego haga clic para seleccionar esa área delimitada.",
+        "details": "Mueva el mouse sobre área delimitada y luego haga clic para seleccionar esa área delimitada. Continuar para seleccionar un área delimitada hasta que ninguno de los límites seleccionados no sea rojo. Así como se muestra a continuación en la siguiente imagen."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Presione el botón \"Finalizar\" para confirmar la transacción. Su vista ahora debería parecerse la",
+        "details": "Presione el botón \"Finalizar\" para confirmar la transacción. Su vista ahora debería parecerse la siguiente imagen. 13. Vaya y seleccione el comando de borrar recorte “Clear Viem Clipping” para eliminar el Volumen de recorte en la vista de trabajo. 26.3.2 RESULTADO FINAL DE ACTIVIDAD PARTE I. 26.3.3 PARTE II COLOCACIÓN DE LOSA EN EL SEGUNDO PISO 1. Vaya y seleccione el comando recortar por objeto para aislar las líneas de cuadrícula y las columnas en el primer piso. Importante utilice las líneas de cuadriculas adecuadas (EL 31ft 0,00in y EL 44ft 0,00in)"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Seleccione el comando colocar losa para el primer piso.",
+        "details": "Seleccione el comando colocar losa para el primer piso. 3. Con el comando activado de la losa configure los parámetros de las losas de la siguiente manera. Método plano: Coincidente “Coincident” Sistema: A2 U03 Estructura Losas (Slab) Tipo de losa: 4” Elevate slab – composite Composición: 4” slab, 1.5VL22 Posición de la cara: Fondo “Bottom” Prioridad: Primario Referencia de límite: Cara de puerto exterior de un miembro delimitador “Oufer port-face of a bounding Member” 4. Vaya y seleccione en la parte derecha a Workspace Explorer el plano de elevación 31ft 0,00in (pies-"
+      },
+      {
+        "stepNumber": 7,
+        "title": "seleccione los limites como se muestra a continuación en la siguiente imagen y haga clic en el botón",
+        "details": "seleccione los limites como se muestra a continuación en la siguiente imagen y haga clic en el botón “Aceptar”. 6. A continuación, en este punto, el sistema notará que hay límites ambiguos definidos y múltiples soluciones para crear losas. 7. Presione el botón \"Finalizar\" para confirmar la transacción. Su vista ahora debería parecerse la siguiente imagen. 8. Vaya y seleccione el comando de borrar recorte “Clear Viem Clipping” para eliminar el Volumen de recorte en la vista de trabajo. 26.3.4 RESULTADO FINAL DE ACTIVIDAD PARTE II."
+      },
+      {
+        "stepNumber": 8,
+        "title": "Seleccione el comando colocar losa para el primer piso.",
+        "details": "Seleccione el comando colocar losa para el primer piso. 3. Vaya y seleccione el Método de plano Desplazamiento desde un plano “Offset from a plane”. 4."
+      },
+      {
+        "stepNumber": 9,
+        "title": "Seleccione el plano de elevación a 44ft 0,00in (pies-pulgada) para el plano de soporte utilizando el",
+        "details": "Seleccione el plano de elevación a 44ft 0,00in (pies-pulgada) para el plano de soporte utilizando el explorador de espacio de trabajo. 5. Introduzca el desplazamiento de -2ft 0,00in (pies-pulgada) y realiza clic en el botón “Aceptar”. 6. Con el comando activado de la losa configure los parámetros de las losas de la siguiente manera. Sistema: A2 U03 Estructura Losas (Slab) Tipo de losa: Roof Deck “Cubierta de techos losas” Composición: RD_1.5B24 Posición de la cara: Fondo “Bottom” Prioridad: Primario"
+      },
+      {
+        "stepNumber": 10,
+        "title": "Vaya y seleccione la opción en la barra de la cinta Definir compensaciones de límites “Define",
+        "details": "Vaya y seleccione la opción en la barra de la cinta Definir compensaciones de límites “Define Boundaries Offsets” y le damos clic."
+      },
+      {
+        "stepNumber": 11,
+        "title": "Defina el paso de compensación de límites como se muestra a continuación en la imagen ingresando",
+        "details": "Defina el paso de compensación de límites como se muestra a continuación en la imagen ingresando esos parámetros que aparece en la imagen."
+      },
+      {
+        "stepNumber": 12,
+        "title": "Vaya y selecciona el botón “Finalizar” para confirmar la transacción de la cubierta del techo para",
+        "details": "Vaya y selecciona el botón “Finalizar” para confirmar la transacción de la cubierta del techo para edificio del sistema U03. En su vista ahora debería parecerse la siguiente imagen. 13. Vaya y seleccione el comando de borrar recorte “Clear Viem Clipping” para eliminar el Volumen de recorte en la vista de trabajo. 26.3.6 RESULTADO FINAL DE ACTIVIDAD PARTE III."
+      }
+    ],
+    "pageImages": [
+      "/assets/sp3d_manual_pages/page_187.webp",
+      "/assets/sp3d_manual_pages/page_188.webp",
+      "/assets/sp3d_manual_pages/page_189.webp",
+      "/assets/sp3d_manual_pages/page_190.webp",
+      "/assets/sp3d_manual_pages/page_191.webp",
+      "/assets/sp3d_manual_pages/page_192.webp",
+      "/assets/sp3d_manual_pages/page_193.webp",
+      "/assets/sp3d_manual_pages/page_194.webp",
+      "/assets/sp3d_manual_pages/page_195.webp",
+      "/assets/sp3d_manual_pages/page_196.webp",
+      "/assets/sp3d_manual_pages/page_197.webp",
+      "/assets/sp3d_manual_pages/page_198.webp",
+      "/assets/sp3d_manual_pages/page_199.webp",
+      "/assets/sp3d_manual_pages/page_200.webp",
+      "/assets/sp3d_manual_pages/page_201.webp"
+    ]
+  }
+]

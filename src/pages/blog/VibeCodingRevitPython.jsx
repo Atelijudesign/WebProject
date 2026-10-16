@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
+import BlogBackButton from "../../components/BlogBackButton";
 import { useTranslation } from "../../context/LanguageContext";
 
 export default function VibeCodingRevitPython() {
@@ -66,9 +67,7 @@ forms.alert("Volumen Total de Vigas: {:.2f} m3".format(vol_m3))`;
       <section className="pt-28 pb-16 px-4 bg-[#030712]/60 transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link to="/blog" className="text-bim-blue hover:text-cyan-400 text-sm font-medium transition-colors inline-flex items-center gap-1">
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -131,7 +130,7 @@ forms.alert("Volumen Total de Vigas: {:.2f} m3".format(vol_m3))`;
               {isEn ? (
                 <>The term <strong className="text-white">"Vibe Coding"</strong> refers to the practice where an engineer describes an automation requirement in plain natural language (e.g., <em>"Select all steel beams and calculate the total volume and weight sum"</em>) to an LLM, generating a Python script ready to execute inside Revit via <strong className="text-emerald-400">RevitPythonShell</strong> or packaged into <strong className="text-cyan-400">pyRevit</strong>.</>
               ) : (
-                <>El término <strong className="text-white">"Vibe Coding"</strong> hace referencia a la técnica donde el ingeniero o proyectista describe en lenguaje natural una necesidad de automatización (ej. <em>"Selecciona todas las vigas de acero y calcula la suma total de volumen y peso"</em>) a un LLM, obteniendo un script de Python listo para ser ejecutado en tiempo real dentro de Revit mediante <strong className="text-emerald-400">RevitPythonShell</strong> o empaquetado en <strong className="text-cyan-400">pyRevit</strong>.</>
+                <>El término <strong className="text-white">"Vibe Coding"</strong> hace referencia a la técnica donde el diseñador estructural o desarrollador BIM describe en lenguaje natural una necesidad de automatización (ej. <em>"Selecciona todas las vigas de acero y calcula la suma total de volumen y peso"</em>) a un LLM, obteniendo un script de Python listo para ser ejecutado en tiempo real dentro de Revit mediante <strong className="text-emerald-400">RevitPythonShell</strong> o empaquetado en <strong className="text-cyan-400">pyRevit</strong>.</>
               )}
             </p>
           </div>
@@ -171,7 +170,7 @@ forms.alert("Volumen Total de Vigas: {:.2f} m3".format(vol_m3))`;
             <p className="text-slate-300 text-sm leading-relaxed mb-0">
               {isEn
                 ? "Vibe Coding slashes custom tool and plugin creation from weeks to minutes for structural designers, allowing rapid validation of Revit API logic before full C# enterprise development."
-                : "El Vibe Coding reduce de semanas a minutos la creación de plugins y herramientas a medida para proyectistas estructurales, permitiendo probar la lógica de la API de Revit de forma segura antes de realizar desarrollos en C#."}
+                : "El Vibe Coding reduce de semanas a minutos la creación de plugins y herramientas a medida para diseñadores estructurales, permitiendo probar la lógica de la API de Revit de forma segura antes de realizar desarrollos en C#."}
             </p>
           </div>
 

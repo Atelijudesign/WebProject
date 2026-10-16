@@ -120,7 +120,9 @@ export default function BucklingShorteners() {
           </>
         )}
 
-        <text x={mid} y={size - 5} fill="#6b7280" fontSize="11" textAnchor="middle" fontWeight="bold">VISTA TRANSVERSAL (XL)</text>
+        <text x={mid} y={size - 5} fill="#6b7280" fontSize="11" textAnchor="middle" fontWeight="bold">
+          {isEn ? "CROSS SECTION (XL)" : "VISTA TRANSVERSAL (XL)"}
+        </text>
       </svg>
     )
   };
@@ -158,25 +160,27 @@ export default function BucklingShorteners() {
         <line x1={startX} y1={midY - 30} x2={endX} y2={midY - 30} stroke="#4b5563" strokeWidth="1" />
         <text x={(startX + endX) / 2} y={midY - 35} fill="#6b7280" fontSize="10" textAnchor="middle">L = {results.paramL} mm</text>
         
-        <text x={lW/2} y={lH - 5} fill="#6b7280" fontSize="10" textAnchor="middle" fontWeight="bold">DISTRIBUCIÓN DE ACORTADORES ({results.nmin - 1} unidades)</text>
+        <text x={lW/2} y={lH - 5} fill="#6b7280" fontSize="10" textAnchor="middle" fontWeight="bold">
+          {isEn ? `SHORTENERS DISTRIBUTION (${results.nmin - 1} units)` : `DISTRIBUCIÓN DE ACORTADORES (${results.nmin - 1} unidades)`}
+        </text>
       </svg>
     )
   };
 
   const exportExcel = async () => {
     const wb = new ExcelJS.Workbook();
-    const sheet = wb.addWorksheet("Resultados");
+    const sheet = wb.addWorksheet(isEn ? "Results" : "Resultados");
     
-    sheet.addRow(["REPORTE ACORTADORES DE PANDEO"]);
+    sheet.addRow([isEn ? "BUCKLING SHORTENERS REPORT" : "REPORTE ACORTADORES DE PANDEO"]);
     sheet.addRow([]);
-    sheet.addRow(["PARÁMETROS"]);
-    sheet.addRow(["Perfil", profileName]);
-    sheet.addRow(["Separación d (mm)", d]);
-    sheet.addRow(["Longitud L (mm)", L]);
+    sheet.addRow([isEn ? "PARAMETERS" : "PARÁMETROS"]);
+    sheet.addRow([isEn ? "Profile" : "Perfil", profileName]);
+    sheet.addRow([isEn ? "Spacing d (mm)" : "Separación d (mm)", d]);
+    sheet.addRow([isEn ? "Length L (mm)" : "Longitud L (mm)", L]);
     sheet.addRow([]);
-    sheet.addRow(["RESULTADOS"]);
+    sheet.addRow([isEn ? "RESULTS" : "RESULTADOS"]);
     sheet.addRow(["lmax (mm)", results.lmax.toFixed(2)]);
-    sheet.addRow(["nmin (Espacios)", results.nmin]);
+    sheet.addRow([isEn ? "nmin (Spaces)" : "nmin (Espacios)", results.nmin]);
     sheet.addRow(["IuXL (cm⁴)", results.IuXL.toFixed(2)]);
     sheet.addRow(["iuXL (cm)", results.iuXL.toFixed(2)]);
 
@@ -185,7 +189,7 @@ export default function BucklingShorteners() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Calculo_Acortadores_Pandeo.xlsx";
+    a.download = isEn ? "Buckling_Shorteners_Calculation.xlsx" : "Calculo_Acortadores_Pandeo.xlsx";
     a.click();
   };
 
@@ -195,14 +199,18 @@ export default function BucklingShorteners() {
         title={isEn ? "Buckling Shorteners Calculation for Double Angle (XL)" : "Cálculo de Acortadores de Pandeo para Perfiles Doble Ángulo (XL)"}
         description={isEn ? "Calculate maximum spacing and minimum quantity of buckling shorteners for cruciform double angle profiles (XL Profile) based on member length and gyration radius." : "Calcula la separación máxima y cantidad mínima de presillas y acortadores de pandeo para perfiles de doble ángulo cruciforme (Perfil XL) según longitud y radio de giro."}
         path="/herramientas/acortadores"
-        keywords="Acortadores de pandeo, presillas perfiles dobles, perfil cruciforme XL, radio de giro acero, longitud efectiva pandeo"
+        keywords={
+          isEn
+            ? "Buckling shorteners, double angle lacing, cruciform XL profile, steel gyration radius, effective buckling length"
+            : "Acortadores de pandeo, presillas perfiles dobles, perfil cruciforme XL, radio de giro acero, longitud efectiva pandeo"
+        }
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           "name": isEn ? "Structural Buckling Shorteners Calculator" : "Cálculo de Acortadores de Pandeo Estructural",
           "applicationCategory": "EngineeringApplication",
           "operatingSystem": "All",
-          "url": "https://atelijudesign.com/herramientas/acortadores",
+          "url": "https://www.andresgallop.com/herramientas/acortadores",
           "description": isEn ? "Technical calculator for buckling shorteners and lacing distribution in double angle structural steel members." : "Calculadora técnica para distribución de acortadores y presillas en perfiles de acero estructural doble ángulo.",
           "inLanguage": isEn ? "en" : "es"
         }}

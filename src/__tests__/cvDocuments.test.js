@@ -39,4 +39,16 @@ describe("CV document utilities", () => {
       experience: [{ position: "BIM", company: "ACME", description: "Coordiné modelos." }],
     }))).toEqual([]);
   });
+
+  it("incluye fechas de inicio y fin en educación para la lectura ATS", () => {
+    const text = createPlainTextCv(normaliseCv({
+      education: [
+        { degree: "Ingeniería en Construcción", institution: "IPLACEX", start_date: "2023", end_date: "En curso" },
+        { degree: "Dibujo Técnico", institution: "Liceo", start_date: "2003", end_date: "2005" },
+      ],
+    }));
+    expect(text).toContain("EDUCACIÓN");
+    expect(text).toContain("Ingeniería en Construcción | IPLACEX | 2023 - En curso");
+    expect(text).toContain("Dibujo Técnico | Liceo | 2003 - 2005");
+  });
 });

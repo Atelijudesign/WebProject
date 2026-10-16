@@ -1,4 +1,45 @@
-User-agent: *
+# robots.txt para andresgallop.com
+# Portafolio Profesional, Herramientas de Ingeniería & BIM
+
+# 1. Buscadores Legítimos (Permitir indexación completa)
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+User-agent: LinkedInBot
+User-agent: Twitterbot
+User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://atelijudesign.com/sitemap.xml
+# 2. Scrapers de IA y Crawlers Masivos No Deseados (Bloquear consumo abusivo de ancho de banda)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: CCBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: Bytespider
+User-agent: PetalBot
+User-agent: Diffbot
+User-agent: Scrapy
+User-agent: PerplexityBot
+Disallow: /
+
+# 3. Reglas Generales para Cualquier Otro Agente
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /*.php$
+Disallow: /*.env$
+Disallow: /lander/
+Disallow: /sberchat/
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /api/
+
+# 4. Sitemaps Canónicos
+Sitemap: https://www.andresgallop.com/sitemap.xml

@@ -137,4 +137,17 @@ describe("CV ATS utilities", () => {
     expect(result.qualityIssues.some((issue) => issue.type === "date")).toBe(true);
     expect(result.recommendations.find((item) => item.category === "Fechas")?.priority).toBe("high");
   });
+
+  it("incluye fechas de educación en la generación de LaTeX y PDF", () => {
+    const cv = normaliseCv({
+      education: [
+        { degree: "Ingeniería en Construcción", institution: "IPLACEX", start_date: "2023", end_date: "En curso" },
+        { degree: "Dibujo Técnico", institution: "Liceo", start_date: "2003", end_date: "2005" },
+      ],
+    });
+    const latex = createLatex(cv);
+    expect(latex).toContain("2023--En curso");
+    expect(latex).toContain("2003--2005");
+  });
 });
+

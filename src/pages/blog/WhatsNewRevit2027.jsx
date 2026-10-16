@@ -4,6 +4,7 @@ import { useTranslation } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
+import BlogBackButton from "../../components/BlogBackButton";
 import CodeBlock from "../../components/CodeBlock";
 
 export default function WhatsNewRevit2027() {
@@ -53,12 +54,7 @@ export default function WhatsNewRevit2027() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Link
-              to="/blog"
-              className="text-bim-blue hover:text-cyan-400 text-sm font-medium transition-colors inline-flex items-center gap-1"
-            >
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -313,7 +309,7 @@ export default function WhatsNewRevit2027() {
               Revit 2027.1 confirma la tendencia: la automatización basada en código (Python/C#) combinada con modelos de inteligencia artificial será el estándar operativo.
             </p>
             <p className="text-slate-300 mb-0">
-              Para desarrolladores BIM y proyectistas, integrar herramientas como 
+              Para desarrolladores BIM y diseñadores estructurales, integrar herramientas como 
               <Link to="/blog/pyrevit-accelerator" className="text-cyan-400 font-bold hover:underline mx-1">pyRevit</Link> 
               y bibliotecas web de consulta técnica será vital para aprovechar al máximo las nuevas capacidades de Autodesk.
             </p>
@@ -328,13 +324,7 @@ export default function WhatsNewRevit2027() {
       {/* ─── FOOTER NAV ─── */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-between">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-cyan-400 font-bold hover:text-cyan-300 transition-colors group text-lg"
-          >
-            <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            {isEn ? "Back to Blog" : "Volver al Blog"}
-          </Link>
+          <BlogBackButton />
           <Link
             to="/#contact"
             className="inline-flex items-center text-slate-400 hover:text-cyan-400 font-medium transition-colors text-sm"

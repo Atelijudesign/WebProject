@@ -70,7 +70,10 @@ export function createPlainTextCv(cv) {
     cv.summary ? `PERFIL PROFESIONAL\n${cv.summary}` : "",
     cv.experience?.length ? `EXPERIENCIA PROFESIONAL\n${cv.experience.map((entry) => `${entry.position || "Cargo"} | ${entry.company || "Empresa"}\n${[entry.start_date, entry.end_date || "Actualidad", entry.location].filter(Boolean).join(" - ")}\n${entry.description || ""}`).join("\n\n")}` : "",
     cv.skills?.length ? `HABILIDADES\n${cv.skills.map((skill) => skill.name || skill).join(" | ")}` : "",
-    cv.education?.length ? `EDUCACIÓN\n${cv.education.map((entry) => `${entry.degree || ""} | ${entry.institution || ""}`).join("\n")}` : "",
+    cv.education?.length ? `EDUCACIÓN\n${cv.education.map((entry) => {
+      const dates = [entry.start_date, entry.end_date].filter(Boolean).join(" - ");
+      return `${entry.degree || ""} | ${entry.institution || ""}${dates ? ` | ${dates}` : ""}`;
+    }).join("\n")}` : "",
     cv.certifications?.length ? `CERTIFICACIONES\n${cv.certifications.map((entry) => `${entry.name || ""} | ${entry.issuer || ""}${entry.date ? ` | ${entry.date}` : ""}${entry.credential ? ` | ${entry.credential}` : ""}`).join("\n")}` : "",
     cv.languages?.length ? `IDIOMAS\n${cv.languages.map((entry) => `${entry.name || entry}${entry.level ? ` | ${entry.level}` : ""}`).join("\n")}` : "",
     cv.projects?.length ? `PROYECTOS\n${cv.projects.map((entry) => `${entry.name || "Proyecto"}${entry.date ? ` | ${entry.date}` : ""}\n${entry.description || ""}`).join("\n\n")}` : "",
@@ -110,7 +113,10 @@ export async function createCvDocxBlob(cv) {
     textParagraph(entry.description || ""),
   ]));
   addSection(labels.skills, cv.skills?.length ? [textParagraph(cv.skills.map((skill) => skill.name || skill).join(" | "))] : []);
-  addSection(labels.education, (cv.education || []).map((entry) => textParagraph(`${entry.degree || ""} — ${entry.institution || ""}`)));
+  addSection(labels.education, (cv.education || []).map((entry) => {
+    const dates = [entry.start_date, entry.end_date].filter(Boolean).join(" – ");
+    return textParagraph(`${entry.degree || ""} — ${entry.institution || ""}${dates ? ` · ${dates}` : ""}`);
+  }));
   addSection(labels.certifications, (cv.certifications || []).flatMap((entry) => [textParagraph(`${entry.name || "Certificación"} — ${entry.issuer || "Entidad"}${entry.date ? ` · ${entry.date}` : ""}`, { bold: true }), ...(entry.credential ? [textParagraph(entry.credential)] : [])]));
   addSection(labels.languages, cv.languages?.length ? [textParagraph(cv.languages.map((entry) => `${entry.name || entry}${entry.level ? ` (${entry.level})` : ""}`).join(" | "))] : []);
   addSection(labels.projects, (cv.projects || []).flatMap((entry) => [textParagraph(`${entry.name || "Proyecto"}${entry.date ? ` — ${entry.date}` : ""}`, { bold: true }), textParagraph(entry.description || "")]));

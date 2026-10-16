@@ -1,0 +1,54 @@
+ANDRÉS GALLO P.
+Modelador BIM Estructural  |  Acero y Hormigón  |  Automatización BIM
+Santiago, Chile  ·  +56 9 4060 0861  ·  andresgallo@pm.me  ·  LinkedIn  ·  ateliju.com
+PERFIL PROFESIONAL
+Modelador BIM estructural con más de 15 años de experiencia en proyectos industriales, mineros, de infraestructura, salud y aeroportuarios, en Chile y el extranjero. Especializado en modelado y detallamiento de estructuras de acero y hormigón, conexiones metálicas, cuantificación de materiales y coordinación multidisciplinaria con Revit, Tekla Structures y Navisworks. Desarrolla herramientas de automatización con Python, Dynamo y pyRevit para agilizar el modelado y la documentación.
+Proyectos de referencia: Ampliación del Aeropuerto Internacional Arturo Merino Benítez (proyecto de 320.000 m²), Nuevo Complejo Fronterizo Los Libertadores (35.000 m²) y Máquina Papelera MP05, Absormex, México (ingeniería de detalle, 8.000 m²).
+COMPETENCIAS TÉCNICAS
+Modelado BIM: Revit Structures, Tekla Structures, Advance Steel, AutoCAD
+Coordinación y colaboración: Navisworks (detección de interferencias, 4D), Autodesk Construction Cloud (ACC), Tekla Model Sharing, ReCap, metodología BIM e ISO 19650
+Especialidades: Conexiones de acero, modelado de hormigón (geometría y armaduras), planos de fabricación y montaje, cuantificación de materiales
+Automatización y desarrollo: Python, Dynamo, pyRevit, API de Revit, AutoLISP, HTML, CSS, SQL, Git
+Ofimática: Word, Excel
+EXPERIENCIA PROFESIONAL
+GHD  |  Diseñador Estructural	Dic 2024 – May 2025
+Proyecto: Remoción de Tranque Pérez Caldera (PCTR).
+Modelado BIM de estructuras en Revit, incluyendo conexiones metálicas en Revit Structures.
+Elaboración de planos de ingeniería de detalle de las distintas estructuras del proyecto.
+Arcadis  |  Diseñador Estructural	Jun 2024 – Nov 2024
+Proyecto: Ingeniería de Detalle Proyecto Arqueros (minería).
+Modelado de la estructura del chancador primario y de otras áreas del proyecto.
+Modelado de conexiones metálicas en Revit Structures y planos de ingeniería de detalle.
+AFRY  |  Diseñador Estructural	Dic 2022 – May 2024
+Proyectos: Ingeniería de detalle Máquina Papelera MP5 (Absormex, México); Softys Zárate, recolección y tratamiento de aguas (Argentina); Santa Fe, reducción de agua Clase 10 (Nacimiento, Bío Bío); CMPC, continuidad operacional e integridad de activos Planta Laja.
+Modelado BIM de estructuras y arquitectura en proyectos de la industria papelera y de tratamiento de aguas.
+Modelado de conexiones metálicas en Revit Structures y desarrollo de planos de ingeniería de detalle.
+Mediciones de movimiento de tierras y bancos de ductos.
+Sincal  |  Diseñador Estructural	Ene 2021 – Dic 2022
+Proyectos: 9 pasarelas peatonales: La Finca, Paine, El Retiro, Campamento 4, Cerrillos, Las Miras Norte, Copihue, Longaví y Gaona.
+Modelado estructural detallado en hormigón y acero con Tekla Structures, incluyendo refuerzos y conexiones.
+Cuantificación de materiales y desarrollo de planos estructurales para construcción.
+Coordinación interdisciplinaria y revisión de modelos con Navisworks.
+CJV Construction  |  Diseñador Estructural	Ene 2018 – Mar 2019
+Proyecto: Ampliación Aeropuerto Internacional Arturo Merino Benítez: Terminal 2 (T2M), espigones T2D y T2F, estacionamientos poniente y sur, desmontaje de torre grúa 11.
+Modelado BIM de estructuras metálicas y arquitectura en Revit, con desarrollo de conexiones y planimetría.
+Dibujos de ingeniería de detalle y visitas a terreno para el levantamiento de estructuras.
+Sirve  |  Diseñador Estructural	May 2015 – Sep 2017
+Proyectos: Nuevo Complejo Fronterizo Los Libertadores; Hospital Marga Marga; Hospital Dr. Gustavo Fricke; Hospital Félix Bulnes.
+Modelado y coordinación de sistemas estructurales con Revit, Tekla y Navisworks.
+Modelado de conexiones metálicas en Tekla Structures y planos de ingeniería de detalle.
+Coordinación entre especialidades.
+Typsa · JQ Proyectos · Fusi  |  Diseñador Estructural	Ene 2010 – Mar 2015
+Proyectos: Metro de Santiago, Líneas 3 y 6 y Proyecto Hidroeléctrico Los Cóndores (Typsa, 2014–2015); Atrio Sur, Casino Costanera Norte y Viga Puente (JQ Proyectos, 2012–2013); Edificio Quitmetal (Fusi, 2010–2011).
+Ingeniería de detalle de edificios y estructuras industriales para el Metro de Santiago: planos estructurales, cubicaciones, modelado BIM en Revit y coordinación entre especialidades (Typsa).
+Planos de fabricación de estructuras metálicas con Tekla Structures: singles, conjuntos y montaje, listados de materiales y visitas a terreno (JQ Proyectos y Fusi).
+FORMACIÓN ACADÉMICA
+Ingeniería en Construcción  |  Iplacex	En curso
+Dibujante Técnico  |  Liceo Politécnico Galvarino N°2	2003 – 2005
+Práctica profesional en la Ilustre Municipalidad de Lampa (2006): apoyo al área de arquitectura en planimetría.
+CURSOS Y CAPACITACIÓN
+BIM y Revit: Modelado BIM con Revit Structures 2021 (2024); Experto en Revit: Colaboración (2023); Experto en Revit: Plantillas I (2023); Introducción al modelado BIM con Revit (2023); Introducción a la automatización de procesos con la API de Revit (2022); Modelado estructural en Revit (2017)
+Metodología y coordinación: Introducción a la metodología BIM (2023); BIM, normas, terminología y usos BIM para infraestructuras lineales, ISO 19650 (2022); Navisworks: coordinación de proyectos, interference detection, clash detection y Timeliner 4D (2022); Experto global Autodesk AEC Collection, plantas industriales (2021)
+Programación: HTML, CSS, Git y SQL (2023); Desarrollo web (2021)
+IDIOMAS
+Español: nativo     Inglés: A1

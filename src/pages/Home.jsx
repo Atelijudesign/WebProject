@@ -10,6 +10,7 @@ import BimComparisonSection from "../components/BimComparisonSection";
 import Services from "../components/Services";
 import ToolsPreview from "../components/ToolsPreview";
 import Experience from "../components/Experience";
+import { HorizontalProjectsGallery } from "../components/HorizontalProjectsGallery";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
 
@@ -37,21 +38,21 @@ export default function Home() {
   return (
     <>
       <SEOHead
-        title="Andrés Gallo P. | Proyectista Estructural BIM"
-        description="Proyectista Estructural BIM Senior con 15+ años en minería, aeropuertos y hospitales. Especialista en Revit, Tekla, Dynamo, pyRevit y desarrollo en Python y C#."
+        title="Andrés Gallo P. | Diseñador Estructural BIM"
+        description="Diseñador Estructural BIM Senior con 15+ años en minería, aeropuertos y hospitales. Especialista en Revit, Tekla, Dynamo, pyRevit y desarrollo en Python y C#."
         path="/"
-        keywords="Proyectista Estructural BIM, Modelador BIM Estructural, Revit API, pyRevit, C#, Python, Tekla Structures, Navisworks, Santiago Chile"
+        keywords="Diseñador Estructural BIM, Modelador BIM Estructural, Revit API, pyRevit, C#, Python, Tekla Structures, Navisworks, Santiago Chile"
         schema={{
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Andrés Gallo P.",
-          "url": "https://atelijudesign.com",
-          "jobTitle": "Proyectista Estructural BIM",
-          "description": "Proyectista Estructural BIM Senior con 15+ años de experiencia. Especializado en modelado paramétrico, planos de fabricación y desarrollo de plugins en Python y C#. Estudiante de Ingeniería en Construcción.",
+          "url": "https://www.andresgallop.com",
+          "jobTitle": "Diseñador Estructural BIM",
+          "description": "Diseñador Estructural BIM Senior con 15+ años de experiencia. Especializado en modelado paramétrico, planos de fabricación y desarrollo de plugins en Python y C#. Estudiante de Ingeniería en Construcción.",
           "knowsAbout": ["BIM", "Revit API", "pyRevit", "C#", "Python", "Tekla Structures", "Navisworks", "Modelado Estructural", "Planos de Fabricación"],
           "hasOccupation": {
             "@type": "Occupation",
-            "name": "Proyectista Estructural BIM",
+            "name": "Diseñador Estructural BIM",
             "occupationLocation": { "@type": "Country", "name": "Chile" }
           },
           "sameAs": [
@@ -69,6 +70,7 @@ export default function Home() {
       <Services />
       <ToolsPreview />
       <Experience />
+      <HorizontalProjectsGallery />
       <Portfolio />
       <Contact />
     </>

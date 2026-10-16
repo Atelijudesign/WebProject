@@ -1,5 +1,6 @@
 import { asset } from "../utils/asset";
 import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { useTranslation } from "../context/LanguageContext";
 
@@ -7,6 +8,7 @@ function Contact() {
   const { t } = useTranslation();
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [hasCopiedEmail, setHasCopiedEmail] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
   const [form, setForm] = useState({
     name: "",
@@ -14,6 +16,14 @@ function Contact() {
     _subject: "Modelado BIM",
     message: "",
   });
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText("andresgallo@pm.me");
+    setHasCopiedEmail(true);
+    setTimeout(() => setHasCopiedEmail(false), 2400);
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -69,20 +79,37 @@ function Contact() {
               {t("contact_info_title") || "Información Directa"}
             </h3>
 
-            <a
-              href="mailto:andresgallo@pm.me"
-              className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center gap-4 hover:border-cyan-500/40 transition-colors block"
-            >
-              <div className="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-lg shrink-0">
-                <i className="fa-solid fa-envelope" />
-              </div>
-              <div>
-                <span className="text-[11px] font-mono text-slate-500 block">
-                  {t("contact_email_label") || "Correo Oficial"}
-                </span>
-                <span className="text-sm font-bold text-white">andresgallo@pm.me</span>
-              </div>
-            </a>
+            <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-4 hover:border-cyan-500/40 transition-colors">
+              <a
+                href="mailto:andresgallo@pm.me"
+                className="flex items-center gap-4 flex-1 min-w-0"
+              >
+                <div className="w-10 h-10 rounded-xl bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-lg shrink-0">
+                  <i className="fa-solid fa-envelope" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] font-mono text-slate-500 block">
+                    {t("contact_email_label") || "Correo Oficial"}
+                  </span>
+                  <span className="text-sm font-bold text-white truncate block">andresgallo@pm.me</span>
+                </div>
+              </a>
+
+              <motion.button
+                type="button"
+                whileTap={{ scale: 0.92 }}
+                onClick={handleCopyEmail}
+                className={`px-3 py-1.5 rounded-xl border text-xs font-mono font-bold flex items-center gap-1.5 transition-colors shrink-0 ${
+                  hasCopiedEmail
+                    ? "bg-emerald-950/80 border-emerald-500/50 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.25)]"
+                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
+                }`}
+                title="Copiar correo al portapapeles"
+              >
+                <i className={hasCopiedEmail ? "fa-solid fa-check" : "fa-regular fa-copy"} />
+                <span>{hasCopiedEmail ? "Copiado" : "Copiar"}</span>
+              </motion.button>
+            </div>
 
             <a
               href="https://www.linkedin.com/in/andresgallop/"

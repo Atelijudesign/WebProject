@@ -6,6 +6,7 @@ import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function Iso19650Validation() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -146,9 +147,7 @@ namespace BimQualityGate.ISO19650
       <section className="pt-28 pb-16 px-4 bg-[#030712]/60 transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link to="/blog" className="text-bim-blue hover:text-cyan-400 text-sm font-medium transition-colors inline-flex items-center gap-1">
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -241,7 +240,7 @@ namespace BimQualityGate.ISO19650
             <li>Parámetros de exportación IFC mal asignados que rompen la federación en Navisworks o Solibri.</li>
           </ul>
           <div className="p-4 rounded-xl bg-amber-950/30 border border-amber-500/30 text-sm text-amber-200">
-            <strong>El Impacto:</strong> Retrasos en la aprobación de pagos por hitos, reprocesamiento de decenas de modelos y fricción innecesaria entre proyectistas y la gerencia de proyectos.
+            <strong>El Impacto:</strong> Retrasos en la aprobación de pagos por hitos, reprocesamiento de decenas de modelos y fricción innecesaria entre los equipos de diseño y la gerencia de proyectos.
           </div>
         </section>
 
@@ -409,7 +408,7 @@ namespace BimQualityGate.ISO19650
             Conclusión: Hacia una Gestión de Información Autónoma
           </h2>
           <p className="text-slate-300 leading-relaxed mb-4 text-sm">
-            La adopción de la norma <strong>ISO 19650</strong> no debe consistir en memorizar manuales extensos de gestión documental. El verdadero salto productivo se logra cuando <strong>el software y los agentes de automatización asumen la carga de validación</strong> en tiempo real, permitiendo que los proyectistas estructurales y modeladores BIM se concentren en lo que mejor saben hacer: diseñar estructuras seguras, eficientes y construibles.
+            La adopción de la norma <strong>ISO 19650</strong> no debe consistir en memorizar manuales extensos de gestión documental. El verdadero salto productivo se logra cuando <strong>el software y los agentes de automatización asumen la carga de validación</strong> en tiempo real, permitiendo que los diseñadores estructurales y modeladores BIM se concentren en lo que mejor saben hacer: diseñar estructuras seguras, eficientes y construibles.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Link

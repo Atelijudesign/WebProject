@@ -7,6 +7,7 @@ import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function PyRevitAccelerator() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -172,12 +173,7 @@ Dame el script.py completo y listo para usar.`;
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link
-              to="/blog"
-              className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
-            >
-              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
             <span className="bg-green-600/90 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -225,7 +221,7 @@ Dame el script.py completo y listo para usar.`;
               de la interfaz de Revit.
             </p>
             <p className="text-slate-400 mb-0 leading-relaxed">
-              Para un proyectista estructural o modelador BIM que busca optimizar tiempos de entrega, este es el camino de menor
+              Para un diseñador estructural o modelador BIM que busca optimizar tiempos de entrega, este es el camino de menor
               resistencia para empezar a automatizar su trabajo en Revit.
             </p>
           </div>
@@ -579,13 +575,7 @@ Dame el script.py completo y listo para usar.`;
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-between">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
-          >
-            <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            {isEn ? "Back to Blog" : "Volver al Blog"}
-          </Link>
+          <BlogBackButton />
           <Link
             to="/#contact"
             className="inline-flex items-center text-slate-400 hover:text-bim-blue font-medium transition-colors text-sm"

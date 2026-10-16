@@ -1,93 +1,90 @@
 {
   "P-044": {
-    "slug": "P-044",
-    "description_paragraphs": [
-      "El complejo industrial Potrerillos de Codelco División Salvador, ubicado en Diego de Almagro (Región de Atacama), cuenta en su Nave de Fundición con dos puentes grúa pesados para el traslado de metales fundidos a altas temperaturas.",
-      "El Estudio de Perfil 'Normalización Puentes Grúas Fundición Potrerillos' (API S25F105) desarrollado por GHD tuvo como objetivo evaluar la integridad estructural, realizar el mapeo de hallazgos (grietas, fatiga en soldaduras de vigas principales y testeras) y formular las soluciones de ingeniería para restituir la confiabilidad operacional bajo la norma CMAA-70 y el Estándar Corporativo de Control de Fatalidades ECF-7 de Codelco.",
-      "Como Proyectista y Diseñador Estructural en GHD, desarrollé la serie completa de planos de ingeniería en Rev.B (láminas 4600030447_14-05270-205ES-00001 a 00004), abarcando la disposición general de la Nave de Fundición, el mapeo de reparaciones estructurales, los detalles de refuerzo en vigas cajón principales y las consolas de reductores."
-    ],
+    "slug": "12641576-remocion-tranque-perez-caldera",
+    "project_id": "P-044",
+    "title": "12641576 - Ingeniería Alternativa Remoción Tranque Pérez Caldera (PCTR)",
+    "name_en": "12641576 - Alternative Engineering Pérez Caldera Tailings Removal Project (PCTR)",
+    "image_url": "assets/img/tranque_perez_portada.webp",
     "gallery_images": [
-      "assets/img/codelco_dsal_pl01.webp",
-      "assets/img/codelco_dsal_pl02.webp",
-      "assets/img/codelco_dsal_pl03.webp",
-      "assets/img/codelco_dsal_pl04.webp"
+      "assets/img/tranque_perez_portada.webp"
     ],
-    "image_url": "assets/img/codelco_dsal_portada.webp",
+    "description_paragraphs": [
+      "Ingeniería alternativa y desarrollo de planos estructurales para el proyecto de remediación y remoción del tranque de relaves Pérez Caldera (PCTR) de Anglo American. Diseño de canaletas metálicas, tolvas de descarga, pasarelas de inspección, fundaciones de hormigón armado y estructuras de soporte civil para transporte de relaves remanentes.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Modelado y detallamiento de planos estructurales (láminas 85-12641576-00000-ST-DRW-0025 a 0034), cubicaciones de perfiles de acero, conexiones apernadas/soldadas y coordinación interdisciplinaria."
+    ],
+    "description_paragraphs_en": [
+      "Alternative structural engineering and construction drawing development for the Pérez Caldera tailings dam removal and environmental remediation project (PCTR) for Anglo American. Design of structural steel chutes, discharge hoppers, inspection catwalks, reinforced concrete foundations, and civil support structures for tailings slurry transport.",
+      "As part of GHD structural engineering team, scope of work encompassed: Structural drawings detailing (sheets 85-12641576-00000-ST-DRW-0025 to 0034), structural steel takeoff, bolted/welded connection design, and multidisciplinary clash review."
+    ],
     "specs": [
       {
         "icon": "fa-solid fa-building",
         "label": "Mandante / Cliente",
-        "value": "CODELCO Chile (División Salvador)"
+        "value": "Anglo American (Los Bronces / Tranque Pérez Caldera)"
       },
       {
         "icon": "fa-solid fa-briefcase",
         "label": "Consultora",
-        "value": "GHD (Contrato 4600030447 - ODS 14)"
+        "value": "GHD (Proyecto 12641576)"
       },
       {
         "icon": "fa-solid fa-calendar-days",
         "label": "Año / Fase",
-        "value": "2026 · Ingeniería de Perfil"
+        "value": "2024–2025 — Ingeniería de Detalles"
       },
       {
         "icon": "fa-solid fa-location-dot",
         "label": "Ubicación",
-        "value": "Potrerillos, Atacama, Chile"
+        "value": "Lo Barnechea, Región Metropolitana, Chile"
       },
       {
         "icon": "fa-solid fa-layer-group",
         "label": "Categoría",
-        "value": "Minería / Fundición & Izaje"
+        "value": "Minería"
       },
       {
         "icon": "fa-solid fa-cubes",
         "label": "Materialidad",
-        "value": "Acero Estructural Pesado (CMAA-70)"
+        "value": "Acero Estructural y Hormigón Armado"
       }
-    ],
-    "technologies": [
-      "AutoCAD",
-      "Detallamiento Estructural",
-      "CMAA-70",
-      "ECF-7 Codelco"
-    ],
-    "name_en": "Overhead Cranes Normalization Potrerillos Smelter (DSAL)",
-    "description_paragraphs_en": [
-      "The Potrerillos industrial complex of Codelco Salvador Division, located in Diego de Almagro (Atacama Region), operates two heavy overhead bridge cranes in its Smelter Aisle for the transfer of high-temperature molten metals.",
-      "The Scoping Study 'Overhead Cranes Normalization Potrerillos Smelter' (API S25F105) developed by GHD aimed to evaluate structural integrity, perform comprehensive defect mapping (cracks, fatigue in welds of main box girders and end trucks), and formulate engineering solutions to restore operational reliability under CMAA-70 and Codelco ECF-7 Corporate Fatality Prevention Standard.",
-      "As Structural Designer and BIM Detailer at GHD, I developed the complete set of engineering drawings at Rev.B (sheets 4600030447_14-05270-205ES-00001 through 00004), covering the Smelter Aisle general arrangement, structural repair mapping, main box girder reinforcement details, and crane reducer support brackets."
     ],
     "specs_en": [
       {
         "icon": "fa-solid fa-building",
         "label": "Client / Owner",
-        "value": "CODELCO Chile (Salvador Division)"
+        "value": "Anglo American (Los Bronces / Tranque Pérez Caldera)"
       },
       {
         "icon": "fa-solid fa-briefcase",
         "label": "Engineering Firm",
-        "value": "GHD (Contract 4600030447 - ODS 14)"
+        "value": "GHD (Project 12641576)"
       },
       {
         "icon": "fa-solid fa-calendar-days",
         "label": "Year / Phase",
-        "value": "2026 · Scoping Engineering"
+        "value": "2024–2025 — Detailed Engineering"
       },
       {
         "icon": "fa-solid fa-location-dot",
         "label": "Location",
-        "value": "Potrerillos, Atacama, Chile"
+        "value": "Lo Barnechea, Región Metropolitana, Chile"
       },
       {
         "icon": "fa-solid fa-layer-group",
         "label": "Category",
-        "value": "Mining / Smelter & Lifting Equipment"
+        "value": "Mining"
       },
       {
         "icon": "fa-solid fa-cubes",
         "label": "Materiality",
-        "value": "Heavy Structural Steel (CMAA-70)"
+        "value": "Structural Steel & Reinforced Concrete"
       }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit Structure",
+      "Navisworks",
+      "GHD-12641576"
     ]
   },
   "los-condores": {
@@ -252,52 +249,71 @@
   "maquina-papelera": {
     "slug": "maquina-papelera",
     "description_paragraphs": [
-      "Desarrollado para ABSORMEX en México, este proyecto industrial                 abarcó la ingeniería de detalles para una nueva línea de                 producción de papel. El alcance incluyó el modelado de                 estructuras masivas para las áreas de conversión, almacenamiento                 de materia prima y zonas de descarga, cubriendo un área                 aproximada de 8,000 m².",
-      "La complejidad del proyecto requirió una coordinación precisa                 entre la estructura metálica y la maquinaria pesada. Se utilizó                 BIM 360 para la gestión documental y la colaboración en la nube,                 asegurando que todos los stakeholders tuvieran acceso a la                 información más actualizada."
+      "Desarrollado para ABSORMEX (filial de CMPC Tissue) en Altamira, Tamaulipas, México, este macroproyecto industrial (Proyecto 152000318-001) abarcó la ingeniería de detalles multidisciplinaria para la nueva planta de conversión tissue y la máquina papelera MP05.",
+      "El alcance estructural comprendió el modelado BIM integral de naves industriales pesadas de más de 8.000 m², diseño y detallamiento de vigas carrilera para puentes grúa de alto tonelaje, mezaninas metálicas de proceso, pasarelas de operación y fundaciones masivas de hormigón armado para maquinaria con absorción de vibraciones dinámicas.",
+      "Se utilizó Autodesk Revit Structure y BIM 360 para la coordinación interdisciplinaria con los proveedores de tecnología papelera internacional, resolviendo interferencias críticas previas a la fabricación y montaje en obra."
     ],
     "gallery_images": [
-      "assets/img/mp5_Portada.webp",
-      "assets/img/mp5_01.webp",
-      "assets/img/mp5_02.webp",
-      "assets/img/mp5_03.webp"
+      "assets/img/absormex_portada.webp",
+      "assets/img/absormex_01.webp",
+      "assets/img/absormex_02.webp",
+      "assets/img/absormex_03.webp"
     ],
+    "image_url": "assets/img/absormex_portada.webp",
     "specs": [
       {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Absormex / CMPC Tissue México"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
         "icon": "fa-solid fa-calendar-days",
-        "label": "Año",
-        "value": "2023"
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
       },
       {
         "icon": "fa-solid fa-location-dot",
         "label": "Ubicación",
-        "value": "México"
+        "value": "Altamira, Tamaulipas, México"
       },
       {
         "icon": "fa-solid fa-ruler-combined",
         "label": "Superficie",
-        "value": "8,000 m²"
+        "value": "8.000 m² cubiertos"
       },
       {
         "icon": "fa-solid fa-layer-group",
         "label": "Categoría",
-        "value": "Industrial"
+        "value": "Industrial / Conversión Tissue & Papel"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado + Fundaciones Hormigón"
       }
     ],
     "technologies": [
-      "Revit",
-      "BIM 360"
+      "Revit Structure",
+      "Navisworks",
+      "BIM 360",
+      "Puentes Grúa"
     ],
     "name_en": "MP05 Tissue Paper Converting Machine — ABSORMEX",
     "description_paragraphs_en": [
-      "Detailed structural and architectural engineering for the MP05 tissue paper manufacturing and converting machine at the ABSORMEX industrial complex in Zárate, Argentina, covering an 8,000 m² industrial facility.",
-      "The engineering required deep foundation slabs for vibratory converting equipment, heavy structural steel building columns and trusses, crane runway beams, and elevated pipe and duct racks.",
-      "Developed complete BIM 3D models in Revit Structures, multidisciplinary coordination in BIM 360, and detailed fabrication and erection drawings."
+      "Detailed structural and architectural engineering for the MP05 tissue paper converting plant and manufacturing line at the ABSORMEX complex in Altamira, Tamaulipas, Mexico (Project 152000318-001), encompassing an 8,000 m² industrial facility.",
+      "The engineering required deep foundation slabs for vibratory converting equipment, heavy structural steel building columns, roof trusses, overhead crane runway girders, and elevated pipe and duct racks.",
+      "Developed comprehensive BIM 3D models in Revit Structure, multidisciplinary coordination in BIM 360, and detailed fabrication and erection drawings."
     ],
     "specs_en": [
       {
         "icon": "fa-solid fa-building",
         "label": "Client / Owner",
-        "value": "ABSORMEX / Softys"
+        "value": "Absormex / CMPC Tissue Mexico"
       },
       {
         "icon": "fa-solid fa-briefcase",
@@ -307,17 +323,17 @@
       {
         "icon": "fa-solid fa-calendar-days",
         "label": "Year / Phase",
-        "value": "2023 · Detailed Engineering"
+        "value": "2022–2023 · Detailed Engineering"
       },
       {
         "icon": "fa-solid fa-location-dot",
         "label": "Location",
-        "value": "Zárate, Buenos Aires, Argentina"
+        "value": "Altamira, Tamaulipas, Mexico"
       },
       {
         "icon": "fa-solid fa-layer-group",
         "label": "Category",
-        "value": "Industrial / Pulp & Paper (8,000 m²)"
+        "value": "Industrial / Tissue Converting (8,000 m²)"
       },
       {
         "icon": "fa-solid fa-cubes",
@@ -325,6 +341,98 @@
         "value": "Heavy Structural Steel & Machine Foundations"
       }
     ]
+  },
+  "P-037": {
+    "slug": "cmpc-laja",
+    "description_paragraphs": [
+      "La Planta Laja de CMPC Celulosa, ubicada en la Región del Bío Bío, es una de las plantas de celulosa más emblemáticas y tradicionales de Chile. El proyecto de Continuidad Operacional e Integridad de Activos ejecutado en AFRY (152000288-001) consistió en la adecuación estructural y civil para la renovación de áreas productivas críticas.",
+      "El alcance técnico se concentró en la Secadora N° 2 y zona de Pulpers de celulosa, requiriendo el modelado BIM de nuevas estructuras metálicas de soporte de piping, pasarelas de operación elevadas, la proyección de una nueva Sala de Control operacional y refuerzos estructurales en naves existentes.",
+      "Asimismo, se desarrollaron planos de disposición general y detalles constructivos para canalizaciones y cañerías subterráneas (underground piping), garantizando la continuidad ininterrumpida de las operaciones de la planta durante los trabajos de montaje."
+    ],
+    "gallery_images": [
+      "assets/img/cmpc_laja_portada.webp",
+      "assets/img/cmpc_laja_01.webp",
+      "assets/img/cmpc_laja_02.webp",
+      "assets/img/cmpc_laja_03.webp"
+    ],
+    "image_url": "assets/img/cmpc_laja_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Laja, Bío Bío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Planta de Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "AutoCAD",
+      "Navisworks",
+      "Detallamiento Estructural"
+    ],
+    "name_en": "CMPC Pulp – Laja Mill Operational Continuity",
+    "description_paragraphs_en": [
+      "The Laja Mill of CMPC Celulosa, situated in the Biobío Region, is one of Chile's most historic and vital pulp producing facilities. The Operational Continuity & Asset Integrity project executed at AFRY (152000288-001) encompassed structural and civil retrofits for upgrading critical production areas.",
+      "The engineering scope centered on Pulp Dryer No. 2 and the Pulp Pulpers area, requiring comprehensive 3D BIM modeling of new structural steel pipe support racks, elevated operation catwalks, the design of a new Operational Control Room, and structural reinforcing for existing industrial buildings.",
+      "Additionally, general arrangement and construction detailing drawings were produced for underground process piping and electrical service trenches, ensuring uninterrupted facility operations during construction and equipment installation."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Laja, Biobío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp Mill Continuity"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Reinforced Concrete"
+      }
+    ],
+    "project_id": "P-037"
   },
   "hospital-marga-marga": {
     "slug": "hospital-marga-marga",
@@ -625,6 +733,2913 @@
         "label": "Materiality",
         "value": "Marine-grade Waterproofed Reinforced Concrete"
       }
+    ]
+  },
+  "P-045": {
+    "slug": "cmpc-santa-fe",
+    "description_paragraphs": [
+      "La Planta Santa Fe de CMPC Celulosa, emplazada en Nacimiento (Región del Bío Bío), es uno de los complejos industriales de pulpa de celulosa más grandes de Sudamérica. El proyecto desarrollado en AFRY (1520002303-001) abarcó la ingeniería de detalles multidisciplinaria para la modernización y ampliación de diversas áreas clave de proceso.",
+      "El núcleo del alcance estructural consistió en el modelado 3D BIM avanzado y detallamiento del 'Structure Dissolving Tank' (Área 267), incluyendo el estanque de disolución, torres de cañerías (piping towers), pasarelas de inspección técnica y plataformas operativas metálicas calculadas para resistir vibraciones, corrosión y altas temperaturas.",
+      "Asimismo, se ejecutó la ingeniería civil para las Salas Eléctricas (Área 261 CRP y Sala A-40), el diseño estructural de fundaciones masivas de hormigón armado, el trazado y cubicación del banco de ductos subterráneos de potencia (Área 282) y caminos industriales pavimentados. Todo el modelo fue federado y coordinado en Autodesk Navisworks para detección de interferencias (clash detection) previo a su montaje."
+    ],
+    "gallery_images": [
+      "assets/img/cmpc_santafe_portada.webp",
+      "assets/img/cmpc_santafe_01.webp",
+      "assets/img/cmpc_santafe_02.webp",
+      "assets/img/cmpc_santafe_03.webp"
+    ],
+    "image_url": "assets/img/cmpc_santafe_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Nacimiento, Bío Bío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Celulosa & Papel"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "Navisworks",
+      "AutoCAD",
+      "Clash Detection",
+      "BIM 3D"
+    ],
+    "name_en": "CMPC Pulp – Santa Fe Mill (Dissolving Tank & Civil Works)",
+    "description_paragraphs_en": [
+      "The Santa Fe Mill of CMPC Celulosa, located in Nacimiento (Biobío Region), is one of the largest pulp manufacturing complexes in South America. The engineering project developed at AFRY (1520002303-001) encompassed multidisciplinary detailed engineering for modernization and expansion of critical process areas.",
+      "The core structural scope comprised the advanced 3D BIM modeling and detailing of the 'Structure Dissolving Tank' (Area 267), including the dissolving tank structure, elevated piping towers, technical inspection catwalks, and heavy industrial steel operating platforms engineered to withstand dynamic vibration, chemical corrosion, and elevated process temperatures.",
+      "Additionally, the scope included civil and structural engineering for Electrical Rooms (Area 261 CRP and A-40 Room), massive reinforced concrete equipment foundations, 3D routing and material takeoffs for underground electrical duct banks (Area 282), and heavy paved industrial access roads. The entire multidisciplinary model was federated and clash-tested in Autodesk Navisworks prior to field erection."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Nacimiento, Biobío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp & Paper Facility"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel & Reinforced Concrete"
+      }
+    ]
+  },
+  "cmpc-santa-fe": {
+    "slug": "cmpc-santa-fe",
+    "description_paragraphs": [
+      "La Planta Santa Fe de CMPC Celulosa, emplazada en Nacimiento (Región del Bío Bío), es uno de los complejos industriales de pulpa de celulosa más grandes de Sudamérica. El proyecto desarrollado en AFRY (1520002303-001) abarcó la ingeniería de detalles multidisciplinaria para la modernización y ampliación de diversas áreas clave de proceso.",
+      "El núcleo del alcance estructural consistió en el modelado 3D BIM avanzado y detallamiento del 'Structure Dissolving Tank' (Área 267), incluyendo el estanque de disolución, torres de cañerías (piping towers), pasarelas de inspección técnica y plataformas operativas metálicas calculadas para resistir vibraciones, corrosión y altas temperaturas.",
+      "Asimismo, se ejecutó la ingeniería civil para las Salas Eléctricas (Área 261 CRP y Sala A-40), el diseño estructural de fundaciones masivas de hormigón armado, el trazado y cubicación del banco de ductos subterráneos de potencia (Área 282) y caminos industriales pavimentados. Todo el modelo fue federado y coordinado en Autodesk Navisworks para detección de interferencias (clash detection) previo a su montaje."
+    ],
+    "gallery_images": [
+      "assets/img/cmpc_santafe_portada.webp",
+      "assets/img/cmpc_santafe_01.webp",
+      "assets/img/cmpc_santafe_02.webp",
+      "assets/img/cmpc_santafe_03.webp"
+    ],
+    "image_url": "assets/img/cmpc_santafe_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Nacimiento, Bío Bío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Celulosa & Papel"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "Navisworks",
+      "AutoCAD",
+      "Clash Detection",
+      "BIM 3D"
+    ],
+    "name_en": "CMPC Pulp – Santa Fe Mill (Dissolving Tank & Civil Works)",
+    "description_paragraphs_en": [
+      "The Santa Fe Mill of CMPC Celulosa, located in Nacimiento (Biobío Region), is one of the largest pulp manufacturing complexes in South America. The engineering project developed at AFRY (1520002303-001) encompassed multidisciplinary detailed engineering for modernization and expansion of critical process areas.",
+      "The core structural scope comprised the advanced 3D BIM modeling and detailing of the 'Structure Dissolving Tank' (Area 267), including the dissolving tank structure, elevated piping towers, technical inspection catwalks, and heavy industrial steel operating platforms engineered to withstand dynamic vibration, chemical corrosion, and elevated process temperatures.",
+      "Additionally, the scope included civil and structural engineering for Electrical Rooms (Area 261 CRP and A-40 Room), massive reinforced concrete equipment foundations, 3D routing and material takeoffs for underground electrical duct banks (Area 282), and heavy paved industrial access roads. The entire multidisciplinary model was federated and clash-tested in Autodesk Navisworks prior to field erection."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Nacimiento, Biobío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp & Paper Facility"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel & Reinforced Concrete"
+      }
+    ]
+  },
+  "P-039": {
+    "slug": "softys-zarate",
+    "description_paragraphs": [
+      "La planta industrial de Softys Argentina (CMPC) en Zárate, Provincia de Buenos Aires, es uno de los mayores centros de producción de papel tissue y productos de higiene de la cuenca del Plata. El Proyecto Centina Zárate desarrollado por AFRY (152000169-001) tuvo por objetivo proyectar las instalaciones auxiliares y obras civiles de la nueva nave de producción.",
+      "El alcance de la ingeniería abarcó la integración y análisis del levantamiento topográfico y batimétrico en ribera fluvial, el diseño del layout preliminar de la nave industrial Centina, y el desarrollo de planos estructurales de fundaciones superficiales y profundas de hormigón armado.",
+      "Se proyectaron estructuras metálicas de soporte para equipos electromecánicos, muros perimetrales de contención y canalizaciones de drenaje pluvial industrial, garantizando la compatibilidad con los requerimientos de carga dinámica y el régimen hídrico de la zona ribereña de Zárate."
+    ],
+    "gallery_images": [
+      "assets/img/softys_zarate_portada.webp",
+      "assets/img/softys_zarate_01.webp",
+      "assets/img/softys_zarate_02.webp"
+    ],
+    "image_url": "assets/img/softys_zarate_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Softys Argentina (CMPC)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería Básica y de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Zárate, Buenos Aires, Argentina"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Conversión Tissue"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit Structure",
+      "Civil 3D",
+      "Topografía & Batimetría"
+    ],
+    "name_en": "Softys Argentina – Centina Project Zárate Plant",
+    "description_paragraphs_en": [
+      "The Softys Argentina (CMPC) manufacturing facility in Zárate, Buenos Aires Province, represents one of the largest tissue and personal care production hubs in the Río de la Plata basin. The Centina Zárate Project engineered by AFRY (152000169-001) aimed to design auxiliary facilities and civil works for the new manufacturing bay.",
+      "The engineering scope encompassed the integration and evaluation of comprehensive topographic and riverbank bathymetric surveys, preliminary layout development for the Centina industrial building, and structural design drawings for shallow and deep reinforced concrete foundations.",
+      "Engineered structural steel framing for electromechanical equipment, perimeter retaining walls, and industrial stormwater drainage networks, ensuring robust performance under dynamic machine loads and riparian geotechnical conditions."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Softys Argentina (CMPC)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Basic & Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Zárate, Buenos Aires, Argentina"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Tissue Manufacturing"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Reinforced Concrete"
+      }
+    ],
+    "project_id": "P-039"
+  },
+  "montes-del-plata": {
+    "slug": "montes-del-plata",
+    "description_paragraphs": [
+      "El complejo industrial Montes del Plata, ubicado en Punta Pereira (Departamento de Colonia, Uruguay), es una de las plantas de celulosa de eucalipto más modernas y eficientes a nivel mundial, operada en consorcio conjunto por ARAUCO y Stora Enso.",
+      "Los proyectos desarrollados por AFRY (152000289-001 y 152000290-001) comprendieron la ingeniería de detalles estructural y civil para dos hitos operacionales: la integración del sistema 'Feed Forward Depurador Secundario a Primario' en la línea de fibra y el desarrollo integral de la Rampa de Acceso Vehicular y Operacional (Access Ramp).",
+      "Como Proyectista Estructural, desarrollé la planimetría de fabricación y montaje de plataformas metálicas de mantenimiento, pasarelas peatonales de seguridad, escaleras de acceso a estanques cilíndricos de proceso, detalles de anclajes químicos a fundaciones de hormigón existentes y la coordinación espacial para evitar interferencias con los pipe racks y líneas presurizadas de pulpa."
+    ],
+    "gallery_images": [
+      "assets/img/mdp_depurador_portada.webp",
+      "assets/img/mdp_01.webp",
+      "assets/img/mdp_02.webp",
+      "assets/img/mdp_03.webp"
+    ],
+    "image_url": "assets/img/mdp_depurador_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Montes del Plata (Arauco / Stora Enso)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Punta Pereira, Colonia, Uruguay"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Planta de Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Galvanizado + Hormigón"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit Structure",
+      "Detallamiento Metálico",
+      "Criterios Industriales"
+    ],
+    "name_en": "Montes del Plata – Pulp Mill Depurator Feed Forward & Access Ramp",
+    "description_paragraphs_en": [
+      "The Montes del Plata industrial complex, located in Punta Pereira (Colonia Department, Uruguay), is one of the world's most advanced eucalyptus pulp mills, jointly operated by ARAUCO and Stora Enso.",
+      "The engineering initiatives engineered by AFRY (Projects 152000289-001 and 152000290-001) comprised civil and structural detailed engineering for two key operational milestones: the 'Feed Forward Secondary to Primary Depurator' system integration in the fiberline and the comprehensive structural development of the Vehicular and Operational Access Ramp.",
+      "As Structural Project Designer, I authored the complete fabrication and erection drawing packages for elevated steel maintenance platforms, safety catwalks, process tank circular access stairs, chemical anchor connections onto existing reinforced concrete foundations, and spatial coordination with dense pipe racks and pressurized pulp lines."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Montes del Plata (Arauco / Stora Enso)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Punta Pereira, Colonia, Uruguay"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp Manufacturing Complex"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Galvanized Structural Steel & Reinforced Concrete"
+      }
+    ]
+  },
+  "P-038": {
+    "slug": "maquina-papelera",
+    "description_paragraphs": [
+      "Desarrollado para ABSORMEX (filial de CMPC Tissue) en Altamira, Tamaulipas, México, este macroproyecto industrial (Proyecto 152000318-001) abarcó la ingeniería de detalles multidisciplinaria para la nueva planta de conversión tissue y la máquina papelera MP05.",
+      "El alcance estructural comprendió el modelado BIM integral de naves industriales pesadas de más de 8.000 m², diseño y detallamiento de vigas carrilera para puentes grúa de alto tonelaje, mezaninas metálicas de proceso, pasarelas de operación y fundaciones masivas de hormigón armado para maquinaria con absorción de vibraciones dinámicas.",
+      "Se utilizó Autodesk Revit Structure y BIM 360 para la coordinación interdisciplinaria con los proveedores de tecnología papelera internacional, resolviendo interferencias críticas previas a la fabricación y montaje en obra."
+    ],
+    "gallery_images": [
+      "assets/img/absormex_portada.webp",
+      "assets/img/absormex_01.webp",
+      "assets/img/absormex_02.webp",
+      "assets/img/absormex_03.webp"
+    ],
+    "image_url": "assets/img/absormex_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Absormex / CMPC Tissue México"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Altamira, Tamaulipas, México"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "8.000 m² cubiertos"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Conversión Tissue & Papel"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado + Fundaciones Hormigón"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "Navisworks",
+      "BIM 360",
+      "Puentes Grúa"
+    ],
+    "name_en": "MP05 Tissue Paper Converting Machine — ABSORMEX",
+    "description_paragraphs_en": [
+      "Detailed structural and architectural engineering for the MP05 tissue paper converting plant and manufacturing line at the ABSORMEX complex in Altamira, Tamaulipas, Mexico (Project 152000318-001), encompassing an 8,000 m² industrial facility.",
+      "The engineering required deep foundation slabs for vibratory converting equipment, heavy structural steel building columns, roof trusses, overhead crane runway girders, and elevated pipe and duct racks.",
+      "Developed comprehensive BIM 3D models in Revit Structure, multidisciplinary coordination in BIM 360, and detailed fabrication and erection drawings."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Absormex / CMPC Tissue Mexico"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Altamira, Tamaulipas, Mexico"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Tissue Converting (8,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel & Machine Foundations"
+      }
+    ],
+    "project_id": "P-038"
+  },
+  "softys-zarate": {
+    "slug": "softys-zarate",
+    "description_paragraphs": [
+      "La planta industrial de Softys Argentina (CMPC) en Zárate, Provincia de Buenos Aires, es uno de los mayores centros de producción de papel tissue y productos de higiene de la cuenca del Plata. El Proyecto Centina Zárate desarrollado por AFRY (152000169-001) tuvo por objetivo proyectar las instalaciones auxiliares y obras civiles de la nueva nave de producción.",
+      "El alcance de la ingeniería abarcó la integración y análisis del levantamiento topográfico y batimétrico en ribera fluvial, el diseño del layout preliminar de la nave industrial Centina, y el desarrollo de planos estructurales de fundaciones superficiales y profundas de hormigón armado.",
+      "Se proyectaron estructuras metálicas de soporte para equipos electromecánicos, muros perimetrales de contención y canalizaciones de drenaje pluvial industrial, garantizando la compatibilidad con los requerimientos de carga dinámica y el régimen hídrico de la zona ribereña de Zárate."
+    ],
+    "gallery_images": [
+      "assets/img/softys_zarate_portada.webp",
+      "assets/img/softys_zarate_01.webp",
+      "assets/img/softys_zarate_02.webp"
+    ],
+    "image_url": "assets/img/softys_zarate_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Softys Argentina (CMPC)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería Básica y de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Zárate, Buenos Aires, Argentina"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Conversión Tissue"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit Structure",
+      "Civil 3D",
+      "Topografía & Batimetría"
+    ],
+    "name_en": "Softys Argentina – Centina Project Zárate Plant",
+    "description_paragraphs_en": [
+      "The Softys Argentina (CMPC) manufacturing facility in Zárate, Buenos Aires Province, represents one of the largest tissue and personal care production hubs in the Río de la Plata basin. The Centina Zárate Project engineered by AFRY (152000169-001) aimed to design auxiliary facilities and civil works for the new manufacturing bay.",
+      "The engineering scope encompassed the integration and evaluation of comprehensive topographic and riverbank bathymetric surveys, preliminary layout development for the Centina industrial building, and structural design drawings for shallow and deep reinforced concrete foundations.",
+      "Engineered structural steel framing for electromechanical equipment, perimeter retaining walls, and industrial stormwater drainage networks, ensuring robust performance under dynamic machine loads and riparian geotechnical conditions."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Softys Argentina (CMPC)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Basic & Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Zárate, Buenos Aires, Argentina"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Tissue Manufacturing"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Reinforced Concrete"
+      }
+    ]
+  },
+  "P-036": {
+    "slug": "cmpc-laja",
+    "description_paragraphs": [
+      "La Planta Laja de CMPC Celulosa, ubicada en la Región del Bío Bío, es una de las plantas de celulosa más emblemáticas y tradicionales de Chile. El proyecto de Continuidad Operacional e Integridad de Activos ejecutado en AFRY (152000288-001) consistió en la adecuación estructural y civil para la renovación de áreas productivas críticas.",
+      "El alcance técnico se concentró en la Secadora N° 2 y zona de Pulpers de celulosa, requiriendo el modelado BIM de nuevas estructuras metálicas de soporte de piping, pasarelas de operación elevadas, la proyección de una nueva Sala de Control operacional y refuerzos estructurales en naves existentes.",
+      "Asimismo, se desarrollaron planos de disposición general y detalles constructivos para canalizaciones y cañerías subterráneas (underground piping), garantizando la continuidad ininterrumpida de las operaciones de la planta durante los trabajos de montaje."
+    ],
+    "gallery_images": [
+      "assets/img/cmpc_laja_portada.webp",
+      "assets/img/cmpc_laja_01.webp",
+      "assets/img/cmpc_laja_02.webp",
+      "assets/img/cmpc_laja_03.webp"
+    ],
+    "image_url": "assets/img/cmpc_laja_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Laja, Bío Bío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Planta de Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "AutoCAD",
+      "Navisworks",
+      "Detallamiento Estructural"
+    ],
+    "name_en": "CMPC Pulp – Laja Mill Operational Continuity",
+    "description_paragraphs_en": [
+      "The Laja Mill of CMPC Celulosa, situated in the Biobío Region, is one of Chile's most historic and vital pulp producing facilities. The Operational Continuity & Asset Integrity project executed at AFRY (152000288-001) encompassed structural and civil retrofits for upgrading critical production areas.",
+      "The engineering scope centered on Pulp Dryer No. 2 and the Pulp Pulpers area, requiring comprehensive 3D BIM modeling of new structural steel pipe support racks, elevated operation catwalks, the design of a new Operational Control Room, and structural reinforcing for existing industrial buildings.",
+      "Additionally, general arrangement and construction detailing drawings were produced for underground process piping and electrical service trenches, ensuring uninterrupted facility operations during construction and equipment installation."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Laja, Biobío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp Mill Continuity"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Reinforced Concrete"
+      }
+    ]
+  },
+  "cmpc-laja": {
+    "slug": "cmpc-laja",
+    "description_paragraphs": [
+      "La Planta Laja de CMPC Celulosa, ubicada en la Región del Bío Bío, es una de las plantas de celulosa más emblemáticas y tradicionales de Chile. El proyecto de Continuidad Operacional e Integridad de Activos ejecutado en AFRY (152000288-001) consistió en la adecuación estructural y civil para la renovación de áreas productivas críticas.",
+      "El alcance técnico se concentró en la Secadora N° 2 y zona de Pulpers de celulosa, requiriendo el modelado BIM de nuevas estructuras metálicas de soporte de piping, pasarelas de operación elevadas, la proyección de una nueva Sala de Control operacional y refuerzos estructurales en naves existentes.",
+      "Asimismo, se desarrollaron planos de disposición general y detalles constructivos para canalizaciones y cañerías subterráneas (underground piping), garantizando la continuidad ininterrumpida de las operaciones de la planta durante los trabajos de montaje."
+    ],
+    "gallery_images": [
+      "assets/img/cmpc_laja_portada.webp",
+      "assets/img/cmpc_laja_01.webp",
+      "assets/img/cmpc_laja_02.webp",
+      "assets/img/cmpc_laja_03.webp"
+    ],
+    "image_url": "assets/img/cmpc_laja_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Laja, Bío Bío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Planta de Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "AutoCAD",
+      "Navisworks",
+      "Detallamiento Estructural"
+    ],
+    "name_en": "CMPC Pulp – Laja Mill Operational Continuity",
+    "description_paragraphs_en": [
+      "The Laja Mill of CMPC Celulosa, situated in the Biobío Region, is one of Chile's most historic and vital pulp producing facilities. The Operational Continuity & Asset Integrity project executed at AFRY (152000288-001) encompassed structural and civil retrofits for upgrading critical production areas.",
+      "The engineering scope centered on Pulp Dryer No. 2 and the Pulp Pulpers area, requiring comprehensive 3D BIM modeling of new structural steel pipe support racks, elevated operation catwalks, the design of a new Operational Control Room, and structural reinforcing for existing industrial buildings.",
+      "Additionally, general arrangement and construction detailing drawings were produced for underground process piping and electrical service trenches, ensuring uninterrupted facility operations during construction and equipment installation."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Laja, Biobío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp Mill Continuity"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Reinforced Concrete"
+      }
+    ]
+  },
+  "P-042": {
+    "slug": "proyecto-arqueros",
+    "description_paragraphs": [
+      "El Proyecto Arqueros es un desarrollo minero enfocado en la                 producción de concentrados. El alcance del modelado BIM incluyó                 el chancador primario y diversas estructuras anexas críticas                 para el proceso productivo.",
+      "La precisión en el modelado estructural fue fundamental para                 asegurar la correcta integración de los equipos mecánicos de                 gran tonelaje. Se utilizó Revit para el modelado detallado y                 Navisworks para la coordinación y revisión de constructibilidad."
+    ],
+    "gallery_images": [
+      "assets/img/par_portada.webp",
+      "assets/img/par_001.webp",
+      "assets/img/par_002.webp",
+      "assets/img/par_003.webp",
+      "assets/img/par_004.webp",
+      "assets/img/par_005.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2024"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Navisworks"
+    ],
+    "name_en": "Arqueros Mining Project — Primary Crusher",
+    "description_paragraphs_en": [
+      "Detailed structural engineering for the Arqueros mining project, centered on the primary crushing facility, massive retaining walls, truck dump approach slabs, and auxiliary transfer towers.",
+      "Heavy dynamic loads from primary gyratory crusher and haul truck dumping demanded robust reinforced concrete foundations and heavy structural steel frames conforming to AISC and Chilean mining standards.",
+      "Conducted structural BIM modeling in Revit Structures, connection design for heavy steel framing, and multidisciplinary coordination in Autodesk Construction Cloud."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Minera Arqueros"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "ARCADIS / GHD"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2024 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Coquimbo Region, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining / Crushing & Ore Handling"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Massive Concrete & Heavy Steel Framing"
+      }
+    ],
+    "project_id": "P-042"
+  },
+  "P-016": {
+    "slug": "los-condores",
+    "description_paragraphs": [
+      "A 360 kilómetros al sur de la capital, Santiago, a una hora de camino de Talca y cerca ya del paso del Pehuenche, frontera andina entre Chile y Argentina, las obras de la central avanzan sin pausa. La mayoría de los trabajos no se ven, ocultos en las entrañas de la cordillera. Cuando estén terminados, el único rastro de que allí está enterrada una de las mayores centrales hidroeléctricas del país será una puerta de entrada.",
+      "Bajo la tierra se construyen los 12 kilómetros del túnel de aducción, el agujero que llevará el agua de la laguna del Maule hasta las turbinas. También allí, en una gruta artificial de 40 metros de altura, está ubicada la caverna de máquinas, y se salvan los 470 metros de desnivel del túnel de presión blindado.",
+      "El objetivo es pedirle prestado su poder al agua sin alterar su entorno. Equilibrar la demanda eléctrica con las necesidades de riego del valle del Maule sin que la paz de los Andes se vea interrumpida. Iluminar Chile sin molestar al cóndor, que ya estaba allí antes de que los hombres decidiesen agujerear la tierra."
+    ],
+    "gallery_images": [
+      "assets/img/phelc_portada.webp",
+      "assets/img/phelc_01.webp",
+      "assets/img/phelc_02.webp",
+      "assets/img/phelc_03.webp",
+      "assets/img/phelc_04.webp",
+      "assets/img/phelc_05.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2014"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Maule, Chile"
+      },
+      {
+        "icon": "fa-solid fa-bolt",
+        "label": "Capacidad",
+        "value": "150 MW aprox."
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Energía"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit"
+    ],
+    "name_en": "Los Cóndores Hydroelectric Plant",
+    "description_paragraphs_en": [
+      "360 kilometers south of Santiago, near the Pehuenche Andean mountain pass between Chile and Argentina, works for the hydroelectric plant proceed continuously. Most of the engineering is underground, hidden within the core of the Andes range.",
+      "Underground works include the 12-kilometer headrace tunnel carrying water from Laguna del Maule to the turbines. A 40-meter-high underground machine cavern houses the power units, overcoming a 470-meter hydraulic head along the steel-lined pressure shaft.",
+      "The objective is harnessing water power while preserving the natural ecosystem: balancing electrical grid demand with agricultural irrigation needs in the Maule Valley without disturbing the Andean environment."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Enel Generación Chile"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "TYPSA"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2014 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "San Clemente, Maule Region, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Energy / Hydroelectric (150 MW)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete & Underground Caverns"
+      }
+    ],
+    "project_id": "P-016"
+  },
+  "P-026": {
+    "slug": "aeropuerto-amb",
+    "description_paragraphs": [
+      "Este proyecto consistió en la ampliación significativa del                 Aeropuerto Internacional Arturo Merino Benítez en Santiago de                 Chile. El alcance incluyó el modelado complejo de la nueva                 Terminal 2, los espigones de embarque y los edificios de                 estacionamientos, cubriendo una superficie total de más de                 320,000 m².",
+      "Como parte del equipo de ingeniería, mi rol se centró en la                 coordinación interdisciplinaria y la gestión de modelos BIM para                 asegurar la integración precisa de las estructuras de acero y                 hormigón con las instalaciones MEP y los sistemas                 arquitectónicos."
+    ],
+    "gallery_images": [
+      "assets/img/amb_00.webp",
+      "assets/img/amb_01.webp",
+      "assets/img/amb_02.webp",
+      "assets/img/amb_pl1.webp",
+      "assets/img/amb_pl1.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2018"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Santiago, Chile"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "320,000 m²"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Navisworks",
+      "AutoCAD"
+    ],
+    "name_en": "AMB International Airport Expansion",
+    "description_paragraphs_en": [
+      "The expansion of Arturo Merino Benítez International Airport represents one of the largest public infrastructure developments in Chile, adding 320,000 m² of modern passenger terminal facilities and boarding concourses.",
+      "The project involved massive steel roof trusses, concourses T2D, T2E, and T2F, high-performance facade framing, and multi-level parking garages with intensive multidisciplinary coordination.",
+      "As Structural BIM Modeler at CJV / SINCAL, I developed parametric 3D models in Revit Structures, detailed heavy steel moment and brace connections, and coordinated with airport MEP systems in Navisworks."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Ministry of Public Works (MOP) / Nuevo Pudahuel"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "CJV Construction / SINCAL"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2018 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Pudahuel, Santiago, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Aviation / Transportation (320,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Concrete Framing"
+      }
+    ],
+    "project_id": "P-026"
+  },
+  "P-019": {
+    "slug": "ingenieria-detalles-edificio-quimetal",
+    "description_paragraphs": [
+      "La Planta SO2 & Bisulfito de Sodio de Quimetal Industrial S.A. requirió el desarrollo completo de la ingeniería de detalles estructurales y modelado avanzado en Tekla Structures para sus dos edificaciones operativas principales: la Nave de Operaciones y la Nave de Acopio de Cenizas.",
+      "La Nave de Operaciones cuenta con una planta estructural de 40.08 metros de longitud por 19.60 metros de ancho, estructurada mediante marcos rígidos de perfiles soldados tipo IN (IN300x200x10x6 y perfiles ICHA), vigas de techumbre, costaneras de cubierta, sistemas de arriostramientos transversales/longitudinales y conexiones apernadas de alta resistencia ASTM A325.",
+      "La Nave de Acopio de Cenizas presenta una geometría asimétrica con alero perimetral de acceso. El proyecto sumó 91.68 toneladas de acero estructural detalladas íntegramente hasta el nivel de taller (planos de conjunto Assembly, partes Singles con radios mínimos de recorte de 10 mm y archivos CNC para maestranza JOMA)."
+    ],
+    "gallery_images": [
+      "assets/img/quimetal_portada.webp",
+      "assets/img/quimetal_pl01_operaciones_planta.webp",
+      "assets/img/quimetal_pl02_operaciones_elevaciones.webp",
+      "assets/img/quimetal_pl03_acopio_montaje.webp",
+      "assets/img/quimetal_3d_operaciones.webp",
+      "assets/img/quimetal_3d_acopio.webp",
+      "assets/img/quimetal_pl04_taller_columna.webp",
+      "assets/img/quimetal_pl05_taller_viga.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2018"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Santiago (Maipú), Chile"
+      },
+      {
+        "icon": "fa-solid fa-industry",
+        "label": "Estructuras",
+        "value": "Nave Operaciones (40x20m) & Nave Acopio Cenizas"
+      },
+      {
+        "icon": "fa-solid fa-weight-hanging",
+        "label": "Acero Estructural",
+        "value": "91.7 Toneladas (A36, E70XX, A325)"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Química"
+      }
+    ],
+    "technologies": [
+      "Tekla Structures",
+      "AutoCAD",
+      "WPS Detailing",
+      "CNC Data",
+      "Assembly Drawings"
+    ],
+    "name_en": "Quimetal Industrial Plant SO2 & Sodium Bisulfite Structural Detailing",
+    "description_paragraphs_en": [
+      "The SO2 & Sodium Bisulfite Plant at Quimetal Industrial S.A. required full structural detailing and advanced Tekla Structures 3D modeling for its two primary facilities: the Operations Building and the Ash Storage Building.",
+      "The Operations Building spans 40.08 m in length by 19.60 m in clear width, framed with rigid portal frames using welded plate I-shapes (IN300x200x10x6), roof girders, purlin grids, cross-bracing systems, and ASTM A325 high-strength bolted connections.",
+      "The Ash Storage Building incorporates an asymmetric layout with side canopy access. The project encompassed 91.68 metric tons of structural steel fully detailed down to fabrication level (Assembly shop sheets, single-part drawings with 10 mm corner radiuses, and CNC export for JOMA fabrication shop)."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Quimetal Industrial S.A. / Maestranza JOMA"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Detailing Office",
+        "value": "Work Point Solution (W.P.S.)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2018 · Detailed & Shop Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Santiago, Chile"
+      },
+      {
+        "icon": "fa-solid fa-industry",
+        "label": "Scope",
+        "value": "Operations Building (40x20m) & Ash Storage"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel A36 · 91.7 Metric Tons"
+      }
+    ],
+    "project_id": "P-019"
+  },
+  "P-020": {
+    "slug": "paso-los-libertadores",
+    "description_paragraphs": [
+      "Ubicado a más de 3,200 metros de altura en la frontera entre                 Chile y Argentina, el nuevo Complejo Fronterizo Los Libertadores                 presentó desafíos únicos de ingeniería y logística. El proyecto                 consistió en el modelado de las estructuras principales capaces                 de soportar condiciones climáticas extremas y cargas de nieve                 significativas.",
+      "Se utilizó Tekla Structures para el detallamiento preciso de las                 estructuras de acero y hormigón, asegurando un montaje eficiente                 en un entorno de difícil acceso. La coordinación con Revit y                 Navisworks permitió integrar las instalaciones y garantizar la                 operatividad del complejo."
+    ],
+    "gallery_images": [
+      "assets/img/pfll_00.webp",
+      "assets/img/pfll_01.webp",
+      "assets/img/pfll_02.webp",
+      "assets/img/pfll_03.webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2015"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Los Andes, Chile"
+      },
+      {
+        "icon": "fa-solid fa-ruler-combined",
+        "label": "Superficie",
+        "value": "35,000 m²"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      }
+    ],
+    "technologies": [
+      "Tekla",
+      "Revit"
+    ],
+    "name_en": "Los Libertadores International Border Complex",
+    "description_paragraphs_en": [
+      "High-mountain international border control complex situated at 3,200 meters above sea level in the Andes, covering 35,000 m² of passenger and freight control facilities.",
+      "Extreme design criteria including severe snow accumulation, sub-zero thermal gradients, and intense seismicity requiring heavy structural steel portal frames and precast concrete enclosures.",
+      "Developed Tekla Structures models for main passenger terminal trusses, vehicle inspection canopies, and workshop fabrication single part and assembly sheets."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Ministry of Public Works (MOP)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "CJV Construction / SIRVE"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2015 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Paso Los Libertadores, Andes Mountains (3,200m)"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Border Infrastructure (35,000 m²)"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel (Tekla Structures)"
+      }
+    ],
+    "project_id": "P-020"
+  },
+  "P-052": {
+    "slug": "desaladora-sto-domingo",
+    "description_paragraphs": [
+      "Este proyecto estratégico ubicado en la región de Atacama tiene                 como objetivo asegurar el suministro hídrico mediante la                 desalinización de agua de mar. El alcance del modelado incluyó                 componentes críticos como la sentina de captación, la sala                 eléctrica principal y la planta de ósmosis inversa.",
+      "Se utilizaron herramientas avanzadas como Revit y Civil 3D para                 integrar el diseño de las estructuras de hormigón armado con las                 complejas redes de tuberías y equipamiento mecánico, asegurando                 una coordinación perfecta entre las disciplinas civil,                 estructural y mecánica."
+    ],
+    "gallery_images": [
+      "assets/img/desal_00.webp",
+      "assets/img/desal_00 (1).webp",
+      "assets/img/desal_00 (2).webp",
+      "assets/img/desal_00 (4).webp",
+      "assets/img/desal_00 (5).webp"
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año",
+        "value": "2025"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Hidráulica"
+      }
+    ],
+    "technologies": [
+      "Revit",
+      "Civil 3D"
+    ],
+    "name_en": "Santo Domingo Seawater Desalination Plant",
+    "description_paragraphs_en": [
+      "Detailed engineering for civil and marine works of the Santo Domingo reverse osmosis seawater desalination plant, providing industrial water supply.",
+      "Includes the seawater intake sump, heavy brine discharge chambers, electrical distribution substations, and chemical treatment buildings.",
+      "Modeled civil and structural elements in Revit and Civil 3D with special focus on marine exposure durability, waterstops, and pipe penetrations."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Industrial Client"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Santo Domingo, Valparaíso Region, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Hydraulics / Water Treatment & Desalination"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Marine-grade Waterproofed Reinforced Concrete"
+      }
+    ],
+    "project_id": "P-052"
+  },
+  "P-041": {
+    "slug": "cmpc-santa-fe",
+    "description_paragraphs": [
+      "La Planta Santa Fe de CMPC Celulosa, emplazada en Nacimiento (Región del Bío Bío), es uno de los complejos industriales de pulpa de celulosa más grandes de Sudamérica. El proyecto desarrollado en AFRY (1520002303-001) abarcó la ingeniería de detalles multidisciplinaria para la modernización y ampliación de diversas áreas clave de proceso.",
+      "El núcleo del alcance estructural consistió en el modelado 3D BIM avanzado y detallamiento del 'Structure Dissolving Tank' (Área 267), incluyendo el estanque de disolución, torres de cañerías (piping towers), pasarelas de inspección técnica y plataformas operativas metálicas calculadas para resistir vibraciones, corrosión y altas temperaturas.",
+      "Asimismo, se ejecutó la ingeniería civil para las Salas Eléctricas (Área 261 CRP y Sala A-40), el diseño estructural de fundaciones masivas de hormigón armado, el trazado y cubicación del banco de ductos subterráneos de potencia (Área 282) y caminos industriales pavimentados. Todo el modelo fue federado y coordinado en Autodesk Navisworks para detección de interferencias (clash detection) previo a su montaje."
+    ],
+    "gallery_images": [
+      "assets/img/cmpc_santafe_portada.webp",
+      "assets/img/cmpc_santafe_01.webp",
+      "assets/img/cmpc_santafe_02.webp",
+      "assets/img/cmpc_santafe_03.webp"
+    ],
+    "image_url": "assets/img/cmpc_santafe_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Nacimiento, Bío Bío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Celulosa & Papel"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado + Hormigón Armado"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "Navisworks",
+      "AutoCAD",
+      "Clash Detection",
+      "BIM 3D"
+    ],
+    "name_en": "CMPC Pulp – Santa Fe Mill (Dissolving Tank & Civil Works)",
+    "description_paragraphs_en": [
+      "The Santa Fe Mill of CMPC Celulosa, located in Nacimiento (Biobío Region), is one of the largest pulp manufacturing complexes in South America. The engineering project developed at AFRY (1520002303-001) encompassed multidisciplinary detailed engineering for modernization and expansion of critical process areas.",
+      "The core structural scope comprised the advanced 3D BIM modeling and detailing of the 'Structure Dissolving Tank' (Area 267), including the dissolving tank structure, elevated piping towers, technical inspection catwalks, and heavy industrial steel operating platforms engineered to withstand dynamic vibration, chemical corrosion, and elevated process temperatures.",
+      "Additionally, the scope included civil and structural engineering for Electrical Rooms (Area 261 CRP and A-40 Room), massive reinforced concrete equipment foundations, 3D routing and material takeoffs for underground electrical duct banks (Area 282), and heavy paved industrial access roads. The entire multidisciplinary model was federated and clash-tested in Autodesk Navisworks prior to field erection."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CMPC Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Nacimiento, Biobío, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp & Paper Facility"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel & Reinforced Concrete"
+      }
+    ],
+    "project_id": "P-041"
+  },
+  "P-040": {
+    "slug": "montes-del-plata",
+    "description_paragraphs": [
+      "El complejo industrial Montes del Plata, ubicado en Punta Pereira (Departamento de Colonia, Uruguay), es una de las plantas de celulosa de eucalipto más modernas y eficientes a nivel mundial, operada en consorcio conjunto por ARAUCO y Stora Enso.",
+      "Los proyectos desarrollados por AFRY (152000289-001 y 152000290-001) comprendieron la ingeniería de detalles estructural y civil para dos hitos operacionales: la integración del sistema 'Feed Forward Depurador Secundario a Primario' en la línea de fibra y el desarrollo integral de la Rampa de Acceso Vehicular y Operacional (Access Ramp).",
+      "Como Proyectista Estructural, desarrollé la planimetría de fabricación y montaje de plataformas metálicas de mantenimiento, pasarelas peatonales de seguridad, escaleras de acceso a estanques cilíndricos de proceso, detalles de anclajes químicos a fundaciones de hormigón existentes y la coordinación espacial para evitar interferencias con los pipe racks y líneas presurizadas de pulpa."
+    ],
+    "gallery_images": [
+      "assets/img/mdp_depurador_portada.webp",
+      "assets/img/mdp_01.webp",
+      "assets/img/mdp_02.webp",
+      "assets/img/mdp_03.webp"
+    ],
+    "image_url": "assets/img/mdp_depurador_portada.webp",
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Montes del Plata (Arauco / Stora Enso)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2022–2023 · Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Punta Pereira, Colonia, Uruguay"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial / Planta de Celulosa"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Galvanizado + Hormigón"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit Structure",
+      "Detallamiento Metálico",
+      "Criterios Industriales"
+    ],
+    "name_en": "Montes del Plata – Pulp Mill Depurator Feed Forward & Access Ramp",
+    "description_paragraphs_en": [
+      "The Montes del Plata industrial complex, located in Punta Pereira (Colonia Department, Uruguay), is one of the world's most advanced eucalyptus pulp mills, jointly operated by ARAUCO and Stora Enso.",
+      "The engineering initiatives engineered by AFRY (Projects 152000289-001 and 152000290-001) comprised civil and structural detailed engineering for two key operational milestones: the 'Feed Forward Secondary to Primary Depurator' system integration in the fiberline and the comprehensive structural development of the Vehicular and Operational Access Ramp.",
+      "As Structural Project Designer, I authored the complete fabrication and erection drawing packages for elevated steel maintenance platforms, safety catwalks, process tank circular access stairs, chemical anchor connections onto existing reinforced concrete foundations, and spatial coordination with dense pipe racks and pressurized pulp lines."
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Montes del Plata (Arauco / Stora Enso)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "AFRY Chile"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2022–2023 · Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Punta Pereira, Colonia, Uruguay"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial / Pulp Manufacturing Complex"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Galvanized Structural Steel & Reinforced Concrete"
+      }
+    ],
+    "project_id": "P-040"
+  },
+  "P-049": {
+    "slug": "12684444-normalizacion-puentes-grua-dsal",
+    "project_id": "P-049",
+    "title": "12684444 - Normalización Puentes Grúa DSAL Codelco",
+    "name_en": "12684444 - Overhead Cranes Normalization Potrerillos Smelter DSAL Codelco",
+    "image_url": "assets/img/codelco_dsal_portada.webp",
+    "gallery_images": [
+      "assets/img/codelco_dsal_pl01.webp",
+      "assets/img/codelco_dsal_pl02.webp",
+      "assets/img/codelco_dsal_pl03.webp",
+      "assets/img/codelco_dsal_pl04.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería estructural para la evaluación de integridad, mapeo de hallazgos y normalización de puentes grúa principales en la Nave de Fundición del Complejo Industrial Potrerillos (División Salvador). Diseño de refuerzos estructurales en vigas cajón principales, testeras y consolas bajo norma CMAA-70 y estándar de fatalidades ECF-7 de Codelco.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de disposición general y detalles de refuerzo (láminas 4600030447_14-05270-202ES y 207ES), mapeo de grietas y memoria de cálculo de obras civiles/estructuras."
+    ],
+    "description_paragraphs_en": [
+      "Structural engineering for structural integrity assessment, defect mapping, and normalization of main overhead bridge cranes in the Smelter Aisle at Potrerillos Industrial Complex (Salvador Division). Design of structural reinforcements for main box girders, end trucks, and reducer brackets under CMAA-70 and Codelco ECF-7 corporate safety standard.",
+      "As part of GHD structural engineering team, scope of work encompassed: General arrangement and reinforcement detail drawings (sheets 4600030447_14-05270-202ES and 207ES), fatigue crack mapping, and structural assessment report."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CODELCO Chile (División Salvador)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12684444)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2026 — Ingeniería de Perfil"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Potrerillos, Diego de Almagro, Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CODELCO Chile (División Salvador)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12684444)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2026 — Scoping / Profile Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Potrerillos, Diego de Almagro, Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "CMAA-70",
+      "GHD-12684444"
+    ]
+  },
+  "P-051": {
+    "slug": "12593017-garden-city-skyway",
+    "project_id": "P-051",
+    "title": "12593017 - Garden City Skyway",
+    "name_en": "12593017 - Garden City Skyway (Twin Bridge)",
+    "image_url": "assets/img/garden_city_skyway_portada.webp",
+    "gallery_images": [
+      "assets/img/garden_city_skyway_pl01.webp",
+      "assets/img/garden_city_skyway_pl02.webp",
+      "assets/img/garden_city_skyway_pl03.webp"
+    ],
+    "description_paragraphs": [
+      "Estudio técnico de ingeniería, análisis de constructibilidad y revisión del sistema estructural del nuevo puente gemelo Garden City Skyway (Queen Elizabeth Way - QEW) sobre el Canal Welland en Ontario, Canadá. Modelado y análisis de celosías continuas de acero de gran luz, vigas cajón compuestas, apoyos elastoméricos y detallamiento de secuencias constructivas de izaje bajo normas MTO y CHBDC (CSA S6).",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Análisis técnico de constructibilidad, modelado preliminar de celosías de acero de gran luz, revisión de planos originales de 1985 y coordinación de secuencias de montaje para el puente gemelo."
+    ],
+    "description_paragraphs_en": [
+      "Engineering technical study, constructability analysis and structural system review for the new Garden City Skyway twin bridge (Queen Elizabeth Way - QEW) over the Welland Canal in Ontario, Canada. Modeling and analysis of high-span continuous steel trusses, composite box girders, elastomeric bearings and lifting erection sequencing detailing under MTO and CHBDC (CSA S6) bridge design codes.",
+      "As part of GHD structural engineering team, scope of work encompassed: Technical constructability review, preliminary long-span steel truss modeling, review of original 1985 drawings, and erection sequence coordination for the twin skyway bridge."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Ontario Ministry of Transportation (MTO)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12593017)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Diseño Preliminar y Constructibilidad"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "St. Catharines / Niagara, Ontario, Canadá"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural (Viga Celosía & Cajón)"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Ontario Ministry of Transportation (MTO)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12593017)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Preliminary Design & Constructability"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "St. Catharines / Niagara, Ontario, Canadá"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Infrastructure"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel (Truss & Box Girder)"
+      }
+    ],
+    "technologies": [
+      "Tekla Structures",
+      "AutoCAD",
+      "Bluebeam",
+      "GHD-12593017"
+    ]
+  },
+  "12593017-garden-city-skyway": {
+    "slug": "12593017-garden-city-skyway",
+    "project_id": "P-051",
+    "title": "12593017 - Garden City Skyway",
+    "name_en": "12593017 - Garden City Skyway (Twin Bridge)",
+    "image_url": "assets/img/garden_city_skyway_portada.webp",
+    "gallery_images": [
+      "assets/img/garden_city_skyway_pl01.webp",
+      "assets/img/garden_city_skyway_pl02.webp",
+      "assets/img/garden_city_skyway_pl03.webp"
+    ],
+    "description_paragraphs": [
+      "Estudio técnico de ingeniería, análisis de constructibilidad y revisión del sistema estructural del nuevo puente gemelo Garden City Skyway (Queen Elizabeth Way - QEW) sobre el Canal Welland en Ontario, Canadá. Modelado y análisis de celosías continuas de acero de gran luz, vigas cajón compuestas, apoyos elastoméricos y detallamiento de secuencias constructivas de izaje bajo normas MTO y CHBDC (CSA S6).",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Análisis técnico de constructibilidad, modelado preliminar de celosías de acero de gran luz, revisión de planos originales de 1985 y coordinación de secuencias de montaje para el puente gemelo."
+    ],
+    "description_paragraphs_en": [
+      "Engineering technical study, constructability analysis and structural system review for the new Garden City Skyway twin bridge (Queen Elizabeth Way - QEW) over the Welland Canal in Ontario, Canada. Modeling and analysis of high-span continuous steel trusses, composite box girders, elastomeric bearings and lifting erection sequencing detailing under MTO and CHBDC (CSA S6) bridge design codes.",
+      "As part of GHD structural engineering team, scope of work encompassed: Technical constructability review, preliminary long-span steel truss modeling, review of original 1985 drawings, and erection sequence coordination for the twin skyway bridge."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Ontario Ministry of Transportation (MTO)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12593017)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Diseño Preliminar y Constructibilidad"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "St. Catharines / Niagara, Ontario, Canadá"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural (Viga Celosía & Cajón)"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Ontario Ministry of Transportation (MTO)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12593017)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Preliminary Design & Constructability"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "St. Catharines / Niagara, Ontario, Canadá"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Infrastructure"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel (Truss & Box Girder)"
+      }
+    ],
+    "technologies": [
+      "Tekla Structures",
+      "AutoCAD",
+      "Bluebeam",
+      "GHD-12593017"
+    ]
+  },
+  "P-048": {
+    "slug": "12640527-asesoria-proteccion-socavacion",
+    "project_id": "P-048",
+    "title": "12640527 - Servicio de Asesoría para la Protección contra la Socavación",
+    "name_en": "12640527 - Scour Protection Advisory & Tailings Pumping Foundations",
+    "image_url": "assets/img/estanque_agua_portada.webp",
+    "gallery_images": [
+      "assets/img/estanque_agua_portada.webp"
+    ],
+    "description_paragraphs": [
+      "Servicio de asesoría técnica y diseño estructural para obras de protección contra la socavación y acondicionamiento estructural de piscina de relaves mineros. Desarrollo de planimetría de formas y fundaciones del estanque de agua a alta presión, soleras de hormigón armado, muros de contención y sistemas de bombeo de relaves.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de formas y fundaciones de estanque, detalle de acondicionamiento de soleras, muros de contención contra socavación y cubicaciones."
+    ],
+    "description_paragraphs_en": [
+      "Technical advisory service and structural design for scour protection works and structural conditioning of a mining tailings pond. Development of formwork and foundation drawings for high-pressure water tank, reinforced concrete slabs, retaining walls, and tailings pumping stations.",
+      "As part of GHD structural engineering team, scope of work encompassed: Formwork and foundation drawing drafting for water tank, scour protection retaining walls, pumping station detailing, and material quantities."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Confidencial (Minería / Relaves)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12640527)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalle"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Chile, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Confidencial (Minería / Relaves)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12640527)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Chile, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "GHD-12640527"
+    ]
+  },
+  "12640527-asesoria-proteccion-socavacion": {
+    "slug": "12640527-asesoria-proteccion-socavacion",
+    "project_id": "P-048",
+    "title": "12640527 - Servicio de Asesoría para la Protección contra la Socavación",
+    "name_en": "12640527 - Scour Protection Advisory & Tailings Pumping Foundations",
+    "image_url": "assets/img/estanque_agua_portada.webp",
+    "gallery_images": [
+      "assets/img/estanque_agua_portada.webp"
+    ],
+    "description_paragraphs": [
+      "Servicio de asesoría técnica y diseño estructural para obras de protección contra la socavación y acondicionamiento estructural de piscina de relaves mineros. Desarrollo de planimetría de formas y fundaciones del estanque de agua a alta presión, soleras de hormigón armado, muros de contención y sistemas de bombeo de relaves.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de formas y fundaciones de estanque, detalle de acondicionamiento de soleras, muros de contención contra socavación y cubicaciones."
+    ],
+    "description_paragraphs_en": [
+      "Technical advisory service and structural design for scour protection works and structural conditioning of a mining tailings pond. Development of formwork and foundation drawings for high-pressure water tank, reinforced concrete slabs, retaining walls, and tailings pumping stations.",
+      "As part of GHD structural engineering team, scope of work encompassed: Formwork and foundation drawing drafting for water tank, scour protection retaining walls, pumping station detailing, and material quantities."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Confidencial (Minería / Relaves)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12640527)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalle"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Chile, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Confidencial (Minería / Relaves)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12640527)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Chile, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "GHD-12640527"
+    ]
+  },
+  "12641576-remocion-tranque-perez-caldera": {
+    "slug": "12641576-remocion-tranque-perez-caldera",
+    "project_id": "P-044",
+    "title": "12641576 - Ingeniería Alternativa Remoción Tranque Pérez Caldera (PCTR)",
+    "name_en": "12641576 - Alternative Engineering Pérez Caldera Tailings Removal Project (PCTR)",
+    "image_url": "assets/img/tranque_perez_portada.webp",
+    "gallery_images": [
+      "assets/img/tranque_perez_portada.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería alternativa y desarrollo de planos estructurales para el proyecto de remediación y remoción del tranque de relaves Pérez Caldera (PCTR) de Anglo American. Diseño de canaletas metálicas, tolvas de descarga, pasarelas de inspección, fundaciones de hormigón armado y estructuras de soporte civil para transporte de relaves remanentes.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Modelado y detallamiento de planos estructurales (láminas 85-12641576-00000-ST-DRW-0025 a 0034), cubicaciones de perfiles de acero, conexiones apernadas/soldadas y coordinación interdisciplinaria."
+    ],
+    "description_paragraphs_en": [
+      "Alternative structural engineering and construction drawing development for the Pérez Caldera tailings dam removal and environmental remediation project (PCTR) for Anglo American. Design of structural steel chutes, discharge hoppers, inspection catwalks, reinforced concrete foundations, and civil support structures for tailings slurry transport.",
+      "As part of GHD structural engineering team, scope of work encompassed: Structural drawings detailing (sheets 85-12641576-00000-ST-DRW-0025 to 0034), structural steel takeoff, bolted/welded connection design, and multidisciplinary clash review."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Anglo American (Los Bronces / Tranque Pérez Caldera)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12641576)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2024–2025 — Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Lo Barnechea, Región Metropolitana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural y Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Anglo American (Los Bronces / Tranque Pérez Caldera)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12641576)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2024–2025 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Lo Barnechea, Región Metropolitana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel & Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Revit Structure",
+      "Navisworks",
+      "GHD-12641576"
+    ]
+  },
+  "P-043": {
+    "slug": "12658981-filtro-armonicos-candelaria",
+    "project_id": "P-043",
+    "title": "12658981 - Ingeniería Básica Reemplazo Filtro de Armónicos 23 kV, Subestación Principal",
+    "name_en": "12658981 - Basic Engineering 23 kV Harmonic Filter Replacement, Main Substation",
+    "image_url": "assets/img/candelaria_filtro_portada.webp",
+    "gallery_images": [
+      "assets/img/candelaria_filtro_pl01.webp",
+      "assets/img/candelaria_filtro_pl02.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería básica civil y estructural para el reemplazo y reconfiguración de los bancos de filtros de armónicos de 23 kV en la Subestación Eléctrica Principal de Minera Candelaria. Diseño y cubicación de fundaciones de hormigón armado, pedestales para reactores y condensadores, trincheras de cables y muros cortafuego.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de fundaciones Fase 1 y Fase 2 (Rev A a Rev Q, láminas 85-12658981-00000-CI-DRW-0001 y 0002), cubicación de hormigón y armaduras, integración con ingeniería eléctrica."
+    ],
+    "description_paragraphs_en": [
+      "Civil and structural basic engineering for the replacement and overhaul of the 23 kV harmonic filter banks at Minera Candelaria Main Electrical Substation. Design and quantities of reinforced concrete foundations, pedestals for reactors and capacitors, cable trenches, and blast/firewall barriers.",
+      "As part of GHD structural engineering team, scope of work encompassed: Drafting and detailing of Phase 1 & Phase 2 foundation drawings (Rev A through Rev Q, sheets 85-12658981-00000-CI-DRW-0001 and 0002), concrete/rebar takeoffs, electrical disciplines coordination."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Minera Candelaria (Lundin Mining)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12658981)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería Básica"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Tierra Amarilla, Región de Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Minera Candelaria (Lundin Mining)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12658981)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Basic Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Tierra Amarilla, Región de Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Autodesk Civil 3D",
+      "GHD-12658981"
+    ]
+  },
+  "12658981-filtro-armonicos-candelaria": {
+    "slug": "12658981-filtro-armonicos-candelaria",
+    "project_id": "P-043",
+    "title": "12658981 - Ingeniería Básica Reemplazo Filtro de Armónicos 23 kV, Subestación Principal",
+    "name_en": "12658981 - Basic Engineering 23 kV Harmonic Filter Replacement, Main Substation",
+    "image_url": "assets/img/candelaria_filtro_portada.webp",
+    "gallery_images": [
+      "assets/img/candelaria_filtro_pl01.webp",
+      "assets/img/candelaria_filtro_pl02.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería básica civil y estructural para el reemplazo y reconfiguración de los bancos de filtros de armónicos de 23 kV en la Subestación Eléctrica Principal de Minera Candelaria. Diseño y cubicación de fundaciones de hormigón armado, pedestales para reactores y condensadores, trincheras de cables y muros cortafuego.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de fundaciones Fase 1 y Fase 2 (Rev A a Rev Q, láminas 85-12658981-00000-CI-DRW-0001 y 0002), cubicación de hormigón y armaduras, integración con ingeniería eléctrica."
+    ],
+    "description_paragraphs_en": [
+      "Civil and structural basic engineering for the replacement and overhaul of the 23 kV harmonic filter banks at Minera Candelaria Main Electrical Substation. Design and quantities of reinforced concrete foundations, pedestals for reactors and capacitors, cable trenches, and blast/firewall barriers.",
+      "As part of GHD structural engineering team, scope of work encompassed: Drafting and detailing of Phase 1 & Phase 2 foundation drawings (Rev A through Rev Q, sheets 85-12658981-00000-CI-DRW-0001 and 0002), concrete/rebar takeoffs, electrical disciplines coordination."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Minera Candelaria (Lundin Mining)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12658981)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería Básica"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Tierra Amarilla, Región de Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Minera Candelaria (Lundin Mining)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12658981)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Basic Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Tierra Amarilla, Región de Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Autodesk Civil 3D",
+      "GHD-12658981"
+    ]
+  },
+  "P-053": {
+    "slug": "12668262-piscinas-refino-bhp",
+    "project_id": "P-053",
+    "title": "12668262 - Primera Etapa Piscinas Refino BHP",
+    "name_en": "12668262 - First Stage Raffinate Ponds BHP Minerals Americas",
+    "image_url": "assets/img/bhp_piscinas_refino_portada.webp",
+    "gallery_images": [
+      "assets/img/bhp_piscinas_refino_pl01.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de detalle y disposición general para la Primera Etapa de las Piscinas de Refino en la planta de lixiviación y extracción por solventes (SX-EW) de BHP Minerals Americas. Detallamiento estructural de sentinas de drenaje de soluciones ácidas, losas de hormigón resistente a sulfatos, muros de contención perimetral, anclajes de geomembrana HDPE y coordinación de tie-ins con la planta en operación.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Desarrollo de planos estructurales (85-12668262-00000-ST-DRW-0001), esquemas de sentinas 1 a 4, calicatas estructurales MEL, cubicaciones de hormigón y acero de refuerzo."
+    ],
+    "description_paragraphs_en": [
+      "Detailed engineering and general arrangement for the First Stage of Raffinate Ponds in the solvent extraction and electrowinning (SX-EW) plant of BHP Minerals Americas. Structural detailing of acid solution drainage sumps, sulfate-resistant concrete slabs, perimeter containment walls, HDPE geomembrane anchor trenches, and operational plant tie-ins coordination.",
+      "As part of GHD structural engineering team, scope of work encompassed: Structural drawing development (85-12668262-00000-ST-DRW-0001), sump schemes 1 through 4, MEL structural test pit coordination, rebar and concrete takeoffs."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "BHP Minerals Americas (Minera Escondida - MEL)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12668262)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Antofagasta, Región de Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado y Revestimientos HDPE"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "BHP Minerals Americas (Minera Escondida - MEL)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12668262)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Antofagasta, Región de Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete & HDPE Liners"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Civil 3D",
+      "Detallamiento Estructural",
+      "GHD-12668262"
+    ]
+  },
+  "12668262-piscinas-refino-bhp": {
+    "slug": "12668262-piscinas-refino-bhp",
+    "project_id": "P-053",
+    "title": "12668262 - Primera Etapa Piscinas Refino BHP",
+    "name_en": "12668262 - First Stage Raffinate Ponds BHP Minerals Americas",
+    "image_url": "assets/img/bhp_piscinas_refino_portada.webp",
+    "gallery_images": [
+      "assets/img/bhp_piscinas_refino_pl01.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de detalle y disposición general para la Primera Etapa de las Piscinas de Refino en la planta de lixiviación y extracción por solventes (SX-EW) de BHP Minerals Americas. Detallamiento estructural de sentinas de drenaje de soluciones ácidas, losas de hormigón resistente a sulfatos, muros de contención perimetral, anclajes de geomembrana HDPE y coordinación de tie-ins con la planta en operación.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Desarrollo de planos estructurales (85-12668262-00000-ST-DRW-0001), esquemas de sentinas 1 a 4, calicatas estructurales MEL, cubicaciones de hormigón y acero de refuerzo."
+    ],
+    "description_paragraphs_en": [
+      "Detailed engineering and general arrangement for the First Stage of Raffinate Ponds in the solvent extraction and electrowinning (SX-EW) plant of BHP Minerals Americas. Structural detailing of acid solution drainage sumps, sulfate-resistant concrete slabs, perimeter containment walls, HDPE geomembrane anchor trenches, and operational plant tie-ins coordination.",
+      "As part of GHD structural engineering team, scope of work encompassed: Structural drawing development (85-12668262-00000-ST-DRW-0001), sump schemes 1 through 4, MEL structural test pit coordination, rebar and concrete takeoffs."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "BHP Minerals Americas (Minera Escondida - MEL)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12668262)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Antofagasta, Región de Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado y Revestimientos HDPE"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "BHP Minerals Americas (Minera Escondida - MEL)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12668262)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Antofagasta, Región de Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete & HDPE Liners"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Civil 3D",
+      "Detallamiento Estructural",
+      "GHD-12668262"
+    ]
+  },
+  "P-050": {
+    "slug": "12673268-reemplazo-centrifuga-albemarle",
+    "project_id": "P-050",
+    "title": "12673268 - Reemplazo Centrífuga Albemarle",
+    "name_en": "12673268 - Centrifuge Replacement & Rigging Albemarle La Negra Plant",
+    "image_url": "assets/img/albemarle_centrifuga_portada.webp",
+    "gallery_images": [
+      "assets/img/albemarle_centrifuga_pl01.webp",
+      "assets/img/albemarle_centrifuga_pl02.webp",
+      "assets/img/albemarle_centrifuga_pl03.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de detalle y procedimientos de maniobras de izaje para el reemplazo de centrífuga industrial en el 4° nivel (El. +474.950) de la Planta La Negra de Albemarle. Diseño de sistemas de monorrieles, vigas de traslación W12x50, tecles y yugo de izaje, desmontaje temporal de barandas y validación de interferencias con líneas de proceso.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de disposición general y detalles constructivos (láminas RM23112-GHD-ES-82-GAD-0004 a 0006 y DTL-0003), secuencia de izaje por niveles (+445 a +474) y notas de seguridad HSE."
+    ],
+    "description_paragraphs_en": [
+      "Detailed engineering and heavy rigging erection procedures for industrial centrifuge replacement on the 4th level (El. +474.950) at Albemarle La Negra Plant. Design of monorail beam systems, W12x50 transfer trolley tracks, spreader beams, temporary handrail removal, and clash validation with live process piping.",
+      "As part of GHD structural engineering team, scope of work encompassed: General arrangement and erection drawing drafting (sheets RM23112-GHD-ES-82-GAD-0004 through 0006 and DTL-0003), multi-level rigging sequence (+445 to +474), and HSE safety protocol notes."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Albemarle Corporation"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12673268)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalles y Montaje"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "La Negra, Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural (Maniobras & Refuerzo)"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Albemarle Corporation"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12673268)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering & Erection"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "La Negra, Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel (Rigging & Reinforcement)"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento de Maniobras",
+      "GHD-12673268"
+    ]
+  },
+  "12673268-reemplazo-centrifuga-albemarle": {
+    "slug": "12673268-reemplazo-centrifuga-albemarle",
+    "project_id": "P-050",
+    "title": "12673268 - Reemplazo Centrífuga Albemarle",
+    "name_en": "12673268 - Centrifuge Replacement & Rigging Albemarle La Negra Plant",
+    "image_url": "assets/img/albemarle_centrifuga_portada.webp",
+    "gallery_images": [
+      "assets/img/albemarle_centrifuga_pl01.webp",
+      "assets/img/albemarle_centrifuga_pl02.webp",
+      "assets/img/albemarle_centrifuga_pl03.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de detalle y procedimientos de maniobras de izaje para el reemplazo de centrífuga industrial en el 4° nivel (El. +474.950) de la Planta La Negra de Albemarle. Diseño de sistemas de monorrieles, vigas de traslación W12x50, tecles y yugo de izaje, desmontaje temporal de barandas y validación de interferencias con líneas de proceso.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de disposición general y detalles constructivos (láminas RM23112-GHD-ES-82-GAD-0004 a 0006 y DTL-0003), secuencia de izaje por niveles (+445 a +474) y notas de seguridad HSE."
+    ],
+    "description_paragraphs_en": [
+      "Detailed engineering and heavy rigging erection procedures for industrial centrifuge replacement on the 4th level (El. +474.950) at Albemarle La Negra Plant. Design of monorail beam systems, W12x50 transfer trolley tracks, spreader beams, temporary handrail removal, and clash validation with live process piping.",
+      "As part of GHD structural engineering team, scope of work encompassed: General arrangement and erection drawing drafting (sheets RM23112-GHD-ES-82-GAD-0004 through 0006 and DTL-0003), multi-level rigging sequence (+445 to +474), and HSE safety protocol notes."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Albemarle Corporation"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12673268)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalles y Montaje"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "La Negra, Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Industrial"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural (Maniobras & Refuerzo)"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Albemarle Corporation"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12673268)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering & Erection"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "La Negra, Antofagasta, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Industrial"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Structural Steel (Rigging & Reinforcement)"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento de Maniobras",
+      "GHD-12673268"
+    ]
+  },
+  "P-046": {
+    "slug": "12673272-ot181-estaciones-efe-batuco",
+    "project_id": "P-046",
+    "title": "12673272 - OT181 Estaciones Tren Santiago - Batuco EFE",
+    "name_en": "12673272 - OT181 Railway Stations Santiago - Batuco EFE",
+    "image_url": "assets/img/efe_batuco_portada.webp",
+    "gallery_images": [
+      "assets/img/efe_batuco_01.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de detalle y modelado BIM estructural de segundos accesos y andenes en faja vía para 5 estaciones del proyecto Tren Santiago - Batuco de EFE: Estación Batuco, Colina, Las Industrias, Renca y Valle Grande. Modelado paramétrico 3D de armaduras (Rebar) en Revit Structure, planos de armaduras para construcción, cubicaciones automáticas y exportación de modelos federados IFC.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Modelado 3D de armaduras en Revit (láminas 12673272-GHD-OT181-QL-MDL-ST-00001 a 00005), coordinación de interferencias en Navisworks, tablas de barras y cubicaciones de hormigón."
+    ],
+    "description_paragraphs_en": [
+      "Detailed structural BIM engineering for second passenger accesses and platforms within railway right-of-way across 5 stations of EFE Santiago - Batuco commuter rail: Batuco, Colina, Las Industrias, Renca, and Valle Grande. Full 3D parametric rebar modeling in Revit Structure, construction rebar detailing drawings, automated BOQ takeoffs, and federated IFC model exports.",
+      "As part of GHD structural engineering team, scope of work encompassed: Full 3D rebar modeling in Revit (models 12673272-GHD-OT181-QL-MDL-ST-00001 through 00005), clash detection in Navisworks, bar bending schedules and concrete volume takeoff."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "EFE Trenes de Chile"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12673272)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Santiago / Batuco, Región Metropolitana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "EFE Trenes de Chile"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12673272)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Santiago / Batuco, Región Metropolitana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Infrastructure"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "Navisworks",
+      "IFC",
+      "GHD-12673272"
+    ]
+  },
+  "12673272-ot181-estaciones-efe-batuco": {
+    "slug": "12673272-ot181-estaciones-efe-batuco",
+    "project_id": "P-046",
+    "title": "12673272 - OT181 Estaciones Tren Santiago - Batuco EFE",
+    "name_en": "12673272 - OT181 Railway Stations Santiago - Batuco EFE",
+    "image_url": "assets/img/efe_batuco_portada.webp",
+    "gallery_images": [
+      "assets/img/efe_batuco_01.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de detalle y modelado BIM estructural de segundos accesos y andenes en faja vía para 5 estaciones del proyecto Tren Santiago - Batuco de EFE: Estación Batuco, Colina, Las Industrias, Renca y Valle Grande. Modelado paramétrico 3D de armaduras (Rebar) en Revit Structure, planos de armaduras para construcción, cubicaciones automáticas y exportación de modelos federados IFC.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Modelado 3D de armaduras en Revit (láminas 12673272-GHD-OT181-QL-MDL-ST-00001 a 00005), coordinación de interferencias en Navisworks, tablas de barras y cubicaciones de hormigón."
+    ],
+    "description_paragraphs_en": [
+      "Detailed structural BIM engineering for second passenger accesses and platforms within railway right-of-way across 5 stations of EFE Santiago - Batuco commuter rail: Batuco, Colina, Las Industrias, Renca, and Valle Grande. Full 3D parametric rebar modeling in Revit Structure, construction rebar detailing drawings, automated BOQ takeoffs, and federated IFC model exports.",
+      "As part of GHD structural engineering team, scope of work encompassed: Full 3D rebar modeling in Revit (models 12673272-GHD-OT181-QL-MDL-ST-00001 through 00005), clash detection in Navisworks, bar bending schedules and concrete volume takeoff."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "EFE Trenes de Chile"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12673272)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2025–2026 — Ingeniería de Detalles"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Santiago / Batuco, Región Metropolitana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Infraestructura"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "EFE Trenes de Chile"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12673272)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2025–2026 — Detailed Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Santiago / Batuco, Región Metropolitana, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Infrastructure"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete"
+      }
+    ],
+    "technologies": [
+      "Revit Structure",
+      "Navisworks",
+      "IFC",
+      "GHD-12673272"
+    ]
+  },
+  "12684444-normalizacion-puentes-grua-dsal": {
+    "slug": "12684444-normalizacion-puentes-grua-dsal",
+    "project_id": "P-049",
+    "title": "12684444 - Normalización Puentes Grúa DSAL Codelco",
+    "name_en": "12684444 - Overhead Cranes Normalization Potrerillos Smelter DSAL Codelco",
+    "image_url": "assets/img/codelco_dsal_portada.webp",
+    "gallery_images": [
+      "assets/img/codelco_dsal_pl01.webp",
+      "assets/img/codelco_dsal_pl02.webp",
+      "assets/img/codelco_dsal_pl03.webp",
+      "assets/img/codelco_dsal_pl04.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería estructural para la evaluación de integridad, mapeo de hallazgos y normalización de puentes grúa principales en la Nave de Fundición del Complejo Industrial Potrerillos (División Salvador). Diseño de refuerzos estructurales en vigas cajón principales, testeras y consolas bajo norma CMAA-70 y estándar de fatalidades ECF-7 de Codelco.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de disposición general y detalles de refuerzo (láminas 4600030447_14-05270-202ES y 207ES), mapeo de grietas y memoria de cálculo de obras civiles/estructuras."
+    ],
+    "description_paragraphs_en": [
+      "Structural engineering for structural integrity assessment, defect mapping, and normalization of main overhead bridge cranes in the Smelter Aisle at Potrerillos Industrial Complex (Salvador Division). Design of structural reinforcements for main box girders, end trucks, and reducer brackets under CMAA-70 and Codelco ECF-7 corporate safety standard.",
+      "As part of GHD structural engineering team, scope of work encompassed: General arrangement and reinforcement detail drawings (sheets 4600030447_14-05270-202ES and 207ES), fatigue crack mapping, and structural assessment report."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "CODELCO Chile (División Salvador)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12684444)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2026 — Ingeniería de Perfil"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Potrerillos, Diego de Almagro, Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Acero Estructural Pesado"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "CODELCO Chile (División Salvador)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12684444)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2026 — Scoping / Profile Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Potrerillos, Diego de Almagro, Atacama, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Heavy Structural Steel"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "CMAA-70",
+      "GHD-12684444"
+    ]
+  },
+  "P-047": {
+    "slug": "12688063-ot25039-piscina-concentrado-mlp",
+    "project_id": "P-047",
+    "title": "12688063 - OT25039 Nueva Piscina de Almacenamiento Concentrado MLP",
+    "name_en": "12688063 - OT25039 New Concentrate Storage Pond Feasibility Engineering MLP",
+    "image_url": "assets/img/mlp_piscina_concentrado_portada.webp",
+    "gallery_images": [
+      "assets/img/mlp_piscina_concentrado_pl01.webp",
+      "assets/img/mlp_piscina_concentrado_pl02.webp",
+      "assets/img/mlp_piscina_concentrado_pl03.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de factibilidad y planos de construcción para la Nueva Piscina de Almacenamiento de Concentrado de Cobre en sector Chacay de Minera Los Pelambres. Diseño y detallamiento estructural de losas de fondo de hormigón armado, muros perimetrales, confinamiento con geocelda TW358, geomembrana HDPE y sistema de drenaje de aguas de contacto.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de plantas, elevaciones y secciones estructurales (láminas 12688063-GHD-0-0-DRG-ST-D001 a D008 y serie 0046/0049), cubicaciones de armaduras y coordinación con SDI."
+    ],
+    "description_paragraphs_en": [
+      "Feasibility engineering and construction drawings for the New Copper Concentrate Storage Pond at Chacay area, Minera Los Pelambres. Structural design and detailing of reinforced concrete base slabs, perimeter retaining walls, TW358 geocell confinement, HDPE geomembrane lining, and contact water drainage systems.",
+      "As part of GHD structural engineering team, scope of work encompassed: Drafting of structural plans, elevations, and sections (sheets 12688063-GHD-0-0-DRG-ST-D001 through D008 and 0046/0049 series), rebar takeoff schedules, and SDI coordination."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Minera Los Pelambres (AMSA / Antofagasta Minerals)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12688063)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2026 — Ingeniería de Factibilidad"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Coquimbo – Los Vilos / Planta Chacay, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado, Geoceldas & Geocompuestos"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Minera Los Pelambres (AMSA / Antofagasta Minerals)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12688063)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2026 — Feasibility Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Coquimbo – Los Vilos / Planta Chacay, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete, Geocells & Geocomposites"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "GHD-12688063"
+    ]
+  },
+  "12688063-ot25039-piscina-concentrado-mlp": {
+    "slug": "12688063-ot25039-piscina-concentrado-mlp",
+    "project_id": "P-047",
+    "title": "12688063 - OT25039 Nueva Piscina de Almacenamiento Concentrado MLP",
+    "name_en": "12688063 - OT25039 New Concentrate Storage Pond Feasibility Engineering MLP",
+    "image_url": "assets/img/mlp_piscina_concentrado_portada.webp",
+    "gallery_images": [
+      "assets/img/mlp_piscina_concentrado_pl01.webp",
+      "assets/img/mlp_piscina_concentrado_pl02.webp",
+      "assets/img/mlp_piscina_concentrado_pl03.webp"
+    ],
+    "description_paragraphs": [
+      "Ingeniería de factibilidad y planos de construcción para la Nueva Piscina de Almacenamiento de Concentrado de Cobre en sector Chacay de Minera Los Pelambres. Diseño y detallamiento estructural de losas de fondo de hormigón armado, muros perimetrales, confinamiento con geocelda TW358, geomembrana HDPE y sistema de drenaje de aguas de contacto.",
+      "Como parte del equipo de ingeniería estructural de GHD, las responsabilidades abarcaron: Elaboración de planos de plantas, elevaciones y secciones estructurales (láminas 12688063-GHD-0-0-DRG-ST-D001 a D008 y serie 0046/0049), cubicaciones de armaduras y coordinación con SDI."
+    ],
+    "description_paragraphs_en": [
+      "Feasibility engineering and construction drawings for the New Copper Concentrate Storage Pond at Chacay area, Minera Los Pelambres. Structural design and detailing of reinforced concrete base slabs, perimeter retaining walls, TW358 geocell confinement, HDPE geomembrane lining, and contact water drainage systems.",
+      "As part of GHD structural engineering team, scope of work encompassed: Drafting of structural plans, elevations, and sections (sheets 12688063-GHD-0-0-DRG-ST-D001 through D008 and 0046/0049 series), rebar takeoff schedules, and SDI coordination."
+    ],
+    "specs": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Mandante / Cliente",
+        "value": "Minera Los Pelambres (AMSA / Antofagasta Minerals)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Consultora",
+        "value": "GHD (Proyecto 12688063)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Año / Fase",
+        "value": "2026 — Ingeniería de Factibilidad"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Ubicación",
+        "value": "Coquimbo – Los Vilos / Planta Chacay, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Categoría",
+        "value": "Minería"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materialidad",
+        "value": "Hormigón Armado, Geoceldas & Geocompuestos"
+      }
+    ],
+    "specs_en": [
+      {
+        "icon": "fa-solid fa-building",
+        "label": "Client / Owner",
+        "value": "Minera Los Pelambres (AMSA / Antofagasta Minerals)"
+      },
+      {
+        "icon": "fa-solid fa-briefcase",
+        "label": "Engineering Firm",
+        "value": "GHD (Project 12688063)"
+      },
+      {
+        "icon": "fa-solid fa-calendar-days",
+        "label": "Year / Phase",
+        "value": "2026 — Feasibility Engineering"
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "label": "Location",
+        "value": "Coquimbo – Los Vilos / Planta Chacay, Chile"
+      },
+      {
+        "icon": "fa-solid fa-layer-group",
+        "label": "Category",
+        "value": "Mining"
+      },
+      {
+        "icon": "fa-solid fa-cubes",
+        "label": "Materiality",
+        "value": "Reinforced Concrete, Geocells & Geocomposites"
+      }
+    ],
+    "technologies": [
+      "AutoCAD",
+      "Detallamiento Estructural",
+      "GHD-12688063"
     ]
   }
 }

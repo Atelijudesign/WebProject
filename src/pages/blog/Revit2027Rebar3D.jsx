@@ -6,6 +6,7 @@ import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function Revit2027Rebar3D() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -58,12 +59,7 @@ Rebar rebar = Rebar.CreateFromRebarShape(
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link
-              to="/blog"
-              className="text-bim-blue hover:text-cyan-400 text-sm font-medium transition-colors inline-flex items-center gap-1"
-            >
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -259,7 +255,7 @@ Rebar rebar = Rebar.CreateFromRebarShape(
           {/* Conclusion */}
           <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-800/60 border-l-4 border-l-cyan-500">
             <h3 className="text-xl font-extrabold text-white mb-3 flex items-center gap-2">
-              <i className="fa-solid fa-lightbulb text-yellow-400" /> Conclusión para Proyectistas Estructurales
+              <i className="fa-solid fa-lightbulb text-yellow-400" /> Conclusión para Diseñadores Estructurales
             </h3>
             <p className="text-slate-300 text-sm leading-relaxed mb-0">
               La colocación 3D directa de enfierraduras en Revit 2027.1 posiciona a Revit al nivel de herramientas especializadas de detallado como Tekla Structures o Allplan, reduciendo drásticamente la barrera de entrada para modelar estructuras de hormigón armado de alta densidad.

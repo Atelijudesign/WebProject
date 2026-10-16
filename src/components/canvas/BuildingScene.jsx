@@ -1,10 +1,10 @@
-import { Component, Suspense, useMemo, useRef } from "react";
+import { Component, Suspense, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, useGLTF } from "@react-three/drei";
 import { easing } from "maath";
+import { track3DModelActivated } from "../../utils/analytics";
 
 function Model() {
-  // Ultra-fast GLB loading (~1-3 seconds instead of 17s)
   const { scene } = useGLTF("/models/nave-licuadores.glb");
   return <primitive object={scene} />;
 }
@@ -104,7 +104,6 @@ function InteractiveModelGroup({ children }) {
 
   useFrame((state, delta) => {
     if (groupRef.current) {
-      // Damping ultra-suave reactivo a la posición del cursor (Skill Three.js Animation)
       easing.dampE(
         groupRef.current.rotation,
         [state.pointer.y * 0.15, state.pointer.x * 0.35 + state.clock.elapsedTime * 0.02, 0],
@@ -159,10 +158,74 @@ function SceneContent() {
   );
 }
 
-/* ── Main Exported Component ── */
-export default function BuildingScene() {
+/* ── Poster Ligero de Activación Bajo Demanda (0 KB Three.js / 0 KB GLB para Bots) ── */
+function Model3DPoster({ onActivate }) {
   return (
-    <div className="hero-canvas-wrapper">
+    <div className="relative w-full h-full min-h-[220px] rounded-2xl overflow-hidden border border-cyan-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950/60 p-6 flex flex-col justify-between items-center text-center group">
+      {/* Fondo con grilla arquitectónica animada en CSS */}
+      <div 
+        className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]" 
+      />
+      <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Insignia superior */}
+      <div className="relative z-10 flex items-center justify-between w-full">
+        <span className="px-2.5 py-1 rounded-full bg-slate-900/90 border border-cyan-500/30 text-[10px] font-mono text-cyan-300 font-bold flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+          Nave Licuadores 3D
+        </span>
+        <span className="text-[10px] font-mono text-slate-400">
+          791k polígonos
+        </span>
+      </div>
+
+      {/* Contenido Central: Vista Previa y Botón de Activación */}
+      <div className="relative z-10 my-auto py-2 flex flex-col items-center">
+        <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-cyan-300 text-2xl mb-3 shadow-lg shadow-cyan-500/10 group-hover:scale-110 transition-transform">
+          <i className="fa-solid fa-cube animate-pulse" />
+        </div>
+        <h4 className="text-sm font-bold text-white tracking-wide font-mono">
+          Modelo Estructural Interactivo
+        </h4>
+        <p className="text-xs text-slate-400 mt-1 max-w-xs font-light leading-relaxed">
+          Haz clic para cargar la geometría 3D en tiempo real con órbita 360°, damping y zoom.
+        </p>
+
+        <button
+          onClick={onActivate}
+          className="mt-4 px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:scale-105 transition-all flex items-center gap-2 font-mono"
+        >
+          <i className="fa-solid fa-play" />
+          <span>Explorar Modelo 3D</span>
+        </button>
+      </div>
+
+      {/* Pie del póster */}
+      <div className="relative z-10 w-full flex items-center justify-between text-[10px] font-mono text-slate-500 border-t border-slate-800/80 pt-2">
+        <span>BIM + Revit + Three.js</span>
+        <span className="text-emerald-400">⚡ Carga Ultra-Rápida</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Componente Principal Exportado con Modo Híbrido ── */
+export default function BuildingScene() {
+  const [isInteractive, setIsInteractive] = useState(false);
+
+  if (!isInteractive) {
+    return (
+      <Model3DPoster
+        onActivate={() => {
+          track3DModelActivated();
+          setIsInteractive(true);
+        }}
+      />
+    );
+  }
+
+  return (
+    <div className="hero-canvas-wrapper relative w-full h-full min-h-[220px]">
       <SceneErrorBoundary>
         <Canvas
           fallback={<StaticSceneFallback />}
@@ -175,13 +238,22 @@ export default function BuildingScene() {
         </Canvas>
       </SceneErrorBoundary>
 
-      <div className="ifc-model-label">
-        <span className="ifc-label-icon">⚡</span>
-        <span>Modelo 3D — Nave Licuadores</span>
-        <span className="ifc-label-tech">BIM Optimizado (GLB)</span>
+      <div className="ifc-model-label flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="ifc-label-icon">⚡</span>
+          <span>Modelo 3D — Nave Licuadores</span>
+          <span className="ifc-label-tech">BIM 60 FPS</span>
+        </div>
+        <button
+          onClick={() => setIsInteractive(false)}
+          className="text-[10px] font-mono text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700 ml-2"
+          title="Minimizar modelo 3D para ahorrar recursos"
+        >
+          Pausar 3D
+        </button>
       </div>
     </div>
   );
 }
-
-useGLTF.preload("/models/nave-licuadores.glb");
+// NOTA DE ARQUITECTURA: NO usar useGLTF.preload("/models/nave-licuadores.glb")
+// para evitar que crawlers, bots y móviles descarguen 22 MB de geometría en el instante 0.

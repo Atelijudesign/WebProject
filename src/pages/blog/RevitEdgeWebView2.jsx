@@ -6,6 +6,7 @@ import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export const RevitEdgeWebView2 = () => {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -150,9 +151,7 @@ export function useRevitBridge(onCommandReceived?: (data: unknown) => void) {
       <section className="pt-28 pb-16 px-4 bg-[#030712]/60 transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link to="/blog" className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors inline-flex items-center gap-1">
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">

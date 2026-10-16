@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import SEOHead from "../../components/SEOHead";
 import { BLOG_POSTS, BLOG_CATEGORIES } from "../../data/blog_data";
 import { useTranslation } from "../../context/LanguageContext";
@@ -9,8 +10,20 @@ export default function BlogCatalog() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Ocultar posts privados del catálogo público por defecto (solo visibles para Andrés con ?admin=true o ?bba=true)
+  const showPrivatePosts =
+    typeof window !== "undefined" &&
+    (new URLSearchParams(window.location.search).get("admin") === "true" ||
+     new URLSearchParams(window.location.search).get("bba") === "true" ||
+     new URLSearchParams(window.location.search).get("preview") === "true");
+
   // Search and filter logic
   const filteredPosts = BLOG_POSTS.filter((post) => {
+    // Si el post es privado, se excluye completamente del catálogo público
+    if (post.isPrivate && !showPrivatePosts) {
+      return false;
+    }
+
     let matchesCategory = activeCategory === "all";
 
     if (!matchesCategory) {
@@ -62,7 +75,7 @@ export default function BlogCatalog() {
           "@context": "https://schema.org",
           "@type": "Blog",
           "name": isEn ? "BIM Technical & Structural Automation Blog" : "Blog Técnico BIM & Automatización Estructural",
-          "url": "https://atelijudesign.com/blog",
+          "url": "https://www.andresgallop.com/blog",
           "description": isEn ? "Technical publications on programming applied to BIM, structural engineering, and workflow optimization." : "Publicaciones técnicas sobre programación aplicada a BIM, ingeniería estructural y optimización de flujos de trabajo."
         }}
       />
@@ -90,7 +103,7 @@ export default function BlogCatalog() {
             </span>
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
-            {t("blog_subtitle", "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Proyectista Estructural necesita para automatizar su trabajo.")}
+            {t("blog_subtitle", "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Diseñador Estructural necesita para automatizar su trabajo.")}
           </p>
 
           {/* Search Bar */}
@@ -109,22 +122,32 @@ export default function BlogCatalog() {
 
       {/* Main Content */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {BLOG_CATEGORIES.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 rounded-full font-bold text-sm border transition-all duration-300 ${
-                activeCategory === cat.id
-                  ? "border-bim-blue bg-bim-blue text-white shadow-md shadow-blue-500/20"
-                  : "border-slate-700 bg-slate-900/50 text-slate-300 hover:border-bim-blue hover:text-bim-blue hover:bg-slate-800/50"
-              }`}
-            >
-              {cat.icon && <i className={`${cat.icon} mr-1 text-xs`}></i>}
-              {isEn ? (cat.name_en || cat.name) : cat.name}
-            </button>
-          ))}
+        {/* Category Filters con Píldora Deslizante Motion */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12 p-2 rounded-2xl bg-slate-900/70 border border-slate-800 max-w-5xl mx-auto backdrop-blur-md">
+          {BLOG_CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`relative px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-colors duration-200 select-none ${
+                  isActive ? "text-white" : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="activeBlogCategoryPill"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 shadow-lg shadow-cyan-500/25 border border-cyan-400/40 -z-10"
+                    transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-1.5">
+                  {cat.icon && <i className={`${cat.icon} text-xs`}></i>}
+                  <span>{isEn ? (cat.name_en || cat.name) : cat.name}</span>
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Blog Grid */}
@@ -153,6 +176,13 @@ export default function BlogCatalog() {
                       </p>
                     </div>
                   </div>
+                  {post.isPrivate && (
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-rose-600/90 text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase shadow-md flex items-center gap-1 backdrop-blur-sm border border-rose-400/40">
+                        <i className="fa-solid fa-lock text-[9px]"></i> Privado (Solo tú)
+                      </span>
+                    </div>
+                  )}
                   {post.isNew && (
                     <div className="absolute top-3 right-3">
                       <span className="bg-yellow-500 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase shadow-sm">
@@ -187,21 +217,27 @@ export default function BlogCatalog() {
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-bim-blue transition-colors leading-tight font-grotesk">
                     {isEn ? (post.title_en || post.title) : post.title}
                   </h3>
-                  <p className="text-slate-400 text-sm mb-5 line-clamp-3 flex-1">
+                  <p className="text-slate-400 text-sm mb-4 line-clamp-3">
                     {isEn ? (post.description_en || post.description) : post.description}
                   </p>
 
+                  {/* Tags / Categorías en línea horizontal */}
+                  <div className="flex items-center gap-1.5 flex-wrap mt-auto mb-4">
+                    {(isEn && post.categories_en ? post.categories_en : post.categories).slice(0, 3).map((cat) => (
+                      <span
+                        key={cat}
+                        className="px-2.5 py-0.5 bg-slate-800/80 border border-slate-700/60 text-slate-300 text-[11px] rounded-md font-medium whitespace-nowrap"
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+
                   <div className="flex items-center justify-between pt-4 border-t border-slate-800">
-                    <div className="flex gap-2 flex-wrap">
-                      {(isEn && post.categories_en ? post.categories_en : post.categories).slice(0, 3).map((cat) => (
-                        <span
-                          key={cat}
-                          className="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded-md font-medium"
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
+                    <span className="text-xs text-slate-400 font-mono flex items-center gap-1.5">
+                      <i className="fa-regular fa-clock text-slate-500"></i>
+                      {formattedReadingTime}
+                    </span>
                     <Link
                       to={`/blog/${post.slug}`}
                       className="inline-flex items-center text-bim-blue font-bold text-sm hover:text-blue-400 transition-colors group/link ml-2 whitespace-nowrap"

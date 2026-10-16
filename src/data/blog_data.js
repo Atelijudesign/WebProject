@@ -1,5 +1,196 @@
 export const BLOG_POSTS = [
   {
+    "id": "smartplant-3d-fundamentos-grillas",
+    "slug": "smartplant-3d-fundamentos-grillas",
+    "title": "Fundamentos de SmartPlant 3D: Common, Workspace y Grillas (Serie SP3D — Módulo 01)",
+    "description": "Primer módulo de la serie SmartPlant 3D basado en los manuales EFV: archivos de sesión, workspace de 4 vistas, filtros Define Workspace (sistema, object type y volumen), puntos de control y el Grid Wizard paso a paso con las unidades U02, U04, U05 y U06.",
+    "date": "06 Oct 2026",
+    "readingTime": "20 min lectura",
+    "categories": [
+      "SmartPlant 3D",
+      "Grid Wizard",
+      "Define Workspace",
+      "Ingeniería de Plantas",
+      "Intergraph S3D"
+    ],
+    "filterCategory": "herramientas",
+    "isNew": true,
+    "thumbnail": {
+      "gradient": "from-cyan-950 via-slate-950 to-blue-950",
+      "icon": "📐",
+      "title": "SP3D Fundamentos",
+      "subtitle": "Common, Workspace y Grillas",
+      "badgeColor": "bg-cyan-600/90",
+      "badgeIcon": "fa-border-all",
+      "badgeText": "Módulo 01",
+      "title_en": "SP3D Fundamentals",
+      "subtitle_en": "Common, Workspace & Grids",
+      "badgeText_en": "Module 01"
+    },
+    "title_en": "SmartPlant 3D Fundamentals: Common Task, Workspace & Grid Wizard (SP3D Series — Module 01)",
+    "description_en": "First module of the SmartPlant 3D series based on the EFV training manuals: session files, 4-view workspace, Define Workspace filters (system, object type and volume), control points and the step-by-step Grid Wizard with units U02, U04, U05 and U06.",
+    "categories_en": [
+      "SmartPlant 3D",
+      "Grid Wizard",
+      "Define Workspace",
+      "Plant Engineering",
+      "Intergraph S3D"
+    ]
+  },
+  {
+    "id": "manual-smartplant-3d-structural-modeling",
+    "slug": "manual-smartplant-3d-structural-modeling",
+    "title": "Manual Maestro de Modelado Estructural en SmartPlant 3D (Intergraph S3D): De Grillas Paramétricas a Nudos Complejos",
+    "description": "Manual técnico exhaustivo de 201 páginas condensado para modeladores e ingenieros de plantas industriales: arquitectura de bases de datos relacionales, 9 puntos cardinales (CP 1-9), comandos de precisión PinPoint [F9], modelado multinivel en 6 fases, conexiones de marco y losas de hormigón.",
+    "date": "02 Oct 2026",
+    "readingTime": "25 min lectura",
+    "categories": [
+      "SmartPlant 3D",
+      "Modelado Estructural",
+      "Ingeniería de Plantas",
+      "Acero Estructural",
+      "Intergraph S3D"
+    ],
+    "filterCategory": "herramientas",
+    "isNew": true,
+    "thumbnail": {
+      "gradient": "from-emerald-950 via-slate-950 to-blue-950",
+      "icon": "🏗️",
+      "title": "SmartPlant 3D Estructuras",
+      "subtitle": "Manual de Entrenamiento Completo",
+      "badgeColor": "bg-emerald-600/90",
+      "badgeIcon": "fa-cube",
+      "badgeText": "Manual 201 Págs",
+      "title_en": "SmartPlant 3D Structural",
+      "subtitle_en": "Master Training Manual",
+      "badgeText_en": "201-Page Manual"
+    },
+    "title_en": "Master Manual of Structural Modeling in SmartPlant 3D (Intergraph S3D): From Parametric Grids to Complex Nodes",
+    "description_en": "Comprehensive 201-page technical manual condensed for industrial plant modelers: relational database architecture, 9 cardinal points (CP 1-9), PinPoint precision [F9], multi-level modeling in 6 phases, frame connections, and concrete slabs.",
+    "categories_en": [
+      "SmartPlant 3D",
+      "Structural Modeling",
+      "Plant Engineering",
+      "Structural Steel",
+      "Intergraph S3D"
+    ]
+  },
+  {
+    "id": "normas-estructurales-chile-usa",
+    "slug": "normas-estructurales-chile-usa",
+    "title": "Guía de Normas Estructurales Chile & USA: La Biblia del Diseñador Estructural y Modelador BIM",
+    "description": "Compendio técnico de 35 normas críticas de acero y hormigón armado (NCh, DS 60, AISC, ACI, AWS, ASTM): cómo llevarlas al modelo 3D en Revit/Tekla, tolerancias de montaje, radios de doblado, notas generales y transiciones 2026.",
+    "date": "29 Sep 2026",
+    "readingTime": "12 min lectura",
+    "categories": [
+      "Normas Estructurales",
+      "Acero Estructural",
+      "Hormigón Armado",
+      "Modelado BIM",
+      "Chile & USA"
+    ],
+    "filterCategory": "herramientas",
+    "isNew": true,
+    "thumbnail": {
+      "gradient": "from-cyan-950 via-slate-950 to-emerald-950",
+      "icon": "📐",
+      "title": "Normas Chile & USA",
+      "subtitle": "Guía del Diseñador Estructural BIM",
+      "badgeColor": "bg-cyan-600/90",
+      "badgeIcon": "fa-book-bookmark",
+      "badgeText": "35 Normas 2026",
+      "title_en": "Structural Codes Chile & USA",
+      "subtitle_en": "BIM Modeler Master Guide",
+      "badgeText_en": "35 Codes 2026"
+    },
+    "title_en": "Structural Codes Guide Chile & USA: The Master Playbook for Structural BIM Modelers",
+    "description_en": "Comprehensive technical guide of 35 critical steel and reinforced concrete codes (NCh, DS 60, AISC, ACI, AWS, ASTM): translating code requirements into 3D Revit/Tekla models, erection tolerances, and 2026 transition rules.",
+    "categories_en": [
+      "Structural Codes",
+      "Structural Steel",
+      "Reinforced Concrete",
+      "BIM Modeling",
+      "Chile & USA"
+    ]
+  },
+  {
+    "id": "presentacion-andres-gallo-disenador-estructural-senior",
+    "slug": "presentacion-andres-gallo-disenador-estructural-senior",
+    "isPrivate": true,
+    "title": "Andrés Gallo Parra: Perfil Profesional, Proyectos Clave & Visión Estructural (Especial BBA Consultants)",
+    "description": "Presentación ejecutiva y técnica interactiva de Andrés Gallo Parra: más de 14 años de trayectoria en gran minería, automatizaciones en Python (pyRevit), Dynamo y C# (.NET), modelado 3D BIM, rigor bajo NCh2369 e ICHA, automatización con Python y fit cultural con BBA Consultants.",
+    "date": "29 Sep 2026",
+    "readingTime": "8 min lectura",
+    "categories": [
+      "Perfil Profesional",
+      "BBA Consultants",
+      "Estructuras",
+      "Modelado BIM",
+      "Automatización"
+    ],
+    "filterCategory": "automatizacion",
+    "isNew": true,
+    "thumbnail": {
+      "gradient": "from-cyan-950 via-slate-950 to-blue-950",
+      "icon": "👔",
+      "title": "Andrés Gallo Parra",
+      "subtitle": "Diseñador Estructural Senior",
+      "badgeColor": "bg-cyan-600/90",
+      "badgeIcon": "fa-user-tie",
+      "badgeText": "Perfil BBA",
+      "title_en": "Andrés Gallo Parra",
+      "subtitle_en": "Senior Structural Designer",
+      "badgeText_en": "BBA Profile"
+    },
+    "title_en": "Andrés Gallo Parra: Professional Profile, Key Projects & Structural Vision (BBA Consultants Special)",
+    "description_en": "Interactive technical presentation of Andrés Gallo Parra: heavy mining engineering, 3D BIM modeling, NCh2369/ICHA codes, Python automation, and cultural fit for BBA Consultants.",
+    "categories_en": [
+      "Professional Profile",
+      "BBA Consultants",
+      "Structural Steel",
+      "BIM Modeling",
+      "Automation"
+    ]
+  },
+  {
+    "id": "smartplant-3d-masterlab-simulador-interactivo",
+    "slug": "smartplant-3d-masterlab-simulador-interactivo",
+    "title": "SmartPlant 3D (SP3D) MasterLab: Academia Interactiva, Simulador PinPoint [F9] y Manuales de Planta",
+    "description": "Cómo aprender Intergraph SmartPlant 3D desde cero: simulador web en tiempo real con 4 vistas, entrenamiento en PinPoint [F9], arquitectura de bases de datos y acceso al repositorio con 12 manuales maestros.",
+    "date": "29 Sep 2026",
+    "readingTime": "10 min lectura",
+    "categories": [
+      "SmartPlant 3D",
+      "Plant Engineering",
+      "Piping & CSA",
+      "Simulador Web",
+      "Manuales"
+    ],
+    "filterCategory": "herramientas",
+    "isNew": true,
+    "thumbnail": {
+      "gradient": "from-cyan-950 via-slate-950 to-emerald-950",
+      "icon": "🏭",
+      "title": "SmartPlant 3D",
+      "subtitle": "MasterLab & Simulador Web",
+      "badgeColor": "bg-cyan-600/90",
+      "badgeIcon": "fa-industry",
+      "badgeText": "SP3D Lab",
+      "title_en": "SmartPlant 3D",
+      "subtitle_en": "MasterLab & Web Simulator",
+      "badgeText_en": "SP3D Lab"
+    },
+    "title_en": "SmartPlant 3D (SP3D) MasterLab: Interactive Web Simulator, PinPoint Precision & Plant Manuals",
+    "description_en": "How to learn Intergraph SmartPlant 3D from zero: real-time 4-view web simulator, PinPoint [F9] training, database architecture, and request access to our 12 master training manuals.",
+    "categories_en": [
+      "SmartPlant 3D",
+      "Plant Engineering",
+      "Piping & CSA",
+      "Web Simulator",
+      "Manuals"
+    ]
+  },
+  {
     "id": "gemelos-digitales-prefabricacion-modular-mineria",
     "slug": "gemelos-digitales-prefabricacion-modular-mineria",
     "title": "Gemelos Digitales y Prefabricación Modular en Minería: Del Escaneo 3D al Montaje Off-Site",
@@ -665,7 +856,7 @@ export const BLOG_POSTS = [
     "id": "konstruedu-especialista-bim-revit",
     "slug": "konstruedu-especialista-bim-revit",
     "title": "Especialista BIM Konstruedu: ¿Vale la pena? Mi análisis honesto",
-    "description": "127 horas, 14 cursos y certificación internacional. Analizo la especialización en Modelado BIM con Revit de Konstruedu desde mi perspectiva de proyectista con 15 años de experiencia.",
+    "description": "127 horas, 14 cursos y certificación internacional. Analizo la especialización en Modelado BIM con Revit de Konstruedu desde mi perspectiva de diseñador estructural con 15 años de experiencia.",
     "date": "24 Mar 2026",
     "readingTime": "9 min lectura",
     "categories": [

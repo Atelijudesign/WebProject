@@ -6,6 +6,7 @@ import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function Revit2027RebarLongitudinal() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -91,12 +92,7 @@ public void CreateLongitudinalRebarFromTransverse(
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link
-              to="/blog"
-              className="text-bim-blue hover:text-cyan-400 text-sm font-medium transition-colors inline-flex items-center gap-1"
-            >
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -185,7 +181,7 @@ public void CreateLongitudinalRebarFromTransverse(
             En versiones anteriores de Revit, detallar columnas, vigas y pilas de hormigón armado requería un proceso de dos pasos desconectados: primero se insertaba la barra o conjunto de barras longitudinales haciendo referencia a los planos del elemento anfitrión (Host Planes) o a los recubrimientos (Cover Reference), y posteriormente se agregaban los estribos transversales.
           </p>
           <p className="mb-6 text-slate-300">
-            Esto generaba constantes desalineaciones geométricas cuando variaban los diámetros de los estribos o los radios de doblado (Bend Radius), obligando al proyectista a ajustar manualmente las restricciones (<em>Edit Constraints</em>) barra por barra.
+            Esto generaba constantes desalineaciones geométricas cuando variaban los diámetros de los estribos o los radios de doblado (Bend Radius), obligando al diseñador estructural a ajustar manualmente las restricciones (<em>Edit Constraints</em>) barra por barra.
           </p>
 
           <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-sm flex gap-3 items-start mb-6">
@@ -315,7 +311,7 @@ public void CreateLongitudinalRebarFromTransverse(
 
           <div className="p-5 rounded-2xl bg-gradient-to-r from-cyan-950/80 via-blue-950/80 to-slate-900 border border-cyan-500/30 text-slate-200 mt-6 shadow-xl">
             <h4 className="text-lg font-bold text-cyan-400 mb-2 flex items-center gap-2">
-              <i className="fa-solid fa-lightbulb" /> Recomendación del Proyectista:
+              <i className="fa-solid fa-lightbulb" /> Recomendación del Diseñador Estructural:
             </h4>
             <p className="text-sm text-slate-300 leading-relaxed">
               Si estás migrando tus proyectos a Revit 2027, estandariza tus familias de estribos con los nuevos parámetros de esquina interna. Esto te permitirá crear plantillas de colocación asociativa que automatizarán el armado de columnas y vigas tipo en cuestión de segundos.

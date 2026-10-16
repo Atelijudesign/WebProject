@@ -1,31 +1,77 @@
 RewriteEngine On
 
-# React Router SPA routing (redirect all non-file/dir requests to index.html)
+# ── 0. REDIRECCIÓN APEX A WWW DIRECTA (UN SOLO SALTO 301) ──
+RewriteCond %{HTTP_HOST} ^andresgallop\.com$ [NC]
+RewriteRule ^(.*)$ https://www.andresgallop.com/$1 [R=301,L]
+
+# ── 1. SEGURIDAD & PREVENCIÓN DE SOFT 404 ──
+# Bloquear métodos HTTP inseguros (TRACE, TRACK, DEBUG)
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|DEBUG) [NC]
+RewriteRule ^ - [R=405,L]
+
+# Bloquear User-Agents de escáneres maliciosos conocidos
+RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|wpscan|masscan|acunetix|dirbuster|gobuster|nessus|nmap|morfeus|zgrab) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteRule ^ - [F,L]
+
+# Bloquear y devolver 404 real a escáneres de WordPress, archivos de entorno y scripts maliciosos
+RewriteCond %{REQUEST_URI} \.(php|env|git|sql|bak|asp|aspx|jsp|cgi)$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(wp-admin|wp-login|wp-content|wp-includes|xmlrpc|lander|sberchat) [NC]
+RewriteRule ^ - [R=404,L]
+
+# ── 2. ENRUTAMIENTO SPA (REACT ROUTER) ──
+# Redirigir a index.html únicamente rutas limpias que no correspondan a archivos o directorios reales
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
 
-# Redirect /index.html to /
+# Redirigir petición directa de /index.html a la raíz /
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
-# Cache control — HTML and CSS/JS must revalidate immediately
+# ── 3. CABECERAS DE CACHÉ DE ALTO RENDIMIENTO (EXPIRACIÓN) ──
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/html                 "access plus 0 seconds"
-  ExpiresByType text/css                  "access plus 1 hour"
-  ExpiresByType application/javascript    "access plus 1 hour"
-  ExpiresByType image/png                 "access plus 7 days"
-  ExpiresByType image/jpeg                "access plus 7 days"
-  ExpiresByType image/svg+xml             "access plus 7 days"
-  ExpiresByType image/x-icon              "access plus 30 days"
+  
+  # HTML siempre fresco para que el usuario reciba actualizaciones inmediatamente
+  ExpiresByType text/html                             "access plus 0 seconds"
+  
+  # Modelos 3D y assets pesados (1 año de caché)
+  ExpiresByType model/gltf-binary                     "access plus 1 year"
+  ExpiresByType model/gltf+json                       "access plus 1 year"
+  
+  # Imágenes y WebP
+  ExpiresByType image/webp                            "access plus 1 year"
+  ExpiresByType image/png                             "access plus 1 year"
+  ExpiresByType image/jpeg                            "access plus 1 year"
+  ExpiresByType image/svg+xml                         "access plus 1 year"
+  ExpiresByType image/x-icon                          "access plus 1 year"
+  
+  # Fuentes web
+  ExpiresByType font/woff2                            "access plus 1 year"
+  ExpiresByType font/woff                             "access plus 1 year"
+  
+  # CSS y JavaScript generados por Vite (tienen hash único en el nombre)
+  ExpiresByType text/css                              "access plus 1 year"
+  ExpiresByType application/javascript                "access plus 1 year"
 </IfModule>
 
+# ── 4. CABECERAS HTTP CACHE-CONTROL ──
 <IfModule mod_headers.c>
+  # HTML: revalidar siempre
   <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
   </FilesMatch>
-  <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "public, max-age=3600, must-revalidate"
+
+  # Assets inmutables con hash (CSS, JS, GLB, WEBP, WOFF2): caché permanente
+  <FilesMatch "\.(css|js|glb|gltf|webp|woff2|woff|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
+  
+  # Protección contra Clickjacking y XSS
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>

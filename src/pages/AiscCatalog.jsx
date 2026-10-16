@@ -3,165 +3,52 @@ import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
 import SEOHead from "../components/SEOHead";
 import { AISC_CATALOG } from "../data/aisc_data.js";
-import { generateTakeoffPdf } from "../utils/pdfExportUtils";
-import { generateTakeoffExcel } from "../utils/excelExportUtils";
+import { ExportService, ExcelTakeoffStrategy, PdfTakeoffStrategy } from "../core/export";
+import { ProfileSearchEngine } from "../core/calculators";
+import { useTranslation } from "../context/LanguageContext";
 
 // ==================== PROPERTY LABELS & UNITS ====================
 const PROP_LABELS = {
   // Dimensions
-  "d": { name: "Alto / Profundidad (d)", icon: "fa-arrows-up-down", impUnit: "in", metUnit: "mm" },
-  "bf": { name: "Ancho de Ala (bf)", icon: "fa-arrows-left-right", impUnit: "in", metUnit: "mm" },
-  "B": { name: "Ancho (B)", icon: "fa-arrows-left-right", impUnit: "in", metUnit: "mm" },
-  "b": { name: "Ancho de Ala / Cota (b)", icon: "fa-arrows-left-right", impUnit: "in", metUnit: "mm" },
-  "OD": { name: "Diámetro Exterior (OD)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
-  "tw": { name: "Espesor de Alma (tw)", icon: "fa-ruler-vertical", impUnit: "in", metUnit: "mm" },
-  "tf": { name: "Espesor de Ala (tf)", icon: "fa-ruler-horizontal", impUnit: "in", metUnit: "mm" },
-  "t": { name: "Espesor de Pared / Ala (t)", icon: "fa-ruler", impUnit: "in", metUnit: "mm" },
-  "kdes": { name: "Cota de Diseño (kdes)", icon: "fa-ruler-combined", impUnit: "in", metUnit: "mm" },
-  "kdet": { name: "Cota de Detallado (kdet)", icon: "fa-ruler-combined", impUnit: "in", metUnit: "mm" },
-  "k1": { name: "Distancia Alma-Ala (k1)", icon: "fa-ruler-combined", impUnit: "in", metUnit: "mm" },
-  "x": { name: "Centroide X (x)", icon: "fa-crosshairs", impUnit: "in", metUnit: "mm" },
-  "y": { name: "Centroide Y (y)", icon: "fa-crosshairs", impUnit: "in", metUnit: "mm" },
+  "d": { name: "Alto / Profundidad (d)", nameEs: "Alto / Profundidad (d)", nameEn: "Depth / Height (d)", icon: "fa-arrows-up-down", impUnit: "in", metUnit: "mm" },
+  "bf": { name: "Ancho de Ala (bf)", nameEs: "Ancho de Ala (bf)", nameEn: "Flange Width (bf)", icon: "fa-arrows-left-right", impUnit: "in", metUnit: "mm" },
+  "B": { name: "Ancho (B)", nameEs: "Ancho (B)", nameEn: "Width (B)", icon: "fa-arrows-left-right", impUnit: "in", metUnit: "mm" },
+  "b": { name: "Ancho de Ala / Cota (b)", nameEs: "Ancho de Ala / Cota (b)", nameEn: "Flange Width / Leg (b)", icon: "fa-arrows-left-right", impUnit: "in", metUnit: "mm" },
+  "OD": { name: "Diámetro Exterior (OD)", nameEs: "Diámetro Exterior (OD)", nameEn: "Outside Diameter (OD)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
+  "tw": { name: "Espesor de Alma (tw)", nameEs: "Espesor de Alma (tw)", nameEn: "Web Thickness (tw)", icon: "fa-ruler-vertical", impUnit: "in", metUnit: "mm" },
+  "tf": { name: "Espesor de Ala (tf)", nameEs: "Espesor de Ala (tf)", nameEn: "Flange Thickness (tf)", icon: "fa-ruler-horizontal", impUnit: "in", metUnit: "mm" },
+  "t": { name: "Espesor de Pared / Ala (t)", nameEs: "Espesor de Pared / Ala (t)", nameEn: "Wall / Flange Thickness (t)", icon: "fa-ruler", impUnit: "in", metUnit: "mm" },
+  "kdes": { name: "Cota de Diseño (kdes)", nameEs: "Cota de Diseño (kdes)", nameEn: "Design Distance (kdes)", icon: "fa-ruler-combined", impUnit: "in", metUnit: "mm" },
+  "kdet": { name: "Cota de Detallado (kdet)", nameEs: "Cota de Detallado (kdet)", nameEn: "Detailing Distance (kdet)", icon: "fa-ruler-combined", impUnit: "in", metUnit: "mm" },
+  "k1": { name: "Distancia Alma-Ala (k1)", nameEs: "Distancia Alma-Ala (k1)", nameEn: "Web-to-Flange Dist. (k1)", icon: "fa-ruler-combined", impUnit: "in", metUnit: "mm" },
+  "x": { name: "Centroide X (x)", nameEs: "Centroide X (x)", nameEn: "Centroid X (x)", icon: "fa-crosshairs", impUnit: "in", metUnit: "mm" },
+  "y": { name: "Centroide Y (y)", nameEs: "Centroide Y (y)", nameEn: "Centroid Y (y)", icon: "fa-crosshairs", impUnit: "in", metUnit: "mm" },
 
   // Structural properties
-  "A": { name: "Área de Sección (A)", icon: "fa-vector-square", impUnit: "in²", metUnit: "mm²" },
-  "W": { name: "Peso Nominal (W)", icon: "fa-weight-hanging", impUnit: "lb/ft", metUnit: "kg/m" },
-  "Ix": { name: "Inercia Eje X (Ix)", icon: "fa-rotate", impUnit: "in⁴", metUnit: "cm⁴" },
-  "Zx": { name: "Módulo Plástico X (Zx)", icon: "fa-cube", impUnit: "in³", metUnit: "cm³" },
-  "Sx": { name: "Módulo Elástico X (Sx)", icon: "fa-cubes", impUnit: "in³", metUnit: "cm³" },
-  "rx": { name: "Radio Giro X (rx)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
-  "Iy": { name: "Inercia Eje Y (Iy)", icon: "fa-rotate", impUnit: "in⁴", metUnit: "cm⁴" },
-  "Zy": { name: "Módulo Plástico Y (Zy)", icon: "fa-cube", impUnit: "in³", metUnit: "cm³" },
-  "Sy": { name: "Módulo Elástico Y (Sy)", icon: "fa-cubes", impUnit: "in³", metUnit: "cm³" },
-  "ry": { name: "Radio Giro Y (ry)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
-  "J": { name: "Constante Torsional (J)", icon: "fa-bolt", impUnit: "in⁴", metUnit: "cm⁴" },
-  "Cw": { name: "Constante Alabeo (Cw)", icon: "fa-shield", impUnit: "in⁶", metUnit: "cm⁶" },
-  "rts": { name: "Radio Giro Efec. (rts)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
-  "ho": { name: "Dist. Centroides Ala (ho)", icon: "fa-arrows-up-down", impUnit: "in", metUnit: "mm" },
+  "A": { name: "Área de Sección (A)", nameEs: "Área de Sección (A)", nameEn: "Cross-Section Area (A)", icon: "fa-vector-square", impUnit: "in²", metUnit: "mm²" },
+  "W": { name: "Peso Nominal (W)", nameEs: "Peso Nominal (W)", nameEn: "Nominal Weight (W)", icon: "fa-weight-hanging", impUnit: "lb/ft", metUnit: "kg/m" },
+  "Ix": { name: "Inercia Eje X (Ix)", nameEs: "Inercia Eje X (Ix)", nameEn: "Moment of Inertia X (Ix)", icon: "fa-rotate", impUnit: "in⁴", metUnit: "cm⁴" },
+  "Zx": { name: "Módulo Plástico X (Zx)", nameEs: "Módulo Plástico X (Zx)", nameEn: "Plastic Modulus X (Zx)", icon: "fa-cube", impUnit: "in³", metUnit: "cm³" },
+  "Sx": { name: "Módulo Elástico X (Sx)", nameEs: "Módulo Elástico X (Sx)", nameEn: "Elastic Modulus X (Sx)", icon: "fa-cubes", impUnit: "in³", metUnit: "cm³" },
+  "rx": { name: "Radio Giro X (rx)", nameEs: "Radio Giro X (rx)", nameEn: "Radius of Gyration X (rx)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
+  "Iy": { name: "Inercia Eje Y (Iy)", nameEs: "Inercia Eje Y (Iy)", nameEn: "Moment of Inertia Y (Iy)", icon: "fa-rotate", impUnit: "in⁴", metUnit: "cm⁴" },
+  "Zy": { name: "Módulo Plástico Y (Zy)", nameEs: "Módulo Plástico Y (Zy)", nameEn: "Plastic Modulus Y (Zy)", icon: "fa-cube", impUnit: "in³", metUnit: "cm³" },
+  "Sy": { name: "Módulo Elástico Y (Sy)", nameEs: "Módulo Elástico Y (Sy)", nameEn: "Elastic Modulus Y (Sy)", icon: "fa-cubes", impUnit: "in³", metUnit: "cm³" },
+  "ry": { name: "Radio Giro Y (ry)", nameEs: "Radio Giro Y (ry)", nameEn: "Radius of Gyration Y (ry)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
+  "J": { name: "Constante Torsional (J)", nameEs: "Constante Torsional (J)", nameEn: "Torsional Constant (J)", icon: "fa-bolt", impUnit: "in⁴", metUnit: "cm⁴" },
+  "Cw": { name: "Constante Alabeo (Cw)", nameEs: "Constante Alabeo (Cw)", nameEn: "Warping Constant (Cw)", icon: "fa-shield", impUnit: "in⁶", metUnit: "cm⁶" },
+  "rts": { name: "Radio Giro Efec. (rts)", nameEs: "Radio Giro Efec. (rts)", nameEn: "Effective Radius (rts)", icon: "fa-circle-dot", impUnit: "in", metUnit: "mm" },
+  "ho": { name: "Dist. Centroides Ala (ho)", nameEs: "Dist. Centroides Ala (ho)", nameEn: "Flange Centroid Dist. (ho)", icon: "fa-arrows-up-down", impUnit: "in", metUnit: "mm" },
 };
 
-// ==================== SVG DRAWING HELPER ====================
-const SZ = 240, CX = SZ / 2, CY = SZ / 2, PAD = 48;
-
-function dimLine(x1, y1, x2, y2, label, offset = 0, color = "#60a5fa") {
-  const isV = Math.abs(x1 - x2) < 2;
-  const ox = isV ? offset : 0, oy = isV ? 0 : offset;
-  const mx = (x1 + x2) / 2 + ox, my = (y1 + y2) / 2 + oy;
-  const tox = isV ? (offset > 0 ? 8 : -8) : 0;
-  const toy = isV ? 0 : (offset > 0 ? 12 : -6);
-  const tx = Math.max(28, Math.min(SZ - 28, mx + tox));
-  const ty = Math.max(14, Math.min(SZ - 6, my + toy));
-  return `<line x1="${x1 + ox}" y1="${y1 + oy}" x2="${x2 + ox}" y2="${y2 + oy}" stroke="${color}" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.7"/>
-          <text x="${tx}" y="${ty}" fill="${color}" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">${label}</text>`;
-}
-
-function buildAiscSvg(p, unitSys) {
-  if (!p) return "";
-  const isImp = unitSys === "imperial";
-  const unitSuffix = isImp ? '"' : ' mm';
-
-  const d = (isImp ? p.d_in : p.d_mm) || (isImp ? p.OD_in : p.OD_mm) || (isImp ? p.Ht_in : p.Ht_mm) || 10;
-  const bf = (isImp ? p.bf_in : p.bf_mm) || (isImp ? p.B_in : p.B_mm) || (isImp ? p.b_in : p.b_mm) || d;
-  const tw = (isImp ? p.tw_in : p.tw_mm) || (isImp ? p.t_in : p.t_mm) || (isImp ? p.tdes_in : p.tdes_mm) || (d * 0.05);
-  const tf = (isImp ? p.tf_in : p.tf_mm) || (isImp ? p.t_in : p.t_mm) || (isImp ? p.tdes_in : p.tdes_mm) || (d * 0.08);
-
-  const series = p.type;
-
-  // I-Shapes (W, M, S, HP)
-  if (["W", "M", "S", "HP"].includes(series)) {
-    const sc = Math.min((SZ - 2 * PAD) / d, (SZ - 2 * PAD) / bf);
-    const H = d * sc, B = bf * sc, S = Math.max(tw * sc, 4), T = Math.max(tf * sc, 4);
-    const x = CX, y = CY + 6;
-    const pts = `${x - B / 2},${y - H / 2} ${x + B / 2},${y - H / 2} ${x + B / 2},${y - H / 2 + T} ${x + S / 2},${y - H / 2 + T} ${x + S / 2},${y + H / 2 - T} ${x + B / 2},${y + H / 2 - T} ${x + B / 2},${y + H / 2} ${x - B / 2},${y + H / 2} ${x - B / 2},${y + H / 2 - T} ${x - S / 2},${y + H / 2 - T} ${x - S / 2},${y - H / 2 + T} ${x - B / 2},${y - H / 2 + T}`;
-    const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-    let dims = dimLine(x - B / 2, y - H / 2, x - B / 2, y + H / 2, `d=${d}${unitSuffix}`, -22);
-    dims += dimLine(x - B / 2, y - H / 2, x + B / 2, y - H / 2, `bf=${bf}${unitSuffix}`, -18);
-    dims += `<text x="${x + S / 2 + 6}" y="${y + 4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">tw=${tw}${unitSuffix}</text>`;
-    dims += `<text x="${x + B / 2 + 6}" y="${y - H / 2 + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">tf=${tf}${unitSuffix}</text>`;
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${shape}${dims}</svg>`;
-  }
-
-  // Tees (WT, MT, ST)
-  if (["WT", "MT", "ST"].includes(series)) {
-    const sc = Math.min((SZ - 2 * PAD) / d, (SZ - 2 * PAD) / bf);
-    const H = d * sc, B = bf * sc, S = Math.max(tw * sc, 4), T = Math.max(tf * sc, 4);
-    const x = CX, y = CY + 8;
-    const pts = `${x - B / 2},${y - H / 2} ${x + B / 2},${y - H / 2} ${x + B / 2},${y - H / 2 + T} ${x + S / 2},${y - H / 2 + T} ${x + S / 2},${y + H / 2} ${x - S / 2},${y + H / 2} ${x - S / 2},${y - H / 2 + T} ${x - B / 2},${y - H / 2 + T}`;
-    const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-    let dims = dimLine(x - B / 2, y - H / 2, x - B / 2, y + H / 2, `d=${d}${unitSuffix}`, -22);
-    dims += dimLine(x - B / 2, y - H / 2, x + B / 2, y - H / 2, `bf=${bf}${unitSuffix}`, -18);
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${shape}${dims}</svg>`;
-  }
-
-  // Channels (C, MC)
-  if (["C", "MC"].includes(series)) {
-    const sc = Math.min((SZ - 2 * PAD) / d, (SZ - 2 * PAD) / (bf * 1.8));
-    const H = d * sc, B = bf * sc, S = Math.max(tw * sc, 4), T = Math.max(tf * sc, 4);
-    const x = CX + 10, top = CY - H / 2 + 6;
-    const pts = `${x - B},${top} ${x},${top} ${x},${top + T} ${x - B + S},${top + T} ${x - B + S},${top + H - T} ${x},${top + H - T} ${x},${top + H} ${x - B},${top + H}`;
-    const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-    let dims = dimLine(x + 6, top, x + 6, top + H, `d=${d}${unitSuffix}`, 16);
-    dims += dimLine(x - B, top, x, top, `bf=${bf}${unitSuffix}`, -18);
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${shape}${dims}</svg>`;
-  }
-
-  // Single Angle (L)
-  if (series === "L") {
-    const maxD = Math.max(d, bf);
-    const sc = (SZ - 2 * PAD) / maxD;
-    const H = d * sc, B = bf * sc, T = Math.max(tf * sc, 4);
-    const x = CX - B / 2, top = CY - H / 2 + 6;
-    const pts = `${x},${top} ${x + T},${top} ${x + T},${top + H - T} ${x + B},${top + H - T} ${x + B},${top + H} ${x},${top + H}`;
-    const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-    let dims = dimLine(x, top, x, top + H, `d=${d}${unitSuffix}`, -20);
-    dims += dimLine(x, top + H, x + B, top + H, `b=${bf}${unitSuffix}`, 16);
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${shape}${dims}</svg>`;
-  }
-
-  // Double Angle (2L)
-  if (series === "2L") {
-    const maxD = Math.max(d, bf * 2);
-    const sc = (SZ - 2 * PAD) / maxD;
-    const H = d * sc, B = bf * sc, T = Math.max(tf * sc, 4);
-    const gap = 6;
-    const leftX = CX - gap / 2, rightX = CX + gap / 2, top = CY - H / 2 + 6;
-    const ptsL = `${leftX - B},${top + H - T} ${leftX - T},${top + H - T} ${leftX - T},${top} ${leftX},${top} ${leftX},${top + H} ${leftX - B},${top + H}`;
-    const ptsR = `${rightX},${top} ${rightX + T},${top} ${rightX + T},${top + H - T} ${rightX + B},${top + H - T} ${rightX + B},${top + H} ${rightX},${top + H}`;
-    const shape = `<polygon points="${ptsL}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                   <polygon points="${ptsR}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-    let dims = dimLine(leftX - B, top, leftX - B, top + H, `d=${d}${unitSuffix}`, -20);
-    dims += dimLine(leftX - B, top + H, rightX + B, top + H, `2x b=${bf * 2}${unitSuffix}`, 16);
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${shape}${dims}</svg>`;
-  }
-
-  // Round Pipe or Round HSS
-  if (series === "PIPE" || (series === "HSS" && p.OD_in)) {
-    const od = (isImp ? p.OD_in : p.OD_mm) || d;
-    const sc = (SZ - 2 * PAD) / od;
-    const R = (od * sc) / 2, T = Math.max(tw * sc, 3);
-    const shape = `<circle cx="${CX}" cy="${CY}" r="${R}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                   <circle cx="${CX}" cy="${CY}" r="${R - T}" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>`;
-    let dims = dimLine(CX - R, CY, CX + R, CY, `OD=${od}${unitSuffix}`, -R - 12);
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${shape}${dims}</svg>`;
-  }
-
-  // Rectangular / Square HSS
-  if (series === "HSS") {
-    const sc = Math.min((SZ - 2 * PAD) / d, (SZ - 2 * PAD) / bf);
-    const H = d * sc, B = bf * sc, T = Math.max(tw * sc, 4);
-    const x = CX - B / 2, y = CY - H / 2 + 6;
-    const outer = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" rx="4"/>`;
-    const inner = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2" rx="2"/>`;
-    let dims = dimLine(x, y, x, y + H, `Ht=${d}${unitSuffix}`, -22);
-    dims += dimLine(x, y, x + B, y, `B=${bf}${unitSuffix}`, -18);
-    return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[220px] mx-auto">${outer}${inner}${dims}</svg>`;
-  }
-
-  return "";
-}
+import { buildAiscProfileSvg as buildAiscSvg } from "../components/svg/ProfileSvgFactory";
+import { ProfileSectionViewer } from "../components/svg/ProfileSectionViewer";
 
 // ==================== MAIN COMPONENT ====================
 export default function AiscCatalog() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
+
   // Unit System State: "metric" (mm, kg/m, cm4) is DEFAULT, "imperial" (in, lb/ft, in4) is secondary option
   const [unitSys, setUnitSys] = useState(localStorage.getItem("aisc-unit-sys") || "metric");
 
@@ -214,37 +101,19 @@ export default function AiscCatalog() {
     localStorage.setItem("aisc-project-takeoff-list", JSON.stringify(profileList));
   }, [profileList]);
 
-  // Derived filtered profiles
+  // Derived filtered profiles mediante ProfileSearchEngine
   const filteredProfiles = useMemo(() => {
     if (!currentSeries || !AISC_CATALOG[currentSeries]) return [];
-    let profiles = AISC_CATALOG[currentSeries].profiles;
-    let results = [];
+    const profiles = AISC_CATALOG[currentSeries].profiles;
 
-    const isImp = unitSys === "imperial";
-    const minIxVal = parseFloat(filterIx) || 0;
-    const minWVal = parseFloat(filterMinW) || 0;
-    const maxWVal = parseFloat(filterMaxW) || Infinity;
-    const maxHVal = parseFloat(filterH) || Infinity;
-    const q = searchQuery.toLowerCase().replace(/\s+/g, "");
-
-    for (let p of profiles) {
-      const desigImp = p.designation.toLowerCase().replace(/\s+/g, "");
-      const desigMet = (p.metricDesignation || "").toLowerCase().replace(/\s+/g, "");
-      const matchesSearch = desigImp.includes(q) || desigMet.includes(q);
-
-      const weight = isImp ? (p.W_lb || 0) : (p.W_kg || 0);
-      const ix = isImp ? (p.Ix_in4 || 0) : (p.Ix_cm4 || 0);
-      const h = isImp ? (p.d_in || p.OD_in || 0) : (p.d_mm || p.OD_mm || 0);
-
-      const matchesIx = ix >= minIxVal;
-      const matchesWeight = weight >= minWVal && weight <= maxWVal;
-      const matchesH = h <= maxHVal;
-
-      if (matchesSearch && matchesIx && matchesWeight && matchesH) {
-        results.push(p);
-      }
-    }
-    return results;
+    return ProfileSearchEngine.filterProfiles(profiles, {
+      searchQuery,
+      unitSys,
+      minIx: parseFloat(filterIx) || 0,
+      minWeight: parseFloat(filterMinW) || 0,
+      maxWeight: parseFloat(filterMaxW) || Infinity,
+      maxDepth: parseFloat(filterH) || Infinity,
+    });
   }, [currentSeries, searchQuery, filterIx, filterMinW, filterMaxW, filterH, unitSys]);
 
   // Auto-select first profile when series changes
@@ -262,7 +131,7 @@ export default function AiscCatalog() {
     const l = parseFloat(lengthParam) || (isImp ? 20 : 6);
     const c = parseInt(qtyParam) || 1;
 
-    if (!unitWeight) return alert("El perfil seleccionado no posee peso registrado.");
+    if (!unitWeight) return alert(isEn ? "The selected profile has no recorded weight." : "El perfil seleccionado no posee peso registrado.");
 
     const desigPrimary = isImp ? selectedProfile.designation : selectedProfile.metricDesignation;
     const desigSecondary = isImp ? selectedProfile.metricDesignation : selectedProfile.designation;
@@ -292,7 +161,7 @@ export default function AiscCatalog() {
   };
 
   const handleClear = () => {
-    if (window.confirm("¿Seguro que deseas reiniciar la lista de cubicación del proyecto?")) {
+    if (window.confirm(isEn ? "Are you sure you want to reset the project takeoff list?" : "¿Seguro que deseas reiniciar la lista de cubicación del proyecto?")) {
       setProfileList([]);
     }
   };
@@ -375,29 +244,31 @@ export default function AiscCatalog() {
 
   // Excel Export
   const handleExportExcel = async () => {
-    if (!profileList.length) return alert("No hay datos en la lista de cubicación.");
+    if (!profileList.length) return alert(isEn ? "No data in the takeoff list." : "No hay datos en la lista de cubicación.");
 
     const isImp = unitSys === "imperial";
     const unitLabel = isImp ? "lb/ft" : "kg/m";
     const totalUnitLabel = isImp ? "lbs" : "kg";
-    const lenLabel = isImp ? "Largo (ft)" : "Largo (m)";
+    const lenLabel = isImp ? (isEn ? "Length (ft)" : "Largo (ft)") : (isEn ? "Length (m)" : "Largo (m)");
     const tonUnit = isImp ? "US Tons" : "Ton";
     const tonValue = isImp ? takeoffSummary.grandTotal / 2000 : takeoffSummary.grandTotal / 1000;
 
-    await generateTakeoffExcel({
-      sheetName: `Cubicación AISC (${unitSys.toUpperCase()})`,
-      title: "Resumen de Cubicación - Catálogo AISC v15.0",
-      subtitle: `American Institute of Steel Construction · Base de Datos ${isImp ? "Imperial US Customary" : "Métrico SI"}`,
-      standardTag: "NORMA AISC v15.0",
+    await ExportService.executeExport(new ExcelTakeoffStrategy(), {
+      sheetName: isEn ? `AISC Takeoff (${unitSys.toUpperCase()})` : `Cubicación AISC (${unitSys.toUpperCase()})`,
+      title: isEn ? "Steel Takeoff Summary - AISC v15.0 Catalog" : "Resumen de Cubicación - Catálogo AISC v15.0",
+      subtitle: isEn
+        ? `American Institute of Steel Construction · ${isImp ? "US Customary Imperial" : "Metric SI"} Database`
+        : `American Institute of Steel Construction · Base de Datos ${isImp ? "Imperial US Customary" : "Métrico SI"}`,
+      standardTag: isEn ? "STANDARD AISC v15.0" : "NORMA AISC v15.0",
       columns: [
-        { header: "Marca / Tag", key: "mark", width: 14, align: "center" },
-        { header: "Cantidad", key: "qty", width: 12, align: "center", numFmt: '#,##0' },
-        { header: "Perfil Principal", key: "displayLabel", width: 24, align: "left" },
-        { header: "Perfil Equivalente", key: "secondaryLabel", width: 22, align: "left" },
-        { header: "Tipo", key: "type", width: 12, align: "center" },
+        { header: isEn ? "Mark / Tag" : "Marca / Tag", key: "mark", width: 14, align: "center" },
+        { header: isEn ? "Quantity" : "Cantidad", key: "qty", width: 12, align: "center", numFmt: '#,##0' },
+        { header: isEn ? "Primary Profile" : "Perfil Principal", key: "displayLabel", width: 24, align: "left" },
+        { header: isEn ? "Equivalent Profile" : "Perfil Equivalente", key: "secondaryLabel", width: 22, align: "left" },
+        { header: isEn ? "Type" : "Tipo", key: "type", width: 12, align: "center" },
         { header: lenLabel, key: "length", width: 15, align: "right", numFmt: '#,##0.00' },
-        { header: `Peso Unit. (${unitLabel})`, key: "unitWeight", width: 18, align: "right", numFmt: '#,##0.00' },
-        { header: `Peso Total (${totalUnitLabel})`, key: "totalWeight", width: 20, align: "right", numFmt: '#,##0.00' },
+        { header: `${isEn ? "Unit Wt." : "Peso Unit."} (${unitLabel})`, key: "unitWeight", width: 18, align: "right", numFmt: '#,##0.00' },
+        { header: `${isEn ? "Total Wt." : "Peso Total"} (${totalUnitLabel})`, key: "totalWeight", width: 20, align: "right", numFmt: '#,##0.00' },
       ],
       data: profileList.map((p) => ({
         mark: p.mark,
@@ -423,21 +294,31 @@ export default function AiscCatalog() {
   };
 
   // PDF Export
-  const handleExportPdf = () => {
-    if (!profileList.length) return alert("No hay datos en la lista de cubicación.");
+  const handleExportPdf = async () => {
+    if (!profileList.length) return alert(isEn ? "No data in the takeoff list." : "No hay datos en la lista de cubicación.");
 
     const isImp = unitSys === "imperial";
     const unitLabel = isImp ? "lb/ft" : "kg/m";
     const totalUnitLabel = isImp ? "lbs" : "kg";
-    const lenLabel = isImp ? "Largo (ft)" : "Largo (m)";
+    const lenLabel = isImp ? (isEn ? "Length (ft)" : "Largo (ft)") : (isEn ? "Length (m)" : "Largo (m)");
     const tonUnit = isImp ? "US Tons" : "Ton";
     const tonValue = isImp ? takeoffSummary.grandTotal / 2000 : takeoffSummary.grandTotal / 1000;
 
-    generateTakeoffPdf({
-      title: "Resumen de Cubicación - Catálogo AISC v15.0",
-      subtitle: `American Institute of Steel Construction · Base de Datos ${isImp ? "Imperial US Customary" : "Métrico SI"}`,
-      standardTag: "NORMA AISC v15.0",
-      headers: ["Marca / Tag", "Cant.", "Perfil AISC", "Equivalente", lenLabel, `Peso U. (${unitLabel})`, `Peso Total (${totalUnitLabel})`],
+    await ExportService.executeExport(new PdfTakeoffStrategy(), {
+      title: isEn ? "Steel Takeoff Summary - AISC v15.0 Catalog" : "Resumen de Cubicación - Catálogo AISC v15.0",
+      subtitle: isEn
+        ? `American Institute of Steel Construction · ${isImp ? "US Customary Imperial" : "Metric SI"} Database`
+        : `American Institute of Steel Construction · Base de Datos ${isImp ? "Imperial US Customary" : "Métrico SI"}`,
+      standardTag: isEn ? "STANDARD AISC v15.0" : "NORMA AISC v15.0",
+      headers: [
+        isEn ? "Mark / Tag" : "Marca / Tag",
+        isEn ? "Qty" : "Cant.",
+        isEn ? "AISC Shape" : "Perfil AISC",
+        isEn ? "Equivalent" : "Equivalente",
+        lenLabel,
+        `${isEn ? "Unit Wt." : "Peso U."} (${unitLabel})`,
+        `${isEn ? "Total Wt." : "Peso Total"} (${totalUnitLabel})`
+      ],
       rows: profileList.map((p) => [
         p.mark,
         p.qty,
@@ -475,19 +356,19 @@ export default function AiscCatalog() {
   return (
     <div className="bg-[#080c14] text-slate-300 font-sans min-h-screen pt-24 pb-12">
       <SEOHead
-        title="Catálogo AISC v15.0 Online · Buscador de Perfiles de Acero Estructural"
-        description="Buscador interactivo con 2,100+ perfiles de acero estructural de la AISC v15.0 (W, S, M, HP, C, MC, HSS, L, WT). Propiedades mecánicas en sistema Métrico e Imperial, cotas 2D y cubicador."
+        title={isEn ? "AISC v15.0 Steel Profiles Catalog Online · Structural Steel Shapes" : "Catálogo AISC v15.0 Online · Buscador de Perfiles de Acero Estructural"}
+        description={isEn ? "Interactive database with 2,100+ AISC v15.0 structural steel shapes (W, S, M, HP, C, MC, HSS, L, WT). Metric SI and US Imperial customary properties, 2D diagrams, and steel takeoff calculator." : "Buscador interactivo con 2,100+ perfiles de acero estructural de la AISC v15.0 (W, S, M, HP, C, MC, HSS, L, WT). Propiedades mecánicas en sistema Métrico e Imperial, cotas 2D y cubicador."}
         path="/herramientas/aisc"
-        keywords="Catálogo AISC v15.0, perfiles AISC online, W beams, HSS tubular, perfiles estructurales acero, American Institute of Steel Construction, cubicación acero AISC"
+        keywords={isEn ? "AISC v15.0 catalog, AISC steel shapes online, W beams, HSS tubular, structural steel profiles, American Institute of Steel Construction, AISC steel takeoff" : "Catálogo AISC v15.0, perfiles AISC online, W beams, HSS tubular, perfiles estructurales acero, American Institute of Steel Construction, cubicación acero AISC"}
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Catálogo AISC v15.0 Online y Cubicador de Acero",
+          "name": isEn ? "AISC v15.0 Steel Shapes Catalog & Takeoff Calculator" : "Catálogo AISC v15.0 Online y Cubicador de Acero",
           "applicationCategory": "EngineeringApplication",
           "operatingSystem": "All",
-          "url": "https://atelijudesign.com/herramientas/aisc",
-          "description": "Base de datos y explorador normado AISC v15.0 con 2,100+ perfiles estructurales, cotas paramétricas 2D y conversor de unidades.",
-          "inLanguage": "es",
+          "url": "https://www.andresgallop.com/herramientas/aisc",
+          "description": isEn ? "AISC v15.0 certified database and explorer with 2,100+ structural profiles, 2D parametric dimensions and unit converter." : "Base de datos y explorador normado AISC v15.0 con 2,100+ perfiles estructurales, cotas paramétricas 2D y conversor de unidades.",
+          "inLanguage": isEn ? "en" : "es",
           "author": {
             "@type": "Person",
             "name": "Andrés Gallo P."
@@ -502,13 +383,13 @@ export default function AiscCatalog() {
             to="/herramientas"
             className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-white bg-white/[0.07] hover:bg-white/10 border border-white/15 px-4 py-2 rounded-lg transition-all duration-300 group"
           >
-            <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
+            <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> {isEn ? "Back to Tools" : "Volver a Herramientas"}
           </Link>
 
           {/* Prominent Dual System Unit Switcher */}
           <div className="flex items-center gap-1 bg-[#0d1420] border border-white/10 rounded-xl p-1.5 shadow-xl">
             <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider px-2 hidden sm:inline-block">
-              <i className="fa-solid fa-ruler-combined text-[#60a5fa] mr-1.5"></i>Sistema de Unidades:
+              <i className="fa-solid fa-ruler-combined text-[#60a5fa] mr-1.5"></i>{isEn ? "Unit System:" : "Sistema de Unidades:"}
             </span>
             <button
               onClick={() => handleUnitChange("metric")}
@@ -518,7 +399,7 @@ export default function AiscCatalog() {
                   : "border-transparent text-slate-300 hover:text-white hover:bg-white/10"
               }`}
             >
-              <i className="fa-solid fa-ruler"></i> Métrico SI (mm / kg / cm⁴)
+              <i className="fa-solid fa-ruler"></i> {isEn ? "Metric SI (mm / kg / cm⁴)" : "Métrico SI (mm / kg / cm⁴)"}
             </button>
             <button
               onClick={() => handleUnitChange("imperial")}
@@ -528,7 +409,7 @@ export default function AiscCatalog() {
                   : "border-transparent text-slate-300 hover:text-white hover:bg-white/10"
               }`}
             >
-              <i className="fa-solid fa-flag-usa"></i> Imperial US (in / lb / in⁴)
+              <i className="fa-solid fa-flag-usa"></i> {isEn ? "US Imperial (in / lb / in⁴)" : "Imperial US (in / lb / in⁴)"}
             </button>
           </div>
 
@@ -536,7 +417,7 @@ export default function AiscCatalog() {
             to="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-white bg-white/[0.07] hover:bg-white/10 border border-white/15 px-4 py-2 rounded-lg transition-all duration-300"
           >
-            <i className="fa-solid fa-house"></i> Volver al Inicio
+            <i className="fa-solid fa-house"></i> {isEn ? "Back to Home" : "Volver al Inicio"}
           </Link>
         </div>
       </div>
@@ -546,13 +427,15 @@ export default function AiscCatalog() {
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/30 text-[#60a5fa] text-xs font-mono font-bold mb-4 uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse" />
-            // Norma Internacional · AISC v15.0 Database
+            // {isEn ? "International Standard · AISC v15.0 Database" : "Norma Internacional · AISC v15.0 Database"}
           </div>
           <h1 className="text-3xl sm:text-5xl font-black mb-4 font-head tracking-tight text-white">
-            Catálogo de Perfiles <span className="text-[#60a5fa]">AISC v15.0</span>
+            {isEn ? "AISC v15.0 " : "Catálogo de Perfiles "}<span className="text-[#60a5fa]">{isEn ? "Steel Profiles Catalog" : "AISC v15.0"}</span>
           </h1>
           <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Explora más de 2,100 perfiles estructurales normados por el American Institute of Steel Construction. Consulta propiedades en <strong>Sistema Métrico SI (mm, kg/m)</strong> o <strong>Imperial (pulgadas, lb/ft)</strong>, visualiza cotas en 2D y estima la cubicaciones de acero de tu proyecto.
+            {isEn
+              ? "Explore over 2,100 standard structural steel shapes certified by the American Institute of Steel Construction. Inspect properties in Metric SI (mm, kg/m) or US Imperial (inches, lb/ft), view 2D cross-section dimensions, and compute steel takeoffs for your project."
+              : "Explora más de 2,100 perfiles estructurales normados por el American Institute of Steel Construction. Consulta propiedades en Sistema Métrico SI (mm, kg/m) o Imperial (pulgadas, lb/ft), visualiza cotas en 2D y estima la cubicaciones de acero de tu proyecto."}
           </p>
         </div>
       </section>
@@ -560,10 +443,10 @@ export default function AiscCatalog() {
       {/* Series Match Buttons */}
       <div className="max-w-7xl mx-auto px-4 mb-6">
         <h2 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
-          <span><i className="fa-solid fa-shapes mr-2 text-[#60a5fa]"></i>Familia / Tipo de Sección</span>
-          <span className="text-slate-500">{AISC_CATALOG[currentSeries]?.profiles.length || 0} Perfiles</span>
+          <span><i className="fa-solid fa-shapes mr-2 text-[#60a5fa]"></i>{isEn ? "Section Family / Shape Type" : "Familia / Tipo de Sección"}</span>
+          <span className="text-slate-500">{AISC_CATALOG[currentSeries]?.profiles.length || 0} {isEn ? "Profiles" : "Perfiles"}</span>
         </h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 lg:grid-cols-13 gap-2">
+        <div className="grid gap-2" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(68px, 1fr))" }}>
           {Object.entries(AISC_CATALOG).map(([key, series]) => (
             <button
               key={key}
@@ -592,14 +475,14 @@ export default function AiscCatalog() {
           {/* SEARCH & PROFILE LIST PANEL */}
           <div className="bg-slate-900/70 backdrop-blur-md rounded-2xl border border-slate-700/50 p-6 lg:col-span-1 flex flex-col h-[680px]">
             <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center justify-between">
-              <span><i className="fa-solid fa-magnifying-glass mr-2 text-bim-blue"></i>Buscador de Perfil</span>
+              <span><i className="fa-solid fa-magnifying-glass mr-2 text-bim-blue"></i>{isEn ? "Profile Search" : "Buscador de Perfil"}</span>
               <button
                 onClick={() => setShowFilters(!showFilters)}
                 className={`text-xs px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1 ${
                   showFilters ? "bg-bim-blue/20 border-bim-blue text-bim-blue" : "border-slate-700 text-slate-400 hover:text-white"
                 }`}
               >
-                <i className="fa-solid fa-sliders"></i> Filtros
+                <i className="fa-solid fa-sliders"></i> {isEn ? "Filters" : "Filtros"}
               </button>
             </h3>
 
@@ -609,7 +492,7 @@ export default function AiscCatalog() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={`Buscar en ${currentSeries} (ej. ${unitSys === 'metric' ? 'W360X134 o W14X90' : 'W14X90 o W360X134'})...`}
+                placeholder={isEn ? `Search in ${currentSeries} (e.g. ${unitSys === 'metric' ? 'W360X134 or W14X90' : 'W14X90 or W360X134'})...` : `Buscar en ${currentSeries} (ej. ${unitSys === 'metric' ? 'W360X134 o W14X90' : 'W14X90 o W360X134'})...`}
                 className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm placeholder:text-slate-500 focus:outline-none focus:border-bim-blue text-white"
               />
               {searchQuery && (
@@ -626,7 +509,7 @@ export default function AiscCatalog() {
             {showFilters && (
               <div className="grid grid-cols-2 gap-2 mb-3 p-3 bg-slate-800/80 rounded-xl border border-slate-700/60 text-xs">
                 <div>
-                  <label className="text-slate-400 block mb-1">Ix Mín ({isImp ? "in⁴" : "cm⁴"})</label>
+                  <label className="text-slate-400 block mb-1">{isEn ? "Min Ix" : "Ix Mín"} ({isImp ? "in⁴" : "cm⁴"})</label>
                   <input
                     type="number"
                     placeholder="0"
@@ -636,17 +519,17 @@ export default function AiscCatalog() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Depth/Alto Máx ({isImp ? 'in' : 'mm'})</label>
+                  <label className="text-slate-400 block mb-1">{isEn ? "Max Depth" : "Depth/Alto Máx"} ({isImp ? 'in' : 'mm'})</label>
                   <input
                     type="number"
-                    placeholder="Máx"
+                    placeholder={isEn ? "Max" : "Máx"}
                     className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-white"
                     value={filterH}
                     onChange={(e) => setFilterH(e.target.value)}
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Peso Mín ({isImp ? "lb/ft" : "kg/m"})</label>
+                  <label className="text-slate-400 block mb-1">{isEn ? "Min Weight" : "Peso Mín"} ({isImp ? "lb/ft" : "kg/m"})</label>
                   <input
                     type="number"
                     placeholder="0"
@@ -656,10 +539,10 @@ export default function AiscCatalog() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Peso Máx ({isImp ? "lb/ft" : "kg/m"})</label>
+                  <label className="text-slate-400 block mb-1">{isEn ? "Max Weight" : "Peso Máx"} ({isImp ? "lb/ft" : "kg/m"})</label>
                   <input
                     type="number"
-                    placeholder="Máx"
+                    placeholder={isEn ? "Max" : "Máx"}
                     className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-white"
                     value={filterMaxW}
                     onChange={(e) => setFilterMaxW(e.target.value)}
@@ -712,7 +595,7 @@ export default function AiscCatalog() {
               ) : (
                 <div className="text-center py-12 text-slate-500 text-sm">
                   <i className="fa-solid fa-circle-exclamation text-2xl mb-2 block text-slate-600"></i>
-                  No se encontraron perfiles con los criterios seleccionados.
+                  {isEn ? "No steel profiles match the selected criteria." : "No se encontraron perfiles con los criterios seleccionados."}
                 </div>
               )}
             </div>
@@ -726,12 +609,12 @@ export default function AiscCatalog() {
                 <div className="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-slate-800 gap-4">
                   <div>
                     <span className="text-xs font-bold text-bim-blue uppercase tracking-wider">
-                      Sección {selectedProfile.type} · AISC v15.0
+                      {isEn ? "Section" : "Sección"} {selectedProfile.type} · AISC v15.0
                     </span>
                     <h2 className="text-3xl font-black text-white font-grotesk flex items-center gap-3">
                       {unitSys === "metric" ? selectedProfile.metricDesignation : selectedProfile.designation}
                       <span className="text-xs font-semibold text-emerald-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
-                        Equiv: {unitSys === "metric" ? selectedProfile.designation : selectedProfile.metricDesignation}
+                        {isEn ? "Equiv:" : "Equiv:"} {unitSys === "metric" ? selectedProfile.designation : selectedProfile.metricDesignation}
                       </span>
                     </h2>
                   </div>
@@ -740,13 +623,13 @@ export default function AiscCatalog() {
                   <div className="flex items-center gap-2 flex-wrap bg-slate-800/80 p-2 rounded-xl border border-slate-700">
                     <input
                       type="text"
-                      placeholder="Marca (ej. C-01)"
+                      placeholder={isEn ? "Mark (e.g. C-01)" : "Marca (ej. C-01)"}
                       value={mark}
                       onChange={(e) => setMark(e.target.value)}
                       className="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white w-28 placeholder:text-slate-500 focus:outline-none focus:border-bim-blue"
                     />
                     <div className="flex items-center gap-1">
-                      <span className="text-xs text-slate-400">Largo:</span>
+                      <span className="text-xs text-slate-400">{isEn ? "Length:" : "Largo:"}</span>
                       <input
                         type="number"
                         min="1"
@@ -757,7 +640,7 @@ export default function AiscCatalog() {
                       <span className="text-xs text-slate-400 font-mono">{unitSys === "metric" ? "m" : "ft"}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <span className="text-xs text-slate-400">Cant:</span>
+                      <span className="text-xs text-slate-400">{isEn ? "Qty:" : "Cant:"}</span>
                       <input
                         type="number"
                         min="1"
@@ -770,7 +653,7 @@ export default function AiscCatalog() {
                       onClick={addToList}
                       className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm"
                     >
-                      <i className="fa-solid fa-plus"></i> Agregar
+                      <i className="fa-solid fa-plus"></i> {isEn ? "Add" : "Agregar"}
                     </button>
                   </div>
                 </div>
@@ -782,19 +665,21 @@ export default function AiscCatalog() {
                     <div className="w-full flex items-center justify-between border-b border-slate-800/60 pb-2 mb-1">
                       <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
                         <i className="fa-solid fa-compass-drafting text-bim-blue"></i>
-                        Diagrama Esquemático ({unitSys === 'metric' ? 'Cotas en mm' : 'Cotas en in'})
+                        {isEn ? "Schematic Diagram" : "Diagrama Esquemático"} ({unitSys === 'metric' ? (isEn ? 'Dimensions in mm' : 'Cotas en mm') : (isEn ? 'Dimensions in in' : 'Cotas en in')})
                       </span>
                     </div>
-                    <div
+                    <ProfileSectionViewer
+                      aiscProfile={selectedProfile}
+                      aiscUnitSys={unitSys}
+                      profileName={selectedProfile?.AISC_Manual_Label || "Perfil AISC"}
                       className="w-full flex items-center justify-center my-auto py-2"
-                      dangerouslySetInnerHTML={{ __html: buildAiscSvg(selectedProfile, unitSys) }}
                     />
                   </div>
 
                   {/* Summary Dual Properties Card */}
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="bg-slate-800/40 p-3 rounded-xl border border-slate-700/40">
-                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-weight-hanging mr-1 text-bim-blue"></i>Peso Nominal</span>
+                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-weight-hanging mr-1 text-bim-blue"></i>{isEn ? "Nominal Weight" : "Peso Nominal"}</span>
                       <div className="font-mono">
                         <span className={`text-base font-bold ${isImp ? 'text-blue-400' : 'text-emerald-400'} block`}>
                           {isImp ? `${selectedProfile.W_lb} lb/ft` : `${selectedProfile.W_kg} kg/m`}
@@ -806,7 +691,7 @@ export default function AiscCatalog() {
                     </div>
 
                     <div className="bg-slate-800/40 p-3 rounded-xl border border-slate-700/40">
-                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-vector-square mr-1 text-indigo-400"></i>Área de Sección</span>
+                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-vector-square mr-1 text-indigo-400"></i>{isEn ? "Section Area" : "Área de Sección"}</span>
                       <div className="font-mono">
                         <span className="text-base font-bold text-white block">
                           {isImp ? `${selectedProfile.A_in2} in²` : `${selectedProfile.A_mm2} mm²`}
@@ -818,7 +703,7 @@ export default function AiscCatalog() {
                     </div>
 
                     <div className="bg-slate-800/40 p-3 rounded-xl border border-slate-700/40">
-                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-rotate mr-1 text-emerald-400"></i>Inercia Ix</span>
+                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-rotate mr-1 text-emerald-400"></i>{isEn ? "Inertia Ix" : "Inercia Ix"}</span>
                       <div className="font-mono">
                         <span className="text-base font-bold text-white block">
                           {isImp ? `${selectedProfile.Ix_in4} in⁴` : `${selectedProfile.Ix_cm4} cm⁴`}
@@ -830,7 +715,7 @@ export default function AiscCatalog() {
                     </div>
 
                     <div className="bg-slate-800/40 p-3 rounded-xl border border-slate-700/40">
-                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-rotate mr-1 text-orange-400"></i>Inercia Iy</span>
+                      <span className="text-slate-400 block mb-1"><i className="fa-solid fa-rotate mr-1 text-orange-400"></i>{isEn ? "Inertia Iy" : "Inercia Iy"}</span>
                       <div className="font-mono">
                         <span className="text-base font-bold text-white block">
                           {isImp ? `${selectedProfile.Iy_in4} in⁴` : `${selectedProfile.Iy_cm4} cm⁴`}
@@ -846,9 +731,9 @@ export default function AiscCatalog() {
                 {/* Complete Dual Properties Table Grid */}
                 <div className="mt-4">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
-                    <span><i className="fa-solid fa-list-check mr-2 text-bim-blue"></i>Propiedades Estructurales ({isImp ? "Imperial US Customary" : "Métrico SI"})</span>
+                    <span><i className="fa-solid fa-list-check mr-2 text-bim-blue"></i>{isEn ? "Structural Properties" : "Propiedades Estructurales"} ({isImp ? (isEn ? "US Customary Imperial" : "Imperial US Customary") : (isEn ? "Metric SI" : "Métrico SI")})</span>
                     <span className="text-emerald-400 text-[11px] font-normal">
-                      {isImp ? "Primario: Imperial (in / lb) · Secundario: Métrico (mm / kg)" : "Primario: Métrico (mm / kg) · Secundario: Imperial (in / lb)"}
+                      {isImp ? (isEn ? "Primary: US Imperial (in / lb) · Secondary: Metric SI (mm / kg)" : "Primario: Imperial (in / lb) · Secundario: Métrico (mm / kg)") : (isEn ? "Primary: Metric SI (mm / kg) · Secondary: US Imperial (in / lb)" : "Primario: Métrico (mm / kg) · Secundario: Imperial (in / lb)")}
                     </span>
                   </h4>
 
@@ -867,7 +752,7 @@ export default function AiscCatalog() {
                       return (
                         <div key={propKey} className="bg-slate-800/50 p-2.5 rounded-lg border border-slate-700/50 flex flex-col justify-between">
                           <span className="text-slate-400 text-[11px] flex items-center gap-1.5 truncate">
-                            <i className={`fa-solid ${meta.icon} text-bim-blue text-[10px]`}></i> {meta.name}
+                            <i className={`fa-solid ${meta.icon} text-bim-blue text-[10px]`}></i> {isEn ? meta.nameEn : (meta.nameEs || meta.name)}
                           </span>
                           <div className="mt-1 font-mono">
                             <span className="text-sm font-bold text-white block">
@@ -887,7 +772,7 @@ export default function AiscCatalog() {
             ) : (
               <div className="flex flex-col items-center justify-center h-full py-20 text-slate-500">
                 <i className="fa-solid fa-arrow-left text-3xl mb-3"></i>
-                <p>Selecciona un perfil de la lista izquierda para consultar sus propiedades.</p>
+                <p>{isEn ? "Select a profile from the left list to view its properties." : "Selecciona un perfil de la lista izquierda para consultar sus propiedades."}</p>
               </div>
             )}
           </div>
@@ -903,10 +788,10 @@ export default function AiscCatalog() {
           <div className="flex flex-wrap items-center justify-between pb-4 mb-6 border-b border-slate-800 gap-4">
             <div>
               <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
-                Módulo de Cómputo de Materiales
+                {isEn ? "Materials Takeoff Module" : "Módulo de Cómputo de Materiales"}
               </span>
               <h2 className="text-2xl font-black text-white font-grotesk flex items-center gap-2">
-                <i className="fa-solid fa-[#10b981] fa-calculator text-emerald-400"></i> Cubicador de Proyecto
+                <i className="fa-solid fa-[#10b981] fa-calculator text-emerald-400"></i> {isEn ? "Project Steel Takeoff" : "Cubicador de Proyecto"}
               </h2>
             </div>
 
@@ -915,19 +800,19 @@ export default function AiscCatalog() {
                 onClick={handleExportExcel}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md flex items-center gap-2"
               >
-                <i className="fa-solid fa-file-excel text-sm"></i> Exportar a Excel (.xlsx)
+                <i className="fa-solid fa-file-excel text-sm"></i> {isEn ? "Export to Excel (.xlsx)" : "Exportar a Excel (.xlsx)"}
               </button>
               <button
                 onClick={handleExportPdf}
                 className="bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md flex items-center gap-2"
               >
-                <i className="fa-solid fa-file-pdf text-sm"></i> Exportar a PDF (.pdf)
+                <i className="fa-solid fa-file-pdf text-sm"></i> {isEn ? "Export to PDF (.pdf)" : "Exportar a PDF (.pdf)"}
               </button>
               <button
                 onClick={handleClear}
                 className="bg-slate-800 hover:bg-red-500/20 hover:text-red-400 text-slate-400 text-xs font-bold px-3 py-2 rounded-xl border border-slate-700 transition-all flex items-center gap-1"
               >
-                <i className="fa-solid fa-trash-can"></i> Limpiar
+                <i className="fa-solid fa-trash-can"></i> {isEn ? "Clear" : "Limpiar"}
               </button>
             </div>
           </div>
@@ -941,13 +826,13 @@ export default function AiscCatalog() {
                 <table className="w-full text-left text-xs text-slate-300">
                   <thead className="bg-slate-800/80 text-slate-400 uppercase font-bold text-[10px] tracking-wider border-b border-slate-700">
                     <tr>
-                      <th className="py-3 px-3">Marca / Tag</th>
-                      <th className="py-3 px-3">Cant</th>
-                      <th className="py-3 px-3">Perfil AISC</th>
-                      <th className="py-3 px-3">Largo ({isImp ? "ft" : "m"})</th>
-                      <th className="py-3 px-3">Peso Unit ({isImp ? "lb/ft" : "kg/m"})</th>
-                      <th className="py-3 px-3">Peso Total ({isImp ? "lbs" : "kg"})</th>
-                      <th className="py-3 px-3 text-right">Acción</th>
+                      <th className="py-3 px-3">{isEn ? "Mark / Tag" : "Marca / Tag"}</th>
+                      <th className="py-3 px-3">{isEn ? "Qty" : "Cant"}</th>
+                      <th className="py-3 px-3">{isEn ? "AISC Profile" : "Perfil AISC"}</th>
+                      <th className="py-3 px-3">{isEn ? "Length" : "Largo"} ({isImp ? "ft" : "m"})</th>
+                      <th className="py-3 px-3">{isEn ? "Unit Weight" : "Peso Unit"} ({isImp ? "lb/ft" : "kg/m"})</th>
+                      <th className="py-3 px-3">{isEn ? "Total Weight" : "Peso Total"} ({isImp ? "lbs" : "kg"})</th>
+                      <th className="py-3 px-3 text-right">{isEn ? "Action" : "Acción"}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/60 font-mono">
@@ -968,7 +853,7 @@ export default function AiscCatalog() {
                           <button
                             onClick={() => removeFromList(idx)}
                             className="text-slate-500 hover:text-red-400 p-1 transition-colors"
-                            title="Eliminar"
+                            title={isEn ? "Delete" : "Eliminar"}
                           >
                             <i className="fa-solid fa-xmark"></i>
                           </button>
@@ -980,7 +865,7 @@ export default function AiscCatalog() {
               ) : (
                 <div className="text-center py-16 border-2 border-dashed border-slate-800 rounded-2xl text-slate-500">
                   <i className="fa-solid fa-box-open text-3xl mb-2 text-slate-600 block"></i>
-                  No has agregado perfiles a la lista de cubicación. Selecciona un perfil arriba y haz clic en <strong>"+ Agregar"</strong>.
+                  {isEn ? "No profiles added to the takeoff list. Select a profile above and click " : "No has agregado perfiles a la lista de cubicación. Selecciona un perfil arriba y haz clic en "}<strong>{isEn ? "\"+ Add\"" : "\"+ Agregar\""}</strong>.
                 </div>
               )}
             </div>
@@ -991,7 +876,7 @@ export default function AiscCatalog() {
               {/* Summary Cards */}
               <div className="space-y-3">
                 <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/60 flex items-center justify-between">
-                  <span className="text-xs text-slate-400 font-medium">Subtotal Peso Estructural</span>
+                  <span className="text-xs text-slate-400 font-medium">{isEn ? "Structural Weight Subtotal" : "Subtotal Peso Estructural"}</span>
                   <span className="text-lg font-bold text-white font-mono">
                     {roundVal(takeoffSummary.totalWeight)} <span className="text-xs text-slate-400 font-normal">{isImp ? "lbs" : "kg"}</span>
                   </span>
@@ -999,7 +884,7 @@ export default function AiscCatalog() {
 
                 <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/60 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-slate-400 font-medium">Margen Conexiones</span>
+                    <span className="text-xs text-slate-400 font-medium">{isEn ? "Connections Margin" : "Margen Conexiones"}</span>
                     <input
                       type="number"
                       min="0"
@@ -1016,7 +901,7 @@ export default function AiscCatalog() {
                 </div>
 
                 <div className="bg-gradient-to-r from-emerald-900/40 to-teal-900/40 p-4 rounded-xl border border-emerald-500/40 flex items-center justify-between">
-                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Peso Total Estimado</span>
+                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">{isEn ? "Estimated Total Weight" : "Peso Total Estimado"}</span>
                   <span className="text-2xl font-black text-white font-mono">
                     {isImp
                       ? `${roundVal(takeoffSummary.grandTotal / 2000)} Tons (${roundVal(takeoffSummary.grandTotal)} lbs)`
@@ -1029,7 +914,7 @@ export default function AiscCatalog() {
               {profileList.length > 0 && (
                 <div className="bg-slate-950/70 p-4 rounded-xl border border-slate-800 h-[220px] relative">
                   <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-2">
-                    Distribución por Familia
+                    {isEn ? "Distribution by Shape Family" : "Distribución por Familia"}
                   </span>
                   <div className="h-[170px]">
                     <canvas ref={canvasRef} />

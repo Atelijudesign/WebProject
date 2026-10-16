@@ -1,9 +1,14 @@
-import { lazy, Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { Navbar } from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ScrollToTopOnNavigation from "./components/ScrollToTopOnNavigation";
+import { ScrollProgressBar } from "./components/ui/ScrollProgressBar";
+import { AmbientCursorGlow } from "./components/ui/AmbientCursorGlow";
 import { CommandPalette } from "./components/CommandPalette";
+import { lazyWithRetry as lazy } from "./utils/lazyWithRetry";
+import { databaseAdminUrl } from "./services/projectsApi";
 
 // Lightweight pages — loaded eagerly (small bundle impact)
 import Home from "./pages/Home";
@@ -18,19 +23,18 @@ const ToolsCatalog        = lazy(() => import("./pages/ToolsCatalog"));
 const IchaCatalog         = lazy(() => import("./pages/IchaCatalog"));
 const AiscCatalog         = lazy(() => import("./pages/AiscCatalog"));
 const StaircaseCalculator = lazy(() => import("./pages/StaircaseCalculator"));
-const isDev = import.meta.env.DEV;
 
 // Base del router: coincide con el `base` de Vite
 // (por ejemplo "/WebProject/" al publicar en GitHub Pages).
 const routerBasename = import.meta.env.BASE_URL.replace(/\/+$/, "") || "/";
 
-const AdminDashboard = isDev ? lazy(() => import("./pages/AdminDashboard")) : null;
 const ProfileCalculator   = lazy(() => import("./pages/ProfileCalculator"));
 const BucklingShorteners  = lazy(() => import("./pages/BucklingShorteners"));
 const CvAtsBuilder        = lazy(() => import("./pages/CvAtsBuilder"));
 const IfcViewer           = lazy(() => import("./pages/IfcViewer"));
 const UnitConverter       = lazy(() => import("./pages/UnitConverter").then(m => ({ default: m.UnitConverter })));
 const GeoCalc             = lazy(() => import("./pages/GeoCalc").then(m => ({ default: m.GeoCalc })));
+const SmartPlant3DLab     = lazy(() => import("./pages/SmartPlant3DLab").then(m => ({ default: m.SmartPlant3DLab })));
 
 // Blog pages — lazy-loaded (content-heavy, visited on demand)
 const BlogCatalog           = lazy(() => import("./pages/blog/BlogCatalog"));
@@ -62,6 +66,11 @@ const RevitScanToBimReality3D = lazy(() => import("./pages/blog/RevitScanToBimRe
 const PlanBimChileEstandar = lazy(() => import("./pages/blog/PlanBimChileEstandar"));
 const RevitEdgeWebView2 = lazy(() => import("./pages/blog/RevitEdgeWebView2"));
 const MiningDigitalTwins = lazy(() => import("./pages/blog/MiningDigitalTwins"));
+const SmartPlant3DInteractiveMasterLab = lazy(() => import("./pages/blog/SmartPlant3DInteractiveMasterLab"));
+const PresentacionAndresGallo = lazy(() => import("./pages/blog/PresentacionAndresGallo"));
+const NormasEstructuralesChileUsa = lazy(() => import("./pages/blog/NormasEstructuralesChileUsa"));
+const ManualSmartPlant3DStructuralModeling = lazy(() => import("./pages/blog/ManualSmartPlant3DStructuralModeling"));
+const SmartPlant3DFundamentosGrillas = lazy(() => import("./pages/blog/SmartPlant3DFundamentosGrillas"));
 
 
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -81,10 +90,19 @@ function PageLoader() {
   );
 }
 
+function DatabaseAdminRedirect() {
+  useEffect(() => {
+    window.location.replace(databaseAdminUrl());
+  }, []);
+  return <PageLoader />;
+}
+
 // Layout compartido con Navbar, Footer y ScrollToTop
 function PublicLayout() {
   return (
     <div className="flex flex-col min-h-screen">
+      <AmbientCursorGlow />
+      <ScrollProgressBar />
       <SkipToContent />
       <Navbar />
       <CommandPalette />
@@ -104,17 +122,10 @@ function PublicLayout() {
 export default function App() {
   return (
     <Router basename={routerBasename}>
+      <ScrollToTopOnNavigation />
       <Routes>
-        {/* Admin Route — solo disponible en desarrollo local */}
-        {isDev && AdminDashboard && (
-          <Route path="/admin" element={
-            <ErrorBoundary>
-              <Suspense fallback={<PageLoader />}>
-                <AdminDashboard />
-              </Suspense>
-            </ErrorBoundary>
-          } />
-        )}
+        {/* El administrador histórico fue sustituido por el CRUD SQLite independiente. */}
+        <Route path="/admin" element={<DatabaseAdminRedirect />} />
 
         {/* Visor IFC Estructural 3D — Herramienta interactiva de pantalla completa */}
         <Route path="/herramientas/visor-ifc" element={
@@ -156,6 +167,10 @@ export default function App() {
           <Route path="/herramientas/cv-ats" element={<CvAtsBuilder />} />
           <Route path="/herramientas/convertidor" element={<UnitConverter />} />
           <Route path="/herramientas/geometria" element={<GeoCalc />} />
+          <Route path="/herramientas/smartplant-3d" element={<SmartPlant3DLab />} />
+          <Route path="/herramientas/sp3d" element={<SmartPlant3DLab />} />
+          <Route path="/smartplant-3d" element={<SmartPlant3DLab />} />
+          <Route path="/sp3d" element={<SmartPlant3DLab />} />
           <Route path="/export" element={<ExportModel />} />
 
           {/* Blog Routes */}
@@ -190,6 +205,27 @@ export default function App() {
           <Route path="/blog/plan-bim-chile-estandar-proyectos-publicos" element={<PlanBimChileEstandar />} />
           <Route path="/blog/revit-api-webview2-migracion-cefsharp" element={<RevitEdgeWebView2 />} />
           <Route path="/blog/gemelos-digitales-prefabricacion-modular-mineria" element={<MiningDigitalTwins />} />
+          <Route path="/blog/smartplant-3d-masterlab-simulador-interactivo" element={<SmartPlant3DInteractiveMasterLab />} />
+          {/* Presentación Profesional Especial BBA Consultants */}
+          <Route path="/blog/presentacion-andres-gallo-disenador-estructural-senior" element={<PresentacionAndresGallo />} />
+          <Route path="/presentacion" element={<PresentacionAndresGallo />} />
+          <Route path="/sobre-mi" element={<PresentacionAndresGallo />} />
+          <Route path="/blog/smartplant-3d" element={<SmartPlant3DInteractiveMasterLab />} />
+          <Route path="/blog/sp3d" element={<SmartPlant3DInteractiveMasterLab />} />
+          {/* Normas Estructurales Chile & USA para Diseñadores Estructurales */}
+          <Route path="/blog/normas-estructurales-chile-usa" element={<NormasEstructuralesChileUsa />} />
+          <Route path="/blog/normas-chile-usa" element={<NormasEstructuralesChileUsa />} />
+          <Route path="/normas-estructurales" element={<NormasEstructuralesChileUsa />} />
+
+          {/* Fundamentos SmartPlant 3D: Common, Workspace y Grillas (Serie SP3D - Modulo 01) */}
+          <Route path="/blog/smartplant-3d-fundamentos-grillas" element={<SmartPlant3DFundamentosGrillas />} />
+          <Route path="/blog/sp3d-fundamentos" element={<SmartPlant3DFundamentosGrillas />} />
+
+          {/* Manual Maestro de Modelado Estructural en SmartPlant 3D (201 Págs) */}
+          <Route path="/blog/manual-smartplant-3d-structural-modeling" element={<ManualSmartPlant3DStructuralModeling />} />
+          <Route path="/blog/manual-sp3d-estructuras" element={<ManualSmartPlant3DStructuralModeling />} />
+          <Route path="/blog/manual-smartplant-3d" element={<ManualSmartPlant3DStructuralModeling />} />
+
 
 
           {/* 404 — captura cualquier ruta no encontrada */}

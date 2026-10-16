@@ -49,7 +49,7 @@ const getCommands = (isEn) => ({
     description: isEn ? "Professional trajectory summary" : "Resumen de trayectoria profesional",
     output: [
       { type: "info", text: isEn ? "🏛 ANDRÉS GALLO P. BACKGROUND" : "🏛 TRAYECTORIA DE ANDRÉS GALLO P." },
-      { type: "data", text: isEn ? "  • 15+ Years as Senior Structural BIM Designer & Developer" : "  • 15+ Años como Proyectista Estructural Senior & BIM Developer" },
+      { type: "data", text: isEn ? "  • 15+ Years as Senior Structural BIM Designer & Developer" : "  • 15+ Años como Diseñador Estructural Senior & BIM Developer" },
       { type: "data", text: isEn ? "  • Specialization: Heavy industrial mining, healthcare complexes & civil infrastructure" : "  • Especialidad: Minería de gran escala, naves industriales y edificación hospitalaria" },
       { type: "success", text: isEn ? "  • Key Edge: Creation of native Add-ins and scripts that reduce hours into seconds" : "  • Diferencial: Creación de Add-ins nativos y scripts que reducen horas a segundos" },
     ],
@@ -59,7 +59,7 @@ const getCommands = (isEn) => ({
     output: [
       { type: "info", text: isEn ? "📫 DIRECT CONTACT CHANNELS:" : "📫 CANALES DE CONTACTO:" },
       { type: "data", text: "  • Email:    contacto@atelijudesign.com" },
-      { type: "data", text: "  • LinkedIn: linkedin.com/in/andres-gallo-parra" },
+      { type: "data", text: "  • LinkedIn: linkedin.com/in/andresgallop" },
       { type: "data", text: "  • GitHub:   github.com/atelijudesign" },
       { type: "success", text: isEn ? "  • Status:   AVAILABLE FOR BIM PROJECTS & CUSTOM SOFTWARE" : "  • Estado:   DISPONIBLE PARA PROYECTOS BIM & SOFTWARE" },
     ],

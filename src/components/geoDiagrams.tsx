@@ -22,16 +22,16 @@ const arcProps = (isKnown: boolean) =>
     ? { stroke: ANGLE, strokeWidth: 2 }
     : { stroke: UNKNOWN, strokeWidth: 1.2, strokeDasharray: "4 3" };
 
-export const DiagramLegend: React.FC = () => (
+export const DiagramLegend: React.FC<{ isEn?: boolean }> = ({ isEn = false }) => (
   <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 text-[10px] font-mono text-slate-500">
     <span className="flex items-center gap-1.5">
-      <span className="inline-block w-4 h-0.5 bg-[#3b82f6]" /> Dato conocido
+      <span className="inline-block w-4 h-0.5 bg-[#3b82f6]" /> {isEn ? "Known data" : "Dato conocido"}
     </span>
     <span className="flex items-center gap-1.5">
-      <span className="inline-block w-4 border-t-2 border-dashed border-[#475569]" /> A calcular
+      <span className="inline-block w-4 border-t-2 border-dashed border-[#475569]" /> {isEn ? "To calculate" : "A calcular"}
     </span>
     <span className="flex items-center gap-1.5">
-      <span className="inline-block w-3 h-3 rounded-full border-2 border-[#f59e0b]" /> Ángulo
+      <span className="inline-block w-3 h-3 rounded-full border-2 border-[#f59e0b]" /> {isEn ? "Angle" : "Ángulo"}
     </span>
   </div>
 );
@@ -44,7 +44,8 @@ export type RightCase = "hyp-angle" | "hyp-leg" | "leg-angle" | "two-legs";
 export const RightTriangleDiagram: React.FC<{
   activeCase: RightCase;
   values?: { a: number; b: number; c: number } | null;
-}> = ({ activeCase, values }) => {
+  isEn?: boolean;
+}> = ({ activeCase, values, isEn = false }) => {
   const known = {
     c: activeCase === "hyp-angle" || activeCase === "hyp-leg",
     a: activeCase === "hyp-leg" || activeCase === "two-legs",
@@ -53,7 +54,7 @@ export const RightTriangleDiagram: React.FC<{
     B: activeCase === "leg-angle",
   };
   return (
-    <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label="Esquema de triángulo rectángulo">
+    <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label={isEn ? "Right triangle diagram" : "Esquema de triángulo rectángulo"}>
       <polygon points="20,140 20,20 190,140" fill="rgba(59,130,246,0.05)" stroke="none" />
       <line x1="20" y1="140" x2="20" y2="20" {...sideProps(known.b)} />
       <line x1="20" y1="140" x2="190" y2="140" {...sideProps(known.a)} />
@@ -86,7 +87,8 @@ export type ObliqueCase = "side-angles" | "two-sides-angle" | "three-sides" | "t
 export const ObliqueTriangleDiagram: React.FC<{
   activeCase: ObliqueCase;
   values?: { a: number; b: number; c: number } | null;
-}> = ({ activeCase, values }) => {
+  isEn?: boolean;
+}> = ({ activeCase, values, isEn = false }) => {
   const known = {
     a: activeCase === "side-angles" || activeCase === "two-sides-angle" || activeCase === "three-sides",
     b: activeCase === "two-sides-angle" || activeCase === "three-sides" || activeCase === "two-sides-opp",
@@ -96,7 +98,7 @@ export const ObliqueTriangleDiagram: React.FC<{
     C: activeCase === "side-angles" || activeCase === "two-sides-angle",
   };
   return (
-    <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label="Esquema de triángulo oblicuángulo">
+    <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label={isEn ? "Oblique triangle diagram" : "Esquema de triángulo oblicuángulo"}>
       <polygon points="30,140 100,20 190,140" fill="rgba(59,130,246,0.05)" stroke="none" />
       <line x1="30" y1="140" x2="100" y2="20" {...sideProps(known.b)} />
       <line x1="100" y1="20" x2="190" y2="140" {...sideProps(known.a)} />
@@ -225,14 +227,14 @@ const ShapeBody: React.FC<{ shapeId: ShapeId }> = ({ shapeId }) => {
   }
 };
 
-export const ShapeDiagram: React.FC<{ shapeId: ShapeId }> = ({ shapeId }) => (
-  <svg viewBox="0 0 200 150" className="w-full max-w-[220px] mx-auto" aria-label={`Esquema de la figura ${shapeId}`}>
+export const ShapeDiagram: React.FC<{ shapeId: ShapeId; isEn?: boolean }> = ({ shapeId, isEn = false }) => (
+  <svg viewBox="0 0 200 150" className="w-full max-w-[220px] mx-auto" aria-label={isEn ? `Diagram of shape ${shapeId}` : `Esquema de la figura ${shapeId}`}>
     <ShapeBody shapeId={shapeId} />
   </svg>
 );
 
 // ─── Círculo unitario (funciones trigonométricas) ────────────────────────
-export const UnitCircleDiagram: React.FC<{ angleDeg: number | null }> = ({ angleDeg }) => {
+export const UnitCircleDiagram: React.FC<{ angleDeg: number | null; isEn?: boolean }> = ({ angleDeg, isEn = false }) => {
   const has = angleDeg !== null && isFinite(angleDeg);
   const norm = has ? (((angleDeg as number) % 360) + 360) % 360 : null;
   const rad = norm !== null ? (norm * Math.PI) / 180 : Math.PI / 4;
@@ -244,7 +246,7 @@ export const UnitCircleDiagram: React.FC<{ angleDeg: number | null }> = ({ angle
   const ay = cy - arcR * Math.sin(rad);
   const largeArc = norm !== null && norm > 180 ? 1 : 0;
   return (
-    <svg viewBox="0 0 200 200" className="w-full max-w-[220px] mx-auto" aria-label="Círculo unitario">
+    <svg viewBox="0 0 200 200" className="w-full max-w-[220px] mx-auto" aria-label={isEn ? "Unit circle" : "Círculo unitario"}>
       <line x1="10" y1={cy} x2="190" y2={cy} stroke={FAINT} strokeWidth="1" />
       <line x1={cx} y1="10" x2={cx} y2="190" stroke={FAINT} strokeWidth="1" />
       <circle cx={cx} cy={cy} r={r} fill="none" stroke={KNOWN} strokeWidth="1.5" opacity="0.6" />
@@ -285,10 +287,11 @@ export const ParabolaDiagram: React.FC<{
   x1: number | null;
   x2: number | null;
   hasInput: boolean;
-}> = ({ a, b, c, x1, x2, hasInput }) => {
+  isEn?: boolean;
+}> = ({ a, b, c, x1, x2, hasInput, isEn = false }) => {
   if (!hasInput || !isFinite(a) || a === 0 || !isFinite(b) || !isFinite(c)) {
     return (
-      <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label="Parábola genérica">
+      <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label={isEn ? "Parabola plot" : "Parábola genérica"}>
         <line x1="15" y1="110" x2="205" y2="110" stroke={FAINT} strokeWidth="1" />
         <path d="M 40,30 Q 110,190 180,30" fill="none" stroke={UNKNOWN} strokeWidth="2" strokeDasharray="5 4" />
         <text x="110" y="150" fill={MUTED} fontSize="10" fontFamily={MONO} textAnchor="middle">y = a·x² + b·x + c</text>
@@ -314,7 +317,7 @@ export const ParabolaDiagram: React.FC<{
   const axisY = py(0);
   const uniqueRoots = roots.filter((r, i) => i === 0 || Math.abs(r - roots[0]) > 1e-9);
   return (
-    <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label="Gráfica de la parábola">
+    <svg viewBox="0 0 220 160" className="w-full max-w-xs mx-auto" aria-label={isEn ? "Parabola plot" : "Gráfica de la parábola"}>
       <line x1="15" y1={axisY} x2="205" y2={axisY} stroke={FAINT} strokeWidth="1.5" />
       <text x="207" y={axisY + 4} fill={MUTED} fontSize="9" fontFamily={MONO}>x</text>
       <path d={d} fill="none" stroke={KNOWN} strokeWidth="2" />
@@ -327,14 +330,14 @@ export const ParabolaDiagram: React.FC<{
         </g>
       ))}
       {uniqueRoots.length === 0 && (
-        <text x="110" y="152" fill={MUTED} fontSize="9" fontFamily={MONO} textAnchor="middle">sin cruces reales con el eje x</text>
+        <text x="110" y="152" fill={MUTED} fontSize="9" fontFamily={MONO} textAnchor="middle">{isEn ? "no real x-axis intercepts" : "sin cruces reales con el eje x"}</text>
       )}
     </svg>
   );
 };
 
 // ─── Rueda de conversión angular ─────────────────────────────────────────
-export const AngleWheelDiagram: React.FC<{ degrees: number | null }> = ({ degrees }) => {
+export const AngleWheelDiagram: React.FC<{ degrees: number | null; isEn?: boolean }> = ({ degrees, isEn = false }) => {
   const has = degrees !== null && isFinite(degrees);
   const norm = has ? (((degrees as number) % 360) + 360) % 360 : 0;
   const rad = (norm * Math.PI) / 180;
@@ -346,7 +349,7 @@ export const AngleWheelDiagram: React.FC<{ degrees: number | null }> = ({ degree
   const ay = cy - arcR * Math.sin(rad);
   const largeArc = norm > 180 ? 1 : 0;
   return (
-    <svg viewBox="0 0 200 175" className="w-full max-w-[220px] mx-auto" aria-label="Rueda de conversión angular">
+    <svg viewBox="0 0 200 175" className="w-full max-w-[220px] mx-auto" aria-label={isEn ? "Angle conversion wheel" : "Rueda de conversión angular"}>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke={KNOWN} strokeWidth="1.5" opacity="0.5" />
       <text x={cx + r + 5} y={cy + 3} fill="#64748b" fontSize="9" fontFamily={MONO}>0°</text>
       <text x={cx} y={cy - r - 6} fill="#64748b" fontSize="9" fontFamily={MONO} textAnchor="middle">90°</text>

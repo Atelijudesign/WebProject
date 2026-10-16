@@ -5,6 +5,16 @@ import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
+import BlogBackButton from "../../components/BlogBackButton";
+import { BlogScrollSpyTOC } from "../../components/ui/BlogScrollSpyTOC";
+
+const TOC_SECTIONS = [
+  { id: "ventaja-obra", title: "La Ventaja del Profesional de Obra", level: 2 },
+  { id: "plan-12-meses", title: "Plan 12 Meses (T1 a T4)", level: 2 },
+  { id: "acelerador-ia", title: "Acelerador con IA (Gemini / Claude)", level: 2 },
+  { id: "portafolio-tiempo", title: "Portafolio & Distribución del Tiempo", level: 2 },
+  { id: "fuentes-oficiales", title: "Fuentes Oficiales & Recursos", level: 2 },
+];
 
 /* ───────── Quarter data ───────── */
 const quarters = {
@@ -181,7 +191,7 @@ const colorMap = {
 export default function BimDevRoadmap() {
   const { language } = useTranslation();
   const isEn = language === "en";
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isZenMode, setIsZenMode] = useState(false);
   const [activeQuarter, setActiveQuarter] = useState(1);
   const [copiedPrompt, setCopiedPrompt] = useState(null);
 
@@ -190,19 +200,6 @@ export default function BimDevRoadmap() {
   const aiUsageRef = useRef(null);
   const timeAllocRef = useRef(null);
   const chartInstances = useRef([]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      if (height > 0) setScrollProgress((winScroll / height) * 100);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Initialize charts
   useEffect(() => {
@@ -427,12 +424,6 @@ export default function BimDevRoadmap() {
         description={isEn ? "Comprehensive guide for AEC professionals transitioning into BIM development. Hybrid approach: Python/pyRevit for rapid wins + C#/.NET for enterprise-grade performance." : "Roadmap completo para transicionar de profesional de construcción a desarrollador BIM en 12 meses con Python, C# y pyRevit."}
         path="/blog/bim-dev-roadmap"
       />
-      {/* Reading Progress Bar */}
-      <div
-        className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500 z-50 transition-all duration-100"
-        style={{ width: `${scrollProgress}%` }}
-      />
-
       {/* ─── HERO ─── */}
       <section className="pt-28 pb-16 px-4 bg-[#030712]/40 transition-colors duration-300 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -509,50 +500,71 @@ export default function BimDevRoadmap() {
       </section>
 
       {/* ─── MAIN CONTENT ─── */}
-      <main className="max-w-6xl mx-auto px-4 py-12 space-y-16">
-        {/* Quick Stats Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-          <div className="p-6 glass-card rounded-xl border-l-4 border-blue-500 hover:border-blue-400 transition-all">
-            <div className="text-2xl mb-2">🎯</div>
-            <h3 className="font-bold text-white">El Objetivo</h3>
-            <p className="text-sm text-gray-400 mt-1">
-              Crear plugins propios para Revit, automatizar flujos BIM y
-              posicionarse como desarrollador especializado en 12 meses.
-            </p>
+      <main className="max-w-7xl mx-auto px-4 py-12 space-y-16">
+        {/* BANNER AVISO MODO ZEN */}
+        {isZenMode && (
+          <div className="sticky top-20 z-30 p-3.5 rounded-2xl bg-orange-950/90 border border-orange-500/40 backdrop-blur-md flex items-center justify-between gap-4 max-w-4xl mx-auto shadow-2xl">
+            <div className="flex items-center gap-2.5 text-xs font-mono text-orange-300">
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-400 animate-pulse" />
+              <span className="font-bold">MODO ZEN DE LECTURA TÉCNICA ACTIVO</span>
+              <span className="hidden sm:inline text-orange-400/70">· Roadmap enfocado sin distracciones</span>
+            </div>
+            <button
+              onClick={() => setIsZenMode(false)}
+              className="px-3.5 py-1.5 rounded-xl text-xs font-mono bg-orange-500 text-slate-950 font-bold hover:bg-orange-400 transition-colors flex items-center gap-1.5 shadow-md"
+            >
+              <i className="fa-solid fa-xmark text-xs" />
+              <span>Salir del Modo Zen</span>
+            </button>
           </div>
-          <div className="p-6 glass-card rounded-xl border-l-4 border-cyan-500 hover:border-cyan-400 transition-all">
-            <div className="text-2xl mb-2">🤖</div>
-            <h3 className="font-bold text-white">El Aliado</h3>
-            <p className="text-sm text-gray-400 mt-1">
-              Uso intensivo de IA (Gemini/Claude) como tutor personal y
-              generador de código base.
-            </p>
-          </div>
-          <div className="p-6 glass-card rounded-xl border-l-4 border-indigo-500 hover:border-indigo-400 transition-all">
-            <div className="text-2xl mb-2">💻</div>
-            <h3 className="font-bold text-white">El Stack</h3>
-            <p className="text-sm text-gray-400 mt-1">
-              Python/pyRevit (inicio rápido) → C# .NET, Revit API 2025, Visual
-              Studio, WPF, Git.
-            </p>
-          </div>
-        </section>
+        )}
 
-        {/* The Advantage + Learning Curve Chart */}
-        {/* FIGURA 1: BIM DEV ROADMAP INFOGRAPHIC */}
-        <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
-          <img
-            src={asset("/assets/img/blog/news/bim_developer_roadmap_infographic.png")}
-            alt="Infografía del Roadmap para convertirse en desarrollador de software BIM en 12 meses"
-            className="w-full h-auto object-cover"
-            loading="lazy"
-          />
-          <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
-            <i className="fa-solid fa-camera mr-1 text-orange-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Ruta integral de 12 meses: Fundamentos de Python/pyRevit, API de Revit con C# y .NET 8, interfaces avanzadas WPF e integración con Autodesk Platform Services (APS).
-          </figcaption>
-        </figure>
+        {/* GRID EDITORIAL: CONTENIDO + SCROLLSPY TOC */}
+        <div className={`grid grid-cols-1 ${isZenMode ? "max-w-4xl mx-auto" : "lg:grid-cols-12 gap-8 xl:gap-10"}`}>
+          <article className={`${isZenMode ? "w-full" : "lg:col-span-8 2xl:col-span-9"} space-y-16 min-w-0`}>
+            {/* Quick Stats Grid */}
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+              <div className="p-6 glass-card rounded-xl border-l-4 border-blue-500 hover:border-blue-400 transition-all">
+                <div className="text-2xl mb-2">🎯</div>
+                <h3 className="font-bold text-white">El Objetivo</h3>
+                <p className="text-sm text-gray-400 mt-1">
+                  Crear plugins propios para Revit, automatizar flujos BIM y
+                  posicionarse como desarrollador especializado en 12 meses.
+                </p>
+              </div>
+              <div className="p-6 glass-card rounded-xl border-l-4 border-cyan-500 hover:border-cyan-400 transition-all">
+                <div className="text-2xl mb-2">🤖</div>
+                <h3 className="font-bold text-white">El Aliado</h3>
+                <p className="text-sm text-gray-400 mt-1">
+                  Uso intensivo de IA (Gemini/Claude) como tutor personal y
+                  generador de código base.
+                </p>
+              </div>
+              <div className="p-6 glass-card rounded-xl border-l-4 border-indigo-500 hover:border-indigo-400 transition-all">
+                <div className="text-2xl mb-2">💻</div>
+                <h3 className="font-bold text-white">El Stack</h3>
+                <p className="text-sm text-gray-400 mt-1">
+                  Python/pyRevit (inicio rápido) → C# .NET, Revit API 2025, Visual
+                  Studio, WPF, Git.
+                </p>
+              </div>
+            </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {/* FIGURA 1: BIM DEV ROADMAP INFOGRAPHIC */}
+            <figure className="my-8 rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl bg-slate-900">
+              <img
+                src={asset("/assets/img/blog/news/bim_developer_roadmap_infographic.png")}
+                alt="Infografía del Roadmap para convertirse en desarrollador de software BIM en 12 meses"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <figcaption className="p-3 text-center text-xs text-slate-400 bg-slate-950/80 border-t border-slate-800">
+                <i className="fa-solid fa-camera mr-1 text-orange-400" /> {isEn ? "Figure 1:" : "Figura 1:"} Ruta integral de 12 meses: Fundamentos de Python/pyRevit, API de Revit con C# y .NET 8, interfaces avanzadas WPF e integración con Autodesk Platform Services (APS).
+              </figcaption>
+            </figure>
+
+            {/* SECCIÓN 1: LA VENTAJA DE OBRA */}
+            <section id="ventaja-obra" data-title="La Ventaja del Profesional de Obra" className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch scroll-mt-28">
           <div className="glass-card p-8 rounded-2xl border-l-4 border-orange-500">
             <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
               <span className="text-2xl">🏗️</span> La Ventaja del Profesional
@@ -594,7 +606,7 @@ export default function BimDevRoadmap() {
         </section>
 
         {/* ─── INTERACTIVE QUARTERS ─── */}
-        <section>
+        <section id="plan-12-meses" data-title="Plan 12 Meses (T1 a T4)" className="scroll-mt-28">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
             <div>
               <span className="text-bim-blue font-bold tracking-wider text-xs uppercase">
@@ -687,7 +699,7 @@ export default function BimDevRoadmap() {
         </section>
 
         {/* ─── AI INTEGRATION ─── */}
-        <section>
+        <section id="acelerador-ia" data-title="Acelerador con IA (Gemini / Claude)" className="scroll-mt-28">
           <div className="text-center mb-10">
             <span className="text-bim-blue font-bold tracking-wider text-xs uppercase">
               Acelerador de Carrera
@@ -713,7 +725,7 @@ export default function BimDevRoadmap() {
                   de Revit API experto en C#."
                 </div>
                 <div className="bg-gray-800 p-3 rounded shadow-sm border-l-4 border-blue-500">
-                  <strong>2. Contexto:</strong> "Soy un proyectista estructural y modelador BIM
+                  <strong>2. Contexto:</strong> "Soy un diseñador estructural y modelador BIM
                   aprendiendo. Usa analogías de construcción."
                 </div>
                 <div className="bg-gray-800 p-3 rounded shadow-sm border-l-4 border-amber-500">
@@ -749,7 +761,7 @@ export default function BimDevRoadmap() {
                     <button
                       onClick={() =>
                         copyPromptText(
-                          "Soy Modelador BIM / Proyectista Estructural. Explícame el concepto de 'FilteredElementCollector' en Revit API usando una analogía de una obra de construcción o un almacén de materiales.",
+                          "Soy Diseñador Estructural / Modelador BIM. Explícame el concepto de 'FilteredElementCollector' en Revit API usando una analogía de una obra de construcción o un almacén de materiales.",
                           "p1"
                         )
                       }
@@ -767,7 +779,7 @@ export default function BimDevRoadmap() {
                     </button>
                   </div>
                   <p className="font-mono text-xs text-green-400 leading-relaxed">
-                    "Soy Modelador BIM / Proyectista Estructural. Explícame el
+                    "Soy Diseñador Estructural / Modelador BIM. Explícame el
                     concepto de 'FilteredElementCollector' en Revit API usando
                     una analogía de una obra de construcción o un almacén de
                     materiales."
@@ -832,7 +844,7 @@ export default function BimDevRoadmap() {
         </section>
 
         {/* ─── PORTFOLIO + EFFORT DISTRIBUTION ─── */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <section id="portafolio-tiempo" data-title="Portafolio & Distribución del Tiempo" className="grid grid-cols-1 lg:grid-cols-3 gap-8 scroll-mt-28">
           {/* Portfolio */}
           <div className="glass-card p-6 rounded-2xl border-l-4 border-orange-500">
             <h3 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
@@ -925,67 +937,91 @@ export default function BimDevRoadmap() {
           </div>
         </section>
 
-        {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
-        <div className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60">
-          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <i className="fa-solid fa-link text-orange-400" />
-            Fuentes Oficiales y Plataformas de Aprendizaje
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <a
-              href="https://aps.autodesk.com/developer/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-orange-500/50 transition-all flex items-start gap-3 group"
-            >
-              <div className="p-2 rounded-lg bg-orange-950/60 text-orange-400 text-sm group-hover:scale-110 transition-transform">
-                <i className="fa-solid fa-cloud" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold text-white group-hover:text-orange-300 transition-colors flex items-center justify-between">
-                  <span>Autodesk Platform Services (APS)</span>
-                  <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
-                </div>
-                <div className="text-[11px] text-slate-400 truncate mt-0.5">
-                  Revit Cloud Worksharing & Design Automation API
-                </div>
-              </div>
-            </a>
+            {/* SECCIÓN: FUENTES Y ENLACES OFICIALES */}
+            <section id="fuentes-oficiales" data-title="Fuentes Oficiales & Recursos" className="glass-card rounded-2xl p-6 md:p-8 border border-slate-800/60 scroll-mt-28">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <i className="fa-solid fa-link text-orange-400" />
+                Fuentes Oficiales y Plataformas de Aprendizaje
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a
+                  href="https://aps.autodesk.com/developer/overview"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-orange-500/50 transition-all flex items-start gap-3 group"
+                >
+                  <div className="p-2 rounded-lg bg-orange-950/60 text-orange-400 text-sm group-hover:scale-110 transition-transform">
+                    <i className="fa-solid fa-cloud" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-bold text-white group-hover:text-orange-300 transition-colors flex items-center justify-between">
+                      <span>Autodesk Platform Services (APS)</span>
+                      <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                    </div>
+                    <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                      Revit Cloud Worksharing & Design Automation API
+                    </div>
+                  </div>
+                </a>
 
-            <a
-              href="https://learn.microsoft.com/en-us/dotnet/csharp/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-blue-500/50 transition-all flex items-start gap-3 group"
-            >
-              <div className="p-2 rounded-lg bg-blue-950/60 text-blue-400 text-sm group-hover:scale-110 transition-transform">
-                <i className="fa-brands fa-microsoft" />
+                <a
+                  href="https://learn.microsoft.com/en-us/dotnet/csharp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-blue-500/50 transition-all flex items-start gap-3 group"
+                >
+                  <div className="p-2 rounded-lg bg-blue-950/60 text-blue-400 text-sm group-hover:scale-110 transition-transform">
+                    <i className="fa-brands fa-microsoft" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-bold text-white group-hover:text-blue-300 transition-colors flex items-center justify-between">
+                      <span>Microsoft Learn C# Docs</span>
+                      <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
+                    </div>
+                    <div className="text-[11px] text-slate-400 truncate mt-0.5">
+                      Ruta oficial de aprendizaje C# y .NET SDK
+                    </div>
+                  </div>
+                </a>
               </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold text-white group-hover:text-blue-300 transition-colors flex items-center justify-between">
-                  <span>Microsoft Learn C# Docs</span>
-                  <i className="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-500" />
-                </div>
-                <div className="text-[11px] text-slate-400 truncate mt-0.5">
-                  Ruta oficial de aprendizaje C# y .NET SDK
-                </div>
+            </section>
+          </article>
+
+          {/* BARRA LATERAL STICKY CON BLOGSCROLLSPYTOC (DESKTOP) */}
+          {!isZenMode && (
+            <aside className="hidden lg:block lg:col-span-4 2xl:col-span-3">
+              <div className="sticky top-28">
+                <BlogScrollSpyTOC
+                  items={TOC_SECTIONS}
+                  title="Índice del Roadmap"
+                  estimatedReadTime="10 min"
+                  mode="sidebar"
+                  isZenMode={isZenMode}
+                  onZenModeToggle={() => setIsZenMode(!isZenMode)}
+                />
               </div>
-            </a>
-          </div>
+            </aside>
+          )}
+        </div>
+
+        {/* TOC MÓVIL Y FLOTANTE (FAB) */}
+        <div className="lg:hidden">
+          <BlogScrollSpyTOC
+            items={TOC_SECTIONS}
+            title="Índice del Roadmap"
+            estimatedReadTime="10 min"
+            mode="floating"
+            isZenMode={isZenMode}
+            onZenModeToggle={() => setIsZenMode(!isZenMode)}
+          />
         </div>
 
         {/* ─── SHARE BUTTONS ─── */}
         <ShareArticle url={shareUrl} title={shareTitle} />
 
-        {/* Back to Blog */}
+        {/* Navegación de regreso al blog */}
         <section className="text-center pt-8">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
-          >
-            <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            {isEn ? "Back to Blog" : "Volver al Blog"}
-          </Link>
+          <BlogBackButton />
         </section>
       </main>
     </div>

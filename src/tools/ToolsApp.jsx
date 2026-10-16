@@ -93,7 +93,7 @@ function Newsletter() {
           Recibe cada nueva herramienta BIM en tu correo
         </motion.h2>
         <motion.p className="tools-newsletter-subtitle" variants={fadeIn("", "tween", 0.2, 0.6)}>
-          Sin spam. Solo utilidades reales para proyectistas estructurales.
+          Sin spam. Solo utilidades reales para diseñadores estructurales.
         </motion.p>
 
         <motion.form
@@ -203,7 +203,7 @@ export default function ToolsApp() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <i className="fa-solid fa-wrench"></i> HERRAMIENTAS PARA PROYECTISTAS ESTRUCTURALES
+            <i className="fa-solid fa-wrench"></i> HERRAMIENTAS PARA DISEÑADORES ESTRUCTURALES
           </motion.div>
 
           <motion.h1

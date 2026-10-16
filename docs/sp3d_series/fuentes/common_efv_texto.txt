@@ -1,0 +1,263 @@
+===== PAGINA 1 =====
+ 
+ 
+ 
+ 
+ 
+ 
+SmartPlant3D 
+ 
+Common Aplications Labs. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 2 =====
+ 
+ 
+ 
+LAB-1: Archivos de sesión, Tasks, Vistas y Ventanas. 
+ 
+Objetivo: 
+Después de este ejercicio serán capaces de crear un archivo de sesión, modificar la configuración, 
+orientación de vistas y moverse dentro del modelo. 
+ 
+1. Iniciar SP3D, para esto debemos ir a Inicio-Programs-Intergraph SmartPlant 3D-SmartPlant 
+3D. 
+2. En el cuadro de dialogo New seleccione en archivo Emply y haga click en Ok. 
+ 
+3. En el menú de Tasks seleccione Configure Tasks List para configurar las disciplinas o 
+módulos que se desean agregar a las opciones de selección. 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 3 =====
+ 
+ 
+4. Seleccione todos los Tasks ubicados al costado izquierdo y haga click en Add, luego haga 
+click en Ok. 
+5. Ahora seleccione el Tasks Common del menú de Tasks. 
+6. En el desplegable de Windows seleccione New Windows hasta completar 4 ventanas 
+abiertas. 
+7. En el menú desplegable de Windows selecciona Tile Horizontally. 
+8. Active el Graphic Views 1 haciendo click en la barra. 
+9. Desde la opción de Named Views ubicada en la barra del Common seleccione la opción 
+Front para tener una vista de frente. 
+ 
+ 
+10. Del mismo modo haremos con las demás vistas colocando orientación Top, Right y vista 
+Isometric para completar las cuatro ventanas con vistas distintas. 
+11. Selecciones Tools en la barra desplegable superior y seleccione Option el cual abrirá un 
+cuadro de dialogo. 
+12. En la pestaña de Units of Measure seleccione ft-in para distancia. 
+ 
+
+
+===== PAGINA 4 =====
+ 
+ 
+13. Seleccione de la pestaña File la opción Save as y guarde la sesión en su escritorio, esto le 
+dará un acceso directo a la sesión que usted ha creado. 
+14. Ahora seleccione de la pestaña File la opción Define Workspace para crear su espacio de 
+trabajo. 
+15. Seleccione la planta o proyecto de entrenamiento disponible. 
+16. Seleccione la casilla de Filter para seleccionar el filtro deseado y haga click en More. 
+17. Expanda la carpeta Plant Filters y seleccione el filtro All y haga click en Ok. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 5 =====
+ 
+ 
+18. Haga click en Ok de la ventana de Define Workspace para mostrar todo el contenido del 
+filtro. 
+LAB-2A: Filter Management-System 
+Objetivo: 
+Después de esta sesión serán capaces de crear y mostrar diferentes tipos de filtros. 
+ 
+1. Seleccione Define Workspace en File de la barra superior. 
+2. Se abrirá el cuadro de dialogo, seleccione More en las opciones desplegables de la casilla 
+Filter. 
+3. Expande la carpeta Plant Filters, seleccione el filtro All y haga click en Ok. 
+4. ahora haga click en Ok del cuadro de dialogo de Define Workspace y haga un Fit en la 
+vista. 
+ 
+
+
+===== PAGINA 6 =====
+ 
+5. Seleccione Define Workspace de la pestaña File de la barra superior o usando CTRL W. 
+Ahora haga click en More. 
+6. Seleccione la carpeta My Filters, seleccione el icono de Simple Filter, se abrirá el siguiente 
+cuadro de propiedades. 
+ 
+ 
+7. En el nombre del filtro coloque U01. 
+8. Despliegue la carpeta A2 y seleccione U01, ahora despliegue la carpeta CS y usando la 
+tecla CTRL seleccione U01 CS. 
+9. Haga click en Ok para aceptar la selección de elementos a cargar en el filtro. 
+
+
+===== PAGINA 7 =====
+ 
+10. Seleccione el filtro que acaba de crear y haga click en OK. “U01” 
+11. Haga click en Ok en el cuadro de Define Workspace. 
+12. Su vista debe ser igual a la siguiente imagen. 
+ 
+13. Seleccione More del cuadro de Define Workspace. 
+14. Seleccione la carpeta My Filters y seleccione el icono de Simple Filter para crear un nuevo 
+filtro. 
+15. Coloque U02 como nombre del filtro, haga el mismo procedimiento del filtro anterior 
+pero esta vez seleccionando U02 y U02 CS. 
+16. Haga click en Ok para aceptar los elementos seleccionados. 
+17. Seleccione el filtro que acaba de crear y haga click en Ok del cuadro de dialogo de Define 
+Workspace. 
+
+
+===== PAGINA 8 =====
+ 
+18. La vista que tendrá debe ser similar a la siguiente imagen. 
+ 
+19. ahora debe crear un nuevo filtro simple siguiendo los mismos pasos anteriores. Usando 
+como nombre del filtro U03. Este filtro debe contener la unidad U03 y U03 CS. 
+ 
+ 
+
+
+===== PAGINA 9 =====
+ 
+20. ahora debe crear el filtro simple llamado U04, el cual debe contener la unidad U04 y U04 
+CS. 
+21. ahora debe crear un nuevo filtro llamado U01&U02, el cual debe contener ambas 
+unidades y su respectivo sistema de coordenadas, U01, U02, U01 CS y U02 CS. 
+ 
+ 
+22. la vista debe ser similar a la siguiente imagen. 
+ 
+ 
+23. En Define Workspace seleccione el filtro U01 para mostrar los elementos que contiene. 
+
+
+===== PAGINA 10 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+LAB-2A: Filter Management-Object type. 
+Después de este ejercicio serán capaces de seleccionar objetos 
+usando filtros Object Type. 
+ 
+1. Seleccione Tools de la barra superior, seleccione Select By Filter y se abrirá el cuadro de 
+dialogo. 
+2. Expanda la carpeta Default Filters, SP3D Object Filters, Object Type y seleccione el filtro 
+de Structure. 
+3. Haga click en Ok para seleccionar toda la estructura contenida en el filtro. 
+4. La vista debe ser igual a la siguiente imagen. 
+
+
+===== PAGINA 11 =====
+ 
+ 
+ 
+ 
+5. En Tools ubicado en la barra superior seleccione Hide. 
+6. Ahora su vista debe ser igual a la siguiente imagen. 
+ 
+7. En Tools seleccione Show All. 
+8. En Tools seleccione Select By Filters y se abrirá el cuadro de dialogo. 
+9. Expanda la carpeta Default Filters, SP3D Object Filters, Object Types y seleccione el filtro 
+Cableway. 
+10. Haga click en Ok. 
+11. En la barra superior seleccione Format, ahora seleccione Styles y al desplegarse las 
+opciones seleccione Green y haga click en la opción de Apply. 
+12. Automáticamente los elementos contenidos en el filtro seleccionado cambiaran a color 
+Verde. 
+Nota: para regresar los elementos a su color original se hace el mismo procedimiento y se 
+selecciona Style by Rule como opción de color. 
+
+
+===== PAGINA 12 =====
+ 
+ 
+LAB-2C: Filter Management-Volumen Filters. 
+Después de este ejercicio serán capaces de crear filtros de 
+visualización basados en volúmenes. 
+ 
+1. Seleccione Define Workspace y seleccione More. 
+2. Seleccione la carpeta My Filters. 
+3. Seleccione el icono de Simple Filter, se abrirá el cuadro de dialogo. 
+4. Nombre el filtro como Volumen U01. 
+5. Selección seleccione la carpeta del proyecto SP3D Train3. 
+6. Seleccione la pestaña de Names Space y seleccione el Volume U01 manteniendo 
+la tecla de CTRL presionada y de la pestaña de Volume seleccione igual el Volume 
+U01. 
+7. Haga click en Ok. 
+8. Ahora seleccione el filtro que acaba de crear y haga click en Ok. 
+9. La vista debe ser similar a la siguiente imagen. 
+
+
+===== PAGINA 13 =====
+ 
+ 
+ 
+10. Se visualizará todos los objetos que estén dentro del volumen. 
+11. Para visualizar libremente los objetos que se encuentran dentro del volumen, 
+seleccione el volumen y haga click en Hide para ocultarlo. 
+12. Seleccione en Tools >Show All para que aparezca de nuevo el volumen. 
+13. Ahora debe crear un nuevo filtro el cual se llamará Volumen U02 y debe contener 
+toda la planta y los volúmenes U02 de las pestañas de Names Space y Volume. 
+Como se realizó en el ejercicio anterior. 
+14. Haga el mismo procedimiento de ocultar el volumen con Hide y hacer que 
+aparezca con Show All. 
+ 
+ 
+LAB-3: Inserting Control Points 
+Después de este ejercicio serán capaces de colocar puntos de 
+control en los objetos deseados. 
+ 
+1. Seleccione el filtro U01 desde el Workspace. 
+2. En la barra superior seleccione Format>View, esto abrirá un cuadro de dialogo. 
+3. Seleccione Reference Geometry de la lista de Aspects. 
+4. Haga click en aceptar para cerrar el cuadro de dialogo. 
+5. En la barra superior seleccione Insert y seleccione Control Point. 
+6. Seleccione el Equipo E-102 para relacionar el Control Point. 
+ 
+
+
+===== PAGINA 14 =====
+ 
+ 
+ 
+7. En la casilla de Sub-Type seleccione Process Equipment. 
+8. Coloque el Control Point en el nozzle N1. 
+ 
+9. Seleccione el Control Point y revise el cuadro de propiedades y modifíquela según 
+lo desee. 
+ 
+ 
+ 
+ 
+ 

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { InteractiveTerminal } from "./InteractiveTerminal";
 import { NumberTicker } from "./ui/NumberTicker";
+import { RollingTextButton } from "./ui/RollingTextButton";
+import { Tilt3DCard } from "./ui/Tilt3DCard";
 import { useTranslation } from "../hooks/useTranslation";
 
 const BuildingScene = lazy(() => import("./canvas/BuildingScene"));
@@ -87,29 +89,37 @@ export const Hero = () => {
               />
             </div>
 
-            {/* CTAs con Microinteracciones Táctiles */}
+            {/* CTAs con Microinteracciones Táctiles y Rolling Text */}
             <div className="flex items-center gap-3 flex-wrap pt-6 border-t border-slate-800/60">
-              <a
+              <RollingTextButton
                 href="#contact"
-                className="px-6 py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm shadow-lg hover:shadow-cyan-500/25 btn-tactile flex items-center gap-2"
+                variant="primary"
+                size="md"
+                icon="fa-solid fa-bolt text-yellow-300"
                 onClick={handleContactScroll}
               >
-                <i className="fa-solid fa-bolt text-yellow-300" /> {t("hero_cta_contact")}
-              </a>
-              <a
+                {t("hero_cta_contact")}
+              </RollingTextButton>
+
+              <RollingTextButton
                 href={asset("/Andres_Gallo_CV.pdf")}
-                className="px-5 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700/60 btn-tactile flex items-center gap-2"
+                variant="secondary"
+                size="md"
+                icon="fa-solid fa-file-arrow-down text-cyan-400"
                 download
               >
-                <i className="fa-solid fa-file-arrow-down text-cyan-400" /> {t("hero_cta_cv")}
-              </a>
-              <a
+                {t("hero_cta_cv")}
+              </RollingTextButton>
+
+              <RollingTextButton
                 href={asset("/Andres_Gallo_Portfolio.pdf")}
-                className="px-5 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700/60 btn-tactile flex items-center gap-2"
+                variant="secondary"
+                size="md"
+                icon="fa-solid fa-folder-open text-emerald-400"
                 download
               >
-                <i className="fa-solid fa-folder-open text-emerald-400" /> {t("hero_cta_portfolio")}
-              </a>
+                {t("hero_cta_portfolio")}
+              </RollingTextButton>
             </div>
           </motion.div>
 
@@ -153,56 +163,72 @@ export const Hero = () => {
             <InteractiveTerminal />
           </motion.div>
 
-          {/* CARD 4: Métrica Perfiles con Number Ticker */}
+          {/* CARD 4: Métrica Perfiles con Tilt3DCard */}
           <motion.div
             variants={bentoItemVariants}
-            className="md:col-span-1 lg:col-span-1 rounded-3xl p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-amber-500/40 transition-all duration-300 shadow-2xl flex flex-col justify-between"
+            className="md:col-span-1 lg:col-span-1"
           >
-            <div>
-              <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
-                // {language === "en" ? "DATABASE" : "BASE DE DATOS"}
-              </span>
-              <NumberTicker
-                value={2130}
-                suffix="+"
-                className="text-3xl font-black text-white"
-              />
-              <p className="text-xs text-slate-400 mt-2">{t("hero_aisc_desc")}</p>
-            </div>
-            <Link
-              to="/herramientas/aisc"
-              className="mt-4 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold font-mono btn-tactile flex items-center justify-center gap-1.5"
+            <Tilt3DCard
+              maxTilt={7}
+              perspective={800}
+              className="p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-amber-500/40 transition-all duration-300 shadow-2xl flex flex-col justify-between h-full"
+              glareColor="rgba(245, 158, 11, 0.12)"
+              spotlightBorderColor="rgba(245, 158, 11, 0.4)"
             >
-              {t("hero_aisc_link")} <i className="fa-solid fa-arrow-right text-[10px]" />
-            </Link>
-          </motion.div>
-
-          {/* CARD 5: Experiencia con Number Ticker */}
-          <motion.div
-            variants={bentoItemVariants}
-            className="md:col-span-1 lg:col-span-1 rounded-3xl p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/40 transition-all duration-300 shadow-2xl flex flex-col justify-between"
-          >
-            <div>
-              <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-1">
-                // {t("hero_exp_label")}
-              </span>
-              <div className="flex items-baseline gap-1.5">
+              <div>
+                <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
+                  // {language === "en" ? "DATABASE" : "BASE DE DATOS"}
+                </span>
                 <NumberTicker
-                  value={15}
+                  value={2130}
                   suffix="+"
                   className="text-3xl font-black text-white"
                 />
-                <span className="text-lg font-bold text-slate-300">{language === "en" ? "Years" : "Años"}</span>
+                <p className="text-xs text-slate-400 mt-2">{t("hero_aisc_desc")}</p>
               </div>
-              <p className="text-xs text-slate-400 mt-2">{t("hero_exp_desc")}</p>
-            </div>
-            <a
-              href="#about"
-              className="mt-4 py-2 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/30 text-xs font-bold font-mono btn-tactile flex items-center justify-center gap-1.5"
-              onClick={handleAboutScroll}
+              <Link
+                to="/herramientas/aisc"
+                className="mt-4 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold font-mono btn-tactile flex items-center justify-center gap-1.5"
+              >
+                {t("hero_aisc_link")} <i className="fa-solid fa-arrow-right text-[10px]" />
+              </Link>
+            </Tilt3DCard>
+          </motion.div>
+
+          {/* CARD 5: Experiencia con Tilt3DCard */}
+          <motion.div
+            variants={bentoItemVariants}
+            className="md:col-span-1 lg:col-span-1"
+          >
+            <Tilt3DCard
+              maxTilt={7}
+              perspective={800}
+              className="p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/40 transition-all duration-300 shadow-2xl flex flex-col justify-between h-full"
+              glareColor="rgba(6, 182, 212, 0.12)"
+              spotlightBorderColor="rgba(56, 189, 248, 0.4)"
             >
-              {t("hero_exp_link")} <i className="fa-solid fa-arrow-down text-[10px]" />
-            </a>
+              <div>
+                <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-1">
+                  // {t("hero_exp_label")}
+                </span>
+                <div className="flex items-baseline gap-1.5">
+                  <NumberTicker
+                    value={15}
+                    suffix="+"
+                    className="text-3xl font-black text-white"
+                  />
+                  <span className="text-lg font-bold text-slate-300">{language === "en" ? "Years" : "Años"}</span>
+                </div>
+                <p className="text-xs text-slate-400 mt-2">{t("hero_exp_desc")}</p>
+              </div>
+              <a
+                href="#about"
+                className="mt-4 py-2 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/30 text-xs font-bold font-mono btn-tactile flex items-center justify-center gap-1.5"
+                onClick={handleAboutScroll}
+              >
+                {t("hero_exp_link")} <i className="fa-solid fa-arrow-down text-[10px]" />
+              </a>
+            </Tilt3DCard>
           </motion.div>
         </motion.div>
       </div>

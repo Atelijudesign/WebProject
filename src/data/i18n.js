@@ -35,13 +35,15 @@ export const TRANSLATIONS = {
 
     // ─── ABOUT ─────────────────────────────────────────────
     about_tag: "// SOBRE MÍ & TRAYECTORIA",
-    about_title: "Proyectista Estructural BIM",
-    about_bio1: "Con más de <strong>15 años de experiencia</strong> como Proyectista Estructural BIM, he colaborado en proyectos para firmas multinacionales como <strong>Black & Veatch, Arcadis, GHD y AFRY</strong>.",
+    about_title: "Diseñador Estructural BIM",
+    about_bio1: "Con más de <strong>15 años de experiencia</strong> como Diseñador Estructural BIM, he colaborado en proyectos para firmas multinacionales como <strong>Black & Veatch, Arcadis, GHD y AFRY</strong>.",
     about_bio2: "Mi trayectoria abarca minería masiva, hospitales, aeropuertos, plantas industriales de pulpa e infraestructura civil en Chile, México y mercados internacionales.",
     about_diff: "El gran diferencial: Además de diseñar, <strong>programo las herramientas (Python, C#, pyRevit)</strong> que aceleran el modelado.",
     about_featured_tag: "// PROYECTOS DESTACADOS",
     about_stack_tag: "// STACK TÉCNICO ESPECIALIZADO",
     about_years_badge: "15+ Años",
+    about_manifesto_tag: "// FILOSOFÍA TÉCNICA",
+    about_manifesto: "Fusiono la rigurosidad del cálculo y detallamiento estructural con el poder del código. Desde modelos BIM masivos en minería hasta automatizaciones de alto impacto en Python y C#, transformo datos complejos en obras de ingeniería de precisión milimétrica.",
 
     // ─── AUTOMATION ────────────────────────────────────────
     auto_tag: "// DIFERENCIAL COMPETITIVO & PRODUCTIVIDAD",
@@ -129,7 +131,7 @@ export const TRANSLATIONS = {
     // ─── TOOLS PREVIEW ─────────────────────────────────────
     tools_tag: "// SUITE DE HERRAMIENTAS WEB TÉCNICAS",
     tools_title: "No solo diseño — también creo las herramientas",
-    tools_desc: "Calculadoras y catálogos online gratuitos para proyectistas estructurales, desarrollados con la precisión de la ingeniería real.",
+    tools_desc: "Calculadoras y catálogos online gratuitos para diseñadores estructurales, desarrollados con la precisión de la ingeniería real.",
     tools_featured_badge: "Destacada",
     tools_btn_use: "Usar herramienta online",
     tools_btn_read: "Leer el artículo",
@@ -220,7 +222,7 @@ export const TRANSLATIONS = {
 
     // Footer (tools)
     footer_text:
-      "© 2026 Andrés Gallo P. — Herramientas para Proyectistas Estructurales",
+      "© 2026 Andrés Gallo P. — Herramientas para Diseñadores Estructurales",
 
     // Excel & JS specifics
     msg_invalid_qty: "Cantidad y Largo deben ser mayores a 0",
@@ -314,7 +316,7 @@ export const TRANSLATIONS = {
     tc_badge: "Productividad y Eficiencia",
     tc_title_prefix: "Herramientas",
     tc_title_suffix: "BIM",
-    tc_desc: "Calculadoras de ingeniería y utilidades de automatización diseñadas para optimizar el flujo de trabajo de diseñadores y proyectistas estructurales.",
+    tc_desc: "Calculadoras de ingeniería y utilidades de automatización diseñadas para optimizar el flujo de trabajo de diseñadores estructurales y modeladores BIM.",
     tc_open: "Abrir",
     tc_online: "Online",
     tc_tool_icha_title: "Catálogo ICHA Digital",
@@ -384,7 +386,7 @@ export const TRANSLATIONS = {
     blog_hero_badge: "Blog BIM Developer",
     blog_hero_title_prefix: "Ideas, Código y",
     blog_hero_title_accent: "Automatización",
-    blog_hero_desc: "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Proyectista Estructural necesita para automatizar su trabajo.",
+    blog_hero_desc: "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Diseñador Estructural necesita para automatizar su trabajo.",
     blog_search_ph: "Buscar artículos por título, tema o software...",
     blog_all_cats: "Todos los Artículos",
     blog_read_more: "Leer artículo completo →",
@@ -392,7 +394,7 @@ export const TRANSLATIONS = {
     blog_badge: "Blog BIM Developer",
     blog_title_prefix: "Ideas, Código y ",
     blog_title_highlight: "Automatización",
-    blog_subtitle: "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Proyectista Estructural necesita para automatizar su trabajo.",
+    blog_subtitle: "Artículos sobre desarrollo BIM, Revit API, pyRevit, Python, C# y todo lo que un Diseñador Estructural necesita para automatizar su trabajo.",
     blog_search_placeholder: "Buscar artículos...",
     blog_new_badge: "Nuevo",
     blog_all_categories: "Todos",
@@ -437,12 +439,14 @@ export const TRANSLATIONS = {
     // ─── ABOUT ─────────────────────────────────────────────
     about_tag: "// ABOUT ME & CAREER",
     about_title: "Structural BIM Designer",
-    about_bio1: "With over <strong>15 years of experience</strong> as a Structural BIM Designer (Proyectista Estructural BIM), I have collaborated on projects for multinationals like <strong>Black & Veatch, Arcadis, GHD and AFRY</strong>.",
+    about_bio1: "With over <strong>15 years of experience</strong> as a Senior Structural BIM Designer, I have collaborated on projects for multinationals like <strong>Black & Veatch, Arcadis, GHD and AFRY</strong>.",
     about_bio2: "My career spans massive mining, hospitals, airports, pulp industrial plants and civil infrastructure in Chile, Mexico and international markets.",
     about_diff: "The key differentiator: In addition to designing, I <strong>program the tools (Python, C#, pyRevit)</strong> that accelerate modeling.",
     about_featured_tag: "// FEATURED PROJECTS",
     about_stack_tag: "// SPECIALIZED TECH STACK",
     about_years_badge: "15+ Years",
+    about_manifesto_tag: "// TECHNICAL PHILOSOPHY",
+    about_manifesto: "I merge the rigor of structural detailing with the power of modern software. From massive mining BIM models to high-impact Python and C# automations, I transform complex data into engineering works of millimeter precision.",
 
     // ─── AUTOMATION ────────────────────────────────────────
     auto_tag: "// COMPETITIVE EDGE & PRODUCTIVITY",

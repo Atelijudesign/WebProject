@@ -48,6 +48,8 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     about_featured_tag: "// PROYECTOS DESTACADOS",
     about_stack_tag: "// STACK TÉCNICO ESPECIALIZADO",
     about_years_badge: "15+ Años",
+    about_manifesto_tag: "// FILOSOFÍA TÉCNICA",
+    about_manifesto: "Fusiono la rigurosidad del cálculo y detallamiento estructural con el poder del código. Desde modelos BIM masivos en minería hasta automatizaciones de alto impacto en Python y C#, transformo datos complejos en obras de ingeniería de precisión milimétrica.",
 
     // ─── AUTOMATION ────────────────────────────────────────
     auto_tag: "// DIFERENCIAL COMPETITIVO & PRODUCTIVIDAD",
@@ -356,6 +358,10 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     proj_reset_filters: "Limpiar Filtros",
     proj_active_filters: "Filtros Activos",
     proj_no_results: "No se encontraron proyectos con los filtros seleccionados.",
+    catalog_title: "Base de Datos de Proyectos BIM",
+    catalog_subtitle: "Explora el portafolio estructural detallado con más de 40 proyectos ejecutados a nivel internacional.",
+    catalog_search_placeholder: "Buscar por nombre de proyecto, cliente, ID o palabra clave...",
+    catalog_filter_type: "Tipo de Proyecto:",
     dash_total: "Total Proyectos",
     dash_infra: "Infraestructura & Transporte",
     dash_companies: "Empresas Consultoras",
@@ -449,6 +455,8 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     about_featured_tag: "// FEATURED PROJECTS",
     about_stack_tag: "// SPECIALIZED TECH STACK",
     about_years_badge: "15+ Years",
+    about_manifesto_tag: "// TECHNICAL PHILOSOPHY",
+    about_manifesto: "I merge the rigor of structural detailing with the power of modern software. From massive mining BIM models to high-impact Python and C# automations, I transform complex data into engineering works of millimeter precision.",
 
     // ─── AUTOMATION ────────────────────────────────────────
     auto_tag: "// COMPETITIVE EDGE & PRODUCTIVITY",
@@ -756,6 +764,10 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     proj_reset_filters: "Reset Filters",
     proj_active_filters: "Active Filters",
     proj_no_results: "No projects match the selected filter criteria.",
+    catalog_title: "BIM Projects Database",
+    catalog_subtitle: "Explore the detailed structural portfolio featuring 40+ internationally executed projects.",
+    catalog_search_placeholder: "Search by project name, client, ID or keyword...",
+    catalog_filter_type: "Project Type:",
     dash_total: "Total Projects",
     dash_infra: "Infrastructure & Transit",
     dash_companies: "Consulting Firms",

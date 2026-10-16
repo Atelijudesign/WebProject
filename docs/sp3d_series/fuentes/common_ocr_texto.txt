@@ -1,0 +1,5625 @@
+===== PAGINA 1 =====
+Sj
+
+Smart 3D
+
+Common
+
+Treinamento | Process, Power & Marine
+
+SISGRAPH
+
+centro de treinamento
+
+===== PAGINA 2 =====
+indice
+
+Sessáo 1: Criar um Arquivo de Sess6es .
+
+Objetivo: ........
+Pré-requisitos:
+
+Passos para a Criagáo de um Arquivo de Sessóes com a Vista de um Modelo...
+
+Sessáo 2: Definindo um Workspace por um Filtro de SisteMa.....ococcmnmnsmnmaiaaiss 8
+ODIGUVO? raras ROSAS AAA INTO 8
+Pré-requisitos:
+
+Visáo Geral: ...
+
+Sessáo 3: Definindo um Workspace por filtro de VolUM€ ........:.c::secccseeeeeeeeeeseeeaeeeesseeseenenenneees 16
+ODJCtIVO! oo. ececctcssesessesecsecseseesessssecsesessecsesecsesassscaeseseessecaseesaeeaesecseseecaesesaeseecaecassesaeuessesaseaenenneeeteate 16
+Pré-requisitos: ...... sis VO:
+Filtro de Volume: .. 16
+Sessáo 4: Manipulando Vistas ..ccconmcnnminnininscnrarcrr rre rre 23
+(6) 0)(=)[\ chererrereerer recy terecerrrererne re erence tre rece eer rece rerer eter reer rrerer eee rere ee verre ey 23
+Pré-requisitos:. eS
+Visáo Geral: .... +23
+Passos para Manipular Vistas na Janela Ativa: 25
+Sessáo 5: Selecionando Objetos em um Modelo 35
+ODJCtIVO! monncicniciinnnanininn rr 35
+
+2... 95
+er)
+2... 36
+.... 39
+40
+
+Pré-Requisitos: ..
+
+Passos para Selecionar Objetos utilizando a janela de selecáo “Overlapping”: ...
+
+Passos para selecionar objetos utilizando o Select by Filter: ...oooooocionniniininaninno.. 2. 41
+Sessáo 6: Aplicando Regras de Estilo de Superficie ........cscscessssesseseestsevscsssesecnsersesenseesenes 45
+Objetivo irrranaAR AAA nea nese site aetenenveeneteeeses 45
+Pré-requisitos:. 45
+Visáo Geral: .... 1 45
+Passos para a Criagáo de uma Regra de Estilo de Superficie oo... ececescsseseeseeseeeeteeeeeeeseeseeesseetees 46
+Sessáo 7: Barra de Comando PINPOINL........:secesseseeseeessseseeseeceneeseeseesensessnssessecaneesnsasenseneansennsenne 55
+Objetivol oo. cece eeeeeeeeeeeeeeeeeeseseeeaeeecsecsecateecaseeseneesessesaeeessessesaeeessesaeseacaseessesseseneesineeseeeaseesareneasees 55
+Pré-Requisitos: DD
+
+Visáo Geral:.... 09
+
+===== PAGINA 3 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+Sessáo 8: Barra de Comandos MEaSUre....ssssssssecesesessnsnssresennsecssensenneesenseesnsansessansneananenncaaeeatens 68
+
+ODJetIVO! cocicnininnininnncninnan ee
+Pré-requisitos:
+
+Objetivo: ..........
+Pré-requisitos: .
+
+Pré-requisitos
+
+Visd0 Geral! vision mira eres . 90
+Passos para manualmente Associar objetos a um Item WBS 91
+Passos para automaticamente associar objetos aos ¡tens WBS: ........se-ssscsseeeeeeeeneeereneeentens OF
+Sessáo 11: TO Do LiSt inicien 99
+
+To DoiLiSk: ancora
+Corrigindo Objetos in Error:.
+Gerenciando a To Do List ..........
+
+Sessáo 12: Checagem de Interferéncia .mcccnnonnnarcrarar arce rre ner 104
+
+Objetivo: ..........
+Pré-requisitos
+
+Server-Based Interference Checking (Database Detect):..
+Passos para rever as definigdes do banco de dados de detecgáo de interferéncia:.
+Interactive Interference Checking (Local Detect): ...oocnccocccninonccronenancnananoraccnnocanoronnonos
+Passos para Iniciar e Paralisar o Processo Local Detect: .
+
+Revisando Interferncias........cccccccseeseseseceeseeceeeteereeeeeeees - 110
+Workflow recomendado para Gerenciar InterferEncias:..........sesseeeeeeneceeseeenetetenetens 112
+Sessáo 13: Space Management ammm ner 115
+ODJOÍIVO: ......csssssssscssessssserseesresetenenssentonss
+
+Pré-requisitos: .
+
+Passos para o comando Placing Volume by Two Points
+Passos para o comando Placing Volume by Four Points: .
+Passos para a Insergáo de Volumes ao Longo de um Caminho:
+
+SISGRAPH | 2
+
+tl
+
+===== PAGINA 4 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 14: Inserindo Arquivos de Refer€ncia commons 131
+ODJCtIVO! conccicnicninininninicninir narrar 131
+Pré-requisitos:
+Vesáo Geral:..
+
+Objetivo: ........
+Pré-requisitos:
+
+Passos para colocar um Ponto de Controle (Control Points) no Modelo:
+
+SISGRAPH | 3
+
+===== PAGINA 5 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 1: Criar um Arquivo de Sessóes
+
+Objetivo:
+No final dessa sessáo vocé estará apto a:
+
+* Criar um arquivo de sessáo, com vista para parte da planta selecionada.
+
+Pré-requisitos:
+* SP3D Visáo Geral
+
+Visáo Geral:
+
+Para iniciar o SP3D é necessário abrir um arquivo de sessáo salvo ou criar um novo arquivo de
+sessáo usando um padráo. Um arquivo de sessáo padráo contem configuragóes e padróes pré
+estabelecidos para uma tarefa. Quando um arquivo de sessdes é criado, usando o padráo, vocé
+deve adicionar um novo filtro de forma a selecionar partes do modelo.
+
+O arquivo de sessáo náo contem nenhuma informagáo relacionada aos modelos em si, seu
+conteúdo sáo suas configuragóes pessoais, o ambiente para o projeto e a geometria da vista do
+modelo (configuragées de visualizagáo). Quando vocé seleciona um objeto ou edita um objeto com
+um comando, o software extrai as informacóes do banco de dados do servidor e nao do arquivo de
+sessées. O arquivo dé sessóes salva as seguintes informagóes:
+
++ Ultima task ativa.
+
+* Vista do modelo
+
+* Named views
+
++ Regras de visualizagao de superfices - Surface style rules (as definigdes destas regras
+sao salvas no modelo).
+
+* Configuragdes Tools > Options
+
+* Formas a serem exibidas (Display list)
+
+* Identidade do filtro usado para criar a display list (Os dados dos filtros sáo salvos no
+modelo.)
+
+* Opgées padróes de cada menu e suas configuragóes.
+
+Quando sair do SP3D os gráficos e padróes estabelecidos enquanto estava modelando podem ser
+salvos no seu arquivo de sessóes. A idéia é salva-lo sempre que sair do SP3D para que possa
+usar todas as configuragóes usadas novamente, sem a necessidade de configura-las toda vez que
+abrir o SP3D.
+
+Esta sessáo mostra como criar novos arquivos de sessáo a partir de um arquivo padráo. Para
+procedimentos relacionados a filtros e para os arquivos de sessáo veja a sessáo 2.
+
+SISGRAPH | 4
+
+IN
+
+===== PAGINA 6 =====
+—=]
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Passos para a Criacáo de um Arquivo de Sess6es com a Vista de um Modelo
+
+Crie um arquivo de sessóes com vista para parte do modelo e salve na sua área de trabalho do
+Windows.
+
+1. Inicie o SP3D em Start > Programs > Intergraph SmartPlant 3D > SmartPlant 3D.
+
+2. Uma nova caixa de diálogos será exibida, e um arquivo de sessáo vazio estará selecionado por
+padráo. Selecione qualquer um dos arquivos e depois clique em OK.
+
+EnalishUnits— MetricUnits
+
+Figura 1: Selecionando um arquivo de sessúes.
+
+Trés tipos de padráo esto disponiveis: empty (vazio), EnglishUnits (sistema inglés) e MetricUnits
+(sistema métrico).
+
+Notas:
+
+» Administradores podem usar o padráo empty para criar novos tipos de arquivos de
+sess6es.
+
+* Seu administrador pode adicionar novos arquivos de sesso padráo para que vocé
+possa usá-los de acordo com suas preferéncias, por exemplo, um para cada tipo de
+disciplina.
+
+* Pode ser útil salvar um arquivo de sessóes sem definir uma área de trabalho do
+modelo se vocé deseja criar outros arquivos de sessdes padráo. Veja a Session 2:
+Define Workspace with a System Filter para saber como definir um novo filtro.
+
+3. Clique em Save para salvar.
+
+SISGRAPH | 5
+
+mM
+
+===== PAGINA 7 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Save in: | 17 Desktop
+
+My Recent
+Documents
+
+My Documents
+
+My Computer
+
+«a
+
+My Network
+Places
+
+Notas:
+
+ray Documents
+
+Y My Computer
+my Network Places
+(Help
+
+|) 1709.ses
+
+E Analysis.ses
+
+ls) Ding sess 5.585
+ae My Computer
+
+E] Session File.ses
+[ss] TrainingPlant.ses
+
+File name: | Trainingl.ses
+
+Save]
+
+Save as type: [session document (.ses)
+
+Figura 2: Nomeando um arquivo de sessóes
+
+|
++] Cancel |
+
+* Acaixa de diálogos Save As pede um nome para o seu arquivo de sessóes e um local onde o
+arquivo sera salvo, a extengáo dos arquivos de sessGes é .ses.
+
++ Quando voce salvar o arquivo de sessées, o diretório padráo onde o arquivo será salvo é
+definido no SP3D no menu Tools > Options > File Locations > WorkSpace.
+
+SISGRAPH | 6
+
+DI
+
+===== PAGINA 8 =====
+1
+
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotagóes
+
+SISGRAPH =| 7
+
+===== PAGINA 9 =====
+Treinamento | Process, Power & Marine Smart 3D —- Common
+
+Sessáo 2: Definir um Workspace por um Filtro de Sistema
+
+Objetivo:
+Ao fim desta sessáo, vocé sera capaz de:
+
++ Definir um workspace criando um filtro de Sistema.
+
+Pré-requisitos:
+
++ SP3D Visáo Geral
+» Criar um arquivo de sessáo
+
+Visáo Geral:
+
+Quando vocé abre um template de arquivo de sessáo, vocé deve definir a parte do modelo que
+vocé deseja visualizar ou editar. Use o comando Define Workspace para fazer isso. Este
+comando utiliza um filtro para fazer uma selegáo dos objetos desejados no banco de dados. Vocé
+pode selecionar um filtro existente ou criar um novo filtro. A interface gráfica dos objetos é
+armazenada na memória do computador do usuário. Quando vocé salva o arquivo de sessáo, a
+interface gráfica obtida do servidor pelos comandos Define Workspace e Refresh sáo
+armazenadas no arquivo de sessáo.
+
+Os objetos que outros usuários criam ou editam no banco de dados do modelo náo sáo
+imediatamente visualizados na sessáo. Para vé-los, voé deve utilizar o comando Refresh para
+atualizar os dados em seu computador. Este comando roda novamente o filtro e recupera apenas
+os dados novos ou alterados que atendam o critério do filtro.
+
+Essa sessáo cobre a criagáo de filtros que usem a hierarquia de sistemas dos dados de projeto.
+
+Notas:
+
+* Orelacionamento entre os objetos no modelo garantem que qualquer dado necessário para
+editar um objeto é automaticamente recuperado do servidor. A recuperacáo de dados do
+servidor náo depende dos dados que vocé inclui em sua sessáo, Todas as edicóes
+automaticamente utilizam os dados atualizados do modelo no servidor.
+
+* Abrir o arquivo de sessáo e rodar o comando Refresh é até 70% mais rápido do que rodar o
+comando Define Workspace com um novo filtro. O comando Refresh também reduz a carga no
+servidor. O comando Define Workspace tem de recuperar e construir todos os objetos gráficos
+dos dados. Este comando ativa todos os objetos modelados selecionados pelo filtro e gera seus
+objetos gráficos. Após a geracáo dos objetos, elas sáo armazenadas no arquivo de sessáo.
+Quando vocé ativa um arquivo de sessáo e roda o comando Refresh, apenas os gráficos
+alterados e novos sao recuperados do servidor na máquina cliente (com ativacáo associada ao
+objeto modelado). Uma vez que os gráficos estáo incluidos no arquivo de sessáo, vocé pode
+ativar os objetos modelados. Os objetos modelados sáo ativados somente quando vocé os
+seleciona para edicáo ou referéncia. Vocé deve manter uma pasta para arquivos de sessáo que
+
+SISGRAPH | 8
+
+===== PAGINA 10 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+usem diferentes filtros que cubram a necessidade do cotidiano. Por regra, vocé comega a
+trabalhar no SP3D abrindo um arquivo de sessáo.
+
+Passos para Definir um Workspace com um Filtro de Sistema:
+
+Abra um arquivo de sessáo e defina o workspace contendo os objetos da unidade U01, Area A2,
+criando um filtro de Sistema, Unit 1, para esses objetos. Após o workspace estar definido, ele deve
+conter os objetos mostrados na figura 1.
+
+Figura 1: Workspace com a unidade U01 definida
+
+1. Clique no menu File e selecione o comando Define Workspace... .
+
+SISGRAPH | 9
+
+mM
+
+===== PAGINA 11 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+[BI Edt View Insert Format Tools Project SinartPlant Tasks Window Help
+
+Po Nevis CtrleN
+Open... culo
+Close
+Import >
+Export >
+
+Ci\Documerts and Settings \Admenstrator\Desttep\Cs_UUT.ses.
+CifDocumerts and Settings|Adninistrator\Desttop\TrainingPlant.ses
+C:\Documerts and Settings \Administrater \Desktop|Placing Air Handing Unit,ses
+CilDocumerts and Settings\Administrator|\Deshtop|Tra'ringPlant_HVAC,ses
+
+Ext
+
+Figura 2: Comando Define Workspace no menu File
+
+A caixa de diálogo Define Workspace aparece.
+
+Notas:
+
+* Vocé também pode pressionar Ctrl+W para abrir a caixa de diálogo Define Workspace.
+
+2. Na drop-down list Filter da caixa de diálogo Define Workspace, selecione a opgáo More...
+
+[sPabTrain
+
+Filter:
+
+Properties |
+
+Ok Cancel
+
+Figura 3: Caixa de diálogo Define Workspace
+
+A caixa de diálogo Select Filter é exibida.
+
+3. Na caixa de diálogo Select Filter, selecione My Filters e clique no ícone New Filter (Simple or
+Asking) para abrir a caixa de diálogo New Filter Properties.
+
+SISGRAPH | 10
+
+Ny
+
+D
+
+===== PAGINA 12 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+(E Catalllew Filter Simple or Asking)]
+¿1 -(] Defaut Fiters
+a Plant Fitters
+| ES ALL
+= 7 find
+(7 For Instructors Only
+2-( Training Fiters
+
+[E] tae |
+
+Figura 4: Caixa de diálogo Select Filter
+
+Nota:
+
+* Para visualizar os filtros de projeto definidos pelo administrador, vocé precisa de nivel de
+permissáo de leitura.
+
+4. Na caixa de diálogo New Filter Properties, digite Unit 1 no campo Name. Entáo, expanda as
+
+pastas A2 e CS. Pressione e segure a tecla Ctrl, e entáo, selecione a unidade U01 e o sistema de
+coordenadas U01 CS.
+
+SISGRAPH | 11
+
+mi
+
+===== PAGINA 13 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Heros:
+[Urat
+
+Muliselect classification:
+
+Object Type | Vokene] Properiss] Reference | Configuration |
+System | Assembly] Hamed Space | Anahsis | Work Breakdown Stucture] Permission Group |
+
+Expand the search lo include the selected systems:
+
+\>
+
+FT User of fter supplies value
+E Include nested objects
+
+Figura 5: Caixa de diálogo New Filter Properties
+
+Notas:
+
+* Para criar um filtro no projeto ou catálogo, vocé precisa de permissáo de escrita no grupo de
+permissdo aplicado na pasta pai do filtro. Vocé sempre pode criar filtros na pasta My Filters.
+
+* Um nome de filtro pode ter caracteres alfanuméricos, incluindo espacos. No entanto, o nome
+deve ser único no banco de dados do modelo e náo deve conter apóstrofes.
+
+O filtro neste tutorial é chamado de filtro de Sistema porque somente critérios baseados no sistema
+sáo utilizados para selecionar os dados desejados. A hierarquia de sistema é a divisáo primária do
+modelo e tem por objetivo facilitar o gerenciamento do projeto. Qualquer objeto na planta exige
+apenas um relacionamento com um sistema pai. Este pode ser o modo primário para selecionar a
+parte do modelo na qual se quer trabalhar.
+
+* Se a caixa Include nested objects for selecionada, o filtro vai recuperar todos os objetos
+sob os sistemas selecionados. Se a caixa estiver desmarcada, somente o sistema
+selecionado será recuperado.
+
+* Se vocé precisar de uma selegáo mais refinada dos dados, vocé pode utilizar outros
+critérios. O procedimento para isso será mostrado em um tutorial avangado de definigáo de
+filtros.
+
+5. Clique OK para completar a definigáo do filtro.
+6. Na caixa de diálogo Select Filter, selecione o filtro Unit 1 e clique OK para configurar o seu
+workspace para exibir o filtro Unit 1.
+
+SISGRAPH | 12
+
+===== PAGINA 14 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Select Filters
+tol 489] [dels
+
+a Catalog Filters
+2-10 Default Fiters
+Plant Fiters
+
+4 ALL
+
+E 7 find
+
+(J For Instructors Only
+(1 Training Fiters
+¡My Filters
+
+6 Unid
+
+OK Cancel
+
+Figura 6: Novo filtro adicionado
+7. Na caixa de diálogo Define Workspace, clique OK.
+Define Workspace
+Plant:
+
+[sP3DTrain = |
+Eilter:
+
+UA
+
+Properties |
+
+Figura 7: Selecionando o filtro criado da caixa de diálogo Define Workspace
+Vocé definiu seu workspace pelo filtro Unit 1.
+Nota:
+
+na barra de comandos Common.
+
+Para ajustar todos os objetos selecionados pelo filtro Unit 1 na vista ativa, clique no botáo Fit
+
+SISGRAPH | 13
+
+El
+
+===== PAGINA 15 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+E
+Y
+RH aL
+==
+HH /
+ol
+
+==
+
+Figura 8: Vista do workspace após criar o filtro
+
+Para maiores informagées a respeito da definigáo do workspace, veja os seguintes tópicos no manual
+CommonUsersGuide.pdf:
+
++ Defining Workspace Content: An Overview
+
+» Using the File Menu: An Overview
+
+SISGRAPH | 14
+
+i
+
+ill
+
+===== PAGINA 16 =====
+ll
+
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotagées
+
+SISGRAPH | 15
+
+TT
+
+===== PAGINA 17 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 3: Definir um Workspace por filtro de Volume
+
+Objetivo:
+No final desta sessáo, vocé sera capaz de:
+
+* Definir um workspace usando um filtro de volume.
+
+Pré-requisitos:
+
++ SP3D Visáo Geral
+* Criando um arquivo de sessáo
+* Definindo um Workspace por filtro de sistema
+
+Filtro de Volume:
+
+Um filtro pode aplicar o critério de uma parte da geometria inserida no volume. O critério do volume
+restringe os dados que seráo mostrados pelo filtro. Esse critério pode ser combinado com qualquer
+outro critério que está na caixa de diálogo Filter Properties.
+
+Passos para definir um Workspace por filtro de volume:
+Definir um workspace que carregue todos os objetos do sistema Area A2 / Unit U01 que estáo no
+
+Volume U01. Depois que o Workspace está definido, ele deve conter todos os objetos mostrados
+na figura 1.
+
+Figura 1: Resultado final: objetos definidos em seu Workspace por um filtro de volume
+
+SISGRAPH | 16
+
+===== PAGINA 18 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+1. Definir o workspace e criar um novo filtro usando o botáo New Filter (Simple or Asking) na
+caixa de diálogo Select Filter. A Caixa de diálogo New Filter Properties será exibida.
+
+Notas:
+
+A caixa de diálogo New Filter Properties consiste em inúmeras abas que definem critérios de
+procura. As abas System, Assembly, e Named Space expande a procura por objetos em um
+modelo que satisfazem os critérios definidos nestas abas. As abas Volume, Permission Group,
+e Object Type restringem ou limitam os objetos retornados que satisfazem os critérios
+adicionais.
+
+Se vocé náo selecionar nada nas abas System, Assembly, ou Named Space, entáo o filtro
+restritivo que vocé definiu será aplicado contra todos os objetos do seu banco de dados. Entáo,
+se vocé quer ter certeza que seu filtro pegará todos os objetos gráficos que satistazem o
+critério do filtro de volume, independente de qual sistema o objeto pertence, entáo náo
+selecione todo o sistema e somente defina o critério de volume (pule o passo 2).
+
+A aba System mostra a hierarchia de todos os sistemas definidos em nosso modelo. Sistemas
+podem estar atrelados ás disciplinas e incluir muitos tipos de objetos. A planta é o sistema mais
+alto da hierarquia e inclui todos os outros subsistemas.
+
+A aba Named Space nos mostra a hierarchia dos named space. Named spaces sáo volumes que
+representam zonas, áreas, e volumes que seráo utilizados para desenho, ou outro conceito
+espacial náo sólido. Incluir os named spaces no seu workspace permite que vocé veja o
+tamanho, forma, e posicáo do seu volume,
+
+2. Na caixa de diálogo New Filter Properties, digite Unit 1 in Volume U01 no campo Name.
+Depois, expanda o A2 e CS. Pressione e mantenha apertada a tecla CTRL e depois, selecione
+U01 e U01 CS.
+
+SISGRAPH | 17
+
+it
+
+===== PAGINA 19 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+[Uni Tin Vetume Ut
+
+Muti-select classification:
+
+Object Type | Volume] Properties] Reference | Configuration |
+System | Assembly | Named Space | Anstysis | Work Breskdoum Structure] Peinission Gtoun 1
+Evpand the search lo include the selected systems:
+
+24
+
+SERIAS
+
+te
+2
+8
+
+= ins e
+
+Tei
+
+|<
+
+[7 User of fter supplies value
+IM Include nested objects
+
+[Cor] Carcel | cis
+
+Figura 2: Nova caixa de diálogo de propriedades do filtro.
+
+3. Para mostrar apenas objetos no sistema selecionado com geometria do Volume U01, clique na
+aba Volume e selecione Volume U01.
+
+SISGRAPH | 18
+
+===== PAGINA 20 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Filter Properties ES xi
+
+Name:
+
+Unit 1 in Volume UDI
+
+System | Assembly | Named Space | Analysis |
+Properties | Reference | Reference 3D] Configuration |
+Work Breakdown Structure | Permission Group | Object Type Volume |
+
+Restrict search to retum only objects within the:
+Define by
+
+@ Named spaces
+© Planes
+
+SP3DTrein
+
+Volume U02
+Volume UD3
+
+JT” User of fiter supplies value
+IV Include nested objects
+
+coved | Gem |
+
+Figura 3: Aba de Volume: Novo filtro na caixa de diálogo.
+
+Nota:
+
+* Existem duas opc0es na aba de Volume (Named Spaces e Planes). A opcáo Named Spaces
+permite que vocé defina um volume para ser usado no critério de volumes selecionando um ou
+mais volumes existentes. A opgáo Planes permite que vocé defina um único volume usando
+seis planos de referéncia que foram defindos anteriormente em um sistema de coordenadas
+(Verificar a apostila de SP3D Structure Session 2: Placing Coordinate Systems/Grids.).
+
+Il
+
+4. Clique em OK.
+5. Na caixa de diálogo Select Filter, selecionar Unit 1 no Volume U01 e clicar em OK.
+
+SISGRAPH | 19
+
+ty
+
+===== PAGINA 21 =====
+Smart 3D - Common
+
+Treinamento | Process, Power & Marine
+
+select Filter,
+
+|g 9 | ele
+
+5] Catalog Filters
+C2 Default Fiters
+
+1] Plant Fiters
+
+1% ALL
+
+9 find
+
+i O For Instuctors Only
+i] Training Fiters
+
+I My Fitters
+
+EY Unit
+$ Ur inVoume UOT
+
+Cone
+
+Figura 4: Caixa de diálogo de Selegao do filtro.
+
+6. Na caixa de diálogo Define Workspace, clique em OK.
+
+Plant
+=]
+
+[Sp30 Tin
+Enter
+RNA +) Properties |
+cua _|
+
+Figura 5: Caixa de diálogo para definir Workspace
+
+Vocé definiu um workspace que inclui todos os objetos geométricos que estavam no filtro de
+
+volume Volume_U01.
+
+Notas:
+Para Enquadrar todos os objetos vindos do filtro do volume para sua vista, clique no botáo Fit
+
+na barra de ferramenta Common. A vista vai estar parecida com a figura 6.
+
+SISGRAPH | 20
+
+mi
+
+===== PAGINA 22 =====
+i
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 6: Vista depois de ter clicando no botáo de Fit.
+
+Salve o arquivo de sessáo para preservar a geometria da vista.
+
+Para mais informagdes relacionadas com definigdes de workspace, veja os seguintes tópicos do guia
+CommonUsersGuide. pdf:
+
++ Defining Workspace Content: An Overview
++ Using the File Menu: An Overview
+
+SISGRAPH | 21
+
+mi
+
+===== PAGINA 23 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Anotacóes
+
+SISGRAPH | 22
+
+===== PAGINA 24 =====
+th
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 4: Manipulando Vistas
+
+Objetivo:
+Até o final desta sessáo vocé será capaz de:
+
++ Manipular uma vista na janela ativa do SP3D.
+
+Pré-requisitos:
+
+e SP3D Visáo Geral
+e Criando um arquivo de Sessáo.
+e Definir um Workspace
+
+Visáo Geral:
+
+Vocé pode manipular a janela e vista ativa usando os menus Windows e View e os comandos na
+barras de ferramentas Common.
+
+Os comandos no menu Windows cria e organiza janelas de visualizagáo. A barra de tarefas
+Common possui os comandos mais usados para manipular a vista dentro de uma janela de
+visualizacáo. Estes comandos podem também ser acessados pelo menu View.
+
+O|e| |B
+
+Figura 1: Barra de ferramentas Common- Botóes de manipulagáo de vistas
+
+Notas:
+
+* Os comandos de manipulacáo de vista náo cancelam outros comandos ativos exceto outros
+comandos de vista. Quando vocé acaba ou cancela o comando de manipulacáo de vistas, vocé
+automaticamente retorna para o comando anterior que foi interrompido.
+
+As opgées de manipulacáo de vistas da barra de tarefas Common estáo descritas abaixo:
+
+o El Clip by Object: Cria um volume retangular que contorna os objetos selecionados.
+Este comando entáo limita o que será mostrado para mostrar apenas os objetos dentro do
+volume.
+
+=
+o q Clip by Volume: Cria um volume de corte especificando dois pontos em uma área (a
+sessáo transversal do volume) e dois pontos em profundidade (a extensáo do volume).
+
+Nota:
+
++  Aorientacáo do volume de corte é criado em relacáo ao sistema de coordenadas ativo
+
+selecionado no PinPoint barra de comandos.
+
+SISGRAPH | 23
+
+mi
+
+===== PAGINA 25 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+o EN Clear View Clipping: Remove todos os cortes de visualizacáo da janela ativa.
+
++ ¿Y Active View Control: Possibilita que vocé edite graficamente os parámetros da vista
+incluindo o volume.
+
+° El Common Views: Mostra uma pequena janela que muda a diregáo da vista ativa
+quando vocé clica em uma das vistas padráo.
+
+o MiView by Points: Define o plano da vista por trés pontos.
+
+o a Rotate View: Gira a vista ao redor de um ponto ou eixo.
++ ¡¿¿Named Views: Atribui e salva um nome e uma descricáo para uma vista para ser
+Usada mais tarde. As vistas padráo sáo: Top, Front, Right, e Isometric.
+
+Nota:
+
+*  Ascaracterísticas de uma Named View incluem informacóes de corte, mas nao incluem o
+ángulo da perspectiva ou as características da texturizacáo. As “Named Views” sáo salvas
+no arquivo de sessáo.
+
+Fal + 4 se
++ ¿Zoom Area: Realiza um zoom em uma área retangular específica.
+o Fit: Acomoda os objetos na vista com o maior tamanho possível, se náo houver
+nenhum objeto selecionado ele acomoda todos os objetos na tela.
+
+Notas:
+
+* Ocomando Fit pode ser usado em mais de uma vista. Quando vocé clica no botáo Fit, o
+software acomoda os objetos selecionados na vista ativa, e permite que vocé selecione
+outra vista para acomodar os objetos. Vocé pode inclusive uilizar o comando Fit em mais
+de uma vista, isso pode ser feito segurando os botóes SHIFT+A ou CTRL+A e clicando no
+botáo Fit.
+
+*  Sevocé pressionar SHIFT e entáo clicar no botáo Fit, ele acomoda todos os objetos visiveis
+no volume de corte.
+
+o [S Pan: Arrasta a vista na vista ativa.
+
+SISGRAPH | 24
+
+fly
+
+===== PAGINA 26 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Passos para Manipular Vistas na Janela Ativa:
+
+As atividades abaixo sao uma série de exemplos que usam todos os comandos de manipulagáo de
+vistas.
+
+1. Redefine seu Workspace para incluir a unidade U03 usando 0 filtro de treinamento predefinido
+U03 (Plant Filters > Training Filters > U03).
+
+Define Workspace [3]
+Ship: A
+[sPaDTren )
+y Properties
+Select Filter (33
+‘al +l8 19] x] ele]
+5 Treming Fiters A
+ES
+7 Aeall
+
+—% Equipment By Status
+2
+| Members by Section Names
+
+HS Named Spaces
+—4} Object by PG starting with E
+57) Objects by Z Range
+
+ES Fipe Rack Zone
+
+5 Piping Run by NPD
+
+1} PJ99 WBS)
+
+emm: conc
+
+Cancel
+
+Figura 2: Caixa de diálogo de Selegáo do filtro
+
+2. Clique no botáo Common Views na barra de ferramentas Common. A janela Common Views
+aparece.
+
+1)
+
+Figura 3: Caixa de diálogo Common Views
+
+SISGRAPH | 25
+
+===== PAGINA 27 =====
+Treinamento | Process, Power & Marine Smart 3D —- Common
+
+3. Para mudar a vista do modelo na planta de treinamento, selecione a vista Looking North na
+caixa de dialogo Common Views.
+
+¡[Leona Rath
+
+Figura 4: Vista Looking North
+
+Nota:
+
+*  Vocé pode mudar sua vista para Isometric, Looking East, Looking South, Looking Plan, e
+Looking West usando a caixa de didlogo Common Views.
+
+4. Mude a vista para Isometric ajuste a tela para mostrar os componetes destacados na figura 5
+clicando no botáo Zoom Area da barra de ferramentas Common. Escolha uma área e apenas
+inclua o tanque vertical e a bomba.
+
+Figura 5: Vista isométrica
+
+SISGRAPH | 26
+
+pl
+
+===== PAGINA 28 =====
+U
+
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+5. Clique no botáo Named Views na barra de ferramentas Common.
+6. Na caixa de diálogos Named Views, digite Area 1 no campo Name e depois Area around the
+equipment T-101 no campo Description.
+
+Description
+
+Figura 6: Caixa de dialogo Named Views
+
+7. Clique em Apply e em seguida OK.
+
+A vista que vocé criou é entáo adicionada na lista de Named Views e pode ser definida quando
+necessário. Esta informacáo é armazenada no arquivo da sessáo.
+
+Front
+) Right
+Isometric
+
+8. Após definir as Named Views, vocé pode isolar o equipamento P-101 para trabalhar com ele.
+
+Para cortar ao redor do equipamento P-101, clique no botáo Clip by Object selecione o
+equipamento e duas vigas acima do equipamento. A idéia é simplesmente selecionar objetos para
+definir o range. Se objetos já estáo selecionados quando vocé seleciona o comando Clip by Object,
+entáo o corte irá utilizar os objetos selecionados, e náo irá pedir para que vocé selecione os objetos.
+
+SISGRAPH | 27
+
+o
+
+===== PAGINA 29 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Figura 8: Clip by Object View
+
+9. Clique no botáo Accept na barra de comandos Clip by Object.
+[FF] XZ] coe |
+Figura 9: Botáo Accept na barra de comandos Clip by Object
+
+A vista do modelo ira se parecer com a Figura 9.
+
+Figura 10: Vista após Clip by Object
+
+SISGRAPH | 28
+
+NI
+
+===== PAGINA 30 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+10. Ajuste graficamente o volume de corte selecionando o comando Clip by Volume. O comando
+vai mostrar o wireframe do volume criado pelas fronteiras de corte. Selecione a fronteira de corte
+superior, mova-a para cima, pois assim vocé poderá visualizar o terceiro andar da estrutura.
+
+Notas:
+
++ Uma vez selecionada a fronteira, o comando permite a vocé localizar um ponto. Vocé pode
+extender a fronteira por meio de uma distáncia aproximada ou exata usando o PinPoint. Vocé
+pode entáo mové-la para uma localizacáo precisa posicionando o cursor sobre a geometria.
+
+* Vocé pode continuar editando outras fronteiras de corte e entáo finalizar o comando.
+
++ Vocé pode também usar o comando Corte por Volume para definir o volume de corte através
+de quatro pontos. Os dois primeiros pontos definem um retángulo no plano horizontal. Os
+outros dois pontos definem o plano de corte frontal e posterior ao longo do eixo-z.
+
+Figura 11: Vista após o corte por volume estar selecionado e o Plano Superior Movido
+
+SISGRAPH | 29
+
+fl
+
+===== PAGINA 31 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+11. Configure a vista ativa para a vista Isometric usando o controle Common Views. Selecione o
+comando ¿Active View Control na barra de ferramentas Common se vocé quiser modificar os
+parámetros da vista ativa a partir de uma janela separada.
+
+Notas:
+
++ Ocomando Active View Control na barra de ferramentas Common permite vocé a editar todos
+os parámetros da vista. É mais útil, entretanto, ajustar graficamente o corte a partir de uma
+vista onde vocé pode ver toda a geometria. Vocé pode experimentar outras edigdes que o
+Control pode fazer, mas é melhor usar os comandos da barra de ferramentas Common para
+essas aplicacdes.
+
+*  Ajanela Active View Control tem um grupo de comandos para a manipulagáo da vista dentro
+do Active View Control. Esses comandos sao Top View, Side View, Front View, Pan, Zoom,
+Zoom Area, e Fit.
+
+* Por padráo, o botáo Top View é selecionado quando o comando é ativado.
+
+Configure a vista Active View Control para a vista de elevacdo. Modifique a fronteira de corte
+superior da vista ativa arrastando o plano de corte tracejado acima de todos os gráficos na janela
+ActiveView Control. Sua vista ativa vai mudar para o que é mostrado na Figura 12.
+
+[E] Active View Control - Front toto Jess
+
+SISGRAPH | 30
+
+Til
+
+===== PAGINA 32 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 13: Vista Ativa
+
+12. Para limpar o corte feito envolta do equipamentot P-101 e restaure a vista ativa, clique no
+botáo Ei! Clear View Clipping na barra de ferramentas Common.
+
+Figura 14:Vista Limpa
+
+SISGRAPH | 31
+
+Tit
+
+===== PAGINA 33 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+13. Para rotacionar a vista ao redor da descarga vertical da bomba, selecione o comando
+[El Rotate View.
+
+Figure 15: Rotate View
+
+O comando Rotate View mostra um sistema de coordenadas tridimensional no centro da janela
+ativa. Vocé possui diversas opcóes para rotacionar a vista:
+
+» Selecione um eixo ou qualquer geometria linear no modelo. Digite o angulo que vocé
+deseja rotacionar a vista ao redor do eixo selecionado.
+
+e Clique sobre o eixo selecionado e arraste para rotacionar a vista dinamicamente ao redor
+do eixo.
+
+e Clique em outro lugar fora da vista e arraste para rotacionar a vista dinamicamente em
+trés dimensóes ao redor do centro da vista.
+
+14. Para esse exemplo, a partir da vista padráo Isometric, selecione o tubo vertical conectado ao
+
+bocal de descarga da bomba e digite 15 graus no campo na barra de comando Rotate (Veja a
+Figura 15).
+
+SISGRAPH | 32
+
+===== PAGINA 34 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+[15.00 deg — y] Close |
+
+Figura 16: Vista após rotagáo de 15 graus
+
+Agora, rode a vista dinamicamente clicando acima do tubo vertical e arrastando o cursor. Esta
+rotagáo Ihe proporciona uma maneira fácil de olhar ao redor de um objeto especifico.
+
+Para mais informagóes relacionadas a manipulagáo de vistas, consulte o tópico Using the View Menu: An
+Overview do guia CommonUsersGuide.pdf.
+
+SISGRAPH | 33
+
+Tl
+
+===== PAGINA 35 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Anotacóes
+
+SISGRAPH | 34
+
+===== PAGINA 36 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+Sessáo 5: Selecionando Objetos em um Modelo
+
+Objetivo:
+No final desta sessáo, vocé estará apto a:
+
+* Selecionar objetos individualmente, por uma fence, ou utilizando filtros.
+
+Pré-Requisitos:
+
++ SP3D — Visáo Geral
+
+* Criando um arquivo de sessáo
+» Definindo um Workspace
+
+* Manipulando Vistas
+
+Visáo Geral:
+
+Vocé pode selecionar objetos no modelo para fazer modificacóes utilizando tanto o comando Select
+como o comando Select by Filter.
+
+O comando Select é o primeiro comando da barra de ferramentas vertical. A barra de comandos
+Select contém uma lista drop-down Locate Filter, que limita a selegáo por tipo de objeto, como por
+exemplo, equipamentos ou partes de tubos. Cada task prové uma lista exclusiva de opgées de filtro.
+O comando Select tem as seguintes opcóes de selecáo:
+
++ Selecáo individual com o cursor na vista gráfica ou no Workspace Explorer
+* Selecóes múltiplas na vista gráfica por fence com a feature drag-drop do cursor. Vocé
+pode selecionar todos os objetos contidos dentro da fence ou todos os objetos dentro e
+
+sobrepostos pelas bordas da fence.
+
+* Selegóes múltiplas pelo comando Shift+select no Workspace Explorer ou pelo comando
+Ctrl+select na vista gráfica ou Workspace Explorer
+
+* Selecáo individual, digitando um nome no campo de nomes do Workspace Explorer
+
+* Selecóes múltiplas, digitando um nome com asterisco(*) no campo de nomes no
+Workspace Explorer
+
+O comando Tools > Select by Filter permite a selegáo de objetos pela execugáo de uma query
+nos objetos no workspace utilizando um ou mais filtros. Vocé pode acessar os mesmos filtros pelo
+
+comando Select by Filter que estáo disponiveis no comando Define Workspace.
+
+Antes de prosseguirmos com as sessóes remanescentes do tutorial Common, defina seu
+workspace para incluir todos os objetos no banco de dados do modelo SP3Dtrain:
+
+1. Inicie o programa SP3D pelos comandos Start>Programs>Intergraph
+SmartPlant3D>SmartPlant 3D.
+
+2. Na caixa de diálogos New, selecione o template EnglishUnits ou MetricUnits e entáo clique
+OK.
+
+SISGRAPH | 35
+
+Ni
+
+===== PAGINA 37 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+3. Clique o menu File e selecione o comando Define Workspace.
+4. Clique na lista drop-down Filter da caixa de diálogo Define Workspace e selecione a opgáo
+More...
+
+5. Na caixa de diálogo Select Filter em Plant Filters, selecione All e clique OK.
+6. Selecione View > Fit.
+Agora, vocé irá apagar alguns dos objetos existentes no workspace antes de iniciar esta sessáo.
+
+Utilize o mecanismo de filtro para auxiliar na selegáo dos objetos modelados existentes.
+
+7. Selecione Tools > Select by Filter para abrir a caixa de diálogos Select Filter.
+8. Selecione e expanda a pasta For Instructors Only.
+
+Para sessóes Common:
+
+9. Selecione o filtro Common Tutorial Session - Select and Hide e clique OK.
+10. Clique o comando Delete para apagar os objetos selecionados.
+Passos para selecionar objetos individuais utilizando o Comando Select:
+
+Selecione a Pipeline 400-P da Unidade U04 em seu workspace utilizando o comando Select. Após
+selecionar o objeto especificado, a vista da estrutura deverá assemelhar-se a Figura 1.
+
+Figura 1: Selecionando um objeto específico utilizando o comando Select
+
+Antes de iniciar o procedimento define seu workspace para exibir a Unidade U04 e o Sistema de
+Coordenadas U04 CS.
+
+11. Selecione a task Piping utilizando o comando Tasks > Piping.
+
+SISGRAPH | 36
+
+===== PAGINA 38 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+EE Window Help
+
+Electrical
+
+Drawings and Reports
+Equipment and Furnishings
+Grids
+
+Hangers and Supports
+HYAC
+
+~ Catalog
+Space Management
+Structural Analysis
+Structure
+
+Systems and Specifications
+
+Configure Task List...
+
+Figura 2: Comando Tasks > Piping
+
+12. Clique o botáo Select na barra de ferramentas vertical.
+
+Figura 3: Botáo Select na barra de ferramentas vertical
+
+13. Na barra de comandos Select, selecione o filtro Pipelines na lisita drop-down Locate Filter para
+localizar apenas os objetos Pipeline. A pipeline é um sistema que utiliza os gráficos de todos os
+componentes no sistema para sua visualizagáo gráfica. Ela náo tem nenhum gráfico proprio para
+manipularmos diretamente.
+
+Piping Runs
+Piping Features
+Piping Parts
+
+Taps
+
+Welds
+
+Clamps
+Connections
+Spools
+
+Penetration Spools
+Equipment
+
+Piping Nozzles
+
+All
+
+Figura 4: Lista drop-down Locate Filter
+
+SISGRAPH | 37
+
+Tit
+
+===== PAGINA 39 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Nota:
+
+* Quando estiver trabalhando em um task específico, vocé pode selecionar objetos das outras
+disciplinas selecionando a opgáo All na lista drop-down Locate Filter. Por exemplo, se vocé
+estiver trabalhando na task Piping, vocé pode colocar o Locate Filter para All, e depois
+selecionar um membro de estruturas.
+
+14. Posicione o cursor na Pipeline 400-P até esta se destacar. Clique na pipeline destacada para
+selecioná-la na vista. Vocé pode selecionar objetos adicionais ao segurar a tecla CTRL.
+
+Figura 5: Pipeline 400-P destacada
+
+Ii
+
+Notas: a
+
++  Asopcúes de filtragem de selecáo aparecem na barra horizontal somente quando o comando
+Select esta acionado. Caso necessário utilizar o Locate Filter enquanto outro comando esta
+acionado, o mesmo também pode ser encontrado no menu Edit > Locate Filter ou através do
+atalho CTRL+E.
+
+* Se mais de um objeto for localizado na posigáo de um cursor, a caixa de diálogos QuickPick
+será exibida. Apontando para as opcées listadas na caixa de diálogos QuickPick irá destacar
+diferentes objetos. (Refira-se á Figura 6).
+
+AÍSGRADH | 38
+
+===== PAGINA 40 =====
+U
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+[ara
+fe Bais
+ED]
+
+Figura 6: Caixa de diálogo QuickPick
+
+Passos para selecionar objetos utilizando uma janela de selegáo:
+
+Selecione a Pipeline 403-P da Unidade U04 em seu workspace utilizando a opgáo Inside Fence no
+comando Select. Após selecionar os objetos especificados, a vista deverá assemelhar-se á Figura
+7.
+
+7
+
+Figura 7: Selecionando objetos específicos utilizando a janela de selegáo Inside Fence
+
+1. Selecione a task piping utilizando o comando Tasks > Piping.
+. Clique no botáo Select na barra de ferramentas vertical.
+
+N
+
+SISGRAPH | 39
+
+===== PAGINA 41 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+3. Selecione o filtro Pipelines na lista drop-down Locate Filter para localizar apenas pipelines.
+Clique na opgáo Inside Fence na barra de comandos Locate Filter. Esta opgáo permanece
+selecionada até a próxima utilizagáo do comando Select ou até vocé mudar a opgáo.
+
+| Pipelines
+
+Figura 8: Opgáo Inside Fence na barra de comandos Locate Filter
+
+4. Posicione uma janela em torno da Pipeline 403-P, arrastando as linhas tracejadas da janela em
+torno da Pipeline 403-P. A janela pode cobrir algumas, mas náo todas as partes das Pipelines
+402-P e 401-P.
+
+Figura 9: Inside Fence criada em torno da Pipeline 403-P
+
+Após criar a janela em torno da pipeline e soltá-la, a Pipeline 403-P que está completamente
+contida dentro da “fence” é selecionada.
+
+Passos para Selecionar Objetos utilizando a janela de selegáo
+“Overlapping”:
+
+Selecione as Pipelines 403-P, 402-P e 401-P da Unidade U04 em seu workspace utilizando a
+opgáo Overlapping fence do comando Select.
+
+1. Selecione a task piping utilizando o comando Tasks > Piping.
+
+2. Clique no botáo Select na barra de ferramentas vertical.
+
+3. Selecione o filtro Pipelines na lista drop-down Locate Filter para localizar apenas os objetos de
+tubulagáo. Clique na opgáo Overlapping Fence na barra de comandos Locate Filter. Esta opgáo
+permanece selecionada até a próxima utilizagáo do comando Select ou até vocé alterar a opgáo
+
+SISGRAPH | 40
+
+Ty
+
+===== PAGINA 42 =====
+l
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Ppeines
+
+Figura 10: Opcáo Overlapping Fence na barra de comandos Locate Filter
+
+4. Posicione uma fence em torno da Pipeline 403-P arrastando as linhas tracejadas da fence em
+torno da Pipeline 403-P. A fence deverá cobrir alguma parte das pipelines 402-P e 401-P, conforme
+destacado na Figura 11.
+
+Figura 11: Overlapping Fence
+
+5. Após criar a fence em torno da pipeline e soltá-la, Pipelines 403-P, 402-P e 401-P deveráo ser
+selecionadas.
+
+Nota:
+
++  Vocá pode também selecionar um objeto digitando o nome do objeto na lista Recently
+Selected Object List do Workspace Explorer. Por exemplo, se vocé deseja selecionar a Pipeline
+403-P vocé pode digitar 403-P na caixa Recently Selected Object List e a Pipeline 403-P será
+automaticamente selecionada em seu Workspace.
+
+Passos para selecionar objetos utilizando o Select by Filter:
+
+Selecione todos os objetos de estruturas na Unidade U01 de seu workspace utilizando um object
+type filter.
+
+Após selecionar os objetos especificados, a vista da estrutura deverá assemelhar-se á Figura 12.
+
+SISGRAPH | 41
+
+===== PAGINA 43 =====
+Treinamento | Process, Power & Marine Smart 3D -Common
+
+Figura 12: Selecionando um objeto de estruturas utilizando um Object Type Filter
+
+Antes de iniciar o procedimento define seu workspace para exibir a Unidade U01 e o Sistema de
+Coordenadas U01 CS.
+
+1. Selecione o comando Tools > Select by Filter.
+
+@ File Edit View Insert Format [Tools] Project SmartPlant Tasks *
+Admin Y +] Select by Filter...
+
+Fipeines E Show
+Hide
+
+Show All
+
+PinPoint
+SmartSketch Options
+Add to SmartSketch List
+Get Point
+
+Point Along
+
+Measure
+
+Check Interference
+
+t
+
+(feels alee ee] lez
+
+Run Report...
+
+Figura 13: Comando Tools > Select by Filter
+
+O comando Select by Filter abrirá a caixa de diálogos Select Filter onde vocé pode selecionar
+um ou mais filtros existentes ou criar um novo filtro para utilizar para a selegáo.
+
+Nota:
+
+* Quando a caixa de diálogos Select Filter abrir, uma lista em árvore abrirá as pastas dos filtros
+disponíveis. Ao clicar duas vezes em uma pasta, a vista expande para exibir o próximo nível da
+organizacáo das pastas. Clique duas vezes em um filtro para utilizá-lo.
+
+SISGRAPH | 2
+
+Tl
+
+===== PAGINA 44 =====
+Treinamento | Process, Power & Marine Smart 3D —- Common
+
+Se iy
+
+“| 41819] Lele]
+
+1) Catalog Fiters
+(Default Fiters
++ CUPOS Object Fiters
+(C1 SP3D Drawing Filters
+(1) SP3D Object Fiters
+
+Y Cobleway Straight
+& Cableway Transtion
+Es Cobleway Turn
+28 Cableway Tun Transition
+Y Cableviay Features
+
+Figura 14: Caixa de diálogos Select Filter
+
+2. Na caixa de diálogos Select Filter, selecione Catalog Filters, expanda Default Filters > SP3D
+Object Filters > Object Types e entáo, selecione o filtro Structure.
+
+Sea Filler +
+dal slo] xleelor]
+
+Equipment and Furnishing
+Equipment and Furnishing
+
+Figura 15: Structure Filter na caixa de diálogos Select Filter
+
+Nota:
+
+S +  Vocé pode incluir mais de um filtro pressionando a tecla CTRL e clicando em mais filtros para
+cada tipo de objeto diferente.
+
+3. Clique OK para selecionar todos os objetos de estruturas no workspace definida.
+
+Para maiores informacóes relacionadas á selegáo de objetos utilizando um filtro tipo de objeto, Locate Filter, e
+janela inside/overlapping, refira-se aos seguintes tópicos do guia do usuario CommonUsersGuide.pdf, * Using
+Filters: An Overview, + Filter Properties Dialog Box, Using the Tools Menu: An Overview
+
+SISGRAPH | 43
+
+EN
+
+===== PAGINA 45 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Anotagées
+
+SISGRAPH | 44
+
+===== PAGINA 46 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 6: Aplicando Regras de Estilo de Superfície
+
+Objetivo:
+Ao fim desta sessáo, vocé será capaz de:
+
+e Aplicar regras de estilo de superficie para configurar a cor e a transparéncia da superficie
+de objetos mostrados em seu workspace.
+
+Pré-requisitos:
+
+e SP3D Visáo Geral
+
+e Criando arquivos de Sessáo
+
+e Definindo uma área de trabalho
+e Manipulando Vistas
+
+e Selecionando Objetos
+
+Visáo Geral:
+
+A fungáo regra de estilo de superficie possibilita que vocé use cores para distinguir objetos para
+propósitos de modelagem. Por exemplo, vocé pode mostrar objetos que estáo na To Do List em
+vermelho. Vocé pode mostrar os objetos que tém o status Approved em uma cor e os que tém o
+status Rejected em outra cor. Vocé pode mostrar uma tubulacáo de servico quente em uma cor e
+uma tubulagáo de servico frio em outra.
+
+Vocé pode customizar as cores das superfícies e arestas de objetos para suas necessidades de
+visualizacáo individual selecionando as regras de estilo de superfície. Uma regra de estilo de
+superficie é a combinagáo de um filtro que identifica um grupo de objetos por critérios específicos e
+um estilo de superfície associado. Vocé pode selecionar qualquer número de regras de estilo de
+superfície para serem aplicadas nos objetos mostrados em sua sessáo. Um objeto é checado para
+ver se ele corresponde ao critério do filtro da primeira regra de estilo de superfície em uma lista das
+regras de estilo de superfície selecionadas. Se corresponder, o estilo de superfície associado é
+aplicado ao objeto. Se náo, a próxima regra da lista é checada. Se o objeto náo corresponder a
+nenhuma das regras de estilo de superficie que vocé selecionou para a aplicagáo em sua sessáo,
+será mostrado um estilo padráo definido pelo sistema.
+
+Regras de estilo de superfície sáo aplicadas a objetos quando vocé:
+
+e Posiciona um novo objeto
+
+e Edita um objeto existente
+
+e Atualiza o workspace
+
+e Seleciona uma regra na lista Workspace e entáo, clique em Apply na caixa de diálogo
+Surface Style Rules
+
+As regras de estilo de superfície que vocé selecionou sáo armazenadas em sua sessáo e podem
+ser incluídos em seus templates.
+
+SISGRAPH | 45
+
+===== PAGINA 47 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Notas:
+
+*  Regras de estilo de superficie podem influenciar no desempenho do SP3D significativamente.
+Vocé deve usar apenas algumas regras durante uma modelagem normal; é claro que, vocé
+pode usar um número maior de regras para criar visualizagdes para revisdes de engenheiros e
+
+clientes.
+* Para melhorar o desempenho, use filtros baseados no tipo objeto e propriedades e náo use
+
+filtros baseados no sistema.
+
+Passos para a Criagáo de uma Regra de Estilo de Superfície
+
+Crie e aplique uma regra de estilo de superfície para mudar a cor do equipamento para amarelo na
+Unit U04 do seu workspace. Após aplicar a regra de estilo de superfície, a vista da estrutura
+deve se assemelhar á da área destacada na Figura 1.
+
+Figura 1: Saída: Após aplicagáo da Regra de Estilo de Superfície para Equipamentos
+
+SISGRAPH | 46
+
+Ti
+
+===== PAGINA 48 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Antes de comegar o procedimento define o seu workspace para mostrar a Unit U04 e o sistema de
+coordenadas U04 CS.
+
+New Filler Properticn
+
+Mame:
+[surface style res
+
+Mutiselect classification:
+
+Object Type | Votame] Piopertiss] Reference | Cerfiguratón |
+System | Assembly | Named Spsce | Ansysis ] Work Breskdoun Structure] Permissico Group |
+Expand the search o include the selected systems:
+
+I User of ter supplies value L
+
+I Include nested ctiects
+ok Cancel | Ciear |
+
+Figura 2: Definindo um Workspace
+
+1. Selecione Format > Surface Style Rules.
+
+Tools Project SmartPlant Tasks Window Help
+
+Er
+
+JElectical e
+
+GR File Edit View Insert
+
+View, mn
+Style...
+Surface Style Rul
+
+[Cableway Features
+
+Figura 3: Surface Style Rules no Menu Format
+
+2. A Caixa de diálogo Surface Style Rules aparece. Ela contém as regras de estilo de superfície
+definidas para o modelo da planta. Clique New para definir uma nova regra.
+
+SISGRAPH | 47
+
+===== PAGINA 49 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Surface Style Rules; :
+Style mule fbrary: Workspace:
+
+Equipment Insulation Add >
+
+Equipment Maintenance: Delivere
+
+Named Spaces eR
+Piping Insulation - Delivered Eve
+Move Up
+
+Ho:
+
+ok | Cancel | apply |
+
+Figura 4: Caixa de Diálogo Surface Style Rules
+
+3. A caixa de diálogo Surface Style Rules Properties aparece. Ela mostra os campos para definir o
+nome da regra, filtro, o estilo aplicado e os aspectos geométricos do objeto para o qual o estilo está
+aplicado. Digite All Equipment objects na caixa Rule name como mostrado na Figura 5.
+
+Surface Style Rule Properties
+Modty Size ]
+
+Rule name: 7
+[Al Equipment object]
+
+Fitter:
+
+Y Properties
+
+Style applied:
+| Propeities
+Select all aspects to which the style wil be applied:
+4; Simple physical
+Y Detailed physical
+Mi Insulation
+Yi Operation
+Mj Maintenance
+
+[RR] |
+
+Figura 5: Especificando o nome da regra na caixa de diálogo Surface Style Rule Properties
+
+No próximo passo, vocé seleciona o filtro que identifica os objetos para serem associados a um
+estilo de superfície.
+
+SISGRAPH | 48
+
+I)
+
+Tl
+
+===== PAGINA 50 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+SP3D possui diversas opgdes quando vocé seleciona um filtro:
+
+e A lista drop-down de Filter mostra os filtros previamente selecionados enquanto
+criando uma regra de superfície na sessáo atual.
+
+» A opgáo “Create New Filter”... mostra a caixa de diálogo New Filter Properties para
+definir um novo filtro.
+
+¢ Aopcáo More... mostra a caixa de diálogo Select Filter para selecionar um filtro entre os
+filtros existentes.
+
+e O botáo Properties perto da lista drop-down de Filter mostra as propriedades do filtro
+selecionado para revisáo ou edicáo.
+
+4, Clique na drop-down list Filter e selecione a opgáo More... para especificar o filtro como
+mostrado na Figura 6.
+
+Modify Se |
+
+Rule name: pes
+[an Equipment objects
+
+Properties |
+
+— +] Properties
+
+Select all aspects to which the style will be applied:
+Ra Sinple Physical
+Detailed physical
+[J Insulation
+
+E Operation
+Maintenance
+
+E) Reference Geometry
+
+cancel _|
+
+Figura 6: Especificando o Filtro
+
+5. Abaixo de Catalog Filters, expanda Default Filters > SP3D Object Filters > Object Types e
+selecione o filtro Equipment and Furnishing. Clique OK para voltar para a caixa de diálogo Surface
+Style Rules Properties.
+
+SISGRAPH | 49
+
+NM
+
+===== PAGINA 51 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Select, Tiller ge
+E Gay x [sel |
+Casale Fillers
+(Default Fiteis
+
+A (3 POS Object Fiters
+
+4-7] SP3D Drawing Fiters
+2-17 SP3D Object Fitors
+
+a Classification Properties
+
+Cableway
+—} Cabling
+y Cabling
+
+*9 Common
+
+o “LJ Condut
+
+re Condut
+
+ed Elbow Nozzle
+
+E quipmera and | pushing,
+
+OK Cancel |
+
+Figura T: Solocionando o Filtro
+
+Agora, vocé irá selecionar o estilo de superfície que vocé quer aplicar nos objetos do filtro
+selecionado.
+
+e A\lista drop-down Style applied especifica o estilo de superficie a ser usado pelos
+
+objetos do filtro selecionado. A lista contém todos os estilos de superficie disponiveis
+na atual base de dados do SP3D.
+
+O botáo Properties próximo a essa drop-down list permite a vocé editar o estilo
+selecionado.
+
+Nota:
+
+Enquanto qualquer usuario pode editar os estilos de superfície (mudar a definigáo de cores), o
+administrador deve ser o único que pode exercitar essa fungáo. Controle de acessos será
+adicionado para os estilos de superfície numa revisáo futura.
+
+6. Selecione Yellow na lista drop-down de Style applied da caixa de diálogo Surface Style Rules
+Properties.
+
+SISGRAPH | 50
+
+===== PAGINA 52 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Modify Se |
+
+Rule name:
+Jan Equipment objects
+
+Filter:
+
+[Equipment and Furnishing +] Propeities |
+
+Properties |
+
+plied:
+
+Figura 8: Especificando o Estilo
+
+O próximo passo permite a vocé selecionar os aspectos dos objetos aos quais as regras de estilo
+aplicam. Um aspecto é uma geometria alternativa para um objeto. Um objeto pode ter um ou mais
+aspectos como mostrado na lista abaixo. Por exemplo, uma regra de estilo de superfície pode ser
+definida para mostrar o isolamento da tubulagáo em um estilo de superfície transparente e, assim
+sendo, vocé pode visualizar o tamanho do aspecto “simple physical” da tubulagáo.
+
+Vocé pode aplicar a regra de estilo de superfície para os seguintes aspectos:
+
++ O aspecto Simple Physical é a geometria física do objeto que é apropriada para o
+reconhecimento visual e detecgáo da interferéncia.
+
+e O aspecto Detailed Physical é um modelo mais detalhado da geometria física. Atualmente,
+os objetos disponibilizados pela Intergraph náo usam esse aspecto.
+
+e O aspecto Insulation é a geometria do isolamento. Por exemplo, um tubo de 4 polegadas
+com isolamento pode parecer um tubo de 8 polegadas quando o aspecto Insulation é
+mostrado.
+
+e O aspecto Operation é o espago ao redor de um objeto necessário para essa operagáo.
+e O aspecto Maintenance é o espago ao redor de um objeto necessário para desempenhar
+a manutencáo do objeto.
+
++ O aspecto Reference Geometry é uma geometria usada apenas para a referéncia do
+modelo e nao participa da checagem de interferéncias.
+
+SISGRAPH | 51
+
+Bl
+
+===== PAGINA 53 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+7. Na lista Select all aspects to which the style will be applied, limpe todas as check boxes exceto a
+check box Simple physical. Clique OK.
+
+Surface Style Rule Prop
+Mody Style | Configuration |
+
+Bule name:
+[Equipment objects
+
+Filter:
+
+Equipment and Fumishing +] Properties
+
+[Yetow +] Properties
+
+* ] Detailed physical
+E] Insulation
+E] Dperation
+
+J Maintenance
+DJ Reference Geomety
+
+Figura 9: Especificando o Aspecto
+
+Notas:
+
+O estilo padráo do sistema é usado para mostrar todos os aspectos de um objeto para os quais
+náo foi definido um estilo com uma regra de estilo.
+
+Quando vocé cria uma regra de estilo de superfície, a regra é colocada no active permission
+group.
+
+8. Para aplicar a regra, selecione a regra All Equipment Objects em Style Rule Library e clique Add.
+
+SISGRAPH | 52
+
+mi
+
+===== PAGINA 54 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Style rule brary:
+
+All Equipment objects
+
+Equipment Insulation
+
+Equipment Maintenance: Delivere
+Named Spaces
+
+Piping Insulation - Delivered
+
+Modfy
+
+Copy
+
+Paste
+
+Figura 10: Adicionado Regras de Estilo de Superficie para o Workspace
+
+9. Clique OK.
+
+Notas:
+
+Quando um objeto é criado ou editado, ele é checado contra os filtros da regra de estilo de
+superficie comegando do topo da lista. Quando um objeto corresponde a um filtro, ele é
+associado ao estilo e náo é checado contra as outras regras de estilo mais abaixo na lista. Para
+um aumento na eficiéncia, vocé deve organizar as regras sendo que as regras aparecendo no
+
+topo da lista se apliquem para a maior parte dos objetos. Clique Move Up e Move Down para
+mudar a ordem das regras na lista Workspace.
+
+Vocé pode modificar os estilos existentes clicando em Format > Style.
+
+Para maiores informagées relacionadas a aplicagáo de regras de estilo de superficie, veja o tópico Using
+Surface Style Rules: An Overview do guia do usuario CommonUsersGuide.pdf
+
+SISGRAPH | 53
+
+===== PAGINA 55 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Anotagóes
+
+SISGRAPH | 54
+
+===== PAGINA 56 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 7: Barra de Comando PinPoint
+
+Objetivo:
+
+Ao fim desta sessáo, vocé será capaz de:
+e Usar o PinPoint para obter Precision Points quando um comando pede por um ponto.
+
+Pré-Requisitos:
+
+e SP3D Visáo Geral
+
+e Criando arquivos de Sessáo
+
+o Definindo uma área de trabalho
+e Manipulando Vistas
+
+Visáo Geral:
+
+A barra de comando PinPoint (Figura 1), aparece quando vocé clica no botáo PinPoint na barra de
+ferramentas Common ou no comando PinPoint no menu Tools. Os controles do PinPoint sáo ativos
+quando qualquer comando pede a vocé um ponto. As opgées da barra de comando PinPoint
+permitem a vocé entrar coordenandas precisas relativas ao sistema de coordenada selecionado e
+as coordenadas precisas de offsets relativos a geometria do modelo.
+
+3 Ea sel >) etal I 8 7] af
+
+Figura 1: Barra de Comando PinPoint
+
+lx Qed 5] Ore [oes
+
+lel
+
+le
+
+Vocé pode mudar a posigáo da origem usada para mostrar as coordenadas clicando na opgáo al
+Reposition Target na barra de comando PinPoint e entáo clicando em uma nova posigáo na vista
+ativa. A posigáo do target pode ser definida entrando as coordenadas. Também pode ser definida
+por um Precision Point encontrado na geometria existente usando a inteligéncia do
+SmartSketch3D. Conforme vocé move o cursor, o PinPoint mostra as distáncias entre o cursor e o
+target da posicáo. O target é a sua forma de entrar posicóes Delta.
+
+Vocé pode travar uma ou mais posigóes da coordenada entrando as coordenadas nos campos.
+Vocé pode também travar as coordenadas pelo cursor atual usando as teclas de fungáo F6, F7, e
+F8 (Leste{x}, Norte(y) e Elevagáo (z), respectivamente). O segundo método é mais útil quando
+agregado com o SmartSketch3D Precision Point. Vocé pode posicionar o seu cursor caso ele
+encontre, por exemplo, o eixo de uma tubulacáo e entáo teclar F8 para travar apenas a
+coordenada de elevacáo da tubulacáo. Quando vocé mover o cursor, apenas as coordenadas leste
+e norte iráo mudar.
+
+SISGRAPH | 55
+
+===== PAGINA 57 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+As opgées da barra de comando PinPoint sáo as seguintes:
+
+o fx Display On/Off: Mostrar ou nao a distancia do PinPoint próxima de um cursor em uma
+vista ativa. O texto é mostrado nos elementos de cor selecionados definidos na caixa de
+diálogo Options, a qual é exibida usando o comando Tools > Options.
+
+el Set Target to Origin: Move o target para a origem do sistema de coordenadas ativo.
+
+Nota:
+* Se um sistema de coordenadas diferente é selecionado na caixa Coordinate system, vocé
+deve clicar Set Target to Origin para reposicionar o target para a origem do sistema de
+
+coordenadas selecionado.
+
+PS Relative Tracking: Ativa e desativa o modo de rastreamento relativo. No modo
+Relative Tracking, o target do PinPoint se move automaticamente para o ultimo ponto que
+vocé entrou.
+
+¢ Coordinate System: Seleciona o sistema de coordenadas ativo. O sistema de
+coordenadas ativo é usado por todos os comandos que necessitam um sistema de
+coordenada.
+
+A lista drop-down Coordinate system mostra os últimos sete sistemas de coordenadas que foram
+selecionados na sessáo em adigáo ás trés opcóes padráo como mostra Figura 2.
+
+“Coordinate
+system:
+
+Figura 2: Opgées para Coordinate System
+
+As opgées padráo sáo as seguintes:
+
+e Global: especifica o sistema de coordenadas Global atual.
+
+e Select Graphically: Permite a vocé selecionar graficamente um sistema de
+coordenada ou selecionar qualquer objeto o qual tem um sistema local de
+coordenadas, como equipamentos e bocais.
+
+e More: mostra a caixa de diálogo Select Coordinate System como mostra a
+Figura 3, onde vocé pode selecionar o sistema de coordenadas buscando-o na
+hierarquia.
+
+SISGRAPH | 56
+
+===== PAGINA 58 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+SelectiCoordinate System.
+
+@ Workspace © Database
+
+[> ]_ Cava |
+
+Figura 3: Select Coordinate System Dialog Box
+
+RTD
+o su] Define Coordinate System by 3 Points: Define um sistema de coordenadas
+temporário através de trés pontos. O Ponto 1 define a origem do sistema de coordenada, o
+Ponto 2 define o fim do eixo E(X) local e o Ponto 3 define o fim do eixo N(Y) local.
+
+o | Properties of Active Coordinate System: Mostra as propriedades do sistema de
+coordenadas ativo selecionado na lista drop-down Coordinate system como mostra a
+Figura 4.
+
+Coordinate System Properties
+
+Name
+Coordinate System
+
+of o.00in
+[Of 0.00in
+
+OK | Cancel |
+
+Figura 4: Coordinate System Properties
+
+SISGRAPH | 57
+
+tl
+
+===== PAGINA 59 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+o Rectangular Coordinates: Configura o display da coordenada para o modo de
+coordenadas retangular. Os controles seguintes aparecem com esse modo de coordenada:
+
++ Step forga as coordenadas a selecionar intervalos para o step múltiplos do valor
+escolhido. Para desativar esse comportamento, vocé deve deletar o valor
+mostrado nesse campo.
+
+e E: Leste ou coordenada do eixo x
+
+o N: Norte ou coordenada do eixo y
+
+e EL: Elevacáo ou coordenada de eixo z
+
+BE) Berfist oon y] Ejajrznoon +] wl,
+
+Figura 5: Rectangular Coordinates on the PinPoint Ribbon
+
+o E Locking and La Unlocking Values: Trava e destrava as coordenadas. O atual estado
+do botáo mostra se a coordenada está ou náo travada.
+
+Notas:
+
+*  Asteclas de fungáo F6, F7, e F8 alternam entre travado e destravado para as trés
+coordenadas respectivamente. Quando vocé alterna para travado, a coordenada sendo
+usada é atualizada com o valor travado e o cursor do teclado é alocado na respectiva
+coordenada na barra de comando PinPoint.
+
+* Asteclas de funcáo sáo recomendadas a fim de colocar o cursor do mouse no campo da
+coordenada desejada ao invés de clicar no campo da coordenada.
+
+o Eb Spherical Coordinates: Configura o display para o modo de coordenadas esféricas. Os
+seguintes controles aparecem nesse modo de coordenadas:
+
+e Distance: Coordenada da distancia radial
+
+e Horizontal: Coordenada do ángulo horizontal medido no sentido horário a partir
+do eixo N no plano horizontal ao eixo radial.
+
+e Vertical: Coordenada do ángulo vertical medido acima do plano horizontal em
+relagáo ao eixo radial.
+
+Nota:
+
+* Quando vocé usa coordenadas esféricas e trava a distancia, vocé deve também travar ao
+menos uma das caixas dos ángulo na barra de comando. Vocé nao pode destravar um
+ángulo enquanto a distáncia absoluta está travada e nenhum outro ángulo está travado.
+
+SISGRAPH | 58
+
+===== PAGINA 60 =====
+ul
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+o Eh Cylindrical Coordinates: Estabelece o modo de coordenadas cilíndricas para o
+comando PinPoint. As seguintes configuracóes aparecem com esse modo de
+coordenadas:
+
+e Radius: Coordenada da distancia radial
+
+e Theta: Coordenada do ángulo horizontal medido no sentido horário a partir do eixo
+N no plano horizontal para o eixo radial
+
+o Z: Elevagáo ou coordenada Z
+
+Usando Ferramentas do Precision Point:
+
+Quando um comando no smartstep pede a vocé para entrar com um ponto, vocé pode entrar o
+ponto exato que vocé deseja no objeto com o auxílio do PinPoint em conjunto com o
+SmartSketch precision point.
+
+A ferramenta PinPoint permite que vocé veja e defina as coordenadas relativas ao sistema de
+coordenadas selecionado.
+
+1. Clique em File > Define Workspace para definir o workspace.
+
+2. A caixa de diálogo Select Filter aparece. Selecione Plant Filters > ALL para incluir todos os
+sistemas da planta de treinamento no seu workspace e clique OK, como mostrado na Figura 6.
+
+7 Catalog Fitters
+(7 Default Fiters
+¡0 Plant Filters
+
+810 For Instructors Only
+Bi A
+
+2-0 Training Filters
+
+i My Filters
+
+5 Comm session 7
+—% Drawings Session 2
+$ Drawings Session 3
+wa sess2
+
+—$ session 12
+
+SÍ Tin Member
+
+SÍ teet-sess2
+
+ty U Frame
+
+— uot uoics
+
+—$ Walls
+
+Figura 6: Caixa de Diálogo Select Filter
+3. Clique OK na caixa de diálogo Define Workspace.
+
+4. Na barra de ferramentas Common, clique no botáo PinPoint para ativar a barra de comando
+PinPoint.
+
+SISGRAPH | 59
+
+Ii
+
+===== PAGINA 61 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Gard ajalale) 2}
+
+Figura 7: Botáo PinPoint da barra de ferramentas Common
+
+A barra de comando PinPoint mostra o sistema de coordenada que vocé selecionou para o
+input/output das coordenadas. O sistema de coordenada é chamado de Active Coordinate System.
+Todos os comandos que precisam de um sistema de coordenada para orientagáo usam esse
+sistema de coordenada.
+
+5. Clique na lista drop-down Coordinate system para ver os sistemas de coordenadas disponíveis
+para selegao
+
+Figura 8: Lista Drop-Down Coordinate System
+
+Os últimos sistemas de coordenadas que vocé selecionou seráo mostrados na lista com as
+opgóes: Global, Select Graphically, e More...
+
+6. Clique na opgáo More...
+
+Todas as coordenadas sáo armazenadas no banco de dados relativo ao sistema de coordenada
+Global. Vocé náo pode editar esse sistema de coordenadas. Vocé pode criar outros sistemas de
+coordenadas no ambiente Grids para usar como referéncias convenientes para a modelagem de
+diferentes partes da planta. Esses sistemas de coordenadas sáo disponíveis para selecáo na lista
+drop-down Coordinate system ou selecionando a opgáo More...
+
+@ Workspace © Database
+
+Figura 9: Caixa de Diálogo Select Coordinate System
+
+SISGRAPH | 60
+
+i
+
+EI
+
+===== PAGINA 62 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Vocé pode navegar na hierarquia do sistema para localizar um sistema de coordenadas atualmente
+incluído no seu workspace ou vocé pode selecionar a opgáo Database para navegar no banco de
+dados de todo o modelo para selecionar o sistema de coordenadas que vocé quer.
+
+7. Na caixa de diálogo Select Coordinate System, selecione U04 CS e click OK.
+
+A opcáo Select Graphically solicita a selegáo de um objeto. Para selecionar um sistema de
+coordenadas vocé pode apontando para o sistema de coordenadas graficamente ou selecionar
+qualquer objeto que tenha um sistema de coordenadas local, por exemplo, equipamentos ou um
+membro de estrutura.
+
+8. Clique em Select Graphically e selecione o eixo de um membro de estrutura ou um
+equipamento, T-162.
+
+e ere rey
+x] wl fe ale) sí
+
+Figura 10: Selecionando um membro de uma estrutura e um equipamento
+
+Vocé pode configurar o sistema de coordenadas ativo como temporário utilizando o botáo Define
+Coordinate System by Three Points.
+
+Figura 11: Botáo Define Coordinate System by Three Points Button na barra de comandos PinPoint
+
+O programa ira pedir para vocé selecionar a origem e a diregáo Leste (eixo x) e Norte (eixo y) de
+para definir um novo sistema de coordenadas.
+
+9. Clique na lista drop-down de Coordinate system e selecione U04 CS.
+Depois de ter selecionado o sistema de coordenadas ativo, vocé deve definir a origem a partir do
+qual as coordenadas indicadas sáo medidas. Esta origem temporária é chamada de Target. O
+
+Target permite que vocé visualize e entre coordenadas em relacáo a qualquer ponto no modelo.
+Quando vocé muda o sistema de coordenadas ativo, a posigáo do Target no modelo permanece
+
+SISGRAPH | 61
+
+Ty
+
+===== PAGINA 63 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+onde estava. Vocé pode optar por definir o Target para a origem do sistema de coordenadas ativo,
+clicando no botáo Set Target to Origin.
+
+10. Clique no botáo Set Target to Origin na barra de comandos PinPoint.
+
+Load Frempoay =] tk] AO) ser] >]
+
+Figura 12: Botáo Set Target to Origin na barra de comandos PinPoint
+
+Vocé seleciona os tipos de coordenadas que vocé quer clicando em Rectangular, Spherical ou
+Cylindrical Coordinates, na barra de comandos PinPoint..
+
+11. Clique no botáo Rectangular Coordinates na barra de comandos PinPoint para selecionar o
+modo de coordenadas retangular
+
+Figura 13: Botáo Rectangular Coordinates na barra de comandos PinPoint
+
+Os campos das coordenadas retangulares (East (x), North (y), and Elevation (z) ) que exibem as
+coordenadas da posigáo atual do cursor (medidos a partir do Target) sáo mostrados quando vocé
+estiver utilizando algum comando que pedir para entrar a posigáo de um ponto.
+
+12. Clique no botáo Spherical Coordinates para selecionar o modo de coordenadas esféricas.
+
+fx alijo] a] e uorcs =] S| [ajaja se
+
+Figura 14: Botáo Spherical Coordinates na barra de comandos PinPoint
+
+Quando vocé usa coordenadas esféricas, a distáncia deve ser chamada de raio, ángulo horizontal
+e ángulo vertical. O raio é a distáncia em linha reta do Target até o cursor. O ángulo horizontal é
+medido a partir do eixo norte (y) até a projegáo da linha entre o Target e o cursor sobre o plano. O
+ángulo vertical é medido entre o plano e a linha entre o Target e o cursor.
+
+(5.3.2) =(0,8,9)
+
+P= Distance
+8 = Horizontal angle
+@ =Vertical angle
+
+Figura 15: Coordenadas esféricas
+
+SISGRAPH | 62
+
+===== PAGINA 64 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+13. Clique no botáo Cylindrical Coordinates para selecionar o modo de coordenadas cilíndricas.
+
+[ajaja fas > 4 [Saja] eof I
+
+Figure 16: Botáo Cylindrical Coordinates na barra de comandos PinPoint
+
+Quando vocé usa coodenadas cilíndricas (Raio, Theta e 2). O raio é a distancia em linha reta do
+Target até o cursor. O ángulo Theta é medido entre o eixo norte (y) até a projegáo do plano
+formado entre o Target e o cursor. Z é medido entre o plano e o cursor.
+
+(1.9.2) =(r,8,2)
+
+Figura 17: Coordenadas Cilíndricas
+
+14. Selecione novamente o modo Rectangular Coordinates. No task Equipment and
+Furnishings, selecione o equipamento 41V-101.
+
+15. Clique no comando Move para entrar um comando que permite entrar um ponto.
+
+Joo] Sedo] alolele lalala
+
+Figura 18: Botáo Move na barra de ferramentas Common
+
+O comando Move automaticamente deixa a origem do equipamento como valor padráo para o
+From Point e avanca para o passo To Point.
+
+SISGRAPH | 63
+
+01
+
+===== PAGINA 65 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+E au e “Ejes 4] (Sala sel a] xfifetn >) Y pas
+
+pue
+aja E Tte 1 Feaveue
+
+(a eels a a tal
+
+Figura 19: Movendo o equipamento
+
+Observe as linhas tracejadas que mostra a posigáo do cursor relativo ao Target ao longo dos eixos
+do sistema de coordenadas ativo. As coordenadas aparecem na janela grafica e nos campos X, Y
+e Z da barra de comandos PinPoint.
+
+É possivel ligar/desligar o indicador de coordenadas gráfico clicando no botáo Display On/Off [F9].
+
+16. Pressione F9 para desligar o comando e parar de mostrar as coordenadas na tela, logo em
+seguida ligue o comando novamente.
+
+Figura 20: Indicador de coordenadas PinPoint — ON/OFF
+
+Vocé pode definir o local de destino para fornecer coordenadas em relacáo a qualquer ponto do
+modelo. Está é a maneira precisa de se colocar um offset em uma geometria existente.
+
+SISGRAPH | 64
+
+J)
+
+MI
+
+===== PAGINA 66 =====
+Uy
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+17. Clique no botáo Reposition_Target e escolha o ponto médio do membro. Para selecionar o
+ponto médio posicione o cursor próximo do ponto médio evidente. Vocé verá um símbolo indicando
+um “divisor point”.
+
+Figura 21: Indicacáo de um Divisor Point
+
+Vocé também pode redefinir rapidamente o target posicionando o cursor sobre o ponto desejado,
+em seguida, pressionar F12. Isto redefine imediatamente o Target para a posicáo atual do cursor.
+
+18. Clique no botáo Move From na barra de comando Move, para selecionar um ponto de
+referencia diferente no equipamento. Posicione o mouse em cima do bocal do equipamento 41V-
+101 e pressione a tecla F12 para reposicionar o Target para o ponto do bocal. Em seguida,
+posicione o cursor em cima do bocal e clique para definir o ponto Move From.
+
+Opcionalmente, vocé pode selecionar o botáo Relative Tracking na barra de comandos PinPoint
+antes de clicar no botáo Move From na barra de comandos Move . Deste modo o software
+posiciona o Target automaticamente para o último ponto que vocé colocou.
+
+aula] a SEx ju 9] [0/0] se] El
+
+Figura 22: Botáo Relative Tracking na barra de comandos PinPoint
+
+Vocé pode inserir as coordenadas clicando sobre o campo desejado na barra de comandos
+PinPoint ou pressionado F6, F7, ou F8 para definir as coordenadas leste, norte ou elevacáo,
+respectivamente. Apertar as teclas F6, F7 e F8 é o método mais eficiente. Quando o function key
+para fixar a coordenada é apertado, a coordenada da posigáo do cursor é travado e o foco estará
+no teclado para ajustar os campos das coordenadas. Vocé pode deixar os valores das
+coordenadas padróes ou entrar com uma nova coordenada nos campos indicados.
+
+O ponto do cursor será forgado para a coordenada indicada. Logo que vocé clica para entrar no
+ponto, todas as coordenadas travadas seráo automaticamente destravadas. Vocé pode também
+
+SISGRAPH | 65
+
+E
+
+===== PAGINA 67 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+destravar as coordenadas apenas clicando no botáo Lock ou pressionando o botáo F6, F7, ou F8
+quando as coordenadas estáo travadas.
+
+19. Com o equipamento agora no passo Move To, digite zero nos campos de posigáo leste (E) e
+elevagáo (El) na barra do comando PinPoint. Isto restringe o movimento do equipamento somente
+au eixo livre (N). Posicione o cursor sobre o midpoint do membro indicado e clique para mover o
+equipamento para que o bocal esteja alinhado com o meio do norte do bloco, como mostrado na
+figura 23.
+
+Scam ad
+
+Figura 23: Movendo o equipamento
+
+PinPoint funciona de um modo semelhante ao usado no sistema de coordenadas esféricas e
+cilindricas. Vocé aprendeu que a coordenada PinPoint travada pode ser usada em conjunto com o
+ponto de SmartSketch para conseguir coordenadas precisas para os pontos. SP3D Common
+session: Using SmartSketch Points ira mostrar outra fungáo interessante.
+
+Para mais informagées relacionadas com a barra de comando PinPoint, leia o tópico Using the Tools Menu:
+An Overview do guia para usuario CommonUsersGuide. pdf.
+
+SISGRAPH | 66
+
+ty
+
+===== PAGINA 68 =====
+Treinamento | Process, Power & Marine ~ Smart 3D - Common
+
+Anotacóes
+
+SISGRAPH | 67
+
+===== PAGINA 69 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 8: Barra de Comandos Measure
+
+Objetivo:
+No final desta sessáo vocé estará apto a:
+
+* Identificar as opg0es usadas para medir distáncias, raios e ángulos.
+
+Pré-requisitos:
+
++ SP3D Visáo Geral
+
+* Criando um Arquivo de Sessóes
+* Definindo um Workspace
+
++ Manipulando Vistas
+
+Visáo Geral:
+
+O comando Measure está no menu Tools e na barra de comandos Common. As medidas tiradas
+nos modelos sáo temporárias e náo sáo salvas.
+No menu Tools > Measure pode-se:
+
++ Medir a distancia entre dois pontos.
+
+* Medir a menor distancia entre dois objetos.
+
+* Visualizar o diámetro e o raio de orificios e de preenchimentos.
+
+* Determinar o ángulo entre duas linhas ou superficies.
+
++ Somar medidas consecutivas e visualizar os valores acumulados.
+
+Coordinate system Measurement mode: imulative: Distance: AEast: ANorth AE levation:
+
+Cur
+fre > 138] BH alels|is] el Pp i |
+
+Figura 1: Barra de Comandos Measure
+
+Opcóes da Barra de Comandos Measure:
+
+. lcoordinate System Properties: Visualiza as propriedades do sistema ativo de
+coordenadas.
+
+* Coordinate System: Configura o Active Coordinate System (sistema de coordenadas
+ativo) e muda o sistema de coordenadas na barra de comandos Measure. Este comando
+também pode mudar o sistema de coordenadas apresentados na barra de comando
+PinPoint, se a barra de comandos PinPoin estiver ativa.
+
+u
+. Me] Define Coordinate System by 3 Points: Define um sistema de coordenadas
+temporário atraves de trés pontos. O Ponto 1 define a origem do sistema de coordenadas,
+o Ponto 2 define o final do eixo E (leste) e o Ponto 3 define o final do eixo N (norte).
+
+SISGRAPH | 68
+
+)
+
+Ill
+
+===== PAGINA 70 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Vocé pode usar estas opedes para configurar a origem e a diregáo do eixo de coordenadas ativo, o
+qual difere da origem e eixo do sistema de coordenadas global. O Sistema de Coordenadas Ativo
+afeta certos cálculos como o peso e centro de gravidade.
+
+Modos de Medir:
+
+ui
+o El Measure Distance Between 2 Points: Mede a distáncia linear entre dois
+pontos.
+
+H
+o Bl easure Minimum Distance: Mede a menor distancia entre dois objetos.
+
+Be
+° Al Measure Distance Along Element: Mede a distancia entre dois pontos ao
+longo do eixo selecionado de um elemento linear. Os pontos sáo projetados para o
+eixo.
+
+o Sl Measure Radius and Diameter: Mede o raio ou o diámetro de um furo ou um
+preenchimento.
+
+|
+° 8) Measure Angle Between 3 Points: Mede o ángulo entre trés pontos. O
+Segundo ponto é o vértice.
+o & measure Angle Between Objects: Mede o ángulo entre superfícies planas
+e/ou o eixo de um objeto.
+
+2) Clear: Zera o valor da soma acumulada.
+
+Cumulative:
+
+o Cumulative: Soma medidas repetidas até que o valor seja
+zerado (Clear) ou se mudar os métodos de medida entre ángulo e distáncia.
+
+E
+o Bal copy Measurement: Copia os valores das medidas para a clipboard.
+
+Os controles remanescentes desta barra de tarefas dependem do ángulo ou do modo de medir
+distáncias:
+
+e Medindo Distáncias: Enquanto estiver medindo distáncias lineares as seguintes opgóes
+iráo aparecer na barra de comandos Measure:
+
+e Distance: Mostra a distancia entre dois pontos. Vocé pode especificar as unidades nas
+quais as distáncias aparecem clicando em Tools > Options depois selecionando a aba
+Units of Measure.
+
+o AEast: Mostra a distancia ao longo do eixo Leste.
+e ANorth: Mostra a distancia ao longo do eixo Norte.
+e AElevation: Mostra a distancia ao longo da Elevagáo
+
+SISGRAPH | 69
+
+iy
+
+===== PAGINA 71 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Coccdnate system: Measurement mode:
+
+Mes rt Plane: Cumulative:
+ales | Sedes «Y el
+
+Figura 2: Distáncias.
+
+Exemplos do uso de medidas lineares:
+
+e Measure Minimum Distance: Se vocé quiser medir a distancia entre uma coluna e
+uma bomba, por exemplo, use o comando Measure Minimum Distance da barra de
+comandos Measure. Localize a coluna e a bomba. A distáncia mínima entre os dois
+elementos e a distáncia ao longo do sistema de coordenadas ativo será mostrado na
+barra de comandos Measure e na sua vista de trabalho, conforme figura 3.
+
+Measurement mode: Fine: Cumalive: Distance: ax ay: az
+as aaa x] afin 89m fisom 127m [0.00m
+
+ASE 1.40 im
+AX 1.27 m
+AZ: 0.00 m
+
+Figura 3: Menor Distáncia entre a Coluna e a Bomba
+
+e Measure Distance Between 2 Points: Se vocé quer medir a distancia entre dois
+bocais de um tanque use o comando Measure Distance Between 2 Points da barra de
+comandos Measure. Localize os dois bocais do tanque. A distáncia absoluta entre os
+dois pontos e a distáncia ao longo do sistema de coordenadas ativo seráo exibidas na
+barra de comandos Measure e na sua vista de trabalho, conforme Figura 4.
+
+SISGRAPH | 70
+
+===== PAGINA 72 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Measurement mode: Cumictive: Distance: ax a¥: az:
+[Ssjajslee] aj [£27m [27m [ooo [o.0om Bal
+Absolute Distanes: 4.27 m
+Coordinate system: U04 CS
+Asc4.27 m
+
+AY: 6.00 m
+A2: 0.00 m
+
+Figura 4: Distancia Medida entre Dois Bocais
+
+e Medindo o Raio / Diámetro: Enquanto estiver medindomedir o raio ou o diámetro as
+seguintes opcdes aparecem na barra de comando Measure.
+
+o Radius: Mostra o raio de um orificio ou de um preenchimento.
+o Diameter: Mostra o diámetro de um orificio,
+
+Figura 5: Raio e Diámetro
+
++ Medindo Ángulos: Enquanto estiver medindo ángulos, as seguintes opgóes
+aparecem na barra de comandos Measure:
+
+o Angle: Mostra o ángulo entre pontos específicos ou superficies do modelo.
+
+Vocé pode especificar as unidades usadas clicando em Tools > Options e depois
+iin na barra de comandos Units of Measure.
+
+o Apparent Angle: Mede o angulo entre linhas projetadas no plano ativo. Se as
+
+linhas intercedem e sáo coplanares entáo ambos, o ángulo e o ángulo aparente,
+
+mostram valores. Se as linhas náo intercedem e/ou náo sáo coplanares entáo só o
+
+ángulo aparente terá um valor.
+
+‘Apparent angle:
+
+Coordinate system: Measurement mode-—— Cumulative:
+alles Sele) al
+
+Figura 6: Angulos
+
+SISGRAPH | 71
+
+E
+
+===== PAGINA 73 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Exemplos usando os comandos para medir ángulos:
+
+e Measure Angle Between Objects: Se vocé quiser medir o Angulo entre uma coluna
+vertical e um contraventamento, vocé pode usar o comando Measure Angle Between
+2 Objects. Localize a coluna e o contraventamento. Se a extensáo das linhas
+projetadas (ou planos) dos objetos selecionados intercederem, o ángulo entre os dois
+elementos é mostrado na barra de comandos Measure. Se a extensáo dos
+components náo intercederem entáo somente o ángulo aparente é mostrado na barra
+de comandos Measure.
+
+Measurement mode: Cumulative: Ange: Apparent angle:
+| |S) SIS a/a [5213 deg [472 d09 Bal
+; i Z
+
+Angle 33.13 deg
+
+Figura 7: Angulo Medido Entre Objetos
+
+* Measure Angle Between 3 Points: Se vocé quiser medir um ángulo específico
+selecionando trés pontos vocé pode usar o comando Measur Angle Between 3 Points.
+Localize o primeiro ponto, o segundo ponto (vértice) e o terceiro ponto. O ángulo definido
+por estes trés pontos é mostrado na barra de comandos Measure.
+
+Para mais informacóes a respeito da barra de comandos Measure veja o tópico Using the Tools Menu: An
+Overview do guia CommonUsersGuide.paf.
+
+SÍSGRACH | 72
+
+===== PAGINA 74 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotacóes
+
+SISGRAPH | 73
+
+Ii
+
+===== PAGINA 75 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 9: Usando pontos SmartSketch
+
+Objetivo:
+Até o final desta sessáo vocé será capaz de:
+
++ Identificar os usos das opgóes da barras de comandos Add to SmartSketch List.
+
+Pré-requisitos:
+
++ SP3D Visáo Geral
+* Criando um Arquivo de Sessóes
+* Definindo um Workspace
+
+Visáo geral:
+
+Quando algum comando Smartstep te pergunta para selecionar um ponto, o software ativa a
+fungáo SmartSketch. Quando o cursor está perto de um ponto SmartSketch, os objetos sáo
+destacados e um pequeno símbolo perto do cursor mostra qual o tipo de ponto de precisáo foi
+encontrado. Quando vocé clica para colocar o ponto, a coordenada deste ponto de precisáo, o tipo
+do ponto de precisáo e o objeto que esta fornecendo o ponto suprem as informagóes que o
+comando está perguntando para colocagáo do ponto. Muitos comandos iráo criar associagdes que
+mantém os pontos localizados nos pontos de precisáo quando os objetos geométricos sáo
+modificados.
+
+Notas:
+
+* Entender as associacóes dos pontos estabelecidos é importante para entender o
+comportamento de diferentes objetos desenhados quando sáo modificados. Os tutoriais iráo
+Ihe dizer quais comandos criam relacóes entre os pontos. Outros jeitos melhores para mostrar
+
+estas relacóes seráo mostrados no futuro.
+
+Os tipos básicos de SmartSketch sáo:
+
+* Key points on connection ports — o ponto de conexáo em bocais de tubulagáo,
+Conduítes, HVAC, e fundacóes.
+
+* Key points on geometry — end point, divisor point, point along linear object, e center of
+circle.
+
+* Intersection points — ponto de intersecgáo entre dois objetos lineares ou um ponto na
+intersecgáo entre dois planos.
+
+* Linear relationship point — quando um comando solicita a selegáo de dois pontos; o
+SmartSketch indica se há uma relacáo (paralelo ou perpendicular) entre a linha criada pelos
+dois pontos e algum objeto linear ou um alinhamento com um eixo do sistema de
+coordenadas ativo.
+
+SISGRAPH | 74
+
+===== PAGINA 76 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Os pontos Smartsketch estáo localizados apenas em relagáo a geometria dos objetos que foram
+adicionados á lista Smartsketch. Vocé pode adicionar objetos a esta lista automaticamente quando
+o cursor para em cima do objeto quando configurado o Dwell time. Ou entáo vocé pode escolher a
+opgáo de adicionar os objetos a lista de Smartsketch manualmente (CTRL+D e selecione). A opgáo
+de adicionar objetos manualmente é vantajosa se seu modelo está muito denso e é muito difícil
+para localizar o ponto SmartSketch.
+
+Se vocé clicar com o botáo do meio do mouse quando o indicador de relagées é mostrado, a
+relacáo ficará travada. Vocé pode entáo mover o cursor para localizar outros pontos SmartSketch.
+Um segundo clique com o botáo do meio do mouse ira destravar a relacáo. Esta fungao de travar e
+destravar as relagóes é útil em um modelo muito denso, pois pode isolar os pontos que vocé quer.
+
+Vocé pode controlar o comportamento do ponto de precisáo usando o comando Add to
+SmartSketch List localizado no menu Tools na barra de ferramentas horizontal. O comando
+mostra a barra de comando mostrado na figura 1.
+
+“List size: Dwelllime:
+
+“GIT ‘ml ast El fs | E -50 sec
+
+Figura 1: Faixa de Comandos Add to SmartSketch
+
+Opgées na barra de comandos Add to SmartSketch List:
+
+As opgées na barra de ferramentas Add to SmartSketch List estáo exibidas abaixo.
+
+4s SmartSketch Options— Mostra a caixa de diálogo SmartSketch Properties, que permite
+selecionar pontos SmartSketch que vocé deseja que o software localize para vocé.
+
+ES SmartSketch Properties [Ea]
+S WM htersectión (O W Beterence wis stoned
+OM Ose [fin O F Penta |
+| @ M Keyport O) M Pempendcular |
+lo Nozzle or other port point Ori |
+O FP Digscr port | T Locate only from fst i
+(O) P Centerport i
+| @ & Potten ave Dwell tine for stack: Stack size:
+
+| fis Secends [5 y]
+
+© FF Port on suface
+
+| @ TT Edgesen solids
+
+Figura 2: Propriedade da caixa de diálogos SmartSketch
+
+a. Intersection— Mostra um indicador do relacionamento (E) quando vocé move
+o cursor em cima de pontos onde existem dois ou mais objetos lineares ou
+intersegáo de planos paralelos.
+
+SISGRAPH | 75
+
+i
+
+===== PAGINA 77 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+b. Offset— Mostra um indicador do relacionamento ( O) quando vocé move o
+cursor para uma posigáo a uma distancia pré-definida de um objeto ou uma linha
+que vocé tenha adicionado a sua lista Smartsketch. Vocé precisa colocar um valor
+na caixa de Offset, como mostrado na figura 3.
+
+¡ES SmartSketch Properties
+
+ES WM Intersection IV Reference avis signed
+
+© W Paralel
+O) WM Key point @ N Perpendicular
+(2) M Nozzle or other port point ORL
+Divisions:
+® FP Divisor point [z= == T Locate only from list
+[Y Center point
+i
+| @ I Point on curve Dwell time for stack: Stack size:
+
+fis Seconds fe >]
+
+S IV Point on surface
+
+@ TF” Edges on solds
+
+Figura 3: Opgáo Offset
+
+Notas:
+
+* Vocé precisa de um plano de projecáo para localizar pontos de Offset. Os
+controles na barra de ferramentas de roteamento podem ser usados para travar o
+
+movimento do cursor em certo plano.
+
+c. Key point— Mostra um indicador do relacionamento (@) quando vocé move o
+cursor sobre um ponto que o objeto define como importante para o desenho. Por
+exemplo, um bocal tem um key point no centro do ponto de conexáo. Um membro
+de estrutura tem os pontos chaves na extremidade do membro.
+
+d. Nozzle or other port point— Mostra um indicador do relacionamento (0)
+quando vocé move o cursor sobre os gráficos de um ponto de conexáo tais como S
+um bocal da tubulagáo. Este key point é separado dos key points geométricos
+gerais, pois os usuários das aplicagóes de roteamento podem escolher manter
+visiveis os key points de bocais e outras portas enquanto os key points gerais
+estáo inativos.
+
+e. Divisor point— Mostra um indicador do relacionamento (8) quando vocé
+move o cursor para os pontos onde uma linha está dividida igualmente em um
+numero de divisóes que vocé ajustou. Uma lista drop-down permite que vocé
+selecione de duas a sete divisóes como mostrado na figura 4.
+
+SISGRAPH | 76
+
+===== PAGINA 78 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+@ I Edges on solids
+
+| 1
+
+| & IM Intersection IV Reference avis algned |
+
+| O TF Offset O W Paralel |
+|
+
+| O) E Key point ® WM Perpendicular
+
+OP:
+
+palate Te ÉS] I Locate only from fist |
+
+@ PM Point on curve |
+
+Dusell tine for stack: Stack size: |
+
+E) ¥ Point on surface fs Seconds fe + |
+
+}
+
+Figure 4: Opgáo Divisor Point
+
+f. Center point— Mostra um indicador do relacionamento (® ) quando vocé move
+o cursor sobre o centro de um círculo ou de um arco.
+
+g. Point on curve— Mostra um indicador do relacionamento (3) quando vocé
+mover o cursor sobre algum ponto de conexáo em um objeto, tal como um bocal
+de equipamento.
+
+h. Point on surface— Mostra um indicador do relacionamento ( @) quando vocé
+mover o cursor sobre uma superficie.
+
+i. Edges on solids— Mostra um indicador do relacionamento (S, quando vocé
+mover o cursor sobre uma borda em um objeto contínuo tal como membros de
+estrutura, paredes, e lajes.
+
+j. Reference axis aligned— Mostra um indicador do relacionamento (O ) quando
+a linha do cursor estiver alinhada com o eixo E-, N-, ou EL do sistema de
+coordenadas ativo.
+
+k. Parallel— Mostra um indicador do relacionamento (8 ) quando a linha do
+cursor está paralela a outro objeto linear na lista SmartSketch. Quando este
+indicador aparece, o programa destaca os objetos paralelos. Por exemplo, se vocé
+adicionar uma tubulagáo paralela a outra tubulagao que foi acrescentado á lista
+Smartsketch, este indicador aparece e ambos os objetos sao realcados.
+
+|. Perpendicular— Mostra um indicador do relacionamento (®) quando a linha do
+cursor é perpendicular a outro objeto linear na lista de SmartSketch. Por exemplo,
+quando vocé conecta duas tubulagóes em um ángulo de 90 graus, este indicador
+aparece.
+
+m. Tangent— Mostra um indicador do relacionamento (®) quando vocé mover o
+cursor tais que a linha do cursor é tangente a um objeto.
+
+SISGRAPH | 77
+
+===== PAGINA 79 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Notas:
+
++ Amaioria dos controles do Add to SmartSketch List também estáo
+disponiveis na aba SmartSketch da caixa de diálogos Options.
+
+Quando um comando está solicitando que vocé localize um ponto, vocé pode
+digitar F3 para ligar ou desligar o indicador de relacionamento para localizag&o de
+superficies. Isto torna muito mais fácil a localizacáo de key points.
+
+y Select — Seleciona objetos que seráo adicionados na lista de SmartSketch.
+xXx] Clears the List — Remove todos os objetos da lista SmartSketch.
+
+LE} Locate on List Only — Quando este comando estiver ligado, os objetos
+devem ser adicionados á lista de SmartSketch manualmente. Vocé pode usar o
+smartstep Select (ver 2 ¡tens acima) ou pressionar CTRL+D a qualquer hora que
+um comando estiver alertando para selecionar um ponto. Quando o comando
+estiver desligado, os objetos sáo adicionados automaticamente quando o cursor
+pausar em cima do objeto por um tempo especifico (Dwell time).
+
+Dwell time — Especifica quanto tempo vocé deve pausar o cursor sobre um objeto
+antes que seja adicionado automaticamente á lista Smartsketch. Um valor próximo
+de 0,5 segundos é indicado para a maioria dos casos.
+
+List size - Especifica quantos objetos sáo adicionados á lista Smartsketch antes
+que o software comece a remover os objetos adicionados anteriormente. O valor
+deste campo deve ser um número inteiro maior que 1. List size reflete a mesma
+propriedade de Stack size na caixa de diálogo SmartSketch Properties.
+
+Usando pontos SmartSketch:
+
+Vocé pode usar os pontos Smartsketch individualmente ou em conjunto com o PinPoint para
+definir os pontos de precisáo necessários para a sua modelagem. Nesta sessáo vocé pode praticar
+varias maneiras de usar os pontos Smartsketch no roteamento de uma tubulagáo. As mesmas
+técnicas podem ser usadas colocando pontos necessários para a criagáo de outros objetos.
+
+Defina a sua área de trabalho para mostrar U02 e U03. Iremos rotear uma tubulagáo entre os
+
+componentes perto das duas bombas até o bocal no topo da torre. A figura 5 mostra o resultado
+final.
+
+SISGRAPH | 78
+
+al
+
+===== PAGINA 80 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+as
+Figure 5: Resultado Final
+
+1. Exclua o trecho de tubulagáo pré-existente do pipeline 2003-P após o component-0402. Para
+deletar a tubulacáo, é necessário selecionar “piping feature” na lista drop-down de Locate Filter.
+, Selegáo múltipla é possivel pressionando a tecla Ctrl.
+
+Figure 6: Resultado Final
+
+SISGRAPH | 79
+
+Ty
+
+===== PAGINA 81 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+2. Selecione o comando Route Pipe da barra de ferramentas vertical.
+
+Figura 7: Comando Route Pipe na barra de ferramentas vertical
+
+3. Clique em Tools > Add to SmartSketch List e seleciona a opgáo Locate From List Only na
+barra de ferramentas Add to SmartSketch List.
+
+List size: Dwelllime: _
+
+A as
+
+Figura 8: Opgáo Locate From List Only na barra de ferramentas Add to SmartSketch List
+
+4. Localize o end feature do componente próximo á duas bombas e clique no botáo Finish da barra
+de comando Add to SmartSketch List.
+
+List size: — Dwelltime: | q
+E [5 Finish yf Ea] E | [1.50 sec
+
+Figura 9: Botáo Finish Button na barra de comando Add to SmartSketch List
+
+Essa opgáo é usada nesse exemplo para assegurar que vocé possa posicionar facilmente os
+pontos do SmartSketch direcionados para o exemplo. Em diversas situagdes de modelagem, vocé
+pode trabalhar facilmente utilizando a adigáo automática de objetos para a lista.
+
+5. Localize o ponto chave do end feature da tubulagáo.
+
+Localizar os pontos chave é direto. Vocé simplesmente aponta, visualize o objeto destacado e o
+sinal do SmartSketch e entáo clica.
+
+SISGRAPH | so
+
+===== PAGINA 82 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+O
+
+_< [fin BE SSTD
+
+É 3
+
+Figura 10: Ponto Chave do End Feature
+
+6. Configure a projegáo do roteamento Plane para E-W, como mostrado na Figura 10. (O plano
+passa através do primeiro ponto roteado).
+
+Plane:
+
+a
+
+uy i
+ls D
+Figura 11: Plano E-W
+
+O comando Route adiciona automaticamente uma restricáo fixa para forgar o ponto a estar em uma
+linha vindo diretamente para fora do bocal (ángulo 0 graus).
+
+7. Clique no comando Add to SmartSketch List e adicione a superfície do flange da coluna para o
+SmartSketch List e clique no botáo Finish.
+
+Nota:
+
+Uma forma mais rápida para fazer isso é segurar CTRL+D pressionado e selecionar a superfície.
+
+SISGRAPH | 81
+
+Tl
+
+===== PAGINA 83 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 12: Superfície do Flange da Coluna Adicionado á SmartSketch List
+
+8. Na barra de comando Route Pipe, configure a opgáo Offset para Set Offset Reference, como
+mostrado na Figura 12.
+
+-Difset:
+Disabled Ming |
+<Disabled>
+Seti fiset Retell
+
+Figura 13: Opgáo Offset Reference
+
+9. O sistema mostra a caixa de diálogo Set Offset Reference. O offset na barra de comando
+Route Pipe tem opcóes adicionais para o cálculo de offset. Selecione a opcáo Pipe surface na
+sessáo Measure from.
+
+sel Offeef Reference’
+
+T Offset Reference Type— Oifset:
+i
+
+@ Extemal zu Li
+2 in Y
+€ Cardinal Point
+
+y Measured from
+Fc Lenterline
+
+© Insulation surface
+
+£” Largest surface (flange)
+
+© Staggered pare
+
+__ Cancel |
+
+Figura 14: Caixa de Diálogo Set Offset Reference
+
+O ponto que vocé entra para a tubulagáo é o ponto central para a tubulacáo. A distancia do
+SmartSketch offset é automaticamente calculada para vocé assim como a superfície da tubulagáo
+será a distáncia do offset a partir da linha ou plano que vocé irá referenciar no seguinte passo.
+
+SISGRAPH | 82
+
+mM
+
+===== PAGINA 84 =====
+ui
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+10. Localize o Offset a partir do plano. Nessa situagáo, vocé tem um plano de projegáo e dois
+relacionamentos travados: o ángulo fora do componente e o offset a partir da coluna.
+
+Figura 15: Um plano de projegáo e Dois relacionamentos Travados
+
+Nota:
+
+*  Ooffset normalmente é mais fácil de localizar uma vista perpendicular ao plano de projegáo.
+
+Figura 16: Vista Perpendicular
+
+11. Escolha a projegáo do roteamento Plane para N-S, como mostra a Figura 16.
+
+Figura 17: Plano N-S
+
+12. Posicione o cursor, pois assim vocé verá o sinal do SmartSketch indicando o alinhamento com
+o eixo norte e entáo clique com o botáo direito do mouse para travar na diregáo do eixo norte. A
+tubulacáo será agora entendida dinamicamente ao longo do eixo norte-sul. O ponto do cursor é
+projetado para o eixo.
+
+SISGRAPH | 83
+
+ill
+
+===== PAGINA 85 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 18: Tubulagáo Entendida ao Longo do Eixo Norte-Sul
+
+13. Use o comando Add to SmartSketch List ou CTRL+D para adicionar a aresta da coluna próxima
+a torre para a SmartSketch list.
+
+4
+
+Figura 19: Aresta da Coluna Próxima da Torre Adicionada á SmartSketch List
+
+14. Localize o offset a partir do plano como feito no passo 7.
+
+Figura 20: Offset do Plane
+15. Configure o plano de projegáo do roteamento para a opgáo No Projection Plane e trave o
+SmartSketch para o eixo E-W com o botáo central do mouse e adicione o bocal superior no tanque
+vertical para a SmartSketch list.
+
+SISGRAPH | 84
+
+un
+
+===== PAGINA 86 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 21: SmartSketch Travado para o Eixo E-W com o Botáo Central do Mouse
+
+16. Posicione o cursor sobre o bocal e clique. lsso projeta o ponto do bocal para o eixo travado
+para estabelecer um ponto de rotagao.
+
+Figura 22: Bocal Selecionado
+
+17. Adicione o cilindro do tanque para a SmartSketch list.
+
+SISGRAPH | es
+
+Tit
+
+===== PAGINA 87 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 23: Cilindro do Tanque Selecionado
+
+18. Configure a projegáo do roteamento Plane para E-W e entáo trave o SmartSketch para estar
+alinhado com o eixo vertical.
+
+al E
+Figura 24: Plano E-W
+19. Localize a parte inferior do vaso vertical cilíndrico e clique para inserir a tubulagáo.
+
+O
+
+Figura 25: Parte Inferior do Vaso Vertical Cilindrico Selecionada
+
+SISGRAPH | 86
+
+age
+
+aly
+
+===== PAGINA 88 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+20. Trave para o eixo N-S (o comando Route pipe também tem um modo onde ele é
+automaticamente travado para 90 graus) e localize o ponto do offset do SmartSketch. O offset é
+computado a partir da linha criada pela intersecgáo do plano de projegáo com o cilindro.
+
+Figura 26: Eixo N-S
+
+21. Após localizar o ponto do offset do SmartSketch, mude o Offset de 0 ft. 2.00 in para
+0 ft 4.00 in.
+Offset:
+
+Teeth +
+
+Figura 27: Opgáo Offset
+
+22. Ative a ferramenta PinPoint e selecione o target para o topo do bocal do tanque vertical. Digite
+F8 e entáo digite 1.5 ft. Isso trava o próximo ponto que vocé entrar para estar 1.5 ft acima do
+bocal.
+
+Figura 28: Projegáo 3D
+
+23. Posicione o cursor para que ele encontre a posigáo do eixo vertical e entáo clique na posigáo.
+O plano de projegáo náo tem que ser travado, mas pode ser deixado travado.
+
+SISGRAPH | 87
+
+mr
+
+===== PAGINA 89 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 29: Posigáo do Eixo Vertical
+
+24. Trave para o eixo N-S e posicione o cursor sobre o bocal para localizar o último ponto de
+rotacáo.
+
+Figura 30:Último Ponto de Rotagáo
+
+25. Por fim, posicione o cursor sobre o bocal e clique para conectar o bocal.
+
+Figura 31: Bocal Conectado
+
+Para maiores informagóes sobre Adigóes á SmartSketch List, veja o tópico Using the Tools
+Menu: An Overview do guia do usuario CommonUsersGuide.pdf.
+
+SISGRAPH | 88
+
+NI
+
+===== PAGINA 90 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotagóes
+
+SISGRAPH | 89
+
+nl
+
+===== PAGINA 91 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 10: Associando Objetos a WBS
+
+Objetivo:
+Ao fim dessa sessáo, vocé será capaz de:
+
+* Associar objetos a Work Breakdown Structure (WBS).
+
+Pré-requisitos:
+
++ SP3D Visáo Geral
+
+* Criando um Arquivo de Sessáo
+
+* Definindo um Workspace
+
++ Manipulando Vistas
+
+* Selecionando Objetos no Modelo
+* Aplicando Surface Style Rules
+
+Visáo Geral:
+
+A WBS é usada para definir grupos adicionais de projeto para qualquer proposta de trabalho
+que a empresa necessita. Pode ser utilizada para dividir o projeto para diferentes empresas
+contratadas ou para organizar a fabricagáo.
+
+A terminología para o primeiro nivel de agrupamento de objeto, Project (e As-Built), foi
+escolhida para ajudar proprietários e operadores a gerenciar o projeto com as instalagées
+existentes. As EPC’s podem usar o nivel de agrupamento para fazer divisóes de
+responsabilidades. Um objeto só pode pertencer a um projeto.
+
+Sob o projeto vocé pode criar sub-grupos usando os Itens WBS. Um objeto deve ser associado
+ao mesmo projeto ao qual o Item WBS esta associado. Um objeto pode pertencer a mais de
+um Item WBS dependendo das regras definidas. Sua empresa pode customizar os
+tipos/finalidades de Itens WBS editando o Catálogo. Os tipos padróes que vem com o produto
+sáo adequados para atividades de contratadas em diferentes disciplinas. A disciplina de
+tubulagáo usa o Item WBS para gerenciar a associagáo dos tubos para os desenhos de
+isométricos específicos.
+
+Vocé pode associar os objetos a um projeto WBS e aos Itens WBS depois de eles serem
+criados. Vocé também pode associar os objetos automaticamente conforme eles sáo criados.
+Vocé pode visualizar o projeto ativo ou o Item WBS no campo que fica no canto superior
+esquerdo da janela do programa, ao lado da caixa Permission Group. Se um projeto está
+identificado, todos os novos objetos criados sáo automaticamente associados ao projeto ativo.
+Se um Item WBS está identificado, só os objetos que representam partes sáo automaticamente
+adicionados ao Item WBS. As partes sáo primeiramente associadas ao projeto pai do Item WBS e
+entáo associados ao Item WBS.
+
+SISGRAPH | 90
+
+===== PAGINA 92 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Quando vocé edita um objeto, ele mantém seu relacionamento com o projeto e/ou Item WBS.
+Vocé pode mudar o WBS pai de um objeto selecionando-o e executando o comando Claim.
+Vocé também pode mudar o relacionamento com um Item WBS usando o comando Assign to
+WBS.
+
+Passos para manualmente Associar objetos a um Item WBS:
+
+Associar todos os objetos de estrutura da unidade U02 para o Item WBS, Civil Contract1, de
+seu projeto ativo.
+
+1. Defina sua área de trabalho para mostrar a unidade U02.
+2. Clique Tools > Select by Filter.... Este comando possibilita a selegáo de objetos usando
+filtros
+
+File Edit View Insert Format | Tools] Project SmartPlant Tasks
+
+[No write access _Y| Select by Filter...
+Show
+
+Hide
+
+Show All
+
+PinPoint
+
+SmartSketch Options
+Add to SmartSketch List
+Get Point
+
+Point Along
+
+Measure
+
+Check Interference
+Run Report...
+
+Drawing Console...
+
+Snapshot View
+
+Custom Commands...
+Utilities >
+
+Options...
+
+Figura 1: Comando Select by Filter... y
+
+3. Sob Catalog Filters na caixa de diálogo Select Filter, expanda Default Filters >SP3D
+Object Filters > Object Types e selecione o filtro Structure, clique OK.
+
+SISGRAPH | 91
+
+ty
+
+===== PAGINA 93 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Select Filter
+
+ol slo] xlaeler
+
+T
+|
+
+i
+
+i
+
+| L $ Elbow Nozale
+pod E ss
+i &-C] Equipment and Furishing
+
+i $ Equipment and Furrishing
+
+| md Systems |
+| 5 Grid Systems =|
+O :
+| $ HVAC
+/
+
+i
+
+j
+
+i
+
+i
+
+j
+
+i
+
+Piping el
+
+Figura 2: Caixa de diálogo Select Filter
+
+O sistema irá destacar os objetos de estrutura na unidade U02 de sua área de trabalho, como
+mostra a Figura 3. .
+
+Figura 3: Objetos estruturais selecionados usando o filtro Structure
+4. A partir do WBS ativo, selecione a opgáo More... para selecionar o projeto ativo no WBS
+
+@ File Edit View Insert Format Tools Project SmartPlant
+
+fs) jex]
+
+Figura 4: Lista de opgóes de WBS
+
+SISGRAPH | 92
+
+Ill
+
+===== PAGINA 94 =====
+Mi
+
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+5. Na caixa de diálogo Select Active Project selecione Project1.
+
+O Weckspace
+
+£3 Desiondresl
+
+2-L8 Desion Area?
+
+pc _cvet_|
+
+Figura 5: Caixa de diálogo Select Active Project
+
+Nota:
+
+Se o Project1 nao estiver disponível na lista Workspace, selecione a opcáo Database no
+topo da janela. A opgáo Database mostrará os itens de WBS que estáo no banco de dados e
+
+náo só os que estáo na área de trabalho.
+
+6. Entáo clique no menu Project e selecione Claim para associar todos os objetos
+selecionados ao projeto Project1
+
+@ File Edit View Insert Format Tools [Project]
+
+fran [Peet ole]
+N
+
+eS MO = Help
+
+Claim
+
+Assign to WBS... —
+al | Update WBS Assignments i
+
+Figura 6: Project > Claim Command
+
+Notas:
+
+O comando Claim cria relacionamentos entre os objetos selecionados e o projeto ativo. Este
+relacionamento é comunicado ao ambiente integrado do SmartPlant que vocé está
+trabalhando no modo Project/As-Built do SmartPlant Enterprise.
+
+Um objeto pode ser relacionado somente a um projeto. Se vocé tentar associar um objeto
+de um projeto a outro, o comando Claim irá falhar. Vocé deve selecionar o comando
+Release Claim e entáo associar o objeto a um novo projeto.
+
+Deve-se executar o comando Claim para um objeto do Item WBS selecionado antes de
+selecionar o comando Assign to WBS.
+
+Vocé deve ter acesso de escrita no projeto para executar o claim para um objeto.
+Tecnicamente, criando um relacionamento com o projeto náo edita o objeto do projeto no
+banco de dados. Existe uma regra que o usuário deve ter direito de escrita ao projeto para
+associar um objeto a ele. É a mesma regra que cria os relacionamentos para os sistemas. Esta
+regra previne que pessoas criem objetos em grupos que elas náo controlam. A pessoa que
+executa o Claim deve ter acesso de escrita nos grupos de permissáo do projeto,
+
+SISGRAPH | 93
+
+I
+
+===== PAGINA 95 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+7. Redefine seu workspace para incluir o Active Project (Project1). Na caixa de dialogo de Define
+Workspace, clique no botáo Properties e na aba de Work Breakdown Structure, selecione
+
+Project1.
+
+Define Workspace
+Shp:
+
+[83 | Fitter Properties
+Hans:
+
+fsp2oTran
+
+her:
+
+x] | fz
+
+Loz
+
+System | Assenbly | Naved Space | Anahss |
+2s rence 3D | Cerfiourstion |
+emission Group | Object Type | Volume |
+
+Fl Userot ftereupptes vale
+$ brehods nested objects
+
+cect |_ own
+
+Figura 7: Redefinir o Workspace
+
+8. Crie um novo item WBS no Project1 clicando com o botáo direito em Project1 e
+selecionando o comando Create WBS Item. Selecione as propriedades exibidas na Figura 7.
+
+System | Space
+
+Create WBS Item
+
+Value
+WBS Type Contract
+Select Nested WES Papers = — Mi
+Exclusive The
+Copy ogee ene
+WBS Assionment System
+Paste WBS Parent Project
+Create WBS Item Nemes Sei Copie
+Name Rule User Defined
+Delete Corelation Status Not correlated
+Show
+Hide
+
+Go to Hyperlink
+Properties
+
+Figura 8: Caixa de dialogo Create WBS Item
+
+SISGRAPH | 94
+
+lI
+
+tw
+
+===== PAGINA 96 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+Notas:
+
++» As propriedades Type e Purpose no catálogo que o modelo está usando.
+
+*  Seapropriedade Exclusive é ajustada para True, previnirá um dado objeto de ser associado
+a outro item WBS de mesmo tipo e propósito. Se a propriedade Exclusive estiver em False
+um objeto pode pertencer a múltiplos itens WBS com o mesmo tipo e Propósito.
+
+* Apropriedade WBS Assignment controla o comportamento do comando Assign to WBS. Se
+vocé configurar a propriedade como System e entáo associar um sistema ao item WBS, o
+comando Assign to WBS automaticamente associa todos os objetos desse sistema ao ¡tem
+WBS. Se a propriedade estiver em System entáo vocé pode ter certeza que TODOS filhos
+deste sistema seráo associados ao item WBS sem que vocé tenha que fazer isso
+manualmente. Se vocé mudar a propriedade para Assembly, o sistema filho náo será
+associado automaticamente, ao invés disso eles seráo associados como filhos dos assemblies.
+
+*  Osistema sobrescreve qualquer associacáo individual de objetos exclusivos ao item WBS que
+
+vocé tenha feito previamente.
+
+9. Selecione todos os objetos no Workspace (somente os objetos de estrutura da U02 devem
+estar no Workspace).
+
+10. Clique no menu Project e selecione Assign to WBS, com todos os objetos de estrutura
+selecionados. Este comando cria relacionamentos entre os objetos selecionados e o item WBS
+desejado.
+
+& File Edit View Insert Format Tools | Project] SmartPlant Tasks Window
+
+___ A 2 >AA2=2<>+< <AÁAÁSÁ f -
+
+[Admin | [Project A Die Claim I
+. Name: — o o Release Claim
+
+Multiple is Select E
+
+Jr Peas Assign to WBS...
+
+is | Update WBS Assignments
+Ga
+
+Figura 9: Comando Project > Assign to WBS...
+
+11. Na caixa de diálogo Assign to WBS, expanda Project1 e selecione Civil Contract1, um
+item WBS ao quais os objetos seráo associados. Entáo clique em OK para criar os
+relacionamentos entre os objetos e o item WBS selecionado.
+
+||
+
+SISGRAPH | 95
+
+EN
+
+===== PAGINA 97 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+en 10, Wes
+
+@ Weipace
+
++ Lg Design Areal
++ Lap Design Ares?
+
+© Database
+
+Figura 10: Caixa de Dialogo Assign to WBS
+
+Notas:
+
+Se vocé quiser verificar se os objetos estruturais foram associados ao item WBS Civil
+
+Contract1, vocé pode rever as propriedades do objeto na aba Relationship na janela
+Member System Prismatic Properties. (Veja Figura 10.)
+Vocé também pode selecionar o item WBS clicando no comando Select Nested do menu. Esta
+acáo selecionará todos os objetos sob este item WBS.
+
+Os objetos relacionados aos itens WBS nao sáo mostrados na aba WBS do Workspace
+
+Explorer.
+
+(Member System Prismatic Properties
+
+“Member System || Relal Configuration | Notes |
+
+Name
+
+53 MemberParPrismatic-1-0028
+
+mi
+
+lg Cotumn-1-0007
+
+oc | comes |
+
+|
+i
+{
+
+Figura 11: Caixa de Dialogo Member System Prismatic Properties
+
+SISGRAPH | 96
+
+===== PAGINA 98 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Passos para automaticamente associar objetos aos itens WBS:
+
+1. A partir da lista de WBS, selecione a opcáo More...
+2. Selecione o item WBS (CivilContract1).
+
+Conforme os objetos sáo criados, eles seráo automaticamente associados ao projeto WBS
+ativo e/ou item WBS de acordo com as seguintes regras:
+
+* Se um projeto WBS é explicitamente escolhido como o projeto ativo, entáo todos os
+objetos que vocé criar sáo automaticamente associados ao projeto. As regras de acesso
+que controlam a associacáo manual sao aplicadas para associagáo automática também.
+
+» Se um item WBS é explicitamente escolhido como o ativo, entáo somente os tipos de
+objetos especificados seráo automaticamente reivindicados ao projeto pai do item WBS e
+entáo associado ao item WBS. Somente o nível mais inferior de objetos que sáo incluídos
+nos entregáveis de identidade so associados (tipicamente chamados de “parts”). Em
+outras palavras, objetos modelados como características de tubulacáo (piping features) ou
+grupos de objetos como as linhas de tubulacáo (Pipelines) náo sáo associadas, mas
+“piping parts” sáo. Vocé também pode reivindicar qualquer objeto do sistema ao projeto e
+associá-lo ao item WBS manualmente.
+
++ O “claim” manual de grupos de objetos, especialmente sistemas, evita confusées e
+conflitos com o comando de associacáo automática a WBS que podem ser baseadas em
+componentes do sistema. Vocé deve explicitamente decidir que todos os objetos do
+sistema seráo associados manualmente áquele sistema em um dado projeto WBS ou item
+WBS.
+
+Para maiores informagóes relacionadas a Projetos e itens WBS, consulte os tópicos Using the Project
+Menu: An Overview e Managing WBS Items and Projects: An Overview no no manual
+CommonUsersGuide.pdf
+
+SISGRAPH | 97
+
+E
+
+===== PAGINA 99 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotacóes
+
+SISGRAPH | 98
+
+Ty
+
+===== PAGINA 100 =====
+Ul
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 11: To Do List
+
+Objetivos:
+No final desta sessáo, vocé estará apto a:
+
+e Utilizar a To Do List para visualizar e corrigir inconsisténcias em objetos de um modelo.
+
+Pré-requisitos:
+
+e SP3D Visáo Geral
+
+e Criando um arquivo de sessáo
+
+© Definindo um Workspace
+
+e Aplicando Regras e Estilos de Superfície
+
+Visáo Geral:
+
+A To Do List exibe problemas ou inconsisténcias em seu modelo que necessitam serem resolvidos.
+Existem trés tipos básicos de problemas: Out-of-date, In Error, e Warning.
+
+e Out-of-date: Se vocé criou um objeto que foi modelado referenciando as informagóes de um
+outro objeto e outro projetista edita aquele objeto, entáo o seu objeto irá para a To Do List se
+aquele usuário náo tiver permissáo de escrita em seu objeto. Vocé precisa selecionar a entrada To
+Do List para seu objeto e atualizá-lo manualmente. Por exemplo, a Figura 1 mostra que a
+LadderA1-1-0102 (na task de estrutura) está em Out-of-date (desatualizado).
+
+ap : >|
+
+Displays list of objects that ate in Error or Qut-of-date £
+Figura 1: Objeto Out-of-date em To Do List
+
+SISGRAPH | 99
+
+E
+
+===== PAGINA 101 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Os items em estado Out-of-date na To Do List podem também ser criados quando seu catálogo
+for modificado e o comando Synchronize Model with Catalog é executado. Se algum dado de
+projeto depender da informagáo do catálogo que foi modificada, estes objetos iráo aparecer na To
+Do List se o usuário que executou o procedimento de sincronismo náo tiver privilégios de acesso
+aos objetos.
+
+e In Error: Existem diversas razóes nas quais um objeto pode estar em estado de erro. A To Do
+List irá descrever a razáo. Estas razóes cairáo em trés classes:
+
+1) Alteracóes nos dados do catálogo de qual um objeto no modelo é dependente (confira
+Synchronize Model with Catalog) e esta mudanga causa uma falha ao recalcular este
+parámetro.
+
+2) Perda de um objeto de entrada requerido. Se o seu objeto requerer que a informagáo
+de um objeto exista, entáo este irá para a To Do List quando o objeto de entrada for
+apagado. Por exemplo, se uma superfície inferior de referéncia (uma laje) da
+LadderA1-1-0102 for apagada, entáo a escada estará em estado In Error.
+Entretanto, alguns objetos possuem relacionamentos com outros objetos que sáo
+opcionais. Apagando estes objetos nao implicaráo na ida destes para a To Do List.
+Por exemplo, se uma laje for apagada, o equipamento que foi associado á laje náo irá
+para a To Do List em estado In Error, conforme exibido na Figura 2.
+
+{| le >
+
+Displays fst of objects that «re in Enor or Outof date — A
+Figura 2: Objeto em estado In Error na To Do List
+
+3)  Regras de integridade de dados que sáo requeridos pelo sistema que forem violadas
+quando o objeto é recalculado devido á mudanga de algum objeto de entrada.
+
+e Warning: Algumas regras de integridade de dados que podem ser quebradas da maneira
+descrita acima náo sáo suficientemente sérias para necessitar reparos antes da geragáo de
+desenhos.
+
+Nota:
+
+* Obotáo Help na caixa de diálogo To Do List fornece maiores informacóes sobre
+problemas específicos e recomenda acóes que vocé possa tomar para corrigir o seu
+
+projeto.
+
+SISGRAPH | 100
+
+wl
+
+===== PAGINA 102 =====
+U
+
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+To Do List:
+
+Para abrir a To Do List, clique no comando View > To Do List.
+
+Etror from NameRule
+Error from NameRule if | SP3DVMAS Admini! 6/13/2007 2:30:22 AM
+
+Ens from NameRule spectied | SP3DVMAS\Adeini| 6/5/2007 12:51:20 AM
+Error from NameRule [Unspecified | SP2DVMAS Admini 6/13/2007 4:23:40 AM
+Enor from NamePiule Unspecified | SPSDVMAS\Adnini 6/13/2007 4:23:40 AM
+Displays list of objects that are in Error or
+
+Figura 3: To Do List
+
+Opg6es na caixa de diálogos To Do List
+
+As opgées na caixa de diálogos To Do List sao as seguintes:
+
+° | Properties — Define o tipo de ¡tens da To Do List a serem exibidos e as
+informacóes que deveráo aparecer na To Do List.
+
+o Update — Recalcula um objeto. Vocé utiliza este comando para recalcular ojetos em
+estado Out-of-date baseados em seus dados de entrada atualizados. Este recálculo
+funciona para todos os objetos independente de qual task vocé estiver.
+
+Notas:
+
+* Quando vocé atualiza no estado Out-of-date, o objeto é recalculado utilizando os dados de
+entrada correntes. Além do mais, todos os objetos que dependerem deste objeto que
+estava em estado Out-of-date (e os quais vocé tenha permissáo de escrita) sáo
+atualizados.
+
+»  Vocé pode selecionar mais de um objeto Out-of-date de uma vez segurando as teclas CTRL
+
+ou SHIFT enquanto seleciona os objetos.
+
+. | Filter To Do List by Select Set — Permite que vocé liste apenas os ¡tens To Do List
+relacionados aos objetos selecionados em seu workspace. Os itens To Do List
+continuaráo a ser restritos após vocé selecionar esta opgáo mesmo se o conjunto
+selecionado for alterado.
+
+o Clear Filter — Remove o filtro aplicado pelo comando Filter To Do List by Select
+
+Set.
+
+Todos os ¡tens To Do List que correspondem ao critério definido pelas propriedades da caixa de
+diálogos To Do List seráo exibidos.
+
+SISGRAPH | 101
+
+EN
+
+===== PAGINA 103 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Corrigindo Objetos in Error:
+
+Vocé pode modificar um objeto na To Do List selecionando o objeto na lista e entáo editando o
+objeto utilizando a barra de comandos Edit da task correspondente. Para visualizar a barra de
+comandos Edit de um objeto, vocé deve estar na task onde o objeto foi criado. Após vocé resolver a
+inconsisténcia de um objeto, este é automaticamente removido da To Do List.
+
+Nota:
+
+* Objetos em estado In Error sáo geralmente editados um por vez. Vocé também pode
+selecionar mais de um objeto se uma opcao Edit estiver disponível para mais de um objeto.
+
+Gerenciando a To Do List
+
+É extremamente importante periodicamente revisar a To Do List e eliminar os problemas.
+Idealmente, vocé náo deveria ter nenhum registro na To Do List relacionado a objetos que estaráo
+documentados em projetos de entrega. É recomendado um procedimento que restringe objetos
+com registro na To Do List.de aprovacáo.
+
+Uma maneira que vocé pode visualizar os problemas da To Do List enquanto modelando é definir
+Uma regra de estilo de superfície. Esta regra ajusta a cor dos itens com registros na To Do List
+para uma cor diferenciada para fácil identificagáo. Seu administrador poderá definir esta regra de
+estilo customizada por sua empresa para a sua utilizagáo. Selecione e adicione esta regra de estilo
+para a aplicacáo em seu workspace.
+
+Se o administrador de catálogos executar o comando Synchronize Model with Catalog, fazendo
+com que a atualizagáo do modelo seja atrasada por alguns instantes, entáo muitos dos objetos
+podem ser marcados como Out-of-date com os dados correntes do catálogo. Vocé deverá
+atualizar e revisar o impacto destas mudangas antes de tentar modelar objetos adicionais relativos
+a objetos Out-of-date.
+
+Mudangas em especificagdes de tubulagóes sao as mais dificeis de lidar no catálogo. Quando a
+especificagáo de tubulagáo é alterada no catálogo, todos os piping runs que utilizam aquela
+especificagáo seráo atualizados. As características destas piperuns também seráo atualizadas.
+Entáo, estes piping runs e suas características seráo adicionadas a To Do List. Isto acontece
+mesmo se a alteragáo da especificagáo de tubulacáo náo causar real mudanga nas partes
+resultantes e se as caracteristicas/partes de tubulacáo forem aprovadas. Vocé nao tem escolha a
+náo ser atualizar as características e revisar os impactos. Esta á uma área importante que deverá
+ser corrigida e melhorada em futuras versóes.
+
+Para maiores informagées relacionadas a To Do List, refira-se ao tópico Correcting Errors: An
+Overview no guia de usuario CommonUsersGuide.pdf.
+
+SISGRAPH | 102
+
+ie
+
+===== PAGINA 104 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D — Common
+
+Anotacóes
+
+SISGRAPH | 103
+
+ait
+
+===== PAGINA 105 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 12: Checagem de Interferéncia
+
+Objetivo:
+No final desta sessáo, vocé será capaz de:
+
+* Revisar interferéncia entre objetos no modelo.
+
+Pré-requisitos:
+
++ SP3D Visáo geral
+
+* Criando um arquivo de sessáo
+
++ Definindo um espago de trabalho (Workspace)
++ Manipulando vistas
+
+Visáo Geral:
+
+Check Interference é a ferramenta de detecgáo de interferéncia do SP3D. Esta ferramenta labora
+concomitantemente no “background” quando objetos sáo modelados. Isto permite que interseccóes
+sejam identificadas e corrigidas rapidamente quando objetos sao criados ou inseridos.
+
+Interferéncia entre dois objetos é detectada quando as geometrias delas se intersectam. Objetos
+podem ter múltiplas geometrias, chamado aspectos, que representam diferentes características
+geométricas (physical, insulation, maintenance e operation spaces). Vocé pode configurar o
+processo do interference checking para detectar interferéncias entre tipos de geometrias diferentes.
+Vocé também pode configurar a distáncia mínima requerida entre dois aspectos físico baseado no
+tipo de objeto. O processo de interference checking pode checar interferéncias com geometrias
+referenciadas a projetos PDS e a arquivos Microstation também.
+
+Quando uma intersecgáo é detectada, um registro de interferéncia é criado e gravado no banco. A
+propriedade Type deste registro indica a severidade da interferéncia dependendo em qual aspecto
+geométrico esta com interferéncia (definido pelo administrador). Mesmo que mais de um aspecto
+geométrico se intersectam, apenas uma interferéncia indicando o maior nível de interferéncia entre
+esses dois objetos é registrada. O registro da interferéncia é removido automaticamente quando a
+geometria é alterada para que os objetos náo estejam sobrepostos. Vocé pode aprovar as
+interferéncias que vocé náo quer que sejam eliminadas.
+
+Dois tipos de processo de checagem de interferéncia estáo disponíveis:
+
+* Server-based interference checking — Também conhecido como Database Detect
+* Interactive interference checking — Também conhecido como Local Detect
+
+SISGRAPH | 104
+
+Il
+
+===== PAGINA 106 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Server-Based Interference Checking (Database Detect):
+
+O processo chamado server-based interference checking (Database Detect) roda diretamente do
+banco de dados de modelo. Esse processo pode ser rodado em qualquer computador em que o
+Database Interference Detection service está instalado. Depois de inicializar o servigo, o SP3D
+automaticamente verifica se há interferéncias em todos os objetos existentes que náo foram
+checados e todos os objetos novos ou modificados. Vocé náo precisa se preocupar quando vocé
+deve rodar o Interference Check. Ele estará rodando todo o tempo e o software monitora o tempo
+em que objetos individuais foram verificados por interferéncia. O processo pode ser parado e
+reiniciado mais tarde. O sistema sabe quais sáo os objetos que devem ser checados.
+
+Nota:
+
+* Quando a interferéncia é registrada, um relacionamento é estabelecido entre os objetos
+envolvidos na interferéncia. Atualmente, os objetos sáo editados a partir de uma perspectiva
+de dados definida por esta operacáo. Quando um objeto é muito editado, os modeladores já
+náo podem desfazer qualquer edigáo que tenha feito na mesma concepsáo destes objetos.
+Para atenuar este problema, seu administrador pode ajustar o tempo de demora entre quando
+um objeto é criado ou editado, e quando o objeto está sendo verificado com a existéncia de
+interferéncias. Este atraso deve ser mais longo do que o tempo que normalmente leva um
+objeto a ser desfeito no buffer do comando "Undo" (vocé só salva o "Undo" em N operacóes).
+Este tempo de atraso no servidor também irá explicar porque vocé náo deve esperar por uma
+interferéncia que vocé acabou de criar recentemente (como visto na deteccáo local) ser
+identificada imediatamente no banco de dados de deteccáo de interferéncia.
+
+Enquanto seu administrador do site gerencia o processo do Database Interference Detection,
+vocé pode revisar as configuragóes e o estado da detecgáo usando a caixa de diálogo
+Interference Detection Properties.
+
+Em uma configuragáo de Workshare, o servidor de checagem de interferéncia estará sendo rodado
+em um Host local. Interferéncias encontradas pelo processo seráo replicadas pelo site de
+workshare e pode ser revisadas igualmente a qualquer outro dado adicionado no modelo.
+Modeladores que estáo em locais remotos podem editar eles mesmos os objetos para eliminar as
+interferéncias. O processo do servidor irá automaticamente remover as interferéncias salvas.
+Desde que o host tenha essa interferéncia salva, alguém logado por acesso remoto náo poderá
+editar qualquer interferéncia salva para adicionar uma nota ou aprovar a interferéncia.
+
+Passos para rever as definigdes do banco de dados de detecgáo de
+interferéncia:
+
+1. Clique no comando Tools > Check Interference.
+
+SISGRAPH | 105
+
+MI
+
+===== PAGINA 107 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Project SimartPlant Tasks Window Help
+xf e] 9) sileshale|
+
+Fie Edt View Insert Format
+
+J] Select by Fite.
+
+Show All
+
+PinPoint
+
+Add to SmartSketch List
+Point Along
+
+Measure
+
+| Custom Cornmands...
+| Options...
+
+Figura 1: Comando Tools > Check Interference
+
+2. Isso irá mostrar a barra de comandos Interference Checking. Clique na opcáo Settings na
+barra de comando Interference Checking, como mostrado na Figura 2.
+
+Figura 2: Barra de ferramenta “Interference Checking”
+
+Notas:
+
++ A opgao Settings na barra de comando Interference Checking irá abrir a caixa de
+diálogo Interference Checking Settings. A aba Database Detect mostra o status do
+servidor de detecgáo de Interferéncia, como mostrado na Figura 3.
+
+e Detect | Local Detect] Status]
+
+1 Actwate local nteiterence detechon
+
+Assign interference checking pricy to aspects:
+Aspect
+Simple physical
+
+Detsted physical
+
+lation
+
+ul
+
+fone > Irchude clearence nie
+
+Requied - Requied | fio Clearance Rute Y
+
+WM Reguted - Optional
+
+| 5 Opional- Optional a
+
+Figura 3: Caixa de diálogo de configuragóes do Interference Checking
+
+SISGRAPH | 106
+
+})
+
+fll
+
+===== PAGINA 108 =====
+UU
+
+Treinamento | Process, Power & Marine
+
+Smart 3D -Common
+
+A aba Status na caixa de diálogo Interference Checking Settings irá mostrar para vocé o
+status do banco de dados de interferéncia e o tempo em que a interferéncia se inicia.
+
+¡Plant
+
+Elapsed time:
+
+Process start
+
+Elapsed time:
+
+Suspended
+
+~New and modified parts since process start
+3/15/2007 3:52:44 PM
+
+3/15/2007 3:52:44 PM
+3/15/2007 3:52:00 PM
+
+| Lastpartmodified:
+Currentrange to:
+from:
+
+| Estimated completion:
+
+2/12/2007 11:47:00 AM
+
+y Existing parts al process start
+1/24/2007 11:36:04 AM
+1/24/2007 11:36:04 AM
+1/24/2007 11:36:04 AM
+
+Currentrange to:
+from:
+First part created:
+
+| Estimated completion: Completed
+
+Status message ———_____-_—
+
+Figura 4: Aba de Status do banco de dados de Interferéncia
+
+Os arquivos salvos da interferéncia relacionados com qualquer objeto que vocé elegeu para ser
+visto no seu workspace usando o comando Define Workspace também é automaticamente
+carregado e disponivel para vocé revisar na sua sesso. Vocé pode ver qualquer interferéncia
+detectada no servidor depois que vocé rodou o comando Define Workspace atualizando seu
+
+workspace.
+
+O banco de dados detecta marcas de interferéncia no modelo inserindo uma marca de interferéncia
+esférica no local da interferéncia. Por exemplo, na figura 5, o servico inseriu uma marca esférica de
+
+uma interferéncia entre o cháo e o tubo.
+
+ill
+
+SISGRAPH | 107
+
+===== PAGINA 109 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+EG re Edt Ver Insert Format Too’ Project SmartPant Tasks ae Hep
+[Srta =] olelalo) ajolx] +3) >] Seale) elelelo jalea) alalele 2]
+
+sols ‘Tele E Edt=mustresovetieinteñare y] Close |
+
+LastMad:
+"2007-12-03 160214
+
+IPdt-mustrescl E
+
+PF Weptent
+
+Figura 5: Marca esférica de interferéncia na interferéncia entre o chao e o tubo.
+
+Nota:
+
++  Vocé pode selecionar graficamente as marcas de interferéncia sem a necessidade de
+ter que ser mostrado o Interference List View e revisar as propriedades das
+interferéncias salvas usando o comando Edit > Properties.
+
+Interactive Interference Checking (Local Detect):
+
+Interactive interference checking (Local Detect) é um processo que executa apenas na atual
+sessáo da máquina cliente do SP3D e detecta interferéncias apenas quando vocé cria e edita
+objetos. Ele náo checa os objetos existentes. Local Detect fornece ajuda em tempo real no
+formulário do retorno gráfico sobre interferéncias. Vocé pode ver essas interferéncias
+imediatamente depois de posicionar ou editar os objetos responsáveis pelas interferéncias no
+modelo. Esse processo checa por interferéncias entre os objetos mostrados no workspace ativa.
+Sendo assim, objetos ocultos ou objetos que náo sáo recuperados no workspace náo sáo
+checados.
+
+O processo Local Detect grava qualquer interferéncia que é encontrada com um marcador de
+interferéncia cúbico. Por exemplo, na Figura 6, o processo Local Detect colocou um marcador de
+interferéncia cúbico na intersecgáo de uma tubulagáo e uma laje, pois foi encontrada uma
+interferéncia nesse local.
+
+SISGRAPH | 108
+
+tr
+
+===== PAGINA 110 =====
+Treinamento | Process, Power & Marine Smart 3D — Common
+
+4
+
+Figura 6: Marcador de Interferéncia Cúbico na Intersecgáo da Tubulacáo com a Laje
+A interferéncia Local Detect náo é salva no banco de dados. Logo, se vocé fechar e abrir ou
+atualizar seu arquivo de sessáo, todas as interferéncias locais sáo removidas da memória.
+Entretanto, se o Database Detect está rodando no modelo, qualquer interferéncia local no seu
+
+modelo será encontrada pelo processo database detection e será visto posteriormente quando
+vocé atualizar o seu workspace.
+
+Passos para Iniciar e Paralisar o Processo Local Detect:
+
+1. Clique no comando Tools > Check Interference.
+
+File Edit View Insert Format Project SmartPlant Tasks Window Help
+
+E Y Select by Filter... | StlEchale
+
+Show All
+
+| PinPoint
+Add to SmartSketch List
+Point Along
+Measure
+
+pcheck Interference:
+
+Run Report...
+New Drawing...
+Open Drawing...
+Snapshot View
+
+Custom Commands...
+Options...
+
+Figura 7: Comando Tools > Check Interference
+2. A barra de comando Interference Checking irá aparecer. Clique na opgáo Settings na barra de
+
+comando Interference Checking. Isso vai abrir a caixa de diálogo Interference Checking
+Settings. Clique na aba Local Detect na caixa de diálogo, como mostra a Figura 8.
+
+SISGRAPH | 109
+
+IT
+
+===== PAGINA 111 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+3. Selecione o check box Activate local interference detection e clique OK na caixa de diálogo
+Interference Checking Settings para iniciar o processo Local Detect na sua sessáo, como
+mostra a Figura 9.
+
+Display | Database Detect { ta Status]
+
+TF Activate local interference detection
+
+Assign interference checking priority to aspects:
+
+Aspect . Type
+
+Simple physical Required
+Detailed physical Not checked
+Insulation _{3ptional
+Operation Iptional
+
+Maintenance Iptional
+Reference Geometry Not checked
+
+y Compare ack | Include clearance tule
+
+| Required - Requited | [ho Clearance Rule |
+
+[Y Reguited - Optional
+
+Marker size
+
+[tft 0.00in
+
+[~ Optional - Optional
+
+Cancel | Apply
+
+Figura 8: Caixa de Diálogo Interference Checking Settings
+
+Nota:
+
++ — Égeralmente melhor utilizar as mesmas configuracóes do seu administrador para a database
+detection. As configuracóes exibidas na Figura 9 sao as típicas.
+
+4. Para paralisar o processo Local Detect, apague a check box Activate local interference
+
+detection na caixa de diálogo Interference Checking Settings, e entáo clique OK.
+
+Revisando Interferéncias:
+
+Quando vocé clica no comando Tools > Check Interference, a barra de comando Interference
+Checking aparece, como mostrado na Figura 10.
+
+e] ajena] El —— al]
+
+Figura 9: Barra de Comando Interference Checking
+
+SISGRAPH | 110
+
+D
+
+tll
+
+===== PAGINA 112 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+As diversas opcdes disponiveis nesta barra de comando permitem a vocé revisar e atualizar
+interferéncias se vocé tiver a permissáo para atualizar interferéncias. Se vocé está trabalhando
+com uma configuragao de workshare em um local remoto (náo está no Host), vocé náo pode editar
+interferéncias. Vocé deve usar um login remoto num computador do Host para editar as
+interferéncias.
+
+. ta Settings: Abre a caixa de diálogo Interference Checking Settings. Essa caixa de
+diálogo permite a vocé revisar as propriedades de verificacáo da Database Detect
+Interference assim como as propriedades de verificagáo da Local Detect Interference.
+Também permite a vocé iniciar e parar o processo Local Detect.
+
+. BE Show Interferences: Permite a vocé mostrar todas as interferéncias relacionadas
+aos objetos no workspace. Isso náo irá mostrar os objetos que vocé ocultou com o
+comando Tools > Hide.
+
+. En] Hide Interferences: Permite a vocé ocultar os marcadores de interferéncia. Se
+nenhuma interferéncia for selecionada, entáo todas as interferéncias seráo ocultadas. Se
+uma ou mais interferéncias forem selecionadas, entáo apenas as interferéncias
+selecionadas seráo ocultadas. Quando a interferéncia é ocultada, ela também deixa de ser
+exibida na List view.
+
+. Fit Interferences: Enquadra a vista ativa para ambos os objetos envolvidos na
+interferéncia selecionada. Se vocé tiver mais de uma interferéncia selecionada, todas as
+interferéncias selecionadas seráo enquadradas. Vocé pode enquadrar um único objeto
+envolvido na interferéncia selecionando os objetos na Interference List View, e entáo
+
+selecionando o comando Fit na barra de ferramentas Common.
+
+. ES List View: Lista todas as interferéncias relacionadas a objetos que estáo no
+workspace atual e todas as interferéncias detectadas no local. Vocé pode ordenar as
+interferéncias clicando nas colunas. As colunas “Required Action” e “Notes” podem ser
+editadas, mas as outras categorias tem status de somente leitura.
+
+SISGRAPH | 141
+
+Mi
+
+===== PAGINA 113 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Interference List oJ O 33
+
+[Mame Notes
+__{1-1-0402-MemberP. .
+ELOTE E
+1-1-0400-MemberP...
+__{1-1-0399-MemberP... [M MemberPart Prisma... 2011-05-09 16:04:38
+_|1-1-0398-MemberP. Beam Block Expos... |Severe [Edt - must resol... (2011-05-09 16:03:38
+1-1-0397-MemberP... 1: Edt - must resol... [2011-05-09 16:04:38
+11-0396-MemberP... Edi - must resol... [2011-05-09 16:04:38
+| ]1-1-0395 HMemberP. Edi - must resol... [2011-05-09 16:04:38
+—E 1-0394- pombe. S Edt - must resol... 2011-05-09 16:04:38
+ae Edt - must resol... |2011-05-09 16:04:
+Edt - must resol... [2011-05-09
+s Edt - must resol... [2011-05-09 16:
+a ha -0390-MemberP.. Edt - must resol... 12011-05-09 16:04: 37
+1-1-0389-MemberP.. Edi - must resol... [2011-05-09 16:
+Edt - must resol... 120110509 161
+Edi - must resol... {2011-05-09 16:
+[Edi - must resol... [2011-05-09 16:04:37
+Edt - must resol... [2011-05-09 16:04:37
+Edt - must resol... [2011-05-09 16:04:37
+Edt - must resol... 2011-05-09 16:04:37
+Edi - must resol... [2011-05-09 16:04:37 E,
+E
+1 Weep text Cose |
+
+Figura 10: Caixa de Diálogo Interference List
+
+* Required Action: Mostra a atual acáo definida para a interferéncia, quando a
+interferéncia Database Detect é selecionada. Vocé pode selecionar uma acáo diferente
+através da lista drop-down. O campo é desativado quando a interferéncia Local Detect é
+selecionada.
+
+Vocé pode selecionar graficamente a interferéncia que vocé visualiza e entáo editar a Required
+Action na barra de comando Interference Checking. Ou, se a barra de comando Interference
+náo é exibida, a interferéncia pode ser editada usando a caixa de diálogo Properties.
+
+Vocé pode selecionar Interference na Interference List View; selecione o comando Fit
+Interference para ver graficamente a interferéncia. Vocé pode entáo editar a Required Action na
+barra de comando Interference Checking ou diretamente na Interference List View.
+
+Vocé pode adicionar notas sobre interferéncia na Interference List View ou na caixa de diálogo
+
+Properties para interferéncias.
+
+Workflow recomendado para Gerenciar Interferéncias:
+
+A capacidade de detecgáo contínua de interferéncia permite a vocé integrar as informagóes sobre
+interferéncias dentro das atividades de modelagem diárias e entáo aguardar pelas verificagóes do
+batch.
+
+Ative o Local Detect quando vocé modela. Isso irá ajudar vocé a detectar e resolver problemas
+assim que eles ocorrem.
+
+Ative regularmente a Interference List View e olhe as interferéncias em Database Detected
+
+relacionadas á sua área de responsabilidade. Existem diversas maneiras que interferéncias podem
+ser designadas por vocé pelo processo. O nome da interferéncia pode indicar responsabilidade
+
+AÍSGRARH | 112
+
+===== PAGINA 114 =====
+Ny
+
+Treinamento | Process, Power & Marine Smart 3D —- Common
+
+quando ele é calculado por um “custom name rule”. A interferéncia pode ser designada para
+grupos de permissóes diferentes através de uma regra para indicar responsabilidade. Seu
+administrador configura como isso é realizado.
+
+Além disso, para o método de “administrator-established”, vocé pode ver todas as interferéncias
+relacionadas aos objetos que vocé criou definindo um workspace que inclua apenas objetos
+criados por vocé.
+
+A Interference List View poderá ter entáo apenas interferéncias que envolvem os seus objetos.
+Quando vocé seleciona uma interferéncia uma interferéncia na Interference List View, ambos os
+objetos envolvidos na interferéncia sáo destacados mesmo se vocé náo tiver incluído um dos
+objetos na definigáo de seu workspace. O software automaticamente pega os dados do servidor.
+
+Para maiores informagóes relacionadas ás verificagóes de interferéncia, veja o tópico Checking Interference:
+An Overview do guia do usuario IFCGuide.paf.
+
+SISGRAPH | 113
+
+Til
+
+===== PAGINA 115 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotagées
+
+aISGRAPH | 114
+
+Ty
+
+===== PAGINA 116 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 13: Space Management
+
+Objetivo:
+Ao final dessa sessáo, vocé será capaz de:
+
+» Inserir objetos de espaco (pastas e volumes).
+
+Pré-requisitos:
+
+* SP3D Visáo Geral
+
+* Criando Arquivos de Sessáo
+
+* Definindo um Workspace
+
+* Manipulando Vistas
+
+* Selecionando Objetos no Modelo
+* Comando PinPoint
+
+Visáo Geral:
+
+A task Space Management permite que vocé crie volumes para indicar uma zona de emergéncia,
+um caminho de acesso, ou qualquer outro espago conceitual que vocé desejar definir. Vocé pode
+também criar volumes especificos para vistas de desenhos (drawing views). Vocé pode usar os
+volumes para definir critério de busca de objetos na aba Volume das propriedades dos filtros
+usados no comando Define Workspace. Somente um volume identificado como um “volume de
+interferéncia” será considerado na detecgáo de interferéncia.
+
+Sendo que os volumes náo sáo realmente construídos, mas somente usados para auxiliar a
+gerenciar a modelagem, eles náo sáo incluídos na hierarquia de sistemas (Plant Breakdown
+Structure). Volumes tém a sua própria hierarquia separada, exibida na aba Space do Workspace
+Explorer. Vocé pode criar pastas para organizar os espagos (volumes) usando o comando Create
+Space Folder da barra de comandos vertical. Vocé consegue trazer os volumes para o seu
+workspace (para revisáo e edicáo) selecionando-os na aba Named Space das propriedades dos
+filtros.
+
+Criando Espacos (Volumes):
+
+Existem diversos métodos para definir a geometria de um volume. Cada um é um comando
+diferente na barra de comandos vertical e será descrito abaixo. Um volume pode ser de quatro
+categorias básicas: área, zona, interferéncia ou desenho. Os tipos específicos de volumes,
+aninhados debaixo destas categorias, podem ser customizados no catálogo. Cada tipo
+customizado tem o seu conjunto de propriedades. Os tipos padróes, atualmente entregues com o
+SP3D, provavelmente tém uma utilidade limitada para a sua empresa, portanto uma customizagáo
+é recomendada.
+
+SISGRAPH | 115
+
+NM
+
+===== PAGINA 117 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Náo há diferengas funcionais entre os volumes de área e zona. No entanto, é recomendado que
+zonas sejam usadas para identificar volumes que possam se sobrepor. Áreas devem ser usadas
+para identificar volumes que náo se sobrepóem (para o mesmo tipo de área).
+
+O volume do tipo de interferéncia é o único que é checado na detecgáo de interferéncias. Vocé
+pode associar um volume de interferéncia com um objeto modelado. Quando o objeto for movido, o
+volume associado moverá conjuntamente.
+
+O volume de desenhos é usado pelo mecanismo de geracáo automática de desenhos (Volume
+Drawings). É possível usar qualquer volume retangular, independente do tipo, para definir vistas
+(drawing views) no workflow dos desenhos do tipo “Composed”, ou no workflow automático dos
+desenhos do tipo Drawing by Query. Vocé irá aprender mais sobre vistas de desenhos e volumes
+nos tutoriais de Desenhos do SP3D.
+
+Nessa sessáo, vocé irá aprender todos os métodos de criagáo de volumes e trés dos métodos
+mais comuns usados em exemplos “passo-a-passo”. Os métodos para insergáo de espagos sáo:
+
+* Place volume by two points: Insere um volume retangular através dos cantos diagonais do
+volume (dois pontos).
+
+* Place volume by four points: Insere um volume retangular através de quarto pontos. Os
+dois primeiros pontos definem o eixo X do sistema de coordenadas local do volume. O terceiro
+ponto define o eixo Y e a profundidade. O quarto ponto define o eixo Z e a dimensáo da altura.
+* Place volume by window: Insere um volume retangular usando os limites da vista (inclusive
+a profundidade) de uma janela (vista ativa do software).
+
++ Place volume by selection: Insere um volume retangular alinhado com o sistema de
+coordenadas ativo e ajustado pela extensáo máxima de todos os objetos no conjunto de
+selegáo. .
+
++ Place volume by plane and offset: Insere um volume retangular construído com relagáo a
+um plano, com distáncias a partir da parte frontal e traseira do plano, e trés pontos que definem
+a forma retangular que é projetada a partir do plano frontal até o plano traseiro.
+
+* Place volume by grids: Insere múltiplos volumes retangulares limitados por um conjunto de
+planos de grids e elevagáo.
+
+* Place volume by bound spaces: Insere um volume que é a combinagáo de múltiplos
+volumes existentes. O volume resultante náo afeta a localizagáo dos volumes originais na
+hierarquia de espagos. Volumes criados pela combinagáo de espagos náo podem ser usados
+para definir vistas de desenhos (drawing views).
+
+* Merge volumes: Insere um volume que é a combinagáo de múltiplos volumes existentes. Os
+volumes originais sáo movidos e aninhados embaixo do novo volume combinado, na hierarquia
+de espagos, e náo podem ser usados na definigáo de outros volumes. Volumes combinados —
+nao podem ser usados para definir vistas de desenhos (drawing views).
+
+* Place volume along a path: Insere um volume através da extrusáo de uma sessáo
+transversal ao longo de um caminho. Se vocé utilizar uma sessáo transversal retangular e
+mantiver o caminho em um único plano, vocé poderá usar o volume resultante para definir
+vistas de desenhos (drawing views). Essa vista será orientada ao plano do caminho definido.
+
+¢ Place volume using primitive shapes: Insere um volume através do uso de formas
+paramétricas (shapes) pré-definidas no catálogo.
+
+SISGRAPH | 116
+
+===== PAGINA 118 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Notas:
+
+* Alguns comandos podem criar relacionamentos com os objetos usados como parámetros de
+entrada na definigáo dos volumes. Esses comandos possuem dois botóes para controlar esse
+comportamento associativo. Os botées estáo destacados na barra do comando Place Volume
+by Two Points na Figura 1. Se vocé estabelecer relacionamentos quando inserir um volume,
+vocé náo poderá mové-lo, mas esse volume irá se ajustar automaticamente (tamanho e
+posigáo) quando os objetos relacionados forem editados. Se esses botóes náo forem
+mostrados na barra do comando, entáo os volumes náo possuem relacionamentos com outros
+objetos no modelo.
+
+*  Ocomando Associate Volume to Object é usado para criar um relacionamento entre um
+volume de interferéncia e outro objeto. Se o objeto for movido, o volume de interferéncia será
+movido conjuntamente, a náo ser que vocé tenha criado pontos associativos para este volume
+durante a sua criacáo.
+
+Passos para o comando Placing Volume by Two Points:
+
+Insira uma zona de perigo através do comando Place Volume by Two Points e fazendo referéncia
+a objetos da unidade U01. A vista do modelo, depois da insercáo do volume retangular, deverá se
+parecer com a Figura 1.
+
+Figura 1: Resultado: Volume inserido pelo comando Placed by Two Points
+
+SISGRAPH | 117
+
+mi
+
+===== PAGINA 119 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Antes de iniciar o procedimento, define o workspace para incluir a unidade U01 e o sistema de
+coordenadas U01 CS e mude para o task de Space Management.
+
+Notas:
+
+*  Sevocé náo selecionar uma pasta da aba Named Space, nenhum volume existente no banco
+de dados será mostrado no seu workspace. Vocé conseguirá enxergar os volumes criados nos
+exemplos abaixo, porém esses volumes recém-criados iráo desaparecer da sua vista quando
+vocé atualizar o seu workspace. Neste exemplo, volumes existentes estáo sendo deixados de
+fora do workspace para que náo atrapalhem a vista.
+
+*  Porpadráo, o volume aparece em cor opaca quando é inserido. Para mostrar o volume com
+superfícies translúcidas, vocé pode aplicar uma regra de estilo de superfície (Surface Style Rule,
+ou SSR). Um SSR foi aplicado em todos os volumes mostrados na Figura 1 e demais figuras
+desse tutorial, para que ficassem em verde translúcido. Para maiores informacóes sobre SSR,
+consulte o tópico Sessáo Common: Aplicando Regras de Estilo de Superfície.
+
+1. Ative o comando PinPoint clicando no botáo do PinPoint na barra de ferramentas horizontal
+Common.
+
+@ Fite Edit View Insert Format Tools Project SmartPlant Tasks Window Help
+ojelaja] ejajx] e) of Seshslo] elela sles)
+Figura 2: Ativando o PinPoint
+
+[Fann <i]
+
+Le
+
+|=] 2]
+
+El
+
+2. Clique na opgáo Rectangular Coordinates na barra do PinPoint e ajuste o Active Coordinate
+System para U01 CS, como mostrado na Figura 3.
+
+Figura 3: Parte da barra do PinPoint
+
+Nn
+ER
+4
+
+3. Ajuste a origem usando a opgáo Set Target to Origin na barra do PinPoint.
+4. Clique no botáo Place Volume by Two Points na barra de comandos vertical.
+
+60/3/58) ajajo|-
+
+Figura 4: botáo Place Volume by Two Points
+
+SISGRAPH | 118
+
+===== PAGINA 120 =====
+Treinamento | Process, Power & Marine Smart 3D —- Common
+
+5. Clique em More... na lista drop-down no campo Type na barra do comando Place Volume by
+Two Point para especificar o tipo de volume que será inserido a partir do catálogo. Na caixa de
+diálogo Select Space, expanda a pasta Zones, selecione SPACE_DEF_HZ01 embaixo de
+Hazardous Atmospheres, e clique OK.
+
+Name
+
+lo Gi Volame =
+
+5] Select Space
+
+(eal *[mjalx] | 2018] es) el slala
+Aaldress: [\Defintions\Zones\Generic Zones\Hszardous Almospheres
+&—-- Defintions Part Number
+© Areas AGEIDER HZ0
+© Drawing Volumes SPACE_DEF_HZ02
+© Interference Volumes SPACE_DEF_HZ03
+Gs SPACE DEF HZOS
+=f Gente: Zones SPACE DEF _HZ06 ry
+—G@ Hazardous Amospheres | Space DEF Hizo?
+62 Personal Protection SPACE DEF Hz08
+i &-—O Security SPACE_DEF_HZ09
+&—© Route Zones
+
+SPACE NEE H710
+« nm. Y
+
+mH
+
+Figura 5: Caixa de Dialogo de Select Space
+
+Notas:
+
+* Enquanto vocé estiver no passo (SmartStep) “Enter first point” (ou qualquer outro passo), vocé
+pode editar as propriedades exibidas na barra do comando. Depois que vocé terminar de editar
+as propriedades, o comando permanece naquele passo, aguardando uma agáo.
+
++ — Oseu administrador pode customizar os tipos de zonas disponiveis para atender as
+necessidades de sua empresa quanto a modelagem e relatórios.
+
+* Onome do volume pode ser automaticamente gerado pela regra de nomeacáo (naming rule).
+Clique no botáo Properties na barra do comando Place Volume by Two Points para abrir a
+caixa de diálogo das propriedades e selecione a regra de nomeagáo Description Rule. Essa
+regra estará automaticamente selecionada na próxima vez que vocé usar o comando. O nome
+
+é gerado no momento da criacáo do volume.
+
+6. Agora selecione a pasta SP3DTrain na lista do campo Space folder para determinar a pasta
+= onde o novo volume estará localizado na hierarquia de espagos.
+
+Notas:
+* Sendo existir nenhuma pasta na hierarquia de espacos, a pasta padráo será a SP3DTrain (topo
+
+da hierarquia).
++  Determinar volumes para uma pasta na hierarquia de espagos ajuda a manter a organizacáo
+
+dos volumes criados.
+
+SISGRAPH | 119
+
+ily
+
+===== PAGINA 121 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+7. Desligue a opgáo dos pontos associativos (associative points), como mostrado na Figura 6.
+Entáo, localize o canto da laje usando o sinal de “key point” do SmartSketch 3D. Clique para definir
+o primeiro ponto do volume retangular, como mostrado na Figura 6.
+
+| pulsa est] Seda ores 4] [Gea se =] ff =] Y Afiosm +]
+Nome Tipe Space felder:
+[6 o|Neure [Gases, Vepors ho =] [sra0ten =| OS:
+
+[x] |e 1 | oI a y
+
+Figura 6: Localize o primeiro ponto
+
+Notas:
+
+*  Vocé pode selecionar e mover o volume depois de criá-lo desde que a opcáo dos pontos
+associativos esteja desligada. No entanto, o tamanho do volume náo irá mudar se os objetos
+relacionados forem editados. Geralmente, ter os pontos associativos ajuda. Para ilustrar o
+
+comportamento, essa opcáo está desabilitada neste exemplo.
+
+8. Estabelega que o segundo ponto tenha as coordenadas leste e norte do canto diagonal da laje e
+a elevagáo da estrutura. Um clique define o ponto e imediatamente salva o volume no banco de
+
+dados.
+
+SISGRAPH | 120
+
+aly
+
+===== PAGINA 122 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+sl ajja e] Seo foores 74 [Saja se a] Móra >] ran 2 poa
+Tire Space folder:
+
+El ojo here [Gases, Vapor er =]
+
+EOS
+
+a
+
+5
+
+El
+
+iB)
+
+2
+
+Al
+
+i
+
+q
+
+al
+
+B
+
+E
+
+El
+
+E
+
+E]
+
+El
+
+sE]
+
+Figure 8: Localize a Grid Line para definir a elevagáo
+Notas:
+
+Posicione o cursor no canto diagonal da laje e trave, no PinPoint, a direcáo leste E e norte N
+clicando nas teclas F6 e F7 ao mesmo tempo em que o cursor estiver em cima da posigáo
+desejada (indicada pelo sinal do SmartSketch 3D).
+
+Localize qualquer ponto no “top of steel” para obter a elevacao, usando mais uma vez o sinal
+
+do SmartSketch 3D como referéncia.
+O retángulo é alinhado com os eixos do sistema de coordenadas ativo. Vocé pode alcangar
+
+orientacóes diferentes selecionando previamente outro sistema de coordenadas.
+
+SISGRAPH | 121
+
+tl
+
+===== PAGINA 123 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+9. Depois que o volume é criado, mova-o para qualquer localizagáo usando o comando Move. Isso
+ilustra que os pontos inteligentes do SmartSketch 3D que vocé usou durante a insergáo do volume
+nao controlam a sua posigáo. Dé um Undo na operagáo de Move.
+
+Figura 9: Volume após o comando Move
+
+10. Atualize o seu workspace e repare que todos os volumes desaparecem. Repetindo: isso
+acontece porque o workspace deste exemplo foi definido para mostrar apenas os objetos dentro da
+hierarquia System, enquanto que os volumes estáo na hierarquia Space.
+
+Passos para o comando Placing Volume by Four Points:
+
+Insira um volume usando o comando Place Volume by Four Points no mesmo workspace usado no
+exemplo anterior. Depois de inserir este volume a vista do modelo deve se assemelhar a Figura 10.
+
+SISGRAPH | 122
+
+===== PAGINA 124 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 10: Volume inserido com o comando Placed by Four Points
+
+Nota:
+
+*  Vocé pode usar o comando Place Volume By Four Points se precisar inserir um volume que
+náo está alinhado a um sistema de coordenadas. Se vocé pode alinhar o volume a ser inserido
+no modelo com um sistema de coordenadas o melhor a fazer é usar o comando Place Volume
+by Two Points. A planta de treinamento nao tem uma boa situagáo onde o uso do comando
+Place Volume by Four Points pode ser usado. Este tutorial irá apenas ilustrar a utilizacáo deste
+
+comando.
+
+1. Clique no botáo Place Volume by Four Points da barra de comandos vertical.
+
+ala fao |
+
+Ul
+
+[Bajas e
+
+Figura 11: Botáo Place Volume by Four Points
+
+SISGRAPH | 123
+
+Un
+
+===== PAGINA 125 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+2. Especifique o nome deste novo volume como Volume_2 na caixa Name da barra de comandos
+Place Volume by Four Point. Assim que digitar o nome do volume o campo Name da barra de
+comandos mudará a opcáo Name Rule para User Defined.
+
+3. Clique na opgáo More... da lista Type da barra de comandos Place Point by Four Point para
+especificar o tipo de volume a ser inserido. Verifique se o “volume type” está com as opcóes
+Usadas anteriormente, caso contrário selecione as mesmas opcóes da Figura 5. Clique em OK.
+
+4. Mantenha o diretório SP3DTrain como diretório pai para este novo volume.
+
+5. Entre os quatro pontos conforme Figuras de 12 a 15,
+
+Figura 13: Entre com o Segundo Ponto — Diregáo do Eixo X Local
+
+SISGRAPH | 124
+
+ily
+
+===== PAGINA 126 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+6. Revise o volume que é criado (conforme Figura 10) e clique em Undo ou Delete para remover
+este volume usado para treinamento.
+
+SISGRAPH | 125
+
+===== PAGINA 127 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Passos para a Insergáo de Volumes ao Longo de um Caminho:
+
+Insira um volume de interferéncia para um caminho de acesso numa parte da planta ocupada pelas
+Units U01 e U04 usando o comando Place Volume Along a Path. Depois de inserir este volume a
+vista do modelo deve se assemelhar a selegáo Figura 16.
+
+Figura 16: Volume inserido com o comando Place Volume Along a Path.
+
+Antes de iniciar o comando, define o seu workspace para mostrar a Unit U01, U04 e o sistema de
+coordenadas U01 CS e U04 CS. Mude para a task Space Management.
+
+1. Clique no botáo Place Volume Along Path da barra de comandos vertical.
+
+0/8/20
+
+Figura 17: Botáo Place Volume Along Path
+
+SISGRAPH | 126
+
+===== PAGINA 128 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+2. A barra de comandos Place Volume Along Path aparece. Desenhe o caminho que irá definir o
+volume de interferéncia, conforme Figura 18.
+
+Figura 18: Definindo o Caminho
+
+Notas:
+
++ As coordenadas exatas deste caminho náo sáo necessárias visto que o propósito deste
+exercício é de aprender o comando e náo os sistema de coordenadas.
+
+*  Certifique-se que a superfície é localizada quando os pontos sao selecionados.
+
++ Inicie o volume próximo as bombas.
+
+3. Para completar o caminho clique em Finish da barra de comandos Place Volume Along Path.
+
+O ultimo shape usado nesta sessáo será mostrado em relagáo ao caminho desenhado, conforme
+Figura 19.
+
+SISGRAPH | 127
+
+ll
+
+===== PAGINA 129 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+4. Clique em Properties na barra de comandos. Na caixa de diálogos Zone Properties, selecione a
+
+aba Cross-Section e especifique:
+
+°A: 3 ft
+°B: 8 ft
++ Cardinality: 8
+
+Zone Properties
+
+Figura 19: Definindo um Caminho
+
+General Relationships [Cross-Section | confauration | notes |
+
+Category:
+
+Cross-Section
+
+[Standard
+
+J] [Rectangle
+
+Property
+
+A
+
+B
+
+Cardinalty
+
+Rotation Angle
+
+Figura 20: Definindo a Sessáo.
+
+SISGRAPH | 128
+
+D
+
+===== PAGINA 130 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Notas:
+
+do caminho usado parte do primeiro ponto para o seg
+
+comando depois que usar um cross-section e um card
+
+Asessáo (cross-section) é orientada ao caminho usado e a um Cardinality point. A orientacáo
+
+undo ponto do caminho.
+
+Se o caminho náo foi tragado corretamente na primeira vez que usou o comando, reinicie o
+
+inal point. Desta forma o SP3D irá usar
+
+estes dados (cross-section e cardinal point) da próxima vez que usar este comando.
+
+5. Especifique o nome deste volume como Volume_3 na caix
+Volume Along Path.
+
+a Name da barra de comandos Place
+
+6. Clique na opgáo More... da lista Type da caixa de comandos Place Volume Along Path para
+
+especificar o tipo de volume a ser inserido. Na caixa de diálog
+
+os Select Space expanda o diretório
+
+Interference Volumes, selecione SPACE_DEF_IV08 dos Interference Volumes e clique em OK.
+
+Cross-Section Name Type
+
+Space folder:
+
+[Rectangle >| [Voume3 [More
+
+Select Space
+
+_x| [SP3D Trin
+
+3 198)
+[3]
+
+a
+
+al.
+
+[x] 2| Be
+
+ala
+
+sl al ella]
+
+>
+
+sel
+
+Address: [Wetitionsinterference Volumes\Interference Volumes
+
+e i
+
+8---Ó Definitions
+
+Part Number
+
+[ Part Description
+
+a—O Areas
+e
+
+SPACE_DEF_IVO1
+SPACE _DEF_IV02
+SPACE_DEF_IV03
+SPACE_DEF_IV04
+SPACE_DEF_IV05
+SPACE_DEF_IVOS
+SPACE_DEF_IVO?
+ISPAGE DEE VOB)
+
+© Drawing Volumes
+
+E Interference Volumes
+
+(2 Interference Volumes
+©) Zones
+
+it
+
+Piping Obstruction
+Equipment Obstr...
+Temporary Obstr...
+Building
+
+Roadway
+Construction
+Underground Ob...
+Miscellaneous
+
+pasea] d
+
+Cano
+
+Figura 21: Selecione o Type como Interference Volume
+
+7. Deixe o diretório Space folder como padráo SP3DTrain.
+
+8. Clique na opgáo Finish da barra de comandos Place Volume Along Path para inserir o volume.
+
+wl
+
+Para mais informagées relacionadas ao space management, veja os tópicos Space Management: An
+Overview e Creating Space Objects: An Overview do user guide SpaceMgmtUsersGuide.pdf.
+
+SISGRAPH | 129
+
+===== PAGINA 131 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Anotagées
+
+SISGRAPH | 130
+
+===== PAGINA 132 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 14: Inserindo Arquivos de Referéncia
+
+Objetivo:
+Ao final desta sesso, vocé estará apto a:
+
+e Inserir um arquivo de referéncia em um modelo.
+
+Pré-requisitos:
+
+e SP3D Visáo Geral
+
+e Criando um arquivo de sessáo
+
+e Definindo um Workspace através de um simples filtro
+
+o Definindo um Workspace através de um filtro de volume
+e Manipulando Vistas
+
+e Selecionando objetos em um modelo
+
+Vesáo Geral:
+
+Vocé pode referenciar arquivos geométricos a partir de outros formatos no SP3D. Para inserir um
+arquivo de referéncia no modelo, o arquivo deve estar em um diretório compartilhado na rede. A
+localizagáo compartilhada padráo é o Symbol share. Em uma configuragao global workshare, seu
+administrador atualiza o Symbol share a cada localizacáo remota para ficar igual ao Host quando
+mudangas sáo feitas no arquivo no Symbol share. Vocé ainda pode anexar um arquivo de
+referéncia que está compartilhado com outro que náo seja o Symbol share. Se vocé fizer isso,
+entretanto, vocé náo terá acesso aos arquivos de referéncia na remote workshare que náo pode
+acessar o compartilhamento que vocé usou. O software irá avisar vocé se vocé escolher um
+compartilhamento que náo seja o Symbol share. Vocé deve compartilhar o arquivo no seu
+computador ou na rede. Seu administrador irá dizer a vocé qual compartilhamento vocé deve usar.
+Vocé pode utilizar arquivos MicroStation no formato V7 com extensáo .dgn ou arquivos AutoCAD
+com extensáo .dxf e .dwg.
+
+Arquivos MicroStation usam o conceito de master units: sub units: positional units (MU: SU: PU)
+para expressar a dimensdes de comprimento. Todas as distáncias no SP3D sáo armazenadas em
+metros. Quando vocé insere um arquivo de referéncia no SP3D, o sistema de unidades MU: SU:
+PU sáo usados na conversáo das unidades em metros. Se as unidades MU: SU: PU náo estiverem
+definidas dentro do arquivo do MicroStation, um erro irá aparecer.
+
+O sistema de unidades recomendado em um arquivo de referéncia sáo 1:1000:80 para o sistema
+métrico (m:mm) e 1:12:2032 (ft: in) para o sistema inglés.
+
+SISGRAPH | 131
+
+MI
+
+===== PAGINA 133 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Passos para inserir um Arquivo de Referéncia:
+
+Insira um arquivo .dgn (MicroStation V7) em um modelo.
+
+1. Defina sua area de trabalho usando Unit U04, U04 CS e Reference da aba Reference. Nomeie
+o filtro como U04 U04CS Ref.
+
+[New Fiter
+
+Multiselect classification:
+
+System | Assembly | Need Space | Analysis | Werk Breakdown Stucture] Pesission Group
+Object Type | Volume] Properties Reference | Configuration ]
+
+Expand the search to include the selected references:
+
+I User of fiter supplies value
+F
+
+Figura 1: Aba Referénce da caixa de diálogo New Filter Properties
+
+Nota:
+
+* Onó de Reference na aba de reference apenas irá aparecer se um arquivo de
+referéncia tiver sido inserido em algum momento anteriormente no modelo. O arquivo
+de referéncia pode ser deletado posteriormente e o nó de referéncia ainda será
+mostrado. Isto é devido ao objeto do nó de referéncia náo ser criado antes de um
+arquivo de referéncia ser inserido.
+
+*  Sevocé nao ver um nó de referéncia na aba Reference da caixa de diálogo de Filter
+Properties, espere e redefina seu filtro como descrito abaixo após vocé inserir seu
+primeiro arquivo de referéncia.
+
+2. Selecione Options... do menu suspenso Tools. Abaixo da aba General verifique a caixa
+Reference e clique Ok.
+
+SISGRAPH | 132
+
+ait
+
+===== PAGINA 134 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+General | Colors | Units of Measure | Tooltips | Fie Locations | SmartSketch | Selected PG |
+
+y Undo
+
+f¥ Make Undo available
+
+Number of undo actions:
+
+sl
+
+1
+
+pWindow-—
+
+JW View status bar
+Locate zone:
+
+Je] pisels ¡vi Space
+Dwell time for QuickPick: (PDS
+
+seconds Mi Reference
+
+Tabs to display in Workspace Explorer:
+
+[Assembly
+
+O Analysis
+
+Figura 2: Aba General da caixa de diálogo Options
+
+3. Para acessar a aba Reference, salve a sessáo, feche e re-abra esta ou troque a tarefa
+Common para a tarefa Catalog e volte para a tarefa Common para ver a nova aba Reference.
+
+Figura 3: Caixa de mensagem avisando vocé para salvar a sessáo
+
+4.Clique em Insert > File.
+
+EW File Edit View
+
+Piping |
+
+Format Tools Pro
+
+Hyperlink...  Ctrl+K
+Note...
+
+Control Point
+
+Figura 4: Comando Insert > File
+
+5. A caixa de diálogo Insert File aparece. Procure selecionar o arquivo usando uma conexáo de
+pasta UNC (ou entre o caminho UNC do arquivo). É importante usar o caminho de pasta UNC e
+entáo o servidor do modelo terá acesso aos arquivos de referéncia.
+
+SISGRAPH | 133
+
+wy
+
+===== PAGINA 135 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+My Reced
+Docunents
+
+Deskiep
+
+I
+|
+|
+|
+i
+
+My Docurents
+a
+Mercer
+MA i o
+ylsick — Flensce: = pen
+Places =
+Files ofthe: MicsoStaicn (don) ai Carcel
+
+Figura 5: Caixa de Diálogo Insert File
+
+Nota:
+
+Vocé pode selecionar múltiplos arquivos para serem inseridos segurando CTRL ou SHIFT
+enquanto seleciona os arquivos.
+
+6. Clique Open para inserir o arquivo de referéncia selecionado.
+
+Após inserir o arquivo, uma aba adicional, Reference, é adicionada ao Workspace Explorer para
+mostrar a hierarquia dos dados de referéncia. A aba Reference apenas aparece na caixa de
+diálogo Filter Properties. Vocé pode definir sua área de trabalho para incluir os arquivos de
+
+referéncia.
+
+Notas:
+
+A localizacáo e orientacáo dos arquivos inseridos iráo se igualar com o sistema de coordenadas
+ativo após os primeiros arquivos serem anexados e vocé poderá mover e rotacionar o arquivo
+anexado selecionando este e usando os comandos Move e Rotate. Vocé pode ver os arquivos
+anexados na aba Reference do Workspace Explorer. Vocé adiciona esta aba selecionando a
+aba Reference em Tools > Options (página geral). Após selecionar a aba Reference, uma
+mensagem irá lembrar que vocé deve fechar a área de trabalho e abri-la novamente para ver a
+aba Reference.
+
+Quando referencias sáo anexadas, a aba Reference aparece na caixa de diálogo Filter
+Properties. Vocé pode definir sua área de trabalho para incluir os arquivos de referéncia.
+
+Para desanexar um arquivo de referéncia de um modelo SP3D, selecione o arquivo no
+Workspace Explorer, delete ele, e recarregue o workspace.
+
+Quando arquivos de referéncia sáo corrigidos, assegure-se de que o arquivo ou a pasta estáo
+compartilhados com as permissóes apropriadas. Também, assegure-se de que as unidades de
+trabalho do arquivo de referéncia sáo suportados. O arquivo deve ter unidades que o software
+possa ler e converter.
+
+Para mais informagées relacionadas a insergáo de arquivos de referéncia, consulte o tópico Usando o menu
+Insert: Uma Visáo Geral no guia de usuário CommonUsersGuide.pdf.
+
+SISGRAPH | 134
+
+l
+
+Ill
+
+===== PAGINA 136 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D — Common
+
+Anotacóes
+
+SISGRAPH | 135
+
+MI
+
+===== PAGINA 137 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Sessáo 15: Inserindo Control Points
+
+Objetivo:
+No final desta sessáo voce estará apto a:
+
+* Inserir control points em um modelo.
+
+Pré-requisitos:
+
++ SP3D Visáo Geral
+
+* Criando um Arquivo de Sessáo (session file)
++ Definindo um Workspace
+
+* Manipulando Vistas
+
+* Selecionando Objetos no Modelo
+
+* Usando PinPoint
+
+Visáo Geral:
+
+Um control point define a coordenada 3D e é associado a um objeto. A geometria de um control
+point é uma esfera com diámetro definido pelo usuário e o volume de um control point náo é
+reportado como interferéncia. O control point é automaticamente associado ao mesmo grupo de
+permiss6es que o objeto ao qual está associado. Se vocé apagar o objeto associado o control point
+também será apagado automaticamente. Qualquer objeto no SP3D pode ser usado como pai,
+incluindo os ¡tens da hierarquia System. Um control point tem propriedades e elementos
+associados. O Type e Subtype indicam o significado e o uso de um control point.
+
+Os control points podem ser usados para:
+
+* Labels no drawings: Estilos de desenhos podem detectar um control point de qualquer
+tipo (Type) e subtipo (Subtype) e a nota associada a este control point e sua origem.
+
+* Dimensóes de referéncias no drawings: Isométricos de tubulagáo e desenhos
+Ortográficos podem inserir dimensóes automaticamente, conforme for definido nas
+dimensioning style rules do desenho. Desenhos ortográficos podem medir dimensóes de
+um control point de qualquer tipo ou subtipo. Isométricos podem mostrar dimensóes de um
+ponto até um control point que estiver associado a um trecho reto e podem ter uma nota do
+tipo Fabrication. O conteúdo desta nota será mostrado nos isométricos gerados.
+
+* Ponto de quebra no piping: Vocé pode usar um control point do tipo/subtipo Spool ou
+WBS para separar os desenhos gerados. Os detalhes de quais tipos podem ser usados
+sáo exemplificados nos tutoriais do curso de Piping.
+
+* Gravar notas em pontos/components: Vocé pode criar um control point numa
+
+localizagáo desejada e adicionar uma nota associada a este control point. Pode ser usado
+para facilitar a visualizagáo de revisóes num modelo.
+
+SISGRAPH | 136
+
+)
+
+===== PAGINA 138 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D —- Common
+
+Passos para colocar um Ponto de Controle (Control Points) no Modelo:
+
+Insira um control point num equipamento elétrico, um equipamento da Unidade U01 na sua área de
+trabalho. A vista do modelo depois de inserir o control point deve ser semelhante a Figura 1
+
+Figura 1: Control Point Inserido.
+Antes de iniciar este procedimento:
+» Defina seu workspace com Unit U01 e U01 CS.
+
+1. Clique no comando Insert > Control Point.
+
+re) File Edit view Format Tools Pro
+
+[admin 7 y]
+
+File...
+Hyperlink... Ctrl+K
+
+Name: zi Note...
+ix, [Electrical Device Control Point
+zÁ a
+
+Figura 2: Comando Insert > Control Point
+
+2. Selecione Electrical Device como objeto pai do control point — o objeto no qual o control point
+
+será posicionado.
+
+SISGRAPH | 137
+
+MI
+
+===== PAGINA 139 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figura 3: Equipamento Elétrico Selecionado.
+
+3. Enquanto estiver inserindo o control point, classifique-o como Mechanical Equipment na lista
+Subtype da barra de comandos Control Point.
+
+Type Subtype:
+
+em aja [Contra Pont
+A]
+
+Stucture
+
+Pipa Mfo Link Paint
+
+Spooi Break
+
+WBS Pipe Break - Fabtication
+VBS Brook Point Type
+
+VAIS Break Poirt 1
+Figura 4: Lista Subtype
+
+Notas:
+
++ As opgGes da lista Type sáo Control Point, Key Point, and Insertion Point. Os control points de
+Isométricos de tubulagáo e de WBS nao podem ser customizados quando estiverem
+relacionados com objetos da task Piping. As dimensóes automáticas de referéncia e os labels
+de desenhos Ortográficos podem ser configurados para usar qualquer tipo de control point. O
+seu administrador pode informar quais os tipos de automagóes podem ser usadas para
+desenhos gerados.
+
++  Vocé pode usar um PinPoint para ajudá-lo a inserir um control point numa coordenada
+deslocada do objeto pai.
+
++  Mude o permission group ativo para Electrical.
+
+4. Clique na saída do equipamento elétrico para inserir um control point e crie uma relagáo entre
+ambos componentes, conforme Figura 5.
+
+SISGRAPH | 138
+
+ill
+
+===== PAGINA 140 =====
+Treinamento | Process, Power & Marine Smart 3D - Common
+
+Figure 5: Cable Tray Port de um dispositivo eletronico
+
+Notas:
+
++  Depois de inserir um control point no modelo vocé pode vé-los assim que configurar sua vista
+para mostrar o Reference Aspect (ver comando Format View).
+
++  Vocé pode selecionar o control point graficamente quando o Reference Aspect é mostrado. Se
+o control point dentro do volume de um objeto for difícil de selecionar vocé pode selecioná-lo
+pelo Workspace Explorer. Primeiro selecione o objeto pai do control point. O Workspace
+Explorer expande automaticamente para que vocé veja o objeto selecionado. O control point é
+mostrado dentro do objeto pai no Workspace Explorer. Vocé pode ver e selecionar um control
+point através do Workspace Explorer, ao invés de selecionar o control point graficamente.
+
+e Ao vera aba Relationships de um objeto voce pode ver os control points relacionados a este
+
+objeto.
+
+5. Com um control point selecionado, selecione a opcáo Properties para abrir a caixa de diálogos
+Control Point Properties.
+
+SISGRAPH | 139
+
+mI
+
+===== PAGINA 141 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+oi Properties
+
+Category:
+Standard
+
+Property
+
+Control Point Type
+
+Control Point Sub Type
+
+Name
+
+Control Point
+Mechanical E quipment
+
+Control_point_01
+
+Naming Rule
+
+Diameter
+
+Parent Object
+
+Associalivity
+
+DefaultNameRule y]
+Oft 3.94 in
+
+Electrical Device
+
+Figura 6: Caixa de Diálogos Control Point Properties
+
+Notas:
+
+* Voce pode mudar o diámetro da esfera de um control point mudando a propriedade Diameter.
+
+* Quando a propriedade Associativity está em True, o control point sera movido junto com o
+objeto pai. Voce nao pode mover o control point em relacáo ao objeto pai. Quando esta
+propriedade estiver em False, o control point náo será movido junto com o objeto pai. Voce
+
+também pode selecionar e mover um control point em relagáo ao objeto pai. Uma vez que
+
+voce mudar a opcáo Associativity para false voce náo poderá voltar para True.
+
+Para mais informagées relacionadas a insergáo de control points veja o tópico Using the Insert Menu: An
+
+Overview do manual CommonUsersGuide. paf.
+
+SISGRAPH | 140
+
+Tl
+
+===== PAGINA 142 =====
+Treinamento | Process, Power & Marine
+
+Smart 3D - Common
+
+Anotacóes
+
+SISGRAPH | 141
+
+BI
+
+===== PAGINA 143 =====
+~ AR ARR Ye

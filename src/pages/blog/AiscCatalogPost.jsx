@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function AiscCatalogPost() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -69,9 +70,7 @@ export default function AiscCatalogPost() {
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link to="/blog" className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors">
-              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
             <span className="bg-blue-700/90 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -109,7 +108,7 @@ export default function AiscCatalogPost() {
               <i className="fa-solid fa-lightbulb text-yellow-400 mr-2" /> El problema de las tablas estáticas
             </h2>
             <p className="text-slate-400 leading-relaxed mb-4">
-              Todo proyectista estructural que trabaja con norma AISC lo conoce bien: abres el{" "}
+              Todo diseñador estructural que trabaja con norma AISC lo conoce bien: abres el{" "}
               <strong className="text-white">Steel Construction Manual</strong> o un PDF de la v15.0, buscas
               el perfil, lees el valor en pulgadas y luego haces la conversión a milímetros a mano. Un proceso
               que se repite decenas de veces al día.
@@ -346,10 +345,7 @@ export default function AiscCatalogPost() {
       {/* Footer Nav */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-between">
-          <Link to="/blog" className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base">
-            <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            {isEn ? "Back to Blog" : "Volver al Blog"}
-          </Link>
+          <BlogBackButton />
           <Link to="/herramientas/aisc" className="inline-flex items-center text-slate-400 hover:text-bim-blue font-medium transition-colors text-sm">
             <i className="fa-solid fa-database mr-2" /> Abrir Catálogo AISC
           </Link>

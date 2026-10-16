@@ -1,1 +1,13 @@
-/*    /index.html   200
+# Apex to www 301 direct redirect
+https://andresgallop.com/* https://www.andresgallop.com/:splat 301!
+
+# Block security scanners and spam with real HTTP 404
+/wp-admin/*          /404.html  404
+/wp-login.php        /404.html  404
+/*.php               /404.html  404
+/*.env               /404.html  404
+/lander/*            /404.html  404
+/sberchat/*          /404.html  404
+
+# React Router SPA catch-all
+/*                   /index.html 200

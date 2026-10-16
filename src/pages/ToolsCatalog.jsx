@@ -10,14 +10,14 @@ export default function ToolsCatalog() {
     <div className="bg-gray-50 dark:bg-bim-dark min-h-screen pt-24 pb-12 transition-colors duration-300">
       <SEOHead
         title={isEn ? "Free Online BIM & Structural Engineering Tools" : "Herramientas de Ingeniería Estructural y BIM Online Gratis"}
-        description={isEn ? "Interactive calculators and catalogs for structural designers: Chilean ICHA catalog, AISC v15.0 catalog, C250 stair calculator, buckling shorteners, and IFC viewer." : "Calculadoras y catálogos interactivos para proyectistas estructurales: Catálogo ICHA chileno, Catálogo AISC v15.0, Calculador de Escaleras C250, Acortadores de Pandeo y Visor IFC."}
+        description={isEn ? "Interactive calculators and catalogs for structural designers: Chilean ICHA catalog, AISC v15.0 catalog, C250 stair calculator, buckling shorteners, and IFC viewer." : "Calculadoras y catálogos interactivos para diseñadores estructurales: Catálogo ICHA chileno, Catálogo AISC v15.0, Calculador de Escaleras C250, Acortadores de Pandeo y Visor IFC."}
         path="/herramientas"
         keywords="Herramientas estructurales online, calculadoras BIM, catálogo ICHA, catálogo AISC, ingeniería civil estructural, cubicador de acero gratis"
         schema={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": isEn ? "Online BIM & Structural Engineering Tools" : "Herramientas de Ingeniería Estructural y BIM Online",
-          "url": "https://atelijudesign.com/herramientas",
+          "url": "https://www.andresgallop.com/herramientas",
           "description": isEn ? "Free online calculators and catalogs suite for structural engineering and BIM design workflows." : "Suite de calculadoras y catálogos online gratuitos para proyectos de ingeniería estructural y diseño BIM."
         }}
       />
@@ -46,14 +46,14 @@ export default function ToolsCatalog() {
             )}
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            {isEn ? "Engineering calculators and automation utilities designed to optimize structural designers and modelers workflow." : "Calculadoras de ingeniería y utilidades de automatización diseñadas para optimizar el flujo de trabajo de diseñadores y proyectistas estructurales."}
+            {isEn ? "Engineering calculators and automation utilities designed to optimize structural designers and modelers workflow." : "Calculadoras de ingeniería y utilidades de automatización diseñadas para optimizar el flujo de trabajo de diseñadores estructurales y modeladores BIM."}
           </p>
         </div>
 
         {/* Tools Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          {/* ICHA Tool Card */}
+          {/* 1. ICHA Tool Card */}
           <Link to="/herramientas/icha" className="group block h-full">
             <div className="flex flex-col h-full bg-slate-900 rounded-2xl border border-slate-700/50 p-8 transition-all duration-300 hover:border-bim-blue/50 hover:shadow-[0_8px_30px_rgb(59,130,246,0.1)] hover:-translate-y-1 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-bim-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -79,7 +79,7 @@ export default function ToolsCatalog() {
             </div>
           </Link>
 
-          {/* AISC Tool Card */}
+          {/* 2. AISC Tool Card */}
           <Link to="/herramientas/aisc" className="group block h-full">
             <div className="flex flex-col h-full bg-slate-900 rounded-2xl border border-slate-700/50 p-8 transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_8px_30px_rgb(34,211,238,0.1)] hover:-translate-y-1 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -100,6 +100,65 @@ export default function ToolsCatalog() {
                 </span>
                 <span className="text-sm font-bold text-cyan-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">
                   {isEn ? "Open" : "Abrir"} <i className="fa-solid fa-arrow-right"></i>
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          {/* 3. Profile Calculator Card (Calculadora de Acero) */}
+          <Link to="/herramientas/perfiles" className="group block h-full">
+            <div className="flex flex-col h-full bg-slate-900 rounded-2xl border border-slate-700/50 p-8 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_8px_30px_rgb(52,211,153,0.1)] hover:-translate-y-1 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10 flex-1">
+                <div className="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-2xl text-emerald-400 mb-6 shadow-sm border border-slate-700/50 group-hover:scale-110 transition-transform">
+                  <i className="fa-solid fa-shapes"></i>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 font-grotesk group-hover:text-emerald-400 transition-colors">
+                  {isEn ? "Structural Steel Calculator" : "Calculadora de Acero"}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  {isEn ? "Parametric sizing and takeoff for various structural profiles (H, L, T, XL, CA, etc). Includes surface coverage area and export." : "Dimensionamiento y cubicación paramétrica de diferentes perfiles estructurales (H, L, T, XL, CA, etc). Incluye cálculo de área de cobertura y exportación."}
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center justify-between pt-6 border-t border-slate-800">
+                <span className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Online
+                </span>
+                <span className="text-sm font-bold text-emerald-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                  {isEn ? "Open" : "Abrir"} <i className="fa-solid fa-arrow-right"></i>
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          {/* SmartPlant 3D MasterLab Card */}
+          <Link to="/herramientas/smartplant-3d" className="group block h-full">
+            <div className="flex flex-col h-full bg-slate-900 rounded-2xl border border-cyan-500/40 p-8 transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_8px_30px_rgb(6,182,212,0.2)] hover:-translate-y-1 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/15 via-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10 flex-1">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-2xl text-cyan-400 shadow-sm border border-cyan-500/30 group-hover:scale-110 transition-transform">
+                    <i className="fa-solid fa-industry"></i>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span> {isEn ? "Simulator & Lab" : "Simulador & Lab"}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 font-grotesk group-hover:text-cyan-400 transition-colors">
+                  {isEn ? "SmartPlant 3D MasterLab" : "SmartPlant 3D MasterLab"}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  {isEn
+                    ? "Interactive training platform for Intergraph SmartPlant 3D (SP3D): 3D viewport simulator, PinPoint precision trainer, 10 official modules, piping specs, and isolated VM architecture."
+                    : "Plataforma de formación interactiva para Intergraph SmartPlant 3D (SP3D): simulador de viewport con SmartStep, entrenador PinPoint [F9], 10 módulos técnicos, piping specs y despliegue en VM."}
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center justify-between pt-6 border-t border-slate-800">
+                <span className="text-xs font-bold text-cyan-400 uppercase flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span> 10 Módulos Online
+                </span>
+                <span className="text-sm font-bold text-cyan-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                  {isEn ? "Launch Lab" : "Iniciar Lab"} <i className="fa-solid fa-arrow-right"></i>
                 </span>
               </div>
             </div>
@@ -131,32 +190,6 @@ export default function ToolsCatalog() {
                 </span>
                 <span className="text-sm font-bold text-amber-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">
                   {isEn ? "View Status" : "Ver Estado"} <i className="fa-solid fa-arrow-right"></i>
-                </span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Profile Calculator Card */}
-          <Link to="/herramientas/perfiles" className="group block h-full">
-            <div className="flex flex-col h-full bg-slate-900 rounded-2xl border border-slate-700/50 p-8 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_8px_30px_rgb(52,211,153,0.1)] hover:-translate-y-1 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative z-10 flex-1">
-                <div className="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-2xl text-emerald-400 mb-6 shadow-sm border border-slate-700/50 group-hover:scale-110 transition-transform">
-                  <i className="fa-solid fa-shapes"></i>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3 font-grotesk group-hover:text-emerald-400 transition-colors">
-                  {isEn ? "Structural Steel Calculator" : "Calculadora de Acero"}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                  {isEn ? "Parametric sizing and takeoff for various structural profiles (H, L, T, XL, CA, etc). Includes surface coverage area and export." : "Dimensionamiento y cubicación paramétrica de diferentes perfiles estructurales (H, L, T, XL, CA, etc). Incluye cálculo de área de cobertura y exportación."}
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center justify-between pt-6 border-t border-slate-800">
-                <span className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Online
-                </span>
-                <span className="text-sm font-bold text-emerald-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                  {isEn ? "Open" : "Abrir"} <i className="fa-solid fa-arrow-right"></i>
                 </span>
               </div>
             </div>
@@ -196,12 +229,22 @@ export default function ToolsCatalog() {
                 <div className="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-2xl text-cyan-400 mb-6 shadow-sm border border-cyan-500/20 group-hover:scale-110 transition-transform">
                   <i className="fa-solid fa-file-lines"></i>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 font-grotesk group-hover:text-cyan-400 transition-colors">CV Builder Pro ATS</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">Creador de CV sin fotos: analiza ofertas, identifica keywords y exporta proyectos a PDF y LaTeX desde tu navegador.</p>
+                <h3 className="text-xl font-bold text-white mb-3 font-grotesk group-hover:text-cyan-400 transition-colors">
+                  {isEn ? "ATS Resume Builder Pro" : "CV Builder Pro ATS"}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  {isEn
+                    ? "Photo-free technical resume builder: analyze job offers, identify target keywords, and export to PDF and LaTeX directly from your browser."
+                    : "Creador de CV sin fotos: analiza ofertas, identifica keywords y exporta proyectos a PDF y LaTeX desde tu navegador."}
+                </p>
               </div>
               <div className="relative z-10 flex items-center justify-between pt-6 border-t border-slate-800">
-                <span className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-emerald-500"></span> Privado · Local</span>
-                <span className="text-sm font-bold text-cyan-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">Abrir <i className="fa-solid fa-arrow-right"></i></span>
+                <span className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span> {isEn ? "Private · Local" : "Privado · Local"}
+                </span>
+                <span className="text-sm font-bold text-cyan-400 flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                  {isEn ? "Open" : "Abrir"} <i className="fa-solid fa-arrow-right"></i>
+                </span>
               </div>
             </div>
           </Link>

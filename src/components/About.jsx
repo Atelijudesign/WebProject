@@ -1,6 +1,7 @@
 import { skills, featuredProjects } from "../constants";
 import SectionWrapper from "../hoc/SectionWrapper";
-import { SpotlightCard } from "./ui/SpotlightCard";
+import { Tilt3DCard } from "./ui/Tilt3DCard";
+import { ScrollWordReveal } from "./ui/ScrollWordReveal";
 import { useTranslation } from "../hooks/useTranslation";
 
 export const About = () => {
@@ -8,7 +9,7 @@ export const About = () => {
 
   return (
     <div className="py-12 md:py-16">
-      <div className="mb-10">
+      <div className="mb-8">
         <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-1">
           {t("about_tag")}
         </span>
@@ -17,11 +18,20 @@ export const About = () => {
         </h2>
       </div>
 
+      {/* Kinetic Scroll-Driven Manifesto Reveal */}
+      <ScrollWordReveal
+        subtitle={t("about_manifesto_tag")}
+        text={t("about_manifesto")}
+        className="mb-10 border-b border-slate-800/60 pb-8"
+      />
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Card 1: Perfil & Bio */}
-        <SpotlightCard
-          className="md:col-span-2 p-5 sm:p-6 md:p-8 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl shadow-xl flex flex-col md:flex-row gap-6 items-start"
-          spotlightColor="rgba(6, 182, 212, 0.12)"
+        <Tilt3DCard
+          containerClassName="md:col-span-2"
+          maxTilt={5}
+          className="p-5 sm:p-6 md:p-8 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl shadow-xl flex flex-col md:flex-row gap-6 items-start"
+          glareColor="rgba(6, 182, 212, 0.12)"
           spotlightBorderColor="rgba(56, 189, 248, 0.4)"
         >
           <div className="flex flex-col md:flex-row gap-6 items-start w-full">
@@ -30,7 +40,7 @@ export const About = () => {
                 <img
                   src="assets/img/profile.webp"
                   className="w-full h-full object-cover rounded-xl"
-                  alt="Andrés Gallo P. — Proyectista Estructural BIM"
+                  alt="Andrés Gallo P. — Diseñador Estructural BIM"
                   width="120"
                   height="120"
                   loading="lazy"
@@ -50,12 +60,13 @@ export const About = () => {
               </div>
             </div>
           </div>
-        </SpotlightCard>
+        </Tilt3DCard>
 
         {/* Card 2: Proyectos Emblemáticos */}
-        <SpotlightCard
+        <Tilt3DCard
+          maxTilt={7}
           className="p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl shadow-xl flex flex-col justify-between"
-          spotlightColor="rgba(16, 185, 129, 0.12)"
+          glareColor="rgba(16, 185, 129, 0.12)"
           spotlightBorderColor="rgba(52, 211, 153, 0.4)"
         >
           <div>
@@ -89,12 +100,14 @@ export const About = () => {
               })}
             </div>
           </div>
-        </SpotlightCard>
+        </Tilt3DCard>
 
         {/* Card 3: Stack Técnico */}
-        <SpotlightCard
-          className="md:col-span-3 p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl shadow-xl"
-          spotlightColor="rgba(56, 189, 248, 0.12)"
+        <Tilt3DCard
+          containerClassName="md:col-span-3"
+          maxTilt={4}
+          className="p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl shadow-xl"
+          glareColor="rgba(56, 189, 248, 0.12)"
           spotlightBorderColor="rgba(56, 189, 248, 0.35)"
         >
           <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-4">
@@ -114,7 +127,7 @@ export const About = () => {
               </span>
             ))}
           </div>
-        </SpotlightCard>
+        </Tilt3DCard>
       </div>
     </div>
   );

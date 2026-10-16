@@ -4,317 +4,25 @@ import SEOHead from "../components/SEOHead";
 import { PROFILE_CALCULATORS } from "../utils/profileCalculations";
 import { ICHA_CATALOG } from "../data/icha_data.js";
 import { useTranslation } from "../context/LanguageContext";
-import { generateTakeoffPdf } from "../utils/pdfExportUtils";
-import { generateTakeoffExcel } from "../utils/excelExportUtils";
+import { ExportService, ExcelTakeoffStrategy, PdfTakeoffStrategy } from "../core/export";
 
-// ==================== SVG BUILDERS ====================
-const SZ = 240, CX = SZ / 2, CY = SZ / 2, PAD = 45;
-
-function dimLine(x1, y1, x2, y2, label, offset = 0, color = "#60a5fa") {
-  const isV = Math.abs(x1 - x2) < 2;
-  const ox = isV ? offset : 0, oy = isV ? 0 : offset;
-  const mx = (x1 + x2) / 2 + ox, my = (y1 + y2) / 2 + oy;
-  const tox = isV ? (offset > 0 ? 8 : -8) : 0;
-  const toy = isV ? 0 : offset > 0 ? 12 : -6;
-  const tx = Math.max(24, Math.min(SZ - 24, mx + tox));
-  const ty = Math.max(10, Math.min(SZ - 4, my + toy));
-  return `<line x1="${x1 + ox}" y1="${y1 + oy}" x2="${x2 + ox}" y2="${y2 + oy}" stroke="${color}" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.7"/>
-          <text x="${tx}" y="${ty}" fill="${color}" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">${label}</text>`;
-}
-
-function buildHSvg(h, b, s, t1, t2, unequal = false, b1, b2, gramil = null) {
-  const bTop = unequal ? b1 : b, bBot = unequal ? b2 : b;
-  const maxB = Math.max(bTop, bBot);
-  const sc = Math.min((SZ - 2 * PAD) / h, (SZ - 2 * PAD) / maxB);
-  const H = h * sc, B1 = bTop * sc, B2 = bBot * sc, S = Math.max(s * sc, 4), T1 = Math.max(t1 * sc, 4), T2 = Math.max(t2 * sc, 4);
-  const x = CX, y = CY;
-  const shape = `<polygon points="${x - B1 / 2},${y - H / 2} ${x + B1 / 2},${y - H / 2} ${x + B1 / 2},${y - H / 2 + T1} ${x + S / 2},${y - H / 2 + T1} ${x + S / 2},${y + H / 2 - T2} ${x + B2 / 2},${y + H / 2 - T2} ${x + B2 / 2},${y + H / 2} ${x - B2 / 2},${y + H / 2} ${x - B2 / 2},${y + H / 2 - T2} ${x - S / 2},${y + H / 2 - T2} ${x - S / 2},${y - H / 2 + T1} ${x - B1 / 2},${y - H / 2 + T1}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(x - B1 / 2, y - H / 2, x - B1 / 2, y + H / 2, `h=${h}`, -22);
-  dims += dimLine(x - B1 / 2, y + H / 2, x + B2 / 2, y + H / 2, unequal ? `b°=${b2}` : `b=${b}`, 18);
-  dims += `<text x="${x + S / 2 + 6}" y="${y + 4}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${s}</text>`;
-  if (unequal) {
-    dims += dimLine(x - B1 / 2, y - H / 2, x + B1 / 2, y - H / 2, `b1=${b1}`, -14);
-    dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t1=${t1}</text>`;
-    dims += `<text x="${x + B2 / 2 + 6}" y="${y + H / 2 - T2 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t2=${t2}</text>`;
-  } else {
-    dims += `<text x="${x + B1 / 2 + 6}" y="${y - H / 2 + T1 / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${t1}</text>`;
-  }
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${x - G / 2}" y1="${y - H / 2}" x2="${x - G / 2}" y2="${y + H / 2}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${x + G / 2}" y1="${y - H / 2}" x2="${x + G / 2}" y2="${y + H / 2}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${x - G / 2}" cy="${y - H / 2 + T1 / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${x + G / 2}" cy="${y - H / 2 + T1 / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${x - G / 2}" cy="${y + H / 2 - T2 / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${x + G / 2}" cy="${y + H / 2 - T2 / 2}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${x}" y="${y - H / 2 - 8}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600" text-anchor="middle">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildTSvg(v) {
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / v.b);
-  const H = v.h * sc, B = v.b * sc, T = Math.max(v.t * sc, 4), S = Math.max(v.s * sc, 4);
-  const x = CX, top = CY - H / 2;
-  const shape = `<polygon points="${x - B / 2},${top} ${x + B / 2},${top} ${x + B / 2},${top + T} ${x + S / 2},${top + T} ${x + S / 2},${top + H} ${x - S / 2},${top + H} ${x - S / 2},${top + T} ${x - B / 2},${top + T}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(x - B / 2, top, x - B / 2, top + H, `h=${v.h}`, -22);
-  dims += dimLine(x - B / 2, top, x + B / 2, top, `b=${v.b}`, -14);
-  dims += `<text x="${x + B / 2 + 6}" y="${top + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
-  dims += `<text x="${x + S / 2 + 6}" y="${top + T + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">s=${v.s}</text>`;
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-}
-
-function buildCASvg(v, gramil = null) {
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / (v.b * 2 || 100));
-  const H = v.h * sc, B = Math.max((v.b || 50) * sc, 8), T = Math.max(v.t * sc, 3), C = v.c ? Math.max(v.c * sc, 6) : 0;
-  const left = CX - B / 2, top = CY - H / 2;
-  let pts;
-  if (C > 0) {
-    pts = `${left},${top} ${left + B},${top} ${left + B},${top + C} ${left + B - T},${top + C} ${left + B - T},${top + T} ${left + T},${top + T} ${left + T},${top + H - T} ${left + B - T},${top + H - T} ${left + B - T},${top + H - C} ${left + B},${top + H - C} ${left + B},${top + H} ${left},${top + H}`;
-  } else {
-    pts = `${left},${top} ${left + B},${top} ${left + B},${top + T} ${left + T},${top + T} ${left + T},${top + H - T} ${left + B},${top + H - T} ${left + B},${top + H} ${left},${top + H}`;
-  }
-  const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(left + B + 4, top, left + B + 4, top + H, `h=${v.h}`, 16);
-  dims += dimLine(left, top + H, left + B, top + H, `b=${v.b || 50}`, 16);
-  dims += `<text x="${left + B + 6}" y="${top + T / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
-  if (C > 0) dims += `<text x="${left + B + 6}" y="${top + H - C / 2 + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">c=${v.c}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${left + G}" y1="${top}" x2="${left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${left + G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${left + G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${left + G + 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildICASvg(v, gramil = null) {
-  const bw = (v.b || 100) / 2;
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / (v.b || 100));
-  const H = v.h * sc, T = Math.max(v.t * sc, 3), BW = bw * sc, C = Math.max((v.c || 0) * sc, 4);
-  const leftC_right = CX, rightC_left = CX;
-  const top = CY - H / 2;
-  const pts = `0,0 ${BW},0 ${BW},${C} ${BW-T},${C} ${BW-T},${T} ${T},${T} ${T},${H-T} ${BW-T},${H-T} ${BW-T},${H-C} ${BW},${H-C} ${BW},${H} 0,${H}`;
-  const shape = `<g transform="translate(${rightC_left}, ${top})">
-                   <polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                 </g>
-                 <g transform="translate(${leftC_right}, ${top}) scale(-1, 1)">
-                   <polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                 </g>`;
-  let dims = dimLine(leftC_right - BW, top, leftC_right - BW, top + H, `h=${v.h}`, -20);
-  dims += dimLine(leftC_right - BW, top + H + 12, rightC_left + BW, top + H + 12, `b=${v.b}`, 16);
-  dims += `<text x="${leftC_right - T - 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">t=${v.t}</text>`;
-  if (v.c > 0) dims += `<text x="${leftC_right - BW - 6}" y="${top + H - C + 3}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">c=${v.c}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${leftC_right - G}" y1="${top}" x2="${leftC_right - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${rightC_left + G}" y1="${top}" x2="${rightC_left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${leftC_right - G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${rightC_left + G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${rightC_left + G + 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildCSvg(v, unequal = false, gramil = null) {
-  const bVal = unequal ? Math.max(v.b1 || 75, v.b2 || 75) : v.b;
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / (bVal * 2));
-  const H = v.h * sc, B = bVal * sc, T = Math.max(v.t * sc, 3);
-  const x = CX, top = CY - H / 2;
-  const pts = `${x - B},${top} ${x},${top} ${x},${top + T} ${x - B + T},${top + T} ${x - B + T},${top + H - T} ${x},${top + H - T} ${x},${top + H} ${x - B},${top + H}`;
-  const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(x + 4, top, x + 4, top + H, `h=${v.h}`, 14);
-  if (unequal) {
-    dims += dimLine(x - B, top, x, top, `b1=${v.b1}`, -14);
-    dims += dimLine(x - B, top + H, x, top + H, `b2=${v.b2}`, 16);
-  } else {
-    dims += dimLine(x - B, top + H, x, top + H, `b=${v.b}`, 16);
-  }
-  dims += `<text x="${x + 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${x - G}" y1="${top}" x2="${x - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${x - G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${x - G}" cy="${top + H - T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${x - G - 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600" text-anchor="end">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildICSvg(v, gramil = null) {
-  const bc = (v.b || 100) / 2;
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / (v.b || 100));
-  const H = v.h * sc, T = Math.max(v.t * sc, 3), BW = bc * sc;
-  const leftC_right = CX, rightC_left = CX;
-  const top = CY - H / 2;
-  const ptsL = `${leftC_right - BW},${top} ${leftC_right},${top} ${leftC_right},${top + H} ${leftC_right - BW},${top + H} ${leftC_right - BW},${top + H - T} ${leftC_right - T},${top + H - T} ${leftC_right - T},${top + T} ${leftC_right - BW},${top + T}`;
-  const ptsR = `${rightC_left},${top} ${rightC_left + BW},${top} ${rightC_left + BW},${top + T} ${rightC_left + T},${top + T} ${rightC_left + T},${top + H - T} ${rightC_left + BW},${top + H - T} ${rightC_left + BW},${top + H} ${rightC_left},${top + H}`;
-  const shape = `<polygon points="${ptsL}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                 <polygon points="${ptsR}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(leftC_right - BW, top, leftC_right - BW, top + H, `h=${v.h}`, -20);
-  dims += dimLine(leftC_right - BW, top + H + 12, rightC_left + BW, top + H + 12, `b=${v.b}`, 16);
-  dims += `<text x="${leftC_right - T - 6}" y="${top + T + 12}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">t=${v.t}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${leftC_right - G}" y1="${top}" x2="${leftC_right - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${rightC_left + G}" y1="${top}" x2="${rightC_left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${leftC_right - G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${rightC_left + G}" cy="${top + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${rightC_left + G + 6}" y="${top + H / 2 + 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildLSvg(v, gramil = null) {
-  const maxD = Math.max(v.h, v.b);
-  const sc = (SZ - 2 * PAD) / maxD;
-  const H = v.h * sc, B = v.b * sc, T = Math.max(v.t * sc, 3);
-  const x = CX - B / 2, top = CY - H / 2;
-  const pts = `${x},${top} ${x + T},${top} ${x + T},${top + H - T} ${x + B},${top + H - T} ${x + B},${top + H} ${x},${top + H}`;
-  const shape = `<polygon points="${pts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(x, top, x, top + H, `h=${v.h}`, -20);
-  dims += dimLine(x, top + H, x + B, top + H, `b=${v.b}`, 16);
-  dims += `<text x="${x + T + 6}" y="${top + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${x + G}" y1="${top}" x2="${x + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${x}" y1="${top + H - G}" x2="${x + B}" y2="${top + H - G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${x + G}" cy="${top + H - G}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${x + G + 6}" y="${top + H - G - 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildTLSvg(v, gramil = null) {
-  const bw = (v.b || 100) / 2;
-  const maxD = Math.max(v.h, v.b);
-  const sc = (SZ - 2 * PAD) / maxD;
-  const H = v.h * sc, T = Math.max(v.t * sc, 3), BW = bw * sc;
-  const gap = 4;
-  const leftL_right = CX - gap / 2;
-  const rightL_left = CX + gap / 2;
-  const top = CY - H / 2;
-  const ptsL = `${leftL_right - BW},${top + H - T} ${leftL_right - T},${top + H - T} ${leftL_right - T},${top} ${leftL_right},${top} ${leftL_right},${top + H} ${leftL_right - BW},${top + H}`;
-  const ptsR = `${rightL_left},${top} ${rightL_left + T},${top} ${rightL_left + T},${top + H - T} ${rightL_left + BW},${top + H - T} ${rightL_left + BW},${top + H} ${rightL_left},${top + H}`;
-  const shape = `<polygon points="${ptsL}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                 <polygon points="${ptsR}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>`;
-  let dims = dimLine(leftL_right - BW, top, leftL_right - BW, top + H, `h=${v.h}`, -20);
-  dims += dimLine(leftL_right - BW, top + H, rightL_left + BW, top + H, `b=${v.b}`, 16);
-  dims += `<text x="${leftL_right - T - 6}" y="${top + 20}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="end">t=${v.t}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${leftL_right - BW}" y1="${top + H - G}" x2="${rightL_left + BW}" y2="${top + H - G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${leftL_right - G}" y1="${top}" x2="${leftL_right - G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${rightL_left + G}" y1="${top}" x2="${rightL_left + G}" y2="${top + H}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${leftL_right - G}" cy="${top + H - G}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${rightL_left + G}" cy="${top + H - G}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${rightL_left + G + 6}" y="${top + H - G - 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildXLSvg(v, gramil = null) {
-  const totalMax = Math.max(v.h, v.b);
-  const sc = (SZ - 2 * PAD) / totalMax;
-  const H_half = (v.h / 2) * sc;
-  const B_half = (v.b / 2) * sc;
-  const T = Math.max(v.t * sc, 3);
-  const ax = CX, ay = CY;
-  const aPts = `${ax},${ay} ${ax},${ay - H_half} ${ax - T},${ay - H_half} ${ax - T},${ay - T} ${ax - B_half},${ay - T} ${ax - B_half},${ay}`;
-  const bx = CX, by = CY;
-  const bPts = `${bx},${by} ${bx},${by + H_half} ${bx + T},${by + H_half} ${bx + T},${by + T} ${bx + B_half},${by + T} ${bx + B_half},${by}`;
-  const axes = `<line x1="${CX}" y1="${PAD}" x2="${CX}" y2="${SZ - PAD}" stroke="#475569" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5"/>
-                <line x1="${PAD}" y1="${CY}" x2="${SZ - PAD}" y2="${CY}" stroke="#475569" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5"/>`;
-
-  const shape = `${axes}
-                <polygon points="${aPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
-                <polygon points="${bPts}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>`;
-  let dims = dimLine(ax - B_half - 12, ay - H_half, ax - B_half - 12, by + H_half, `h=${v.h}`, -18);
-  dims += dimLine(ax - B_half, by + H_half + 12, bx + B_half, by + H_half + 12, `b=${v.b}`, 16);
-  dims += `<text x="${ax - B_half + 6}" y="${ay - H_half + 14}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600">t=${v.t}</text>`;
-
-  let gl = "";
-  if (gramil) {
-    const G = gramil * sc;
-    gl += `<line x1="${ax - G}" y1="${ay - H_half}" x2="${ax - G}" y2="${ay}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${ax - B_half}" y1="${ay - G}" x2="${ax}" y2="${ay - G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${bx + G}" y1="${by}" x2="${bx + G}" y2="${by + H_half}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<line x1="${bx}" y1="${by + G}" x2="${bx + B_half}" y2="${by + G}" stroke="#f97316" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.6"/>`;
-    gl += `<circle cx="${ax - G}" cy="${ay - T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<circle cx="${bx + G}" cy="${by + T / 2}" r="2" fill="#f97316"/>`;
-    gl += `<text x="${bx + G + 6}" y="${by + H_half - 4}" fill="#f97316" font-size="8" font-family="Inter" font-weight="600">g=${gramil}</text>`;
-  }
-
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}${gl}</svg>`;
-}
-
-function buildPlateSvg(v) {
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / v.b);
-  const H = v.h * sc, B = v.b * sc;
-  const x = CX - B / 2, y = CY - H / 2;
-  const shape = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2" rx="2"/>`;
-  let dims = dimLine(x, y, x, y + H, `h=${v.h}`, -22);
-  dims += dimLine(x, y + H, x + B, y + H, `b=${v.b}`, 16);
-  dims += `<text x="${CX}" y="${CY + 4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">t=${v.t}</text>`;
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-}
-
-function buildPipeSvg(v) {
-  const sc = (SZ - 2 * PAD) / v.dia;
-  const R = (v.dia * sc) / 2, r = ((v.dia - 2 * v.thick) * sc) / 2;
-  const shape = `<circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="#3b82f6" stroke-width="2"/>
-                  <circle cx="${CX}" cy="${CY}" r="${r}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2"/>
-                  <path d="M${CX - R},${CY} A${R},${R} 0 0,1 ${CX + R},${CY}" fill="rgba(59,130,246,0.12)"/>
-                  <path d="M${CX - r},${CY} A${r},${r} 0 0,1 ${CX + r},${CY}" fill="rgba(11,18,32,0.9)"/>`;
-  let dims = dimLine(CX, CY, CX + R, CY, `Ø=${v.dia}`, -14);
-  dims += `<text x="${CX}" y="${CY + R + 16}" fill="#60a5fa" font-size="9" font-family="Inter" font-weight="600" text-anchor="middle">e=${v.thick}</text>`;
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-}
-
-function buildTubeSvg(v) {
-  const sc = Math.min((SZ - 2 * PAD) / v.h, (SZ - 2 * PAD) / v.b);
-  const H = v.h * sc, B = v.b * sc, T = Math.max(v.t * sc, 3);
-  const x = CX - B / 2, y = CY - H / 2;
-  const outer = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="none" stroke="#3b82f6" stroke-width="2" rx="3"/>`;
-  const inner = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="rgba(11,18,32,0.9)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" rx="1"/>`;
-  const fill = `<rect x="${x}" y="${y}" width="${B}" height="${H}" fill="rgba(59,130,246,0.12)" rx="3"/>`;
-  const innerClear = `<rect x="${x + T}" y="${y + T}" width="${B - 2 * T}" height="${H - 2 * T}" fill="rgba(11,18,32,0.85)" rx="1"/>`;
-  let dims = dimLine(x, y, x, y + H, `h=${v.h}`, -22);
-  dims += dimLine(x, y + H, x + B, y + H, `b=${v.b}`, 16);
-  dims += `<text x="${CX}" y="${CY + 4}" fill="#60a5fa" font-size="10" font-family="Inter" font-weight="600" text-anchor="middle">t=${v.t}</text>`;
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${fill}${innerClear}${outer}${inner}${dims}</svg>`;
-}
-
-function buildRBSvg(v) {
-  const sc = (SZ - 2 * PAD) / v.dia;
-  const R = (v.dia * sc) / 2;
-  const shape = `<circle cx="${CX}" cy="${CY}" r="${R}" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-                  <line x1="${CX}" y1="${CY}" x2="${CX + R}" y2="${CY}" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>`;
-  let dims = `<text x="${CX + R / 2}" y="${CY - 8}" fill="#60a5fa" font-size="11" font-family="Inter" font-weight="700" text-anchor="middle">Ø=${v.dia}</text>`;
-  return `<svg viewBox="0 0 ${SZ} ${SZ}" class="w-full h-full max-w-[240px]">${shape}${dims}</svg>`;
-}
+import {
+  dimLine,
+  buildHSvg,
+  buildTSvg,
+  buildCASvg,
+  buildICASvg,
+  buildCSvg,
+  buildICSvg,
+  buildLSvg,
+  buildTLSvg,
+  buildXLSvg,
+  buildPlateSvg,
+  buildPipeSvg,
+  buildTubeSvg,
+  buildRBSvg,
+} from "../components/svg/ProfileSvgFactory";
+import { ProfileSectionViewer } from "../components/svg/ProfileSectionViewer";
 
 // ==================== PROFILE DEFINITIONS & ICHA MAPPING ====================
 const ICHA_SERIES_MAP = {
@@ -690,6 +398,137 @@ export default function ProfileCalculator() {
     }
   }, [currentProfile, inputValues, selectedIchaProfile, isCustomized]);
 
+  // Perfil ICHA igual o similar detectado según dimensiones y propiedades calculadas
+  const ichaMatch = useMemo(() => {
+    if (!results || results.error) return null;
+
+    const seriesKeys = ICHA_SERIES_MAP[currentProfile];
+    if (!seriesKeys || seriesKeys.length === 0) return null;
+
+    const candidates = [];
+    seriesKeys.forEach((sKey) => {
+      const s = ICHA_CATALOG[sKey];
+      if (s && s.profiles) {
+        s.profiles.forEach((p) => {
+          candidates.push({ ...p, seriesKey: sKey, seriesName: s.name });
+        });
+      }
+    });
+
+    if (candidates.length === 0) return null;
+
+    // Helper para extraer dimensiones homogéneas del perfil ICHA
+    const getDims = (p) => ({
+      h: p.H_mm || 0,
+      b: p.B_mm || 0,
+      t: p.e_mm || 0,
+      s: p.t_mm !== undefined ? p.t_mm : (p.e_mm || 0),
+      c: p.C_mm || 0,
+    });
+
+    let exact = null;
+    const scored = [];
+
+    const curH = inputValues.h || 0;
+    const curB = inputValues.b !== undefined ? inputValues.b : (inputValues.b1 || 0);
+    const curS = inputValues.s !== undefined ? inputValues.s : (inputValues.t || 0);
+    const curT = inputValues.t !== undefined ? inputValues.t : (inputValues.t1 || 0);
+    const curC = inputValues.c || 0;
+
+    for (const p of candidates) {
+      const d = getDims(p);
+      let isExact = false;
+
+      if (currentProfile === "H") {
+        const matchH = Math.abs(d.h - curH) < 0.2;
+        const matchB = Math.abs(d.b - curB) < 0.2;
+        const matchS = Math.abs(d.s - curS) < 0.2;
+        const matchT = Math.abs(d.t - curT) < 0.2;
+        if (matchH && matchB && matchS && matchT) isExact = true;
+      } else if (["C", "IC", "L", "TL", "XL", "PROF"].includes(currentProfile)) {
+        const matchH = Math.abs(d.h - curH) < 0.2;
+        const matchB = Math.abs(d.b - curB) < 0.2;
+        const matchT = Math.abs(d.t - curT) < 0.2;
+        if (matchH && matchB && matchT) isExact = true;
+      } else if (["CA", "ICA"].includes(currentProfile)) {
+        const matchH = Math.abs(d.h - curH) < 0.2;
+        const matchB = Math.abs(d.b - curB) < 0.2;
+        const matchC = Math.abs(d.c - curC) < 0.2;
+        const matchT = Math.abs(d.t - curT) < 0.2;
+        if (matchH && matchB && matchC && matchT) isExact = true;
+      }
+
+      if (isExact) {
+        exact = p;
+        break;
+      }
+
+      // Cálculo de discrepancia ponderada (dimensiones + peso + inercia + área)
+      const diffH = Math.abs(d.h - curH) / Math.max(d.h, curH, 1);
+      const diffB = Math.abs(d.b - curB) / Math.max(d.b, curB, 1);
+      const diffT = Math.abs(d.t - curT) / Math.max(d.t, curT, 1);
+      const diffS = currentProfile === "H" ? Math.abs(d.s - curS) / Math.max(d.s, curS, 1) : 0;
+      const diffC = ["CA", "ICA"].includes(currentProfile) ? Math.abs(d.c - curC) / Math.max(d.c, curC, 1) : 0;
+
+      const pWeight = p.weight || 1;
+      const rWeight = results.weight || 1;
+      const diffWeight = Math.abs(pWeight - rWeight) / Math.max(pWeight, rWeight, 1);
+
+      const pArea = p["A_cm²"] || 1;
+      const rArea = results.area || 1;
+      const diffArea = Math.abs(pArea - rArea) / Math.max(pArea, rArea, 1);
+
+      const pIx = p["Ix_cm⁴"] || 0;
+      const rIx = results.Ix || 0;
+      const diffIx = rIx > 0 && pIx > 0 ? Math.abs(pIx - rIx) / Math.max(pIx, rIx, 1) : 0;
+
+      // Ponderación total
+      const totalScore = (
+        diffH * 30 +
+        diffB * 25 +
+        diffT * 15 +
+        diffS * 10 +
+        diffC * 10 +
+        diffWeight * 15 +
+        diffArea * 5 +
+        diffIx * 10
+      );
+
+      // Similaridad estimada en %
+      const similarityPct = Math.max(0, Math.min(100, Math.round((1 - (totalScore / 100)) * 100)));
+
+      scored.push({
+        profile: p,
+        score: totalScore,
+        similarityPct,
+        dims: d,
+      });
+    }
+
+    if (exact) {
+      return {
+        isExact: true,
+        profile: exact,
+        similarityPct: 100,
+        dims: getDims(exact),
+      };
+    }
+
+    scored.sort((a, b) => a.score - b.score);
+    const best = scored[0];
+
+    return {
+      isExact: false,
+      profile: best?.profile || null,
+      similarityPct: best?.similarityPct || 0,
+      dims: best?.dims || null,
+      alternatives: scored.slice(1, 3).map((item) => ({
+        profile: item.profile,
+        similarityPct: item.similarityPct,
+      })),
+    };
+  }, [currentProfile, inputValues, results]);
+
   const addToList = () => {
     if (!results || results.error) return;
     
@@ -728,21 +567,21 @@ export default function ProfileCalculator() {
 
   // Export functions
   const exportToExcel = async () => {
-    if (!list.length) return alert("No hay perfiles en la lista de cubicación.");
+    if (!list.length) return alert(isEn ? "No profiles in takeoff list." : "No hay perfiles en la lista de cubicación.");
 
-    await generateTakeoffExcel({
-      sheetName: "Cubicación Perfiles",
-      title: "Resumen de Cubicación de Perfiles de Acero",
-      subtitle: "Calculadora de Perfiles Estructurales & Catálogo ICHA Oficial",
-      standardTag: "CÁLCULO ESTRUCTURAL · ICHA",
+    await ExportService.executeExport(new ExcelTakeoffStrategy(), {
+      sheetName: isEn ? "Profiles Takeoff" : "Cubicación Perfiles",
+      title: isEn ? "Steel Profiles Takeoff Summary" : "Resumen de Cubicación de Perfiles de Acero",
+      subtitle: isEn ? "Structural Profiles Calculator & Official ICHA Catalog" : "Calculadora de Perfiles Estructurales & Catálogo ICHA Oficial",
+      standardTag: isEn ? "STRUCTURAL CALCULATION · ICHA" : "CÁLCULO ESTRUCTURAL · ICHA",
       columns: [
-        { header: "Marca", key: "mark", width: 14, align: "center" },
-        { header: "Cantidad", key: "qty", width: 12, align: "center", numFmt: '#,##0' },
-        { header: "Perfil", key: "profile", width: 28, align: "left" },
-        { header: "Largo (m)", key: "length", width: 15, align: "right", numFmt: '#,##0.00' },
-        { header: "Peso Unit. (kg/m)", key: "weightUnit", width: 18, align: "right", numFmt: '#,##0.00' },
-        { header: "Peso Total (kg)", key: "weightTotal", width: 20, align: "right", numFmt: '#,##0.00' },
-        { header: "Norma / Origen", key: "norm", width: 18, align: "center" },
+        { header: isEn ? "Mark" : "Marca", key: "mark", width: 14, align: "center" },
+        { header: isEn ? "Quantity" : "Cantidad", key: "qty", width: 12, align: "center", numFmt: '#,##0' },
+        { header: isEn ? "Profile" : "Perfil", key: "profile", width: 28, align: "left" },
+        { header: isEn ? "Length (m)" : "Largo (m)", key: "length", width: 15, align: "right", numFmt: '#,##0.00' },
+        { header: isEn ? "Unit Weight (kg/m)" : "Peso Unit. (kg/m)", key: "weightUnit", width: 18, align: "right", numFmt: '#,##0.00' },
+        { header: isEn ? "Total Weight (kg)" : "Peso Total (kg)", key: "weightTotal", width: 20, align: "right", numFmt: '#,##0.00' },
+        { header: isEn ? "Standard / Source" : "Norma / Origen", key: "norm", width: 18, align: "center" },
       ],
       data: list.map((item) => ({
         mark: item.mark,
@@ -751,7 +590,7 @@ export default function ProfileCalculator() {
         length: item.length,
         weightUnit: item.weightUnit,
         weightTotal: item.weightTotal,
-        norm: item.isIcha ? "ICHA Oficial" : "Personalizado",
+        norm: item.isIcha ? (isEn ? "Official ICHA" : "ICHA Oficial") : (isEn ? "Custom" : "Personalizado"),
       })),
       summary: {
         subtotal: subtotalWeight,
@@ -762,18 +601,26 @@ export default function ProfileCalculator() {
         unitLabel: "kg",
         tonUnitLabel: "Ton",
       },
-      filename: "cubicacion_perfiles_acero.xlsx",
+      filename: isEn ? "steel_profiles_takeoff.xlsx" : "cubicacion_perfiles_acero.xlsx",
     });
   };
 
-  const exportToPDF = () => {
-    if (!list.length) return alert("No hay perfiles en la lista de cubicación.");
+  const exportToPDF = async () => {
+    if (!list.length) return alert(isEn ? "No profiles in takeoff list." : "No hay perfiles en la lista de cubicación.");
 
-    generateTakeoffPdf({
-      title: "Resumen de Cubicación de Perfiles de Acero",
-      subtitle: "Calculadora de Perfiles Estructurales & Catálogo ICHA Oficial",
-      standardTag: "CÁLCULO ESTRUCTURAL · ICHA",
-      headers: ["Marca", "Cant.", "Perfil", "Largo (m)", "Peso Unit. (kg/m)", "Peso Total (kg)", "Norma"],
+    await ExportService.executeExport(new PdfTakeoffStrategy(), {
+      title: isEn ? "Steel Profiles Takeoff Summary" : "Resumen de Cubicación de Perfiles de Acero",
+      subtitle: isEn ? "Structural Profiles Calculator & Official ICHA Catalog" : "Calculadora de Perfiles Estructurales & Catálogo ICHA Oficial",
+      standardTag: isEn ? "STRUCTURAL CALCULATION · ICHA" : "CÁLCULO ESTRUCTURAL · ICHA",
+      headers: [
+        isEn ? "Mark" : "Marca",
+        isEn ? "Qty" : "Cant.",
+        isEn ? "Profile" : "Perfil",
+        isEn ? "Length (m)" : "Largo (m)",
+        isEn ? "Unit Wt (kg/m)" : "Peso Unit. (kg/m)",
+        isEn ? "Total Wt (kg)" : "Peso Total (kg)",
+        isEn ? "Standard" : "Norma"
+      ],
       rows: list.map((item) => [
         item.mark,
         item.qty,
@@ -781,7 +628,7 @@ export default function ProfileCalculator() {
         item.length.toFixed(2),
         item.weightUnit.toFixed(2),
         item.weightTotal.toFixed(2),
-        item.isIcha ? "ICHA" : "Personalizado",
+        item.isIcha ? "ICHA" : (isEn ? "Custom" : "Personalizado"),
       ]),
       summary: {
         subtotal: subtotalWeight,
@@ -801,26 +648,42 @@ export default function ProfileCalculator() {
         5: "right",
         6: "center",
       },
-      filename: "cubicacion_perfiles_acero.pdf",
+      filename: isEn ? "steel_profiles_takeoff.pdf" : "cubicacion_perfiles_acero.pdf",
     });
   };
 
   return (
     <div className="bg-gray-50 dark:bg-bim-dark text-gray-900 dark:text-gray-300 font-sans min-h-screen pt-24 pb-12 transition-colors duration-300">
       <SEOHead
-        title="Calculadora de Propiedades Geométricas de Perfiles de Acero"
-        description="Calcula momentos de inercia (Ix, Iy), módulos de sección (Wx, Wy), radios de giro (ix, iy) y peso lineal de perfiles paramétricos I, H, Cajón, Tubos y C de acero."
+        title={
+          isEn
+            ? "Steel Profiles Geometric & Mechanical Properties Calculator"
+            : "Calculadora de Propiedades Geométricas de Perfiles de Acero"
+        }
+        description={
+          isEn
+            ? "Calculate moment of inertia (Ix, Iy), section modulus (Wx, Wy), radius of gyration (ix, iy), and linear weight for steel I, H, Box, Pipe, and C profiles."
+            : "Calcula momentos de inercia (Ix, Iy), módulos de sección (Wx, Wy), radios de giro (ix, iy) y peso lineal de perfiles paramétricos I, H, Cajón, Tubos y C de acero."
+        }
         path="/herramientas/perfiles"
-        keywords="Calculadora de perfiles de acero, inercia perfiles estructurales, módulo resistente sección, peso por metro perfil metálico, perfil H, perfil tubular"
+        keywords={
+          isEn
+            ? "Steel profile calculator, structural moments of inertia, section modulus, linear weight steel shapes, H beam, tubular profile"
+            : "Calculadora de perfiles de acero, inercia perfiles estructurales, módulo resistente sección, peso por metro perfil metálico, perfil H, perfil tubular"
+        }
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Calculadora de Propiedades Geométricas de Perfiles de Acero",
+          "name": isEn
+            ? "Steel Profiles Properties Calculator"
+            : "Calculadora de Propiedades Geométricas de Perfiles de Acero",
           "applicationCategory": "EngineeringApplication",
           "operatingSystem": "All",
-          "url": "https://atelijudesign.com/herramientas/perfiles",
-          "description": "Herramienta online para el cálculo de propiedades mecánicas y geométricas de perfiles de acero estructural paramétricos.",
-          "inLanguage": "es"
+          "url": "https://www.andresgallop.com/herramientas/perfiles",
+          "description": isEn
+            ? "Online engineering tool to calculate mechanical and geometric properties of parametric structural steel sections."
+            : "Herramienta online para el cálculo de propiedades mecánicas y geométricas de perfiles de acero estructural paramétricos.",
+          "inLanguage": isEn ? "en" : "es"
         }}
       />
       <div className="max-w-7xl mx-auto px-4 mb-6 flex items-center justify-between flex-wrap gap-3">
@@ -942,9 +805,11 @@ export default function ProfileCalculator() {
             </div>
             
             <div className="flex-1 flex items-center justify-center w-full drop-shadow-[0_0_8px_rgba(59,130,246,0.2)] my-2">
-              {results && !results.error && (
-                <div dangerouslySetInnerHTML={{ __html: results.svgHTML }} className="w-full h-full flex items-center justify-center" />
-              )}
+                <ProfileSectionViewer
+                  svgHtml={results.svgHTML}
+                  profileName={results.desig || "Perfil Personalizado"}
+                  className="w-full h-full flex items-center justify-center"
+                />
             </div>
             
             <div className="mt-2 text-center">
@@ -1096,27 +961,122 @@ export default function ProfileCalculator() {
                   </div>
                 </div>
               )}
+
+              {/* Indicador y Comparador de Perfil ICHA Igual o Similar */}
+              {ichaMatch && ichaMatch.profile && (
+                <div className={`mb-5 p-4 rounded-xl border transition-all ${
+                  ichaMatch.isExact
+                    ? "bg-emerald-950/40 border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
+                    : "bg-gradient-to-br from-slate-950/90 to-blue-950/40 border-bim-blue/40 shadow-lg"
+                }`}>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide border ${
+                        ichaMatch.isExact
+                          ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                          : "bg-bim-blue/20 text-bim-blue border-bim-blue/40"
+                      }`}>
+                        <i className={`fa-solid ${ichaMatch.isExact ? "fa-circle-check" : "fa-sliders"}`}></i>
+                        {ichaMatch.isExact ? (isEn ? "Identical ICHA Profile" : "Perfil ICHA Idéntico") : (isEn ? "Closest ICHA Match" : "Perfil ICHA Más Similar")}
+                      </span>
+                      {!ichaMatch.isExact && (
+                        <span className="text-[11px] font-bold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60 px-2 py-0.5 rounded-full">
+                          ~{ichaMatch.similarityPct}% coincidencia
+                        </span>
+                      )}
+                    </div>
+                    <Link
+                      to="/herramientas/icha"
+                      className="text-[11px] text-slate-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
+                      title="Explorar en Catálogo ICHA"
+                    >
+                      <span>ICHA</span> <i className="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                    </Link>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-3 pt-1">
+                    <div>
+                      <div className="text-base font-extrabold text-white tracking-tight flex items-center gap-2">
+                        <span>{ichaMatch.profile.designation}</span>
+                        <span className="text-xs font-normal text-slate-400">({ichaMatch.profile.seriesName || ichaMatch.profile.seriesKey})</span>
+                      </div>
+                      <div className="text-xs text-slate-300 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                        <span>Peso: <strong className="text-white">{ichaMatch.profile.weight} kg/m</strong></span>
+                        {ichaMatch.profile["A_cm²"] && <span>Área: <strong className="text-white">{ichaMatch.profile["A_cm²"]} cm²</strong></span>}
+                        {ichaMatch.profile["Ix_cm⁴"] && <span>Ix: <strong className="text-white">{ichaMatch.profile["Ix_cm⁴"]} cm⁴</strong></span>}
+                        {ichaMatch.profile.gramil_mm && <span>Gramil g: <strong className="text-orange-400">{ichaMatch.profile.gramil_mm} mm</strong></span>}
+                      </div>
+                    </div>
+
+                    {selectedIchaKey !== ichaMatch.profile.designation && (
+                      <button
+                        type="button"
+                        onClick={() => handleSelectIchaProfile(ichaMatch.profile.designation)}
+                        className="shrink-0 text-xs font-bold px-3 py-2 rounded-lg bg-bim-blue hover:bg-blue-600 text-white transition-all shadow-md hover:scale-105 active:scale-95 flex items-center gap-1.5"
+                        title="Cargar dimensiones estándar de este perfil ICHA"
+                      >
+                        <i className="fa-solid fa-check-double"></i>
+                        <span>{isEn ? "Apply ICHA" : "Aplicar ICHA"}</span>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Dimensiones comparadas del perfil ICHA */}
+                  {ichaMatch.dims && (
+                    <div className="mt-2.5 pt-2 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
+                      <span>Cotas norma: <strong>h={ichaMatch.dims.h}</strong> · <strong>b={ichaMatch.dims.b}</strong> · <strong>e={ichaMatch.dims.t}</strong>{ichaMatch.dims.s !== ichaMatch.dims.t ? <> · <strong>t={ichaMatch.dims.s}</strong></> : null}{ichaMatch.dims.c ? <> · <strong>c={ichaMatch.dims.c}</strong></> : null} mm</span>
+                      {ichaMatch.alternatives && ichaMatch.alternatives.length > 0 && (
+                        <span className="text-[10px] text-slate-500">
+                          Alt: {ichaMatch.alternatives.map(a => a.profile.designation).join(", ")}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Quick List Addition */}
             <div className="border-t border-slate-800 pt-4">
-               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Agregar a Cubicación</h4>
+               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                 {isEn ? "Add to Takeoff" : "Agregar a Cubicación"}
+               </h4>
                <div className="flex gap-2">
-                  <input type="text" placeholder="Marca (ej. V-1)" value={quickMark} onChange={e=>setQuickMark(e.target.value)} className="w-1/3 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" />
+                  <input
+                    type="text"
+                    placeholder={isEn ? "Mark (e.g. B-1)" : "Marca (ej. V-1)"}
+                    value={quickMark}
+                    onChange={e=>setQuickMark(e.target.value)}
+                    className="w-1/3 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white"
+                  />
                   <div className="relative w-1/3">
-                    <input type="number" step="0.1" title="Largo" value={quickLen} onChange={e=>setQuickLen(parseFloat(e.target.value))} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white text-center" />
+                    <input
+                      type="number"
+                      step="0.1"
+                      title={isEn ? "Length" : "Largo"}
+                      value={quickLen}
+                      onChange={e=>setQuickLen(parseFloat(e.target.value))}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white text-center"
+                    />
                     <span className="absolute right-2 top-2.5 text-[10px] text-slate-500">m</span>
                   </div>
                   <div className="relative w-1/3">
-                    <input type="number" step="1" title="Cantidad" value={quickQty} onChange={e=>setQuickQty(parseFloat(e.target.value))} className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white text-center" />
-                    <span className="absolute right-2 top-2.5 text-[10px] text-slate-500">un</span>
+                    <input
+                      type="number"
+                      step="1"
+                      title={isEn ? "Quantity" : "Cantidad"}
+                      value={quickQty}
+                      onChange={e=>setQuickQty(parseFloat(e.target.value))}
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white text-center"
+                    />
+                    <span className="absolute right-2 top-2.5 text-[10px] text-slate-500">{isEn ? "pcs" : "un"}</span>
                   </div>
                </div>
                <button 
                  onClick={addToList}
                  disabled={!results || results.error}
                  className="w-full mt-3 bg-bim-blue hover:bg-blue-600 text-white font-bold py-2.5 rounded-xl transition-all shadow-lg hover:shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed text-sm">
-                 <i className="fa-solid fa-plus mr-2"></i> Añadir a Tabla de Cubicación
+                 <i className="fa-solid fa-plus mr-2"></i> {isEn ? "Add to Takeoff Table" : "Añadir a Tabla de Cubicación"}
                </button>
             </div>
           </div>
@@ -1127,17 +1087,18 @@ export default function ProfileCalculator() {
           <div className="mt-8 bg-slate-900/70 border border-slate-700/50 rounded-2xl p-6 shadow-xl">
             <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-4 flex-wrap gap-3">
               <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center">
-                 <i className="fa-solid fa-list-check mr-2 text-bim-blue"></i> Resumen de Cubicación de Perfiles ({list.length})
+                 <i className="fa-solid fa-list-check mr-2 text-bim-blue"></i>
+                 {isEn ? `Steel Profiles Takeoff Summary (${list.length})` : `Resumen de Cubicación de Perfiles (${list.length})`}
               </h3>
               <div className="flex gap-2">
                   <button onClick={exportToExcel} className="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow hover:shadow-emerald-500/20 flex items-center gap-1.5">
-                     <i className="fa-solid fa-file-excel"></i> Exportar Excel (.xlsx)
+                     <i className="fa-solid fa-file-excel"></i> {isEn ? "Export Excel (.xlsx)" : "Exportar Excel (.xlsx)"}
                   </button>
                   <button onClick={exportToPDF} className="bg-rose-600 hover:bg-rose-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all shadow hover:shadow-rose-500/20 flex items-center gap-1.5">
                      <i className="fa-solid fa-file-pdf"></i> PDF
                   </button>
                   <button onClick={clearList} className="bg-slate-800 hover:bg-slate-700 text-rose-400 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">
-                     Limpiar Todo
+                     {isEn ? "Clear All" : "Limpiar Todo"}
                   </button>
               </div>
             </div>
@@ -1146,13 +1107,13 @@ export default function ProfileCalculator() {
                <table className="w-full text-left text-sm text-slate-300 border-collapse">
                   <thead>
                     <tr className="border-b border-slate-800 text-slate-500 text-xs uppercase">
-                      <th className="py-3 px-4">Marca</th>
-                      <th className="py-3 px-4 text-center">Cant.</th>
-                      <th className="py-3 px-4">Perfil</th>
-                      <th className="py-3 px-4 text-right">Largo <span className="normal-case">(m)</span></th>
-                      <th className="py-3 px-4 text-right">Peso Unit. <span className="normal-case">(kg/m)</span></th>
-                      <th className="py-3 px-4 text-right">Peso Total <span className="normal-case">(kg)</span></th>
-                      <th className="py-3 px-4 text-center">Norma</th>
+                      <th className="py-3 px-4">{isEn ? "Mark" : "Marca"}</th>
+                      <th className="py-3 px-4 text-center">{isEn ? "Qty" : "Cant."}</th>
+                      <th className="py-3 px-4">{isEn ? "Profile" : "Perfil"}</th>
+                      <th className="py-3 px-4 text-right">{isEn ? "Length" : "Largo"} <span className="normal-case">(m)</span></th>
+                      <th className="py-3 px-4 text-right">{isEn ? "Unit Wt" : "Peso Unit."} <span className="normal-case">(kg/m)</span></th>
+                      <th className="py-3 px-4 text-right">{isEn ? "Total Wt" : "Peso Total"} <span className="normal-case">(kg)</span></th>
+                      <th className="py-3 px-4 text-center">{isEn ? "Standard" : "Norma"}</th>
                       <th className="py-3 px-4 text-center"></th>
                     </tr>
                   </thead>
@@ -1167,11 +1128,15 @@ export default function ProfileCalculator() {
                           <td className="py-3 px-4 text-right font-bold text-white font-mono text-base">{item.weightTotal.toFixed(2)}</td>
                           <td className="py-3 px-4 text-center">
                             <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${item.isIcha ? 'bg-cyan-950/60 text-cyan-300 border border-cyan-800/60' : 'bg-slate-800 text-slate-400 border border-slate-700'}`}>
-                              {item.isIcha ? 'ICHA' : 'Custom'}
+                              {item.isIcha ? 'ICHA' : (isEn ? 'Custom' : 'Personalizado')}
                             </span>
                           </td>
                           <td className="py-3 px-4 text-center">
-                             <button onClick={() => deleteFromList(item.id)} className="text-slate-500 hover:text-rose-400 transition-colors" title="Eliminar fila">
+                             <button
+                               onClick={() => deleteFromList(item.id)}
+                               className="text-slate-500 hover:text-rose-400 transition-colors"
+                               title={isEn ? "Delete row" : "Eliminar fila"}
+                             >
                                <i className="fa-solid fa-trash-can"></i>
                              </button>
                           </td>
@@ -1181,7 +1146,7 @@ export default function ProfileCalculator() {
                   <tfoot>
                     <tr className="border-t-2 border-slate-700 bg-slate-800/10">
                       <td colSpan="5" className="py-2.5 px-4 text-right font-medium text-slate-400">
-                         Subtotal Peso Estructural
+                         {isEn ? "Structural Weight Subtotal" : "Subtotal Peso Estructural"}
                       </td>
                       <td className="py-2.5 px-4 text-right font-bold text-white font-mono">
                          {subtotalWeight.toFixed(2)} <span className="text-xs font-normal text-slate-500">kg</span>
@@ -1191,7 +1156,9 @@ export default function ProfileCalculator() {
                     <tr className="border-t border-slate-800 bg-slate-800/20">
                       <td colSpan="5" className="py-2.5 px-4 text-right">
                          <div className="flex items-center justify-end gap-2 text-slate-400">
-                            <span className="font-medium text-xs">Margen Conexiones / Despunte:</span>
+                            <span className="font-medium text-xs">
+                              {isEn ? "Connections / Scrap Margin:" : "Margen Conexiones / Despunte:"}
+                            </span>
                             <input
                               type="number"
                               min="0"
@@ -1211,7 +1178,7 @@ export default function ProfileCalculator() {
                     </tr>
                     <tr className="border-t-2 border-slate-700 bg-slate-900/80">
                       <td colSpan="5" className="py-4 px-4 text-right font-black text-emerald-400 uppercase">
-                         Peso Total Estimado
+                         {isEn ? "Estimated Total Weight" : "Peso Total Estimado"}
                       </td>
                       <td className="py-4 px-4 text-right font-black text-emerald-400 text-xl font-mono">
                          {grandTotal.toFixed(2)} <span className="text-xs font-normal text-slate-400">kg</span>
@@ -1230,7 +1197,8 @@ export default function ProfileCalculator() {
       {/* Footer Navigation */}
       <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 flex items-center justify-between flex-wrap gap-4">
         <Link to="/herramientas" className="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors group">
-          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Volver a Herramientas
+          <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+          {isEn ? "Back to Tools" : "Volver a Herramientas"}
         </Link>
         <div className="flex items-center gap-4 text-sm text-slate-500">
           <span>Instituto Chileno del Acero (ICHA)</span>

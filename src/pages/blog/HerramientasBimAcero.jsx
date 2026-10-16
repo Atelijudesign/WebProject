@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function HerramientasBimAcero() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -46,12 +47,7 @@ export default function HerramientasBimAcero() {
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link
-              to="/blog"
-              className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
-            >
-              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
             <span className="bg-cyan-600/90 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -74,7 +70,7 @@ export default function HerramientasBimAcero() {
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             {isEn ? "Parametric steel profile calculator and official ICHA digital catalog featuring interactive search, 2D SVG diagrams, and professional Excel takeoff export." : (
-              <>Calculadora de perfiles y catálogo digital ICHA: todo lo que un proyectista estructural necesita,
+              <>Calculadora de perfiles y catálogo digital ICHA: todo lo que un diseñador estructural necesita,
             directo en el navegador.</>
             )}
           </p>
@@ -93,7 +89,7 @@ export default function HerramientasBimAcero() {
             <p className="text-slate-400">
               ¿Cuántas veces has tenido que consultar una tabla PDF del catálogo ICHA para buscar el peso de un
               perfil? ¿O abrir una planilla Excel antigua para calcular el área de un perfil soldado? Como
-              proyectistas estructurales, pasamos demasiado tiempo en tareas que deberían ser instantáneas.
+              diseñadores estructurales, pasamos demasiado tiempo en tareas que deberían ser instantáneas.
             </p>
             <p className="text-slate-400 mb-0">
               Por eso creé dos <strong className="text-white">herramientas web gratuitas</strong> que resuelven
@@ -274,7 +270,7 @@ export default function HerramientasBimAcero() {
               <span>Funciones Compartidas</span>
             </h3>
             <p className="text-slate-400 leading-relaxed">
-              Ambas herramientas comparten un flujo de trabajo diseñado para el día a día del proyectista. Una
+              Ambas herramientas comparten un flujo de trabajo diseñado para el día a día del diseñador estructural. Una
               vez que seleccionas o calculas un perfil, puedes agregarlo a un{" "}
               <strong className="text-white">listado de materiales</strong> y exportar todo a Excel:
             </p>
@@ -460,13 +456,7 @@ export default function HerramientasBimAcero() {
       {/* Article Navigation Footer */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-between">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-base"
-          >
-            <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            {isEn ? "Back to Blog" : "Volver al Blog"}
-          </Link>
+          <BlogBackButton />
           <Link
             to="/#contact"
             className="inline-flex items-center text-slate-400 hover:text-bim-blue font-medium transition-colors text-sm"

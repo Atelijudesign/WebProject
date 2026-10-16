@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export default function RevitStructureFuturo() {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -52,12 +53,7 @@ export default function RevitStructureFuturo() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Link
-              to="/blog"
-              className="text-bim-blue hover:text-blue-400 text-sm font-medium transition-colors"
-            >
-              <i className="fa-solid fa-arrow-left mr-1" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -116,7 +112,7 @@ export default function RevitStructureFuturo() {
                 Roadmap Oficial de Autodesk
               </a>{" "}
               sugieren que esta barrera está a punto de caer. Analicemos qué
-              significa esto para los proyectistas estructurales.
+              significa esto para los diseñadores estructurales.
             </p>
 
             {/* FIGURA 1: REVIT STRUCTURE FUTURE ROADMAP */}
@@ -152,7 +148,7 @@ export default function RevitStructureFuturo() {
             <div className="bg-blue-900/20 rounded-xl p-6 border border-blue-800/30 mt-6">
               <h4 className="font-bold text-bim-blue text-sm mb-2">
                 <i className="fa-solid fa-lightbulb mr-1" /> Punto Clave para
-                Proyectistas:
+                Diseñadores Estructurales:
               </h4>
               <p className="text-gray-400 text-sm mb-0">
                 La automatización de conexiones mediante scripts de Dynamo y
@@ -277,7 +273,7 @@ export default function RevitStructureFuturo() {
             </h3>
             <p className="text-gray-400">
               Como alguien que utiliza el{" "}
-              <strong className="text-white">Tridente del Proyectista</strong>{" "}
+              <strong className="text-white">Tridente del Diseñador Estructural</strong>{" "}
               (Revit – Tekla – Advance Steel), mi conclusión es que Revit está
               absorbiendo las funciones de Advance Steel. Para proyectos de
               mediana complejidad, ya no será necesario salir del entorno Revit.
@@ -405,13 +401,7 @@ export default function RevitStructureFuturo() {
       {/* ─── ARTICLE NAVIGATION FOOTER ─── */}
       <section className="py-12 bg-[#030712] border-t border-slate-800/60">
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-between">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-bim-blue font-bold hover:text-blue-400 transition-colors group text-lg"
-          >
-            <i className="fa-solid fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform" />
-            {isEn ? "Back to Blog" : "Volver al Blog"}
-          </Link>
+          <BlogBackButton />
           <Link
             to="/#contact"
             className="inline-flex items-center text-gray-500 hover:text-bim-blue font-medium transition-colors text-sm"

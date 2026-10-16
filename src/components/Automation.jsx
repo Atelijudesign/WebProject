@@ -1,6 +1,7 @@
 import { automations } from "../constants";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { BimAutomationPipeline } from "./BimAutomationPipeline";
+import { Tilt3DCard } from "./ui/Tilt3DCard";
 import { useTranslation } from "../hooks/useTranslation";
 
 export const Automation = () => {
@@ -34,9 +35,11 @@ export const Automation = () => {
           const displayLinkText = isEn && item.link?.text_en ? item.link.text_en : item.link?.text;
 
           return (
-            <div
+            <Tilt3DCard
               key={item.title}
-              className="rounded-3xl p-6 bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/40 hover:shadow-cyan-500/5 transition-all duration-300 shadow-xl flex flex-col justify-between group"
+              maxTilt={7}
+              perspective={900}
+              className="p-6 bg-slate-900/70 border border-slate-800/80 backdrop-blur-xl hover:border-cyan-500/50 shadow-xl flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -68,7 +71,7 @@ export const Automation = () => {
                   </a>
                 </div>
               )}
-            </div>
+            </Tilt3DCard>
           );
         })}
       </div>

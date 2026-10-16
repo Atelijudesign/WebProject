@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://atelijudesign.com/</loc>
+    <loc>https://www.andresgallop.com/</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
@@ -10,25 +10,25 @@
 
   <!-- Main Navigation & Catalogs -->
   <url>
-    <loc>https://atelijudesign.com/proyectos-bim</loc>
+    <loc>https://www.andresgallop.com/proyectos-bim</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas</loc>
+    <loc>https://www.andresgallop.com/herramientas</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog</loc>
+    <loc>https://www.andresgallop.com/blog</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/export</loc>
+    <loc>https://www.andresgallop.com/export</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
@@ -36,43 +36,43 @@
 
   <!-- Structural Engineering Tools -->
   <url>
-    <loc>https://atelijudesign.com/herramientas/icha</loc>
+    <loc>https://www.andresgallop.com/herramientas/icha</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas/aisc</loc>
+    <loc>https://www.andresgallop.com/herramientas/aisc</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas/escaleras</loc>
+    <loc>https://www.andresgallop.com/herramientas/escaleras</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas/perfiles</loc>
+    <loc>https://www.andresgallop.com/herramientas/perfiles</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas/acortadores</loc>
+    <loc>https://www.andresgallop.com/herramientas/acortadores</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas/convertidor</loc>
+    <loc>https://www.andresgallop.com/herramientas/convertidor</loc>
     <lastmod>2026-09-22</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/herramientas/geometria</loc>
+    <loc>https://www.andresgallop.com/herramientas/geometria</loc>
     <lastmod>2026-09-22</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
@@ -80,43 +80,43 @@
 
   <!-- Projects Detail Pages -->
   <url>
-    <loc>https://atelijudesign.com/project/aeropuerto-amb</loc>
+    <loc>https://www.andresgallop.com/project/aeropuerto-amb</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/project/desaladora-sto-domingo</loc>
+    <loc>https://www.andresgallop.com/project/desaladora-sto-domingo</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/project/hospital-marga-marga</loc>
+    <loc>https://www.andresgallop.com/project/hospital-marga-marga</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/project/los-condores</loc>
+    <loc>https://www.andresgallop.com/project/los-condores</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/project/maquina-papelera</loc>
+    <loc>https://www.andresgallop.com/project/maquina-papelera</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/project/paso-los-libertadores</loc>
+    <loc>https://www.andresgallop.com/project/paso-los-libertadores</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/project/proyecto-arqueros</loc>
+    <loc>https://www.andresgallop.com/project/proyecto-arqueros</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -124,147 +124,183 @@
 
   <!-- Technical Blog Articles -->
   <url>
-    <loc>https://atelijudesign.com/blog/konstruedu-especialista-bim-revit</loc>
+    <loc>https://www.andresgallop.com/blog/konstruedu-especialista-bim-revit</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/pyrevit-peso-volumen</loc>
+    <loc>https://www.andresgallop.com/blog/pyrevit-peso-volumen</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/herramientas-bim-acero</loc>
+    <loc>https://www.andresgallop.com/blog/herramientas-bim-acero</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/pyrevit-accelerator</loc>
+    <loc>https://www.andresgallop.com/blog/pyrevit-accelerator</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/bim-dev-roadmap</loc>
+    <loc>https://www.andresgallop.com/blog/bim-dev-roadmap</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-structure-futuro</loc>
+    <loc>https://www.andresgallop.com/blog/revit-structure-futuro</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-support-clinic</loc>
+    <loc>https://www.andresgallop.com/blog/revit-support-clinic</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/catalogo-aisc-v150-online</loc>
+    <loc>https://www.andresgallop.com/blog/catalogo-aisc-v150-online</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/whats-new-revit-2027-1</loc>
+    <loc>https://www.andresgallop.com/blog/whats-new-revit-2027-1</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-2027-1-enfierraduras-3d</loc>
+    <loc>https://www.andresgallop.com/blog/revit-2027-1-enfierraduras-3d</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-2027-peso-enfierradura-rule-numbering</loc>
+    <loc>https://www.andresgallop.com/blog/revit-2027-peso-enfierradura-rule-numbering</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/tekla-structures-2026-sp3-model-sharing</loc>
+    <loc>https://www.andresgallop.com/blog/tekla-structures-2026-sp3-model-sharing</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/graitec-steel-2027-joint-multi-edit</loc>
+    <loc>https://www.andresgallop.com/blog/graitec-steel-2027-joint-multi-edit</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/tekla-model-sharing-cache-server-v4</loc>
+    <loc>https://www.andresgallop.com/blog/tekla-model-sharing-cache-server-v4</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/dynamo-core-3-6-optimizacion-rendimiento</loc>
+    <loc>https://www.andresgallop.com/blog/dynamo-core-3-6-optimizacion-rendimiento</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-sdk-2027-2-revitlookup</loc>
+    <loc>https://www.andresgallop.com/blog/revit-sdk-2027-2-revitlookup</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/vibe-coding-revit-python-shell-pyrevit</loc>
+    <loc>https://www.andresgallop.com/blog/vibe-coding-revit-python-shell-pyrevit</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/ia-clash-triage-clasificacion-interferencias-bim</loc>
+    <loc>https://www.andresgallop.com/blog/ia-clash-triage-clasificacion-interferencias-bim</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/ia-takeoff-cubicacion-estructuras-acero</loc>
+    <loc>https://www.andresgallop.com/blog/ia-takeoff-cubicacion-estructuras-acero</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-2025-api-net8</loc>
+    <loc>https://www.andresgallop.com/blog/revit-2025-api-net8</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-2027-armaduras-longitudinales-transversales</loc>
+    <loc>https://www.andresgallop.com/blog/revit-2027-armaduras-longitudinales-transversales</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/validacion-automatizada-iso-19650-tiempo-real</loc>
+    <loc>https://www.andresgallop.com/blog/validacion-automatizada-iso-19650-tiempo-real</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/revit-2027-scan-to-bim-vigas-acero-reality3d</loc>
+    <loc>https://www.andresgallop.com/blog/revit-2027-scan-to-bim-vigas-acero-reality3d</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://atelijudesign.com/blog/plan-bim-chile-estandar-proyectos-publicos</loc>
+    <loc>https://www.andresgallop.com/blog/plan-bim-chile-estandar-proyectos-publicos</loc>
     <lastmod>2026-08-26</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.andresgallop.com/blog/manual-smartplant-3d-structural-modeling</loc>
+    <lastmod>2026-10-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.andresgallop.com/blog/smartplant-3d-fundamentos-grillas</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.andresgallop.com/blog/smartplant-3d-masterlab-simulador-interactivo</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.andresgallop.com/blog/normas-estructurales-chile-usa</loc>
+    <lastmod>2026-10-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.andresgallop.com/herramientas/cv-ats</loc>
+    <lastmod>2026-10-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.andresgallop.com/herramientas/smartplant-3d</loc>
+    <lastmod>2026-10-02</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>

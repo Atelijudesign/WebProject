@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>WebProject · Administración</title>
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/database-assets/database.css?v=personal-dashboard-20261006" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark"><i class="fa-solid fa-code"></i></div>
+          <div><strong>WebProject</strong><span>Database Studio</span></div>
+        </div>
+        <nav class="nav" aria-label="Administración">
+          <button class="nav-item active" data-section="overview"><span class="nav-icon"><i class="fa-solid fa-chart-line"></i></span><span>Dashboard</span></button>
+          <p class="nav-label">DATOS</p>
+          <button class="nav-item" data-section="projects"><span class="nav-icon"><i class="fa-solid fa-diagram-project"></i></span><span>Proyectos</span><b id="nav-projects">0</b></button>
+          <button class="nav-item" data-section="leads"><span class="nav-icon"><i class="fa-solid fa-address-card"></i></span><span>Leads</span><b id="nav-leads">0</b></button>
+          <button class="nav-item" data-section="calculations"><span class="nav-icon"><i class="fa-solid fa-calculator"></i></span><span>Cálculos</span><b id="nav-calculations">0</b></button>
+          <p class="nav-label">SISTEMA</p>
+          <button class="nav-item" data-section="system"><span class="nav-icon"><i class="fa-solid fa-database"></i></span><span>Base de datos</span></button>
+        </nav>
+        <div class="sidebar-status">
+          <span class="pulse"></span>
+          <div><strong id="side-integrity">Conectando</strong><span>SQLite local</span></div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Abrir navegación"><i class="fa-solid fa-bars"></i></button>
+          <div><p class="eyebrow">PANEL ADMINISTRATIVO</p><h1 id="page-title">Resumen</h1></div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="refresh-all" title="Actualizar datos"><i class="fa-solid fa-rotate"></i></button>
+            <div class="local-badge"><span class="pulse"></span><div><strong>Entorno local</strong><small>127.0.0.1</small></div></div>
+          </div>
+        </header>
+
+        <section class="content" id="content">
+          <div class="loading-state"><span class="loader"></span><p>Cargando base de datos…</p></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="record-modal" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <header class="modal-header"><div><p class="eyebrow" id="modal-kicker">NUEVO REGISTRO</p><h2 id="modal-title">Proyecto</h2></div><button class="icon-button modal-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button></header>
+        <form id="record-form"><div class="modal-body" id="modal-fields"></div><footer class="modal-footer"><button type="button" class="button secondary modal-close">Cancelar</button><button type="submit" class="button primary" id="save-record">Guardar cambios</button></footer></form>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="confirm-modal" hidden>
+      <section class="modal confirm-modal" role="alertdialog" aria-modal="true">
+        <div class="danger-icon">!</div><h2>Eliminar registro</h2><p id="confirm-message">Esta acción no se puede deshacer.</p>
+        <div class="confirm-actions"><button class="button secondary confirm-cancel">Cancelar</button><button class="button danger" id="confirm-delete">Eliminar definitivamente</button></div>
+      </section>
+    </div>
+
+    <div class="toast-region" id="toasts" aria-live="polite"></div>
+    <script src="/database-assets/chart.umd.js?v=4.5.1"></script>
+    <script type="module" src="/database-assets/database.js?v=personal-dashboard-20261006"></script>
+  </body>
+</html>

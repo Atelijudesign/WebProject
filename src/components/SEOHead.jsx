@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://atelijudesign.com";
+const SITE_URL = "https://www.andresgallop.com";
 
 /**
  * SEOHead – Inyecta meta tags dinámicos, Open Graph, Twitter Cards y Schema.org JSON-LD
@@ -22,6 +22,7 @@ export default function SEOHead({
   type = "website",
   keywords = "",
   schema = null,
+  noindex = false,
 }) {
   const canonicalUrl = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
   const ogImage = image.startsWith("http") ? image : `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`;
@@ -32,6 +33,7 @@ export default function SEOHead({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph / Facebook / LinkedIn */}
@@ -40,7 +42,7 @@ export default function SEOHead({
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="Andrés Gallo P. | Proyectista Estructural BIM" />
+      <meta property="og:site_name" content="Andrés Gallo P. | Diseñador Estructural BIM" />
       <meta property="og:locale" content="es_CL" />
 
       {/* Twitter / X */}

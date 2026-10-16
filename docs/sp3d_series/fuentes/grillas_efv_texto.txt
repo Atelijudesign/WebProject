@@ -1,0 +1,528 @@
+===== PAGINA 1 =====
+ 
+ 
+X 
+ 
+ 
+ 
+SmartPlant3D 
+ 
+Grids/Structures. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 2 =====
+ 
+ 
+ 
+ 
+LAB-1A: Colocación de Grillas/Sistemas de Coordenadas: 
+ 
+1. Seleccione la opción Grids ingresando a Task en la barra superior. . 
+2. Seleccione el comando Grids Wizard desde la barra de herramientas verticales. 
+3. Usando el comando Grids Wizard crearemos el nuevo sistema de coordenadas 
+siguiendo la siguiente información: 
+ 
+Name: 
+U02 CS 
+Axis for bearing: North(Y). 
+Bearing: 
+N 0.00 deg E 
+Origin: 
+East (X): 
+9144 
+North (Y): 
+3048 
+Up (Z): 
+0  
+ 
+ 
+ 
+4. Haga click en el botón Next. 
+5. En el segundo paso crearemos las diferentes elevaciones. Debe crear las elevaciones 
+con los siguientes datos: 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 3 =====
+ 
+ 
+ 
+ 
+6. Haga a click en el botón Add. 
+ 
+ 
+ 
+7. Haga click en el botón Next. 
+8. En el tercer paso se crearan las grillas en el plano X. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+9. Haga click en el botón Add. 
+
+
+===== PAGINA 4 =====
+ 
+ 
+ 
+10. Haga click en el botón Next. 
+11. En este cuarto paso se crearan las grillas en el plano Y. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+12. Haga click en el botón Add. 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 5 =====
+ 
+ 
+13. Haga click en el botón Next. 
+14. Aparecerá el cuadro de Create Radial Cylinder, haga click en Next. 
+15. Aparecerá el cuadro de Create Radial Plane, haga click en Next. 
+Nota: se saltaran estos dos pasos porque no estamos creando ninguna de esas dos 
+tipos de grillas. 
+16. Haga click en Finish. 
+17. Use el comando Fit para ajustar la vista. 
+ 
+18. Usando la herramienta de Common View seleccione la vista Iso. 
+ 
+19. En la barra superior seleccionemos View y de las opciones presentadas seleccione 
+Ruler. 
+20. Con el botón de Ctrl presionado selección el contenido del sistema de coordenada U02 
+CS y haga click en Ok. 
+21. En el Workspace Explorer seleccione el sistema de coordenada U02 CS, se abrirá la 
+barra para editar las propiedades. 
+22. En la casilla System cambie a CS. Expanda las casilla System>More, se abrirá el cuadro 
+de dialogo y seleccione la opción CS. 
+ 
+23. Su vista debe ser similar a la siguiente imagen. 
+
+
+===== PAGINA 6 =====
+ 
+ 
+ 
+ 
+LAB-1B: Colocación de Grillas/Sistemas de Coordenadas- 
+U04: 
+1. Debe crear o abrir una sesión o filtro apropiado en su Workspace, el fitro debe 
+contener la unidad U04. 
+2. En la casilla Permission Group seleccione la opción Layout. 
+3. Seleccione el comando Grid Wizard desde la barra de herramientas verticales. 
+4. En el paso uno del comando Grid Wizard se creara un nuevo sistema de coordenada, 
+para esto coloque los siguientes datos: 
+Name: 
+U04 CS 
+Axis for bearing: North(Y). 
+Bearing: 
+N 0.00 deg E 
+Origin: 
+East (X): 
+36576 
+North (Y): 
+24384 
+Up (Z): 
+0  
+Haga click en el botón Next. 
+5. En el segundo paso crearemos las diferentes elevaciones. Debe crear las elevaciones 
+con los siguientes datos: 
+En la casilla Name Rule coloque Imperial Position para todas las grillas. 
+En la casilla Nesting level coloque Primary para todas las grillas. 
+ 
+6. Haga click en el botón Add. 
+
+
+===== PAGINA 7 =====
+ 
+ 
+ 
+7. Haga click en el botón Next. 
+8. En el tercer paso se crearan grilla en el plano X. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+9. Haga click en el botón Add. 
+ 
+ 
+
+
+===== PAGINA 8 =====
+ 
+10. Haga click en el botón Next. 
+11. En el tercer paso se crearan grilla en el plano Y. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+12. Haga click en el botón Add. 
+ 
+13. Haga click en el botón Next. 
+14. Aparecerá el cuadro de Create Radial Cylinder, haga click en Next. 
+15. Aparecerá el cuadro de Create Radial Plane, haga click en Next. 
+Nota: se saltaran estos dos pasos porque no estamos creando ninguna de esas dos 
+tipos de grillas. 
+16. Haga click en Finish. 
+17. Use el comando Fit para ajustar la vista. 
+ 
+18. En la barra superior seleccionemos View y de las opciones presentadas seleccione 
+Ruler. 
+19. Con el botón de Ctrl presionado selección el contenido del sistema de coordenada U04 
+CS y haga click en Ok. 
+20. En el Workspace Explorer seleccione el sistema de coordenada U04 CS, se abrirá la 
+barra para editar las propiedades. 
+21. En la casilla System cambie a CS. Expanda las casilla System>More, se abrirá el cuadro 
+de dialogo y seleccione la opción CS. 
+ 
+
+
+===== PAGINA 9 =====
+ 
+ 
+ 
+22. Su vista debe ser similar a la siguiente imagen. 
+ 
+ 
+ 
+LAB-1C: Colocación de Grillas/Sistemas de Coordenadas- 
+U03: 
+1. Debe crear o abrir una sesión o filtro apropiado en su Workspace, el fitro debe 
+contener la unidad U03. 
+2. En la casilla Permission Group seleccione la opción Layout. 
+3. Seleccione el comando Grid Wizard desde la barra de herramientas verticales. 
+4. En el paso uno del comando Grid Wizard se creara un nuevo sistema de coordenada, 
+para esto coloque los siguientes datos: 
+Name: 
+ U03 CS 
+Axis for bearing: North(Y). 
+Bearing: 
+N 0.00 deg E 
+Origin: 
+East (X): 
+-10668 
+North (Y): 
+3048 
+Up (Z): 
+0  
+5. Haga click en el botón Next. 
+6. En el segundo paso crearemos las diferentes elevaciones. Debe crear las elevaciones 
+con los siguientes datos: 
+En la casilla Name Rule coloque Imperial Position para todas las grillas. 
+
+
+===== PAGINA 10 =====
+ 
+ 
+7. Haga click en el botón Add. 
+8. En el cuadro de Elevation plane locations edite la casilla Type como se muestra en la 
+siguiente imagen. 
+    
+ 
+9. Haga click en el botón Next. 
+10. En el tercer paso se crearan grilla en el plano X. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+11. Haga click en el botón Add. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 11 =====
+ 
+ 
+     
+ 
+ 
+12. Haga click en el botón Next. 
+13. En el tercer paso se crearan grilla en el plano Y. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+14. Haga click en el botón Add. 
+
+
+===== PAGINA 12 =====
+ 
+ 
+ 
+15. Haga click en el botón Next. 
+16. Aparecerá el cuadro de Create Radial Cylinder, haga click en Next. 
+17. Aparecerá el cuadro de Create Radial Plane, haga click en Next. 
+Nota: se saltaran estos dos pasos porque no estamos creando ninguna de esas dos 
+tipos de grillas. 
+18. En la barra superior seleccionemos View y de las opciones presentadas seleccione 
+Ruler. 
+19. Con el botón de Ctrl presionado selección el contenido del sistema de coordenada U03 
+CS y haga click en Ok. 
+20. En el Workspace Explorer seleccione el sistema de coordenada U04 CS, se abrirá la 
+barra para editar las propiedades. 
+21. En la casilla System cambie a CS. Expanda las casilla System>More, se abrirá el cuadro 
+de dialogo y seleccione la opción CS. 
+ 
+22. Su vista debe ser similar a la siguiente imagen. 
+
+
+===== PAGINA 13 =====
+ 
+ 
+ 
+LAB-2: Edit Grillas Planes. (Placing Elevation Plane) 
+1. Debe crear o abrir una sesión o filtro apropiado en su Workspace. 
+2. En la casilla Permission Group seleccione la opción Layout. 
+3. Seleccione el comando Place Elevation Plane desde la barra de herramientas 
+verticales. 
+4. En la barra de Place Elevation Plane coloque los siguientes valores: 
+Coordinate System:  Pick U04 CS. 
+Type: 
+Pick Top of Steel. 
+Name: 
+ Open the setting properties page and change the name rule to 
+Imperial Position. 
+Nesting level: 
+Primary. 
+Reference: 
+Origin. 
+Copies: 
+0 
+5. En la casilla de Offset coloque 26ft. 
+6. El sistema colocara las grillas después de haber descargado los datos anteriores. Haga 
+click con el botón derecho del mouse para salir del comando. 
+7. Su vista debe ser similar a la siguiente imagen. 
+ 
+
+
+===== PAGINA 14 =====
+ 
+ 
+ 
+Placing Grid Planes: X-Axis. 
+8. Seleccione el comando Place Grid Plane desde la barra de herramientas verticales. 
+9. En la barra de Place Grid Plane coloque los siguientes valores: 
+Coordinate System: 
+U04 CS. 
+Axis: 
+X. 
+Type: 
+N-S Grid Plane. 
+Reference: 
+Origin. 
+Copies: 
+1. 
+Nesting Level: 
+Secondary 
+Name: 
+ Open the properties page and change the name rule to 
+Alphanumeric and Percent. 
+10. En la casilla de Offset coloque 5ft. 
+11. El sistema colocara las grillas después de haber descargado los datos anteriores. Haga 
+click con el botón derecho del mouse para salir del comando. 
+12. Su vista debe ser similar a la siguiente imagen. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 15 =====
+ 
+ 
+Placing Grid Planes: Y-Axis. 
+13. Seleccione el comando Place Grid Plane desde la barra de herramientas verticales. 
+14. En la barra de Place Grid Plane coloque los siguientes valores: 
+Coordinate System: 
+Pick U04 CS. 
+Type: 
+E-W Grid Plane. 
+Name: 
+ Open the setting properties page and change the name rule to 
+Alphanumeric and Percent. 
+Nesting level: 
+Secondary. 
+Reference: 
+Origin. 
+Copies: 
+2 
+ 
+15. En la casilla de Offset coloque 2ft. 
+16. El sistema colocara las grillas después de haber descargado los datos anteriores. Haga 
+click con el botón derecho del mouse para salir del comando. 
+17. Su vista debe ser similar a la siguiente imagen. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 16 =====
+ 
+ 
+ 
+LAB-3: Offshore Coordinate System-U05. 
+1. Debe crear o abrir una sesión o filtro apropiado en su Workspace. 
+2. En la casilla Permission Group seleccione la opción Layout. 
+3. Seleccione el comando Grid Wizard desde la barra de herramientas verticales. 
+4. En el paso uno del comando Grid Wizard se creara un nuevo sistema de coordenada, 
+para esto coloque los siguientes datos: 
+Name: 
+U05 CS 
+Axis for bearing: North(Y). 
+Bearing: 
+N 0.00 deg E 
+Origin: 
+East (X): 
+-35 ft 
+North (Y): 
+-30 ft 
+Up (Z): 
+0 ft 
+5. Haga click en el botón Next. 
+6. En el segundo paso crearemos las diferentes elevaciones. Debe crear las elevaciones 
+con los siguientes datos: 
+En la casilla Name Rule coloque Imperial Position para todas las grillas. 
+7. Haga click en el botón Next. 
+8. En el tercer paso se crearan grilla en el plano X. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+
+
+===== PAGINA 17 =====
+ 
+ 
+ 
+9. Haga click en el botón Next. 
+10. En el cuarto paso se crearan grilla en el plano Y. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+11. Haga click en el botón Next. 
+12. Aparecerá el cuadro de Create Radial Cylinder, haga click en Next. 
+13. Aparecerá el cuadro de Create Radial Plane, haga click en Next. 
+Nota: se saltaran estos dos pasos porque no estamos creando ninguna de esas dos 
+tipos de grillas. 
+14. Haga click en la opción Finish. 
+15. Seleccione el sistema de coordenadas U05 CS. 
+16. En la barra de propiedades cambie el sistema, en la casilla de System cambie a CS. 
+17. Seleccione la grilla A en el Workspace Explorer y seleccione el icono de propiedades 
+Grid Plane Properties. 
+18. En el cuadro de propiedades ingrese los siguientes valores: 
+Axis of Rotation: 
+Y 
+Angle of Rotation: 
+95.0 deg. 
+
+
+===== PAGINA 18 =====
+ 
+ 
+ 
+19. Haga click en el botón Apply. 
+20. Ahora seleccione la grilla B en el Workspace Explorer y seleccione el icono de 
+propiedades Grid Plane Properties. 
+21. En el cuadro de propiedades ingrese los siguientes valores: 
+Axis of Rotation: 
+Y 
+Angle of Rotation: 
+85.0 deg. 
+22. Haga click en el botón Apply. 
+23. Ahora seleccione la grilla 1 en el Workspace Explorer y seleccione el icono de 
+propiedades Grid Plane Properties. 
+24. En el cuadro de propiedades ingrese los siguientes valores: 
+Axis of Rotation: 
+X 
+Angle of Rotation: 
+85.0 deg. 
+
+
+===== PAGINA 19 =====
+ 
+ 
+25. Haga click en el botón Apply. 
+26. Ahora seleccione la grilla 2 en el Workspace Explorer y seleccione el icono de 
+propiedades Grid Plane Properties. 
+27. En el cuadro de propiedades ingrese los siguientes valores: 
+Axis of Rotation: 
+X 
+Angle of Rotation: 
+95.0 deg. 
+28. Haga click en el botón Ok. 
+29. Su vista debe ser similar a la siguiente imagen. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PAGINA 20 =====
+ 
+ 
+ 
+LAB-4: Rotar Sistemas de Coordenadas. 
+1. Debe crear o abrir una sesión o filtro apropiado en su Workspace U06. 
+2. En la casilla Permission Group seleccione la opción Layout. 
+3. Seleccione el comando Grid Wizard desde la barra de herramientas verticales. 
+4. En el paso uno del comando Grid Wizard se creara un nuevo sistema de coordenada, 
+para esto coloque los siguientes datos: 
+Name: 
+Axis for bearing: 
+U06 CS 
+North(Y). 
+Bearing: 
+N 20.00 deg E 
+Origin: 
+East (X): 
+20 ft 
+North (Y): 
+-30 ft 
+Up (Z): 
+0 ft 
+5. Haga click en el botón de Next. 
+6. En el segundo paso crearemos las diferentes elevaciones. Debe crear las elevaciones 
+con los siguientes datos: 
+En la casilla Name Rule coloque Imperial Position para todas las grillas. 
+1. Haga click en el botón de Next. 
+2. En el tercer paso se crearan grilla en el plano X. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+
+
+===== PAGINA 21 =====
+ 
+ 
+3. Haga click en el botón de Next. 
+4. En el cuarto paso se crearan grilla en el plano Y. en la casilla Name Rule coloque 
+Alphanumeric and Percent para todas las grillas. 
+1. Haga click en el botón de Next. 
+2. Aparecerá el cuadro de Create Radial Cylinder, haga click en Next. 
+3. Aparecerá el cuadro de Create Radial Plane, haga click en Next. 
+Nota: se saltaran estos dos pasos porque no estamos creando ninguna de esas dos 
+tipos de grillas. 
+4. Haga click en la opción Finish. 
+5. Su vista debe ser similar a la siguiente imagen. 
+6. Seleccione el sistema de coordenadas U06 CS y en la barra de propiedades cambie el 
+siguiente parámetro. En la casilla de System coloque CS como sistema. 
+7. Salve su sesión desde File>Save ubicado en la barra superior. 

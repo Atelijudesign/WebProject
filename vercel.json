@@ -7,16 +7,47 @@
       "has": [
         {
           "type": "host",
+          "value": "andresgallop.com"
+        }
+      ],
+      "destination": "https://www.andresgallop.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "atelijudesign.com"
+        }
+      ],
+      "destination": "https://www.andresgallop.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
           "value": "www.atelijudesign.com"
         }
       ],
-      "destination": "https://atelijudesign.com/:path*",
+      "destination": "https://www.andresgallop.com/:path*",
       "permanent": true
     }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/models/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -37,7 +68,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|favicon|robots\\.txt|sitemap\\.xml|manifest|sw\\.js|registerSW\\.js).*)",
+      "source": "/((?!assets/|models/|favicon|robots\\.txt|sitemap\\.xml|manifest|sw\\.js|registerSW\\.js).*)",
       "destination": "/index.html"
     }
   ]

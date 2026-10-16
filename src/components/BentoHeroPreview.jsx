@@ -73,7 +73,7 @@ export const BentoHeroPreview = () => {
               <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
                 BIM Developer & <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-emerald-400">
-                  Proyectista Estructural
+                  Diseñador Estructural
                 </span>
               </h1>
 

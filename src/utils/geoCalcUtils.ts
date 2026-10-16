@@ -20,6 +20,7 @@ export interface RightTriangleResult {
   perimeter: number;
   isValid: boolean;
   error?: string;
+  errorEn?: string;
 }
 
 export interface ObliqueTriangleResult {
@@ -33,6 +34,7 @@ export interface ObliqueTriangleResult {
   perimeter: number;
   isValid: boolean;
   error?: string;
+  errorEn?: string;
 }
 
 export interface TrigFunctions {
@@ -76,7 +78,7 @@ const isPos = (v: number) => isFinite(v) && v > 0;
 
 export const rightTriangle_hypAngle = (c: number, A: number): RightTriangleResult => {
   if (!isPos(c) || A <= 0 || A >= 90)
-    return { a: 0, b: 0, c, A, B: 0, C: 90, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango" };
+    return { a: 0, b: 0, c, A, B: 0, C: 90, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango", errorEn: "Values out of range" };
   const B = 90 - A;
   const a = round(c * Math.sin(A * DEG));
   const b = round(c * Math.cos(A * DEG));
@@ -85,7 +87,7 @@ export const rightTriangle_hypAngle = (c: number, A: number): RightTriangleResul
 
 export const rightTriangle_hypLeg = (c: number, a: number): RightTriangleResult => {
   if (!isPos(c) || !isPos(a) || a >= c)
-    return { a, b: 0, c, A: 0, B: 0, C: 90, area: 0, perimeter: 0, isValid: false, error: "El cateto debe ser menor que la hipotenusa" };
+    return { a, b: 0, c, A: 0, B: 0, C: 90, area: 0, perimeter: 0, isValid: false, error: "El cateto debe ser menor que la hipotenusa", errorEn: "Leg must be smaller than hypotenuse" };
   const B = round(Math.asin(a / c) / DEG);
   const A = round(90 - B);
   const b = round(Math.sqrt(c * c - a * a));
@@ -94,7 +96,7 @@ export const rightTriangle_hypLeg = (c: number, a: number): RightTriangleResult 
 
 export const rightTriangle_legAngle = (b: number, B: number): RightTriangleResult => {
   if (!isPos(b) || B <= 0 || B >= 90)
-    return { a: 0, b, c: 0, A: 0, B, C: 90, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango" };
+    return { a: 0, b, c: 0, A: 0, B, C: 90, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango", errorEn: "Values out of range" };
   const A = round(90 - B);
   const a = round(b * Math.tan(B * DEG));
   const c = round(b / Math.cos(B * DEG));
@@ -103,7 +105,7 @@ export const rightTriangle_legAngle = (b: number, B: number): RightTriangleResul
 
 export const rightTriangle_twoLegs = (a: number, b: number): RightTriangleResult => {
   if (!isPos(a) || !isPos(b))
-    return { a, b, c: 0, A: 0, B: 0, C: 90, area: 0, perimeter: 0, isValid: false, error: "Ambos catetos deben ser positivos" };
+    return { a, b, c: 0, A: 0, B: 0, C: 90, area: 0, perimeter: 0, isValid: false, error: "Ambos catetos deben ser positivos", errorEn: "Both legs must be positive" };
   const c = round(Math.sqrt(a * a + b * b));
   const A = round(Math.atan(a / b) / DEG);
   const B = round(90 - A);
@@ -116,7 +118,7 @@ export const rightTriangle_twoLegs = (a: number, b: number): RightTriangleResult
 
 const obliqueResult = (a: number, b: number, c: number, A: number, B: number, C: number): ObliqueTriangleResult => {
   if (!isPos(a) || !isPos(b) || !isPos(c) || A <= 0 || B <= 0 || C <= 0)
-    return { a, b, c, A, B, C, area: 0, perimeter: 0, isValid: false, error: "Resultado invalido" };
+    return { a, b, c, A, B, C, area: 0, perimeter: 0, isValid: false, error: "Resultado invalido", errorEn: "Invalid result" };
   const s = (a + b + c) / 2;
   const areaVal = s * (s - a) * (s - b) * (s - c);
   const area = areaVal > 0 ? round(Math.sqrt(areaVal)) : 0;
@@ -126,7 +128,7 @@ const obliqueResult = (a: number, b: number, c: number, A: number, B: number, C:
 export const obliqueTriangle_sideAngles = (a: number, B: number, C: number): ObliqueTriangleResult => {
   const A = 180 - B - C;
   if (!isPos(a) || A <= 0)
-    return { a, b: 0, c: 0, A, B, C, area: 0, perimeter: 0, isValid: false, error: "Los angulos deben sumar < 180" };
+    return { a, b: 0, c: 0, A, B, C, area: 0, perimeter: 0, isValid: false, error: "Los angulos deben sumar < 180", errorEn: "Angles must sum < 180°" };
   const b = a * Math.sin(B * DEG) / Math.sin(A * DEG);
   const c = a * Math.sin(C * DEG) / Math.sin(A * DEG);
   return obliqueResult(a, b, c, A, B, C);
@@ -134,7 +136,7 @@ export const obliqueTriangle_sideAngles = (a: number, B: number, C: number): Obl
 
 export const obliqueTriangle_twoSidesAngle = (a: number, b: number, C: number): ObliqueTriangleResult => {
   if (!isPos(a) || !isPos(b) || C <= 0 || C >= 180)
-    return { a, b, c: 0, A: 0, B: 0, C, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango" };
+    return { a, b, c: 0, A: 0, B: 0, C, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango", errorEn: "Values out of range" };
   const c = Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(C * DEG));
   const A = Math.acos((b * b + c * c - a * a) / (2 * b * c)) / DEG;
   const B = 180 - A - C;
@@ -143,10 +145,10 @@ export const obliqueTriangle_twoSidesAngle = (a: number, b: number, C: number): 
 
 export const obliqueTriangle_threeSides = (a: number, b: number, c: number): ObliqueTriangleResult => {
   if (!isPos(a) || !isPos(b) || !isPos(c))
-    return { a, b, c, A: 0, B: 0, C: 0, area: 0, perimeter: 0, isValid: false, error: "Todos los lados deben ser positivos" };
+    return { a, b, c, A: 0, B: 0, C: 0, area: 0, perimeter: 0, isValid: false, error: "Todos los lados deben ser positivos", errorEn: "All sides must be positive" };
   const cosA = (b * b + c * c - a * a) / (2 * b * c);
   if (Math.abs(cosA) > 1)
-    return { a, b, c, A: 0, B: 0, C: 0, area: 0, perimeter: 0, isValid: false, error: "Los lados no forman un triangulo valido" };
+    return { a, b, c, A: 0, B: 0, C: 0, area: 0, perimeter: 0, isValid: false, error: "Los lados no forman un triangulo valido", errorEn: "Sides do not form a valid triangle" };
   const A = Math.acos(cosA) / DEG;
   const B = Math.acos((a * a + c * c - b * b) / (2 * a * c)) / DEG;
   const C = 180 - A - B;
@@ -155,10 +157,10 @@ export const obliqueTriangle_threeSides = (a: number, b: number, c: number): Obl
 
 export const obliqueTriangle_twoSidesOppAngle = (b: number, c: number, B: number): ObliqueTriangleResult => {
   if (!isPos(b) || !isPos(c) || B <= 0 || B >= 180)
-    return { a: 0, b, c, A: 0, B, C: 0, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango" };
+    return { a: 0, b, c, A: 0, B, C: 0, area: 0, perimeter: 0, isValid: false, error: "Valores fuera de rango", errorEn: "Values out of range" };
   const sinC = c * Math.sin(B * DEG) / b;
   if (sinC > 1)
-    return { a: 0, b, c, A: 0, B, C: 0, area: 0, perimeter: 0, isValid: false, error: "No existe solucion real" };
+    return { a: 0, b, c, A: 0, B, C: 0, area: 0, perimeter: 0, isValid: false, error: "No existe solucion real", errorEn: "No real solution exists" };
   const C = Math.asin(sinC) / DEG;
   const A = 180 - B - C;
   const a = b * Math.sin(A * DEG) / Math.sin(B * DEG);
@@ -198,14 +200,16 @@ export type ShapeId =
 export interface ShapeInputDef {
   id: string;
   label: string;
+  labelEn?: string;
   symbol: string;
   description: string;
+  descriptionEn?: string;
 }
 
 export interface ShapeCalcResult {
   area: number;
   perimeter?: number;
-  extras: { label: string; value: number }[];
+  extras: { label: string; labelEn?: string; value: number }[];
 }
 
 export interface ShapeDef {
@@ -214,6 +218,7 @@ export interface ShapeDef {
   nameEn: string;
   icon: string;
   formulaEs: string;
+  formulaEn?: string;
   inputs: ShapeInputDef[];
   calc: (inputs: Record<string, number>) => ShapeCalcResult;
 }
@@ -221,15 +226,16 @@ export interface ShapeDef {
 export const SHAPE_DEFINITIONS: ShapeDef[] = [
   {
     id: "circle",
-    nameEs: "Circulo",
+    nameEs: "Círculo",
     nameEn: "Circle",
     icon: "fa-circle",
-    formulaEs: "A = pi * r^2 = 0.7854 * d^2",
-    inputs: [{ id: "r", label: "Radio", symbol: "r", description: "Radio del circulo" }],
+    formulaEs: "A = π · r² = 0.7854 · d²",
+    formulaEn: "A = π · r² = 0.7854 · d²",
+    inputs: [{ id: "r", label: "Radio", labelEn: "Radius", symbol: "r", description: "Radio del círculo", descriptionEn: "Radius of circle" }],
     calc: ({ r }) => ({
       area: round(Math.PI * r * r),
       perimeter: round(2 * Math.PI * r),
-      extras: [{ label: "Diametro", value: round(2 * r) }],
+      extras: [{ label: "Diámetro", labelEn: "Diameter", value: round(2 * r) }],
     }),
   },
   {
@@ -237,15 +243,16 @@ export const SHAPE_DEFINITIONS: ShapeDef[] = [
     nameEs: "Sector Circular",
     nameEn: "Circular Sector",
     icon: "fa-chart-pie",
-    formulaEs: "A = pi * r^2 * alpha / 360",
+    formulaEs: "A = π · r² · α / 360",
+    formulaEn: "A = π · r² · α / 360",
     inputs: [
-      { id: "r", label: "Radio", symbol: "r", description: "Radio" },
-      { id: "alpha", label: "Angulo", symbol: "a (deg)", description: "Angulo central en grados" },
+      { id: "r", label: "Radio", labelEn: "Radius", symbol: "r", description: "Radio", descriptionEn: "Radius" },
+      { id: "alpha", label: "Ángulo", labelEn: "Angle", symbol: "α°", description: "Ángulo central en grados", descriptionEn: "Central angle in degrees" },
     ],
     calc: ({ r, alpha }) => ({
       area: round(Math.PI * r * r * alpha / 360),
       perimeter: round(2 * r + alpha * DEG * r),
-      extras: [{ label: "Longitud arco", value: round(alpha * DEG * r) }],
+      extras: [{ label: "Longitud arco", labelEn: "Arc length", value: round(alpha * DEG * r) }],
     }),
   },
   {
@@ -253,10 +260,11 @@ export const SHAPE_DEFINITIONS: ShapeDef[] = [
     nameEs: "Segmento Circular",
     nameEn: "Circular Segment",
     icon: "fa-circle-half-stroke",
-    formulaEs: "A = (r*(arco-cuerda) + cuerda*flecha) / 2",
+    formulaEs: "A = (r·(arco − cuerda) + cuerda·flecha) / 2",
+    formulaEn: "A = (r·(arc − chord) + chord·sagitta) / 2",
     inputs: [
-      { id: "r", label: "Radio", symbol: "r", description: "Radio del circulo" },
-      { id: "alpha", label: "Angulo", symbol: "a (deg)", description: "Angulo central en grados" },
+      { id: "r", label: "Radio", labelEn: "Radius", symbol: "r", description: "Radio del círculo", descriptionEn: "Radius of circle" },
+      { id: "alpha", label: "Ángulo", labelEn: "Angle", symbol: "α°", description: "Ángulo central en grados", descriptionEn: "Central angle in degrees" },
     ],
     calc: ({ r, alpha }) => {
       const arc = alpha * DEG * r;
@@ -265,8 +273,8 @@ export const SHAPE_DEFINITIONS: ShapeDef[] = [
       return {
         area: round((r * (arc - chord) + chord * arrow) / 2),
         extras: [
-          { label: "Cuerda", value: round(chord) },
-          { label: "Flecha", value: round(arrow) },
+          { label: "Cuerda", labelEn: "Chord", value: round(chord) },
+          { label: "Flecha", labelEn: "Sagitta", value: round(arrow) },
         ],
       };
     },
@@ -274,45 +282,48 @@ export const SHAPE_DEFINITIONS: ShapeDef[] = [
   {
     id: "crown",
     nameEs: "Corona Circular",
-    nameEn: "Annulus",
+    nameEn: "Circular Ring (Annulus)",
     icon: "fa-ring",
-    formulaEs: "A = pi * (R^2 - r^2)",
+    formulaEs: "A = π · (R² − r²)",
+    formulaEn: "A = π · (R² − r²)",
     inputs: [
-      { id: "R", label: "Radio exterior", symbol: "R", description: "Radio exterior" },
-      { id: "r", label: "Radio interior", symbol: "r", description: "Radio interior (< R)" },
+      { id: "R", label: "Radio exterior", labelEn: "Outer radius", symbol: "R", description: "Radio exterior", descriptionEn: "Outer radius" },
+      { id: "r", label: "Radio interior", labelEn: "Inner radius", symbol: "r", description: "Radio interior (< R)", descriptionEn: "Inner radius (< R)" },
     ],
     calc: ({ R, r }) => ({
       area: round(Math.PI * (R * R - r * r)),
       perimeter: round(2 * Math.PI * (R + r)),
-      extras: [{ label: "Ancho corona", value: round(R - r) }],
+      extras: [{ label: "Ancho corona", labelEn: "Ring width", value: round(R - r) }],
     }),
   },
   {
     id: "triangle",
-    nameEs: "Triangulo (base x altura)",
-    nameEn: "Triangle",
+    nameEs: "Triángulo (base × altura)",
+    nameEn: "Triangle (base × height)",
     icon: "fa-play",
-    formulaEs: "A = b * h / 2",
+    formulaEs: "A = b · h / 2",
+    formulaEn: "A = b · h / 2",
     inputs: [
-      { id: "b", label: "Base", symbol: "b", description: "Base del triangulo" },
-      { id: "h", label: "Altura", symbol: "h", description: "Altura perpendicular a la base" },
+      { id: "b", label: "Base", labelEn: "Base", symbol: "b", description: "Base del triángulo", descriptionEn: "Triangle base" },
+      { id: "h", label: "Altura", labelEn: "Height", symbol: "h", description: "Altura perpendicular a la base", descriptionEn: "Perpendicular height" },
     ],
     calc: ({ b, h }) => ({ area: round(b * h / 2), extras: [] }),
   },
   {
     id: "rectangle",
-    nameEs: "Rectangulo / Cuadrado",
-    nameEn: "Rectangle",
+    nameEs: "Rectángulo / Cuadrado",
+    nameEn: "Rectangle / Square",
     icon: "fa-rectangle-landscape",
-    formulaEs: "A = a * b",
+    formulaEs: "A = a · b",
+    formulaEn: "A = a · b",
     inputs: [
-      { id: "a", label: "Largo", symbol: "a", description: "Dimension mayor" },
-      { id: "b", label: "Ancho", symbol: "b", description: "Dimension menor" },
+      { id: "a", label: "Largo", labelEn: "Length", symbol: "a", description: "Dimensión mayor", descriptionEn: "Major dimension" },
+      { id: "b", label: "Ancho", labelEn: "Width", symbol: "b", description: "Dimensión menor", descriptionEn: "Minor dimension" },
     ],
     calc: ({ a, b }) => ({
       area: round(a * b),
       perimeter: round(2 * (a + b)),
-      extras: [{ label: "Diagonal", value: round(Math.sqrt(a * a + b * b)) }],
+      extras: [{ label: "Diagonal", labelEn: "Diagonal", value: round(Math.sqrt(a * a + b * b)) }],
     }),
   },
   {
@@ -320,28 +331,30 @@ export const SHAPE_DEFINITIONS: ShapeDef[] = [
     nameEs: "Trapecio",
     nameEn: "Trapezoid",
     icon: "fa-filter",
-    formulaEs: "A = (a + b) * h / 2",
+    formulaEs: "A = (a + b) · h / 2",
+    formulaEn: "A = (a + b) · h / 2",
     inputs: [
-      { id: "a", label: "Base mayor", symbol: "a", description: "Base mayor" },
-      { id: "b", label: "Base menor", symbol: "b", description: "Base menor" },
-      { id: "h", label: "Altura", symbol: "h", description: "Altura perpendicular" },
+      { id: "a", label: "Base mayor", labelEn: "Major base", symbol: "a", description: "Base mayor", descriptionEn: "Major base" },
+      { id: "b", label: "Base menor", labelEn: "Minor base", symbol: "b", description: "Base menor", descriptionEn: "Minor base" },
+      { id: "h", label: "Altura", labelEn: "Height", symbol: "h", description: "Altura perpendicular", descriptionEn: "Perpendicular height" },
     ],
     calc: ({ a, b, h }) => ({ area: round((a + b) * h / 2), extras: [] }),
   },
   {
     id: "polygon",
-    nameEs: "Poligono Regular",
+    nameEs: "Polígono Regular",
     nameEn: "Regular Polygon",
     icon: "fa-hexagon",
-    formulaEs: "A = (n * L^2) / (4 * tan(pi/n))",
+    formulaEs: "A = (n · L²) / (4 · tan(π/n))",
+    formulaEn: "A = (n · L²) / (4 · tan(π/n))",
     inputs: [
-      { id: "n", label: "N lados", symbol: "n", description: "Numero de lados (3, 4, 5, 6...)" },
-      { id: "L", label: "Lado", symbol: "L", description: "Longitud de cada lado" },
+      { id: "n", label: "N° lados", labelEn: "Number of sides", symbol: "n", description: "Número de lados (3, 4, 5, 6...)", descriptionEn: "Number of sides (3, 4, 5, 6...)" },
+      { id: "L", label: "Lado", labelEn: "Side length", symbol: "L", description: "Longitud de cada lado", descriptionEn: "Length of each side" },
     ],
     calc: ({ n, L }) => ({
       area: round((n * L * L) / (4 * Math.tan(Math.PI / n))),
       perimeter: round(n * L),
-      extras: [{ label: "Radio inscrito", value: round(L / (2 * Math.tan(Math.PI / n))) }],
+      extras: [{ label: "Radio inscrito", labelEn: "Inscribed radius", value: round(L / (2 * Math.tan(Math.PI / n))) }],
     }),
   },
   {
@@ -349,15 +362,16 @@ export const SHAPE_DEFINITIONS: ShapeDef[] = [
     nameEs: "Elipse",
     nameEn: "Ellipse",
     icon: "fa-circle",
-    formulaEs: "A = pi * a * b",
+    formulaEs: "A = π · a · b",
+    formulaEn: "A = π · a · b",
     inputs: [
-      { id: "a", label: "Semieje mayor", symbol: "a", description: "Semieje mayor" },
-      { id: "b", label: "Semieje menor", symbol: "b", description: "Semieje menor" },
+      { id: "a", label: "Semieje mayor", labelEn: "Semi-major axis", symbol: "a", description: "Semieje mayor", descriptionEn: "Semi-major axis" },
+      { id: "b", label: "Semieje menor", labelEn: "Semi-minor axis", symbol: "b", description: "Semieje menor", descriptionEn: "Semi-minor axis" },
     ],
     calc: ({ a, b }) => ({
       area: round(Math.PI * a * b),
       perimeter: round(Math.PI * (3 * (a + b) - Math.sqrt((3 * a + b) * (a + 3 * b)))),
-      extras: [{ label: "Excentricidad", value: round(Math.sqrt(1 - (b * b) / (a * a))) }],
+      extras: [{ label: "Excentricidad", labelEn: "Eccentricity", value: round(Math.sqrt(1 - (b * b) / (a * a))) }],
     }),
   },
 ];

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "../components/SEOHead";
+import { useTranslation } from "../context/LanguageContext";
 import { IfcViewport } from "../components/ifc-viewer/IfcViewport";
 import { IfcToolbar } from "../components/ifc-viewer/IfcToolbar";
 import { IfcRibbon } from "../components/ifc-viewer/IfcRibbon";
@@ -18,6 +19,9 @@ import { IFC_LOAD_TIMEOUT_MS, compareQuantitySummaries, resolvePerformanceProfil
 import { clearIfcCache, createIfcFingerprint } from "../components/ifc-viewer/ifcCache";
 
 export default function IfcViewer() {
+  const { language } = useTranslation();
+  const isEn = language === "en";
+
   // Estado del Archivo y Modelo (Inicializado sin modelo para carga web instantánea)
   const [modelName, setModelName] = useState(null);
   const [fileData, setFileData] = useState(null);
@@ -906,10 +910,22 @@ export default function IfcViewer() {
         className="relative w-full h-screen bg-slate-950 text-slate-100 flex flex-col overflow-hidden font-sans select-none"
       >
       <SEOHead
-        title="Visor IFC Web 3D Interactivo · BIM Estructural"
-        description="Visualizador BIM 3D en línea: carga modelos IFC locales, inspecciona propiedades y Psets, planos de sección, mide distancias y áreas, y exporta a CSV o JSON."
+        title={
+          isEn
+            ? "Interactive 3D Web IFC Viewer · Structural BIM"
+            : "Visor IFC Web 3D Interactivo · BIM Estructural"
+        }
+        description={
+          isEn
+            ? "Online 3D BIM Viewer: load local IFC models, inspect properties and Psets, section planes, measure distances and areas, and export to CSV or JSON."
+            : "Visualizador BIM 3D en línea: carga modelos IFC locales, inspecciona propiedades y Psets, planos de sección, mide distancias y áreas, y exporta a CSV o JSON."
+        }
         path="/herramientas/visor-ifc"
-        keywords="Visor IFC online, visor BIM 3D, Web-IFC viewer, Three.js BIM, cubicador IFC, planos de corte IFC"
+        keywords={
+          isEn
+            ? "Online IFC viewer, 3D BIM viewer, Web-IFC viewer, Three.js BIM, IFC takeoff, IFC section planes"
+            : "Visor IFC online, visor BIM 3D, Web-IFC viewer, Three.js BIM, cubicador IFC, planos de corte IFC"
+        }
       />
 
       {/* Input oculto para carga de archivos */}
@@ -930,10 +946,10 @@ export default function IfcViewer() {
           <Link
             to="/herramientas"
             className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-colors border border-slate-700/50"
-            title="Volver al Catálogo de Herramientas"
+            title={isEn ? "Back to Tools Catalog" : "Volver al Catálogo de Herramientas"}
           >
             <i className="fa-solid fa-arrow-left text-xs"></i>
-            <span className="hidden sm:inline">Herramientas</span>
+            <span className="hidden sm:inline">{isEn ? "Tools" : "Herramientas"}</span>
           </Link>
 
           <div className="h-5 w-px bg-slate-800"></div>
@@ -944,20 +960,22 @@ export default function IfcViewer() {
             </div>
             <div>
               <h1 className="text-xs sm:text-sm font-bold text-white leading-tight flex items-center gap-2">
-                <span>Visor IFC Estructural</span>
+                <span>{isEn ? "Structural IFC Viewer" : "Visor IFC Estructural"}</span>
                 <span className="hidden md:inline px-1.5 py-0.5 rounded bg-blue-900/40 text-blue-400 border border-blue-500/30 text-[10px] font-mono font-bold">
                   BIM 3D
                 </span>
               </h1>
               <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-400 truncate max-w-[200px] sm:max-w-xs">
                 <i className="fa-solid fa-file-code text-[10px] text-cyan-400"></i>
-                <span className="truncate text-slate-300">{modelName || "Sin modelo cargado"}</span>
+                <span className="truncate text-slate-300">
+                  {modelName || (isEn ? "No model loaded" : "Sin modelo cargado")}
+                </span>
                 {modelElementCount > 0 ? (
                   <span className="text-slate-500">
-                    • {modelElementCount.toLocaleString("es-CL")} elementos
+                    • {modelElementCount.toLocaleString(isEn ? "en-US" : "es-CL")} {isEn ? "elements" : "elementos"}
                   </span>
                 ) : (
-                  <span className="text-slate-500">• Listo</span>
+                  <span className="text-slate-500">• {isEn ? "Ready" : "Listo"}</span>
                 )}
               </div>
             </div>
@@ -970,10 +988,14 @@ export default function IfcViewer() {
             type="button"
             onClick={() => setIsPrivacyModalOpen(true)}
             className="hidden sm:flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-950/30 px-2.5 py-1 text-[11px] font-medium text-emerald-300 hover:bg-emerald-900/40 transition"
-            title="Procesamiento 100% en tu navegador (Client-Side) - Privacidad absoluta"
+            title={
+              isEn
+                ? "100% Client-side in-browser processing - Absolute privacy"
+                : "Procesamiento 100% en tu navegador (Client-Side) - Privacidad absoluta"
+            }
           >
             <i className="fa-solid fa-shield-halved text-emerald-400"></i>
-            <span className="hidden lg:inline">100% Local</span>
+            <span className="hidden lg:inline">{isEn ? "100% Local" : "100% Local"}</span>
           </button>
 
           {cacheStatusLabel && (
@@ -981,31 +1003,84 @@ export default function IfcViewer() {
               type="button"
               onClick={handleClearCache}
               className="hidden xl:flex items-center gap-1.5 rounded-lg border border-cyan-500/30 bg-cyan-950/30 px-2.5 py-1.5 text-[11px] font-semibold text-cyan-300 hover:bg-cyan-900/40"
-              title="La siguiente apertura del mismo IFC usa su conversión local. Pulsa para limpiar la caché."
+              title={
+                isEn
+                  ? "Next opening of this IFC will use local cache. Click to clear cache."
+                  : "La siguiente apertura del mismo IFC usa su conversión local. Pulsa para limpiar la caché."
+              }
             >
               <i className="fa-solid fa-bolt"></i>
               <span>{cacheStatusLabel}</span>
             </button>
           )}
           <div className="hidden md:flex items-center gap-1">
-            <button type="button" onClick={() => navigateSelectionHistory(-1)} disabled={selectionHistoryIndex <= 0} className="w-8 h-8 rounded-lg border border-slate-700 text-slate-300 disabled:opacity-30" title="Selección anterior">←</button>
-            <button type="button" onClick={() => navigateSelectionHistory(1)} disabled={selectionHistoryIndex < 0 || selectionHistoryIndex >= selectionHistory.length - 1} className="w-8 h-8 rounded-lg border border-slate-700 text-slate-300 disabled:opacity-30" title="Selección siguiente">→</button>
+            <button
+              type="button"
+              onClick={() => navigateSelectionHistory(-1)}
+              disabled={selectionHistoryIndex <= 0}
+              className="w-8 h-8 rounded-lg border border-slate-700 text-slate-300 disabled:opacity-30"
+              title={isEn ? "Previous selection" : "Selección anterior"}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => navigateSelectionHistory(1)}
+              disabled={selectionHistoryIndex < 0 || selectionHistoryIndex >= selectionHistory.length - 1}
+              className="w-8 h-8 rounded-lg border border-slate-700 text-slate-300 disabled:opacity-30"
+              title={isEn ? "Next selection" : "Selección siguiente"}
+            >
+              →
+            </button>
           </div>
-          <label className="hidden lg:flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-2 py-1 text-[11px] text-slate-300">Rendimiento
-            <select value={performanceProfile} onChange={(event) => setPerformanceProfile(event.target.value)} className="bg-transparent text-white outline-none"><option value="economy">Económico</option><option value="balanced">Equilibrado</option><option value="quality">Calidad</option></select>
+          <label className="hidden lg:flex items-center gap-1 rounded-lg border border-slate-700 bg-slate-800 px-2 py-1 text-[11px] text-slate-300">
+            {isEn ? "Performance" : "Rendimiento"}
+            <select
+              value={performanceProfile}
+              onChange={(event) => setPerformanceProfile(event.target.value)}
+              className="bg-transparent text-white outline-none"
+            >
+              <option value="economy">{isEn ? "Economy" : "Económico"}</option>
+              <option value="balanced">{isEn ? "Balanced" : "Equilibrado"}</option>
+              <option value="quality">{isEn ? "Quality" : "Calidad"}</option>
+            </select>
           </label>
-          <button type="button" onClick={saveCurrentView} disabled={!hasLoadedModel} className="hidden lg:block rounded-lg border border-slate-700 bg-slate-800 px-2.5 py-1.5 text-xs font-semibold text-slate-200 disabled:opacity-30" title="Guardar cámara y cortes">Guardar vista</button>
-          {savedViews.length > 0 && <select defaultValue="" onChange={(event) => { restoreSavedView(event.target.value); event.target.value = ""; }} className="hidden xl:block rounded-lg border border-slate-700 bg-slate-800 px-2 py-1.5 text-xs text-slate-200"><option value="">Abrir vista…</option>{savedViews.map((view) => <option key={view.id} value={view.id}>{view.name}</option>)}</select>}
+          <button
+            type="button"
+            onClick={saveCurrentView}
+            disabled={!hasLoadedModel}
+            className="hidden lg:block rounded-lg border border-slate-700 bg-slate-800 px-2.5 py-1.5 text-xs font-semibold text-slate-200 disabled:opacity-30"
+            title={isEn ? "Save camera and sections" : "Guardar cámara y cortes"}
+          >
+            {isEn ? "Save view" : "Guardar vista"}
+          </button>
+          {savedViews.length > 0 && (
+            <select
+              defaultValue=""
+              onChange={(event) => {
+                restoreSavedView(event.target.value);
+                event.target.value = "";
+              }}
+              className="hidden xl:block rounded-lg border border-slate-700 bg-slate-800 px-2 py-1.5 text-xs text-slate-200"
+            >
+              <option value="">{isEn ? "Open view…" : "Abrir vista…"}</option>
+              {savedViews.map((view) => (
+                <option key={view.id} value={view.id}>
+                  {view.name}
+                </option>
+              ))}
+            </select>
+          )}
           {/* Botón Cargar IFC Local */}
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
             disabled={isLoading}
             className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 disabled:bg-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed text-white shadow-md shadow-blue-600/20 flex items-center gap-1.5 transition-all"
-            title="Abrir un archivo .IFC local desde tu computadora"
+            title={isEn ? "Open a local .IFC file from your computer" : "Abrir un archivo .IFC local desde tu computadora"}
           >
             <i className="fa-solid fa-folder-open text-xs"></i>
-            <span>Cargar IFC</span>
+            <span>{isEn ? "Load IFC" : "Cargar IFC"}</span>
           </button>
 
           {/* Botón Cargar Modelo Demo */}
@@ -1014,10 +1089,10 @@ export default function IfcViewer() {
             onClick={handleLoadDemoModel}
             disabled={isLoading}
             className="hidden sm:flex px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed text-slate-300 hover:text-white border border-slate-700 transition-colors items-center gap-1.5"
-            title="Recargar el modelo de prueba nave-licuadores.ifc"
+            title={isEn ? "Reload sample model nave-licuadores.ifc" : "Recargar el modelo de prueba nave-licuadores.ifc"}
           >
             <i className="fa-solid fa-building text-xs text-amber-400"></i>
-            <span>Modelo Demo</span>
+            <span>{isEn ? "Demo Model" : "Modelo Demo"}</span>
           </button>
         </div>
       </header>
@@ -1147,10 +1222,12 @@ export default function IfcViewer() {
                 </div>
 
                 <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                  Visor IFC Web 3D Interactivo
+                  {isEn ? "Interactive 3D Web IFC Viewer" : "Visor IFC Web 3D Interactivo"}
                 </h2>
                 <p className="mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
-                  Carga modelos BIM estructurales al instante y realiza mediciones, planos de corte y gestión BCF con procesamiento 100% local.
+                  {isEn
+                    ? "Load structural BIM models instantly and perform measurements, section planes, and BCF issue tracking with 100% local client-side processing."
+                    : "Carga modelos BIM estructurales al instante y realiza mediciones, planos de corte y gestión BCF con procesamiento 100% local."}
                 </p>
 
                 {/* Acciones Principales */}
@@ -1161,7 +1238,7 @@ export default function IfcViewer() {
                     className="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <i className="fa-solid fa-folder-open"></i>
-                    <span>Abrir Archivo IFC Local</span>
+                    <span>{isEn ? "Open Local IFC File" : "Abrir Archivo IFC Local"}</span>
                   </button>
 
                   <button
@@ -1170,12 +1247,14 @@ export default function IfcViewer() {
                     className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-700 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <i className="fa-solid fa-building text-cyan-400"></i>
-                    <span>Cargar Modelo de Ejemplo</span>
+                    <span>{isEn ? "Load Sample Model" : "Cargar Modelo de Ejemplo"}</span>
                   </button>
                 </div>
 
                 <p className="mt-3.5 text-[11px] text-slate-500">
-                  o arrastra y suelta tu archivo <code className="text-cyan-400 font-mono">.ifc</code> aquí
+                  {isEn ? "or drag and drop your " : "o arrastra y suelta tu archivo "}
+                  <code className="text-cyan-400 font-mono">.ifc</code>
+                  {isEn ? " file here" : " aquí"}
                 </p>
 
                 {/* Tarjetas Bento de Ventajas */}
@@ -1183,10 +1262,12 @@ export default function IfcViewer() {
                   <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-2.5">
                     <div className="flex items-center gap-1.5 text-cyan-400 text-xs font-bold mb-1">
                       <i className="fa-solid fa-bolt"></i>
-                      <span>Ultra Rápido</span>
+                      <span>{isEn ? "Ultra Fast" : "Ultra Rápido"}</span>
                     </div>
                     <p className="text-[10px] text-slate-400 leading-normal">
-                      Carga inicial instantánea sin consumo de datos de red.
+                      {isEn
+                        ? "Instant initial load without consuming network bandwidth."
+                        : "Carga inicial instantánea sin consumo de datos de red."}
                     </p>
                   </div>
 
@@ -1196,17 +1277,21 @@ export default function IfcViewer() {
                       <span>100% Local</span>
                     </div>
                     <p className="text-[10px] text-slate-400 leading-normal">
-                      Tus archivos nunca salen de tu equipo ni se suben a servidores.
+                      {isEn
+                        ? "Your files never leave your computer or upload to servers."
+                        : "Tus archivos nunca salen de tu equipo ni se suben a servidores."}
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-2.5">
                     <div className="flex items-center gap-1.5 text-amber-400 text-xs font-bold mb-1">
                       <i className="fa-solid fa-chart-column"></i>
-                      <span>Cubicación & BCF</span>
+                      <span>{isEn ? "Takeoff & BCF" : "Cubicación & BCF"}</span>
                     </div>
                     <p className="text-[10px] text-slate-400 leading-normal">
-                      Exportación CSV, comparación de versiones y BCF 2.1.
+                      {isEn
+                        ? "CSV export, version comparison, and BCF 2.1 support."
+                        : "Exportación CSV, comparación de versiones y BCF 2.1."}
                     </p>
                   </div>
                 </div>
@@ -1266,13 +1351,99 @@ export default function IfcViewer() {
 
       {isSearchIndexLimited && !isLoading && (
         <div className="absolute top-16 left-1/2 -translate-x-1/2 z-40 rounded-lg border border-amber-500/40 bg-amber-950/90 px-4 py-2 text-xs text-amber-100 shadow-xl backdrop-blur-md">
-          El modelo 3D está completo. Para proteger la memoria, la búsqueda y exportación muestran los primeros {elementsList.length.toLocaleString("es-CL")} elementos.
+          {isEn
+            ? `3D model is complete. To protect memory, search and export show the first ${elementsList.length.toLocaleString("en-US")} elements.`
+            : `El modelo 3D está completo. Para proteger la memoria, la búsqueda y exportación muestran los primeros ${elementsList.length.toLocaleString("es-CL")} elementos.`}
         </div>
       )}
-      {isIndexing && !isLoading && <div className="absolute bottom-24 left-1/2 z-40 w-[min(92vw,420px)] -translate-x-1/2 rounded-xl border border-cyan-500/40 bg-slate-900/95 p-3 shadow-2xl backdrop-blur"><div className="flex items-center justify-between text-xs"><strong className="text-white">Modelo visible · preparando herramientas BIM</strong><span className="font-mono text-cyan-300">{indexProgress.completed}/{indexProgress.total || "…"}</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-800"><div className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all" style={{ width: `${indexProgress.total ? (indexProgress.completed / indexProgress.total) * 100 : 5}%` }} /></div><p className="mt-2 text-[10px] text-slate-400">Ya puedes navegar. Árbol, búsqueda y cubicación se habilitan progresivamente · {elapsedSeconds}s.</p></div>}
-      {loadTimings?.indexReadyMs && !isLoading && !isIndexing && <div className="absolute bottom-3 left-3 z-30 rounded-lg border border-slate-700 bg-slate-900/80 px-2.5 py-1.5 text-[10px] font-mono text-slate-400">Geometría {(loadTimings.geometryReadyMs / 1000).toFixed(1)}s · BIM {(loadTimings.indexReadyMs / 1000).toFixed(1)}s</div>}
-      {comparison && !isLoading && <div className="absolute right-4 top-16 z-40 max-w-sm rounded-xl border border-cyan-500/40 bg-slate-900/95 p-3 text-xs shadow-2xl"><div className="flex items-center justify-between"><strong className="text-white">Cambios respecto al modelo anterior</strong><button onClick={() => setComparison(null)} className="text-slate-400">×</button></div>{comparison.length ? <div className="mt-2 max-h-40 space-y-1 overflow-y-auto">{comparison.slice(0, 12).map((item) => <div key={item.type} className="flex justify-between text-slate-300"><span>{item.label}</span><strong className={item.difference > 0 ? "text-emerald-400" : "text-rose-400"}>{item.difference > 0 ? "+" : ""}{item.difference}</strong></div>)}</div> : <p className="mt-2 text-emerald-300">No cambiaron las cantidades estructurales indexadas.</p>}<p className="mt-2 text-[10px] text-slate-500">Comparación ligera por categorías; no mantiene dos modelos 3D en memoria.</p></div>}
-      {showTutorial && <div className="absolute inset-0 z-[70] flex items-center justify-center bg-slate-950/85 p-4 backdrop-blur"><div className="max-w-md rounded-2xl border border-cyan-500/40 bg-slate-900 p-6 text-center shadow-2xl"><i className="fa-solid fa-cube text-3xl text-cyan-400"></i><h2 className="mt-3 text-xl font-bold text-white">Visor IFC local y privado</h2><p className="mt-2 text-sm leading-relaxed text-slate-300">Carga o arrastra un IFC, selecciona elementos para revisar propiedades y usa Árbol, Clases y Buscar para navegar. Los archivos no se suben a un servidor.</p><ul className="mt-4 space-y-2 text-left text-xs text-slate-400"><li>• Usa Económico en móviles o equipos limitados.</li><li>• Guarda vistas con cámara y cortes.</li><li>• Exporta cantidades e incidencias BCF.</li></ul><button onClick={() => { localStorage.setItem("ifc_tutorial_seen_v1", "true"); setShowTutorial(false); }} className="mt-5 rounded-lg bg-cyan-500 px-5 py-2 text-sm font-bold text-slate-950">Entendido, abrir visor</button></div></div>}
+      {isIndexing && !isLoading && (
+        <div className="absolute bottom-24 left-1/2 z-40 w-[min(92vw,420px)] -translate-x-1/2 rounded-xl border border-cyan-500/40 bg-slate-900/95 p-3 shadow-2xl backdrop-blur">
+          <div className="flex items-center justify-between text-xs">
+            <strong className="text-white">
+              {isEn ? "Model visible · preparing BIM tools" : "Modelo visible · preparando herramientas BIM"}
+            </strong>
+            <span className="font-mono text-cyan-300">
+              {indexProgress.completed}/{indexProgress.total || "…"}
+            </span>
+          </div>
+          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-800">
+            <div
+              className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all"
+              style={{
+                width: `${indexProgress.total ? (indexProgress.completed / indexProgress.total) * 100 : 5}%`,
+              }}
+            />
+          </div>
+          <p className="mt-2 text-[10px] text-slate-400">
+            {isEn
+              ? `Navigation ready. Tree, search and takeoff unlock progressively · ${elapsedSeconds}s.`
+              : `Ya puedes navegar. Árbol, búsqueda y cubicación se habilitan progresivamente · ${elapsedSeconds}s.`}
+          </p>
+        </div>
+      )}
+      {loadTimings?.indexReadyMs && !isLoading && !isIndexing && (
+        <div className="absolute bottom-3 left-3 z-30 rounded-lg border border-slate-700 bg-slate-900/80 px-2.5 py-1.5 text-[10px] font-mono text-slate-400">
+          {isEn ? "Geometry" : "Geometría"} {(loadTimings.geometryReadyMs / 1000).toFixed(1)}s · BIM {(loadTimings.indexReadyMs / 1000).toFixed(1)}s
+        </div>
+      )}
+      {comparison && !isLoading && (
+        <div className="absolute right-4 top-16 z-40 max-w-sm rounded-xl border border-cyan-500/40 bg-slate-900/95 p-3 text-xs shadow-2xl">
+          <div className="flex items-center justify-between">
+            <strong className="text-white">
+              {isEn ? "Changes compared to previous model" : "Cambios respecto al modelo anterior"}
+            </strong>
+            <button onClick={() => setComparison(null)} className="text-slate-400">×</button>
+          </div>
+          {comparison.length ? (
+            <div className="mt-2 max-h-40 space-y-1 overflow-y-auto">
+              {comparison.slice(0, 12).map((item) => (
+                <div key={item.type} className="flex justify-between text-slate-300">
+                  <span>{item.label}</span>
+                  <strong className={item.difference > 0 ? "text-emerald-400" : "text-rose-400"}>
+                    {item.difference > 0 ? "+" : ""}{item.difference}
+                  </strong>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-2 text-emerald-300">
+              {isEn ? "Indexed structural quantities did not change." : "No cambiaron las cantidades estructurales indexadas."}
+            </p>
+          )}
+          <p className="mt-2 text-[10px] text-slate-500">
+            {isEn ? "Lightweight category comparison; does not keep two 3D models in memory." : "Comparación ligera por categorías; no mantiene dos modelos 3D en memoria."}
+          </p>
+        </div>
+      )}
+      {showTutorial && (
+        <div className="absolute inset-0 z-[70] flex items-center justify-center bg-slate-950/85 p-4 backdrop-blur">
+          <div className="max-w-md rounded-2xl border border-cyan-500/40 bg-slate-900 p-6 text-center shadow-2xl">
+            <i className="fa-solid fa-cube text-3xl text-cyan-400"></i>
+            <h2 className="mt-3 text-xl font-bold text-white">
+              {isEn ? "Local and private IFC viewer" : "Visor IFC local y privado"}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-300">
+              {isEn
+                ? "Load or drag an IFC, select elements to inspect properties, and use Tree, Classes and Search to navigate. Files are never uploaded to any server."
+                : "Carga o arrastra un IFC, selecciona elementos para revisar propiedades y usa Árbol, Clases y Buscar para navegar. Los archivos no se suben a un servidor."}
+            </p>
+            <ul className="mt-4 space-y-2 text-left text-xs text-slate-400">
+              <li>• {isEn ? "Use Economy mode on mobile or low-spec devices." : "Usa Económico en móviles o equipos limitados."}</li>
+              <li>• {isEn ? "Save views with camera and section planes." : "Guarda vistas con cámara y cortes."}</li>
+              <li>• {isEn ? "Export quantities and BCF issues." : "Exporta cantidades e incidencias BCF."}</li>
+            </ul>
+            <button
+              onClick={() => {
+                localStorage.setItem("ifc_tutorial_seen_v1", "true");
+                setShowTutorial(false);
+              }}
+              className="mt-5 rounded-lg bg-cyan-500 px-5 py-2 text-sm font-bold text-slate-950"
+            >
+              {isEn ? "Understood, open viewer" : "Entendido, abrir visor"}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* =================================================================== */}
       {/* 3. MODALES DE EXPORTACIÓN, ATAJOS Y MEMORIA */}
@@ -1354,9 +1525,15 @@ export default function IfcViewer() {
           </div>
 
           <span className="text-xs font-mono text-slate-400">
-            {loadingProgress.percent}% completado · {elapsedSeconds}s
+            {loadingProgress.percent}% {isEn ? "completed" : "completado"} · {elapsedSeconds}s
           </span>
-          <button type="button" onClick={handleCancelLoad} className="mt-5 rounded-lg border border-slate-600 bg-slate-900 px-4 py-2 text-xs font-bold text-slate-200 hover:bg-slate-800">Cancelar carga</button>
+          <button
+            type="button"
+            onClick={handleCancelLoad}
+            className="mt-5 rounded-lg border border-slate-600 bg-slate-900 px-4 py-2 text-xs font-bold text-slate-200 hover:bg-slate-800"
+          >
+            {isEn ? "Cancel loading" : "Cancelar carga"}
+          </button>
         </div>
       )}
 
@@ -1369,10 +1546,12 @@ export default function IfcViewer() {
             <i className="fa-solid fa-cloud-arrow-up"></i>
           </div>
           <h2 className="text-2xl font-black text-white mb-2">
-            Suelta tu archivo .IFC aquí
+            {isEn ? "Drop your .IFC file here" : "Suelta tu archivo .IFC aquí"}
           </h2>
           <p className="text-sm text-cyan-200">
-            Se procesará localmente en tu navegador mediante Web-IFC WebAssembly
+            {isEn
+              ? "It will be processed locally in your browser via Web-IFC WebAssembly"
+              : "Se procesará localmente en tu navegador mediante Web-IFC WebAssembly"}
           </p>
         </div>
       )}
@@ -1384,7 +1563,9 @@ export default function IfcViewer() {
         <div className="absolute bottom-6 left-6 z-50 max-w-md bg-rose-950/90 border border-rose-500/60 rounded-2xl p-4 shadow-2xl backdrop-blur-md flex items-start gap-3 text-rose-200">
           <i className="fa-solid fa-triangle-exclamation text-rose-400 text-lg mt-0.5"></i>
           <div className="flex-1 text-xs">
-            <h3 className="font-bold text-white mb-1">Error al procesar modelo</h3>
+            <h3 className="font-bold text-white mb-1">
+              {isEn ? "Error processing model" : "Error al procesar modelo"}
+            </h3>
             <p className="text-rose-300 leading-relaxed">{errorMessage}</p>
             <div className="mt-3 flex gap-2">
               <button
@@ -1392,14 +1573,14 @@ export default function IfcViewer() {
                 onClick={handleLoadDemoModel}
                 className="px-3 py-1.5 bg-rose-900/60 hover:bg-rose-800 text-white rounded-lg text-xs font-semibold transition-colors"
               >
-                Cargar Modelo Demo
+                {isEn ? "Load Demo Model" : "Cargar Modelo Demo"}
               </button>
               <button
                 type="button"
                 onClick={() => setErrorMessage(null)}
                 className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition-colors"
               >
-                Cerrar
+                {isEn ? "Close" : "Cerrar"}
               </button>
             </div>
           </div>

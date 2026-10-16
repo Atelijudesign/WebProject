@@ -74,7 +74,7 @@ export function generateTakeoffPdf({
   doc.text("Autor / Responsable:", margin, 32.5);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(37, 99, 235);
-  doc.text("Andrés Gallo P. — Proyectista Estructural BIM", margin + 30, 32.5);
+  doc.text("Andrés Gallo P. — Diseñador Estructural BIM", margin + 30, 32.5);
 
   // Metadatos (Derecha)
   const metaX = pageWidth - margin;
@@ -203,7 +203,7 @@ export function generateTakeoffPdf({
   doc.text("Andrés Gallo P.", authorX + 6, finalY + 14.5);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(100, 116, 139);
-  doc.text("Proyectista Estructural BIM", authorX + 6, finalY + 19);
+  doc.text("Diseñador Estructural BIM", authorX + 6, finalY + 19);
 
   doc.setFontSize(7.5);
   doc.setTextColor(51, 65, 85);

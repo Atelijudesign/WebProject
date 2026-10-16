@@ -1,0 +1,1182 @@
+{
+  "SP3D_COMMANDS": [
+    {
+      "shortcut": "F9",
+      "name": "Activar / Desactivar PinPoint",
+      "discipline": "Navegación & Precisión",
+      "description": "Abre o cierra la barra flotante de coordenadas relativas y absolutas PinPoint.",
+      "context": "Disponible en todas las tareas de modelado (Piping, Structure, Equipment)."
+    },
+    {
+      "shortcut": "Alt + Click",
+      "name": "Reposicionar Target de PinPoint",
+      "discipline": "PinPoint",
+      "description": "Mueve el punto de origen (Target) de PinPoint al elemento o punto seleccionado sin alterar la vista.",
+      "context": "Al ruteo de tuberías o colocación de miembros estructurales."
+    },
+    {
+      "shortcut": "F11",
+      "name": "Alternar Ventana Activa",
+      "discipline": "Vistas y Ventanas",
+      "description": "Cambia el foco entre las ventanas gráficas abiertas (Iso, Top, Front, Right).",
+      "context": "Configuración multi-ventana de 4 vistas (Common Lab 1)."
+    },
+    {
+      "shortcut": "Ctrl + W",
+      "name": "Definir Espacio de Trabajo (Workspace)",
+      "discipline": "Common",
+      "description": "Abre el diálogo 'Define Workspace' para filtrar los objetos cargados desde la base de datos SQL.",
+      "context": "Esencial al iniciar cualquier sesión; sin workspace la vista gráfica queda vacía."
+    },
+    {
+      "shortcut": "Ctrl + R",
+      "name": "Rotar Vista Dinámica",
+      "discipline": "Navegación",
+      "description": "Activa el modo de rotación orbital 3D alrededor del centro geométrico de la vista.",
+      "context": "Ventana gráfica 3D."
+    },
+    {
+      "shortcut": "Barra Espaciadora",
+      "name": "Ciclar SmartSketch Glyphs",
+      "discipline": "Precisión",
+      "description": "Alterna entre los diferentes puntos de captura geométricos detectados (Extremo, Punto Medio, Centro, Intersección).",
+      "context": "Al conectar tuberías a boquillas o vigas a columnas."
+    },
+    {
+      "shortcut": "Alt + E / Alt + N / Alt + L",
+      "name": "Bloquear Eje PinPoint (Lock)",
+      "discipline": "PinPoint",
+      "description": "Bloquea el valor del eje Easting (E), Northing (N) o Elevation (EL) para forzar el movimiento en un solo plano.",
+      "context": "Ruteo ortogonal estricto de cañerías o tendido de bandejas eléctricas."
+    },
+    {
+      "shortcut": "Ctrl + Shift + F",
+      "name": "Ajustar Todo a la Vista (Fit All)",
+      "discipline": "Navegación",
+      "description": "Enfoca y centra todos los elementos incluidos en el Workspace actual en la ventana activa.",
+      "context": "Tras cargar un filtro de sistema o al perderse en el espacio tridimensional."
+    },
+    {
+      "shortcut": "Esc",
+      "name": "Cancelar Comando / Volver al Paso 1",
+      "discipline": "General",
+      "description": "Cancela la acción en curso del SmartStep y devuelve el cursor al estado de selección.",
+      "context": "En cualquier comando activo de la barra vertical."
+    }
+  ],
+  "SP3D_GLOSSARY": [
+    {
+      "term": "Define Workspace",
+      "category": "Arquitectura de Datos",
+      "definition": "Mecanismo mediante el cual SP3D consulta la base de datos SQL Server o Oracle para descargar a la memoria RAM de la estación únicamente los objetos dentro de un filtro de Sistema o Volumen.",
+      "comparison": "En Revit abres un archivo .rvt completo; en SP3D siempre consultas una porción de una base de datos central de planta."
+    },
+    {
+      "term": "PinPoint [F9]",
+      "category": "Herramientas de Precisión",
+      "definition": "Sistema de coordenadas flotante de alta precisión que permite ubicar puntos en el espacio mediante desplazamientos delta (dE, dN, dEL) o coordenadas absolutas a partir de un Target.",
+      "comparison": "Equivalente al UCS dinámico + tracking de AutoCAD, pero con bloqueo rígido de ejes industriales."
+    },
+    {
+      "term": "SmartStep Ribbon",
+      "category": "Interfaz de Usuario",
+      "definition": "Barra horizontal contextual superior que guía al proyectista paso a paso (Step 1, Step 2, Step 3, Finish) solicitando los parámetros requeridos para cada entidad.",
+      "comparison": "Reemplaza los menús desplegables tradicionales por un flujo lineal validado."
+    },
+    {
+      "term": "Pipeline vs Pipe Run",
+      "category": "Tuberías (Piping)",
+      "definition": "Una Pipeline es la entidad lógica de proceso (ej. 4\"-P-101-1C0031-CS), mientras que una Pipe Run es cada segmento físico continuo con un diámetro, especificación y dirección de flujo definidos.",
+      "comparison": "Una sola Pipeline puede contener múltiples Pipe Runs con distintos diámetros tras reductores."
+    },
+    {
+      "term": "Member System vs Member Part",
+      "category": "Estructuras",
+      "definition": "El Member System es la directriz matemática o eje analítico de cálculo entre dos nodos. La Member Part es el sólido físico extruido con cortes en extremos, material y acabado.",
+      "comparison": "Permite modificar la elevación de toda una línea de vigas alterando solo el Member System."
+    },
+    {
+      "term": "Nozzle (Boquilla)",
+      "category": "Equipos Mecánicos",
+      "definition": "Punto de conexión normado (ANSI/ASME B16.5) situado sobre un equipo mecánico que transfiere fluidos hacia la tubería. Posee tamaño, rating (150#, 300#), preparación de extremo y coordenadas exactas.",
+      "comparison": "Es el enlace directo y paramétrico entre la disciplina de Equipos y la disciplina de Cañerías."
+    },
+    {
+      "term": "Isogen / PCF",
+      "category": "Planos e Isométricas",
+      "definition": "Motor automático industrial integrado en SP3D que procesa los Pipe Runs y genera planos isométricos de fabricación con lista de materiales (BOM) sin necesidad de dibujo manual.",
+      "comparison": "Genera el isométrico de taller en segundos extrayendo datos directos de la base de datos."
+    },
+    {
+      "term": "Permission Group",
+      "category": "Seguridad y Roles",
+      "definition": "Agrupación de seguridad en la base de datos que asigna permisos de lectura, escritura o bloqueo a los usuarios sobre subsistemas específicos de la planta.",
+      "comparison": "Evita que un proyectista de estructuras modifique accidentalmente una tubería de proceso."
+    }
+  ],
+  "TRAINING_SYSTEM_HIERARCHY": {
+    "id": "plant-01",
+    "name": "Planta Refinería Biobío (SP3D_Train)",
+    "type": "plant",
+    "properties": {
+      "Base de Datos": "SQL Server 2008 R2",
+      "Servidor": "ATELIJUDESIGN\\SP3D_INST",
+      "Unidades": "US / Métrico Mixto"
+    },
+    "children": [
+      {
+        "id": "area-a1",
+        "name": "Área A1 - Almacenamiento & Tanques",
+        "type": "area",
+        "children": [
+          {
+            "id": "unit-u01",
+            "name": "Unidad U01 - Parque de Tanques TK-101/102",
+            "type": "unit",
+            "children": [
+              {
+                "id": "sys-u01-pip",
+                "name": "U01-Piping (Tuberías de Carga 8\")",
+                "type": "system",
+                "discipline": "piping"
+              },
+              {
+                "id": "sys-u01-str",
+                "name": "U01-Structures (Dique y Puentes)",
+                "type": "system",
+                "discipline": "structure"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "area-a2",
+        "name": "Área A2 - Unidad de Destilación y Reacción",
+        "type": "area",
+        "children": [
+          {
+            "id": "unit-u03",
+            "name": "Unidad U03 - Reactor & Intercambiadores",
+            "type": "unit",
+            "children": [
+              {
+                "id": "sys-u03-eqp",
+                "name": "U03-Equipment (Torre T-101 & Bomba P-101A/B)",
+                "type": "system",
+                "discipline": "equipment",
+                "children": [
+                  {
+                    "id": "eqp-t101",
+                    "name": "T-101 (Torre de Fraccionamiento Vertical)",
+                    "type": "object",
+                    "properties": {
+                      "Diámetro": "3000 mm",
+                      "Altura": "24000 mm",
+                      "Boquillas": "N1 (4\" 300#), N2 (6\" 150#)"
+                    }
+                  },
+                  {
+                    "id": "eqp-p101a",
+                    "name": "P-101A (Bomba Centrífuga Sulzer)",
+                    "type": "object",
+                    "properties": {
+                      "Succión": "6\" 150# RF",
+                      "Descarga": "4\" 300# RF"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "sys-u03-pip",
+                "name": "U03-Piping (Línea 4\"-P-204-1C0031)",
+                "type": "system",
+                "discipline": "piping",
+                "children": [
+                  {
+                    "id": "pip-run-204",
+                    "name": "PipeRun 4\"-1C0031-CS (Desde N1 a Bomba P-101A)",
+                    "type": "object",
+                    "properties": {
+                      "Spec": "1C0031",
+                      "Material": "A106 Gr.B",
+                      "Válvulas": "Válvula Compuerta 4\" 150#"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "sys-u03-str",
+                "name": "U03-Structures (Estructura Metálica Rack Principal)",
+                "type": "system",
+                "discipline": "structure",
+                "children": [
+                  {
+                    "id": "str-col-01",
+                    "name": "Columnas Perfil W12x65 (Ejes A1-A4)",
+                    "type": "object",
+                    "properties": {
+                      "Perfil": "W12x65",
+                      "Material": "A36",
+                      "Longitud": "12000 mm"
+                    }
+                  },
+                  {
+                    "id": "str-beam-01",
+                    "name": "Vigas Perfil W10x49 (Nivel EL +6.00m)",
+                    "type": "object",
+                    "properties": {
+                      "Perfil": "W10x49",
+                      "Material": "A36",
+                      "Conexión": "Framed Standard"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "sys-u03-elec",
+                "name": "U03-Electrical (Bandejas Eléctricas 24\" x 4\")",
+                "type": "system",
+                "discipline": "electrical"
+              }
+            ]
+          },
+          {
+            "id": "unit-u04",
+            "name": "Unidad U04 - Enfriamiento & Servicios Auxiliares",
+            "type": "unit",
+            "children": [
+              {
+                "id": "sys-u04-pip",
+                "name": "U04-Piping (Red de Agua de Enfriamiento)",
+                "type": "system",
+                "discipline": "piping"
+              },
+              {
+                "id": "sys-u04-sup",
+                "name": "U04-Supports (Soportes Tipo Trapecio)",
+                "type": "system",
+                "discipline": "supports"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "SP3D_MODULES": [
+    {
+      "id": "mod-00",
+      "number": 0,
+      "title": "Arquitectura, SQL Server & Entorno Virtual",
+      "subtitle": "Despliegue de la infraestructura de base de datos y máquina virtual de alta seguridad",
+      "discipline": "infrastructure",
+      "icon": "fa-solid fa-server",
+      "badgeColor": "border-slate-600 text-slate-300 bg-slate-800/60",
+      "duration": "45 min",
+      "level": "Básico",
+      "overview": "Antes de pulsar cualquier botón de modelado, SmartPlant 3D exige comprender que es una solución cliente-servidor basada en SQL Server y licencias SPLM. Aprenderás a aislar el entorno en VMware Workstation con red Host-Only para proteger tu estación de trabajo.",
+      "coreConcepts": [
+        {
+          "name": "Arquitectura de 4 Bases de Datos",
+          "description": "Site DB (administración global), Catalog DB (especificaciones y componentes), Model DB (geometría de planta) y Reports DB (plantillas de informes)."
+        },
+        {
+          "name": "SPLM 2012 (License Manager)",
+          "description": "Servidor local de licencias por token basado en el Hostname del equipo ('atelijudesign')."
+        },
+        {
+          "name": "Aislamiento Host-Only",
+          "description": "Uso de VMware Workstation para ejecutar Windows 10 Pro y SQL 2008 R2 sin conectividad externa ni riesgo de virus."
+        },
+        {
+          "name": "Control por Scripts Batch",
+          "description": "Automatización de inicio ('Iniciar_SP3D.bat') y apagado seguro ('Detener_SP3D.bat') de servicios SQL y licencias."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Verificar Hostname en CMD ('hostname')",
+        "2. Configurar adaptador Host-Only en VMware",
+        "3. Iniciar instancia SQL Server SP3D_INST",
+        "4. Levantar SmartPlant License Manager (SPLM)",
+        "5. Validar conexión en Database Wizard"
+      ],
+      "labExercise": {
+        "title": "Puesta en Marcha del Entorno Virtual SP3D",
+        "objective": "Verificar la disponibilidad de los servicios SQL Server y arrancar la sesión de modelado sin errores de licencia.",
+        "prerequisites": "VMware Workstation con imagen Windows 10 Pro y Smart 3D 2016 instalado.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Chequeo de Nombre de Máquina",
+            "smartStepAction": "cmd.exe -> hostname",
+            "instruction": "Abre consola y valida que el Hostname sea idéntico al registrado en SPLM (ej. 'atelijudesign').",
+            "parameters": {
+              "Hostname": "atelijudesign",
+              "Puerto": "Direct Socket"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Ejecutar Script de Inicio",
+            "smartStepAction": "Doble clic en Iniciar_SP3D.bat",
+            "instruction": "Inicia los servicios MSSQL$SP3D_INST, SQLAgent y el daemon Intergraph Licensing.",
+            "tip": "Si el servicio de licencias falla, revisa que la fecha del sistema no haya caducado el lease de 30 días."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Lanzar SmartPlant 3D Core",
+            "smartStepAction": "Start > Intergraph Smart 3D > Smart 3D",
+            "instruction": "Comprueba que la ventana de bienvenida cargue el catálogo sin alertas de 'License Not Available'."
+          }
+        ],
+        "expectedResult": "SmartPlant 3D abierto en pantalla principal con la barra de menú activa y catálogo accesible."
+      },
+      "quiz": [
+        {
+          "id": "q0-1",
+          "question": "¿Por qué SmartPlant 3D requiere Microsoft SQL Server o base de datos Oracle para funcionar?",
+          "options": [
+            "Solo se usa para guardar copias de seguridad cada noche.",
+            "Porque no guarda archivos individuales de dibujo; cada tubería, viga y codo es un registro en la base de datos de planta.",
+            "Es solo un requisito para exportar a formato PDF.",
+            "Para permitir que el navegador web muestre la página."
+          ],
+          "correctIndex": 1,
+          "explanation": "En SP3D, el modelo es una base de datos relacional compartida en tiempo real entre múltiples proyectistas simultáneos."
+        },
+        {
+          "id": "q0-2",
+          "question": "¿Cuál es el modo de red de VMware recomendado para operar SP3D de forma segura y aislada?",
+          "options": [
+            "Modo Puente (Bridged)",
+            "Modo Host-Only (Red Privada Host-VM)",
+            "Modo WiFi Abierto",
+            "Sin adaptador de red"
+          ],
+          "correctIndex": 1,
+          "explanation": "Host-Only permite compartir carpetas con tu máquina física sin exponer la VM a Internet ni comprometer la red local."
+        }
+      ]
+    },
+    {
+      "id": "mod-01",
+      "number": 1,
+      "title": "Common: Espacio de Trabajo, Tareas & Vistas",
+      "subtitle": "Dominio de 'Define Workspace', archivos de sesión (.ses) y configuración multi-ventana",
+      "discipline": "common",
+      "icon": "fa-solid fa-shapes",
+      "badgeColor": "border-blue-500 text-blue-300 bg-blue-950/40",
+      "duration": "40 min",
+      "level": "Básico",
+      "overview": "El error #1 del principiante en SmartPlant 3D es abrir el programa y ver una pantalla negra sin objetos. En este módulo aprenderás el concepto de Workspace: cómo consultar la base de datos mediante filtros de Sistema y Volumen, gestionar Permission Groups y configurar las 4 ventanas de visualización clásicas.",
+      "coreConcepts": [
+        {
+          "name": "Define Workspace (Filtros SQL)",
+          "description": "Diálogo que filtra los objetos a cargar según Sistemas (Plant > Area > Unit) o rangos de coordenadas (Volume / Bounding Box)."
+        },
+        {
+          "name": "Archivos de Sesión (.ses)",
+          "description": "Archivos ligeros que guardan la disposición de tus ventanas, paletas y el filtro de Workspace activo para retomarlo con un clic."
+        },
+        {
+          "name": "Disposición Multi-Ventana (4 Views)",
+          "description": "Configuración profesional simultánea: Isometric (Perspectiva 3D), Top (Planta X-Y), Front (Elevación X-Z) y Right (Elevación Y-Z)."
+        },
+        {
+          "name": "Tasks (Entornos de Disciplina)",
+          "description": "Cambio de disciplina desde la barra superior: Common, Grids, Piping, Equipment, Structure, Electrical, Drawings."
+        }
+      ],
+      "smartStepSequence": [
+        "1. File > Define Workspace",
+        "2. Seleccionar Pestaña 'System' o 'Filter'",
+        "3. Marcar jerarquía deseada (ej. Area A2 > Unit U03)",
+        "4. Click en OK (Carga de objetos a memoria)",
+        "5. Window > New Window x 4 (Configurar vistas)",
+        "6. File > Save As (Guardar archivo .ses en escritorio)"
+      ],
+      "labExercise": {
+        "title": "Configuración de Sesión de Modelado y 4 Vistas",
+        "objective": "Crear un archivo de sesión personalizado con las 4 vistas ortográficas y cargar la Unidad U03 completa.",
+        "prerequisites": "SmartPlant 3D iniciado con base de datos de entrenamiento cargada.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Definir Espacio de Trabajo",
+            "smartStepAction": "File > Define Workspace...",
+            "instruction": "En el árbol de sistemas, expande Plant > Area A2 y marca la casilla de Unit U03 y U03CS (Coordinate System).",
+            "tip": "No selecciones la planta entera si tu equipo tiene 8 GB de RAM para evitar saturación de memoria."
+          },
+          {
+            "stepNumber": 2,
+            "title": "Creación de 4 Ventanas Gráficas",
+            "smartStepAction": "Window > New Window (repetir 3 veces)",
+            "instruction": "En cada ventana selecciona su orientación: Ventana 1 = Isometric, Ventana 2 = Plan (Top), Ventana 3 = Elevation Looking North, Ventana 4 = Elevation Looking East."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Fit All y Guardado de Sesión",
+            "smartStepAction": "Window > Tile Horizontally / Vertically",
+            "instruction": "Presiona 'Fit All' en cada ventana y guarda tu sesión como 'U03_Modelado_Master.ses'.",
+            "parameters": {
+              "NombreSesion": "U03_Modelado_Master.ses",
+              "Formato": ".ses"
+            }
+          }
+        ],
+        "expectedResult": "4 ventanas sincronizadas mostrando la estructura y equipos de la unidad U03 con navegación fluida."
+      },
+      "quiz": [
+        {
+          "id": "q1-1",
+          "question": "Si al abrir SP3D la vista gráfica está totalmente vacía y en negro, ¿cuál es la causa más común?",
+          "options": [
+            "La tarjeta gráfica está rota.",
+            "El espacio de trabajo (Define Workspace) no tiene ningún filtro seleccionado o no se ha definido.",
+            "Se borró la instalación de Windows.",
+            "El cable de red está desconectado."
+          ],
+          "correctIndex": 1,
+          "explanation": "En SP3D la pantalla siempre inicia vacía hasta que le indicas a la base de datos qué unidad o volumen descargar mediante 'Define Workspace'."
+        },
+        {
+          "id": "q1-2",
+          "question": "¿Qué almacena un archivo con extensión .ses en SmartPlant 3D?",
+          "options": [
+            "Todo el modelo 3D con todas las tuberías de la refinería.",
+            "Solo la configuración de ventanas, vistas y el filtro de Workspace activo para acceso rápido.",
+            "El instalador de SQL Server.",
+            "Las contraseñas de los usuarios."
+          ],
+          "correctIndex": 1,
+          "explanation": "El archivo .ses es únicamente una sesión de interfaz que apunta al servidor central; no contiene la geometría física de la planta."
+        }
+      ]
+    },
+    {
+      "id": "mod-02",
+      "number": 2,
+      "title": "Grids: Ejes Estructurales & Sistemas de Coordenadas",
+      "subtitle": "Manejo del Grid Wizard, grillas ortogonales, radiales y planos de elevación",
+      "discipline": "grids",
+      "icon": "fa-solid fa-border-all",
+      "badgeColor": "border-cyan-500 text-cyan-300 bg-cyan-950/40",
+      "duration": "45 min",
+      "level": "Básico",
+      "overview": "Toda planta industrial se edifica sobre un sistema de referencia topográfico y ejes estructurales. En este módulo dominarás la tarea 'Grids' y el 'Grid Wizard' para definir ejes alfanuméricos, espaciamientos variables, rotaciones de coordenadas y planos de elevación clave para pisos y plataformas.",
+      "coreConcepts": [
+        {
+          "name": "Grid Wizard (Asistente de Ejes)",
+          "description": "Herramienta que genera paramétricamente sistemas de coordenadas rectangulares o cilíndricos en pasos guiados."
+        },
+        {
+          "name": "Sistemas de Coordenadas (CS)",
+          "description": "Diferencia entre el Sistema Global de Planta (WCS) y Sistemas Locales de Unidad (LCS / U03CS) rotados o desfasados."
+        },
+        {
+          "name": "Planos de Elevación (EL)",
+          "description": "Superficies horizontales de referencia con cotas de nivel (ej. EL +100.000m, EL +106.000m) donde se anclan vigas y losas."
+        },
+        {
+          "name": "Name Rules",
+          "description": "Reglas de nomenclatura automática alfanumérica para ejes en X (1, 2, 3...) e Y (A, B, C...)."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Grids",
+        "2. Click en 'Grid Wizard' en la barra vertical",
+        "3. Definir Nombre de Sistema (ej. U03_GridCS)",
+        "4. Configurar Ejes X (Espaciamientos en mm o ft)",
+        "5. Configurar Ejes Y (Espaciamientos y letras)",
+        "6. Definir Planos de Elevación Z",
+        "7. Finish (Generación del sistema en el Workspace)"
+      ],
+      "labExercise": {
+        "title": "Creación de Sistema de Grillas para Estructura de Proceso",
+        "objective": "Modelar una grilla ortogonal de 4x3 vanos de 6000 mm con 3 niveles de elevación (+0.0m, +4.5m, +9.0m).",
+        "prerequisites": "Tarea Grids activa y Permission Group 'Layout' seleccionado.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Lanzar Grid Wizard",
+            "smartStepAction": "Vertical Toolbar > Grid Wizard",
+            "instruction": "Asigna el nombre 'U03_MainGrid' y asócialo al sistema de coordenadas de la Unidad U03.",
+            "parameters": {
+              "Tipo": "Rectangular",
+              "SistemaPadre": "Area A2 > U03"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Definición de Ejes X e Y",
+            "smartStepAction": "SmartStep Paso 3 y 4",
+            "instruction": "En Eje X agrega 4 vanos de 6000 mm con nombres 1, 2, 3, 4, 5. En Eje Y agrega 3 vanos de 6000 mm con nombres A, B, C, D."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Planos de Elevación",
+            "smartStepAction": "SmartStep Paso 5",
+            "instruction": "Define las cotas EL 0'-0\" (T.O.C.), EL +14'-9\" (+4.50m) y EL +29'-6\" (+9.00m). Haz clic en Finish.",
+            "tip": "Los planos de elevación creados aparecerán como planos magnéticos al modelar vigas y losas."
+          }
+        ],
+        "expectedResult": "Malla de ejes 3D visible con etiquetas en cada extremo y planos horizontales a las cotas fijadas."
+      },
+      "quiz": [
+        {
+          "id": "q2-1",
+          "question": "¿Cuál es la función principal de los planos de elevación definidos en la tarea Grids?",
+          "options": [
+            "Exportar a Excel.",
+            "Servir de planos de referencia magnéticos para que vigas, losas y cañerías se anclen automáticamente a cotas de proyecto.",
+            "Cambiar el color del fondo de la ventana.",
+            "Imprimir el plano en plotter sin abrir AutoCAD."
+          ],
+          "correctIndex": 1,
+          "explanation": "Los planos de elevación actúan como planos de trabajo magnéticos donde los miembros estructurales se insertan a ras (T.O.S. / T.O.C.)."
+        },
+        {
+          "id": "q2-2",
+          "question": "¿Qué ocurre si una unidad de proceso tiene una orientación geográfica en diagonal respecto al norte verdadero de planta?",
+          "options": [
+            "No se puede modelar en SP3D.",
+            "Se crea un Coordinate System local rotado (LCS) mediante Grid Wizard y se modela en coordenadas ortogonales locales.",
+            "Hay que girar físicamente el monitor del computador.",
+            "Se debe cambiar la rotación en el registro de Windows."
+          ],
+          "correctIndex": 1,
+          "explanation": "SP3D permite crear infinitos sistemas de coordenadas locales con ángulo azimutal propio, facilitando modelar en ortogonal local."
+        }
+      ]
+    },
+    {
+      "id": "mod-03",
+      "number": 3,
+      "title": "Equipment: Equipos Mecánicos & Boquillas (Nozzles)",
+      "subtitle": "Colocación de bombas, tanques y reactores desde catálogo, primitivas 3D y boquillas ANSI",
+      "discipline": "equipment",
+      "icon": "fa-solid fa-industry",
+      "badgeColor": "border-amber-500 text-amber-300 bg-amber-950/40",
+      "duration": "50 min",
+      "level": "Intermedio",
+      "overview": "Los equipos son el corazón del proceso químico y minero. En este módulo aprenderás a insertar equipos estándar desde el catálogo (torre vertical T-101, bomba Sulzer P-101), construir equipos no estándar mediante primitivas geométricas (cilindros, conos, cajas) y ubicar boquillas (Nozzles) con orientación angular, elevación y clase de presión según planos mecánicos E-1201 y E-1301.",
+      "coreConcepts": [
+        {
+          "name": "Equipos de Catálogo vs Modelados",
+          "description": "Los de catálogo vienen predefinidos con pesos y formas; los modelados se crean combinando primitivas paramétricas en el árbol del equipo."
+        },
+        {
+          "name": "Nozzles (Boquillas de Proceso)",
+          "description": "Puntos de conexión normados (ASME B16.5) con cara (RF, FF, RTJ), rating (150#, 300#, 600#) y dirección de vector."
+        },
+        {
+          "name": "System Hierarchy de Equipos",
+          "description": "Cada equipo debe pertenecer a un sistema de planta (ej. 'Area A2 > U03 > Equipment')."
+        },
+        {
+          "name": "Posicionamiento con PinPoint",
+          "description": "Ubicación del centro base o línea central del equipo usando coordenadas E, N, EL con exactitud milimétrica."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Equipment",
+        "2. Click en 'Place Equipment' (Catálogo o Componente)",
+        "3. Seleccionar Tipo: Vertical Vessel SWWSE210-E",
+        "4. Asignar Nombre: T-101 y Sistema: U03-Equipment",
+        "5. Fijar Coordenadas con PinPoint [F9] (E: 100m, N: 200m, EL: 0m)",
+        "6. Click en 'Place Nozzle' sobre el cuerpo del equipo",
+        "7. Configurar Diámetro (4\"), Rating (300#) y Orientación (0°, 90°, 180°)"
+      ],
+      "labExercise": {
+        "title": "Modelado de Torre de Fraccionamiento T-101 y Boquilla N1",
+        "objective": "Insertar la columna vertical T-101 en la unidad U03 y colocar la boquilla de alimentación N1 a 3500 mm de elevación.",
+        "prerequisites": "Tarea Equipment activa y grillas de U03 visibles.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Colocar Columna Vertical",
+            "smartStepAction": "Vertical Toolbar > Place Equipment",
+            "instruction": "En el catálogo selecciona 'Vertical Vessel'. Nombra el equipo como 'T-101' y asígnalo al sistema 'U03-Equipment'.",
+            "parameters": {
+              "Modelo": "SWWSE210-E",
+              "Nombre": "T-101",
+              "Sistema": "U03-Equipment"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Ubicar Coordenadas con PinPoint",
+            "smartStepAction": "Tecla F9 -> Ingresar E y N",
+            "instruction": "Con PinPoint activo, coloca el equipo en la intersección de ejes 2 y B de la unidad U03.",
+            "tip": "Haz clic en 'Lock E' y 'Lock N' tras situar el cursor en la intersección de las grillas."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Inserción de Boquilla de Proceso N1",
+            "smartStepAction": "Vertical Toolbar > Place Nozzle",
+            "instruction": "Selecciona el equipo T-101. Define: Name = N1, Nominal Diameter = 4 in, Pressure Rating = 300 lb, End Prep = Flanged RF, Elevación = 3500 mm sobre base.",
+            "parameters": {
+              "Nombre": "N1",
+              "Diámetro": "4 in",
+              "Rating": "300#",
+              "Elevación": "3500 mm"
+            }
+          }
+        ],
+        "expectedResult": "Torre cilíndrica 3D con faldón de apoyo y boquilla bridada de 4\" lista para recibir la línea de tuberías."
+      },
+      "quiz": [
+        {
+          "id": "q3-1",
+          "question": "¿Por qué es indispensable fijar correctamente las propiedades de una boquilla (Nozzle) antes de rutear tuberías?",
+          "options": [
+            "Para que el equipo se vea de color verde.",
+            "Porque el módulo de tuberías (Piping) lee el diámetro, rating y cara de la boquilla para seleccionar automáticamente la contrabrida y espárragos compatibles.",
+            "Para que el archivo pese menos megabytes.",
+            "No es importante, la tubería puede flotar en el aire."
+          ],
+          "correctIndex": 1,
+          "explanation": "La boquilla es un puerto inteligente: al iniciar el ruteo de cañerías desde ella, SP3D hereda el diámetro y coloca la brida compañera automáticamente."
+        }
+      ]
+    },
+    {
+      "id": "mod-04",
+      "number": 4,
+      "title": "Piping: Ruteo de Cañerías, Specs & Válvulas",
+      "subtitle": "Ruteo interactivo continuo, especificaciones de tubería, auto-fitting, caídas de pendiente y accesorios",
+      "discipline": "piping",
+      "icon": "fa-solid fa-arrows-split-up-and-left",
+      "badgeColor": "border-emerald-500 text-emerald-300 bg-emerald-950/40",
+      "duration": "60 min",
+      "level": "Avanzado",
+      "overview": "El módulo de tuberías es el núcleo productivo más utilizado en ingeniería de plantas industriales. Aprenderás la jerarquía Pipeline -> Pipe Run, el uso de Especificaciones de Tubería (Piping Specs), el motor de Auto-Fitting (codos de 90° y 45° automáticos), la inserción de componentes en línea (válvulas de compuerta, retención, filtros) y el ruteo con pendientes de drenaje.",
+      "coreConcepts": [
+        {
+          "name": "Piping Specs (Especificaciones)",
+          "description": "Catálogo normado (ej. 1C0031 = Acero al carbono A106 Gr.B, 150# RF, rating -29°C a 200°C) que restringe qué accesorios se pueden colocar."
+        },
+        {
+          "name": "Motor Auto-Fitting",
+          "description": "Al cambiar de dirección en el espacio, SP3D inserta automáticamente codos radio largo o corto según la spec sin modelado manual."
+        },
+        {
+          "name": "Slope (Pendiente de Caída)",
+          "description": "Ángulo o ratio de inclinación (ej. 1:100 o 2%) para drenajes por gravedad y líneas de vapor con condensado."
+        },
+        {
+          "name": "Componentes en Línea (In-line Features)",
+          "description": "Válvulas, bridas, instrumentos de flujo y reducciones excéntricas/concéntricas que dividen el tramo."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Piping",
+        "2. Click en 'Route Pipe' en la barra vertical",
+        "3. Seleccionar o Crear Pipeline (ej. 4\"-P-204-1C0031)",
+        "4. Definir Parámetros de Pipe Run (NPS: 4\", Spec: 1C0031)",
+        "5. Click en la boquilla N1 del equipo T-101 (Inicio automático con brida)",
+        "6. Rutear hacia el Este usando PinPoint (+6'-0\"), doblar hacia el Sur",
+        "7. Click en 'Insert Component' para colocar Válvula de Compuerta",
+        "8. Conectar a la boquilla de succión de la bomba P-101A"
+      ],
+      "labExercise": {
+        "title": "Ruteo de Línea de Tubería de 4\" desde Torre T-101 a Bomba P-101A",
+        "objective": "Rutear una línea completa con spec 1C0031, insertar una válvula de compuerta de 4\" y conectar a la bomba.",
+        "prerequisites": "Torre T-101 y Bomba P-101A colocadas en el espacio de trabajo.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Iniciar Ruteo desde Boquilla",
+            "smartStepAction": "Route Pipe -> Clic en Boquilla N1",
+            "instruction": "El sistema detecta automáticamente la boquilla de 4\" 300# y coloca la brida compañera y empaquetadura.",
+            "parameters": {
+              "Spec": "1C0031",
+              "Diámetro": "4 in",
+              "Fluido": "Proceso Hidrocarburo"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Desplazamiento Horizontal con PinPoint",
+            "smartStepAction": "PinPoint -> Bloquear EL -> dE: 4000 mm",
+            "instruction": "Mueve el cursor hacia el Este. PinPoint traza la directriz en verde e inserta el primer tubo recto de 4000 mm.",
+            "tip": "Al girar 90° hacia el Sur, observa cómo el SmartStep coloca un codo 90° LR de forma totalmente automática."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Inserción de Válvula de Compuerta",
+            "smartStepAction": "Vertical Toolbar > Insert Component",
+            "instruction": "Selecciona el tramo de tubería ruteado. En el catálogo elige 'Gate Valve, Flanged 150#'. Posiciónala a 1500 mm del codo.",
+            "parameters": {
+              "Tipo": "Gate Valve",
+              "Operador": "Handwheel",
+              "Rating": "150# RF"
+            }
+          },
+          {
+            "stepNumber": 4,
+            "title": "Conexión a Boquilla de Descarga",
+            "smartStepAction": "SmartSketch Glyph -> Clic en Boquilla Bomba",
+            "instruction": "Conecta el extremo final a la boquilla de la bomba. SP3D cierra la tubería y ajusta las longitudes finales de niple."
+          }
+        ],
+        "expectedResult": "Tubería 4\" completamente modelada con bridas, codos, válvula con volante y conectada a ambos equipos."
+      },
+      "quiz": [
+        {
+          "id": "q4-1",
+          "question": "Al rutear tuberías en SP3D, ¿por qué el sistema no te permite colocar un codo roscado si tu Spec es 1C0031 (150# Soldada)?",
+          "options": [
+            "Es un error del instalador de software.",
+            "Porque el catálogo (Catalog DB) aplica las reglas de ingeniería de la especificación; los componentes no permitidos están estrictamente bloqueados.",
+            "Porque hay que pagar una licencia adicional.",
+            "Porque el color del codo no combina."
+          ],
+          "correctIndex": 1,
+          "explanation": "La gran ventaja de SP3D es la 'gobernanza por especificación': impide que un modelador cometa errores costosos de procura o diseño en obra."
+        },
+        {
+          "id": "q4-2",
+          "question": "¿Qué es una 'Pipeline' en comparación con un 'Pipe Run'?",
+          "options": [
+            "Son exactamente lo mismo.",
+            "La Pipeline es el identificador de proceso global (P&ID), y la Pipe Run es cada sección física homogénea de tubería.",
+            "La Pipeline es de plástico y la Pipe Run de acero.",
+            "La Pipeline solo se usa en planos 2D."
+          ],
+          "correctIndex": 1,
+          "explanation": "Una Pipeline (ej. 10\"-CW-201) contiene múltiples Pipe Runs según cambian diámetros, aislamientos o sentidos de flujo."
+        }
+      ]
+    },
+    {
+      "id": "mod-05",
+      "number": 5,
+      "title": "Structures: Estructuras de Acero, Concreto & Uniones",
+      "subtitle": "Modelado de marcos rígidos (W, C, L), conexiones de extremos, losas, muros y escaleras",
+      "discipline": "structure",
+      "icon": "fa-solid fa-cubes-stacked",
+      "badgeColor": "border-indigo-500 text-indigo-300 bg-indigo-950/40",
+      "duration": "55 min",
+      "level": "Avanzado",
+      "overview": "Las plantas industriales requieren naves de acero y estructuras de soporte pesado para piping y equipos. Aprenderás a modelar pórticos estructurales con perfiles W12x65 y W10x49 (AISC / ICHA), configurar cortes de unión (Framing Connections: Fit, Snip, Miter), diseñar losas de hormigón con aberturas 2D y colocar escaleras industriales con cálculo Blondel.",
+      "coreConcepts": [
+        {
+          "name": "Member System vs Member Part",
+          "description": "Línea analítica nodal (System) que gobierna la posición geométrica frente al perfil extruido físico (Part)."
+        },
+        {
+          "name": "Framing Connections",
+          "description": "Reglas automáticas de corte y ajuste de extremos de vigas contra columnas (Fit con holgura de 1/2\", Miter a 45°, Snip en alas)."
+        },
+        {
+          "name": "Cardinal Points (Puntos Cardinales)",
+          "description": "Punto de justificación de la sección transversal (1 a 9): Top Center (T.O.S.), Center-Center (Neutro), Bottom Center (B.O.S.)."
+        },
+        {
+          "name": "Slabs & Openings (Losas y Patios de Tubería)",
+          "description": "Modelado de losas de piso y corte de pases o penetraciones de cañerías mediante el editor 2D SmartSketch."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Structure",
+        "2. Click en 'Place Member' (Columna o Viga)",
+        "3. Seleccionar Perfil en Catálogo (ej. AISC W12x65)",
+        "4. Configurar Cardinal Point (Top Center para vigas, Center para columnas)",
+        "5. Anclar extremos a Grillas de Elevación (EL 0.0m a EL +6.0m)",
+        "6. Click en 'Place Member' para Vigas Secundarias W10x49",
+        "7. Verificar 'Frame Connection' automática (Corte y destaje limpio)",
+        "8. Modelar Losa de Hormigón con 'Place Slab' (Espesor 200 mm)"
+      ],
+      "labExercise": {
+        "title": "Modelado de Pórtico Estructural y Viga de Apoyo de Tuberías",
+        "objective": "Crear un marco metálico de dos columnas W12x65 y una viga transversal W10x49 con ajuste de extremo automatizado.",
+        "prerequisites": "Grillas de elevación EL 0'-0\" y EL +19'-8\" (+6.0m) creadas.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Colocar Columnas Principales",
+            "smartStepAction": "Place Member -> Type: Column -> W12x65",
+            "instruction": "Inserta dos columnas verticales en los ejes A-1 y A-2 desde cota EL 0.0m hasta EL +6.0m.",
+            "parameters": {
+              "Perfil": "W12x65",
+              "Material": "Steel-Carbon A36",
+              "CardinalPoint": "Center-Center (5)"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Colocar Viga Transversal (Beam)",
+            "smartStepAction": "Place Member -> Type: Beam -> W10x49",
+            "instruction": "Conecta el punto superior de la columna A-1 con la columna A-2 a cota EL +6.0m.",
+            "parameters": {
+              "Perfil": "W10x49",
+              "Material": "Steel-Carbon A36",
+              "CardinalPoint": "Top Center (8)"
+            }
+          },
+          {
+            "stepNumber": 3,
+            "title": "Ajuste de Unión (Framing Connection)",
+            "smartStepAction": "Select Frame Connection -> Type: Fit",
+            "instruction": "Comprueba que la viga corte sus extremos al ras de la cara interna de las columnas con la tolerancia de fabricación requerida.",
+            "tip": "Cambia la Position Rule a 'Ratio' si requieres que las vigas se reubiquen proporcionalmente si la grilla se expande."
+          }
+        ],
+        "expectedResult": "Pórtico estructural rígido perfectamente conectado con cotas superiores alineadas para recibir racks de cañerías."
+      },
+      "quiz": [
+        {
+          "id": "q5-1",
+          "question": "¿Por qué en estructuras de acero se utiliza habitualmente el Cardinal Point 8 (Top Center) para vigas principales?",
+          "options": [
+            "Para que el dibujo se vea más oscuro.",
+            "Para que la cara superior de acero (T.O.S.) quede a una cota uniforme constante, facilitando el apoyo de parrillas grating y tuberías.",
+            "Es una exigencia exclusiva de AutoCAD.",
+            "Porque el software no permite usar otro punto."
+          ],
+          "correctIndex": 1,
+          "explanation": "Al fijar Top Center, variar el peralte de diferentes vigas (W10, W12, W16) no altera la cota de piso terminado superior."
+        }
+      ]
+    },
+    {
+      "id": "mod-06",
+      "number": 6,
+      "title": "Hangers & Supports: Soportes de Tuberías Industriales",
+      "subtitle": "Soportes de catálogo y paramétricos fijados a vigas de acero y pedestales de concreto",
+      "discipline": "supports",
+      "icon": "fa-solid fa-wrench",
+      "badgeColor": "border-orange-500 text-orange-300 bg-orange-950/40",
+      "duration": "40 min",
+      "level": "Avanzado",
+      "overview": "Las tuberías de alta presión y temperatura no pueden flotar en el aire; requieren soportes calculados contra cargas gravitacionales, sísmicas y dilatación térmica. Aprenderás a anclar soportes estándar tipo U-Frame, ménsulas (cantilevers) y trapecios colgantes directamente a las vigas de acero modeladas en la tarea de Estructuras.",
+      "coreConcepts": [
+        {
+          "name": "Soportes Rígidos vs Elásticos",
+          "description": "Apoyos fijos deslizantes (Shoes), guías direccionales, anclajes rígidos y soportes elásticos de resorte (Spring Hangers)."
+        },
+        {
+          "name": "Doble Referencia (Pipe + Structure)",
+          "description": "Un soporte en SP3D requiere dos referencias obligatorias: la línea de tubería que sujeta y el miembro estructural o losa que lo resiste."
+        },
+        {
+          "name": "U-Shape Frame",
+          "description": "Marco invertido con ángulos L2x2x1/8 soldado a la viga superior para sostener tuberías elevadas."
+        },
+        {
+          "name": "Ajuste Paramétrico de Longitud",
+          "description": "El vástago o varilla del soporte calcula su longitud exacta automáticamente según la distancia libre existente."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Hangers and Supports",
+        "2. Click en 'Place Support' en la barra vertical",
+        "3. SmartStep 1: Seleccionar la tubería recta (Straight Pipe Feature)",
+        "4. SmartStep 2: Seleccionar la viga estructural de apoyo (Structural Beam)",
+        "5. Elegir Tipo en Catálogo: U Shape Frame L2x2x1/8 w/o Baseplate",
+        "6. Validar orientación respecto al eje de la tubería",
+        "7. Finish (El soporte se ensambla paramétricamente)"
+      ],
+      "labExercise": {
+        "title": "Colocación de Soporte Estándar U-Shape en Rack de Tuberías",
+        "objective": "Fijar un soporte de ángulo L2x2x1/8 entre la cañería de 4\" y la viga de acero W10x49.",
+        "prerequisites": "Tubería de 4\" y viga estructural W10x49 modeladas en la misma unidad.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Lanzar Comando de Colocación",
+            "smartStepAction": "Vertical Toolbar > Place Support",
+            "instruction": "En el primer paso del SmartStep, haz clic sobre la tubería de 4\" a la altura del cruce con la estructura."
+          },
+          {
+            "stepNumber": 2,
+            "title": "Seleccionar Estructura de Soporte",
+            "smartStepAction": "SmartStep Paso 2 -> Clic en Viga W10x49",
+            "instruction": "Selecciona el ala inferior o superior de la viga W10x49 como elemento portante.",
+            "tip": "Si no puedes seleccionar la viga, verifica que el filtro de selección incluya 'Structural Members'."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Seleccionar Componente de Soporte",
+            "smartStepAction": "Diálogo de Catálogo de Soportes",
+            "instruction": "Elige 'Standard Supports > U Shape Frame L2x2x1/8'. Haz clic en Finish.",
+            "parameters": {
+              "Tipo": "U Shape Frame",
+              "Perfil": "L2x2x1/8",
+              "Fijación": "Welded to Steel"
+            }
+          }
+        ],
+        "expectedResult": "Soporte metálico perfectamente anclado a la viga y abrazando la tubería de 4\"."
+      },
+      "quiz": [
+        {
+          "id": "q6-1",
+          "question": "¿Qué ocurre con el soporte en SP3D si un proyectista de estructuras eleva la viga 500 mm en la tarea Structure?",
+          "options": [
+            "El soporte se queda flotando en el aire roto para siempre.",
+            "Gracias a la relación paramétrica en la base de datos, el soporte se actualiza y estira automáticamente sus brazos hasta alcanzar la viga en su nueva posición.",
+            "Se cierra el programa con un pantallazo azul.",
+            "Se borra la tubería completa."
+          ],
+          "correctIndex": 1,
+          "explanation": "Esa es la potencia de la base de datos relacional de SP3D: las dependencias entre disciplinas mantienen la integridad del modelo ante cambios."
+        }
+      ]
+    },
+    {
+      "id": "mod-07",
+      "number": 7,
+      "title": "Electrical: Bandejas Portacables & Canalizaciones",
+      "subtitle": "Tendido de escalerillas eléctricas, radios de curvatura, transiciones y cajas de conexión",
+      "discipline": "electrical",
+      "icon": "fa-solid fa-bolt",
+      "badgeColor": "border-yellow-500 text-yellow-300 bg-yellow-950/40",
+      "duration": "40 min",
+      "level": "Intermedio",
+      "overview": "Las plantas industriales demandan kilómetros de canalizaciones de fuerza, control e instrumentación. Aprenderás a utilizar la tarea 'Electrical' para trazar bandejas tipo escalerilla (Cable Trays), respetar radios de curvatura normados para cables de media tensión, insertar transiciones reductoras y salvar interferencias mediante PinPoint.",
+      "coreConcepts": [
+        {
+          "name": "Cable Trays (Escalerillas)",
+          "description": "Bandejas metálicas ranuradas o con peldaños de anchos normalizados (12\", 18\", 24\", 36\") y fondos perforados."
+        },
+        {
+          "name": "Fill Percentage (Factor de Llenado)",
+          "description": "Cálculo de ocupación máxima de cables según normativa eléctrica para evitar sobrecalentamiento."
+        },
+        {
+          "name": "Radio de Curvatura Mínimo",
+          "description": "Curvas horizontales y verticales prefabricadas (12\", 24\" de radio) que impiden que los cables sufran daños al tenderse."
+        },
+        {
+          "name": "Offset con PinPoint",
+          "description": "Mantenimiento de distancias de seguridad respecto a tuberías calientes de proceso o vapor."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Electrical",
+        "2. Click en 'Cableway / Cable Tray'",
+        "3. Definir Sistema: U03-Electrical",
+        "4. Configurar Ancho (24 in) y Profundidad (4 in)",
+        "5. Establecer punto de inicio con PinPoint en Sala Eléctrica",
+        "6. Trazar trayectoria ortogonal a 500 mm sobre la viga de rack",
+        "7. Insertar Curva Horizontal 90° y bajada vertical hacia motor"
+      ],
+      "labExercise": {
+        "title": "Ruteo de Bandeja Eléctrica de Fuerza de 24\" x 4\"",
+        "objective": "Tender una bandeja eléctrica de 24\" a elevación EL +18'-0\" paralela al rack de tuberías.",
+        "prerequisites": "Unidad U03 activa y sala de control o subestación eléctrica definida.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Configurar Propiedades de Bandeja",
+            "smartStepAction": "Task Electrical -> Route Cableway",
+            "instruction": "Selecciona Cable Tray tipo 'Ladder'. Ancho: 24 in, Altura: 4 in, Material: Aluminio.",
+            "parameters": {
+              "Ancho": "24 in",
+              "Altura": "4 in",
+              "Tipo": "Ladder Tray"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Trazado con PinPoint Offset",
+            "smartStepAction": "PinPoint -> Set Offset Reference",
+            "instruction": "Toma como referencia la cara de la viga estructural y define un offset libre de 300 mm para ventilación.",
+            "tip": "Utiliza 'Lock EL' para garantizar que la bandeja permanezca completamente horizontal a lo largo de los vanos."
+          }
+        ],
+        "expectedResult": "Bandeja eléctrica tipo escalerilla de 24\" modelada con curvas suaves y separada del rack de vapor."
+      },
+      "quiz": [
+        {
+          "id": "q7-1",
+          "question": "¿Por qué en bandejas de cables es crítico respetar el radio de curvatura en los codos?",
+          "options": [
+            "Solo por razones estéticas.",
+            "Porque los cables de energía rígidos tienen un radio mínimo de doblado admisible; doblarlos más provocaría rotura del aislamiento y cortocircuito.",
+            "Para que quepan más cables.",
+            "Porque el fabricante de bandejas no vende piezas rectas."
+          ],
+          "correctIndex": 1,
+          "explanation": "La normativa eléctrica exige radios mínimos acordes a la sección y rigidez dieléctrica de los conductores."
+        }
+      ]
+    },
+    {
+      "id": "mod-08",
+      "number": 8,
+      "title": "Drawings & Reports: Planos 2D, Isométricas & PCF",
+      "subtitle": "Extracción automática de isométricas de fabricación con Isogen, planos orthographic y MTO",
+      "discipline": "drawings",
+      "icon": "fa-solid fa-file-lines",
+      "badgeColor": "border-purple-500 text-purple-300 bg-purple-950/40",
+      "duration": "50 min",
+      "level": "Avanzado",
+      "overview": "El modelo 3D solo cobra vida en terreno cuando se transforma en planos de montaje e isométricos de spools de taller. En este módulo aprenderás a utilizar el módulo 'Drawings and Reports', el motor 'Isogen' para extracción de isométricas con lista de materiales (BOM/MTO) sin dibujar a mano y la creación de planos ortográficos de planta y elevación mediante 'Drawing Console'.",
+      "coreConcepts": [
+        {
+          "name": "Isogen (Generador de Isométricas)",
+          "description": "Motor de reconocido prestigio mundial que lee la línea en la base de datos y genera el plano isométrico con cotas y despiece en segundos."
+        },
+        {
+          "name": "Drawing Console",
+          "description": "Consola centralizada para gestionar carpetas de planos de planta, elevaciones, detalles civiles y diagramas de ubicación."
+        },
+        {
+          "name": "Volume Drawing Views",
+          "description": "Caja de volumen 3D que recorta una porción del modelo y proyecta la vista 2D con simbología inteligente en la lámina."
+        },
+        {
+          "name": "Reportes MTO (Material Take Off)",
+          "description": "Consultas SQL que totalizan metros de cañería, recuento de codos, toneladas de perfiles y número de pernos para adquisiciones."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Drawings and Reports",
+        "2. Tools > Drawing Console",
+        "3. Navegar a 'Pipelines > Isometric Drawings'",
+        "4. Seleccionar la Pipeline (ej. 4\"-P-204-1C0031)",
+        "5. Clic derecho > Run / Extract",
+        "6. Isogen compila el archivo .pcf y genera el plano .dgn / .dwg",
+        "7. Abrir visor y verificar lista de materiales (BOM) y cotas de corte"
+      ],
+      "labExercise": {
+        "title": "Extracción de Isométrica de Fabricación de Línea 4\"-P-204",
+        "objective": "Generar el plano isométrico completo con tabla de materiales y cotas de corte utilizando Isogen.",
+        "prerequisites": "Línea de tubería 4\" modelada y conectada sin errores de conectividad.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Abrir Consola de Planos",
+            "smartStepAction": "Tools > Drawing Console",
+            "instruction": "En el explorador de la consola, ubica la carpeta 'Isometric Drawing by Pipeline' de la unidad U03."
+          },
+          {
+            "stepNumber": 2,
+            "title": "Asignar Pipeline a la Extracción",
+            "smartStepAction": "Add Pipeline -> 4\"-P-204-1C0031",
+            "instruction": "Verifica que el estilo seleccionado sea 'Final-Basic' con tamaño de hoja A3 o Tabloid.",
+            "parameters": {
+              "Estilo": "Final-Fabrication",
+              "Hoja": "Tabloid ANSI B",
+              "Pipeline": "4\"-P-204"
+            }
+          },
+          {
+            "stepNumber": 3,
+            "title": "Ejecutar Isogen y Revisar BOM",
+            "smartStepAction": "Clic derecho > Update Document",
+            "instruction": "Isogen procesará la línea en unos segundos. Abre el documento resultante y revisa el conteo de válvulas y niples.",
+            "tip": "Si Isogen genera un error de 'Disconnected Run', vuelve a Piping y valida que las bridas tengan empaquetadura (gasket)."
+          }
+        ],
+        "expectedResult": "Lámina isométrica lista para taller con tabla de materiales (BOM), número de soldaduras y cotas de spool."
+      },
+      "quiz": [
+        {
+          "id": "q8-1",
+          "question": "¿Cuál es la principal ventaja de generar isométricas con Isogen en SP3D respecto a dibujarlas a mano en AutoCAD?",
+          "options": [
+            "El archivo se guarda en formato MP3.",
+            "Cero errores humanos de transcripción: la lista de materiales y dimensiones provienen directamente del modelo 3D validado por la base de datos.",
+            "No requiere computador.",
+            "Se puede dibujar con colores fluorescentes."
+          ],
+          "correctIndex": 1,
+          "explanation": "Isogen elimina las discrepancias entre planos y modelo, evitando compras erróneas de válvulas o cañerías que no caben en terreno."
+        }
+      ]
+    },
+    {
+      "id": "mod-09",
+      "number": 9,
+      "title": "Interference Detection (IFC): Gestión de Interferencias",
+      "subtitle": "Detección automática de colisiones físicas (Hard Clash) y holguras de mantenimiento (Soft Clash)",
+      "discipline": "clash",
+      "icon": "fa-solid fa-triangle-exclamation",
+      "badgeColor": "border-rose-500 text-rose-300 bg-rose-950/40",
+      "duration": "40 min",
+      "level": "Avanzado",
+      "overview": "Construir sin colisiones es la promesa número uno de la ingeniería digital de plantas. En este módulo aprenderás a configurar el servicio de detección de interferencias (IFC Server) en SP3D, clasificar colisiones entre Hard Clashes (tubería atravesando columna de acero) y Soft Clashes (falta de espacio para retirar el vástago de una válvula o desmontar un motor) y emitir reportes de resolución interdisciplinaria.",
+      "coreConcepts": [
+        {
+          "name": "Hard Clash vs Soft Clash",
+          "description": "Hard Clash es la intersección geométrica de sólidos; Soft Clash es la invasión de una zona de despeje de aislamiento térmico o mantenimiento."
+        },
+        {
+          "name": "Clash Status (Estados)",
+          "description": "Ciclo de vida: New (Nueva), Reviewed (Revisada), Approved (Aprobada como excepción) y Resolved (Resuelta tras mover el elemento)."
+        },
+        {
+          "name": "IFC Background Service",
+          "description": "Proceso en segundo plano que monitoriza constantemente la base de datos y marca colisiones en tiempo real mientras modelas."
+        },
+        {
+          "name": "Clash Clearance Rules",
+          "description": "Reglas de distancia mínima (ej. 50 mm de aire entre tuberías aisladas y vigas de hormigón)."
+        }
+      ],
+      "smartStepSequence": [
+        "1. Task > Interference Detection",
+        "2. Tools > Run Interference Check",
+        "3. Configurar Reglas de Chequeo (Hard vs Soft, Tolerancia 25 mm)",
+        "4. Abrir 'Interference List' (Visualización en lista y 3D)",
+        "5. Hacer doble clic en una interferencia para auto-centrar la vista",
+        "6. Resolver la interferencia en la disciplina causante (ej. desviar tubería)",
+        "7. El servicio actualiza el estado a 'Resolved' automáticamente"
+      ],
+      "labExercise": {
+        "title": "Auditoría de Interferencias entre Cañerías y Estructura",
+        "objective": "Detectar una interferencia entre la línea de 4\" y una riostra diagonal, y resolverla modificando la ruta.",
+        "prerequisites": "Unidad U03 con disciplinas de piping y estructuras cargadas simultáneamente.",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Ejecutar Detección de Interferencias",
+            "smartStepAction": "Task Interference Detection -> Check Now",
+            "instruction": "Corre la comprobación sobre todo el Workspace activo de la Unidad U03.",
+            "parameters": {
+              "Tipo": "Hard + Soft",
+              "Tolerancia": "0 mm"
+            }
+          },
+          {
+            "stepNumber": 2,
+            "title": "Inspección de Colisión en 3D",
+            "smartStepAction": "Doble clic en fila de Clash List",
+            "instruction": "La ventana enfoca el punto donde la cañería toca el arriostramiento vertical de la columna.",
+            "tip": "Los elementos involucrados se tiñen de rojo y amarillo para identificación inmediata."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Desvío y Resolución",
+            "smartStepAction": "Task Piping -> Modificar elevación de tubería (+300 mm)",
+            "instruction": "Eleva el tramo recto para librar la diagonal. El sistema recalcula y marca la incidencia como 'Resolved'.",
+            "parameters": {
+              "NuevaElevacion": "+6300 mm",
+              "HolguraFinal": "150 mm"
+            }
+          }
+        ],
+        "expectedResult": "Lista de interferencias limpia con cero colisiones activas (Zero Clashes)."
+      },
+      "quiz": [
+        {
+          "id": "q9-1",
+          "question": "¿Qué es un 'Soft Clash' en la ingeniería de plantas industriales?",
+          "options": [
+            "Una colisión de elementos de goma o plástico.",
+            "Una invasión de la zona de holgura necesaria para mantenimiento, aislamiento térmico o paso de operadores, aunque los sólidos metálicos no se toquen.",
+            "Un error de dibujo en papel suave.",
+            "Una viga mal pintada."
+          ],
+          "correctIndex": 1,
+          "explanation": "Un equipo puede caber físicamente pero ser imposible de reparar si no se deja el radio libre para retirar el rotor o los pernos de brida."
+        }
+      ]
+    }
+  ]
+}

@@ -20,10 +20,10 @@ function localDbServerPlugin() {
   return {
     name: 'local-db-server',
     configureServer(server) {
-      if (process.env.NODE_ENV === 'production' || process.env.VITEST) return;
+      if (process.env.NODE_ENV === 'production' || process.env.VITEST || process.env.SKIP_LOCAL_DB_SERVER === 'true') return;
       
       console.log('\x1b[36m%s\x1b[0m', '>> [Vite Plugin] Starting local DB server on port 3001...');
-      serverProcess = fork(resolve(__dirname, 'server.js'));
+      serverProcess = fork(resolve(__dirname, 'backend/src/server.js'));
       
       serverProcess.on('error', (err) => {
         console.error('Failed to start local DB server:', err);
@@ -208,9 +208,14 @@ export default defineConfig({
   },
   server: {
     open: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:3001',
+        changeOrigin: true,
+      },
+    },
   },
   test: {
     environment: 'jsdom',
   },
 });
-

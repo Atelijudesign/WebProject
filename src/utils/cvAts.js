@@ -50,11 +50,11 @@ export const EXAMPLE_CV = {
   experience: [
     { company: "Andes Digital Engineering SpA", position: "Coordinadora BIM Estructural", start_date: "2023-03", end_date: "Actualidad", current: true, location: "Santiago, Chile", description: "Lideré la coordinación BIM de 14 proyectos industriales, integrando modelos estructurales, arquitectura y MEP en Navisworks Manage. Reduje en 38% las interferencias críticas antes de construcción mediante Clash Detection y reuniones ICE semanales. Implementé flujos de revisión en Autodesk Construction Cloud, logrando 96% de entregables aprobados en primera revisión." },
     { company: "Estructuras del Pacífico Ltda.", position: "Modeladora BIM Estructural Senior", start_date: "2020-01", end_date: "2023-02", location: "Valparaíso, Chile", description: "Modelé más de 85.000 m2 de estructuras de hormigón armado y acero estructural en Revit Structures. Automaticé 12 controles de calidad con Dynamo y pyRevit, reduciendo 22 horas mensuales de revisión manual. Coordiné planos, cubicaciones y modelos conforme a NCh433, NCh2369, ACI y AISC." },
-    { company: "BIM Norte Consultores", position: "Proyectista Estructural BIM", start_date: "2017-06", end_date: "2019-12", location: "Antofagasta, Chile", description: "Desarrollé modelos y planos estructurales para 9 instalaciones mineras utilizando Revit, AutoCAD y Tekla Structures. Coordiné la emisión de 420 planos con trazabilidad documental y disminuí 30% las observaciones por inconsistencias entre vistas, detalles y cubicaciones." },
+    { company: "BIM Norte Consultores", position: "Diseñadora Estructural BIM", start_date: "2017-06", end_date: "2019-12", location: "Antofagasta, Chile", description: "Desarrollé modelos y planos estructurales para 9 instalaciones mineras utilizando Revit, AutoCAD y Tekla Structures. Coordiné la emisión de 420 planos con trazabilidad documental y disminuí 30% las observaciones por inconsistencias entre vistas, detalles y cubicaciones." },
   ],
   education: [
-    { degree: "Ingeniería en Construcción", institution: "Instituto Profesional Metropolitano" },
-    { degree: "Diplomado en Coordinación BIM", institution: "Academia Digital de Construcción" },
+    { degree: "Ingeniería en Construcción", institution: "Instituto Profesional Metropolitano", start_date: "2019", end_date: "2023" },
+    { degree: "Diplomado en Coordinación BIM", institution: "Academia Digital de Construcción", start_date: "2023", end_date: "2024" },
   ],
   certifications: [
     { name: "Autodesk Certified Professional: Revit for Structural Design", issuer: "Autodesk", date: "2024", credential: "Credencial ficticia de demostración" },
@@ -140,8 +140,38 @@ function buildEvidenceMap(cv, keywords) {
 }
 
 function findUnsupportedSkills(cv) {
-  const evidenceText = normaliseText(JSON.stringify({ summary: cv.summary, experience: cv.experience, education: cv.education, certifications: cv.certifications, projects: cv.projects }));
-  return (cv.skills || []).map((skill) => skill.name || skill).filter(Boolean).filter((skill) => !evidenceText.includes(normaliseText(skill)));
+  const evidenceText = normaliseText(JSON.stringify({
+    summary: cv.summary,
+    experience: cv.experience,
+    education: cv.education,
+    certifications: cv.certifications,
+    projects: cv.projects,
+  }));
+
+  return (cv.skills || []).map((skill) => skill.name || skill).filter(Boolean).filter((skill) => {
+    const norm = normaliseText(skill);
+    if (evidenceText.includes(norm)) return false;
+
+    // Check with '&' replaced by 'y' or space (e.g. "Python & pyRevit" vs "Python y pyRevit")
+    const altConjunction = norm.replace(/\s*&\s*/g, " y ");
+    if (evidenceText.includes(altConjunction)) return false;
+
+    // If skill has parentheses like "Name (Abbr)", check if either the name or abbreviation exists
+    const matchParen = skill.match(/^(.+?)\s*\((.+?)\)$/);
+    if (matchParen) {
+      const namePart = normaliseText(matchParen[1]);
+      const abbrPart = normaliseText(matchParen[2]);
+      if (evidenceText.includes(namePart) || evidenceText.includes(abbrPart)) return false;
+    }
+
+    // If compound skill with "y", "&", "/", or "·"
+    const subParts = skill.split(/[\/&·]/).map((part) => normaliseText(part)).filter((part) => part.length >= 3);
+    if (subParts.length > 1 && subParts.every((part) => evidenceText.includes(part))) {
+      return false;
+    }
+
+    return true;
+  });
 }
 
 function findQualityIssues(cv) {
@@ -383,7 +413,15 @@ export function createLatex(cv) {
   if (cv.skills.length) lines.push("\\section*{Habilidades}", latexEscape(cv.skills.map((item) => item.name || item).join(" · ")));
   if (cv.education.length) {
     lines.push("\\section*{Educación}");
-    cv.education.forEach((entry) => lines.push(`\\textbf{${latexEscape(entry.degree)}} --- ${latexEscape(entry.institution)}\\\\`));
+    cv.education.forEach((entry) => {
+      const startDate = (entry.start_date || entry.startDate || entry.from || entry.inicio || "").toString().trim();
+      const endDate = (entry.end_date || entry.endDate || entry.to || entry.fin || entry.termino || (entry.is_current || entry.current ? "Actualidad" : "")).toString().trim();
+      const singleDate = (entry.date || entry.year || entry.years || entry.period || entry.fecha || "").toString().trim();
+      const dates = (startDate || endDate)
+        ? [startDate, endDate].filter(Boolean).join("--")
+        : singleDate;
+      lines.push(`\\textbf{${latexEscape(entry.degree)}} --- ${latexEscape(entry.institution)}${dates ? ` \\hfill ${latexEscape(dates)}` : ""}\\\\`);
+    });
   }
   if (cv.certifications.length) {
     lines.push("\\section*{Certificaciones}");
@@ -483,17 +521,37 @@ export function createCvPdf(cv) {
   if (cv.experience.length) {
     heading(labels.experience);
     cv.experience.forEach((entry) => {
-      ensureRoom(14);
-      doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.setTextColor(26, 43, 60);
-      doc.text(`${entry.position || "Cargo"} — ${entry.company || "Empresa"}`, contentX, y); y += 4.5;
-      paragraph([entry.start_date, entry.end_date || "Actualidad", entry.location].filter(Boolean).join(" · "), 8);
+      const positionText = entry.position || "Cargo";
+      const companyText = entry.company || "Empresa";
+      const title = `${positionText} — ${companyText}`;
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9.5);
+      doc.setTextColor(26, 43, 60);
+      const titleLines = doc.splitTextToSize(title, contentRight - contentX);
+      ensureRoom(titleLines.length * 4.6 + 14);
+      doc.text(titleLines, contentX, y);
+      y += titleLines.length * 4.6 + 0.8;
+
+      const meta = [entry.start_date, entry.end_date || (entry.is_current ? (english ? "Present" : "Actualidad") : "Actualidad"), entry.location].filter(Boolean).join(" · ");
+      if (meta) {
+        paragraph(meta, 8, "normal");
+      }
       paragraph(entry.description, 8.5);
     });
   }
   if (cv.skills.length) { heading(labels.skills); paragraph(cv.skills.map((item) => item.name || item).join(" · ")); }
   if (cv.education.length) {
     heading(labels.education);
-    cv.education.forEach((entry) => paragraph(`${entry.degree || "Formación"} — ${entry.institution || "Institución"}`, 9, "bold"));
+    cv.education.forEach((entry) => {
+      const startDate = (entry.start_date || entry.startDate || entry.from || entry.inicio || "").toString().trim();
+      const endDate = (entry.end_date || entry.endDate || entry.to || entry.fin || entry.termino || (entry.is_current || entry.current ? (english ? "Present" : "En curso") : "")).toString().trim();
+      const singleDate = (entry.date || entry.year || entry.years || entry.period || entry.fecha || "").toString().trim();
+      const dates = (startDate || endDate)
+        ? [startDate, endDate].filter(Boolean).join(" – ")
+        : singleDate;
+      paragraph(`${entry.degree || "Formación"} — ${entry.institution || "Institución"}${dates ? ` · ${dates}` : ""}`, 9, "bold");
+    });
   }
   if (cv.certifications.length) {
     heading(labels.certifications);

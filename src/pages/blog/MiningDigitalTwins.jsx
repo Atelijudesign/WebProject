@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export const MiningDigitalTwins = () => {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -44,9 +45,7 @@ export const MiningDigitalTwins = () => {
       <section className="pt-28 pb-16 px-4 bg-[#030712]/60 transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link to="/blog" className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors inline-flex items-center gap-1">
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -227,7 +226,7 @@ export const MiningDigitalTwins = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 4: CHECKLIST Y CRITERIOS PARA PROYECTISTAS ESTRUCTURALES */}
+        {/* SECCIÓN 4: CHECKLIST Y CRITERIOS PARA DISEÑADORES ESTRUCTURALES */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
             <span className="p-2 rounded-lg bg-indigo-500/20 text-indigo-400 text-lg">💡</span>
@@ -237,7 +236,7 @@ export const MiningDigitalTwins = () => {
             <div className="flex items-start gap-3">
               <i className="fa-solid fa-circle-check text-emerald-400 mt-1" />
               <div>
-                <strong className="text-white">Diseño para Fabricación y Ensamble (DfMA):</strong> El proyectista debe diseñar las uniones considerando el izaje modular; priorizar conexiones apernadas con pernos ASTM A325 / A490 y limitar la soldadura en terreno a casos estrictamente inevitables.
+                <strong className="text-white">Diseño para Fabricación y Ensamble (DfMA):</strong> El diseñador estructural debe diseñar las uniones considerando el izaje modular; priorizar conexiones apernadas con pernos ASTM A325 / A490 y limitar la soldadura en terreno a casos estrictamente inevitables.
               </div>
             </div>
             <div className="flex items-start gap-3">

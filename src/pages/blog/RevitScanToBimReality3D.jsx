@@ -6,6 +6,7 @@ import CodeBlock from "../../components/CodeBlock";
 import SEOHead, { getShareUrl } from "../../components/SEOHead";
 import ShareArticle from "../../components/ShareArticle";
 
+import BlogBackButton from "../../components/BlogBackButton";
 export const RevitScanToBimReality3D = () => {
   const { language } = useTranslation();
   const isEn = language === "en";
@@ -119,9 +120,7 @@ def fit_steel_beam_from_cloud_segment(pt_start, pt_end, detected_flange_w, detec
       <section className="pt-28 pb-16 px-4 bg-[#030712]/60 transition-colors duration-300 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-6">
-            <Link to="/blog" className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors inline-flex items-center gap-1">
-              <i className="fa-solid fa-arrow-left text-xs" /> {isEn ? "Back to Blog" : "Volver al Blog"}
-            </Link>
+            <BlogBackButton />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
@@ -215,7 +214,7 @@ def fit_steel_beam_from_cloud_segment(pt_start, pt_end, detected_flange_w, detec
               En proyectos de ampliación minera, celulosas, centrales hidroeléctricas o refinerías, el levantamiento con escáner láser terrestre (LiDAR) genera archivos de nubes de puntos de miles de millones de puntos (archivos <code>.rcp</code> / <code>.e57</code> que superan los 50 GB).
             </p>
             <p>
-              Tradicionalmente, el proyectista estructural debe:
+              Tradicionalmente, el diseñador estructural debe:
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-300 ml-2">
               <li>Crear decenas de cajas de sección (Section Boxes) en Revit para aislar cada viga.</li>

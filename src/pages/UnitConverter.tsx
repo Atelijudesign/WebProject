@@ -303,7 +303,7 @@ export const UnitConverter: React.FC = () => {
               onClick={handleExportExcel}
               disabled={isExportingExcel}
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 px-3.5 py-2 rounded-xl transition-all duration-200 shadow-sm active:scale-95 disabled:opacity-50"
-              title="Descargar reporte en formato Microsoft Excel"
+              title={isEn ? "Download report in Microsoft Excel format" : "Descargar reporte en formato Microsoft Excel"}
             >
               <i className={`fa-solid ${isExportingExcel ? "fa-spinner fa-spin" : "fa-file-excel"}`} />
               {isExportingExcel ? (isEn ? "Exporting..." : "Exportando...") : (isEn ? "Export Excel" : "Exportar Excel")}
@@ -330,8 +330,8 @@ export const UnitConverter: React.FC = () => {
           </p>
 
           {/* Selector de Pestañas de Modo */}
-          <div className="flex justify-center mt-6">
-            <div className="inline-flex p-1.5 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl">
+          <div className="flex justify-center mt-6 px-2">
+            <div className="inline-flex flex-wrap sm:flex-nowrap justify-center max-w-full overflow-x-auto p-1.5 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl gap-1">
               <button
                 type="button"
                 onClick={() => setActiveTab("foot-inch")}
@@ -396,7 +396,7 @@ export const UnitConverter: React.FC = () => {
                       </div>
                       <div>
                         <span className="text-[10px] font-mono text-blue-400 font-bold uppercase tracking-wider">
-                          // SECCIÓN 1 · ENTRADA IMPERIAL
+                          // {isEn ? "SECTION 1 · IMPERIAL INPUT" : "SECCIÓN 1 · ENTRADA IMPERIAL"}
                         </span>
                         <h2 className="text-xl font-black text-white font-grotesk">
                           Inch to Millimeters
@@ -404,16 +404,16 @@ export const UnitConverter: React.FC = () => {
                       </div>
                     </div>
                     <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold bg-blue-950 text-blue-300 border border-blue-800/60">
-                      Imperial → Métrico
+                      {isEn ? "Imperial → Metric" : "Imperial → Métrico"}
                     </span>
                   </div>
 
                   {/* Fila de Entradas: foot | inch | fraction (exacto al recuadro rojo de la imagen) */}
                   <div className="mb-6">
                     <div className="grid grid-cols-3 gap-3 mb-2 text-center text-xs font-mono font-bold uppercase text-slate-400">
-                      <div>foot (pies)</div>
-                      <div>inch (pulgadas)</div>
-                      <div>fracción</div>
+                      <div>{isEn ? "foot" : "foot (pies)"}</div>
+                      <div>{isEn ? "inch" : "inch (pulgadas)"}</div>
+                      <div>{isEn ? "fraction" : "fracción"}</div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-3 p-2 rounded-xl bg-slate-950 border-2 border-red-500/80 shadow-lg shadow-red-500/5">
@@ -436,7 +436,7 @@ export const UnitConverter: React.FC = () => {
                           className="w-full bg-slate-900 text-blue-400 font-mono font-extrabold text-2xl text-center py-2.5 rounded-lg border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                           placeholder="1"
                         />
-                        <label htmlFor="input-foot" className="sr-only">Pies (Foot)</label>
+                        <label htmlFor="input-foot" className="sr-only">{isEn ? "Foot" : "Pies (Foot)"}</label>
                       </div>
 
                       {/* Input Inch */}
@@ -458,7 +458,7 @@ export const UnitConverter: React.FC = () => {
                           className="w-full bg-slate-900 text-blue-400 font-mono font-extrabold text-2xl text-center py-2.5 rounded-lg border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                           placeholder="3"
                         />
-                        <label htmlFor="input-inch" className="sr-only">Pulgadas (Inch)</label>
+                        <label htmlFor="input-inch" className="sr-only">{isEn ? "Inches" : "Pulgadas (Inch)"}</label>
                       </div>
 
                       {/* Selector de Fracción de Pulgada */}
@@ -480,13 +480,13 @@ export const UnitConverter: React.FC = () => {
                             </option>
                           ))}
                         </select>
-                        <label htmlFor="select-fraction" className="sr-only">Fracción de Pulgada</label>
+                        <label htmlFor="select-fraction" className="sr-only">{isEn ? "Inch Fraction" : "Fracción de Pulgada"}</label>
                       </div>
                     </div>
 
                     {/* Chips de selección rápida de fracción */}
                     <div className="flex flex-wrap items-center gap-1.5 mt-3">
-                      <span className="text-[11px] font-mono text-slate-500 mr-1">Rápido:</span>
+                      <span className="text-[11px] font-mono text-slate-500 mr-1">{isEn ? "Quick:" : "Rápido:"}</span>
                       {COMMON_FRACTIONS.slice(0, 9).map((f) => (
                         <button
                           key={f.label}
@@ -535,7 +535,7 @@ export const UnitConverter: React.FC = () => {
                             )
                           }
                           className="text-slate-500 hover:text-white p-2 transition-colors"
-                          title="Copiar pulgadas"
+                          title={isEn ? "Copy inches" : "Copiar pulgadas"}
                         >
                           <i className={`fa-solid ${copiedKey === "copy-inch" ? "fa-check text-emerald-400" : "fa-copy"}`} />
                         </button>
@@ -567,7 +567,7 @@ export const UnitConverter: React.FC = () => {
                             )
                           }
                           className="text-slate-500 hover:text-white p-2 transition-colors"
-                          title="Copiar milímetros"
+                          title={isEn ? "Copy millimeters" : "Copiar milímetros"}
                         >
                           <i className={`fa-solid ${copiedKey === "copy-mm" ? "fa-check text-emerald-400" : "fa-copy"}`} />
                         </button>
@@ -580,19 +580,19 @@ export const UnitConverter: React.FC = () => {
                 {/* Sub-valores de Ingeniería Complementarios */}
                 <div className="mt-6 pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-2 text-center">
                   <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">Centímetros</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{isEn ? "Centimeters" : "Centímetros"}</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-slate-200">
                       {footInchResult.totalCm.toFixed(2)} cm
                     </span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">Metros (Cota)</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{isEn ? "Meters (Dim)" : "Metros (Cota)"}</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-cyan-400">
                       {footInchResult.totalMeters.toFixed(3)} m
                     </span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">Notación Cota</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{isEn ? "Arch Notation" : "Notación Cota"}</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-amber-400">
                       {footInchResult.architecturalString}
                     </span>
@@ -616,7 +616,7 @@ export const UnitConverter: React.FC = () => {
                       </div>
                       <div>
                         <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
-                          // SECCIÓN 2 · ENTRADA MÉTRICA
+                          // {isEn ? "SECTION 2 · METRIC INPUT" : "SECCIÓN 2 · ENTRADA MÉTRICA"}
                         </span>
                         <h2 className="text-xl font-black text-white font-grotesk">
                           Millimeters to Inch
@@ -624,7 +624,7 @@ export const UnitConverter: React.FC = () => {
                       </div>
                     </div>
                     <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-800/60">
-                      Métrico → Imperial
+                      {isEn ? "Metric → Imperial" : "Métrico → Imperial"}
                     </span>
                   </div>
 
@@ -632,10 +632,10 @@ export const UnitConverter: React.FC = () => {
                   <div className="mb-6">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-mono font-bold uppercase text-slate-400">
-                        mm. (Milímetros de entrada)
+                        {isEn ? "mm (Input Millimeters)" : "mm. (Milímetros de entrada)"}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[11px] font-mono text-slate-500">Resolución:</span>
+                        <span className="text-[11px] font-mono text-slate-500">{isEn ? "Resolution:" : "Resolución:"}</span>
                         {[16, 32, 64].map((den) => (
                           <button
                             key={den}
@@ -673,13 +673,13 @@ export const UnitConverter: React.FC = () => {
                           className="w-full bg-slate-900 text-red-500 font-mono font-extrabold text-3xl text-center py-3 rounded-lg border border-slate-800 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
                           placeholder="1600"
                         />
-                        <label htmlFor="input-mm" className="sr-only">Milímetros (mm)</label>
+                        <label htmlFor="input-mm" className="sr-only">{isEn ? "Millimeters (mm)" : "Milímetros (mm)"}</label>
                       </div>
                     </div>
 
                     {/* Botones de prueba rápida (Presets de taller) */}
                     <div className="flex flex-wrap items-center gap-1.5 mt-3">
-                      <span className="text-[11px] font-mono text-slate-500 mr-1">Típicos:</span>
+                      <span className="text-[11px] font-mono text-slate-500 mr-1">{isEn ? "Common:" : "Típicos:"}</span>
                       {[100, 381, 600, 1000, 1200, 1600, 2440, 3000].map((preset) => (
                         <button
                           key={preset}
@@ -700,8 +700,8 @@ export const UnitConverter: React.FC = () => {
                   {/* Resultados Destacados (foot | inch en recuadro negro como en la imagen) */}
                   <div className="pt-4 border-t border-slate-800">
                     <div className="grid grid-cols-2 gap-3 mb-2 text-center text-xs font-mono font-bold uppercase text-slate-400">
-                      <div>foot (pies)</div>
-                      <div>inch (pulgadas redondeadas)</div>
+                      <div>{isEn ? "foot" : "foot (pies)"}</div>
+                      <div>{isEn ? "inch (rounded)" : "inch (pulgadas redondeadas)"}</div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-950 border-2 border-slate-700 shadow-inner">
@@ -717,7 +717,7 @@ export const UnitConverter: React.FC = () => {
                     <div className="mt-4 p-4 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
                       <div>
                         <span className="text-[11px] font-mono text-slate-400 block uppercase">
-                          Notación Exacta con Fracción (1/{precisionDenominator}")
+                          {isEn ? `Exact Notation with Fraction (1/${precisionDenominator}")` : `Notación Exacta con Fracción (1/${precisionDenominator}")`}
                         </span>
                         <div className="font-mono text-lg font-bold text-white mt-0.5">
                           {mmResult.architecturalString}
@@ -725,7 +725,7 @@ export const UnitConverter: React.FC = () => {
                       </div>
                       <div className="text-right">
                         <span className="text-[10px] font-mono text-slate-500 block uppercase">
-                          Error Residual (Δ)
+                          {isEn ? "Residual Error (Δ)" : "Error Residual (Δ)"}
                         </span>
                         <span
                           className={`font-mono text-xs font-bold ${
@@ -746,19 +746,19 @@ export const UnitConverter: React.FC = () => {
                 {/* Sub-valores de Ingeniería Complementarios */}
                 <div className="mt-6 pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-2 text-center">
                   <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">Total Decimal</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{isEn ? "Total Decimal" : "Total Decimal"}</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-slate-200">
                       {mmResult.totalInches.toFixed(4)}"
                     </span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">Metros Exactos</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{isEn ? "Exact Meters" : "Metros Exactos"}</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-emerald-400">
                       {mmResult.totalMeters.toFixed(3)} m
                     </span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                    <span className="text-[10px] font-mono text-slate-500 block uppercase">Pies Decimales</span>
+                    <span className="text-[10px] font-mono text-slate-500 block uppercase">{isEn ? "Decimal Feet" : "Pies Decimales"}</span>
                     <span className="font-mono text-xs sm:text-sm font-bold text-blue-400">
                       {(mmResult.totalInches / 12).toFixed(3)} ft
                     </span>
@@ -803,7 +803,7 @@ export const UnitConverter: React.FC = () => {
                 <svg
                   viewBox="0 0 800 120"
                   className="w-full min-w-[700px] h-28 select-none"
-                  aria-label="Escala gráfica de cinta métrica"
+                  aria-label={isEn ? "Graphic tape measure scale" : "Escala gráfica de cinta métrica"}
                 >
                   {/* Fondo de la cinta métrica */}
                   <rect x="10" y="20" width="780" height="80" rx="8" fill="#1e293b" stroke="#334155" strokeWidth="2" />
@@ -873,13 +873,15 @@ export const UnitConverter: React.FC = () => {
 
                 <div className="flex justify-between items-center px-4 mt-2 text-[11px] font-mono text-slate-500">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-0.5 bg-slate-300 inline-block" /> Escala Superior: Pulgadas (1/16")
+                    <span className="w-2.5 h-0.5 bg-slate-300 inline-block" /> {isEn ? "Top Scale: Inches (1/16\")" : "Escala Superior: Pulgadas (1/16\")"}
                   </span>
                   <span className="text-red-400 font-bold">
-                    ▲ Cursor Rojo: Posición Actual ({targetTotalInches.toFixed(2)}")
+                    {isEn
+                      ? `▲ Red Cursor: Current Position (${targetTotalInches.toFixed(2)}")`
+                      : `▲ Cursor Rojo: Posición Actual (${targetTotalInches.toFixed(2)}")`}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-0.5 bg-sky-400 inline-block" /> Escala Inferior: Milímetros (mm)
+                    <span className="w-2.5 h-0.5 bg-sky-400 inline-block" /> {isEn ? "Bottom Scale: Millimeters (mm)" : "Escala Inferior: Milímetros (mm)"}
                   </span>
                 </div>
               </div>
@@ -898,7 +900,7 @@ export const UnitConverter: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-black text-white font-grotesk">
-                        Equivalence (Tabla de Equivalencias)
+                        {isEn ? "Equivalence Table" : "Equivalence (Tabla de Equivalencias)"}
                       </h3>
                       <p className="text-xs text-slate-400">
                         {isEn
@@ -947,19 +949,19 @@ export const UnitConverter: React.FC = () => {
                   <thead>
                     <tr className="bg-slate-950 border-b border-slate-800 text-xs font-mono font-bold text-slate-300">
                       <th className="py-3 px-4 border-r border-slate-800/80">
-                        Fracción Base (/{tableDenominator})
+                        {isEn ? `Base Fraction (/${tableDenominator})` : `Fracción Base (/${tableDenominator})`}
                       </th>
                       <th className="py-3 px-4 border-r border-slate-800/80 text-red-500">
-                        Fracción Simplificada
+                        {isEn ? "Simplified Fraction" : "Fracción Simplificada"}
                       </th>
                       <th className="py-3 px-4 border-r border-slate-800/80">
-                        Pulgada Decimal (in)
+                        {isEn ? "Decimal Inch (in)" : "Pulgada Decimal (in)"}
                       </th>
                       <th className="py-3 px-4 border-r border-slate-800/80 text-cyan-400">
-                        Milímetros (mm)
+                        {isEn ? "Millimeters (mm)" : "Milímetros (mm)"}
                       </th>
                       <th className="py-3 px-4">
-                        Centímetros (cm)
+                        {isEn ? "Centimeters (cm)" : "Centímetros (cm)"}
                       </th>
                     </tr>
                   </thead>
@@ -975,7 +977,7 @@ export const UnitConverter: React.FC = () => {
                               ? "bg-blue-950/60 text-white font-bold"
                               : "hover:bg-slate-800/50 text-slate-300"
                           }`}
-                          title="Haz clic para cargar esta fracción en el convertidor"
+                          title={isEn ? "Click to load this fraction into converter" : "Haz clic para cargar esta fracción en el convertidor"}
                         >
                           <td className="py-2.5 px-4 border-r border-slate-800/80 text-slate-400">
                             {row.baseFraction}
@@ -1000,8 +1002,8 @@ export const UnitConverter: React.FC = () => {
               </div>
 
               <div className="flex items-center justify-between mt-3 text-[11px] font-mono text-slate-500">
-                <span>* Haz clic en cualquier fila para transferir la fracción directamente al convertidor</span>
-                <span>{filteredEquivalenceTable.length} filas mostradas</span>
+                <span>{isEn ? "* Click any row to transfer the fraction directly into the converter" : "* Haz clic en cualquier fila para transferir la fracción directamente al convertidor"}</span>
+                <span>{filteredEquivalenceTable.length} {isEn ? "rows shown" : "filas mostradas"}</span>
               </div>
             </div>
 
@@ -1066,7 +1068,7 @@ export const UnitConverter: React.FC = () => {
                       className="w-full bg-slate-900 text-white font-mono font-black text-2xl text-center sm:text-left px-4 py-3 rounded-xl border border-slate-800 focus:outline-none focus:border-cyan-500"
                       placeholder="90"
                     />
-                    <label htmlFor="multi-unit-input" className="sr-only">Valor a convertir</label>
+                    <label htmlFor="multi-unit-input" className="sr-only">{isEn ? "Value to convert" : "Valor a convertir"}</label>
                   </div>
                   <div>
                     <select
@@ -1081,7 +1083,7 @@ export const UnitConverter: React.FC = () => {
                         </option>
                       ))}
                     </select>
-                    <label htmlFor="multi-unit-select" className="sr-only">Unidad de origen</label>
+                    <label htmlFor="multi-unit-select" className="sr-only">{isEn ? "Source unit" : "Unidad de origen"}</label>
                   </div>
                 </div>
               </div>
@@ -1112,7 +1114,7 @@ export const UnitConverter: React.FC = () => {
                           type="button"
                           onClick={() => handleCopyText(`${item.value} ${item.unit.symbol}`, item.unit.id)}
                           className="text-slate-500 hover:text-white p-1"
-                          title="Copiar resultado"
+                          title={isEn ? "Copy result" : "Copiar resultado"}
                         >
                           <i className={`fa-solid ${copiedKey === item.unit.id ? "fa-check text-emerald-400" : "fa-copy"}`} />
                         </button>
@@ -1152,7 +1154,7 @@ export const UnitConverter: React.FC = () => {
                     <i className="fa-solid fa-ruler" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">// SECCIÓN 1 · ESCALA</span>
+                    <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">// {isEn ? "SECTION 1 · SCALE" : "SECCIÓN 1 · ESCALA"}</span>
                     <h2 className="text-xl font-black text-white font-grotesk">{isEn ? "Scale Rule" : "Regla de Escala"}</h2>
                   </div>
                 </div>
@@ -1308,7 +1310,7 @@ export const UnitConverter: React.FC = () => {
                     <i className="fa-solid fa-drafting-compass" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-orange-400 font-bold uppercase tracking-wider">// SECCIÓN 2 · CAD</span>
+                    <span className="text-[10px] font-mono text-orange-400 font-bold uppercase tracking-wider">// {isEn ? "SECTION 2 · CAD" : "SECCIÓN 2 · CAD"}</span>
                     <h2 className="text-xl font-black text-white font-grotesk">DIMSCALE · AutoCAD</h2>
                   </div>
                 </div>
@@ -1364,7 +1366,7 @@ export const UnitConverter: React.FC = () => {
                     <i className="fa-solid fa-chart-line" />
                   </div>
                   <div>
-                    <span className="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">// PENDIENTES</span>
+                    <span className="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">// {isEn ? "SLOPES" : "PENDIENTES"}</span>
                     <h3 className="text-base font-black text-white font-grotesk">{isEn ? "Slope Converter" : "Pendientes"}</h3>
                   </div>
                 </div>
@@ -1418,7 +1420,7 @@ export const UnitConverter: React.FC = () => {
                     <i className="fa-solid fa-temperature-half" />
                   </div>
                   <div>
-                    <span className="text-[9px] font-mono text-red-400 font-bold uppercase tracking-wider">// TEMPERATURA</span>
+                    <span className="text-[9px] font-mono text-red-400 font-bold uppercase tracking-wider">// {isEn ? "TEMPERATURE" : "TEMPERATURA"}</span>
                     <h3 className="text-base font-black text-white font-grotesk">{isEn ? "Temperature" : "Temperatura"}</h3>
                   </div>
                 </div>
@@ -1464,7 +1466,7 @@ export const UnitConverter: React.FC = () => {
 
                 {/* Referencia de hormigón */}
                 <div className="mt-4 p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-[9px] font-mono text-slate-500 leading-relaxed">
-                  <span className="text-yellow-400 font-bold">Ref Hormigón:</span> Fraguado óptimo 15–25°C · Curado mín. 10°C · Max 32°C
+                  <span className="text-yellow-400 font-bold">{isEn ? "Concrete Ref:" : "Ref Hormigón:"}</span> {isEn ? "Optimal setting 15–25°C · Min curing 10°C · Max 32°C" : "Fraguado óptimo 15–25°C · Curado mín. 10°C · Max 32°C"}
                 </div>
               </div>
 
@@ -1475,7 +1477,7 @@ export const UnitConverter: React.FC = () => {
                     <i className="fa-regular fa-file" />
                   </div>
                   <div>
-                    <span className="text-[9px] font-mono text-violet-400 font-bold uppercase tracking-wider">// PAPEL ISO & ANSI</span>
+                    <span className="text-[9px] font-mono text-violet-400 font-bold uppercase tracking-wider">// {isEn ? "ISO & ANSI PAPER" : "PAPEL ISO & ANSI"}</span>
                     <h3 className="text-base font-black text-white font-grotesk">{isEn ? "Paper Sizes" : "Tamaños de Lámina"}</h3>
                   </div>
                 </div>

@@ -1,0 +1,16 @@
+[
+  {
+    "pdf": "01 SmartPlant3D Common_EFV.pdf",
+    "pages": 14,
+    "logos_excluidos": 1,
+    "imagenes_extraidas": 27,
+    "salida": "public\\assets\\blog\\sp3d-fundamentos-grillas\\common"
+  },
+  {
+    "pdf": "02 SmartPlant3D Grillas_EFV.pdf",
+    "pages": 21,
+    "logos_excluidos": 1,
+    "imagenes_extraidas": 53,
+    "salida": "public\\assets\\blog\\sp3d-fundamentos-grillas\\grillas"
+  }
+]

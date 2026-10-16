@@ -13,9 +13,37 @@ class ErrorBoundary extends React.Component {
 
   componentDidCatch(error, errorInfo) {
     console.error("ErrorBoundary caught an error:", error, errorInfo);
+    const msg = error?.message || "";
+    const isChunkError =
+      msg.includes("Failed to fetch dynamically imported module") ||
+      msg.includes("error loading dynamically imported module") ||
+      msg.includes("Importing a module script failed") ||
+      msg.includes("failed to load module script");
+
+    if (isChunkError && typeof window !== "undefined") {
+      const autoReloadKey = "error_boundary_chunk_reload";
+      const hasAutoReloaded = sessionStorage.getItem(autoReloadKey);
+      if (!hasAutoReloaded) {
+        sessionStorage.setItem(autoReloadKey, "true");
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
+      }
+    }
   }
 
-  handleReset = () => {
+  handleReset = async () => {
+    try {
+      if (typeof window !== "undefined") {
+        if ("caches" in window) {
+          const keys = await window.caches.keys();
+          await Promise.all(keys.map((k) => window.caches.delete(k)));
+        }
+        sessionStorage.clear();
+      }
+    } catch (e) {
+      console.warn("Could not clear caches on reset:", e);
+    }
     this.setState({ hasError: false, error: null });
     window.location.reload();
   };

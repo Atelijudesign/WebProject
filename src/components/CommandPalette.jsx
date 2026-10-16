@@ -5,6 +5,18 @@ import { useTranslation } from "../context/LanguageContext";
 import { asset } from "../utils/asset";
 
 const COMMAND_ITEMS = [
+  {
+    id: "tool-sp3d",
+    title: "SmartPlant 3D MasterLab (SP3D)",
+    title_en: "SmartPlant 3D Interactive MasterLab",
+    desc: "Academia interactiva, simulador 3D con SmartStep y PinPoint [F9]",
+    desc_en: "Interactive SP3D academy, 3D viewport simulator, and PinPoint trainer",
+    category: "Herramientas Técnicas",
+    category_en: "Technical Tools",
+    icon: "fa-solid fa-industry",
+    color: "text-cyan-400",
+    path: "/herramientas/smartplant-3d",
+  },
   // ─── HERRAMIENTAS TÉCNICAS ───
   {
     id: "tool-icha",
@@ -390,7 +402,7 @@ export const CommandPalette = () => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4">
+        <div className="fixed inset-0 z-[10001] flex items-start justify-center pt-16 sm:pt-24 px-4">
           {/* Backdrop con Blur */}
           <motion.div
             initial={{ opacity: 0 }}

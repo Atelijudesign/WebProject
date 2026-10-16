@@ -374,34 +374,87 @@ body {
   overflow-x: auto;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
+  position: relative;
+  max-width: 100%;
 }
 .admin-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.83rem;
+  table-layout: fixed;
 }
 .admin-table th {
   background: var(--bg-secondary);
-  padding: 0.8rem 1rem;
+  padding: 0.75rem 0.85rem;
   text-align: left;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border-subtle);
   white-space: nowrap;
   position: sticky;
   top: 0;
+  user-select: none;
+  overflow: visible;
+}
+.th-resizable {
+  position: relative;
+}
+.col-resizer {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 10px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  z-index: 25;
+  transition: background 0.15s ease;
+}
+.col-resizer::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  right: 4px;
+  width: 2px;
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 1px;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.col-resizer:hover,
+.col-resizer.is-active {
+  background: rgba(56, 189, 248, 0.3);
+}
+.col-resizer:hover::after,
+.col-resizer.is-active::after {
+  background: #38bdf8;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.9);
+}
+body.is-resizing-col,
+body.is-resizing-col * {
+  cursor: col-resize !important;
+  user-select: none !important;
 }
 .admin-table td {
-  padding: 0.7rem 1rem;
+  padding: 0.65rem 0.85rem;
   border-bottom: 1px solid var(--border-subtle);
   color: var(--text-secondary);
-  max-width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.admin-table td.cell-wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+.admin-table td.cell-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 .admin-table tr {
   transition: background var(--transition-fast);
@@ -594,4 +647,52 @@ body {
   .admin-logo-icon {
     font-size: 1.2rem;
   }
+}
+
+/* Portfolio toggle card at top of project form */
+.portfolio-toggle-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.08);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  user-select: none;
+}
+.portfolio-toggle-card.inactive {
+  border-color: rgba(71, 85, 105, 0.55);
+  background: rgba(15, 23, 42, 0.6);
+  box-shadow: none;
+}
+.portfolio-toggle-card:hover {
+  border-color: rgba(245, 158, 11, 0.7);
+  background: rgba(245, 158, 11, 0.12);
+}
+.portfolio-toggle-card.inactive:hover {
+  border-color: rgba(100, 116, 139, 0.8);
+  background: rgba(30, 41, 59, 0.6);
+}
+.portfolio-toggle-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.portfolio-toggle-card.inactive .portfolio-toggle-icon {
+  background: rgba(51, 65, 85, 0.6);
+  color: #64748b;
 }

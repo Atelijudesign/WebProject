@@ -1,23 +1,6 @@
 // Tools data for the tools landing page
 export const tools = [
   {
-    id: "profile-calculator",
-    title: "Calculadora de Perfiles",
-    description:
-      "Calcula peso, área de sección y perímetro de cobertura para perfiles de acero personalizados. Define dimensiones y obtén resultados instantáneos.",
-    href: "profile-calculator.html",
-    icon: "fa-solid fa-calculator",
-    gradient: "from-blue-600/20 to-blue-800/20",
-    borderColor: "border-blue-700/30",
-    tags: [
-      { icon: "fa-solid fa-h", label: "H / I", color: "blue" },
-      { icon: "fa-solid fa-c", label: "Canales", color: "blue" },
-      { icon: "fa-solid fa-l", label: "Ángulos", color: "blue" },
-      { icon: "fa-solid fa-square", label: "Tubos", color: "blue" },
-      { icon: "fa-solid fa-file-excel", label: "Excel", color: "blue" },
-    ],
-  },
-  {
     id: "catalogo-icha",
     title: "Catálogo ICHA",
     description:
@@ -31,6 +14,23 @@ export const tools = [
       { icon: "fa-solid fa-h", label: "HN / PH", color: "emerald" },
       { icon: "fa-solid fa-database", label: "710 perfiles", color: "emerald" },
       { icon: "fa-solid fa-file-excel", label: "Excel", color: "emerald" },
+    ],
+  },
+  {
+    id: "profile-calculator",
+    title: "Calculadora de Acero",
+    description:
+      "Calcula peso, área de sección y perímetro de cobertura para perfiles de acero personalizados. Define dimensiones y obtén resultados instantáneos.",
+    href: "profile-calculator.html",
+    icon: "fa-solid fa-calculator",
+    gradient: "from-blue-600/20 to-blue-800/20",
+    borderColor: "border-blue-700/30",
+    tags: [
+      { icon: "fa-solid fa-h", label: "H / I", color: "blue" },
+      { icon: "fa-solid fa-c", label: "Canales", color: "blue" },
+      { icon: "fa-solid fa-l", label: "Ángulos", color: "blue" },
+      { icon: "fa-solid fa-square", label: "Tubos", color: "blue" },
+      { icon: "fa-solid fa-file-excel", label: "Excel", color: "blue" },
     ],
   },
   {

@@ -29,7 +29,7 @@ function Experience() {
           <div className="space-y-4 relative before:absolute before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-slate-800">
             {visibleExperiences.map((exp) => {
               const displayPeriod = isEn && exp.period_en ? exp.period_en : (isEn ? exp.period.replace("Abr", "Apr").replace("Presente", "Present") : exp.period);
-              const displayRole = isEn && exp.role_en ? exp.role_en : (isEn && exp.role === "Proyectista Estructural" ? "Senior Structural BIM Modeler" : exp.role);
+              const displayRole = isEn && exp.role_en ? exp.role_en : (isEn && (exp.role === "Diseñador Estructural" || exp.role === "Diseñador Estructural Senior") ? "Senior Structural BIM Designer" : exp.role);
               const displayDesc = isEn && exp.description_en ? exp.description_en : exp.description;
 
               return (

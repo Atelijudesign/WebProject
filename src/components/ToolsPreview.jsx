@@ -1,6 +1,6 @@
 import { toolsPreview } from "../constants";
 import SectionWrapper from "../hoc/SectionWrapper";
-import { SpotlightCard } from "./ui/SpotlightCard";
+import { Tilt3DCard } from "./ui/Tilt3DCard";
 import { useTranslation } from "../context/LanguageContext";
 
 const EN_TOOLS = {
@@ -31,7 +31,7 @@ export const ToolsPreview = () => {
           {t("tools_title") || "No solo diseño — también creo las herramientas"}
         </h2>
         <p className="text-slate-400 text-sm mt-2 max-w-2xl">
-          {t("tools_desc") || "Calculadoras y catálogos online gratuitos para proyectistas estructurales, desarrollados con la precisión de la ingeniería real."}
+          {t("tools_desc") || "Calculadoras y catálogos online gratuitos para diseñadores estructurales, desarrollados con la precisión de la ingeniería real."}
         </p>
       </div>
 
@@ -43,14 +43,16 @@ export const ToolsPreview = () => {
           const displayDesc = isEn && enInfo ? enInfo.description : tool.description;
 
           return (
-            <SpotlightCard
+            <Tilt3DCard
               key={tool.title}
+              maxTilt={7}
+              perspective={900}
               className={`p-6 border backdrop-blur-xl shadow-xl ${
                 tool.featured
                   ? "bg-slate-900/80 border-cyan-500/50 hover:border-cyan-400 shadow-cyan-500/10"
                   : "bg-slate-900/60 border-slate-800/80 hover:border-slate-700"
               }`}
-              spotlightColor={tool.featured ? "rgba(6, 182, 212, 0.18)" : "rgba(56, 189, 248, 0.12)"}
+              glareColor={tool.featured ? "rgba(6, 182, 212, 0.18)" : "rgba(56, 189, 248, 0.12)"}
               spotlightBorderColor={tool.featured ? "rgba(6, 182, 212, 0.6)" : "rgba(56, 189, 248, 0.35)"}
             >
               <div>
@@ -84,7 +86,7 @@ export const ToolsPreview = () => {
                   <i className="fa-solid fa-arrow-right text-[10px]" />
                 </a>
               </div>
-            </SpotlightCard>
+            </Tilt3DCard>
           );
         })}
       </div>

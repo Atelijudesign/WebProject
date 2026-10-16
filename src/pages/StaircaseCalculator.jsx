@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { useTranslation } from '../context/LanguageContext';
 
+import { ExportService, DxfStaircaseStrategy } from '../core/export';
+import { StaircaseEngine } from '../core/calculators';
+
 // Helper de extracción de valores numéricos seguros
 const getSafeVal = (val, fallback = 0) => {
   const num = parseFloat(val);
@@ -11,76 +14,30 @@ const getSafeVal = (val, fallback = 0) => {
 
 // Presets Oficiales de la Tabla de Huella y Contrahuella (Lámina 5 - Criterio Industrial b+2h=630)
 const NORMATIVE_PRESETS = [
-  { angle: 20.56, b: 360, h: 135, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 21.80, b: 350, h: 140, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 23.10, b: 340, h: 145, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 24.44, b: 330, h: 150, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 25.84, b: 320, h: 155, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 27.30, b: 310, h: 160, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 28.81, b: 300, h: 165, status: "Inclinación Baja", class: "text-slate-400" },
-  { angle: 30.38, b: 290, h: 170, status: "Recomendable ⭐", class: "text-emerald-400 font-bold" },
-  { angle: 32.01, b: 280, h: 175, status: "Recomendable ⭐ (Estándar)", class: "text-emerald-400 font-bold" },
-  { angle: 33.69, b: 270, h: 180, status: "Recomendable ⭐", class: "text-emerald-400 font-bold" },
-  { angle: 35.43, b: 260, h: 185, status: "Recomendable ⭐", class: "text-emerald-400 font-bold" },
-  { angle: 37.23, b: 250, h: 190, status: "Recomendable ⭐", class: "text-emerald-400 font-bold" },
-  { angle: 39.09, b: 240, h: 195, status: "Recomendable ⭐", class: "text-emerald-400 font-bold" },
-  { angle: 41.01, b: 230, h: 200, status: "Inclinación Alta", class: "text-amber-400" },
-  { angle: 42.98, b: 220, h: 205, status: "Inclinación Alta", class: "text-amber-400" },
-  { angle: 45.00, b: 210, h: 210, status: "Crítico", class: "text-rose-400" }
+  { angle: 20.56, b: 360, h: 135, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 21.80, b: 350, h: 140, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 23.10, b: 340, h: 145, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 24.44, b: 330, h: 150, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 25.84, b: 320, h: 155, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 27.30, b: 310, h: 160, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 28.81, b: 300, h: 165, statusEs: "Inclinación Baja", statusEn: "Low Slope", class: "text-slate-400" },
+  { angle: 30.38, b: 290, h: 170, statusEs: "Recomendable ⭐", statusEn: "Recommended ⭐", class: "text-emerald-400 font-bold" },
+  { angle: 32.01, b: 280, h: 175, statusEs: "Recomendable ⭐ (Estándar)", statusEn: "Recommended ⭐ (Standard)", class: "text-emerald-400 font-bold" },
+  { angle: 33.69, b: 270, h: 180, statusEs: "Recomendable ⭐", statusEn: "Recommended ⭐", class: "text-emerald-400 font-bold" },
+  { angle: 35.43, b: 260, h: 185, statusEs: "Recomendable ⭐", statusEn: "Recommended ⭐", class: "text-emerald-400 font-bold" },
+  { angle: 37.23, b: 250, h: 190, statusEs: "Recomendable ⭐", statusEn: "Recommended ⭐", class: "text-emerald-400 font-bold" },
+  { angle: 39.09, b: 240, h: 195, statusEs: "Recomendable ⭐", statusEn: "Recommended ⭐", class: "text-emerald-400 font-bold" },
+  { angle: 41.01, b: 230, h: 200, statusEs: "Inclinación Alta", statusEn: "Steep Slope", class: "text-amber-400" },
+  { angle: 42.98, b: 220, h: 205, statusEs: "Inclinación Alta", statusEn: "Steep Slope", class: "text-amber-400" },
+  { angle: 45.00, b: 210, h: 210, statusEs: "Crítico", statusEn: "Critical", class: "text-rose-400" }
 ];
 
-// --------------------------------------------------------------------------
-// Generador DXF Nativo (AutoCAD / Advance Steel)
-// --------------------------------------------------------------------------
-function generateDxfContent(results, huella) {
-  const n = results.numeroPeldanos;
-  const h = results.contrahuellaCalculada;
-  const b = huella;
-  const H = results.alturaTotal;
-  const L = results.longitudMedia;
 
-  let dxf = `0\nSECTION\n2\nHEADER\n0\nENDSEC\n0\nSECTION\n2\nTABLES\n0\nTABLE\n2\nLAYER\n70\n5\n`;
-  dxf += `0\nLAYER\n2\nESTRUCTURA_C250\n70\n0\n62\n4\n6\nCONTINUOUS\n0\n`;
-  dxf += `0\nLAYER\n2\nPELDANOS_GRATING\n70\n0\n62\n3\n6\nCONTINUOUS\n0\n`;
-  dxf += `0\nLAYER\n2\nBARANDAS_SCH40\n70\n0\n62\n30\n6\nCONTINUOUS\n0\n`;
-  dxf += `0\nLAYER\n2\nPUNTOS_TRABAJO\n70\n0\n62\n1\n6\nCONTINUOUS\n0\n`;
-  dxf += `0\nLAYER\n2\nCOTAS_Y_TEXTO\n70\n0\n62\n7\n6\nCONTINUOUS\n0\n`;
-  dxf += `0\nENDTAB\n0\nENDSEC\n0\nSECTION\n2\nENTITIES\n`;
-
-  // Peldaños
-  for (let i = 0; i < n; i++) {
-    const x1 = i * b;
-    const y1 = i * h;
-    const x2 = (i + 1) * b;
-    const y2 = y1;
-    const y3 = (i + 1) * h;
-    // Huella
-    dxf += `0\nLINE\n8\nPELDANOS_GRATING\n10\n${x1}\n20\n${y1}\n30\n0.0\n11\n${x2}\n21\n${y2}\n31\n0.0\n`;
-    // Contrahuella
-    dxf += `0\nLINE\n8\nPELDANOS_GRATING\n10\n${x2}\n20\n${y2}\n30\n0.0\n11\n${x2}\n21\n${y3}\n31\n0.0\n`;
-  }
-
-  // Limón C250 (Eje e Inclinación)
-  dxf += `0\nLINE\n8\nESTRUCTURA_C250\n10\n0.0\n20\n0.0\n30\n0.0\n11\n${L}\n21\n${H}\n31\n0.0\n`;
-  dxf += `0\nLINE\n8\nESTRUCTURA_C250\n10\n0.0\n20\n-250.0\n30\n0.0\n11\n${L}\n21\n${H - 250.0}\n31\n0.0\n`;
-
-  // Barandas (1200mm)
-  dxf += `0\nLINE\n8\nBARANDAS_SCH40\n10\n0.0\n20\n1200.0\n30\n0.0\n11\n${L}\n21\n${H + 1200.0}\n31\n0.0\n`;
-  dxf += `0\nLINE\n8\nBARANDAS_SCH40\n10\n0.0\n20\n800.0\n30\n0.0\n11\n${L}\n21\n${H + 800.0}\n31\n0.0\n`;
-  dxf += `0\nLINE\n8\nBARANDAS_SCH40\n10\n0.0\n20\n400.0\n30\n0.0\n11\n${L}\n21\n${H + 400.0}\n31\n0.0\n`;
-
-  // Puntos de Trabajo
-  dxf += `0\nPOINT\n8\nPUNTOS_TRABAJO\n10\n0.0\n20\n0.0\n30\n0.0\n`;
-  dxf += `0\nPOINT\n8\nPUNTOS_TRABAJO\n10\n${L}\n20\n${H}\n30\n0.0\n`;
-
-  dxf += `0\nENDSEC\n0\nEOF\n`;
-  return dxf;
-}
 
 // --------------------------------------------------------------------------
 // Componente SVG Técnico de Elevación (Corte A-A con Detalle C250 y P.T.)
 // --------------------------------------------------------------------------
-function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3Ta, t3Tc, tipoConnection }) {
+function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3Ta, t3Tc, tipoConnection, isEn = false }) {
   const W = 900, H_canvas = 480;
   
   // Coordenadas del dibujo
@@ -132,7 +89,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
         <rect x={startX - 140} y={startY - 14} width="140" height="8" fill="#38bdf8" stroke="#0284c7" strokeWidth="1" />
         {/* Eje de Viga */}
         <line x1={startX - 70} y1={startY - 25} x2={startX - 70} y2={startY + 40} stroke="#64748b" strokeDasharray="3,3" strokeWidth="0.8" />
-        <text x={startX - 70} y={startY + 52} fill="#64748b" fontSize="9px" fontFamily="monospace" textAnchor="middle">EJE VIGA</text>
+        <text x={startX - 70} y={startY + 52} fill="#64748b" fontSize="9px" fontFamily="monospace" textAnchor="middle">{isEn ? "BEAM AXIS" : "EJE VIGA"}</text>
       </g>
 
       {/* Plataforma Inferior (Losa / Pedestal o Viga de Arranque) */}
@@ -186,7 +143,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
           fontFamily="monospace"
           transform={`rotate(${results.angulo.toFixed(1)} ${(startX + endX) / 2 - 20} ${(startY + endY) / 2 + 28})`}
         >
-          CANAL C250 (250x75x6 mm)
+          {isEn ? "C250 CHANNEL (250x75x6 mm)" : "CANAL C250 (250x75x6 mm)"}
         </text>
       </g>
 
@@ -245,7 +202,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
         
         {/* Rótulo de Pasamanos */}
         <text x={(startX + endX) / 2} y={(startY + endY) / 2 - 105} fill="#f59e0b" fontSize="10px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
-          BARANDA Ø1-1/2" SCH40 (H=1200 mm)
+          {isEn ? "HANDRAIL Ø1-1/2\" SCH40 (H=1200 mm)" : "BARANDA Ø1-1/2\" SCH40 (H=1200 mm)"}
         </text>
       </g>
 
@@ -254,7 +211,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
         <line x1={(startX + endX) / 2 + 55} y1={(startY + endY) / 2} x2={(startX + endX) / 2 + 55} y2={(startY + endY) / 2 - 120} stroke="#10b981" strokeWidth="1.8" strokeDasharray="3,3" />
         <circle cx={(startX + endX) / 2 + 55} cy={(startY + endY) / 2 - 120} r="2.5" fill="#10b981" />
         <text x={(startX + endX) / 2 + 65} y={(startY + endY) / 2 - 60} fill="#10b981" fontSize="10px" fontWeight="bold" fontFamily="monospace">
-          GÁLIBO MÍN. 2200 mm (CONFORME)
+          {isEn ? "MIN. CLEARANCE 2200 mm (PASS)" : "GÁLIBO MÍN. 2200 mm (CONFORME)"}
         </text>
       </g>
 
@@ -264,7 +221,9 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
         <circle cx={startX} cy={startY - 6} r="4.5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
         <line x1={startX} y1={startY - 6} x2={startX + 35} y2={startY - 35} stroke="#ef4444" strokeWidth="1.2" />
         <line x1={startX + 35} y1={startY - 35} x2={startX + 95} y2={startY - 35} stroke="#ef4444" strokeWidth="1.2" />
-        <text x={startX + 65} y={startY - 40} fill="#ef4444" fontSize="11px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">P.T. SUP</text>
+        <text x={startX + 65} y={startY - 40} fill="#ef4444" fontSize="11px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          {isEn ? "W.P. TOP" : "P.T. SUP"}
+        </text>
       </g>
 
       {/* P.T. Inferior */}
@@ -272,7 +231,9 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
         <circle cx={endX} cy={endY} r="4.5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
         <line x1={endX} y1={endY} x2={endX - 35} y2={endY + 35} stroke="#ef4444" strokeWidth="1.2" />
         <line x1={endX - 35} y1={endY + 35} x2={endX - 95} y2={endY + 35} stroke="#ef4444" strokeWidth="1.2" />
-        <text x={endX - 65} y={endY + 47} fill="#ef4444" fontSize="11px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">P.T. INF</text>
+        <text x={endX - 65} y={endY + 47} fill="#ef4444" fontSize="11px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          {isEn ? "W.P. BTM" : "P.T. INF"}
+        </text>
       </g>
 
       {/* 7. COTAS TOPOGRÁFICAS DE NIVEL (T.A. / N.P.T.) */}
@@ -284,7 +245,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
           EL. +{Number(safeLevelSup).toFixed(3)}
         </text>
         <text x={startX - 105} y={startY - 10} fill="#94a3b8" fontSize="9px" fontFamily="monospace" textAnchor="middle">
-          N.P.T. / T.A. SUP
+          {isEn ? "F.F.L. / T.O.S. TOP" : "N.P.T. / T.A. SUP"}
         </text>
       </g>
 
@@ -296,7 +257,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
           EL. +{Number(safeLevelInf).toFixed(3)}
         </text>
         <text x={endX + 115} y={endY - 2} fill="#94a3b8" fontSize="9px" fontFamily="monospace" textAnchor="middle">
-          N.P.T. / T.A. INF
+          {isEn ? "F.F.L. / T.O.S. BTM" : "N.P.T. / T.A. INF"}
         </text>
       </g>
 
@@ -316,7 +277,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
           transform={`rotate(90 ${endX + 88} ${(startY + endY) / 2})`} 
           textAnchor="middle"
         >
-          H = {results.alturaTotal.toFixed(0)} mm ({results.numeroPeldanos} CH @ {results.contrahuellaCalculada.toFixed(1)})
+          H = {results.alturaTotal.toFixed(0)} mm ({results.numeroPeldanos} {isEn ? "RISERS" : "CH"} @ {results.contrahuellaCalculada.toFixed(1)})
         </text>
       </g>
 
@@ -334,7 +295,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
           fontFamily="monospace" 
           textAnchor="middle"
         >
-          DESARROLLO L = {results.longitudMedia.toFixed(0)} mm ({results.numeroPeldanos} H @ {huella})
+          {isEn ? "GOING" : "DESARROLLO"} L = {results.longitudMedia.toFixed(0)} mm ({results.numeroPeldanos} {isEn ? "TREADS" : "H"} @ {huella})
         </text>
       </g>
 
@@ -352,7 +313,7 @@ function SvgElevationView({ results, huella, t1Ta1, t1Ta2, t2TcSup, t2TcInf, t3T
 // --------------------------------------------------------------------------
 // Componente SVG Técnico de Planta (Top View)
 // --------------------------------------------------------------------------
-function SvgPlanView({ results, anchoTramo }) {
+function SvgPlanView({ results, huella, anchoTramo, isEn = false }) {
   const W = 900, H_canvas = 380;
   const n = Math.max(1, results.numeroPeldanos);
   const startX = 180;
@@ -373,17 +334,25 @@ function SvgPlanView({ results, anchoTramo }) {
 
       {/* Plataforma de Descanso Superior (800mm mín) */}
       <rect x={startX - 110} y={startY} width="110" height={stairW} fill="#0f172a" stroke="#0284c7" strokeWidth="2" />
-      <text x={startX - 55} y={startY + stairW / 2 + 4} fill="#94a3b8" fontSize="10px" fontFamily="monospace" textAnchor="middle">DESCANSO SUP</text>
+      <text x={startX - 55} y={startY + stairW / 2 + 4} fill="#94a3b8" fontSize="10px" fontFamily="monospace" textAnchor="middle">
+        {isEn ? "TOP LANDING" : "DESCANSO SUP"}
+      </text>
 
       {/* Plataforma de Descanso Inferior */}
       <rect x={startX + 480} y={startY} width="110" height={stairW} fill="#0f172a" stroke="#0284c7" strokeWidth="2" />
-      <text x={startX + 535} y={startY + stairW / 2 + 4} fill="#94a3b8" fontSize="10px" fontFamily="monospace" textAnchor="middle">DESCANSO INF</text>
+      <text x={startX + 535} y={startY + stairW / 2 + 4} fill="#94a3b8" fontSize="10px" fontFamily="monospace" textAnchor="middle">
+        {isEn ? "BTM LANDING" : "DESCANSO INF"}
+      </text>
 
       {/* Limones Canales C250 Laterales */}
       <rect x={startX - 110} y={startY - 8} width={700} height="8" fill="#0284c7" stroke="#38bdf8" strokeWidth="1" />
       <rect x={startX - 110} y={startY + stairW} width={700} height="8" fill="#0284c7" stroke="#38bdf8" strokeWidth="1" />
-      <text x={startX + 240} y={startY - 14} fill="#38bdf8" fontSize="10px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">LIMÓN CANAL C250 (IZQ)</text>
-      <text x={startX + 240} y={startY + stairW + 22} fill="#38bdf8" fontSize="10px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">LIMÓN CANAL C250 (DER)</text>
+      <text x={startX + 240} y={startY - 14} fill="#38bdf8" fontSize="10px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+        {isEn ? "C250 STRINGER (LEFT)" : "LIMÓN CANAL C250 (IZQ)"}
+      </text>
+      <text x={startX + 240} y={startY + stairW + 22} fill="#38bdf8" fontSize="10px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+        {isEn ? "C250 STRINGER (RIGHT)" : "LIMÓN CANAL C250 (DER)"}
+      </text>
 
       {/* Peldaños en Planta */}
       {steps.map(i => {
@@ -403,7 +372,7 @@ function SvgPlanView({ results, anchoTramo }) {
         <polygon points={`${startX + 440},${startY + stairW / 2 - 6} ${startX + 455},${startY + stairW / 2} ${startX + 440},${startY + stairW / 2 + 6}`} fill="#f59e0b" />
         <circle cx={startX + 40} cy={startY + stairW / 2} r="4" fill="#f59e0b" />
         <text x={startX + 240} y={startY + stairW / 2 - 10} fill="#f59e0b" fontSize="11px" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
-          SUBE ({n} PELDAÑOS)
+          {isEn ? `UP (${n} RISERS)` : `SUBE (${n} PELDAÑOS)`}
         </text>
       </g>
 
@@ -413,7 +382,7 @@ function SvgPlanView({ results, anchoTramo }) {
         <line x1={startX + 498} y1={startY} x2={startX + 512} y2={startY} stroke="#94a3b8" strokeWidth="1.2" />
         <line x1={startX + 498} y1={startY + stairW} x2={startX + 512} y2={startY + stairW} stroke="#94a3b8" strokeWidth="1.2" />
         <text x={startX + 520} y={startY + stairW / 2 + 4} fill="#f8fafc" fontSize="11px" fontWeight="bold" fontFamily="monospace">
-          A = {anchoTramo} mm (ANCHO LIBRE)
+          A = {anchoTramo} mm ({isEn ? "CLEAR WIDTH" : "ANCHO LIBRE"})
         </text>
       </g>
     </svg>
@@ -451,74 +420,36 @@ export default function StaircaseCalculator() {
     setTargetContrahuella(preset.h);
   };
 
-  // Cálculo e Inferencia Estructural Completa
+  // Cálculo e Inferencia Estructural Completa mediante StaircaseEngine
   const results = useMemo(() => {
-    let alturaTotal = 0;
-    let numeroPeldanos = 0;
-    let contrahuellaCalculada = 0;
-    let angulo = 0;
-    let longitudMedia = 0;
-
-    const safeTargetCH = getSafeVal(targetContrahuella, 175) || 175;
-    const safeH = getSafeVal(huella, 280);
-    const safeAncho = getSafeVal(anchoTramo, 900);
-
-    if (tipoConnection === 'tipo1') {
-      alturaTotal = ((getSafeVal(t1Ta1, 6) + (getSafeVal(t1Esp1, 30) * 0.001)) - (getSafeVal(t1Ta2, 3) + (getSafeVal(t1Esp2, 30) * 0.001))) * 1000;
-    } else if (tipoConnection === 'tipo2') {
-      alturaTotal = (getSafeVal(t2TcSup, 6) - getSafeVal(t2TcInf, 3)) * 1000;
-    } else {
-      alturaTotal = ((getSafeVal(t3Ta, 6) + (getSafeVal(t3Esp, 30) * 0.001)) - getSafeVal(t3Tc, 3)) * 1000;
-    }
-
-    alturaTotal = Math.abs(alturaTotal);
-    numeroPeldanos = Math.max(1, Math.round(alturaTotal / safeTargetCH));
-    contrahuellaCalculada = numeroPeldanos > 0 ? alturaTotal / numeroPeldanos : 0;
-    longitudMedia = safeH * numeroPeldanos;
-
-    angulo = safeH > 0 ? (Math.atan(contrahuellaCalculada / safeH) * (180 / Math.PI)) : 0;
-
-    const blondel = (2 * contrahuellaCalculada) + safeH;
-    const seguridad = contrahuellaCalculada + safeH;
-    const requiereDescanso = alturaTotal > 3000;
-
-    // Cubicaciones
-    const longitudDiagonalM = Math.sqrt(Math.pow(longitudMedia / 1000, 2) + Math.pow(alturaTotal / 1000, 2));
-    const pesoLimonesKg = longitudDiagonalM * 2 * 25.1; // 2 limones C250
-    const pesoPeldañosKg = numeroPeldanos * (safeAncho / 1000) * 12.5; // Parrilla grating
-    const pesoPasamanosKg = longitudDiagonalM * 2 * 4.5; // Cañería 1-1/2" SCH40
-    const pesoTotalAceroKg = pesoLimonesKg + pesoPeldañosKg + pesoPasamanosKg;
-
-    return {
-      alturaTotal,
-      numeroPeldanos,
-      contrahuellaCalculada,
-      angulo,
-      longitudMedia,
-      blondel,
-      seguridad,
-      requiereDescanso,
-      bom: {
-        longitudDiagonalM: longitudDiagonalM.toFixed(2),
-        pesoLimonesKg: pesoLimonesKg.toFixed(1),
-        pesoPeldañosKg: pesoPeldañosKg.toFixed(1),
-        pesoPasamanosKg: pesoPasamanosKg.toFixed(1),
-        pesoTotalAceroKg: pesoTotalAceroKg.toFixed(1),
-        pernosAnclaje: numeroPeldanos * 4 + 8
+    return StaircaseEngine.analyze(
+      {
+        tipoConnection,
+        t1Ta1: getSafeVal(t1Ta1, 6),
+        t1Esp1: getSafeVal(t1Esp1, 30),
+        t1Ta2: getSafeVal(t1Ta2, 3),
+        t1Esp2: getSafeVal(t1Esp2, 30),
+        t2TcSup: getSafeVal(t2TcSup, 6),
+        t2TcInf: getSafeVal(t2TcInf, 3),
+        t3Ta: getSafeVal(t3Ta, 6),
+        t3Esp: getSafeVal(t3Esp, 30),
+        t3Tc: getSafeVal(t3Tc, 3),
+      },
+      {
+        targetContrahuella: getSafeVal(targetContrahuella, 175) || 175,
+        huella: getSafeVal(huella, 280),
+        anchoTramo: getSafeVal(anchoTramo, 900),
       }
-    };
+    );
   }, [tipoConnection, targetContrahuella, huella, anchoTramo, t1Ta1, t1Esp1, t1Ta2, t1Esp2, t2TcSup, t2TcInf, t3Ta, t3Esp, t3Tc]);
 
   // Descarga del Archivo DXF
-  const downloadDxf = () => {
-    const dxfData = generateDxfContent(results, huella, anchoTramo);
-    const blob = new Blob([dxfData], { type: 'application/dxf' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Escalera_Estructural_C250_${results.alturaTotal.toFixed(0)}mm.dxf`;
-    a.click();
-    URL.revokeObjectURL(url);
+  const downloadDxf = async () => {
+    await ExportService.executeExport(new DxfStaircaseStrategy(), {
+      results,
+      huella,
+      anchoTramo,
+    });
   };
 
   // Flag de disponibilidad para deshabilitar acceso temporalmente sin eliminar código
@@ -641,19 +572,35 @@ export default function StaircaseCalculator() {
   return (
     <div className="bg-[#030712] text-slate-100 font-sans min-h-screen pt-20 pb-16 transition-colors duration-300">
       <SEOHead
-        title="Calculadora de Escaleras Estructurales C250 · Fórmula de Blondel & DXF"
-        description="Dimensionamiento de escaleras metálicas industriales con canal C250, gálibos de 2.2m, fórmula de Blondel (b+2h=630) y exportación directa de planos en DXF."
+        title={
+          isEn
+            ? "C250 Structural Staircase Calculator · Blondel Formula & DXF"
+            : "Calculadora de Escaleras Estructurales C250 · Fórmula de Blondel & DXF"
+        }
+        description={
+          isEn
+            ? "Industrial steel staircase design with C250 channel stringers, 2200mm clearances, Blondel formula (b+2h=630) and direct CAD DXF drawing export."
+            : "Dimensionamiento de escaleras metálicas industriales con canal C250, gálibos de 2.2m, fórmula de Blondel (b+2h=630) y exportación directa de planos en DXF."
+        }
         path="/herramientas/escaleras"
-        keywords="Calculadora de escaleras metálicas, fórmula de Blondel, limón canal C250, cálculo contrahuella huella, barandas SCH40, planos DXF escaleras"
+        keywords={
+          isEn
+            ? "Steel staircase calculator, Blondel formula, C250 channel stringer, riser tread calculation, SCH40 handrails, DXF staircase drawings"
+            : "Calculadora de escaleras metálicas, fórmula de Blondel, limón canal C250, cálculo contrahuella huella, barandas SCH40, planos DXF escaleras"
+        }
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "name": "Calculadora de Escaleras Estructurales e Industriales",
+          "name": isEn
+            ? "Structural & Industrial Staircase Calculator"
+            : "Calculadora de Escaleras Estructurales e Industriales",
           "applicationCategory": "EngineeringApplication",
           "operatingSystem": "All",
-          "url": "https://atelijudesign.com/herramientas/escaleras",
-          "description": "Herramienta online para proyectistas estructurales para calcular escaleras industriales bajo norma Blondel y generar planos CAD en DXF.",
-          "inLanguage": "es",
+          "url": "https://www.andresgallop.com/herramientas/escaleras",
+          "description": isEn
+            ? "Online tool for structural designers to calculate industrial staircases under Blondel code and generate CAD drawings in DXF."
+            : "Herramienta online para diseñadores estructurales para calcular escaleras industriales bajo norma Blondel y generar planos CAD en DXF.",
+          "inLanguage": isEn ? "en" : "es",
           "author": {
             "@type": "Person",
             "name": "Andrés Gallo P."
@@ -704,32 +651,48 @@ export default function StaircaseCalculator() {
         <div className="lg:col-span-4 bg-[#0f172a] border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
           
           <div>
-            <label className="block text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">1. TIPO DE CONEXIÓN ESTRUCTURAL</label>
+            <label className="block text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">
+              {isEn ? "1. STRUCTURAL CONNECTION TYPE" : "1. TIPO DE CONEXIÓN ESTRUCTURAL"}
+            </label>
             <select 
               value={tipoConnection} 
               onChange={(e) => setTipoConnection(e.target.value)}
               className="w-full bg-[#030712] border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500 text-sm font-semibold transition-colors"
             >
-              <option value="tipo1">Parrilla a Parrilla (Estructura de Acero / T.A.)</option>
-              <option value="tipo2">Concreto a Concreto / T.S.P.</option>
-              <option value="tipo3">Parrilla a Concreto con Pedestal</option>
+              <option value="tipo1">
+                {isEn ? "Grating to Grating (Steel Frame / T.O.S.)" : "Parrilla a Parrilla (Estructura de Acero / T.A.)"}
+              </option>
+              <option value="tipo2">
+                {isEn ? "Concrete to Concrete / F.F.L." : "Concreto a Concreto / T.S.P."}
+              </option>
+              <option value="tipo3">
+                {isEn ? "Grating to Concrete with Pedestal" : "Parrilla a Concreto con Pedestal"}
+              </option>
             </select>
           </div>
 
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-xs font-bold text-sky-400 uppercase tracking-wider">2. NIVELES TOPOGRÁFICOS (m)</label>
-              <span className="text-[10px] text-slate-400 font-mono">T.A. / N.P.T.</span>
+              <label className="text-xs font-bold text-sky-400 uppercase tracking-wider">
+                {isEn ? "2. ELEVATION LEVELS (m)" : "2. NIVELES TOPOGRÁFICOS (m)"}
+              </label>
+              <span className="text-[10px] text-slate-400 font-mono">
+                {isEn ? "T.O.S. / F.F.L." : "T.A. / N.P.T."}
+              </span>
             </div>
             
             {tipoConnection === 'tipo1' && (
               <div className="space-y-3 bg-[#030712] p-4 rounded-xl border border-slate-800">
                 <div>
-                  <label className="text-xs text-slate-400 block mb-1">Nivel Superior T.A. 1 (m)</label>
+                  <label className="text-xs text-slate-400 block mb-1">
+                    {isEn ? "Top Level T.O.S. 1 (m)" : "Nivel Superior T.A. 1 (m)"}
+                  </label>
                   <input type="number" step="0.001" value={t1Ta1} onChange={e=>setT1Ta1(parseFloat(e.target.value)||0)} className="w-full bg-[#0f172a] border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm" />
                 </div>
                 <div>
-                  <label className="text-xs text-slate-400 block mb-1">Nivel Inferior T.A. 2 (m)</label>
+                  <label className="text-xs text-slate-400 block mb-1">
+                    {isEn ? "Bottom Level T.O.S. 2 (m)" : "Nivel Inferior T.A. 2 (m)"}
+                  </label>
                   <input type="number" step="0.001" value={t1Ta2} onChange={e=>setT1Ta2(parseFloat(e.target.value)||0)} className="w-full bg-[#0f172a] border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm" />
                 </div>
               </div>
@@ -738,11 +701,15 @@ export default function StaircaseCalculator() {
             {tipoConnection === 'tipo2' && (
               <div className="space-y-3 bg-[#030712] p-4 rounded-xl border border-slate-800">
                 <div>
-                  <label className="text-xs text-slate-400 block mb-1">Cota T.S.P. Superior (m)</label>
+                  <label className="text-xs text-slate-400 block mb-1">
+                    {isEn ? "Top F.F.L. Elevation (m)" : "Cota T.S.P. Superior (m)"}
+                  </label>
                   <input type="number" step="0.001" value={t2TcSup} onChange={e=>setT2TcSup(parseFloat(e.target.value)||0)} className="w-full bg-[#0f172a] border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm" />
                 </div>
                 <div>
-                  <label className="text-xs text-slate-400 block mb-1">Cota T.S.P. Inferior (m)</label>
+                  <label className="text-xs text-slate-400 block mb-1">
+                    {isEn ? "Bottom F.F.L. Elevation (m)" : "Cota T.S.P. Inferior (m)"}
+                  </label>
                   <input type="number" step="0.001" value={t2TcInf} onChange={e=>setT2TcInf(parseFloat(e.target.value)||0)} className="w-full bg-[#0f172a] border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm" />
                 </div>
               </div>
@@ -751,11 +718,15 @@ export default function StaircaseCalculator() {
             {tipoConnection === 'tipo3' && (
               <div className="space-y-3 bg-[#030712] p-4 rounded-xl border border-slate-800">
                 <div>
-                  <label className="text-xs text-slate-400 block mb-1">Cota T.A. Superior (m)</label>
+                  <label className="text-xs text-slate-400 block mb-1">
+                    {isEn ? "Top T.O.S. Elevation (m)" : "Cota T.A. Superior (m)"}
+                  </label>
                   <input type="number" step="0.001" value={t3Ta} onChange={e=>setT3Ta(parseFloat(e.target.value)||0)} className="w-full bg-[#0f172a] border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm" />
                 </div>
                 <div>
-                  <label className="text-xs text-slate-400 block mb-1">Cota T.C. Losa Inferior (m)</label>
+                  <label className="text-xs text-slate-400 block mb-1">
+                    {isEn ? "Bottom Slab T.O.C. Elevation (m)" : "Cota T.C. Losa Inferior (m)"}
+                  </label>
                   <input type="number" step="0.001" value={t3Tc} onChange={e=>setT3Tc(parseFloat(e.target.value)||0)} className="w-full bg-[#0f172a] border border-slate-700 rounded-lg px-3 py-2 text-white font-mono text-sm" />
                 </div>
               </div>
@@ -763,26 +734,36 @@ export default function StaircaseCalculator() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">3. DIMENSIONES DE PELDAÑO & TRAMO</label>
+            <label className="block text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">
+              {isEn ? "3. TREAD & FLIGHT DIMENSIONS" : "3. DIMENSIONES DE PELDAÑO & TRAMO"}
+            </label>
             <div className="grid grid-cols-2 gap-3 mb-3">
               <div>
-                <label className="block text-xs text-slate-400 mb-1">Contrahuella (mm)</label>
+                <label className="block text-xs text-slate-400 mb-1">
+                  {isEn ? "Riser h (mm)" : "Contrahuella (mm)"}
+                </label>
                 <input type="number" value={targetContrahuella} onChange={e=>setTargetContrahuella(parseFloat(e.target.value)||0)} className="w-full bg-[#030712] border border-slate-700 rounded-xl px-3 py-2 text-white font-mono text-sm" />
               </div>
               <div>
-                <label className="block text-xs text-slate-400 mb-1">Huella b (mm)</label>
+                <label className="block text-xs text-slate-400 mb-1">
+                  {isEn ? "Tread b (mm)" : "Huella b (mm)"}
+                </label>
                 <input type="number" value={huella} onChange={e=>setHuella(parseFloat(e.target.value)||0)} className="w-full bg-[#030712] border border-slate-700 rounded-xl px-3 py-2 text-white font-mono text-sm" />
               </div>
             </div>
             <div>
-              <label className="block text-xs text-slate-400 mb-1">Ancho Libre de Tramo A (mm)</label>
+              <label className="block text-xs text-slate-400 mb-1">
+                {isEn ? "Clear Flight Width A (mm)" : "Ancho Libre de Tramo A (mm)"}
+              </label>
               <input type="number" value={anchoTramo} onChange={e=>setAnchoTramo(parseFloat(e.target.value)||0)} className="w-full bg-[#030712] border border-slate-700 rounded-xl px-3 py-2 text-white font-mono text-sm" />
             </div>
           </div>
 
           {/* Presets Normados Lámina 5 */}
           <div>
-            <label className="block text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">TABLA OFICIAL DE PRESETS (LÁMINA 5)</label>
+            <label className="block text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">
+              {isEn ? "STANDARD PRESETS TABLE (SHEET 5)" : "TABLA OFICIAL DE PRESETS (LÁMINA 5)"}
+            </label>
             <div className="max-h-48 overflow-y-auto bg-[#030712] border border-slate-800 rounded-xl p-2 space-y-1">
               {NORMATIVE_PRESETS.map((p, idx) => (
                 <button
@@ -791,7 +772,7 @@ export default function StaircaseCalculator() {
                   className="w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-800 flex justify-between items-center text-xs transition-colors"
                 >
                   <span className="font-mono text-slate-200">{p.angle}° | b={p.b} | h={p.h}</span>
-                  <span className={p.class}>{p.status}</span>
+                  <span className={p.class}>{isEn ? p.statusEn : p.statusEs}</span>
                 </button>
               ))}
             </div>
@@ -809,17 +790,19 @@ export default function StaircaseCalculator() {
                 onClick={() => setActiveTab("elevation")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'elevation' ? 'bg-sky-500 text-slate-900 shadow-md' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
               >
-                <i className="fa-solid fa-layer-group mr-1.5"></i> Elevación Estructural (Corte A-A)
+                <i className="fa-solid fa-layer-group mr-1.5"></i>
+                {isEn ? "Structural Elevation (Section A-A)" : "Elevación Estructural (Corte A-A)"}
               </button>
               <button
                 onClick={() => setActiveTab("plan")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'plan' ? 'bg-sky-500 text-slate-900 shadow-md' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
               >
-                <i className="fa-solid fa-table-cells-large mr-1.5"></i> Planta Estructural (Top View)
+                <i className="fa-solid fa-table-cells-large mr-1.5"></i>
+                {isEn ? "Structural Plan (Top View)" : "Planta Estructural (Top View)"}
               </button>
             </div>
             <span className="text-[11px] font-mono text-slate-400 px-3">
-              Escala Visual: 1:50 | Eje C250
+              {isEn ? "Visual Scale: 1:50 | C250 Axis" : "Escala Visual: 1:50 | Eje C250"}
             </span>
           </div>
 
@@ -833,6 +816,7 @@ export default function StaircaseCalculator() {
                 t2TcSup={t2TcSup} t2TcInf={t2TcInf}
                 t3Ta={t3Ta} t3Tc={t3Tc}
                 tipoConnection={tipoConnection}
+                isEn={isEn}
               />
             )}
             {activeTab === 'plan' && (
@@ -840,6 +824,7 @@ export default function StaircaseCalculator() {
                 results={results}
                 huella={huella}
                 anchoTramo={anchoTramo}
+                isEn={isEn}
               />
             )}
           </div>
@@ -849,9 +834,13 @@ export default function StaircaseCalculator() {
             <div className="bg-amber-500/10 border border-amber-500/40 text-amber-300 p-4 rounded-xl flex items-center gap-3">
               <i className="fa-solid fa-triangle-exclamation text-2xl text-amber-400"></i>
               <div>
-                <h4 className="font-bold text-sm">Alerta de Altura Normada (Lámina 2 - H &gt; 3000 mm)</h4>
+                <h4 className="font-bold text-sm">
+                  {isEn ? "Standard Height Warning (Sheet 2 - H > 3000 mm)" : "Alerta de Altura Normada (Lámina 2 - H > 3000 mm)"}
+                </h4>
                 <p className="text-xs text-amber-200/90">
-                  La altura vertical de {results.alturaTotal.toFixed(0)} mm supera el límite permitido por tramo (H ≤ 3000 mm). Se requiere incorporar un descanso intermedio obligatorio de 800 mm mínimo.
+                  {isEn
+                    ? `Vertical rise of ${results.alturaTotal.toFixed(0)} mm exceeds standard single-flight limit (H ≤ 3000 mm). An intermediate landing of at least 800 mm is required.`
+                    : `La altura vertical de ${results.alturaTotal.toFixed(0)} mm supera el límite permitido por tramo (H ≤ 3000 mm). Se requiere incorporar un descanso intermedio obligatorio de 800 mm mínimo.`}
                 </p>
               </div>
             </div>
@@ -860,25 +849,35 @@ export default function StaircaseCalculator() {
           {/* Resultados Numéricos */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <div className="bg-[#0f172a] p-4 rounded-xl border border-slate-800 text-center">
-              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">Altura Total H</span>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">
+                {isEn ? "Total Height H" : "Altura Total H"}
+              </span>
               <span className="text-xl font-bold text-white font-mono">{results.alturaTotal.toFixed(0)} mm</span>
             </div>
             <div className="bg-[#0f172a] p-4 rounded-xl border border-slate-800 text-center">
-              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">Nº Peldaños</span>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">
+                {isEn ? "No. of Steps" : "Nº Peldaños"}
+              </span>
               <span className="text-xl font-bold text-sky-400 font-mono">{results.numeroPeldanos}</span>
             </div>
             <div className="bg-[#0f172a] p-4 rounded-xl border border-slate-800 text-center">
-              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">Contrahuella h</span>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">
+                {isEn ? "Riser h" : "Contrahuella h"}
+              </span>
               <span className="text-xl font-bold text-white font-mono">{results.contrahuellaCalculada.toFixed(1)} mm</span>
             </div>
             <div className="bg-[#0f172a] p-4 rounded-xl border border-slate-800 text-center">
-              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">Ángulo α</span>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">
+                {isEn ? "Slope Angle α" : "Ángulo α"}
+              </span>
               <span className={`text-xl font-bold font-mono ${results.angulo >= 30 && results.angulo <= 40 ? 'text-emerald-400' : 'text-amber-400'}`}>
                 {results.angulo.toFixed(1)}°
               </span>
             </div>
             <div className="bg-[#0f172a] p-4 rounded-xl border border-slate-800 text-center">
-              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">Desarrollo L</span>
+              <span className="block text-[10px] uppercase text-slate-400 font-bold mb-1">
+                {isEn ? "Total Going L" : "Desarrollo L"}
+              </span>
               <span className="text-xl font-bold text-white font-mono">{results.longitudMedia.toFixed(0)} mm</span>
             </div>
           </div>
@@ -887,21 +886,25 @@ export default function StaircaseCalculator() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className={`p-4 rounded-xl border flex justify-between items-center ${results.blondel >= 610 && results.blondel <= 650 ? 'bg-emerald-950/30 border-emerald-800/60' : 'bg-rose-950/30 border-rose-800/60'}`}>
               <div>
-                <span className="block text-xs uppercase text-slate-400 font-bold mb-1">Fórmula Blondel (b + 2h = 630mm)</span>
+                <span className="block text-xs uppercase text-slate-400 font-bold mb-1">
+                  {isEn ? "Blondel Formula (b + 2h = 630mm)" : "Fórmula Blondel (b + 2h = 630mm)"}
+                </span>
                 <span className="text-2xl font-bold text-white font-mono">{results.blondel.toFixed(1)} mm</span>
               </div>
               <span className={`text-xs font-bold px-3 py-1 rounded-full ${results.blondel >= 610 && results.blondel <= 650 ? 'bg-emerald-800/60 text-emerald-300' : 'bg-rose-800/60 text-rose-300'}`}>
-                {results.blondel >= 610 && results.blondel <= 650 ? "Confort Conforme" : "Fuera de Rango"}
+                {results.blondel >= 610 && results.blondel <= 650 ? (isEn ? "Optimal Comfort" : "Confort Conforme") : (isEn ? "Out of Range" : "Fuera de Rango")}
               </span>
             </div>
 
             <div className={`p-4 rounded-xl border flex justify-between items-center ${results.seguridad <= 460 ? 'bg-emerald-950/30 border-emerald-800/60' : 'bg-rose-950/30 border-rose-800/60'}`}>
               <div>
-                <span className="block text-xs uppercase text-slate-400 font-bold mb-1">Regla de Seguridad (b + h ≤ 460mm)</span>
+                <span className="block text-xs uppercase text-slate-400 font-bold mb-1">
+                  {isEn ? "Safety Rule (b + h ≤ 460mm)" : "Regla de Seguridad (b + h ≤ 460mm)"}
+                </span>
                 <span className="text-2xl font-bold text-white font-mono">{results.seguridad.toFixed(1)} mm</span>
               </div>
               <span className={`text-xs font-bold px-3 py-1 rounded-full ${results.seguridad <= 460 ? 'bg-emerald-800/60 text-emerald-300' : 'bg-rose-800/60 text-rose-300'}`}>
-                {results.seguridad <= 460 ? "Seguro" : "Inseguro"}
+                {results.seguridad <= 460 ? (isEn ? "Safe" : "Seguro") : (isEn ? "Unsafe" : "Inseguro")}
               </span>
             </div>
           </div>
@@ -909,29 +912,29 @@ export default function StaircaseCalculator() {
           {/* Memoria de Cubicaciones BOM */}
           <div className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6">
             <h3 className="text-sm font-bold text-sky-400 uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              <i className="fa-solid fa-boxes-stacked mr-2"></i> Memoria de Cubicaciones & Pesos Estructurales (BOM)
+              <i className="fa-solid fa-boxes-stacked mr-2"></i> {isEn ? "Structural Bill of Materials & Takeoff (BOM)" : "Memoria de Cubicaciones & Pesos Estructurales (BOM)"}
             </h3>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono">
               <div className="bg-[#030712] p-3 rounded-xl border border-slate-800">
-                <span className="text-slate-400 block mb-1">Limones C250 (2 uds)</span>
+                <span className="text-slate-400 block mb-1">{isEn ? "C250 Stringers (2 pcs)" : "Limones C250 (2 uds)"}</span>
                 <span className="text-base font-bold text-white">{results.bom.pesoLimonesKg} kg</span>
                 <span className="text-[10px] text-slate-500 block">L = {results.bom.longitudDiagonalM} m</span>
               </div>
               <div className="bg-[#030712] p-3 rounded-xl border border-slate-800">
-                <span className="text-slate-400 block mb-1">Peldaños Grating</span>
+                <span className="text-slate-400 block mb-1">{isEn ? "Grating Treads" : "Peldaños Grating"}</span>
                 <span className="text-base font-bold text-white">{results.bom.pesoPeldañosKg} kg</span>
-                <span className="text-[10px] text-slate-500 block">{results.numeroPeldanos} unidades</span>
+                <span className="text-[10px] text-slate-500 block">{results.numeroPeldanos} {isEn ? "units" : "unidades"}</span>
               </div>
               <div className="bg-[#030712] p-3 rounded-xl border border-slate-800">
-                <span className="text-slate-400 block mb-1">Pasamanos Ø1-1/2" SCH40</span>
+                <span className="text-slate-400 block mb-1">{isEn ? "Handrail Ø1-1/2\" SCH40" : "Pasamanos Ø1-1/2\" SCH40"}</span>
                 <span className="text-base font-bold text-white">{results.bom.pesoPasamanosKg} kg</span>
-                <span className="text-[10px] text-slate-500 block">Postes + Barandas</span>
+                <span className="text-[10px] text-slate-500 block">{isEn ? "Posts + Rails" : "Postes + Barandas"}</span>
               </div>
               <div className="bg-[#030712] p-3 rounded-xl border border-sky-500/40">
-                <span className="text-sky-400 block mb-1 font-bold">PESO TOTAL ACERO</span>
+                <span className="text-sky-400 block mb-1 font-bold">{isEn ? "TOTAL STEEL WEIGHT" : "PESO TOTAL ACERO"}</span>
                 <span className="text-base font-bold text-sky-400">{results.bom.pesoTotalAceroKg} kg</span>
-                <span className="text-[10px] text-slate-400 block">{results.bom.pernosAnclaje} Pernos Ø5/8"</span>
+                <span className="text-[10px] text-slate-400 block">{results.bom.pernosAnclaje} {isEn ? "Anchor Bolts Ø5/8\"" : "Pernos Ø5/8\""}</span>
               </div>
             </div>
           </div>
